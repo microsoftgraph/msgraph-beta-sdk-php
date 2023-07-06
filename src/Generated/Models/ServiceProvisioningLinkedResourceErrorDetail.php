@@ -26,7 +26,7 @@ class ServiceProvisioningLinkedResourceErrorDetail extends ServiceProvisioningRe
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class ServiceProvisioningLinkedResourceErrorDetail extends ServiceProvisioningRe
      * @return string|null
     */
     public function getPropertyName(): ?string {
-        return $this->getBackingStore()->get('propertyName');
+        $val = $this->getBackingStore()->get('propertyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'propertyName'");
     }
 
     /**
@@ -49,7 +53,11 @@ class ServiceProvisioningLinkedResourceErrorDetail extends ServiceProvisioningRe
      * @return string|null
     */
     public function getTarget(): ?string {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

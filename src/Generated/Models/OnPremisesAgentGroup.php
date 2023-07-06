@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OnPremisesAgentGroup extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return array<OnPremisesAgent>|null
     */
     public function getAgents(): ?array {
-        return $this->getBackingStore()->get('agents');
+        $val = $this->getBackingStore()->get('agents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesAgent::class);
+            /** @var array<OnPremisesAgent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agents'");
     }
 
     /**
@@ -37,12 +44,16 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +71,11 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -68,7 +83,13 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return array<PublishedResource>|null
     */
     public function getPublishedResources(): ?array {
-        return $this->getBackingStore()->get('publishedResources');
+        $val = $this->getBackingStore()->get('publishedResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PublishedResource::class);
+            /** @var array<PublishedResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishedResources'");
     }
 
     /**
@@ -76,7 +97,11 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return OnPremisesPublishingType|null
     */
     public function getPublishingType(): ?OnPremisesPublishingType {
-        return $this->getBackingStore()->get('publishingType');
+        $val = $this->getBackingStore()->get('publishingType');
+        if (is_null($val) || $val instanceof OnPremisesPublishingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingType'");
     }
 
     /**

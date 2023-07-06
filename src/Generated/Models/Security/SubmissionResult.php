@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return SubmissionResultCategory|null
     */
     public function getCategory(): ?SubmissionResultCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof SubmissionResultCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -63,7 +73,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return SubmissionResultDetail|null
     */
     public function getDetail(): ?SubmissionResultDetail {
-        return $this->getBackingStore()->get('detail');
+        $val = $this->getBackingStore()->get('detail');
+        if (is_null($val) || $val instanceof SubmissionResultDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detail'");
     }
 
     /**
@@ -71,7 +85,13 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<SubmissionDetectedFile>|null
     */
     public function getDetectedFiles(): ?array {
-        return $this->getBackingStore()->get('detectedFiles');
+        $val = $this->getBackingStore()->get('detectedFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SubmissionDetectedFile::class);
+            /** @var array<SubmissionDetectedFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectedFiles'");
     }
 
     /**
@@ -79,12 +99,18 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getDetectedUrls(): ?array {
-        return $this->getBackingStore()->get('detectedUrls');
+        $val = $this->getBackingStore()->get('detectedUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectedUrls'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +118,14 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionResultCategory::class)),
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(SubmissionResultDetail::class)),
             'detectedFiles' => fn(ParseNode $n) => $o->setDetectedFiles($n->getCollectionOfObjectValues([SubmissionDetectedFile::class, 'createFromDiscriminatorValue'])),
-            'detectedUrls' => fn(ParseNode $n) => $o->setDetectedUrls($n->getCollectionOfPrimitiveValues()),
+            'detectedUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDetectedUrls($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userMailboxSetting' => fn(ParseNode $n) => $o->setUserMailboxSetting($n->getEnumValue(UserMailboxSetting::class)),
         ];
@@ -103,7 +136,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +148,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
      * @return UserMailboxSetting|null
     */
     public function getUserMailboxSetting(): ?UserMailboxSetting {
-        return $this->getBackingStore()->get('userMailboxSetting');
+        $val = $this->getBackingStore()->get('userMailboxSetting');
+        if (is_null($val) || $val instanceof UserMailboxSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userMailboxSetting'");
     }
 
     /**

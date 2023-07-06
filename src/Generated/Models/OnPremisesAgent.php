@@ -5,11 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OnPremisesAgent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesAgent and sets the default values.
+     * Instantiates a new onPremisesAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +30,13 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return array<OnPremisesAgentGroup>|null
     */
     public function getAgentGroups(): ?array {
-        return $this->getBackingStore()->get('agentGroups');
+        $val = $this->getBackingStore()->get('agentGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesAgentGroup::class);
+            /** @var array<OnPremisesAgentGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentGroups'");
     }
 
     /**
@@ -37,12 +44,16 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalIp(): ?string {
-        return $this->getBackingStore()->get('externalIp');
+        $val = $this->getBackingStore()->get('externalIp');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalIp'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +71,11 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->getBackingStore()->get('machineName');
+        $val = $this->getBackingStore()->get('machineName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'machineName'");
     }
 
     /**
@@ -68,7 +83,11 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return AgentStatus|null
     */
     public function getStatus(): ?AgentStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof AgentStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -76,7 +95,13 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
-        return $this->getBackingStore()->get('supportedPublishingTypes');
+        $val = $this->getBackingStore()->get('supportedPublishingTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesPublishingType::class);
+            /** @var array<OnPremisesPublishingType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedPublishingTypes'");
     }
 
     /**

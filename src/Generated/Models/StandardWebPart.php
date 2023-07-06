@@ -30,12 +30,16 @@ class StandardWebPart extends WebPart implements Parsable
      * @return WebPartData|null
     */
     public function getData(): ?WebPartData {
-        return $this->getBackingStore()->get('data');
+        $val = $this->getBackingStore()->get('data');
+        if (is_null($val) || $val instanceof WebPartData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'data'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class StandardWebPart extends WebPart implements Parsable
      * @return string|null
     */
     public function getWebPartType(): ?string {
-        return $this->getBackingStore()->get('webPartType');
+        $val = $this->getBackingStore()->get('webPartType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webPartType'");
     }
 
     /**

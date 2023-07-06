@@ -30,7 +30,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBluetooth(): ?Enablement {
-        return $this->getBackingStore()->get('bluetooth');
+        $val = $this->getBackingStore()->get('bluetooth');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetooth'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBootFromBuiltInNetworkAdapters(): ?Enablement {
-        return $this->getBackingStore()->get('bootFromBuiltInNetworkAdapters');
+        $val = $this->getBackingStore()->get('bootFromBuiltInNetworkAdapters');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bootFromBuiltInNetworkAdapters'");
     }
 
     /**
@@ -46,7 +54,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBootFromExternalMedia(): ?Enablement {
-        return $this->getBackingStore()->get('bootFromExternalMedia');
+        $val = $this->getBackingStore()->get('bootFromExternalMedia');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bootFromExternalMedia'");
     }
 
     /**
@@ -54,7 +66,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getCameras(): ?Enablement {
-        return $this->getBackingStore()->get('cameras');
+        $val = $this->getBackingStore()->get('cameras');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameras'");
     }
 
     /**
@@ -62,12 +78,16 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return ChangeUefiSettingsPermission|null
     */
     public function getChangeUefiSettingsPermission(): ?ChangeUefiSettingsPermission {
-        return $this->getBackingStore()->get('changeUefiSettingsPermission');
+        $val = $this->getBackingStore()->get('changeUefiSettingsPermission');
+        if (is_null($val) || $val instanceof ChangeUefiSettingsPermission) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'changeUefiSettingsPermission'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -101,7 +121,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getFrontCamera(): ?Enablement {
-        return $this->getBackingStore()->get('frontCamera');
+        $val = $this->getBackingStore()->get('frontCamera');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frontCamera'");
     }
 
     /**
@@ -109,7 +133,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getInfraredCamera(): ?Enablement {
-        return $this->getBackingStore()->get('infraredCamera');
+        $val = $this->getBackingStore()->get('infraredCamera');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'infraredCamera'");
     }
 
     /**
@@ -117,7 +145,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getMicrophone(): ?Enablement {
-        return $this->getBackingStore()->get('microphone');
+        $val = $this->getBackingStore()->get('microphone');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphone'");
     }
 
     /**
@@ -125,7 +157,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getMicrophonesAndSpeakers(): ?Enablement {
-        return $this->getBackingStore()->get('microphonesAndSpeakers');
+        $val = $this->getBackingStore()->get('microphonesAndSpeakers');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphonesAndSpeakers'");
     }
 
     /**
@@ -133,7 +169,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getNearFieldCommunication(): ?Enablement {
-        return $this->getBackingStore()->get('nearFieldCommunication');
+        $val = $this->getBackingStore()->get('nearFieldCommunication');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nearFieldCommunication'");
     }
 
     /**
@@ -141,7 +181,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getRadios(): ?Enablement {
-        return $this->getBackingStore()->get('radios');
+        $val = $this->getBackingStore()->get('radios');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'radios'");
     }
 
     /**
@@ -149,7 +193,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getRearCamera(): ?Enablement {
-        return $this->getBackingStore()->get('rearCamera');
+        $val = $this->getBackingStore()->get('rearCamera');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rearCamera'");
     }
 
     /**
@@ -157,7 +205,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getSdCard(): ?Enablement {
-        return $this->getBackingStore()->get('sdCard');
+        $val = $this->getBackingStore()->get('sdCard');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sdCard'");
     }
 
     /**
@@ -165,7 +217,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getSimultaneousMultiThreading(): ?Enablement {
-        return $this->getBackingStore()->get('simultaneousMultiThreading');
+        $val = $this->getBackingStore()->get('simultaneousMultiThreading');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simultaneousMultiThreading'");
     }
 
     /**
@@ -173,7 +229,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getUsbTypeAPort(): ?Enablement {
-        return $this->getBackingStore()->get('usbTypeAPort');
+        $val = $this->getBackingStore()->get('usbTypeAPort');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usbTypeAPort'");
     }
 
     /**
@@ -181,7 +241,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getVirtualizationOfCpuAndIO(): ?Enablement {
-        return $this->getBackingStore()->get('virtualizationOfCpuAndIO');
+        $val = $this->getBackingStore()->get('virtualizationOfCpuAndIO');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualizationOfCpuAndIO'");
     }
 
     /**
@@ -189,7 +253,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWakeOnLAN(): ?Enablement {
-        return $this->getBackingStore()->get('wakeOnLAN');
+        $val = $this->getBackingStore()->get('wakeOnLAN');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wakeOnLAN'");
     }
 
     /**
@@ -197,7 +265,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWakeOnPower(): ?Enablement {
-        return $this->getBackingStore()->get('wakeOnPower');
+        $val = $this->getBackingStore()->get('wakeOnPower');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wakeOnPower'");
     }
 
     /**
@@ -205,7 +277,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWiFi(): ?Enablement {
-        return $this->getBackingStore()->get('wiFi');
+        $val = $this->getBackingStore()->get('wiFi');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFi'");
     }
 
     /**
@@ -213,7 +289,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWindowsPlatformBinaryTable(): ?Enablement {
-        return $this->getBackingStore()->get('windowsPlatformBinaryTable');
+        $val = $this->getBackingStore()->get('windowsPlatformBinaryTable');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsPlatformBinaryTable'");
     }
 
     /**
@@ -221,7 +301,11 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWirelessWideAreaNetwork(): ?Enablement {
-        return $this->getBackingStore()->get('wirelessWideAreaNetwork');
+        $val = $this->getBackingStore()->get('wirelessWideAreaNetwork');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wirelessWideAreaNetwork'");
     }
 
     /**

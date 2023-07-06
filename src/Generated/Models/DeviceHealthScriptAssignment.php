@@ -29,7 +29,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -45,7 +45,11 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getRunRemediationScript(): ?bool {
-        return $this->getBackingStore()->get('runRemediationScript');
+        $val = $this->getBackingStore()->get('runRemediationScript');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runRemediationScript'");
     }
 
     /**
@@ -53,7 +57,11 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return DeviceHealthScriptRunSchedule|null
     */
     public function getRunSchedule(): ?DeviceHealthScriptRunSchedule {
-        return $this->getBackingStore()->get('runSchedule');
+        $val = $this->getBackingStore()->get('runSchedule');
+        if (is_null($val) || $val instanceof DeviceHealthScriptRunSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runSchedule'");
     }
 
     /**
@@ -61,7 +69,11 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

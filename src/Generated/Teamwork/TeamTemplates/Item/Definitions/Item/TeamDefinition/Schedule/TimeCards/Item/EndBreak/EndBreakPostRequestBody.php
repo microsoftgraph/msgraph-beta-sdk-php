@@ -40,7 +40,12 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return bool|null
     */
     public function getAtApprovedLocation(): ?bool {
-        return $this->getBackingStore()->get('atApprovedLocation');
+        $val = $this->getBackingStore()->get('atApprovedLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'atApprovedLocation'");
     }
 
     /**
@@ -61,7 +70,7 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +85,11 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->getBackingStore()->get('notes');
+        $val = $this->getBackingStore()->get('notes');
+        if (is_null($val) || $val instanceof ItemBody) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
     }
 
     /**

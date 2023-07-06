@@ -27,7 +27,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +44,11 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastDirectorySyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastDirectorySyncDateTime');
+        $val = $this->getBackingStore()->get('lastDirectorySyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastDirectorySyncDateTime'");
     }
 
     /**
@@ -52,7 +56,11 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -60,7 +68,11 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return OnboardingStatus|null
     */
     public function getOnboardingStatus(): ?OnboardingStatus {
-        return $this->getBackingStore()->get('onboardingStatus');
+        $val = $this->getBackingStore()->get('onboardingStatus');
+        if (is_null($val) || $val instanceof OnboardingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardingStatus'");
     }
 
     /**
@@ -68,7 +80,11 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('ownerUserPrincipalName');
+        $val = $this->getBackingStore()->get('ownerUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerUserPrincipalName'");
     }
 
     /**

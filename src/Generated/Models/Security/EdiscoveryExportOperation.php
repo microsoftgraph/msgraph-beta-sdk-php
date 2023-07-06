@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EdiscoveryExportOperation extends CaseOperation implements Parsable 
 {
@@ -29,7 +30,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
-        return $this->getBackingStore()->get('azureBlobContainer');
+        $val = $this->getBackingStore()->get('azureBlobContainer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureBlobContainer'");
     }
 
     /**
@@ -37,7 +42,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
-        return $this->getBackingStore()->get('azureBlobToken');
+        $val = $this->getBackingStore()->get('azureBlobToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureBlobToken'");
     }
 
     /**
@@ -45,7 +54,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,7 +66,13 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return array<ExportFileMetadata>|null
     */
     public function getExportFileMetadata(): ?array {
-        return $this->getBackingStore()->get('exportFileMetadata');
+        $val = $this->getBackingStore()->get('exportFileMetadata');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExportFileMetadata::class);
+            /** @var array<ExportFileMetadata>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportFileMetadata'");
     }
 
     /**
@@ -61,7 +80,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
-        return $this->getBackingStore()->get('exportOptions');
+        $val = $this->getBackingStore()->get('exportOptions');
+        if (is_null($val) || $val instanceof ExportOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportOptions'");
     }
 
     /**
@@ -69,12 +92,16 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
-        return $this->getBackingStore()->get('exportStructure');
+        $val = $this->getBackingStore()->get('exportStructure');
+        if (is_null($val) || $val instanceof ExportFileStructure) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportStructure'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +124,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getOutputFolderId(): ?string {
-        return $this->getBackingStore()->get('outputFolderId');
+        $val = $this->getBackingStore()->get('outputFolderId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outputFolderId'");
     }
 
     /**
@@ -105,7 +136,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getOutputName(): ?string {
-        return $this->getBackingStore()->get('outputName');
+        $val = $this->getBackingStore()->get('outputName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outputName'");
     }
 
     /**
@@ -113,7 +148,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return EdiscoveryReviewSet|null
     */
     public function getReviewSet(): ?EdiscoveryReviewSet {
-        return $this->getBackingStore()->get('reviewSet');
+        $val = $this->getBackingStore()->get('reviewSet');
+        if (is_null($val) || $val instanceof EdiscoveryReviewSet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewSet'");
     }
 
     /**
@@ -121,7 +160,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return EdiscoveryReviewSetQuery|null
     */
     public function getReviewSetQuery(): ?EdiscoveryReviewSetQuery {
-        return $this->getBackingStore()->get('reviewSetQuery');
+        $val = $this->getBackingStore()->get('reviewSetQuery');
+        if (is_null($val) || $val instanceof EdiscoveryReviewSetQuery) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewSetQuery'");
     }
 
     /**

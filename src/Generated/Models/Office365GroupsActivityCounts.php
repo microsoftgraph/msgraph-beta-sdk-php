@@ -30,12 +30,16 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeEmailsReceived(): ?int {
-        return $this->getBackingStore()->get('exchangeEmailsReceived');
+        $val = $this->getBackingStore()->get('exchangeEmailsReceived');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeEmailsReceived'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +61,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->getBackingStore()->get('reportDate');
+        $val = $this->getBackingStore()->get('reportDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportDate'");
     }
 
     /**
@@ -65,7 +73,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->getBackingStore()->get('reportPeriod');
+        $val = $this->getBackingStore()->get('reportPeriod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportPeriod'");
     }
 
     /**
@@ -73,7 +85,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->getBackingStore()->get('reportRefreshDate');
+        $val = $this->getBackingStore()->get('reportRefreshDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportRefreshDate'");
     }
 
     /**
@@ -81,7 +97,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeamsChannelMessages(): ?int {
-        return $this->getBackingStore()->get('teamsChannelMessages');
+        $val = $this->getBackingStore()->get('teamsChannelMessages');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsChannelMessages'");
     }
 
     /**
@@ -89,7 +109,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeamsMeetingsOrganized(): ?int {
-        return $this->getBackingStore()->get('teamsMeetingsOrganized');
+        $val = $this->getBackingStore()->get('teamsMeetingsOrganized');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsMeetingsOrganized'");
     }
 
     /**
@@ -97,7 +121,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesLiked(): ?int {
-        return $this->getBackingStore()->get('yammerMessagesLiked');
+        $val = $this->getBackingStore()->get('yammerMessagesLiked');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerMessagesLiked'");
     }
 
     /**
@@ -105,7 +133,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesPosted(): ?int {
-        return $this->getBackingStore()->get('yammerMessagesPosted');
+        $val = $this->getBackingStore()->get('yammerMessagesPosted');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerMessagesPosted'");
     }
 
     /**
@@ -113,7 +145,11 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesRead(): ?int {
-        return $this->getBackingStore()->get('yammerMessagesRead');
+        $val = $this->getBackingStore()->get('yammerMessagesRead');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerMessagesRead'");
     }
 
     /**

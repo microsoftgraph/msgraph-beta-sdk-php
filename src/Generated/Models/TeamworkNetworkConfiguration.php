@@ -39,7 +39,12 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDefaultGateway(): ?string {
-        return $this->getBackingStore()->get('defaultGateway');
+        $val = $this->getBackingStore()->get('defaultGateway');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultGateway'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDomainName(): ?string {
-        return $this->getBackingStore()->get('domainName');
+        $val = $this->getBackingStore()->get('domainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +104,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->getBackingStore()->get('hostName');
+        $val = $this->getBackingStore()->get('hostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostName'");
     }
 
     /**
@@ -99,7 +116,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -107,7 +128,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsDhcpEnabled(): ?bool {
-        return $this->getBackingStore()->get('isDhcpEnabled');
+        $val = $this->getBackingStore()->get('isDhcpEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDhcpEnabled'");
     }
 
     /**
@@ -115,7 +140,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsPCPortEnabled(): ?bool {
-        return $this->getBackingStore()->get('isPCPortEnabled');
+        $val = $this->getBackingStore()->get('isPCPortEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPCPortEnabled'");
     }
 
     /**
@@ -123,7 +152,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -131,7 +164,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getPrimaryDns(): ?string {
-        return $this->getBackingStore()->get('primaryDns');
+        $val = $this->getBackingStore()->get('primaryDns');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryDns'");
     }
 
     /**
@@ -139,7 +176,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getSecondaryDns(): ?string {
-        return $this->getBackingStore()->get('secondaryDns');
+        $val = $this->getBackingStore()->get('secondaryDns');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryDns'");
     }
 
     /**
@@ -147,7 +188,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getSubnetMask(): ?string {
-        return $this->getBackingStore()->get('subnetMask');
+        $val = $this->getBackingStore()->get('subnetMask');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subnetMask'");
     }
 
     /**

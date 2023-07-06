@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ForwardingRule extends PolicyRule implements Parsable 
 {
@@ -38,7 +39,11 @@ class ForwardingRule extends PolicyRule implements Parsable
      * @return ForwardingRuleAction|null
     */
     public function getAction(): ?ForwardingRuleAction {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof ForwardingRuleAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -46,12 +51,18 @@ class ForwardingRule extends PolicyRule implements Parsable
      * @return array<RuleDestination>|null
     */
     public function getDestinations(): ?array {
-        return $this->getBackingStore()->get('destinations');
+        $val = $this->getBackingStore()->get('destinations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RuleDestination::class);
+            /** @var array<RuleDestination>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +78,11 @@ class ForwardingRule extends PolicyRule implements Parsable
      * @return NetworkDestinationType|null
     */
     public function getRuleType(): ?NetworkDestinationType {
-        return $this->getBackingStore()->get('ruleType');
+        $val = $this->getBackingStore()->get('ruleType');
+        if (is_null($val) || $val instanceof NetworkDestinationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleType'");
     }
 
     /**

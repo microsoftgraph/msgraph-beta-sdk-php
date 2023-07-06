@@ -29,7 +29,7 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +44,11 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->getBackingStore()->get('targetGroupId');
+        $val = $this->getBackingStore()->get('targetGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetGroupId'");
     }
 
     /**
@@ -52,7 +56,11 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
      * @return TermsAndConditions|null
     */
     public function getTermsAndConditions(): ?TermsAndConditions {
-        return $this->getBackingStore()->get('termsAndConditions');
+        $val = $this->getBackingStore()->get('termsAndConditions');
+        if (is_null($val) || $val instanceof TermsAndConditions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termsAndConditions'");
     }
 
     /**

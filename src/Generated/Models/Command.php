@@ -29,7 +29,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getAppServiceName(): ?string {
-        return $this->getBackingStore()->get('appServiceName');
+        $val = $this->getBackingStore()->get('appServiceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appServiceName'");
     }
 
     /**
@@ -37,12 +41,16 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getError(): ?string {
-        return $this->getBackingStore()->get('error');
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getPackageFamilyName(): ?string {
-        return $this->getBackingStore()->get('packageFamilyName');
+        $val = $this->getBackingStore()->get('packageFamilyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageFamilyName'");
     }
 
     /**
@@ -72,7 +84,11 @@ class Command extends Entity implements Parsable
      * @return PayloadRequest|null
     */
     public function getPayload(): ?PayloadRequest {
-        return $this->getBackingStore()->get('payload');
+        $val = $this->getBackingStore()->get('payload');
+        if (is_null($val) || $val instanceof PayloadRequest) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payload'");
     }
 
     /**
@@ -80,7 +96,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getPermissionTicket(): ?string {
-        return $this->getBackingStore()->get('permissionTicket');
+        $val = $this->getBackingStore()->get('permissionTicket');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionTicket'");
     }
 
     /**
@@ -88,7 +108,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getPostBackUri(): ?string {
-        return $this->getBackingStore()->get('postBackUri');
+        $val = $this->getBackingStore()->get('postBackUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postBackUri'");
     }
 
     /**
@@ -96,7 +120,11 @@ class Command extends Entity implements Parsable
      * @return PayloadResponse|null
     */
     public function getResponsepayload(): ?PayloadResponse {
-        return $this->getBackingStore()->get('responsepayload');
+        $val = $this->getBackingStore()->get('responsepayload');
+        if (is_null($val) || $val instanceof PayloadResponse) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responsepayload'");
     }
 
     /**
@@ -104,7 +132,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -112,7 +144,11 @@ class Command extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

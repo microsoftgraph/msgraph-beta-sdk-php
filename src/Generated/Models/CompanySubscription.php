@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CompanySubscription extends Entity implements Parsable 
 {
@@ -30,12 +31,16 @@ class CompanySubscription extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +62,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsTrial(): ?bool {
-        return $this->getBackingStore()->get('isTrial');
+        $val = $this->getBackingStore()->get('isTrial');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTrial'");
     }
 
     /**
@@ -65,7 +74,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getNextLifecycleDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('nextLifecycleDateTime');
+        $val = $this->getBackingStore()->get('nextLifecycleDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nextLifecycleDateTime'");
     }
 
     /**
@@ -73,7 +86,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getOcpSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('ocpSubscriptionId');
+        $val = $this->getBackingStore()->get('ocpSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ocpSubscriptionId'");
     }
 
     /**
@@ -81,7 +98,13 @@ class CompanySubscription extends Entity implements Parsable
      * @return array<ServicePlanInfo>|null
     */
     public function getServiceStatus(): ?array {
-        return $this->getBackingStore()->get('serviceStatus');
+        $val = $this->getBackingStore()->get('serviceStatus');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServicePlanInfo::class);
+            /** @var array<ServicePlanInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceStatus'");
     }
 
     /**
@@ -89,7 +112,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getSkuId(): ?string {
-        return $this->getBackingStore()->get('skuId');
+        $val = $this->getBackingStore()->get('skuId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skuId'");
     }
 
     /**
@@ -97,7 +124,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getSkuPartNumber(): ?string {
-        return $this->getBackingStore()->get('skuPartNumber');
+        $val = $this->getBackingStore()->get('skuPartNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skuPartNumber'");
     }
 
     /**
@@ -105,7 +136,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -113,7 +148,11 @@ class CompanySubscription extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalLicenses(): ?int {
-        return $this->getBackingStore()->get('totalLicenses');
+        $val = $this->getBackingStore()->get('totalLicenses');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicenses'");
     }
 
     /**

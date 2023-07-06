@@ -27,7 +27,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
      * @return string|null
     */
     public function getProductCode(): ?string {
-        return $this->getBackingStore()->get('productCode');
+        $val = $this->getBackingStore()->get('productCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productCode'");
     }
 
     /**
@@ -51,7 +55,11 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
      * @return string|null
     */
     public function getProductVersion(): ?string {
-        return $this->getBackingStore()->get('productVersion');
+        $val = $this->getBackingStore()->get('productVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productVersion'");
     }
 
     /**
@@ -59,7 +67,11 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
      * @return Win32LobAppDetectionOperator|null
     */
     public function getProductVersionOperator(): ?Win32LobAppDetectionOperator {
-        return $this->getBackingStore()->get('productVersionOperator');
+        $val = $this->getBackingStore()->get('productVersionOperator');
+        if (is_null($val) || $val instanceof Win32LobAppDetectionOperator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productVersionOperator'");
     }
 
     /**

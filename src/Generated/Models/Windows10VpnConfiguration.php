@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
@@ -31,7 +32,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<Windows10AssociatedApps>|null
     */
     public function getAssociatedApps(): ?array {
-        return $this->getBackingStore()->get('associatedApps');
+        $val = $this->getBackingStore()->get('associatedApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Windows10AssociatedApps::class);
+            /** @var array<Windows10AssociatedApps>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'associatedApps'");
     }
 
     /**
@@ -39,7 +46,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows10VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?Windows10VpnAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof Windows10VpnAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -47,7 +58,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows10VpnConnectionType|null
     */
     public function getConnectionType(): ?Windows10VpnConnectionType {
-        return $this->getBackingStore()->get('connectionType');
+        $val = $this->getBackingStore()->get('connectionType');
+        if (is_null($val) || $val instanceof Windows10VpnConnectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionType'");
     }
 
     /**
@@ -55,7 +70,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return CryptographySuite|null
     */
     public function getCryptographySuite(): ?CryptographySuite {
-        return $this->getBackingStore()->get('cryptographySuite');
+        $val = $this->getBackingStore()->get('cryptographySuite');
+        if (is_null($val) || $val instanceof CryptographySuite) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cryptographySuite'");
     }
 
     /**
@@ -63,7 +82,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<VpnDnsRule>|null
     */
     public function getDnsRules(): ?array {
-        return $this->getBackingStore()->get('dnsRules');
+        $val = $this->getBackingStore()->get('dnsRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnDnsRule::class);
+            /** @var array<VpnDnsRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsRules'");
     }
 
     /**
@@ -71,7 +96,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDnsSuffixes(): ?array {
-        return $this->getBackingStore()->get('dnsSuffixes');
+        $val = $this->getBackingStore()->get('dnsSuffixes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsSuffixes'");
     }
 
     /**
@@ -79,7 +110,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return StreamInterface|null
     */
     public function getEapXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('eapXml');
+        $val = $this->getBackingStore()->get('eapXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapXml'");
     }
 
     /**
@@ -87,7 +122,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableAlwaysOn(): ?bool {
-        return $this->getBackingStore()->get('enableAlwaysOn');
+        $val = $this->getBackingStore()->get('enableAlwaysOn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableAlwaysOn'");
     }
 
     /**
@@ -95,7 +134,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableConditionalAccess(): ?bool {
-        return $this->getBackingStore()->get('enableConditionalAccess');
+        $val = $this->getBackingStore()->get('enableConditionalAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableConditionalAccess'");
     }
 
     /**
@@ -103,7 +146,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableDeviceTunnel(): ?bool {
-        return $this->getBackingStore()->get('enableDeviceTunnel');
+        $val = $this->getBackingStore()->get('enableDeviceTunnel');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableDeviceTunnel'");
     }
 
     /**
@@ -111,7 +158,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableDnsRegistration(): ?bool {
-        return $this->getBackingStore()->get('enableDnsRegistration');
+        $val = $this->getBackingStore()->get('enableDnsRegistration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableDnsRegistration'");
     }
 
     /**
@@ -119,7 +170,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableSingleSignOnWithAlternateCertificate(): ?bool {
-        return $this->getBackingStore()->get('enableSingleSignOnWithAlternateCertificate');
+        $val = $this->getBackingStore()->get('enableSingleSignOnWithAlternateCertificate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSingleSignOnWithAlternateCertificate'");
     }
 
     /**
@@ -127,12 +182,16 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableSplitTunneling(): ?bool {
-        return $this->getBackingStore()->get('enableSplitTunneling');
+        $val = $this->getBackingStore()->get('enableSplitTunneling');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSplitTunneling'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -142,7 +201,14 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
             'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(Windows10VpnConnectionType::class)),
             'cryptographySuite' => fn(ParseNode $n) => $o->setCryptographySuite($n->getObjectValue([CryptographySuite::class, 'createFromDiscriminatorValue'])),
             'dnsRules' => fn(ParseNode $n) => $o->setDnsRules($n->getCollectionOfObjectValues([VpnDnsRule::class, 'createFromDiscriminatorValue'])),
-            'dnsSuffixes' => fn(ParseNode $n) => $o->setDnsSuffixes($n->getCollectionOfPrimitiveValues()),
+            'dnsSuffixes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDnsSuffixes($val);
+            },
             'eapXml' => fn(ParseNode $n) => $o->setEapXml($n->getBinaryContent()),
             'enableAlwaysOn' => fn(ParseNode $n) => $o->setEnableAlwaysOn($n->getBooleanValue()),
             'enableConditionalAccess' => fn(ParseNode $n) => $o->setEnableConditionalAccess($n->getBooleanValue()),
@@ -160,7 +226,14 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
             'singleSignOnEku' => fn(ParseNode $n) => $o->setSingleSignOnEku($n->getObjectValue([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
             'singleSignOnIssuerHash' => fn(ParseNode $n) => $o->setSingleSignOnIssuerHash($n->getStringValue()),
             'trafficRules' => fn(ParseNode $n) => $o->setTrafficRules($n->getCollectionOfObjectValues([VpnTrafficRule::class, 'createFromDiscriminatorValue'])),
-            'trustedNetworkDomains' => fn(ParseNode $n) => $o->setTrustedNetworkDomains($n->getCollectionOfPrimitiveValues()),
+            'trustedNetworkDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedNetworkDomains($val);
+            },
             'windowsInformationProtectionDomain' => fn(ParseNode $n) => $o->setWindowsInformationProtectionDomain($n->getStringValue()),
         ]);
     }
@@ -170,7 +243,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return WindowsCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?WindowsCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof WindowsCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -178,7 +255,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return string|null
     */
     public function getMicrosoftTunnelSiteId(): ?string {
-        return $this->getBackingStore()->get('microsoftTunnelSiteId');
+        $val = $this->getBackingStore()->get('microsoftTunnelSiteId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelSiteId'");
     }
 
     /**
@@ -186,7 +267,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getOnlyAssociatedAppsCanUseConnection(): ?bool {
-        return $this->getBackingStore()->get('onlyAssociatedAppsCanUseConnection');
+        $val = $this->getBackingStore()->get('onlyAssociatedAppsCanUseConnection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onlyAssociatedAppsCanUseConnection'");
     }
 
     /**
@@ -194,7 +279,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows10VpnProfileTarget|null
     */
     public function getProfileTarget(): ?Windows10VpnProfileTarget {
-        return $this->getBackingStore()->get('profileTarget');
+        $val = $this->getBackingStore()->get('profileTarget');
+        if (is_null($val) || $val instanceof Windows10VpnProfileTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileTarget'");
     }
 
     /**
@@ -202,7 +291,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows10VpnProxyServer|null
     */
     public function getProxyServer(): ?Windows10VpnProxyServer {
-        return $this->getBackingStore()->get('proxyServer');
+        $val = $this->getBackingStore()->get('proxyServer');
+        if (is_null($val) || $val instanceof Windows10VpnProxyServer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyServer'");
     }
 
     /**
@@ -210,7 +303,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getRememberUserCredentials(): ?bool {
-        return $this->getBackingStore()->get('rememberUserCredentials');
+        $val = $this->getBackingStore()->get('rememberUserCredentials');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rememberUserCredentials'");
     }
 
     /**
@@ -218,7 +315,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<VpnRoute>|null
     */
     public function getRoutes(): ?array {
-        return $this->getBackingStore()->get('routes');
+        $val = $this->getBackingStore()->get('routes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnRoute::class);
+            /** @var array<VpnRoute>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routes'");
     }
 
     /**
@@ -226,7 +329,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return ExtendedKeyUsage|null
     */
     public function getSingleSignOnEku(): ?ExtendedKeyUsage {
-        return $this->getBackingStore()->get('singleSignOnEku');
+        $val = $this->getBackingStore()->get('singleSignOnEku');
+        if (is_null($val) || $val instanceof ExtendedKeyUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnEku'");
     }
 
     /**
@@ -234,7 +341,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return string|null
     */
     public function getSingleSignOnIssuerHash(): ?string {
-        return $this->getBackingStore()->get('singleSignOnIssuerHash');
+        $val = $this->getBackingStore()->get('singleSignOnIssuerHash');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnIssuerHash'");
     }
 
     /**
@@ -242,7 +353,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<VpnTrafficRule>|null
     */
     public function getTrafficRules(): ?array {
-        return $this->getBackingStore()->get('trafficRules');
+        $val = $this->getBackingStore()->get('trafficRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnTrafficRule::class);
+            /** @var array<VpnTrafficRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficRules'");
     }
 
     /**
@@ -250,7 +367,13 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getTrustedNetworkDomains(): ?array {
-        return $this->getBackingStore()->get('trustedNetworkDomains');
+        $val = $this->getBackingStore()->get('trustedNetworkDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedNetworkDomains'");
     }
 
     /**
@@ -258,7 +381,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return string|null
     */
     public function getWindowsInformationProtectionDomain(): ?string {
-        return $this->getBackingStore()->get('windowsInformationProtectionDomain');
+        $val = $this->getBackingStore()->get('windowsInformationProtectionDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsInformationProtectionDomain'");
     }
 
     /**

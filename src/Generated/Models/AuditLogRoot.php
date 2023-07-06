@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,11 +57,31 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * @return array<CustomSecurityAttributeAudit>|null
+    */
+    public function getCustomSecurityAttributeAudits(): ?array {
+        $val = $this->getBackingStore()->get('customSecurityAttributeAudits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomSecurityAttributeAudit::class);
+            /** @var array<CustomSecurityAttributeAudit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customSecurityAttributeAudits'");
+    }
+
+    /**
      * Gets the directoryAudits property value. The directoryAudits property
      * @return array<DirectoryAudit>|null
     */
     public function getDirectoryAudits(): ?array {
-        return $this->getBackingStore()->get('directoryAudits');
+        $val = $this->getBackingStore()->get('directoryAudits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryAudit::class);
+            /** @var array<DirectoryAudit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directoryAudits'");
     }
 
     /**
@@ -63,16 +89,23 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<ProvisioningObjectSummary>|null
     */
     public function getDirectoryProvisioning(): ?array {
-        return $this->getBackingStore()->get('directoryProvisioning');
+        $val = $this->getBackingStore()->get('directoryProvisioning');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProvisioningObjectSummary::class);
+            /** @var array<ProvisioningObjectSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directoryProvisioning'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'customSecurityAttributeAudits' => fn(ParseNode $n) => $o->setCustomSecurityAttributeAudits($n->getCollectionOfObjectValues([CustomSecurityAttributeAudit::class, 'createFromDiscriminatorValue'])),
             'directoryAudits' => fn(ParseNode $n) => $o->setDirectoryAudits($n->getCollectionOfObjectValues([DirectoryAudit::class, 'createFromDiscriminatorValue'])),
             'directoryProvisioning' => fn(ParseNode $n) => $o->setDirectoryProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -86,7 +119,11 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +131,13 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<ProvisioningObjectSummary>|null
     */
     public function getProvisioning(): ?array {
-        return $this->getBackingStore()->get('provisioning');
+        $val = $this->getBackingStore()->get('provisioning');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProvisioningObjectSummary::class);
+            /** @var array<ProvisioningObjectSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioning'");
     }
 
     /**
@@ -102,7 +145,13 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<SignIn>|null
     */
     public function getSignIns(): ?array {
-        return $this->getBackingStore()->get('signIns');
+        $val = $this->getBackingStore()->get('signIns');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SignIn::class);
+            /** @var array<SignIn>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signIns'");
     }
 
     /**
@@ -110,6 +159,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('customSecurityAttributeAudits', $this->getCustomSecurityAttributeAudits());
         $writer->writeCollectionOfObjectValues('directoryAudits', $this->getDirectoryAudits());
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->getDirectoryProvisioning());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -132,6 +182,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * @param array<CustomSecurityAttributeAudit>|null $value Value to set for the customSecurityAttributeAudits property.
+    */
+    public function setCustomSecurityAttributeAudits(?array $value): void {
+        $this->getBackingStore()->set('customSecurityAttributeAudits', $value);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<BusinessFlow>|null
     */
     public function getBusinessFlows(): ?array {
-        return $this->getBackingStore()->get('businessFlows');
+        $val = $this->getBackingStore()->get('businessFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BusinessFlow::class);
+            /** @var array<BusinessFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessFlows'");
     }
 
     /**
@@ -37,7 +44,13 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<BusinessFlow>|null
     */
     public function getBusinessFlowsWithRequestsAwaitingMyDecision(): ?array {
-        return $this->getBackingStore()->get('businessFlowsWithRequestsAwaitingMyDecision');
+        $val = $this->getBackingStore()->get('businessFlowsWithRequestsAwaitingMyDecision');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BusinessFlow::class);
+            /** @var array<BusinessFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessFlowsWithRequestsAwaitingMyDecision'");
     }
 
     /**
@@ -45,12 +58,16 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +84,13 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<GovernancePolicyTemplate>|null
     */
     public function getPolicyTemplates(): ?array {
-        return $this->getBackingStore()->get('policyTemplates');
+        $val = $this->getBackingStore()->get('policyTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernancePolicyTemplate::class);
+            /** @var array<GovernancePolicyTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTemplates'");
     }
 
     /**

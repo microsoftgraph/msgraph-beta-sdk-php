@@ -27,7 +27,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
      * @return WindowsKioskWin32App|null
     */
     public function getWin32App(): ?WindowsKioskWin32App {
-        return $this->getBackingStore()->get('win32App');
+        $val = $this->getBackingStore()->get('win32App');
+        if (is_null($val) || $val instanceof WindowsKioskWin32App) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'win32App'");
     }
 
     /**

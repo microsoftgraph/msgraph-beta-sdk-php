@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -18,7 +19,7 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ManagementIntentInfo and sets the default values.
+     * Instantiates a new managementIntentInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -39,7 +40,12 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +58,7 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +75,11 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getManagementIntentDisplayName(): ?string {
-        return $this->getBackingStore()->get('managementIntentDisplayName');
+        $val = $this->getBackingStore()->get('managementIntentDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementIntentDisplayName'");
     }
 
     /**
@@ -77,7 +87,11 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getManagementIntentId(): ?string {
-        return $this->getBackingStore()->get('managementIntentId');
+        $val = $this->getBackingStore()->get('managementIntentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementIntentId'");
     }
 
     /**
@@ -85,7 +99,13 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<ManagementTemplateDetailedInfo>|null
     */
     public function getManagementTemplates(): ?array {
-        return $this->getBackingStore()->get('managementTemplates');
+        $val = $this->getBackingStore()->get('managementTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementTemplateDetailedInfo::class);
+            /** @var array<ManagementTemplateDetailedInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplates'");
     }
 
     /**
@@ -93,7 +113,11 @@ class ManagementIntentInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

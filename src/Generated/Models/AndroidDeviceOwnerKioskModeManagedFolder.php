@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A folder containing pages of apps and weblinks on the Managed Home Screen
@@ -42,7 +43,12 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +78,11 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getFolderIdentifier(): ?string {
-        return $this->getBackingStore()->get('folderIdentifier');
+        $val = $this->getBackingStore()->get('folderIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'folderIdentifier'");
     }
 
     /**
@@ -80,7 +90,11 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getFolderName(): ?string {
-        return $this->getBackingStore()->get('folderName');
+        $val = $this->getBackingStore()->get('folderName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'folderName'");
     }
 
     /**
@@ -88,7 +102,13 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return array<AndroidDeviceOwnerKioskModeFolderItem>|null
     */
     public function getItems(): ?array {
-        return $this->getBackingStore()->get('items');
+        $val = $this->getBackingStore()->get('items');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerKioskModeFolderItem::class);
+            /** @var array<AndroidDeviceOwnerKioskModeFolderItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'items'");
     }
 
     /**
@@ -96,7 +116,11 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

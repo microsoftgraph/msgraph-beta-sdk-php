@@ -39,7 +39,12 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getEnd(): ?int {
-        return $this->getBackingStore()->get('end');
+        $val = $this->getBackingStore()->get('end');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'end'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getMaximum(): ?int {
-        return $this->getBackingStore()->get('maximum');
+        $val = $this->getBackingStore()->get('maximum');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximum'");
     }
 
     /**
@@ -86,7 +99,11 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getMinimum(): ?int {
-        return $this->getBackingStore()->get('minimum');
+        $val = $this->getBackingStore()->get('minimum');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimum'");
     }
 
     /**
@@ -94,7 +111,11 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getStart(): ?int {
-        return $this->getBackingStore()->get('start');
+        $val = $this->getBackingStore()->get('start');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'start'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
@@ -38,7 +39,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->getBackingStore()->get('certificateValidityPeriodScale');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodScale');
+        if (is_null($val) || $val instanceof CertificateValidityPeriodScale) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodScale'");
     }
 
     /**
@@ -46,7 +51,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->getBackingStore()->get('certificateValidityPeriodValue');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodValue'");
     }
 
     /**
@@ -54,12 +63,18 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->getBackingStore()->get('extendedKeyUsages');
+        $val = $this->getBackingStore()->get('extendedKeyUsages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExtendedKeyUsage::class);
+            /** @var array<ExtendedKeyUsage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extendedKeyUsages'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +94,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('renewalThresholdPercentage');
+        $val = $this->getBackingStore()->get('renewalThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'renewalThresholdPercentage'");
     }
 
     /**
@@ -87,7 +106,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return AndroidWorkProfileTrustedRootCertificate|null
     */
     public function getRootCertificate(): ?AndroidWorkProfileTrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificate');
+        $val = $this->getBackingStore()->get('rootCertificate');
+        if (is_null($val) || $val instanceof AndroidWorkProfileTrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificate'");
     }
 
     /**
@@ -95,7 +118,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
-        return $this->getBackingStore()->get('subjectAlternativeNameType');
+        $val = $this->getBackingStore()->get('subjectAlternativeNameType');
+        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
     }
 
     /**
@@ -103,7 +130,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
-        return $this->getBackingStore()->get('subjectNameFormat');
+        $val = $this->getBackingStore()->get('subjectNameFormat');
+        if (is_null($val) || $val instanceof SubjectNameFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormat'");
     }
 
     /**

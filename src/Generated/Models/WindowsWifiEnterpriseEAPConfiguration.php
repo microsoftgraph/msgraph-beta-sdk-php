@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,7 +43,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getAuthenticationPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('authenticationPeriodInSeconds');
+        $val = $this->getBackingStore()->get('authenticationPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationPeriodInSeconds'");
     }
 
     /**
@@ -46,7 +55,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getAuthenticationRetryDelayPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('authenticationRetryDelayPeriodInSeconds');
+        $val = $this->getBackingStore()->get('authenticationRetryDelayPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationRetryDelayPeriodInSeconds'");
     }
 
     /**
@@ -54,7 +67,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return WifiAuthenticationType|null
     */
     public function getAuthenticationType(): ?WifiAuthenticationType {
-        return $this->getBackingStore()->get('authenticationType');
+        $val = $this->getBackingStore()->get('authenticationType');
+        if (is_null($val) || $val instanceof WifiAuthenticationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationType'");
     }
 
     /**
@@ -62,7 +79,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getCacheCredentials(): ?bool {
-        return $this->getBackingStore()->get('cacheCredentials');
+        $val = $this->getBackingStore()->get('cacheCredentials');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheCredentials'");
     }
 
     /**
@@ -70,7 +91,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getDisableUserPromptForServerValidation(): ?bool {
-        return $this->getBackingStore()->get('disableUserPromptForServerValidation');
+        $val = $this->getBackingStore()->get('disableUserPromptForServerValidation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableUserPromptForServerValidation'");
     }
 
     /**
@@ -78,7 +103,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getEapolStartPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('eapolStartPeriodInSeconds');
+        $val = $this->getBackingStore()->get('eapolStartPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapolStartPeriodInSeconds'");
     }
 
     /**
@@ -86,7 +115,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
-        return $this->getBackingStore()->get('eapType');
+        $val = $this->getBackingStore()->get('eapType');
+        if (is_null($val) || $val instanceof EapType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapType'");
     }
 
     /**
@@ -94,7 +127,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getEnablePairwiseMasterKeyCaching(): ?bool {
-        return $this->getBackingStore()->get('enablePairwiseMasterKeyCaching');
+        $val = $this->getBackingStore()->get('enablePairwiseMasterKeyCaching');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enablePairwiseMasterKeyCaching'");
     }
 
     /**
@@ -102,12 +139,16 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getEnablePreAuthentication(): ?bool {
-        return $this->getBackingStore()->get('enablePreAuthentication');
+        $val = $this->getBackingStore()->get('enablePreAuthentication');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enablePreAuthentication'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -137,7 +178,14 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
             'requireCryptographicBinding' => fn(ParseNode $n) => $o->setRequireCryptographicBinding($n->getBooleanValue()),
             'rootCertificateForClientValidation' => fn(ParseNode $n) => $o->setRootCertificateForClientValidation($n->getObjectValue([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'rootCertificatesForServerValidation' => fn(ParseNode $n) => $o->setRootCertificatesForServerValidation($n->getCollectionOfObjectValues([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
+            'trustedServerCertificateNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedServerCertificateNames($val);
+            },
             'userBasedVirtualLan' => fn(ParseNode $n) => $o->setUserBasedVirtualLan($n->getBooleanValue()),
         ]);
     }
@@ -147,7 +195,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return WindowsCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?WindowsCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof WindowsCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -155,7 +207,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEAPTTLS'");
     }
 
     /**
@@ -163,7 +219,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumAuthenticationFailures(): ?int {
-        return $this->getBackingStore()->get('maximumAuthenticationFailures');
+        $val = $this->getBackingStore()->get('maximumAuthenticationFailures');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumAuthenticationFailures'");
     }
 
     /**
@@ -171,7 +231,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumAuthenticationTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('maximumAuthenticationTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('maximumAuthenticationTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumAuthenticationTimeoutInSeconds'");
     }
 
     /**
@@ -179,7 +243,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumEAPOLStartMessages(): ?int {
-        return $this->getBackingStore()->get('maximumEAPOLStartMessages');
+        $val = $this->getBackingStore()->get('maximumEAPOLStartMessages');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumEAPOLStartMessages'");
     }
 
     /**
@@ -187,7 +255,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumNumberOfPairwiseMasterKeysInCache(): ?int {
-        return $this->getBackingStore()->get('maximumNumberOfPairwiseMasterKeysInCache');
+        $val = $this->getBackingStore()->get('maximumNumberOfPairwiseMasterKeysInCache');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumNumberOfPairwiseMasterKeysInCache'");
     }
 
     /**
@@ -195,7 +267,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumPairwiseMasterKeyCacheTimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('maximumPairwiseMasterKeyCacheTimeInMinutes');
+        $val = $this->getBackingStore()->get('maximumPairwiseMasterKeyCacheTimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumPairwiseMasterKeyCacheTimeInMinutes'");
     }
 
     /**
@@ -203,7 +279,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return int|null
     */
     public function getMaximumPreAuthenticationAttempts(): ?int {
-        return $this->getBackingStore()->get('maximumPreAuthenticationAttempts');
+        $val = $this->getBackingStore()->get('maximumPreAuthenticationAttempts');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumPreAuthenticationAttempts'");
     }
 
     /**
@@ -211,7 +291,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return NetworkSingleSignOnType|null
     */
     public function getNetworkSingleSignOn(): ?NetworkSingleSignOnType {
-        return $this->getBackingStore()->get('networkSingleSignOn');
+        $val = $this->getBackingStore()->get('networkSingleSignOn');
+        if (is_null($val) || $val instanceof NetworkSingleSignOnType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSingleSignOn'");
     }
 
     /**
@@ -219,7 +303,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return string|null
     */
     public function getOuterIdentityPrivacyTemporaryValue(): ?string {
-        return $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        $val = $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outerIdentityPrivacyTemporaryValue'");
     }
 
     /**
@@ -227,7 +315,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getPerformServerValidation(): ?bool {
-        return $this->getBackingStore()->get('performServerValidation');
+        $val = $this->getBackingStore()->get('performServerValidation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'performServerValidation'");
     }
 
     /**
@@ -235,7 +327,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getPromptForAdditionalAuthenticationCredentials(): ?bool {
-        return $this->getBackingStore()->get('promptForAdditionalAuthenticationCredentials');
+        $val = $this->getBackingStore()->get('promptForAdditionalAuthenticationCredentials');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'promptForAdditionalAuthenticationCredentials'");
     }
 
     /**
@@ -243,7 +339,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getRequireCryptographicBinding(): ?bool {
-        return $this->getBackingStore()->get('requireCryptographicBinding');
+        $val = $this->getBackingStore()->get('requireCryptographicBinding');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireCryptographicBinding'");
     }
 
     /**
@@ -251,7 +351,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return Windows81TrustedRootCertificate|null
     */
     public function getRootCertificateForClientValidation(): ?Windows81TrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificateForClientValidation');
+        $val = $this->getBackingStore()->get('rootCertificateForClientValidation');
+        if (is_null($val) || $val instanceof Windows81TrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateForClientValidation'");
     }
 
     /**
@@ -259,7 +363,13 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return array<Windows81TrustedRootCertificate>|null
     */
     public function getRootCertificatesForServerValidation(): ?array {
-        return $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Windows81TrustedRootCertificate::class);
+            /** @var array<Windows81TrustedRootCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificatesForServerValidation'");
     }
 
     /**
@@ -267,7 +377,13 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->getBackingStore()->get('trustedServerCertificateNames');
+        $val = $this->getBackingStore()->get('trustedServerCertificateNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedServerCertificateNames'");
     }
 
     /**
@@ -275,7 +391,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
      * @return bool|null
     */
     public function getUserBasedVirtualLan(): ?bool {
-        return $this->getBackingStore()->get('userBasedVirtualLan');
+        $val = $this->getBackingStore()->get('userBasedVirtualLan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userBasedVirtualLan'");
     }
 
     /**

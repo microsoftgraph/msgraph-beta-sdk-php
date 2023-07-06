@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
@@ -30,7 +31,13 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return array<DeviceManagementExchangeAccessRule>|null
     */
     public function getAccessRules(): ?array {
-        return $this->getBackingStore()->get('accessRules');
+        $val = $this->getBackingStore()->get('accessRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementExchangeAccessRule::class);
+            /** @var array<DeviceManagementExchangeAccessRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessRules'");
     }
 
     /**
@@ -38,7 +45,11 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return OnPremisesConditionalAccessSettings|null
     */
     public function getConditionalAccessSettings(): ?OnPremisesConditionalAccessSettings {
-        return $this->getBackingStore()->get('conditionalAccessSettings');
+        $val = $this->getBackingStore()->get('conditionalAccessSettings');
+        if (is_null($val) || $val instanceof OnPremisesConditionalAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessSettings'");
     }
 
     /**
@@ -46,12 +57,16 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return DeviceManagementExchangeAccessLevel|null
     */
     public function getDefaultAccessLevel(): ?DeviceManagementExchangeAccessLevel {
-        return $this->getBackingStore()->get('defaultAccessLevel');
+        $val = $this->getBackingStore()->get('defaultAccessLevel');
+        if (is_null($val) || $val instanceof DeviceManagementExchangeAccessLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultAccessLevel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +84,13 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return array<DeviceManagementExchangeDeviceClass>|null
     */
     public function getKnownDeviceClasses(): ?array {
-        return $this->getBackingStore()->get('knownDeviceClasses');
+        $val = $this->getBackingStore()->get('knownDeviceClasses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementExchangeDeviceClass::class);
+            /** @var array<DeviceManagementExchangeDeviceClass>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'knownDeviceClasses'");
     }
 
     /**
@@ -77,7 +98,11 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return StreamInterface|null
     */
     public function getNotificationContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('notificationContent');
+        $val = $this->getBackingStore()->get('notificationContent');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationContent'");
     }
 
     /**

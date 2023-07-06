@@ -32,7 +32,7 @@ class ResourcePerformanceMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics resource performance metrics.
+     * The scores and insights for the resource performance metrics.
      * @param ResourcePerformanceMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class ResourcePerformanceMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics resource performance metrics.
+     * The scores and insights for the resource performance metrics.
      * @param ResourcePerformanceMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

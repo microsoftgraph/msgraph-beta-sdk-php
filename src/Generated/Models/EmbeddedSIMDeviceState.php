@@ -33,7 +33,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -41,12 +45,16 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +75,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -75,7 +87,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('modifiedDateTime');
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**
@@ -83,7 +99,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return EmbeddedSIMDeviceStateValue|null
     */
     public function getState(): ?EmbeddedSIMDeviceStateValue {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof EmbeddedSIMDeviceStateValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -91,7 +111,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getStateDetails(): ?string {
-        return $this->getBackingStore()->get('stateDetails');
+        $val = $this->getBackingStore()->get('stateDetails');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stateDetails'");
     }
 
     /**
@@ -99,7 +123,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getUniversalIntegratedCircuitCardIdentifier(): ?string {
-        return $this->getBackingStore()->get('universalIntegratedCircuitCardIdentifier');
+        $val = $this->getBackingStore()->get('universalIntegratedCircuitCardIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'universalIntegratedCircuitCardIdentifier'");
     }
 
     /**
@@ -107,7 +135,11 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**

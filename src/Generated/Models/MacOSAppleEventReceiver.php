@@ -42,7 +42,12 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return bool|null
     */
     public function getAllowed(): ?bool {
-        return $this->getBackingStore()->get('allowed');
+        $val = $this->getBackingStore()->get('allowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowed'");
     }
 
     /**
@@ -66,12 +75,16 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getCodeRequirement(): ?string {
-        return $this->getBackingStore()->get('codeRequirement');
+        $val = $this->getBackingStore()->get('codeRequirement');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'codeRequirement'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +102,11 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getIdentifier(): ?string {
-        return $this->getBackingStore()->get('identifier');
+        $val = $this->getBackingStore()->get('identifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifier'");
     }
 
     /**
@@ -97,7 +114,11 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return MacOSProcessIdentifierType|null
     */
     public function getIdentifierType(): ?MacOSProcessIdentifierType {
-        return $this->getBackingStore()->get('identifierType');
+        $val = $this->getBackingStore()->get('identifierType');
+        if (is_null($val) || $val instanceof MacOSProcessIdentifierType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifierType'");
     }
 
     /**
@@ -105,7 +126,11 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

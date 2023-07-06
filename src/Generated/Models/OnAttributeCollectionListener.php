@@ -27,7 +27,7 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
      * @return OnAttributeCollectionHandler|null
     */
     public function getHandler(): ?OnAttributeCollectionHandler {
-        return $this->getBackingStore()->get('handler');
+        $val = $this->getBackingStore()->get('handler');
+        if (is_null($val) || $val instanceof OnAttributeCollectionHandler) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'handler'");
     }
 
     /**

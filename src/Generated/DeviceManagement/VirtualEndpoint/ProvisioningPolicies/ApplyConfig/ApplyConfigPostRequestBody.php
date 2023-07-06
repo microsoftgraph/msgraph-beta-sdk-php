@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,17 +62,30 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return array<string>|null
     */
     public function getCloudPcIds(): ?array {
-        return $this->getBackingStore()->get('cloudPcIds');
+        $val = $this->getBackingStore()->get('cloudPcIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudPcIds' => fn(ParseNode $n) => $o->setCloudPcIds($n->getCollectionOfPrimitiveValues()),
+            'cloudPcIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCloudPcIds($val);
+            },
             'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(CloudPcPolicySettingType::class)),
         ];
     }
@@ -76,7 +95,11 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return CloudPcPolicySettingType|null
     */
     public function getPolicySettings(): ?CloudPcPolicySettingType {
-        return $this->getBackingStore()->get('policySettings');
+        $val = $this->getBackingStore()->get('policySettings');
+        if (is_null($val) || $val instanceof CloudPcPolicySettingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policySettings'");
     }
 
     /**

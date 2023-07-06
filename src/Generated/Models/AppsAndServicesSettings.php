@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security;
+namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedModel, Parsable 
+class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +18,7 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new intelligenceProfileSponsorState and sets the default values.
+     * Instantiates a new AppsAndServicesSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +28,10 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return IntelligenceProfileSponsorState
+     * @return AppsAndServicesSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IntelligenceProfileSponsorState {
-        return new IntelligenceProfileSponsorState();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppsAndServicesSettings {
+        return new AppsAndServicesSettings();
     }
 
     /**
@@ -39,7 +39,12 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,32 +56,40 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the code property value. A codified representation for this sponsor state.
-     * @return string|null
-    */
-    public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
-    }
-
-    /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
+            'isAppAndServicesTrialEnabled' => fn(ParseNode $n) => $o->setIsAppAndServicesTrialEnabled($n->getBooleanValue()),
+            'isOfficeStoreEnabled' => fn(ParseNode $n) => $o->setIsOfficeStoreEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the label property value. A display label for this sponsor state.
-     * @return string|null
+     * Gets the isAppAndServicesTrialEnabled property value. The isAppAndServicesTrialEnabled property
+     * @return bool|null
     */
-    public function getLabel(): ?string {
-        return $this->getBackingStore()->get('label');
+    public function getIsAppAndServicesTrialEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isAppAndServicesTrialEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAppAndServicesTrialEnabled'");
+    }
+
+    /**
+     * Gets the isOfficeStoreEnabled property value. The isOfficeStoreEnabled property
+     * @return bool|null
+    */
+    public function getIsOfficeStoreEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isOfficeStoreEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOfficeStoreEnabled'");
     }
 
     /**
@@ -84,7 +97,11 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -92,8 +109,8 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('code', $this->getCode());
-        $writer->writeStringValue('label', $this->getLabel());
+        $writer->writeBooleanValue('isAppAndServicesTrialEnabled', $this->getIsAppAndServicesTrialEnabled());
+        $writer->writeBooleanValue('isOfficeStoreEnabled', $this->getIsOfficeStoreEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -115,19 +132,19 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the code property value. A codified representation for this sponsor state.
-     * @param string|null $value Value to set for the code property.
+     * Sets the isAppAndServicesTrialEnabled property value. The isAppAndServicesTrialEnabled property
+     * @param bool|null $value Value to set for the isAppAndServicesTrialEnabled property.
     */
-    public function setCode(?string $value): void {
-        $this->getBackingStore()->set('code', $value);
+    public function setIsAppAndServicesTrialEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isAppAndServicesTrialEnabled', $value);
     }
 
     /**
-     * Sets the label property value. A display label for this sponsor state.
-     * @param string|null $value Value to set for the label property.
+     * Sets the isOfficeStoreEnabled property value. The isOfficeStoreEnabled property
+     * @param bool|null $value Value to set for the isOfficeStoreEnabled property.
     */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
+    public function setIsOfficeStoreEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isOfficeStoreEnabled', $value);
     }
 
     /**

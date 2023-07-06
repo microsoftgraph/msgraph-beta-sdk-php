@@ -41,7 +41,12 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,7 +59,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || $val instanceof CloudPcOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -77,7 +86,11 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
-        return $this->getBackingStore()->get('userAccountType');
+        $val = $this->getBackingStore()->get('userAccountType');
+        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
     }
 
     /**

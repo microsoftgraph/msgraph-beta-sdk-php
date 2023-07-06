@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Device Compilance Policy Setting State for a given device.
@@ -42,7 +43,12 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getCurrentValue(): ?string {
-        return $this->getBackingStore()->get('currentValue');
+        $val = $this->getBackingStore()->get('currentValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentValue'");
     }
 
     /**
@@ -66,7 +76,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
@@ -74,12 +88,16 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getErrorDescription(): ?string {
-        return $this->getBackingStore()->get('errorDescription');
+        $val = $this->getBackingStore()->get('errorDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDescription'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -106,7 +124,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getInstanceDisplayName(): ?string {
-        return $this->getBackingStore()->get('instanceDisplayName');
+        $val = $this->getBackingStore()->get('instanceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'instanceDisplayName'");
     }
 
     /**
@@ -114,7 +136,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -122,7 +148,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getSetting(): ?string {
-        return $this->getBackingStore()->get('setting');
+        $val = $this->getBackingStore()->get('setting');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setting'");
     }
 
     /**
@@ -130,7 +160,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getSettingInstanceId(): ?string {
-        return $this->getBackingStore()->get('settingInstanceId');
+        $val = $this->getBackingStore()->get('settingInstanceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingInstanceId'");
     }
 
     /**
@@ -138,7 +172,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->getBackingStore()->get('settingName');
+        $val = $this->getBackingStore()->get('settingName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingName'");
     }
 
     /**
@@ -146,7 +184,13 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return array<SettingSource>|null
     */
     public function getSources(): ?array {
-        return $this->getBackingStore()->get('sources');
+        $val = $this->getBackingStore()->get('sources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SettingSource::class);
+            /** @var array<SettingSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sources'");
     }
 
     /**
@@ -154,7 +198,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return ComplianceStatus|null
     */
     public function getState(): ?ComplianceStatus {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof ComplianceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -162,7 +210,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getUserEmail(): ?string {
-        return $this->getBackingStore()->get('userEmail');
+        $val = $this->getBackingStore()->get('userEmail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userEmail'");
     }
 
     /**
@@ -170,7 +222,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -178,7 +234,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**
@@ -186,7 +246,11 @@ class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

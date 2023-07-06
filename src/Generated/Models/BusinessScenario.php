@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BusinessScenario extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -38,7 +43,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,12 +55,16 @@ class BusinessScenario extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +74,14 @@ class BusinessScenario extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'ownerAppIds' => fn(ParseNode $n) => $o->setOwnerAppIds($n->getCollectionOfPrimitiveValues()),
+            'ownerAppIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOwnerAppIds($val);
+            },
             'planner' => fn(ParseNode $n) => $o->setPlanner($n->getObjectValue([BusinessScenarioPlanner::class, 'createFromDiscriminatorValue'])),
             'uniqueName' => fn(ParseNode $n) => $o->setUniqueName($n->getStringValue()),
         ]);
@@ -72,7 +92,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -80,7 +104,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -88,7 +116,13 @@ class BusinessScenario extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getOwnerAppIds(): ?array {
-        return $this->getBackingStore()->get('ownerAppIds');
+        $val = $this->getBackingStore()->get('ownerAppIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerAppIds'");
     }
 
     /**
@@ -96,7 +130,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return BusinessScenarioPlanner|null
     */
     public function getPlanner(): ?BusinessScenarioPlanner {
-        return $this->getBackingStore()->get('planner');
+        $val = $this->getBackingStore()->get('planner');
+        if (is_null($val) || $val instanceof BusinessScenarioPlanner) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'planner'");
     }
 
     /**
@@ -104,7 +142,11 @@ class BusinessScenario extends Entity implements Parsable
      * @return string|null
     */
     public function getUniqueName(): ?string {
-        return $this->getBackingStore()->get('uniqueName');
+        $val = $this->getBackingStore()->get('uniqueName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueName'");
     }
 
     /**

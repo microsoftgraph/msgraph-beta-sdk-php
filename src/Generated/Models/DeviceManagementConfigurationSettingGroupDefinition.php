@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
@@ -32,11 +33,17 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     }
 
     /**
-     * Gets the childIds property value. Dependent child settings to this group of settings.
+     * Gets the childIds property value. Dependent child settings to this group of settings
      * @return array<string>|null
     */
     public function getChildIds(): ?array {
-        return $this->getBackingStore()->get('childIds');
+        $val = $this->getBackingStore()->get('childIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childIds'");
     }
 
     /**
@@ -44,7 +51,13 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * @return array<DeviceManagementConfigurationSettingDependedOnBy>|null
     */
     public function getDependedOnBy(): ?array {
-        return $this->getBackingStore()->get('dependedOnBy');
+        $val = $this->getBackingStore()->get('dependedOnBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDependedOnBy::class);
+            /** @var array<DeviceManagementConfigurationSettingDependedOnBy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependedOnBy'");
     }
 
     /**
@@ -52,17 +65,30 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * @return array<DeviceManagementConfigurationDependentOn>|null
     */
     public function getDependentOn(): ?array {
-        return $this->getBackingStore()->get('dependentOn');
+        $val = $this->getBackingStore()->get('dependentOn');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationDependentOn::class);
+            /** @var array<DeviceManagementConfigurationDependentOn>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependentOn'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'childIds' => fn(ParseNode $n) => $o->setChildIds($n->getCollectionOfPrimitiveValues()),
+            'childIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setChildIds($val);
+            },
             'dependedOnBy' => fn(ParseNode $n) => $o->setDependedOnBy($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'])),
             'dependentOn' => fn(ParseNode $n) => $o->setDependentOn($n->getCollectionOfObjectValues([DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -80,7 +106,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     }
 
     /**
-     * Sets the childIds property value. Dependent child settings to this group of settings.
+     * Sets the childIds property value. Dependent child settings to this group of settings
      * @param array<string>|null $value Value to set for the childIds property.
     */
     public function setChildIds(?array $value): void {

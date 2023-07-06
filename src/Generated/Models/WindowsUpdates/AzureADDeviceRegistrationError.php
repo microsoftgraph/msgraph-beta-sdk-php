@@ -27,7 +27,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
      * @return AzureADDeviceRegistrationErrorReason|null
     */
     public function getReason(): ?AzureADDeviceRegistrationErrorReason {
-        return $this->getBackingStore()->get('reason');
+        $val = $this->getBackingStore()->get('reason');
+        if (is_null($val) || $val instanceof AzureADDeviceRegistrationErrorReason) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reason'");
     }
 
     /**

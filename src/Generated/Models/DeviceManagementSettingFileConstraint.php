@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint implements Parsable 
 {
@@ -27,12 +28,19 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'supportedExtensions' => fn(ParseNode $n) => $o->setSupportedExtensions($n->getCollectionOfPrimitiveValues()),
+            'supportedExtensions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedExtensions($val);
+            },
         ]);
     }
 
@@ -41,7 +49,13 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
      * @return array<string>|null
     */
     public function getSupportedExtensions(): ?array {
-        return $this->getBackingStore()->get('supportedExtensions');
+        $val = $this->getBackingStore()->get('supportedExtensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedExtensions'");
     }
 
     /**

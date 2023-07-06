@@ -26,16 +26,20 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
+     * Gets the detectionStatus property value. The status of the detection. The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @return DetectionStatus|null
     */
     public function getDetectionStatus(): ?DetectionStatus {
-        return $this->getBackingStore()->get('detectionStatus');
+        $val = $this->getBackingStore()->get('detectionStatus');
+        if (is_null($val) || $val instanceof DetectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionStatus'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +62,11 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return FileDetails|null
     */
     public function getImageFile(): ?FileDetails {
-        return $this->getBackingStore()->get('imageFile');
+        $val = $this->getBackingStore()->get('imageFile');
+        if (is_null($val) || $val instanceof FileDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageFile'");
     }
 
     /**
@@ -66,15 +74,23 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getMdeDeviceId(): ?string {
-        return $this->getBackingStore()->get('mdeDeviceId');
+        $val = $this->getBackingStore()->get('mdeDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdeDeviceId'");
     }
 
     /**
-     * Gets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
+     * Gets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getParentProcessCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('parentProcessCreationDateTime');
+        $val = $this->getBackingStore()->get('parentProcessCreationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentProcessCreationDateTime'");
     }
 
     /**
@@ -82,7 +98,11 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return int|null
     */
     public function getParentProcessId(): ?int {
-        return $this->getBackingStore()->get('parentProcessId');
+        $val = $this->getBackingStore()->get('parentProcessId');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentProcessId'");
     }
 
     /**
@@ -90,7 +110,11 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return FileDetails|null
     */
     public function getParentProcessImageFile(): ?FileDetails {
-        return $this->getBackingStore()->get('parentProcessImageFile');
+        $val = $this->getBackingStore()->get('parentProcessImageFile');
+        if (is_null($val) || $val instanceof FileDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentProcessImageFile'");
     }
 
     /**
@@ -98,15 +122,23 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getProcessCommandLine(): ?string {
-        return $this->getBackingStore()->get('processCommandLine');
+        $val = $this->getBackingStore()->get('processCommandLine');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processCommandLine'");
     }
 
     /**
-     * Gets the processCreationDateTime property value. Date and time the process was created.
+     * Gets the processCreationDateTime property value. Date and time when the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getProcessCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('processCreationDateTime');
+        $val = $this->getBackingStore()->get('processCreationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processCreationDateTime'");
     }
 
     /**
@@ -114,7 +146,11 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return int|null
     */
     public function getProcessId(): ?int {
-        return $this->getBackingStore()->get('processId');
+        $val = $this->getBackingStore()->get('processId');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processId'");
     }
 
     /**
@@ -122,7 +158,11 @@ class ProcessEvidence extends AlertEvidence implements Parsable
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
-        return $this->getBackingStore()->get('userAccount');
+        $val = $this->getBackingStore()->get('userAccount');
+        if (is_null($val) || $val instanceof UserAccount) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccount'");
     }
 
     /**
@@ -144,7 +184,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
+     * Sets the detectionStatus property value. The status of the detection. The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @param DetectionStatus|null $value Value to set for the detectionStatus property.
     */
     public function setDetectionStatus(?DetectionStatus $value): void {
@@ -168,7 +208,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
+     * Sets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the parentProcessCreationDateTime property.
     */
     public function setParentProcessCreationDateTime(?DateTime $value): void {
@@ -200,7 +240,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the processCreationDateTime property value. Date and time the process was created.
+     * Sets the processCreationDateTime property value. Date and time when the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the processCreationDateTime property.
     */
     public function setProcessCreationDateTime(?DateTime $value): void {

@@ -30,7 +30,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->getBackingStore()->get('activeDevices');
+        $val = $this->getBackingStore()->get('activeDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDevices'");
     }
 
     /**
@@ -38,7 +42,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimeFair(): ?int {
-        return $this->getBackingStore()->get('batteryRuntimeFair');
+        $val = $this->getBackingStore()->get('batteryRuntimeFair');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryRuntimeFair'");
     }
 
     /**
@@ -46,7 +54,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimeGood(): ?int {
-        return $this->getBackingStore()->get('batteryRuntimeGood');
+        $val = $this->getBackingStore()->get('batteryRuntimeGood');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryRuntimeGood'");
     }
 
     /**
@@ -54,12 +66,16 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimePoor(): ?int {
-        return $this->getBackingStore()->get('batteryRuntimePoor');
+        $val = $this->getBackingStore()->get('batteryRuntimePoor');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryRuntimePoor'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +93,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**

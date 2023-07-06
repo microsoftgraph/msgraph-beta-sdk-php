@@ -43,7 +43,12 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,7 +56,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getAltitude(): ?float {
-        return $this->getBackingStore()->get('altitude');
+        $val = $this->getBackingStore()->get('altitude');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'altitude'");
     }
 
     /**
@@ -64,7 +73,7 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +96,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getHeading(): ?float {
-        return $this->getBackingStore()->get('heading');
+        $val = $this->getBackingStore()->get('heading');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'heading'");
     }
 
     /**
@@ -95,7 +108,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getHorizontalAccuracy(): ?float {
-        return $this->getBackingStore()->get('horizontalAccuracy');
+        $val = $this->getBackingStore()->get('horizontalAccuracy');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'horizontalAccuracy'");
     }
 
     /**
@@ -103,7 +120,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastCollectedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCollectedDateTime');
+        $val = $this->getBackingStore()->get('lastCollectedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCollectedDateTime'");
     }
 
     /**
@@ -111,7 +132,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastCollectedDateTimeUtc(): ?DateTime {
-        return $this->getBackingStore()->get('lastCollectedDateTimeUtc');
+        $val = $this->getBackingStore()->get('lastCollectedDateTimeUtc');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCollectedDateTimeUtc'");
     }
 
     /**
@@ -119,7 +144,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getLatitude(): ?float {
-        return $this->getBackingStore()->get('latitude');
+        $val = $this->getBackingStore()->get('latitude');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'latitude'");
     }
 
     /**
@@ -127,7 +156,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getLongitude(): ?float {
-        return $this->getBackingStore()->get('longitude');
+        $val = $this->getBackingStore()->get('longitude');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'longitude'");
     }
 
     /**
@@ -135,7 +168,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -143,7 +180,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getSpeed(): ?float {
-        return $this->getBackingStore()->get('speed');
+        $val = $this->getBackingStore()->get('speed');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speed'");
     }
 
     /**
@@ -151,7 +192,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getVerticalAccuracy(): ?float {
-        return $this->getBackingStore()->get('verticalAccuracy');
+        $val = $this->getBackingStore()->get('verticalAccuracy');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verticalAccuracy'");
     }
 
     /**

@@ -39,7 +39,12 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return ParticipantInfo|null
     */
     public function getInitiatedBy(): ?ParticipantInfo {
-        return $this->getBackingStore()->get('initiatedBy');
+        $val = $this->getBackingStore()->get('initiatedBy');
+        if (is_null($val) || $val instanceof ParticipantInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedBy'");
     }
 
     /**
@@ -77,7 +86,11 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return IdentitySet|null
     */
     public function getInitiator(): ?IdentitySet {
-        return $this->getBackingStore()->get('initiator');
+        $val = $this->getBackingStore()->get('initiator');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiator'");
     }
 
     /**
@@ -85,7 +98,11 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return RecordingStatus|null
     */
     public function getRecordingStatus(): ?RecordingStatus {
-        return $this->getBackingStore()->get('recordingStatus');
+        $val = $this->getBackingStore()->get('recordingStatus');
+        if (is_null($val) || $val instanceof RecordingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordingStatus'");
     }
 
     /**

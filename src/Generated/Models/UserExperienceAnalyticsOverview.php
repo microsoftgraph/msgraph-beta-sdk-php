@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserExperienceAnalyticsOverview extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -36,11 +37,17 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     }
 
     /**
-     * Gets the insights property value. The user experience analytics insights.
+     * Gets the insights property value. The user experience analytics insights. Read-only.
      * @return array<UserExperienceAnalyticsInsight>|null
     */
     public function getInsights(): ?array {
-        return $this->getBackingStore()->get('insights');
+        $val = $this->getBackingStore()->get('insights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsInsight::class);
+            /** @var array<UserExperienceAnalyticsInsight>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insights'");
     }
 
     /**
@@ -53,7 +60,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     }
 
     /**
-     * Sets the insights property value. The user experience analytics insights.
+     * Sets the insights property value. The user experience analytics insights. Read-only.
      * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {

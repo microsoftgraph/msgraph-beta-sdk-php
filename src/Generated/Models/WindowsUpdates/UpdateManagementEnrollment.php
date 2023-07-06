@@ -27,7 +27,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
-        return $this->getBackingStore()->get('updateCategory');
+        $val = $this->getBackingStore()->get('updateCategory');
+        if (is_null($val) || $val instanceof UpdateCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateCategory'");
     }
 
     /**

@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Simulation;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\LandingPage\LandingPageRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\LoginPage\LoginPageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\Payload\PayloadRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -18,6 +20,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SimulationItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
+    */
+    public function landingPage(): LandingPageRequestBuilder {
+        return new LandingPageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the loginPage property of the microsoft.graph.simulation entity.
+    */
+    public function loginPage(): LoginPageRequestBuilder {
+        return new LoginPageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the payload property of the microsoft.graph.simulation entity.
     */

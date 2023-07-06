@@ -27,7 +27,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityName(): ?string {
-        return $this->getBackingStore()->get('identityName');
+        $val = $this->getBackingStore()->get('identityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityName'");
     }
 
     /**
@@ -54,7 +58,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
+        $val = $this->getBackingStore()->get('identityVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -62,7 +70,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return AndroidMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?AndroidMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof AndroidMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -70,7 +82,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->getBackingStore()->get('packageId');
+        $val = $this->getBackingStore()->get('packageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageId'");
     }
 
     /**
@@ -78,7 +94,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getVersionCode(): ?string {
-        return $this->getBackingStore()->get('versionCode');
+        $val = $this->getBackingStore()->get('versionCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versionCode'");
     }
 
     /**
@@ -86,7 +106,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getVersionName(): ?string {
-        return $this->getBackingStore()->get('versionName');
+        $val = $this->getBackingStore()->get('versionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versionName'");
     }
 
     /**

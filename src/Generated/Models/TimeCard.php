@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TimeCard extends ChangeTrackedEntity implements Parsable 
 {
@@ -30,7 +31,13 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return array<TimeCardBreak>|null
     */
     public function getBreaks(): ?array {
-        return $this->getBackingStore()->get('breaks');
+        $val = $this->getBackingStore()->get('breaks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TimeCardBreak::class);
+            /** @var array<TimeCardBreak>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'breaks'");
     }
 
     /**
@@ -38,7 +45,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return TimeCardEvent|null
     */
     public function getClockInEvent(): ?TimeCardEvent {
-        return $this->getBackingStore()->get('clockInEvent');
+        $val = $this->getBackingStore()->get('clockInEvent');
+        if (is_null($val) || $val instanceof TimeCardEvent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clockInEvent'");
     }
 
     /**
@@ -46,7 +57,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return TimeCardEvent|null
     */
     public function getClockOutEvent(): ?TimeCardEvent {
-        return $this->getBackingStore()->get('clockOutEvent');
+        $val = $this->getBackingStore()->get('clockOutEvent');
+        if (is_null($val) || $val instanceof TimeCardEvent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clockOutEvent'");
     }
 
     /**
@@ -54,12 +69,16 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return ConfirmedBy|null
     */
     public function getConfirmedBy(): ?ConfirmedBy {
-        return $this->getBackingStore()->get('confirmedBy');
+        $val = $this->getBackingStore()->get('confirmedBy');
+        if (is_null($val) || $val instanceof ConfirmedBy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'confirmedBy'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +99,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->getBackingStore()->get('notes');
+        $val = $this->getBackingStore()->get('notes');
+        if (is_null($val) || $val instanceof ItemBody) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
     }
 
     /**
@@ -88,7 +111,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return TimeCardEntry|null
     */
     public function getOriginalEntry(): ?TimeCardEntry {
-        return $this->getBackingStore()->get('originalEntry');
+        $val = $this->getBackingStore()->get('originalEntry');
+        if (is_null($val) || $val instanceof TimeCardEntry) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originalEntry'");
     }
 
     /**
@@ -96,7 +123,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return TimeCardState|null
     */
     public function getState(): ?TimeCardState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof TimeCardState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -104,7 +135,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

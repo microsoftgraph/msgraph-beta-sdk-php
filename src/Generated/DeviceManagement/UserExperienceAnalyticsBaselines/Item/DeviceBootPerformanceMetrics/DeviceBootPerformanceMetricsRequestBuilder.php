@@ -32,7 +32,7 @@ class DeviceBootPerformanceMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics device boot performance metrics.
+     * The scores and insights for the device boot performance metrics.
      * @param DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class DeviceBootPerformanceMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics device boot performance metrics.
+     * The scores and insights for the device boot performance metrics.
      * @param DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

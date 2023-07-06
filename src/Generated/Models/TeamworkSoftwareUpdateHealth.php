@@ -39,7 +39,12 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getAdminAgentSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('adminAgentSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('adminAgentSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminAgentSoftwareUpdateStatus'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getCompanyPortalSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('companyPortalSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('companyPortalSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyPortalSoftwareUpdateStatus'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getFirmwareSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('firmwareSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('firmwareSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareSoftwareUpdateStatus'");
     }
 
     /**
@@ -96,7 +113,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getOperatingSystemSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('operatingSystemSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('operatingSystemSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemSoftwareUpdateStatus'");
     }
 
     /**
@@ -112,7 +137,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getPartnerAgentSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('partnerAgentSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('partnerAgentSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerAgentSoftwareUpdateStatus'");
     }
 
     /**
@@ -120,7 +149,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getTeamsClientSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->getBackingStore()->get('teamsClientSoftwareUpdateStatus');
+        $val = $this->getBackingStore()->get('teamsClientSoftwareUpdateStatus');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsClientSoftwareUpdateStatus'");
     }
 
     /**

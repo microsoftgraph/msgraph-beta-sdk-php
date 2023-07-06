@@ -37,7 +37,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
-        return $this->getBackingStore()->get('connectAutomatically');
+        $val = $this->getBackingStore()->get('connectAutomatically');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectAutomatically'");
     }
 
     /**
@@ -45,12 +49,16 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
-        return $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        $val = $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectWhenNetworkNameIsHidden'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +78,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->getBackingStore()->get('networkName');
+        $val = $this->getBackingStore()->get('networkName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkName'");
     }
 
     /**
@@ -78,7 +90,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getPreSharedKey(): ?string {
-        return $this->getBackingStore()->get('preSharedKey');
+        $val = $this->getBackingStore()->get('preSharedKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preSharedKey'");
     }
 
     /**
@@ -86,7 +102,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getPreSharedKeyIsSet(): ?bool {
-        return $this->getBackingStore()->get('preSharedKeyIsSet');
+        $val = $this->getBackingStore()->get('preSharedKeyIsSet');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preSharedKeyIsSet'");
     }
 
     /**
@@ -94,7 +114,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getSsid(): ?string {
-        return $this->getBackingStore()->get('ssid');
+        $val = $this->getBackingStore()->get('ssid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssid'");
     }
 
     /**
@@ -102,7 +126,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return AospDeviceOwnerWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AospDeviceOwnerWiFiSecurityType {
-        return $this->getBackingStore()->get('wiFiSecurityType');
+        $val = $this->getBackingStore()->get('wiFiSecurityType');
+        if (is_null($val) || $val instanceof AospDeviceOwnerWiFiSecurityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiSecurityType'");
     }
 
     /**

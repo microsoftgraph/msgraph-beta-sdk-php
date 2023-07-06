@@ -39,7 +39,11 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getConfigurationEndpointUrl(): ?string {
-        return $this->getBackingStore()->get('configurationEndpointUrl');
+        $val = $this->getBackingStore()->get('configurationEndpointUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationEndpointUrl'");
     }
 
     /**
@@ -47,7 +51,11 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -55,7 +63,11 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -63,12 +75,16 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableAuthenticationViaCompanyPortal(): ?bool {
-        return $this->getBackingStore()->get('enableAuthenticationViaCompanyPortal');
+        $val = $this->getBackingStore()->get('enableAuthenticationViaCompanyPortal');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableAuthenticationViaCompanyPortal'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +103,11 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequireCompanyPortalOnSetupAssistantEnrolledDevices(): ?bool {
-        return $this->getBackingStore()->get('requireCompanyPortalOnSetupAssistantEnrolledDevices');
+        $val = $this->getBackingStore()->get('requireCompanyPortalOnSetupAssistantEnrolledDevices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireCompanyPortalOnSetupAssistantEnrolledDevices'");
     }
 
     /**
@@ -95,7 +115,11 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequiresUserAuthentication(): ?bool {
-        return $this->getBackingStore()->get('requiresUserAuthentication');
+        $val = $this->getBackingStore()->get('requiresUserAuthentication');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiresUserAuthentication'");
     }
 
     /**

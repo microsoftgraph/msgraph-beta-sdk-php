@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAllowedHeaders(): ?array {
-        return $this->getBackingStore()->get('allowedHeaders');
+        $val = $this->getBackingStore()->get('allowedHeaders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedHeaders'");
     }
 
     /**
@@ -55,7 +67,13 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAllowedMethods(): ?array {
-        return $this->getBackingStore()->get('allowedMethods');
+        $val = $this->getBackingStore()->get('allowedMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedMethods'");
     }
 
     /**
@@ -63,7 +81,13 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAllowedOrigins(): ?array {
-        return $this->getBackingStore()->get('allowedOrigins');
+        $val = $this->getBackingStore()->get('allowedOrigins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedOrigins'");
     }
 
     /**
@@ -76,14 +100,35 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedHeaders' => fn(ParseNode $n) => $o->setAllowedHeaders($n->getCollectionOfPrimitiveValues()),
-            'allowedMethods' => fn(ParseNode $n) => $o->setAllowedMethods($n->getCollectionOfPrimitiveValues()),
-            'allowedOrigins' => fn(ParseNode $n) => $o->setAllowedOrigins($n->getCollectionOfPrimitiveValues()),
+            'allowedHeaders' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedHeaders($val);
+            },
+            'allowedMethods' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedMethods($val);
+            },
+            'allowedOrigins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedOrigins($val);
+            },
             'maxAgeInSeconds' => fn(ParseNode $n) => $o->setMaxAgeInSeconds($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getStringValue()),
@@ -95,7 +140,11 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getMaxAgeInSeconds(): ?int {
-        return $this->getBackingStore()->get('maxAgeInSeconds');
+        $val = $this->getBackingStore()->get('maxAgeInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxAgeInSeconds'");
     }
 
     /**
@@ -103,7 +152,11 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +164,11 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getResource(): ?string {
-        return $this->getBackingStore()->get('resource');
+        $val = $this->getBackingStore()->get('resource');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resource'");
     }
 
     /**

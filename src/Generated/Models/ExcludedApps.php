@@ -42,7 +42,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAccess(): ?bool {
-        return $this->getBackingStore()->get('access');
+        $val = $this->getBackingStore()->get('access');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'access'");
     }
 
     /**
@@ -50,7 +54,12 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -66,7 +75,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getBing(): ?bool {
-        return $this->getBackingStore()->get('bing');
+        $val = $this->getBackingStore()->get('bing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bing'");
     }
 
     /**
@@ -74,12 +87,16 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getExcel(): ?bool {
-        return $this->getBackingStore()->get('excel');
+        $val = $this->getBackingStore()->get('excel');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -108,7 +125,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getGroove(): ?bool {
-        return $this->getBackingStore()->get('groove');
+        $val = $this->getBackingStore()->get('groove');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groove'");
     }
 
     /**
@@ -116,7 +137,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getInfoPath(): ?bool {
-        return $this->getBackingStore()->get('infoPath');
+        $val = $this->getBackingStore()->get('infoPath');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'infoPath'");
     }
 
     /**
@@ -124,7 +149,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getLync(): ?bool {
-        return $this->getBackingStore()->get('lync');
+        $val = $this->getBackingStore()->get('lync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lync'");
     }
 
     /**
@@ -132,7 +161,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -140,7 +173,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getOneDrive(): ?bool {
-        return $this->getBackingStore()->get('oneDrive');
+        $val = $this->getBackingStore()->get('oneDrive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDrive'");
     }
 
     /**
@@ -148,7 +185,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getOneNote(): ?bool {
-        return $this->getBackingStore()->get('oneNote');
+        $val = $this->getBackingStore()->get('oneNote');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneNote'");
     }
 
     /**
@@ -156,7 +197,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getOutlook(): ?bool {
-        return $this->getBackingStore()->get('outlook');
+        $val = $this->getBackingStore()->get('outlook');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outlook'");
     }
 
     /**
@@ -164,7 +209,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getPowerPoint(): ?bool {
-        return $this->getBackingStore()->get('powerPoint');
+        $val = $this->getBackingStore()->get('powerPoint');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerPoint'");
     }
 
     /**
@@ -172,7 +221,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getPublisher(): ?bool {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**
@@ -180,7 +233,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getSharePointDesigner(): ?bool {
-        return $this->getBackingStore()->get('sharePointDesigner');
+        $val = $this->getBackingStore()->get('sharePointDesigner');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointDesigner'");
     }
 
     /**
@@ -188,7 +245,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getTeams(): ?bool {
-        return $this->getBackingStore()->get('teams');
+        $val = $this->getBackingStore()->get('teams');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teams'");
     }
 
     /**
@@ -196,7 +257,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getVisio(): ?bool {
-        return $this->getBackingStore()->get('visio');
+        $val = $this->getBackingStore()->get('visio');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'visio'");
     }
 
     /**
@@ -204,7 +269,11 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getWord(): ?bool {
-        return $this->getBackingStore()->get('word');
+        $val = $this->getBackingStore()->get('word');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'word'");
     }
 
     /**

@@ -27,7 +27,7 @@ class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsa
      * @return string|null
     */
     public function getGroupName(): ?string {
-        return $this->getBackingStore()->get('groupName');
+        $val = $this->getBackingStore()->get('groupName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupName'");
     }
 
     /**

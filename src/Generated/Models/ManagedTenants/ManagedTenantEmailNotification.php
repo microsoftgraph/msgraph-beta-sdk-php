@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagedTenantEmailNotification extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return ManagedTenantAlert|null
     */
     public function getAlert(): ?ManagedTenantAlert {
-        return $this->getBackingStore()->get('alert');
+        $val = $this->getBackingStore()->get('alert');
+        if (is_null($val) || $val instanceof ManagedTenantAlert) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alert'");
     }
 
     /**
@@ -39,7 +44,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -47,7 +56,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -55,7 +68,13 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return array<Email>|null
     */
     public function getEmailAddresses(): ?array {
-        return $this->getBackingStore()->get('emailAddresses');
+        $val = $this->getBackingStore()->get('emailAddresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Email::class);
+            /** @var array<Email>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddresses'");
     }
 
     /**
@@ -63,12 +82,16 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailBody(): ?string {
-        return $this->getBackingStore()->get('emailBody');
+        $val = $this->getBackingStore()->get('emailBody');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailBody'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +112,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -97,7 +124,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -105,7 +136,11 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**

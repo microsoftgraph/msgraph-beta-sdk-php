@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
@@ -30,12 +31,16 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
      * @return StreamInterface|null
     */
     public function getExampleJson(): ?StreamInterface {
-        return $this->getBackingStore()->get('exampleJson');
+        $val = $this->getBackingStore()->get('exampleJson');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exampleJson'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,13 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
      * @return array<AndroidManagedStoreAppConfigurationSchemaItem>|null
     */
     public function getNestedSchemaItems(): ?array {
-        return $this->getBackingStore()->get('nestedSchemaItems');
+        $val = $this->getBackingStore()->get('nestedSchemaItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidManagedStoreAppConfigurationSchemaItem::class);
+            /** @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nestedSchemaItems'");
     }
 
     /**
@@ -59,7 +70,13 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
      * @return array<AndroidManagedStoreAppConfigurationSchemaItem>|null
     */
     public function getSchemaItems(): ?array {
-        return $this->getBackingStore()->get('schemaItems');
+        $val = $this->getBackingStore()->get('schemaItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidManagedStoreAppConfigurationSchemaItem::class);
+            /** @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schemaItems'");
     }
 
     /**

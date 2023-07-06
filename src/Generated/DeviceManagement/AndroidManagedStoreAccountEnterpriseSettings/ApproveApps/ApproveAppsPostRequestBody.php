@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getApproveAllPermissions(): ?bool {
-        return $this->getBackingStore()->get('approveAllPermissions');
+        $val = $this->getBackingStore()->get('approveAllPermissions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approveAllPermissions'");
     }
 
     /**
@@ -60,13 +70,20 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'approveAllPermissions' => fn(ParseNode $n) => $o->setApproveAllPermissions($n->getBooleanValue()),
-            'packageIds' => fn(ParseNode $n) => $o->setPackageIds($n->getCollectionOfPrimitiveValues()),
+            'packageIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPackageIds($val);
+            },
         ];
     }
 
@@ -75,7 +92,13 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @return array<string>|null
     */
     public function getPackageIds(): ?array {
-        return $this->getBackingStore()->get('packageIds');
+        $val = $this->getBackingStore()->get('packageIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageIds'");
     }
 
     /**

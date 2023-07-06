@@ -39,7 +39,12 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @return string|null
     */
     public function getNotificationBody(): ?string {
-        return $this->getBackingStore()->get('notificationBody');
+        $val = $this->getBackingStore()->get('notificationBody');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationBody'");
     }
 
     /**
@@ -75,7 +84,11 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
-        return $this->getBackingStore()->get('notificationTitle');
+        $val = $this->getBackingStore()->get('notificationTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationTitle'");
     }
 
     /**

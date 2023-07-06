@@ -31,12 +31,16 @@ class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration imple
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->getBackingStore()->get('certFileName');
+        $val = $this->getBackingStore()->get('certFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certFileName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration imple
      * @return StreamInterface|null
     */
     public function getTrustedRootCertificate(): ?StreamInterface {
-        return $this->getBackingStore()->get('trustedRootCertificate');
+        $val = $this->getBackingStore()->get('trustedRootCertificate');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedRootCertificate'");
     }
 
     /**

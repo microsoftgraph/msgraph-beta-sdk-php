@@ -39,7 +39,11 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
      * @return ActionUrl|null
     */
     public function getActionUrl(): ?ActionUrl {
-        return $this->getBackingStore()->get('actionUrl');
+        $val = $this->getBackingStore()->get('actionUrl');
+        if (is_null($val) || $val instanceof ActionUrl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionUrl'");
     }
 
     /**
@@ -47,7 +51,12 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +69,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,7 +98,11 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getStepNumber(): ?int {
-        return $this->getBackingStore()->get('stepNumber');
+        $val = $this->getBackingStore()->get('stepNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stepNumber'");
     }
 
     /**
@@ -93,7 +110,11 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**

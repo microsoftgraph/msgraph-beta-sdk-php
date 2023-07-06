@@ -39,12 +39,16 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return AttackSimulationInfo|null
     */
     public function getAttackSimulationInfo(): ?AttackSimulationInfo {
-        return $this->getBackingStore()->get('attackSimulationInfo');
+        $val = $this->getBackingStore()->get('attackSimulationInfo');
+        if (is_null($val) || $val instanceof AttackSimulationInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackSimulationInfo'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -66,7 +70,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getInternetMessageId(): ?string {
-        return $this->getBackingStore()->get('internetMessageId');
+        $val = $this->getBackingStore()->get('internetMessageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internetMessageId'");
     }
 
     /**
@@ -74,7 +82,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return SubmissionCategory|null
     */
     public function getOriginalCategory(): ?SubmissionCategory {
-        return $this->getBackingStore()->get('originalCategory');
+        $val = $this->getBackingStore()->get('originalCategory');
+        if (is_null($val) || $val instanceof SubmissionCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originalCategory'");
     }
 
     /**
@@ -82,7 +94,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('receivedDateTime');
+        $val = $this->getBackingStore()->get('receivedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedDateTime'");
     }
 
     /**
@@ -90,7 +106,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getRecipientEmailAddress(): ?string {
-        return $this->getBackingStore()->get('recipientEmailAddress');
+        $val = $this->getBackingStore()->get('recipientEmailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipientEmailAddress'");
     }
 
     /**
@@ -98,7 +118,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSender(): ?string {
-        return $this->getBackingStore()->get('sender');
+        $val = $this->getBackingStore()->get('sender');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sender'");
     }
 
     /**
@@ -106,7 +130,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSenderIP(): ?string {
-        return $this->getBackingStore()->get('senderIP');
+        $val = $this->getBackingStore()->get('senderIP');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'senderIP'");
     }
 
     /**
@@ -114,7 +142,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**
@@ -122,7 +154,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return TenantAllowOrBlockListAction|null
     */
     public function getTenantAllowOrBlockListAction(): ?TenantAllowOrBlockListAction {
-        return $this->getBackingStore()->get('tenantAllowOrBlockListAction');
+        $val = $this->getBackingStore()->get('tenantAllowOrBlockListAction');
+        if (is_null($val) || $val instanceof TenantAllowOrBlockListAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAllowOrBlockListAction'");
     }
 
     /**

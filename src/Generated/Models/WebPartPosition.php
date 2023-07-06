@@ -39,7 +39,12 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getColumnId(): ?float {
-        return $this->getBackingStore()->get('columnId');
+        $val = $this->getBackingStore()->get('columnId');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'columnId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getHorizontalSectionId(): ?float {
-        return $this->getBackingStore()->get('horizontalSectionId');
+        $val = $this->getBackingStore()->get('horizontalSectionId');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'horizontalSectionId'");
     }
 
     /**
@@ -86,7 +99,11 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsInVerticalSection(): ?bool {
-        return $this->getBackingStore()->get('isInVerticalSection');
+        $val = $this->getBackingStore()->get('isInVerticalSection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isInVerticalSection'");
     }
 
     /**
@@ -94,7 +111,11 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getWebPartIndex(): ?float {
-        return $this->getBackingStore()->get('webPartIndex');
+        $val = $this->getBackingStore()->get('webPartIndex');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webPartIndex'");
     }
 
     /**

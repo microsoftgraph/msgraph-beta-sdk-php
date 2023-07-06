@@ -38,7 +38,11 @@ class InboundFlow extends IndustryDataActivity implements Parsable
      * @return IndustryDataConnector|null
     */
     public function getDataConnector(): ?IndustryDataConnector {
-        return $this->getBackingStore()->get('dataConnector');
+        $val = $this->getBackingStore()->get('dataConnector');
+        if (is_null($val) || $val instanceof IndustryDataConnector) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataConnector'");
     }
 
     /**
@@ -46,7 +50,11 @@ class InboundFlow extends IndustryDataActivity implements Parsable
      * @return InboundDomain|null
     */
     public function getDataDomain(): ?InboundDomain {
-        return $this->getBackingStore()->get('dataDomain');
+        $val = $this->getBackingStore()->get('dataDomain');
+        if (is_null($val) || $val instanceof InboundDomain) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataDomain'");
     }
 
     /**
@@ -54,7 +62,11 @@ class InboundFlow extends IndustryDataActivity implements Parsable
      * @return DateTime|null
     */
     public function getEffectiveDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('effectiveDateTime');
+        $val = $this->getBackingStore()->get('effectiveDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'effectiveDateTime'");
     }
 
     /**
@@ -62,12 +74,16 @@ class InboundFlow extends IndustryDataActivity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +101,11 @@ class InboundFlow extends IndustryDataActivity implements Parsable
      * @return YearTimePeriodDefinition|null
     */
     public function getYear(): ?YearTimePeriodDefinition {
-        return $this->getBackingStore()->get('year');
+        $val = $this->getBackingStore()->get('year');
+        if (is_null($val) || $val instanceof YearTimePeriodDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'year'");
     }
 
     /**

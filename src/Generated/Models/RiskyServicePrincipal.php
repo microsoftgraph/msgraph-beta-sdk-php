@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RiskyServicePrincipal extends Entity implements Parsable 
 {
@@ -37,7 +38,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return bool|null
     */
     public function getAccountEnabled(): ?bool {
-        return $this->getBackingStore()->get('accountEnabled');
+        $val = $this->getBackingStore()->get('accountEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountEnabled'");
     }
 
     /**
@@ -45,7 +50,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -53,12 +62,16 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +95,13 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return array<RiskyServicePrincipalHistoryItem>|null
     */
     public function getHistory(): ?array {
-        return $this->getBackingStore()->get('history');
+        $val = $this->getBackingStore()->get('history');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RiskyServicePrincipalHistoryItem::class);
+            /** @var array<RiskyServicePrincipalHistoryItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'history'");
     }
 
     /**
@@ -90,7 +109,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -98,7 +121,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsProcessing(): ?bool {
-        return $this->getBackingStore()->get('isProcessing');
+        $val = $this->getBackingStore()->get('isProcessing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isProcessing'");
     }
 
     /**
@@ -106,7 +133,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return RiskDetail|null
     */
     public function getRiskDetail(): ?RiskDetail {
-        return $this->getBackingStore()->get('riskDetail');
+        $val = $this->getBackingStore()->get('riskDetail');
+        if (is_null($val) || $val instanceof RiskDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskDetail'");
     }
 
     /**
@@ -114,7 +145,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRiskLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('riskLastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('riskLastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLastUpdatedDateTime'");
     }
 
     /**
@@ -122,7 +157,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return RiskLevel|null
     */
     public function getRiskLevel(): ?RiskLevel {
-        return $this->getBackingStore()->get('riskLevel');
+        $val = $this->getBackingStore()->get('riskLevel');
+        if (is_null($val) || $val instanceof RiskLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLevel'");
     }
 
     /**
@@ -130,7 +169,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return RiskState|null
     */
     public function getRiskState(): ?RiskState {
-        return $this->getBackingStore()->get('riskState');
+        $val = $this->getBackingStore()->get('riskState');
+        if (is_null($val) || $val instanceof RiskState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskState'");
     }
 
     /**
@@ -138,7 +181,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
      * @return string|null
     */
     public function getServicePrincipalType(): ?string {
-        return $this->getBackingStore()->get('servicePrincipalType');
+        $val = $this->getBackingStore()->get('servicePrincipalType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalType'");
     }
 
     /**

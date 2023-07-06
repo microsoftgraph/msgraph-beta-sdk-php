@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represent result summary for assignment filter evaluation
@@ -43,7 +44,12 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,7 +57,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getAssignmentFilterDisplayName(): ?string {
-        return $this->getBackingStore()->get('assignmentFilterDisplayName');
+        $val = $this->getBackingStore()->get('assignmentFilterDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterDisplayName'");
     }
 
     /**
@@ -59,7 +69,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getAssignmentFilterId(): ?string {
-        return $this->getBackingStore()->get('assignmentFilterId');
+        $val = $this->getBackingStore()->get('assignmentFilterId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterId'");
     }
 
     /**
@@ -67,7 +81,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return DateTime|null
     */
     public function getAssignmentFilterLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('assignmentFilterLastModifiedDateTime');
+        $val = $this->getBackingStore()->get('assignmentFilterLastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterLastModifiedDateTime'");
     }
 
     /**
@@ -75,7 +93,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return DevicePlatformType|null
     */
     public function getAssignmentFilterPlatform(): ?DevicePlatformType {
-        return $this->getBackingStore()->get('assignmentFilterPlatform');
+        $val = $this->getBackingStore()->get('assignmentFilterPlatform');
+        if (is_null($val) || $val instanceof DevicePlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterPlatform'");
     }
 
     /**
@@ -83,7 +105,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
-        return $this->getBackingStore()->get('assignmentFilterType');
+        $val = $this->getBackingStore()->get('assignmentFilterType');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentFilterType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterType'");
     }
 
     /**
@@ -91,7 +117,13 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return array<AssignmentFilterTypeAndEvaluationResult>|null
     */
     public function getAssignmentFilterTypeAndEvaluationResults(): ?array {
-        return $this->getBackingStore()->get('assignmentFilterTypeAndEvaluationResults');
+        $val = $this->getBackingStore()->get('assignmentFilterTypeAndEvaluationResults');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AssignmentFilterTypeAndEvaluationResult::class);
+            /** @var array<AssignmentFilterTypeAndEvaluationResult>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterTypeAndEvaluationResults'");
     }
 
     /**
@@ -107,7 +139,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return DateTime|null
     */
     public function getEvaluationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('evaluationDateTime');
+        $val = $this->getBackingStore()->get('evaluationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationDateTime'");
     }
 
     /**
@@ -115,12 +151,16 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return AssignmentFilterEvaluationResult|null
     */
     public function getEvaluationResult(): ?AssignmentFilterEvaluationResult {
-        return $this->getBackingStore()->get('evaluationResult');
+        $val = $this->getBackingStore()->get('evaluationResult');
+        if (is_null($val) || $val instanceof AssignmentFilterEvaluationResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationResult'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -142,7 +182,11 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

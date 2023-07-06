@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analyte connectivity issue entity.
-*/
 class CloudPCConnectivityIssue extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPCConnectivityIssue and sets the default values.
+     * Instantiates a new CloudPCConnectivityIssue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +30,11 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -41,7 +42,11 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
@@ -49,7 +54,11 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getErrorDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('errorDateTime');
+        $val = $this->getBackingStore()->get('errorDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDateTime'");
     }
 
     /**
@@ -57,12 +66,16 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorDescription(): ?string {
-        return $this->getBackingStore()->get('errorDescription');
+        $val = $this->getBackingStore()->get('errorDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDescription'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +94,11 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getRecommendedAction(): ?string {
-        return $this->getBackingStore()->get('recommendedAction');
+        $val = $this->getBackingStore()->get('recommendedAction');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedAction'");
     }
 
     /**
@@ -89,7 +106,11 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

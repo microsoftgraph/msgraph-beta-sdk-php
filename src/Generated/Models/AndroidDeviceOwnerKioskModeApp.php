@@ -30,12 +30,16 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
      * @return string|null
     */
     public function getClassName(): ?string {
-        return $this->getBackingStore()->get('className');
+        $val = $this->getBackingStore()->get('className');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'className'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
      * @return string|null
     */
     public function getPackage(): ?string {
-        return $this->getBackingStore()->get('package');
+        $val = $this->getBackingStore()->get('package');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'package'");
     }
 
     /**

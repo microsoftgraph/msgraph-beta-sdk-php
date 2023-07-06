@@ -30,7 +30,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return DirectoryObject|null
     */
     public function getContainer(): ?DirectoryObject {
-        return $this->getBackingStore()->get('container');
+        $val = $this->getBackingStore()->get('container');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'container'");
     }
 
     /**
@@ -38,12 +42,16 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return string|null
     */
     public function getContainerId(): ?string {
-        return $this->getBackingStore()->get('containerId');
+        $val = $this->getBackingStore()->get('containerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'containerId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +71,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof User) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -71,7 +83,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return DirectoryObject|null
     */
     public function getMember(): ?DirectoryObject {
-        return $this->getBackingStore()->get('member');
+        $val = $this->getBackingStore()->get('member');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'member'");
     }
 
     /**
@@ -79,7 +95,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return string|null
     */
     public function getMemberId(): ?string {
-        return $this->getBackingStore()->get('memberId');
+        $val = $this->getBackingStore()->get('memberId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberId'");
     }
 
     /**
@@ -87,7 +107,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return OutlierContainerType|null
     */
     public function getOutlierContainerType(): ?OutlierContainerType {
-        return $this->getBackingStore()->get('outlierContainerType');
+        $val = $this->getBackingStore()->get('outlierContainerType');
+        if (is_null($val) || $val instanceof OutlierContainerType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outlierContainerType'");
     }
 
     /**
@@ -95,7 +119,11 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return OutlierMemberType|null
     */
     public function getOutlierMemberType(): ?OutlierMemberType {
-        return $this->getBackingStore()->get('outlierMemberType');
+        $val = $this->getBackingStore()->get('outlierMemberType');
+        if (is_null($val) || $val instanceof OutlierMemberType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outlierMemberType'");
     }
 
     /**

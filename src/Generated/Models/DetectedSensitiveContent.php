@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
@@ -36,7 +37,13 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return array<ClassificationAttribute>|null
     */
     public function getClassificationAttributes(): ?array {
-        return $this->getBackingStore()->get('classificationAttributes');
+        $val = $this->getBackingStore()->get('classificationAttributes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ClassificationAttribute::class);
+            /** @var array<ClassificationAttribute>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classificationAttributes'");
     }
 
     /**
@@ -44,12 +51,16 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return ClassificationMethod|null
     */
     public function getClassificationMethod(): ?ClassificationMethod {
-        return $this->getBackingStore()->get('classificationMethod');
+        $val = $this->getBackingStore()->get('classificationMethod');
+        if (is_null($val) || $val instanceof ClassificationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classificationMethod'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +78,13 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return array<SensitiveContentLocation>|null
     */
     public function getMatches(): ?array {
-        return $this->getBackingStore()->get('matches');
+        $val = $this->getBackingStore()->get('matches');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitiveContentLocation::class);
+            /** @var array<SensitiveContentLocation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matches'");
     }
 
     /**
@@ -75,7 +92,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return SensitiveTypeScope|null
     */
     public function getScope(): ?SensitiveTypeScope {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**
@@ -83,7 +104,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return SensitiveTypeSource|null
     */
     public function getSensitiveTypeSource(): ?SensitiveTypeSource {
-        return $this->getBackingStore()->get('sensitiveTypeSource');
+        $val = $this->getBackingStore()->get('sensitiveTypeSource');
+        if (is_null($val) || $val instanceof SensitiveTypeSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeSource'");
     }
 
     /**

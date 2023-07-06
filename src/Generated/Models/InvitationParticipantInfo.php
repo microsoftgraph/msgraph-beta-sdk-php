@@ -39,7 +39,12 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
-        return $this->getBackingStore()->get('endpointType');
+        $val = $this->getBackingStore()->get('endpointType');
+        if (is_null($val) || $val instanceof EndpointType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +89,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->getBackingStore()->get('hidden');
+        $val = $this->getBackingStore()->get('hidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hidden'");
     }
 
     /**
@@ -88,7 +101,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return IdentitySet|null
     */
     public function getIdentity(): ?IdentitySet {
-        return $this->getBackingStore()->get('identity');
+        $val = $this->getBackingStore()->get('identity');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identity'");
     }
 
     /**
@@ -96,7 +113,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getParticipantId(): ?string {
-        return $this->getBackingStore()->get('participantId');
+        $val = $this->getBackingStore()->get('participantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'participantId'");
     }
 
     /**
@@ -112,7 +137,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getRemoveFromDefaultAudioRoutingGroup(): ?bool {
-        return $this->getBackingStore()->get('removeFromDefaultAudioRoutingGroup');
+        $val = $this->getBackingStore()->get('removeFromDefaultAudioRoutingGroup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'removeFromDefaultAudioRoutingGroup'");
     }
 
     /**
@@ -120,7 +149,11 @@ class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getReplacesCallId(): ?string {
-        return $this->getBackingStore()->get('replacesCallId');
+        $val = $this->getBackingStore()->get('replacesCallId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'replacesCallId'");
     }
 
     /**

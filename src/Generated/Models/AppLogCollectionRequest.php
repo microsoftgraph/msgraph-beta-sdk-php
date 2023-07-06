@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Entity for AppLogCollectionRequest contains all logs values.
@@ -33,7 +34,11 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completedDateTime');
+        $val = $this->getBackingStore()->get('completedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDateTime'");
     }
 
     /**
@@ -41,7 +46,13 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCustomLogFolders(): ?array {
-        return $this->getBackingStore()->get('customLogFolders');
+        $val = $this->getBackingStore()->get('customLogFolders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customLogFolders'");
     }
 
     /**
@@ -49,18 +60,29 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->getBackingStore()->get('errorMessage');
+        $val = $this->getBackingStore()->get('errorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorMessage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
-            'customLogFolders' => fn(ParseNode $n) => $o->setCustomLogFolders($n->getCollectionOfPrimitiveValues()),
+            'customLogFolders' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCustomLogFolders($val);
+            },
             'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AppLogUploadState::class)),
         ]);
@@ -71,7 +93,11 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return AppLogUploadState|null
     */
     public function getStatus(): ?AppLogUploadState {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof AppLogUploadState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

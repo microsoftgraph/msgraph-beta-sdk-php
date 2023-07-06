@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class LogonUser implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAccountDomain(): ?string {
-        return $this->getBackingStore()->get('accountDomain');
+        $val = $this->getBackingStore()->get('accountDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountDomain'");
     }
 
     /**
@@ -48,7 +53,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->getBackingStore()->get('accountName');
+        $val = $this->getBackingStore()->get('accountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountName'");
     }
 
     /**
@@ -56,7 +65,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return UserAccountSecurityType|null
     */
     public function getAccountType(): ?UserAccountSecurityType {
-        return $this->getBackingStore()->get('accountType');
+        $val = $this->getBackingStore()->get('accountType');
+        if (is_null($val) || $val instanceof UserAccountSecurityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountType'");
     }
 
     /**
@@ -64,7 +77,12 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -77,7 +95,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +116,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -106,7 +128,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -114,7 +140,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLogonId(): ?string {
-        return $this->getBackingStore()->get('logonId');
+        $val = $this->getBackingStore()->get('logonId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logonId'");
     }
 
     /**
@@ -122,7 +152,13 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<LogonType>|null
     */
     public function getLogonTypes(): ?array {
-        return $this->getBackingStore()->get('logonTypes');
+        $val = $this->getBackingStore()->get('logonTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LogonType::class);
+            /** @var array<LogonType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logonTypes'");
     }
 
     /**
@@ -130,7 +166,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

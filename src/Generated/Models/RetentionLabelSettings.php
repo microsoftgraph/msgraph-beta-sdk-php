@@ -40,7 +40,12 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return BehaviorDuringRetentionPeriod|null
     */
     public function getBehaviorDuringRetentionPeriod(): ?BehaviorDuringRetentionPeriod {
-        return $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
+        $val = $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
+        if (is_null($val) || $val instanceof BehaviorDuringRetentionPeriod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'behaviorDuringRetentionPeriod'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +90,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getIsContentUpdateAllowed(): ?bool {
-        return $this->getBackingStore()->get('isContentUpdateAllowed');
+        $val = $this->getBackingStore()->get('isContentUpdateAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContentUpdateAllowed'");
     }
 
     /**
@@ -89,7 +102,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getIsDeleteAllowed(): ?bool {
-        return $this->getBackingStore()->get('isDeleteAllowed');
+        $val = $this->getBackingStore()->get('isDeleteAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeleteAllowed'");
     }
 
     /**
@@ -97,7 +114,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getIsLabelUpdateAllowed(): ?bool {
-        return $this->getBackingStore()->get('isLabelUpdateAllowed');
+        $val = $this->getBackingStore()->get('isLabelUpdateAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isLabelUpdateAllowed'");
     }
 
     /**
@@ -105,7 +126,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getIsMetadataUpdateAllowed(): ?bool {
-        return $this->getBackingStore()->get('isMetadataUpdateAllowed');
+        $val = $this->getBackingStore()->get('isMetadataUpdateAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMetadataUpdateAllowed'");
     }
 
     /**
@@ -113,7 +138,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getIsRecordLocked(): ?bool {
-        return $this->getBackingStore()->get('isRecordLocked');
+        $val = $this->getBackingStore()->get('isRecordLocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRecordLocked'");
     }
 
     /**
@@ -121,7 +150,11 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

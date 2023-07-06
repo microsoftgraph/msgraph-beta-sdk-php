@@ -43,7 +43,12 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return DayOfWeek|null
     */
     public function getEndDay(): ?DayOfWeek {
-        return $this->getBackingStore()->get('endDay');
+        $val = $this->getBackingStore()->get('endDay');
+        if (is_null($val) || $val instanceof DayOfWeek) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDay'");
     }
 
     /**
@@ -67,12 +76,16 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return Time|null
     */
     public function getEndTime(): ?Time {
-        return $this->getBackingStore()->get('endTime');
+        $val = $this->getBackingStore()->get('endTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +103,11 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -98,7 +115,11 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return DayOfWeek|null
     */
     public function getStartDay(): ?DayOfWeek {
-        return $this->getBackingStore()->get('startDay');
+        $val = $this->getBackingStore()->get('startDay');
+        if (is_null($val) || $val instanceof DayOfWeek) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDay'");
     }
 
     /**
@@ -106,7 +127,11 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
      * @return Time|null
     */
     public function getStartTime(): ?Time {
-        return $this->getBackingStore()->get('startTime');
+        $val = $this->getBackingStore()->get('startTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startTime'");
     }
 
     /**

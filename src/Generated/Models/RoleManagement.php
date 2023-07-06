@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return RbacApplicationMultiple|null
     */
     public function getCloudPC(): ?RbacApplicationMultiple {
-        return $this->getBackingStore()->get('cloudPC');
+        $val = $this->getBackingStore()->get('cloudPC');
+        if (is_null($val) || $val instanceof RbacApplicationMultiple) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPC'");
     }
 
     /**
@@ -63,7 +73,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return RbacApplicationMultiple|null
     */
     public function getDeviceManagement(): ?RbacApplicationMultiple {
-        return $this->getBackingStore()->get('deviceManagement');
+        $val = $this->getBackingStore()->get('deviceManagement');
+        if (is_null($val) || $val instanceof RbacApplicationMultiple) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManagement'");
     }
 
     /**
@@ -71,7 +85,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return RbacApplication|null
     */
     public function getDirectory(): ?RbacApplication {
-        return $this->getBackingStore()->get('directory');
+        $val = $this->getBackingStore()->get('directory');
+        if (is_null($val) || $val instanceof RbacApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directory'");
     }
 
     /**
@@ -79,7 +97,13 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<RbacApplication>|null
     */
     public function getEnterpriseApps(): ?array {
-        return $this->getBackingStore()->get('enterpriseApps');
+        $val = $this->getBackingStore()->get('enterpriseApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RbacApplication::class);
+            /** @var array<RbacApplication>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseApps'");
     }
 
     /**
@@ -87,7 +111,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return RbacApplication|null
     */
     public function getEntitlementManagement(): ?RbacApplication {
-        return $this->getBackingStore()->get('entitlementManagement');
+        $val = $this->getBackingStore()->get('entitlementManagement');
+        if (is_null($val) || $val instanceof RbacApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entitlementManagement'");
     }
 
     /**
@@ -95,12 +123,16 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return UnifiedRbacApplication|null
     */
     public function getExchange(): ?UnifiedRbacApplication {
-        return $this->getBackingStore()->get('exchange');
+        $val = $this->getBackingStore()->get('exchange');
+        if (is_null($val) || $val instanceof UnifiedRbacApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchange'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -120,7 +152,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -30,12 +30,16 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
      * @return bool|null
     */
     public function getExplicitValue(): ?bool {
-        return $this->getBackingStore()->get('explicitValue');
+        $val = $this->getBackingStore()->get('explicitValue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'explicitValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
      * @return string|null
     */
     public function getValuePrefix(): ?string {
-        return $this->getBackingStore()->get('valuePrefix');
+        $val = $this->getBackingStore()->get('valuePrefix');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valuePrefix'");
     }
 
     /**

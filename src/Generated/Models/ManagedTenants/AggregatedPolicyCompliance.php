@@ -31,7 +31,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyId(): ?string {
-        return $this->getBackingStore()->get('compliancePolicyId');
+        $val = $this->getBackingStore()->get('compliancePolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicyId'");
     }
 
     /**
@@ -39,7 +43,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyName(): ?string {
-        return $this->getBackingStore()->get('compliancePolicyName');
+        $val = $this->getBackingStore()->get('compliancePolicyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicyName'");
     }
 
     /**
@@ -47,7 +55,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyPlatform(): ?string {
-        return $this->getBackingStore()->get('compliancePolicyPlatform');
+        $val = $this->getBackingStore()->get('compliancePolicyPlatform');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicyPlatform'");
     }
 
     /**
@@ -55,12 +67,16 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyType(): ?string {
-        return $this->getBackingStore()->get('compliancePolicyType');
+        $val = $this->getBackingStore()->get('compliancePolicyType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicyType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +100,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -92,7 +112,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCompliantDevices(): ?int {
-        return $this->getBackingStore()->get('numberOfCompliantDevices');
+        $val = $this->getBackingStore()->get('numberOfCompliantDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCompliantDevices'");
     }
 
     /**
@@ -100,7 +124,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfErrorDevices(): ?int {
-        return $this->getBackingStore()->get('numberOfErrorDevices');
+        $val = $this->getBackingStore()->get('numberOfErrorDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfErrorDevices'");
     }
 
     /**
@@ -108,7 +136,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfNonCompliantDevices(): ?int {
-        return $this->getBackingStore()->get('numberOfNonCompliantDevices');
+        $val = $this->getBackingStore()->get('numberOfNonCompliantDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfNonCompliantDevices'");
     }
 
     /**
@@ -116,7 +148,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPolicyModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('policyModifiedDateTime');
+        $val = $this->getBackingStore()->get('policyModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyModifiedDateTime'");
     }
 
     /**
@@ -124,7 +160,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -132,7 +172,11 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

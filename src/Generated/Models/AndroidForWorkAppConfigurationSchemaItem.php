@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Single configuration item inside an Android for Work application's custom configuration schema.
@@ -42,7 +43,12 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return AndroidForWorkAppConfigurationSchemaItemDataType|null
     */
     public function getDataType(): ?AndroidForWorkAppConfigurationSchemaItemDataType {
-        return $this->getBackingStore()->get('dataType');
+        $val = $this->getBackingStore()->get('dataType');
+        if (is_null($val) || $val instanceof AndroidForWorkAppConfigurationSchemaItemDataType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataType'");
     }
 
     /**
@@ -66,7 +76,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return bool|null
     */
     public function getDefaultBoolValue(): ?bool {
-        return $this->getBackingStore()->get('defaultBoolValue');
+        $val = $this->getBackingStore()->get('defaultBoolValue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultBoolValue'");
     }
 
     /**
@@ -74,7 +88,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return int|null
     */
     public function getDefaultIntValue(): ?int {
-        return $this->getBackingStore()->get('defaultIntValue');
+        $val = $this->getBackingStore()->get('defaultIntValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultIntValue'");
     }
 
     /**
@@ -82,7 +100,13 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<string>|null
     */
     public function getDefaultStringArrayValue(): ?array {
-        return $this->getBackingStore()->get('defaultStringArrayValue');
+        $val = $this->getBackingStore()->get('defaultStringArrayValue');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultStringArrayValue'");
     }
 
     /**
@@ -90,7 +114,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDefaultStringValue(): ?string {
-        return $this->getBackingStore()->get('defaultStringValue');
+        $val = $this->getBackingStore()->get('defaultStringValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultStringValue'");
     }
 
     /**
@@ -98,7 +126,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -106,12 +138,16 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -119,7 +155,14 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
             'dataType' => fn(ParseNode $n) => $o->setDataType($n->getEnumValue(AndroidForWorkAppConfigurationSchemaItemDataType::class)),
             'defaultBoolValue' => fn(ParseNode $n) => $o->setDefaultBoolValue($n->getBooleanValue()),
             'defaultIntValue' => fn(ParseNode $n) => $o->setDefaultIntValue($n->getIntegerValue()),
-            'defaultStringArrayValue' => fn(ParseNode $n) => $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()),
+            'defaultStringArrayValue' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefaultStringArrayValue($val);
+            },
             'defaultStringValue' => fn(ParseNode $n) => $o->setDefaultStringValue($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -134,7 +177,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -142,7 +189,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getSchemaItemKey(): ?string {
-        return $this->getBackingStore()->get('schemaItemKey');
+        $val = $this->getBackingStore()->get('schemaItemKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schemaItemKey'");
     }
 
     /**
@@ -150,7 +201,13 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<KeyValuePair>|null
     */
     public function getSelections(): ?array {
-        return $this->getBackingStore()->get('selections');
+        $val = $this->getBackingStore()->get('selections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'selections'");
     }
 
     /**

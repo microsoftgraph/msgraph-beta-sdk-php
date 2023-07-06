@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Teamwork;
+use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\DeletedChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
@@ -23,6 +24,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class TeamworkRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the deletedChats property of the microsoft.graph.teamwork entity.
+    */
+    public function deletedChats(): DeletedChatsRequestBuilder {
+        return new DeletedChatsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
     */

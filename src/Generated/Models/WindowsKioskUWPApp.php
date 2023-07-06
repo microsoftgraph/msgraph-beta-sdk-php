@@ -30,7 +30,11 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getAppUserModelId(): ?string {
-        return $this->getBackingStore()->get('appUserModelId');
+        $val = $this->getBackingStore()->get('appUserModelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appUserModelId'");
     }
 
     /**
@@ -46,12 +54,16 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getContainedAppId(): ?string {
-        return $this->getBackingStore()->get('containedAppId');
+        $val = $this->getBackingStore()->get('containedAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'containedAppId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

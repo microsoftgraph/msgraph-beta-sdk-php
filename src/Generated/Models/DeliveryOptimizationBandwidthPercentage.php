@@ -27,7 +27,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
      * @return int|null
     */
     public function getMaximumBackgroundBandwidthPercentage(): ?int {
-        return $this->getBackingStore()->get('maximumBackgroundBandwidthPercentage');
+        $val = $this->getBackingStore()->get('maximumBackgroundBandwidthPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumBackgroundBandwidthPercentage'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
      * @return int|null
     */
     public function getMaximumForegroundBandwidthPercentage(): ?int {
-        return $this->getBackingStore()->get('maximumForegroundBandwidthPercentage');
+        $val = $this->getBackingStore()->get('maximumForegroundBandwidthPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumForegroundBandwidthPercentage'");
     }
 
     /**

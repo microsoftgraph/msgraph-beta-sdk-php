@@ -39,7 +39,12 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +75,11 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getGuestsCount(): ?int {
-        return $this->getBackingStore()->get('guestsCount');
+        $val = $this->getBackingStore()->get('guestsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'guestsCount'");
     }
 
     /**
@@ -78,7 +87,11 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getHasMembersFromOtherTenants(): ?bool {
-        return $this->getBackingStore()->get('hasMembersFromOtherTenants');
+        $val = $this->getBackingStore()->get('hasMembersFromOtherTenants');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasMembersFromOtherTenants'");
     }
 
     /**
@@ -86,7 +99,11 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getMembersCount(): ?int {
-        return $this->getBackingStore()->get('membersCount');
+        $val = $this->getBackingStore()->get('membersCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membersCount'");
     }
 
     /**
@@ -94,7 +111,11 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getOwnersCount(): ?int {
-        return $this->getBackingStore()->get('ownersCount');
+        $val = $this->getBackingStore()->get('ownersCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownersCount'");
     }
 
     /**

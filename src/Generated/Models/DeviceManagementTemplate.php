@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents a defined collection of device settings
+*/
 class DeviceManagementTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementTemplate and sets the default values.
+     * Instantiates a new deviceManagementTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +41,13 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementTemplateSettingCategory>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementTemplateSettingCategory::class);
+            /** @var array<DeviceManagementTemplateSettingCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -45,7 +55,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,12 +67,16 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -83,7 +101,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return int|null
     */
     public function getIntentCount(): ?int {
-        return $this->getBackingStore()->get('intentCount');
+        $val = $this->getBackingStore()->get('intentCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intentCount'");
     }
 
     /**
@@ -91,7 +113,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeprecated(): ?bool {
-        return $this->getBackingStore()->get('isDeprecated');
+        $val = $this->getBackingStore()->get('isDeprecated');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeprecated'");
     }
 
     /**
@@ -99,7 +125,13 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementTemplate>|null
     */
     public function getMigratableTo(): ?array {
-        return $this->getBackingStore()->get('migratableTo');
+        $val = $this->getBackingStore()->get('migratableTo');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementTemplate::class);
+            /** @var array<DeviceManagementTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migratableTo'");
     }
 
     /**
@@ -107,7 +139,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
-        return $this->getBackingStore()->get('platformType');
+        $val = $this->getBackingStore()->get('platformType');
+        if (is_null($val) || $val instanceof PolicyPlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformType'");
     }
 
     /**
@@ -115,7 +151,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPublishedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('publishedDateTime');
+        $val = $this->getBackingStore()->get('publishedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishedDateTime'");
     }
 
     /**
@@ -123,7 +163,13 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettings(): ?array {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingInstance::class);
+            /** @var array<DeviceManagementSettingInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -131,7 +177,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DeviceManagementTemplateSubtype|null
     */
     public function getTemplateSubtype(): ?DeviceManagementTemplateSubtype {
-        return $this->getBackingStore()->get('templateSubtype');
+        $val = $this->getBackingStore()->get('templateSubtype');
+        if (is_null($val) || $val instanceof DeviceManagementTemplateSubtype) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateSubtype'");
     }
 
     /**
@@ -139,7 +189,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DeviceManagementTemplateType|null
     */
     public function getTemplateType(): ?DeviceManagementTemplateType {
-        return $this->getBackingStore()->get('templateType');
+        $val = $this->getBackingStore()->get('templateType');
+        if (is_null($val) || $val instanceof DeviceManagementTemplateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateType'");
     }
 
     /**
@@ -147,7 +201,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getVersionInfo(): ?string {
-        return $this->getBackingStore()->get('versionInfo');
+        $val = $this->getBackingStore()->get('versionInfo');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versionInfo'");
     }
 
     /**

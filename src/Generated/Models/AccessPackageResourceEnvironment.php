@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessPackageResourceEnvironment extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return array<AccessPackageResource>|null
     */
     public function getAccessPackageResources(): ?array {
-        return $this->getBackingStore()->get('accessPackageResources');
+        $val = $this->getBackingStore()->get('accessPackageResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageResource::class);
+            /** @var array<AccessPackageResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageResources'");
     }
 
     /**
@@ -38,7 +45,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return ConnectionInfo|null
     */
     public function getConnectionInfo(): ?ConnectionInfo {
-        return $this->getBackingStore()->get('connectionInfo');
+        $val = $this->getBackingStore()->get('connectionInfo');
+        if (is_null($val) || $val instanceof ConnectionInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionInfo'");
     }
 
     /**
@@ -46,7 +57,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -54,7 +69,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -62,7 +81,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -70,12 +93,16 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,7 +126,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultEnvironment(): ?bool {
-        return $this->getBackingStore()->get('isDefaultEnvironment');
+        $val = $this->getBackingStore()->get('isDefaultEnvironment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultEnvironment'");
     }
 
     /**
@@ -107,7 +138,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->getBackingStore()->get('modifiedBy');
+        $val = $this->getBackingStore()->get('modifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedBy'");
     }
 
     /**
@@ -115,7 +150,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('modifiedDateTime');
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**
@@ -123,7 +162,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->getBackingStore()->get('originId');
+        $val = $this->getBackingStore()->get('originId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originId'");
     }
 
     /**
@@ -131,7 +174,11 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->getBackingStore()->get('originSystem');
+        $val = $this->getBackingStore()->get('originSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originSystem'");
     }
 
     /**

@@ -5,14 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * Encryption report per device
-*/
 class ManagedDeviceEncryptionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceEncryptionState and sets the default values.
+     * Instantiates a new ManagedDeviceEncryptionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,7 +30,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return AdvancedBitLockerState|null
     */
     public function getAdvancedBitLockerStates(): ?AdvancedBitLockerState {
-        return $this->getBackingStore()->get('advancedBitLockerStates');
+        $val = $this->getBackingStore()->get('advancedBitLockerStates');
+        if (is_null($val) || $val instanceof AdvancedBitLockerState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedBitLockerStates'");
     }
 
     /**
@@ -40,7 +42,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -48,7 +54,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return DeviceTypes|null
     */
     public function getDeviceType(): ?DeviceTypes {
-        return $this->getBackingStore()->get('deviceType');
+        $val = $this->getBackingStore()->get('deviceType');
+        if (is_null($val) || $val instanceof DeviceTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceType'");
     }
 
     /**
@@ -56,7 +66,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return ComplianceStatus|null
     */
     public function getEncryptionPolicySettingState(): ?ComplianceStatus {
-        return $this->getBackingStore()->get('encryptionPolicySettingState');
+        $val = $this->getBackingStore()->get('encryptionPolicySettingState');
+        if (is_null($val) || $val instanceof ComplianceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionPolicySettingState'");
     }
 
     /**
@@ -64,7 +78,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return EncryptionReadinessState|null
     */
     public function getEncryptionReadinessState(): ?EncryptionReadinessState {
-        return $this->getBackingStore()->get('encryptionReadinessState');
+        $val = $this->getBackingStore()->get('encryptionReadinessState');
+        if (is_null($val) || $val instanceof EncryptionReadinessState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionReadinessState'");
     }
 
     /**
@@ -72,12 +90,16 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return EncryptionState|null
     */
     public function getEncryptionState(): ?EncryptionState {
-        return $this->getBackingStore()->get('encryptionState');
+        $val = $this->getBackingStore()->get('encryptionState');
+        if (is_null($val) || $val instanceof EncryptionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -101,7 +123,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return FileVaultState|null
     */
     public function getFileVaultStates(): ?FileVaultState {
-        return $this->getBackingStore()->get('fileVaultStates');
+        $val = $this->getBackingStore()->get('fileVaultStates');
+        if (is_null($val) || $val instanceof FileVaultState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultStates'");
     }
 
     /**
@@ -109,7 +135,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -117,7 +147,13 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return array<EncryptionReportPolicyDetails>|null
     */
     public function getPolicyDetails(): ?array {
-        return $this->getBackingStore()->get('policyDetails');
+        $val = $this->getBackingStore()->get('policyDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EncryptionReportPolicyDetails::class);
+            /** @var array<EncryptionReportPolicyDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyDetails'");
     }
 
     /**
@@ -125,7 +161,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return string|null
     */
     public function getTpmSpecificationVersion(): ?string {
-        return $this->getBackingStore()->get('tpmSpecificationVersion');
+        $val = $this->getBackingStore()->get('tpmSpecificationVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmSpecificationVersion'");
     }
 
     /**
@@ -133,7 +173,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

@@ -53,9 +53,10 @@ class AlertConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from identityGovernance
+     * Get a list of the alert configurations. The alert configurations are a collection of following types that are derived from the unifiedRoleManagementAlertConfiguration object:
      * @param AlertConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/rolemanagementalert-list-alertconfigurations?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlertConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class AlertConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from identityGovernance
+     * Get a list of the alert configurations. The alert configurations are a collection of following types that are derived from the unifiedRoleManagementAlertConfiguration object:
      * @param AlertConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

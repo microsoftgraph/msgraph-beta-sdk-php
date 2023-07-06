@@ -30,7 +30,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DeviceExchangeAccessStateSummary|null
     */
     public function getDeviceExchangeAccessStateSummary(): ?DeviceExchangeAccessStateSummary {
-        return $this->getBackingStore()->get('deviceExchangeAccessStateSummary');
+        $val = $this->getBackingStore()->get('deviceExchangeAccessStateSummary');
+        if (is_null($val) || $val instanceof DeviceExchangeAccessStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceExchangeAccessStateSummary'");
     }
 
     /**
@@ -38,7 +42,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DeviceOperatingSystemSummary|null
     */
     public function getDeviceOperatingSystemSummary(): ?DeviceOperatingSystemSummary {
-        return $this->getBackingStore()->get('deviceOperatingSystemSummary');
+        $val = $this->getBackingStore()->get('deviceOperatingSystemSummary');
+        if (is_null($val) || $val instanceof DeviceOperatingSystemSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOperatingSystemSummary'");
     }
 
     /**
@@ -46,7 +54,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getDualEnrolledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('dualEnrolledDeviceCount');
+        $val = $this->getBackingStore()->get('dualEnrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dualEnrolledDeviceCount'");
     }
 
     /**
@@ -54,12 +66,16 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('enrolledDeviceCount');
+        $val = $this->getBackingStore()->get('enrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +95,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -87,7 +107,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return ManagedDeviceModelsAndManufacturers|null
     */
     public function getManagedDeviceModelsAndManufacturers(): ?ManagedDeviceModelsAndManufacturers {
-        return $this->getBackingStore()->get('managedDeviceModelsAndManufacturers');
+        $val = $this->getBackingStore()->get('managedDeviceModelsAndManufacturers');
+        if (is_null($val) || $val instanceof ManagedDeviceModelsAndManufacturers) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceModelsAndManufacturers'");
     }
 
     /**
@@ -95,7 +119,11 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getMdmEnrolledCount(): ?int {
-        return $this->getBackingStore()->get('mdmEnrolledCount');
+        $val = $this->getBackingStore()->get('mdmEnrolledCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmEnrolledCount'");
     }
 
     /**

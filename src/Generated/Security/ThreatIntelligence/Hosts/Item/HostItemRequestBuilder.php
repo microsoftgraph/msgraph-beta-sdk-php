@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Cookie
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\PassiveDnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\PassiveDnsReverseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Reputation\ReputationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Subdomains\SubdomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Trackers\TrackersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -56,6 +57,13 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     */
     public function reputation(): ReputationRequestBuilder {
         return new ReputationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the subdomains property of the microsoft.graph.security.host entity.
+    */
+    public function subdomains(): SubdomainsRequestBuilder {
+        return new SubdomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

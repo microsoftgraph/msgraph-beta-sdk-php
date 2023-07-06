@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcAuditEvent extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivity(): ?string {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -38,7 +43,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('activityDateTime');
+        $val = $this->getBackingStore()->get('activityDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityDateTime'");
     }
 
     /**
@@ -46,7 +55,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return CloudPcAuditActivityOperationType|null
     */
     public function getActivityOperationType(): ?CloudPcAuditActivityOperationType {
-        return $this->getBackingStore()->get('activityOperationType');
+        $val = $this->getBackingStore()->get('activityOperationType');
+        if (is_null($val) || $val instanceof CloudPcAuditActivityOperationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityOperationType'");
     }
 
     /**
@@ -54,7 +67,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return CloudPcAuditActivityResult|null
     */
     public function getActivityResult(): ?CloudPcAuditActivityResult {
-        return $this->getBackingStore()->get('activityResult');
+        $val = $this->getBackingStore()->get('activityResult');
+        if (is_null($val) || $val instanceof CloudPcAuditActivityResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityResult'");
     }
 
     /**
@@ -62,7 +79,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivityType(): ?string {
-        return $this->getBackingStore()->get('activityType');
+        $val = $this->getBackingStore()->get('activityType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityType'");
     }
 
     /**
@@ -70,7 +91,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return CloudPcAuditActor|null
     */
     public function getActor(): ?CloudPcAuditActor {
-        return $this->getBackingStore()->get('actor');
+        $val = $this->getBackingStore()->get('actor');
+        if (is_null($val) || $val instanceof CloudPcAuditActor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actor'");
     }
 
     /**
@@ -78,7 +103,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return CloudPcAuditCategory|null
     */
     public function getCategory(): ?CloudPcAuditCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof CloudPcAuditCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -86,7 +115,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getComponentName(): ?string {
-        return $this->getBackingStore()->get('componentName');
+        $val = $this->getBackingStore()->get('componentName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'componentName'");
     }
 
     /**
@@ -94,7 +127,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->getBackingStore()->get('correlationId');
+        $val = $this->getBackingStore()->get('correlationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationId'");
     }
 
     /**
@@ -102,12 +139,16 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -131,7 +172,13 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return array<CloudPcAuditResource>|null
     */
     public function getResources(): ?array {
-        return $this->getBackingStore()->get('resources');
+        $val = $this->getBackingStore()->get('resources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcAuditResource::class);
+            /** @var array<CloudPcAuditResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resources'");
     }
 
     /**

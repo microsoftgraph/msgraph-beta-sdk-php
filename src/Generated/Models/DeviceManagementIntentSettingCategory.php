@@ -5,14 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * Entity representing an intent setting category
-*/
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementIntentSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +27,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +41,13 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettings(): ?array {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingInstance::class);
+            /** @var array<DeviceManagementSettingInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**

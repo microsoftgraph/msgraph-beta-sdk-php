@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * This entity contains data which is used in customizing the tenant level appearance of the Company Portal applications as well as the end user web portal.
@@ -33,7 +34,13 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return array<IntuneBrandingProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IntuneBrandingProfileAssignment::class);
+            /** @var array<IntuneBrandingProfileAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -41,7 +48,13 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return array<CompanyPortalBlockedAction>|null
     */
     public function getCompanyPortalBlockedActions(): ?array {
-        return $this->getBackingStore()->get('companyPortalBlockedActions');
+        $val = $this->getBackingStore()->get('companyPortalBlockedActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CompanyPortalBlockedAction::class);
+            /** @var array<CompanyPortalBlockedAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyPortalBlockedActions'");
     }
 
     /**
@@ -49,7 +62,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getContactITEmailAddress(): ?string {
-        return $this->getBackingStore()->get('contactITEmailAddress');
+        $val = $this->getBackingStore()->get('contactITEmailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactITEmailAddress'");
     }
 
     /**
@@ -57,7 +74,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getContactITName(): ?string {
-        return $this->getBackingStore()->get('contactITName');
+        $val = $this->getBackingStore()->get('contactITName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactITName'");
     }
 
     /**
@@ -65,7 +86,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getContactITNotes(): ?string {
-        return $this->getBackingStore()->get('contactITNotes');
+        $val = $this->getBackingStore()->get('contactITNotes');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactITNotes'");
     }
 
     /**
@@ -73,7 +98,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getContactITPhoneNumber(): ?string {
-        return $this->getBackingStore()->get('contactITPhoneNumber');
+        $val = $this->getBackingStore()->get('contactITPhoneNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactITPhoneNumber'");
     }
 
     /**
@@ -81,7 +110,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -89,7 +122,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomCanSeePrivacyMessage(): ?string {
-        return $this->getBackingStore()->get('customCanSeePrivacyMessage');
+        $val = $this->getBackingStore()->get('customCanSeePrivacyMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customCanSeePrivacyMessage'");
     }
 
     /**
@@ -97,7 +134,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomCantSeePrivacyMessage(): ?string {
-        return $this->getBackingStore()->get('customCantSeePrivacyMessage');
+        $val = $this->getBackingStore()->get('customCantSeePrivacyMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customCantSeePrivacyMessage'");
     }
 
     /**
@@ -105,7 +146,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomPrivacyMessage(): ?string {
-        return $this->getBackingStore()->get('customPrivacyMessage');
+        $val = $this->getBackingStore()->get('customPrivacyMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customPrivacyMessage'");
     }
 
     /**
@@ -113,7 +158,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getDisableClientTelemetry(): ?bool {
-        return $this->getBackingStore()->get('disableClientTelemetry');
+        $val = $this->getBackingStore()->get('disableClientTelemetry');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableClientTelemetry'");
     }
 
     /**
@@ -121,7 +170,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getDisableDeviceCategorySelection(): ?bool {
-        return $this->getBackingStore()->get('disableDeviceCategorySelection');
+        $val = $this->getBackingStore()->get('disableDeviceCategorySelection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableDeviceCategorySelection'");
     }
 
     /**
@@ -129,7 +182,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -137,12 +194,16 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return EnrollmentAvailabilityOptions|null
     */
     public function getEnrollmentAvailability(): ?EnrollmentAvailabilityOptions {
-        return $this->getBackingStore()->get('enrollmentAvailability');
+        $val = $this->getBackingStore()->get('enrollmentAvailability');
+        if (is_null($val) || $val instanceof EnrollmentAvailabilityOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentAvailability'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -172,7 +233,14 @@ class IntuneBrandingProfile extends Entity implements Parsable
             'privacyUrl' => fn(ParseNode $n) => $o->setPrivacyUrl($n->getStringValue()),
             'profileDescription' => fn(ParseNode $n) => $o->setProfileDescription($n->getStringValue()),
             'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'sendDeviceOwnershipChangePushNotification' => fn(ParseNode $n) => $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()),
             'showAzureADEnterpriseApps' => fn(ParseNode $n) => $o->setShowAzureADEnterpriseApps($n->getBooleanValue()),
             'showConfigurationManagerApps' => fn(ParseNode $n) => $o->setShowConfigurationManagerApps($n->getBooleanValue()),
@@ -189,7 +257,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultProfile(): ?bool {
-        return $this->getBackingStore()->get('isDefaultProfile');
+        $val = $this->getBackingStore()->get('isDefaultProfile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultProfile'");
     }
 
     /**
@@ -197,7 +269,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsFactoryResetDisabled(): ?bool {
-        return $this->getBackingStore()->get('isFactoryResetDisabled');
+        $val = $this->getBackingStore()->get('isFactoryResetDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isFactoryResetDisabled'");
     }
 
     /**
@@ -205,7 +281,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRemoveDeviceDisabled(): ?bool {
-        return $this->getBackingStore()->get('isRemoveDeviceDisabled');
+        $val = $this->getBackingStore()->get('isRemoveDeviceDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRemoveDeviceDisabled'");
     }
 
     /**
@@ -213,7 +293,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getLandingPageCustomizedImage(): ?MimeContent {
-        return $this->getBackingStore()->get('landingPageCustomizedImage');
+        $val = $this->getBackingStore()->get('landingPageCustomizedImage');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'landingPageCustomizedImage'");
     }
 
     /**
@@ -221,7 +305,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -229,7 +317,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getLightBackgroundLogo(): ?MimeContent {
-        return $this->getBackingStore()->get('lightBackgroundLogo');
+        $val = $this->getBackingStore()->get('lightBackgroundLogo');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lightBackgroundLogo'");
     }
 
     /**
@@ -237,7 +329,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOnlineSupportSiteName(): ?string {
-        return $this->getBackingStore()->get('onlineSupportSiteName');
+        $val = $this->getBackingStore()->get('onlineSupportSiteName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onlineSupportSiteName'");
     }
 
     /**
@@ -245,7 +341,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOnlineSupportSiteUrl(): ?string {
-        return $this->getBackingStore()->get('onlineSupportSiteUrl');
+        $val = $this->getBackingStore()->get('onlineSupportSiteUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onlineSupportSiteUrl'");
     }
 
     /**
@@ -253,7 +353,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getPrivacyUrl(): ?string {
-        return $this->getBackingStore()->get('privacyUrl');
+        $val = $this->getBackingStore()->get('privacyUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyUrl'");
     }
 
     /**
@@ -261,7 +365,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getProfileDescription(): ?string {
-        return $this->getBackingStore()->get('profileDescription');
+        $val = $this->getBackingStore()->get('profileDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileDescription'");
     }
 
     /**
@@ -269,7 +377,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getProfileName(): ?string {
-        return $this->getBackingStore()->get('profileName');
+        $val = $this->getBackingStore()->get('profileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileName'");
     }
 
     /**
@@ -277,7 +389,13 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -285,7 +403,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getSendDeviceOwnershipChangePushNotification(): ?bool {
-        return $this->getBackingStore()->get('sendDeviceOwnershipChangePushNotification');
+        $val = $this->getBackingStore()->get('sendDeviceOwnershipChangePushNotification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sendDeviceOwnershipChangePushNotification'");
     }
 
     /**
@@ -293,7 +415,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowAzureADEnterpriseApps(): ?bool {
-        return $this->getBackingStore()->get('showAzureADEnterpriseApps');
+        $val = $this->getBackingStore()->get('showAzureADEnterpriseApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showAzureADEnterpriseApps'");
     }
 
     /**
@@ -301,7 +427,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowConfigurationManagerApps(): ?bool {
-        return $this->getBackingStore()->get('showConfigurationManagerApps');
+        $val = $this->getBackingStore()->get('showConfigurationManagerApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showConfigurationManagerApps'");
     }
 
     /**
@@ -309,7 +439,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowDisplayNameNextToLogo(): ?bool {
-        return $this->getBackingStore()->get('showDisplayNameNextToLogo');
+        $val = $this->getBackingStore()->get('showDisplayNameNextToLogo');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showDisplayNameNextToLogo'");
     }
 
     /**
@@ -317,7 +451,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowLogo(): ?bool {
-        return $this->getBackingStore()->get('showLogo');
+        $val = $this->getBackingStore()->get('showLogo');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showLogo'");
     }
 
     /**
@@ -325,7 +463,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowOfficeWebApps(): ?bool {
-        return $this->getBackingStore()->get('showOfficeWebApps');
+        $val = $this->getBackingStore()->get('showOfficeWebApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showOfficeWebApps'");
     }
 
     /**
@@ -333,7 +475,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return RgbColor|null
     */
     public function getThemeColor(): ?RgbColor {
-        return $this->getBackingStore()->get('themeColor');
+        $val = $this->getBackingStore()->get('themeColor');
+        if (is_null($val) || $val instanceof RgbColor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'themeColor'");
     }
 
     /**
@@ -341,7 +487,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getThemeColorLogo(): ?MimeContent {
-        return $this->getBackingStore()->get('themeColorLogo');
+        $val = $this->getBackingStore()->get('themeColorLogo');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'themeColorLogo'");
     }
 
     /**

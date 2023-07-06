@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TenantSetupInfo extends Entity implements Parsable 
 {
@@ -29,19 +30,30 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return PrivilegedRoleSettings|null
     */
     public function getDefaultRolesSettings(): ?PrivilegedRoleSettings {
-        return $this->getBackingStore()->get('defaultRolesSettings');
+        $val = $this->getBackingStore()->get('defaultRolesSettings');
+        if (is_null($val) || $val instanceof PrivilegedRoleSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultRolesSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'defaultRolesSettings' => fn(ParseNode $n) => $o->setDefaultRolesSettings($n->getObjectValue([PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'])),
             'firstTimeSetup' => fn(ParseNode $n) => $o->setFirstTimeSetup($n->getBooleanValue()),
-            'relevantRolesSettings' => fn(ParseNode $n) => $o->setRelevantRolesSettings($n->getCollectionOfPrimitiveValues()),
+            'relevantRolesSettings' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRelevantRolesSettings($val);
+            },
             'setupStatus' => fn(ParseNode $n) => $o->setSetupStatus($n->getEnumValue(SetupStatus::class)),
             'skipSetup' => fn(ParseNode $n) => $o->setSkipSetup($n->getBooleanValue()),
             'userRolesActions' => fn(ParseNode $n) => $o->setUserRolesActions($n->getStringValue()),
@@ -53,7 +65,11 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return bool|null
     */
     public function getFirstTimeSetup(): ?bool {
-        return $this->getBackingStore()->get('firstTimeSetup');
+        $val = $this->getBackingStore()->get('firstTimeSetup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstTimeSetup'");
     }
 
     /**
@@ -61,7 +77,13 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRelevantRolesSettings(): ?array {
-        return $this->getBackingStore()->get('relevantRolesSettings');
+        $val = $this->getBackingStore()->get('relevantRolesSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relevantRolesSettings'");
     }
 
     /**
@@ -69,7 +91,11 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return SetupStatus|null
     */
     public function getSetupStatus(): ?SetupStatus {
-        return $this->getBackingStore()->get('setupStatus');
+        $val = $this->getBackingStore()->get('setupStatus');
+        if (is_null($val) || $val instanceof SetupStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setupStatus'");
     }
 
     /**
@@ -77,7 +103,11 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return bool|null
     */
     public function getSkipSetup(): ?bool {
-        return $this->getBackingStore()->get('skipSetup');
+        $val = $this->getBackingStore()->get('skipSetup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skipSetup'");
     }
 
     /**
@@ -85,7 +115,11 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return string|null
     */
     public function getUserRolesActions(): ?string {
-        return $this->getBackingStore()->get('userRolesActions');
+        $val = $this->getBackingStore()->get('userRolesActions');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRolesActions'");
     }
 
     /**

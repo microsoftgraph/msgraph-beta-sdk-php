@@ -42,7 +42,12 @@ class NumberRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class NumberRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +76,11 @@ class NumberRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getLowerNumber(): ?int {
-        return $this->getBackingStore()->get('lowerNumber');
+        $val = $this->getBackingStore()->get('lowerNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lowerNumber'");
     }
 
     /**
@@ -79,7 +88,11 @@ class NumberRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +100,11 @@ class NumberRange implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getUpperNumber(): ?int {
-        return $this->getBackingStore()->get('upperNumber');
+        $val = $this->getBackingStore()->get('upperNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upperNumber'");
     }
 
     /**

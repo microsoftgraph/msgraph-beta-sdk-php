@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,12 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -57,7 +63,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return PostalAddressType|null
     */
     public function getBuyFromAddress(): ?PostalAddressType {
-        return $this->getBackingStore()->get('buyFromAddress');
+        $val = $this->getBackingStore()->get('buyFromAddress');
+        if (is_null($val) || $val instanceof PostalAddressType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'buyFromAddress'");
     }
 
     /**
@@ -65,7 +75,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return Currency|null
     */
     public function getCurrency(): ?Currency {
-        return $this->getBackingStore()->get('currency');
+        $val = $this->getBackingStore()->get('currency');
+        if (is_null($val) || $val instanceof Currency) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currency'");
     }
 
     /**
@@ -73,7 +87,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->getBackingStore()->get('currencyCode');
+        $val = $this->getBackingStore()->get('currencyCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currencyCode'");
     }
 
     /**
@@ -81,7 +99,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCurrencyId(): ?string {
-        return $this->getBackingStore()->get('currencyId');
+        $val = $this->getBackingStore()->get('currencyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currencyId'");
     }
 
     /**
@@ -89,7 +111,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDiscountAmount(): ?string {
-        return $this->getBackingStore()->get('discountAmount');
+        $val = $this->getBackingStore()->get('discountAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discountAmount'");
     }
 
     /**
@@ -97,7 +123,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getDiscountAppliedBeforeTax(): ?bool {
-        return $this->getBackingStore()->get('discountAppliedBeforeTax');
+        $val = $this->getBackingStore()->get('discountAppliedBeforeTax');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discountAppliedBeforeTax'");
     }
 
     /**
@@ -105,12 +135,16 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return Date|null
     */
     public function getDueDate(): ?Date {
-        return $this->getBackingStore()->get('dueDate');
+        $val = $this->getBackingStore()->get('dueDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dueDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -154,7 +188,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -162,7 +200,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return Date|null
     */
     public function getInvoiceDate(): ?Date {
-        return $this->getBackingStore()->get('invoiceDate');
+        $val = $this->getBackingStore()->get('invoiceDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invoiceDate'");
     }
 
     /**
@@ -170,7 +212,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -178,7 +224,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->getBackingStore()->get('number');
+        $val = $this->getBackingStore()->get('number');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'number'");
     }
 
     /**
@@ -186,7 +236,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -194,7 +248,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return PostalAddressType|null
     */
     public function getPayToAddress(): ?PostalAddressType {
-        return $this->getBackingStore()->get('payToAddress');
+        $val = $this->getBackingStore()->get('payToAddress');
+        if (is_null($val) || $val instanceof PostalAddressType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payToAddress'");
     }
 
     /**
@@ -202,7 +260,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPayToContact(): ?string {
-        return $this->getBackingStore()->get('payToContact');
+        $val = $this->getBackingStore()->get('payToContact');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payToContact'");
     }
 
     /**
@@ -210,7 +272,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPayToName(): ?string {
-        return $this->getBackingStore()->get('payToName');
+        $val = $this->getBackingStore()->get('payToName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payToName'");
     }
 
     /**
@@ -218,7 +284,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPayToVendorId(): ?string {
-        return $this->getBackingStore()->get('payToVendorId');
+        $val = $this->getBackingStore()->get('payToVendorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payToVendorId'");
     }
 
     /**
@@ -226,7 +296,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPayToVendorNumber(): ?string {
-        return $this->getBackingStore()->get('payToVendorNumber');
+        $val = $this->getBackingStore()->get('payToVendorNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payToVendorNumber'");
     }
 
     /**
@@ -234,7 +308,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getPricesIncludeTax(): ?bool {
-        return $this->getBackingStore()->get('pricesIncludeTax');
+        $val = $this->getBackingStore()->get('pricesIncludeTax');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pricesIncludeTax'");
     }
 
     /**
@@ -242,7 +320,13 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PurchaseInvoiceLine>|null
     */
     public function getPurchaseInvoiceLines(): ?array {
-        return $this->getBackingStore()->get('purchaseInvoiceLines');
+        $val = $this->getBackingStore()->get('purchaseInvoiceLines');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PurchaseInvoiceLine::class);
+            /** @var array<PurchaseInvoiceLine>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'purchaseInvoiceLines'");
     }
 
     /**
@@ -250,7 +334,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return PostalAddressType|null
     */
     public function getShipToAddress(): ?PostalAddressType {
-        return $this->getBackingStore()->get('shipToAddress');
+        $val = $this->getBackingStore()->get('shipToAddress');
+        if (is_null($val) || $val instanceof PostalAddressType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shipToAddress'");
     }
 
     /**
@@ -258,7 +346,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getShipToContact(): ?string {
-        return $this->getBackingStore()->get('shipToContact');
+        $val = $this->getBackingStore()->get('shipToContact');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shipToContact'");
     }
 
     /**
@@ -266,7 +358,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getShipToName(): ?string {
-        return $this->getBackingStore()->get('shipToName');
+        $val = $this->getBackingStore()->get('shipToName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shipToName'");
     }
 
     /**
@@ -274,7 +370,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -282,7 +382,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTotalAmountExcludingTax(): ?string {
-        return $this->getBackingStore()->get('totalAmountExcludingTax');
+        $val = $this->getBackingStore()->get('totalAmountExcludingTax');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalAmountExcludingTax'");
     }
 
     /**
@@ -290,7 +394,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTotalAmountIncludingTax(): ?string {
-        return $this->getBackingStore()->get('totalAmountIncludingTax');
+        $val = $this->getBackingStore()->get('totalAmountIncludingTax');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalAmountIncludingTax'");
     }
 
     /**
@@ -298,7 +406,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTotalTaxAmount(): ?string {
-        return $this->getBackingStore()->get('totalTaxAmount');
+        $val = $this->getBackingStore()->get('totalTaxAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalTaxAmount'");
     }
 
     /**
@@ -306,7 +418,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return Vendor|null
     */
     public function getVendor(): ?Vendor {
-        return $this->getBackingStore()->get('vendor');
+        $val = $this->getBackingStore()->get('vendor');
+        if (is_null($val) || $val instanceof Vendor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendor'");
     }
 
     /**
@@ -314,7 +430,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorId(): ?string {
-        return $this->getBackingStore()->get('vendorId');
+        $val = $this->getBackingStore()->get('vendorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorId'");
     }
 
     /**
@@ -322,7 +442,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorInvoiceNumber(): ?string {
-        return $this->getBackingStore()->get('vendorInvoiceNumber');
+        $val = $this->getBackingStore()->get('vendorInvoiceNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorInvoiceNumber'");
     }
 
     /**
@@ -330,7 +454,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorName(): ?string {
-        return $this->getBackingStore()->get('vendorName');
+        $val = $this->getBackingStore()->get('vendorName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorName'");
     }
 
     /**
@@ -338,7 +466,11 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorNumber(): ?string {
-        return $this->getBackingStore()->get('vendorNumber');
+        $val = $this->getBackingStore()->get('vendorNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorNumber'");
     }
 
     /**

@@ -30,7 +30,11 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return PhysicalAddress|null
     */
     public function getDetail(): ?PhysicalAddress {
-        return $this->getBackingStore()->get('detail');
+        $val = $this->getBackingStore()->get('detail');
+        if (is_null($val) || $val instanceof PhysicalAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detail'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return GeoCoordinates|null
     */
     public function getGeoCoordinates(): ?GeoCoordinates {
-        return $this->getBackingStore()->get('geoCoordinates');
+        $val = $this->getBackingStore()->get('geoCoordinates');
+        if (is_null($val) || $val instanceof GeoCoordinates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'geoCoordinates'");
     }
 
     /**

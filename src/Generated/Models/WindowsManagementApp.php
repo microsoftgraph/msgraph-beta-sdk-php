@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsManagementApp extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return string|null
     */
     public function getAvailableVersion(): ?string {
-        return $this->getBackingStore()->get('availableVersion');
+        $val = $this->getBackingStore()->get('availableVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availableVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,13 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return array<WindowsManagementAppHealthState>|null
     */
     public function getHealthStates(): ?array {
-        return $this->getBackingStore()->get('healthStates');
+        $val = $this->getBackingStore()->get('healthStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsManagementAppHealthState::class);
+            /** @var array<WindowsManagementAppHealthState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStates'");
     }
 
     /**
@@ -59,7 +70,11 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return ManagedInstallerStatus|null
     */
     public function getManagedInstaller(): ?ManagedInstallerStatus {
-        return $this->getBackingStore()->get('managedInstaller');
+        $val = $this->getBackingStore()->get('managedInstaller');
+        if (is_null($val) || $val instanceof ManagedInstallerStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedInstaller'");
     }
 
     /**
@@ -67,7 +82,11 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedInstallerConfiguredDateTime(): ?string {
-        return $this->getBackingStore()->get('managedInstallerConfiguredDateTime');
+        $val = $this->getBackingStore()->get('managedInstallerConfiguredDateTime');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedInstallerConfiguredDateTime'");
     }
 
     /**

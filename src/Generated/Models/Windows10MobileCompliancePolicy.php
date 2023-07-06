@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
@@ -30,7 +31,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getActiveFirewallRequired(): ?bool {
-        return $this->getBackingStore()->get('activeFirewallRequired');
+        $val = $this->getBackingStore()->get('activeFirewallRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeFirewallRequired'");
     }
 
     /**
@@ -38,7 +43,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getBitLockerEnabled(): ?bool {
-        return $this->getBackingStore()->get('bitLockerEnabled');
+        $val = $this->getBackingStore()->get('bitLockerEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerEnabled'");
     }
 
     /**
@@ -46,7 +55,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getCodeIntegrityEnabled(): ?bool {
-        return $this->getBackingStore()->get('codeIntegrityEnabled');
+        $val = $this->getBackingStore()->get('codeIntegrityEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'codeIntegrityEnabled'");
     }
 
     /**
@@ -54,12 +67,16 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getEarlyLaunchAntiMalwareDriverEnabled(): ?bool {
-        return $this->getBackingStore()->get('earlyLaunchAntiMalwareDriverEnabled');
+        $val = $this->getBackingStore()->get('earlyLaunchAntiMalwareDriverEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'earlyLaunchAntiMalwareDriverEnabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +107,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->getBackingStore()->get('osMaximumVersion');
+        $val = $this->getBackingStore()->get('osMaximumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMaximumVersion'");
     }
 
     /**
@@ -98,7 +119,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->getBackingStore()->get('osMinimumVersion');
+        $val = $this->getBackingStore()->get('osMinimumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMinimumVersion'");
     }
 
     /**
@@ -106,7 +131,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockSimple');
+        $val = $this->getBackingStore()->get('passwordBlockSimple');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockSimple'");
     }
 
     /**
@@ -114,7 +143,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -122,7 +155,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        $val = $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumCharacterSetCount'");
     }
 
     /**
@@ -130,7 +167,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -138,7 +179,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeLock'");
     }
 
     /**
@@ -146,7 +191,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -154,7 +203,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->getBackingStore()->get('passwordRequired');
+        $val = $this->getBackingStore()->get('passwordRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequired'");
     }
 
     /**
@@ -162,7 +215,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof RequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -170,7 +227,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getPasswordRequireToUnlockFromIdle(): ?bool {
-        return $this->getBackingStore()->get('passwordRequireToUnlockFromIdle');
+        $val = $this->getBackingStore()->get('passwordRequireToUnlockFromIdle');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireToUnlockFromIdle'");
     }
 
     /**
@@ -178,7 +239,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getSecureBootEnabled(): ?bool {
-        return $this->getBackingStore()->get('secureBootEnabled');
+        $val = $this->getBackingStore()->get('secureBootEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secureBootEnabled'");
     }
 
     /**
@@ -186,7 +251,11 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
-        return $this->getBackingStore()->get('storageRequireEncryption');
+        $val = $this->getBackingStore()->get('storageRequireEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRequireEncryption'");
     }
 
     /**
@@ -194,7 +263,13 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return array<OperatingSystemVersionRange>|null
     */
     public function getValidOperatingSystemBuildRanges(): ?array {
-        return $this->getBackingStore()->get('validOperatingSystemBuildRanges');
+        $val = $this->getBackingStore()->get('validOperatingSystemBuildRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OperatingSystemVersionRange::class);
+            /** @var array<OperatingSystemVersionRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'validOperatingSystemBuildRanges'");
     }
 
     /**

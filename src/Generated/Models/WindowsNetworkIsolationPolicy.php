@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Windows Network Isolation Policy
@@ -42,7 +43,12 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<ProxiedDomain>|null
     */
     public function getEnterpriseCloudResources(): ?array {
-        return $this->getBackingStore()->get('enterpriseCloudResources');
+        $val = $this->getBackingStore()->get('enterpriseCloudResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProxiedDomain::class);
+            /** @var array<ProxiedDomain>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudResources'");
     }
 
     /**
@@ -66,7 +78,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getEnterpriseInternalProxyServers(): ?array {
-        return $this->getBackingStore()->get('enterpriseInternalProxyServers');
+        $val = $this->getBackingStore()->get('enterpriseInternalProxyServers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseInternalProxyServers'");
     }
 
     /**
@@ -74,7 +92,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<IpRange>|null
     */
     public function getEnterpriseIPRanges(): ?array {
-        return $this->getBackingStore()->get('enterpriseIPRanges');
+        $val = $this->getBackingStore()->get('enterpriseIPRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseIPRanges'");
     }
 
     /**
@@ -82,7 +106,11 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getEnterpriseIPRangesAreAuthoritative(): ?bool {
-        return $this->getBackingStore()->get('enterpriseIPRangesAreAuthoritative');
+        $val = $this->getBackingStore()->get('enterpriseIPRangesAreAuthoritative');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseIPRangesAreAuthoritative'");
     }
 
     /**
@@ -90,7 +118,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getEnterpriseNetworkDomainNames(): ?array {
-        return $this->getBackingStore()->get('enterpriseNetworkDomainNames');
+        $val = $this->getBackingStore()->get('enterpriseNetworkDomainNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseNetworkDomainNames'");
     }
 
     /**
@@ -98,7 +132,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getEnterpriseProxyServers(): ?array {
-        return $this->getBackingStore()->get('enterpriseProxyServers');
+        $val = $this->getBackingStore()->get('enterpriseProxyServers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseProxyServers'");
     }
 
     /**
@@ -106,24 +146,56 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getEnterpriseProxyServersAreAuthoritative(): ?bool {
-        return $this->getBackingStore()->get('enterpriseProxyServersAreAuthoritative');
+        $val = $this->getBackingStore()->get('enterpriseProxyServersAreAuthoritative');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseProxyServersAreAuthoritative'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'enterpriseCloudResources' => fn(ParseNode $n) => $o->setEnterpriseCloudResources($n->getCollectionOfObjectValues([ProxiedDomain::class, 'createFromDiscriminatorValue'])),
-            'enterpriseInternalProxyServers' => fn(ParseNode $n) => $o->setEnterpriseInternalProxyServers($n->getCollectionOfPrimitiveValues()),
+            'enterpriseInternalProxyServers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnterpriseInternalProxyServers($val);
+            },
             'enterpriseIPRanges' => fn(ParseNode $n) => $o->setEnterpriseIPRanges($n->getCollectionOfObjectValues([IpRange::class, 'createFromDiscriminatorValue'])),
             'enterpriseIPRangesAreAuthoritative' => fn(ParseNode $n) => $o->setEnterpriseIPRangesAreAuthoritative($n->getBooleanValue()),
-            'enterpriseNetworkDomainNames' => fn(ParseNode $n) => $o->setEnterpriseNetworkDomainNames($n->getCollectionOfPrimitiveValues()),
-            'enterpriseProxyServers' => fn(ParseNode $n) => $o->setEnterpriseProxyServers($n->getCollectionOfPrimitiveValues()),
+            'enterpriseNetworkDomainNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnterpriseNetworkDomainNames($val);
+            },
+            'enterpriseProxyServers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnterpriseProxyServers($val);
+            },
             'enterpriseProxyServersAreAuthoritative' => fn(ParseNode $n) => $o->setEnterpriseProxyServersAreAuthoritative($n->getBooleanValue()),
-            'neutralDomainResources' => fn(ParseNode $n) => $o->setNeutralDomainResources($n->getCollectionOfPrimitiveValues()),
+            'neutralDomainResources' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNeutralDomainResources($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -133,7 +205,13 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getNeutralDomainResources(): ?array {
-        return $this->getBackingStore()->get('neutralDomainResources');
+        $val = $this->getBackingStore()->get('neutralDomainResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'neutralDomainResources'");
     }
 
     /**
@@ -141,7 +219,11 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

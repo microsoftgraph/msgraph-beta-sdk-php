@@ -27,7 +27,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->getBackingStore()->get('templateId');
+        $val = $this->getBackingStore()->get('templateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateId'");
     }
 
     /**

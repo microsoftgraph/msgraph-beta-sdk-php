@@ -29,7 +29,11 @@ class UserSettings extends Entity implements Parsable
      * @return ContactMergeSuggestions|null
     */
     public function getContactMergeSuggestions(): ?ContactMergeSuggestions {
-        return $this->getBackingStore()->get('contactMergeSuggestions');
+        $val = $this->getBackingStore()->get('contactMergeSuggestions');
+        if (is_null($val) || $val instanceof ContactMergeSuggestions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactMergeSuggestions'");
     }
 
     /**
@@ -37,7 +41,11 @@ class UserSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getContributionToContentDiscoveryAsOrganizationDisabled(): ?bool {
-        return $this->getBackingStore()->get('contributionToContentDiscoveryAsOrganizationDisabled');
+        $val = $this->getBackingStore()->get('contributionToContentDiscoveryAsOrganizationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contributionToContentDiscoveryAsOrganizationDisabled'");
     }
 
     /**
@@ -45,12 +53,16 @@ class UserSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getContributionToContentDiscoveryDisabled(): ?bool {
-        return $this->getBackingStore()->get('contributionToContentDiscoveryDisabled');
+        $val = $this->getBackingStore()->get('contributionToContentDiscoveryDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contributionToContentDiscoveryDisabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +81,11 @@ class UserSettings extends Entity implements Parsable
      * @return UserInsightsSettings|null
     */
     public function getItemInsights(): ?UserInsightsSettings {
-        return $this->getBackingStore()->get('itemInsights');
+        $val = $this->getBackingStore()->get('itemInsights');
+        if (is_null($val) || $val instanceof UserInsightsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemInsights'");
     }
 
     /**
@@ -77,7 +93,11 @@ class UserSettings extends Entity implements Parsable
      * @return RegionalAndLanguageSettings|null
     */
     public function getRegionalAndLanguageSettings(): ?RegionalAndLanguageSettings {
-        return $this->getBackingStore()->get('regionalAndLanguageSettings');
+        $val = $this->getBackingStore()->get('regionalAndLanguageSettings');
+        if (is_null($val) || $val instanceof RegionalAndLanguageSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionalAndLanguageSettings'");
     }
 
     /**
@@ -85,7 +105,11 @@ class UserSettings extends Entity implements Parsable
      * @return ShiftPreferences|null
     */
     public function getShiftPreferences(): ?ShiftPreferences {
-        return $this->getBackingStore()->get('shiftPreferences');
+        $val = $this->getBackingStore()->get('shiftPreferences');
+        if (is_null($val) || $val instanceof ShiftPreferences) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shiftPreferences'");
     }
 
     /**

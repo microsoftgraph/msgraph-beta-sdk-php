@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcExportJob extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
@@ -38,7 +43,11 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return CloudPcExportJobStatus|null
     */
     public function getExportJobStatus(): ?CloudPcExportJobStatus {
-        return $this->getBackingStore()->get('exportJobStatus');
+        $val = $this->getBackingStore()->get('exportJobStatus');
+        if (is_null($val) || $val instanceof CloudPcExportJobStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportJobStatus'");
     }
 
     /**
@@ -46,12 +55,16 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getExportUrl(): ?string {
-        return $this->getBackingStore()->get('exportUrl');
+        $val = $this->getBackingStore()->get('exportUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +76,14 @@ class CloudPcExportJob extends Entity implements Parsable
             'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
             'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcReportName::class)),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
-            'select' => fn(ParseNode $n) => $o->setSelect($n->getCollectionOfPrimitiveValues()),
+            'select' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSelect($val);
+            },
         ]);
     }
 
@@ -72,7 +92,11 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getFilter(): ?string {
-        return $this->getBackingStore()->get('filter');
+        $val = $this->getBackingStore()->get('filter');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filter'");
     }
 
     /**
@@ -80,15 +104,23 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->getBackingStore()->get('format');
+        $val = $this->getBackingStore()->get('format');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
     }
 
     /**
-     * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport noLicenseAvailableConnectivityFailureReport, or unknownFutureValue.
+     * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, unknownFutureValue,  noLicenseAvailableConnectivityFailureReport. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: noLicenseAvailableConnectivityFailureReport.
      * @return CloudPcReportName|null
     */
     public function getReportName(): ?CloudPcReportName {
-        return $this->getBackingStore()->get('reportName');
+        $val = $this->getBackingStore()->get('reportName');
+        if (is_null($val) || $val instanceof CloudPcReportName) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
     }
 
     /**
@@ -96,7 +128,11 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('requestDateTime');
+        $val = $this->getBackingStore()->get('requestDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestDateTime'");
     }
 
     /**
@@ -104,7 +140,13 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSelect(): ?array {
-        return $this->getBackingStore()->get('select');
+        $val = $this->getBackingStore()->get('select');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'select'");
     }
 
     /**
@@ -164,7 +206,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport noLicenseAvailableConnectivityFailureReport, or unknownFutureValue.
+     * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, unknownFutureValue,  noLicenseAvailableConnectivityFailureReport. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: noLicenseAvailableConnectivityFailureReport.
      * @param CloudPcReportName|null $value Value to set for the reportName property.
     */
     public function setReportName(?CloudPcReportName $value): void {

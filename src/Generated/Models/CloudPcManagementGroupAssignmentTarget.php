@@ -27,7 +27,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->getBackingStore()->get('groupId');
+        $val = $this->getBackingStore()->get('groupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupId'");
     }
 
     /**
@@ -50,7 +54,11 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
      * @return string|null
     */
     public function getServicePlanId(): ?string {
-        return $this->getBackingStore()->get('servicePlanId');
+        $val = $this->getBackingStore()->get('servicePlanId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlanId'");
     }
 
     /**

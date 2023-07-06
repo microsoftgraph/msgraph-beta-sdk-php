@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Contains properties for user run state of the device management script.
@@ -32,7 +33,13 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return array<DeviceManagementScriptDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
-        return $this->getBackingStore()->get('deviceRunStates');
+        $val = $this->getBackingStore()->get('deviceRunStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScriptDeviceState::class);
+            /** @var array<DeviceManagementScriptDeviceState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRunStates'");
     }
 
     /**
@@ -40,12 +47,16 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('errorDeviceCount');
+        $val = $this->getBackingStore()->get('errorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +73,11 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessDeviceCount(): ?int {
-        return $this->getBackingStore()->get('successDeviceCount');
+        $val = $this->getBackingStore()->get('successDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successDeviceCount'");
     }
 
     /**
@@ -70,7 +85,11 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Device Co-Management eligibility state
-*/
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new comanagementEligibleDevice and sets the default values.
+     * Instantiates a new ComanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,7 +29,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return DeviceRegistrationState|null
     */
     public function getClientRegistrationStatus(): ?DeviceRegistrationState {
-        return $this->getBackingStore()->get('clientRegistrationStatus');
+        $val = $this->getBackingStore()->get('clientRegistrationStatus');
+        if (is_null($val) || $val instanceof DeviceRegistrationState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientRegistrationStatus'");
     }
 
     /**
@@ -40,7 +41,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -48,7 +53,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
-        return $this->getBackingStore()->get('deviceType');
+        $val = $this->getBackingStore()->get('deviceType');
+        if (is_null($val) || $val instanceof DeviceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceType'");
     }
 
     /**
@@ -56,12 +65,16 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return int|null
     */
     public function getEntitySource(): ?int {
-        return $this->getBackingStore()->get('entitySource');
+        $val = $this->getBackingStore()->get('entitySource');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entitySource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -93,7 +106,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ManagementAgentType|null
     */
     public function getManagementAgents(): ?ManagementAgentType {
-        return $this->getBackingStore()->get('managementAgents');
+        $val = $this->getBackingStore()->get('managementAgents');
+        if (is_null($val) || $val instanceof ManagementAgentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementAgents'");
     }
 
     /**
@@ -101,7 +118,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ManagementState|null
     */
     public function getManagementState(): ?ManagementState {
-        return $this->getBackingStore()->get('managementState');
+        $val = $this->getBackingStore()->get('managementState');
+        if (is_null($val) || $val instanceof ManagementState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementState'");
     }
 
     /**
@@ -109,7 +130,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -117,7 +142,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmStatus(): ?string {
-        return $this->getBackingStore()->get('mdmStatus');
+        $val = $this->getBackingStore()->get('mdmStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmStatus'");
     }
 
     /**
@@ -125,7 +154,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -133,7 +166,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->getBackingStore()->get('osDescription');
+        $val = $this->getBackingStore()->get('osDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osDescription'");
     }
 
     /**
@@ -141,7 +178,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -149,7 +190,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
-        return $this->getBackingStore()->get('ownerType');
+        $val = $this->getBackingStore()->get('ownerType');
+        if (is_null($val) || $val instanceof OwnerType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerType'");
     }
 
     /**
@@ -157,7 +202,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getReferenceId(): ?string {
-        return $this->getBackingStore()->get('referenceId');
+        $val = $this->getBackingStore()->get('referenceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceId'");
     }
 
     /**
@@ -165,7 +214,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->getBackingStore()->get('serialNumber');
+        $val = $this->getBackingStore()->get('serialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serialNumber'");
     }
 
     /**
@@ -173,7 +226,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ComanagementEligibleType|null
     */
     public function getStatus(): ?ComanagementEligibleType {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ComanagementEligibleType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -181,7 +238,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUpn(): ?string {
-        return $this->getBackingStore()->get('upn');
+        $val = $this->getBackingStore()->get('upn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upn'");
     }
 
     /**
@@ -189,7 +250,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserEmail(): ?string {
-        return $this->getBackingStore()->get('userEmail');
+        $val = $this->getBackingStore()->get('userEmail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userEmail'");
     }
 
     /**
@@ -197,7 +262,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -205,7 +274,11 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**

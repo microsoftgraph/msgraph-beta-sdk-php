@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCommerceUrl(): ?string {
-        return $this->getBackingStore()->get('commerceUrl');
+        $val = $this->getBackingStore()->get('commerceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'commerceUrl'");
     }
 
     /**
@@ -63,7 +73,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCompanyName(): ?string {
-        return $this->getBackingStore()->get('companyName');
+        $val = $this->getBackingStore()->get('companyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyName'");
     }
 
     /**
@@ -71,12 +85,16 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return PartnerTenantType|null
     */
     public function getCompanyType(): ?PartnerTenantType {
-        return $this->getBackingStore()->get('companyType');
+        $val = $this->getBackingStore()->get('companyType');
+        if (is_null($val) || $val instanceof PartnerTenantType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,8 +105,22 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
             'helpUrl' => fn(ParseNode $n) => $o->setHelpUrl($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'partnerTenantId' => fn(ParseNode $n) => $o->setPartnerTenantId($n->getStringValue()),
-            'supportEmails' => fn(ParseNode $n) => $o->setSupportEmails($n->getCollectionOfPrimitiveValues()),
-            'supportTelephones' => fn(ParseNode $n) => $o->setSupportTelephones($n->getCollectionOfPrimitiveValues()),
+            'supportEmails' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportEmails($val);
+            },
+            'supportTelephones' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportTelephones($val);
+            },
             'supportUrl' => fn(ParseNode $n) => $o->setSupportUrl($n->getStringValue()),
         ];
     }
@@ -98,7 +130,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getHelpUrl(): ?string {
-        return $this->getBackingStore()->get('helpUrl');
+        $val = $this->getBackingStore()->get('helpUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'helpUrl'");
     }
 
     /**
@@ -106,7 +142,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -114,7 +154,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPartnerTenantId(): ?string {
-        return $this->getBackingStore()->get('partnerTenantId');
+        $val = $this->getBackingStore()->get('partnerTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerTenantId'");
     }
 
     /**
@@ -122,7 +166,13 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportEmails(): ?array {
-        return $this->getBackingStore()->get('supportEmails');
+        $val = $this->getBackingStore()->get('supportEmails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportEmails'");
     }
 
     /**
@@ -130,7 +180,13 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportTelephones(): ?array {
-        return $this->getBackingStore()->get('supportTelephones');
+        $val = $this->getBackingStore()->get('supportTelephones');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportTelephones'");
     }
 
     /**
@@ -138,7 +194,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSupportUrl(): ?string {
-        return $this->getBackingStore()->get('supportUrl');
+        $val = $this->getBackingStore()->get('supportUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportUrl'");
     }
 
     /**

@@ -30,7 +30,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return UsageAuthMethod|null
     */
     public function getAuthMethod(): ?UsageAuthMethod {
-        return $this->getBackingStore()->get('authMethod');
+        $val = $this->getBackingStore()->get('authMethod');
+        if (is_null($val) || $val instanceof UsageAuthMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authMethod'");
     }
 
     /**
@@ -38,7 +42,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
@@ -46,7 +54,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getFailureReason(): ?string {
-        return $this->getBackingStore()->get('failureReason');
+        $val = $this->getBackingStore()->get('failureReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failureReason'");
     }
 
     /**
@@ -54,12 +66,16 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return FeatureType|null
     */
     public function getFeature(): ?FeatureType {
-        return $this->getBackingStore()->get('feature');
+        $val = $this->getBackingStore()->get('feature');
+        if (is_null($val) || $val instanceof FeatureType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'feature'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +95,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSuccess(): ?bool {
-        return $this->getBackingStore()->get('isSuccess');
+        $val = $this->getBackingStore()->get('isSuccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSuccess'");
     }
 
     /**
@@ -87,7 +107,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
@@ -95,7 +119,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

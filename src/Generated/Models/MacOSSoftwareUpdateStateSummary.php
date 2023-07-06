@@ -33,12 +33,16 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +61,11 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -65,7 +73,11 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getProductKey(): ?string {
-        return $this->getBackingStore()->get('productKey');
+        $val = $this->getBackingStore()->get('productKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productKey'");
     }
 
     /**
@@ -73,7 +85,11 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateState|null
     */
     public function getState(): ?MacOSSoftwareUpdateState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -81,7 +97,11 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
-        return $this->getBackingStore()->get('updateCategory');
+        $val = $this->getBackingStore()->get('updateCategory');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateCategory'");
     }
 
     /**
@@ -89,7 +109,11 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUpdateVersion(): ?string {
-        return $this->getBackingStore()->get('updateVersion');
+        $val = $this->getBackingStore()->get('updateVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateVersion'");
     }
 
     /**

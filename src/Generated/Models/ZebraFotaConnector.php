@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ZebraFotaConnector and sets the default values.
+     * Instantiates a new zebraFotaConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,11 @@ class ZebraFotaConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getEnrollmentAuthorizationUrl(): ?string {
-        return $this->getBackingStore()->get('enrollmentAuthorizationUrl');
+        $val = $this->getBackingStore()->get('enrollmentAuthorizationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentAuthorizationUrl'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ZebraFotaConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getEnrollmentToken(): ?string {
-        return $this->getBackingStore()->get('enrollmentToken');
+        $val = $this->getBackingStore()->get('enrollmentToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentToken'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class ZebraFotaConnector extends Entity implements Parsable
      * @return bool|null
     */
     public function getFotaAppsApproved(): ?bool {
-        return $this->getBackingStore()->get('fotaAppsApproved');
+        $val = $this->getBackingStore()->get('fotaAppsApproved');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fotaAppsApproved'");
     }
 
     /**
@@ -69,7 +81,11 @@ class ZebraFotaConnector extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -77,7 +93,11 @@ class ZebraFotaConnector extends Entity implements Parsable
      * @return ZebraFotaConnectorState|null
     */
     public function getState(): ?ZebraFotaConnectorState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof ZebraFotaConnectorState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DlpEvaluationInput implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -46,7 +47,12 @@ class DlpEvaluationInput implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -62,7 +68,11 @@ class DlpEvaluationInput implements AdditionalDataHolder, BackedModel, Parsable
      * @return CurrentLabel|null
     */
     public function getCurrentLabel(): ?CurrentLabel {
-        return $this->getBackingStore()->get('currentLabel');
+        $val = $this->getBackingStore()->get('currentLabel');
+        if (is_null($val) || $val instanceof CurrentLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentLabel'");
     }
 
     /**
@@ -70,12 +80,18 @@ class DlpEvaluationInput implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<DiscoveredSensitiveType>|null
     */
     public function getDiscoveredSensitiveTypes(): ?array {
-        return $this->getBackingStore()->get('discoveredSensitiveTypes');
+        $val = $this->getBackingStore()->get('discoveredSensitiveTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DiscoveredSensitiveType::class);
+            /** @var array<DiscoveredSensitiveType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discoveredSensitiveTypes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +107,11 @@ class DlpEvaluationInput implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DocumentComment extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class DocumentComment extends Entity implements Parsable
      * @return string|null
     */
     public function getContent(): ?string {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +54,13 @@ class DocumentComment extends Entity implements Parsable
      * @return array<DocumentCommentReply>|null
     */
     public function getReplies(): ?array {
-        return $this->getBackingStore()->get('replies');
+        $val = $this->getBackingStore()->get('replies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DocumentCommentReply::class);
+            /** @var array<DocumentCommentReply>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'replies'");
     }
 
     /**

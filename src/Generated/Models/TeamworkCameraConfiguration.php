@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,13 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return array<TeamworkPeripheral>|null
     */
     public function getCameras(): ?array {
-        return $this->getBackingStore()->get('cameras');
+        $val = $this->getBackingStore()->get('cameras');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkPeripheral::class);
+            /** @var array<TeamworkPeripheral>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameras'");
     }
 
     /**
@@ -63,7 +75,11 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return TeamworkContentCameraConfiguration|null
     */
     public function getContentCameraConfiguration(): ?TeamworkContentCameraConfiguration {
-        return $this->getBackingStore()->get('contentCameraConfiguration');
+        $val = $this->getBackingStore()->get('contentCameraConfiguration');
+        if (is_null($val) || $val instanceof TeamworkContentCameraConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCameraConfiguration'");
     }
 
     /**
@@ -71,12 +87,16 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return TeamworkPeripheral|null
     */
     public function getDefaultContentCamera(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('defaultContentCamera');
+        $val = $this->getBackingStore()->get('defaultContentCamera');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultContentCamera'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -93,7 +113,11 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

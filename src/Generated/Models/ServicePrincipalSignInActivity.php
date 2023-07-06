@@ -29,7 +29,11 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -37,7 +41,11 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return SignInActivity|null
     */
     public function getApplicationAuthenticationClientSignInActivity(): ?SignInActivity {
-        return $this->getBackingStore()->get('applicationAuthenticationClientSignInActivity');
+        $val = $this->getBackingStore()->get('applicationAuthenticationClientSignInActivity');
+        if (is_null($val) || $val instanceof SignInActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationAuthenticationClientSignInActivity'");
     }
 
     /**
@@ -45,7 +53,11 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return SignInActivity|null
     */
     public function getApplicationAuthenticationResourceSignInActivity(): ?SignInActivity {
-        return $this->getBackingStore()->get('applicationAuthenticationResourceSignInActivity');
+        $val = $this->getBackingStore()->get('applicationAuthenticationResourceSignInActivity');
+        if (is_null($val) || $val instanceof SignInActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationAuthenticationResourceSignInActivity'");
     }
 
     /**
@@ -53,7 +65,11 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return SignInActivity|null
     */
     public function getDelegatedClientSignInActivity(): ?SignInActivity {
-        return $this->getBackingStore()->get('delegatedClientSignInActivity');
+        $val = $this->getBackingStore()->get('delegatedClientSignInActivity');
+        if (is_null($val) || $val instanceof SignInActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedClientSignInActivity'");
     }
 
     /**
@@ -61,12 +77,16 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return SignInActivity|null
     */
     public function getDelegatedResourceSignInActivity(): ?SignInActivity {
-        return $this->getBackingStore()->get('delegatedResourceSignInActivity');
+        $val = $this->getBackingStore()->get('delegatedResourceSignInActivity');
+        if (is_null($val) || $val instanceof SignInActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedResourceSignInActivity'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +105,11 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
      * @return SignInActivity|null
     */
     public function getLastSignInActivity(): ?SignInActivity {
-        return $this->getBackingStore()->get('lastSignInActivity');
+        $val = $this->getBackingStore()->get('lastSignInActivity');
+        if (is_null($val) || $val instanceof SignInActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSignInActivity'");
     }
 
     /**

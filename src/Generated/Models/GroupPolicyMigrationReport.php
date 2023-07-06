@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -38,12 +43,16 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +66,14 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'migrationReadiness' => fn(ParseNode $n) => $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)),
             'ouDistinguishedName' => fn(ParseNode $n) => $o->setOuDistinguishedName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'supportedSettingsCount' => fn(ParseNode $n) => $o->setSupportedSettingsCount($n->getIntegerValue()),
             'supportedSettingsPercent' => fn(ParseNode $n) => $o->setSupportedSettingsPercent($n->getIntegerValue()),
             'targetedInActiveDirectory' => fn(ParseNode $n) => $o->setTargetedInActiveDirectory($n->getBooleanValue()),
@@ -71,7 +87,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getGroupPolicyCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('groupPolicyCreatedDateTime');
+        $val = $this->getBackingStore()->get('groupPolicyCreatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyCreatedDateTime'");
     }
 
     /**
@@ -79,7 +99,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getGroupPolicyLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('groupPolicyLastModifiedDateTime');
+        $val = $this->getBackingStore()->get('groupPolicyLastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyLastModifiedDateTime'");
     }
 
     /**
@@ -87,7 +111,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupPolicyObjectId(): ?string {
-        return $this->getBackingStore()->get('groupPolicyObjectId');
+        $val = $this->getBackingStore()->get('groupPolicyObjectId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyObjectId'");
     }
 
     /**
@@ -95,7 +123,13 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return array<GroupPolicySettingMapping>|null
     */
     public function getGroupPolicySettingMappings(): ?array {
-        return $this->getBackingStore()->get('groupPolicySettingMappings');
+        $val = $this->getBackingStore()->get('groupPolicySettingMappings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicySettingMapping::class);
+            /** @var array<GroupPolicySettingMapping>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicySettingMappings'");
     }
 
     /**
@@ -103,7 +137,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -111,7 +149,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return GroupPolicyMigrationReadiness|null
     */
     public function getMigrationReadiness(): ?GroupPolicyMigrationReadiness {
-        return $this->getBackingStore()->get('migrationReadiness');
+        $val = $this->getBackingStore()->get('migrationReadiness');
+        if (is_null($val) || $val instanceof GroupPolicyMigrationReadiness) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationReadiness'");
     }
 
     /**
@@ -119,7 +161,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return string|null
     */
     public function getOuDistinguishedName(): ?string {
-        return $this->getBackingStore()->get('ouDistinguishedName');
+        $val = $this->getBackingStore()->get('ouDistinguishedName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ouDistinguishedName'");
     }
 
     /**
@@ -127,7 +173,13 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -135,7 +187,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return int|null
     */
     public function getSupportedSettingsCount(): ?int {
-        return $this->getBackingStore()->get('supportedSettingsCount');
+        $val = $this->getBackingStore()->get('supportedSettingsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedSettingsCount'");
     }
 
     /**
@@ -143,7 +199,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return int|null
     */
     public function getSupportedSettingsPercent(): ?int {
-        return $this->getBackingStore()->get('supportedSettingsPercent');
+        $val = $this->getBackingStore()->get('supportedSettingsPercent');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedSettingsPercent'");
     }
 
     /**
@@ -151,7 +211,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return bool|null
     */
     public function getTargetedInActiveDirectory(): ?bool {
-        return $this->getBackingStore()->get('targetedInActiveDirectory');
+        $val = $this->getBackingStore()->get('targetedInActiveDirectory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedInActiveDirectory'");
     }
 
     /**
@@ -159,7 +223,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalSettingsCount(): ?int {
-        return $this->getBackingStore()->get('totalSettingsCount');
+        $val = $this->getBackingStore()->get('totalSettingsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalSettingsCount'");
     }
 
     /**
@@ -167,7 +235,13 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
      * @return array<UnsupportedGroupPolicyExtension>|null
     */
     public function getUnsupportedGroupPolicyExtensions(): ?array {
-        return $this->getBackingStore()->get('unsupportedGroupPolicyExtensions');
+        $val = $this->getBackingStore()->get('unsupportedGroupPolicyExtensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnsupportedGroupPolicyExtension::class);
+            /** @var array<UnsupportedGroupPolicyExtension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unsupportedGroupPolicyExtensions'");
     }
 
     /**

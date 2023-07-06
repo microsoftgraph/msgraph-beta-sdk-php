@@ -29,12 +29,16 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getDeepLink(): ?string {
-        return $this->getBackingStore()->get('deepLink');
+        $val = $this->getBackingStore()->get('deepLink');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deepLink'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getRedirectMessage(): ?string {
-        return $this->getBackingStore()->get('redirectMessage');
+        $val = $this->getBackingStore()->get('redirectMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'redirectMessage'");
     }
 
     /**
@@ -58,7 +66,11 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getRedirectReason(): ?string {
-        return $this->getBackingStore()->get('redirectReason');
+        $val = $this->getBackingStore()->get('redirectReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'redirectReason'");
     }
 
     /**

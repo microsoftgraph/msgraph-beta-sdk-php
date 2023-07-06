@@ -39,7 +39,12 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +73,11 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->getBackingStore()->get('format');
+        $val = $this->getBackingStore()->get('format');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
     }
 
     /**
@@ -76,7 +85,11 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
      * @return bool|null
     */
     public function getOverwriteResourceNamespace(): ?bool {
-        return $this->getBackingStore()->get('overwriteResourceNamespace');
+        $val = $this->getBackingStore()->get('overwriteResourceNamespace');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'overwriteResourceNamespace'");
     }
 
     /**
@@ -84,7 +97,11 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

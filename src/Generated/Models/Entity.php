@@ -129,8 +129,12 @@ use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
 use Microsoft\Graph\Beta\Generated\Models\Security\Article;
 use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicator;
 use Microsoft\Graph\Beta\Generated\Models\Security\Artifact;
+use Microsoft\Graph\Beta\Generated\Models\Security\AuthorityTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\CasesRoot;
+use Microsoft\Graph\Beta\Generated\Models\Security\CategoryTemplate;
+use Microsoft\Graph\Beta\Generated\Models\Security\CitationTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\DataSet;
+use Microsoft\Graph\Beta\Generated\Models\Security\DepartmentTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStage;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryAddToReviewSetOperation;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryCase;
@@ -155,6 +159,9 @@ use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmissionPolicy;
 use Microsoft\Graph\Beta\Generated\Models\Security\EmailUrlThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\File;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileContentThreatSubmission;
+use Microsoft\Graph\Beta\Generated\Models\Security\FilePlanDescriptor;
+use Microsoft\Graph\Beta\Generated\Models\Security\FilePlanDescriptorTemplate;
+use Microsoft\Graph\Beta\Generated\Models\Security\FilePlanReferenceTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileUrlThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\Host;
@@ -179,6 +186,8 @@ use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\Search;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Models\Security\SubCategoryTemplate;
+use Microsoft\Graph\Beta\Generated\Models\Security\Subdomain;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatIntelligence;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmissionRoot;
@@ -274,9 +283,13 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.activityHistoryItem': return new ActivityHistoryItem();
                 case '#microsoft.graph.activityStatistics': return new ActivityStatistics();
                 case '#microsoft.graph.addLargeGalleryViewOperation': return new AddLargeGalleryViewOperation();
+                case '#microsoft.graph.adminAppsAndServices': return new AdminAppsAndServices();
                 case '#microsoft.graph.adminConsentRequestPolicy': return new AdminConsentRequestPolicy();
+                case '#microsoft.graph.adminDynamics': return new AdminDynamics();
+                case '#microsoft.graph.adminForms': return new AdminForms();
                 case '#microsoft.graph.administrativeUnit': return new AdministrativeUnit();
                 case '#microsoft.graph.adminReportSettings': return new AdminReportSettings();
+                case '#microsoft.graph.adminTodo': return new AdminTodo();
                 case '#microsoft.graph.adminWindows': return new AdminWindows();
                 case '#microsoft.graph.adminWindowsUpdates': return new AdminWindowsUpdates();
                 case '#microsoft.graph.advancedThreatProtectionOnboardingDeviceSettingState': return new AdvancedThreatProtectionOnboardingDeviceSettingState();
@@ -543,6 +556,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.customCalloutExtension': return new CustomCalloutExtension();
                 case '#microsoft.graph.customExtensionHandler': return new CustomExtensionHandler();
                 case '#microsoft.graph.customExtensionStageSetting': return new CustomExtensionStageSetting();
+                case '#microsoft.graph.customSecurityAttributeAudit': return new CustomSecurityAttributeAudit();
                 case '#microsoft.graph.customSecurityAttributeDefinition': return new CustomSecurityAttributeDefinition();
                 case '#microsoft.graph.dataClassificationService': return new DataClassificationService();
                 case '#microsoft.graph.dataLossPreventionPolicy': return new DataLossPreventionPolicy();
@@ -558,6 +572,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.delegatedAdminRelationshipRequest': return new DelegatedAdminRelationshipRequest();
                 case '#microsoft.graph.delegatedAdminServiceManagementDetail': return new DelegatedAdminServiceManagementDetail();
                 case '#microsoft.graph.delegatedPermissionClassification': return new DelegatedPermissionClassification();
+                case '#microsoft.graph.deletedChat': return new DeletedChat();
                 case '#microsoft.graph.deletedItemContainer': return new DeletedItemContainer();
                 case '#microsoft.graph.deletedTeam': return new DeletedTeam();
                 case '#microsoft.graph.deltaParticipants': return new DeltaParticipants();
@@ -771,6 +786,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
                 case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.endpoint': return new Endpoint();
+                case '#microsoft.graph.endUserNotification': return new EndUserNotification();
+                case '#microsoft.graph.endUserNotificationDetail': return new EndUserNotificationDetail();
                 case '#microsoft.graph.enrollmentConfigurationAssignment': return new EnrollmentConfigurationAssignment();
                 case '#microsoft.graph.enrollmentProfile': return new EnrollmentProfile();
                 case '#microsoft.graph.enrollmentRestrictionsConfigurationPolicySetItem': return new EnrollmentRestrictionsConfigurationPolicySetItem();
@@ -812,6 +829,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.externalUsersSelfServiceSignUpEventsFlow': return new ExternalUsersSelfServiceSignUpEventsFlow();
                 case '#microsoft.graph.featureRolloutPolicy': return new FeatureRolloutPolicy();
                 case '#microsoft.graph.federatedIdentityCredential': return new FederatedIdentityCredential();
+                case '#microsoft.graph.federatedTokenValidationPolicy': return new FederatedTokenValidationPolicy();
                 case '#microsoft.graph.fido2AuthenticationMethod': return new Fido2AuthenticationMethod();
                 case '#microsoft.graph.fido2AuthenticationMethodConfiguration': return new Fido2AuthenticationMethodConfiguration();
                 case '#microsoft.graph.fido2CombinationConfiguration': return new Fido2CombinationConfiguration();
@@ -976,6 +994,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.itemPublication': return new ItemPublication();
                 case '#microsoft.graph.itemRetentionLabel': return new ItemRetentionLabel();
                 case '#microsoft.graph.jobResponseBase': return new JobResponseBase();
+                case '#microsoft.graph.landingPage': return new LandingPage();
+                case '#microsoft.graph.landingPageDetail': return new LandingPageDetail();
                 case '#microsoft.graph.languageProficiency': return new LanguageProficiency();
                 case '#microsoft.graph.learningAssignment': return new LearningAssignment();
                 case '#microsoft.graph.learningContent': return new LearningContent();
@@ -988,6 +1008,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.listItem': return new ListItem();
                 case '#microsoft.graph.listItemVersion': return new ListItemVersion();
                 case '#microsoft.graph.localizedNotificationMessage': return new LocalizedNotificationMessage();
+                case '#microsoft.graph.loginPage': return new LoginPage();
                 case '#microsoft.graph.longRunningOperation': return new LongRunningOperation();
                 case '#microsoft.graph.lookupResultRow': return new LookupResultRow();
                 case '#microsoft.graph.macOSCertificateProfileBase': return new MacOSCertificateProfileBase();
@@ -1379,12 +1400,16 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.article': return new Article();
                 case '#microsoft.graph.security.articleIndicator': return new ArticleIndicator();
                 case '#microsoft.graph.security.artifact': return new Artifact();
+                case '#microsoft.graph.security.authorityTemplate': return new AuthorityTemplate();
                 case '#microsoft.graph.security.case': return new \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation();
                 case '#microsoft.graph.security.casesRoot': return new CasesRoot();
+                case '#microsoft.graph.security.categoryTemplate': return new CategoryTemplate();
+                case '#microsoft.graph.security.citationTemplate': return new CitationTemplate();
                 case '#microsoft.graph.security.dataSet': return new DataSet();
                 case '#microsoft.graph.security.dataSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\DataSource();
                 case '#microsoft.graph.security.dataSourceContainer': return new \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer();
+                case '#microsoft.graph.security.departmentTemplate': return new DepartmentTemplate();
                 case '#microsoft.graph.security.dispositionReviewStage': return new DispositionReviewStage();
                 case '#microsoft.graph.security.ediscoveryAddToReviewSetOperation': return new EdiscoveryAddToReviewSetOperation();
                 case '#microsoft.graph.security.ediscoveryCase': return new EdiscoveryCase();
@@ -1409,6 +1434,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.emailUrlThreatSubmission': return new EmailUrlThreatSubmission();
                 case '#microsoft.graph.security.file': return new File();
                 case '#microsoft.graph.security.fileContentThreatSubmission': return new FileContentThreatSubmission();
+                case '#microsoft.graph.security.filePlanDescriptor': return new FilePlanDescriptor();
+                case '#microsoft.graph.security.filePlanDescriptorTemplate': return new FilePlanDescriptorTemplate();
+                case '#microsoft.graph.security.filePlanReferenceTemplate': return new FilePlanReferenceTemplate();
                 case '#microsoft.graph.security.fileThreatSubmission': return new FileThreatSubmission();
                 case '#microsoft.graph.security.fileUrlThreatSubmission': return new FileUrlThreatSubmission();
                 case '#microsoft.graph.security.host': return new Host();
@@ -1434,6 +1462,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.security': return new Security();
                 case '#microsoft.graph.security.sensitivityLabel': return new SensitivityLabel();
                 case '#microsoft.graph.security.siteSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource();
+                case '#microsoft.graph.security.subCategoryTemplate': return new SubCategoryTemplate();
+                case '#microsoft.graph.security.subdomain': return new Subdomain();
                 case '#microsoft.graph.security.tag': return new \Microsoft\Graph\Beta\Generated\Models\Security\Tag();
                 case '#microsoft.graph.security.threatIntelligence': return new ThreatIntelligence();
                 case '#microsoft.graph.security.threatSubmission': return new ThreatSubmission();
@@ -1580,6 +1610,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.tokenLifetimePolicy': return new TokenLifetimePolicy();
                 case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration': return new TooManyGlobalAdminsAssignedToTenantAlertConfiguration();
                 case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertIncident': return new TooManyGlobalAdminsAssignedToTenantAlertIncident();
+                case '#microsoft.graph.training': return new Training();
+                case '#microsoft.graph.trainingLanguageDetail': return new TrainingLanguageDetail();
                 case '#microsoft.graph.trending': return new Trending();
                 case '#microsoft.graph.trustedCertificateAuthorityAsEntityBase': return new TrustedCertificateAuthorityAsEntityBase();
                 case '#microsoft.graph.trustFrameworkKeySet': return new TrustFrameworkKeySet();
@@ -1882,7 +1914,12 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -1895,7 +1932,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -1910,7 +1947,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -1918,7 +1959,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

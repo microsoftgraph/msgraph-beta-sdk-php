@@ -6,11 +6,12 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managementAction and sets the default values.
+     * Instantiates a new ManagementAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +31,11 @@ class ManagementAction extends Entity implements Parsable
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof ManagementCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -38,7 +43,11 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -46,12 +55,16 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +83,11 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getReferenceTemplateId(): ?string {
-        return $this->getBackingStore()->get('referenceTemplateId');
+        $val = $this->getBackingStore()->get('referenceTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceTemplateId'");
     }
 
     /**
@@ -78,7 +95,11 @@ class ManagementAction extends Entity implements Parsable
      * @return int|null
     */
     public function getReferenceTemplateVersion(): ?int {
-        return $this->getBackingStore()->get('referenceTemplateVersion');
+        $val = $this->getBackingStore()->get('referenceTemplateVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceTemplateVersion'");
     }
 
     /**
@@ -86,7 +107,13 @@ class ManagementAction extends Entity implements Parsable
      * @return array<WorkloadAction>|null
     */
     public function getWorkloadActions(): ?array {
-        return $this->getBackingStore()->get('workloadActions');
+        $val = $this->getBackingStore()->get('workloadActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WorkloadAction::class);
+            /** @var array<WorkloadAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workloadActions'");
     }
 
     /**

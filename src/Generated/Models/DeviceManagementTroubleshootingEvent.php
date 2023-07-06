@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Event representing an general failure.
@@ -42,7 +43,13 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getAdditionalInformation(): ?array {
-        return $this->getBackingStore()->get('additionalInformation');
+        $val = $this->getBackingStore()->get('additionalInformation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalInformation'");
     }
 
     /**
@@ -50,7 +57,11 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->getBackingStore()->get('correlationId');
+        $val = $this->getBackingStore()->get('correlationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationId'");
     }
 
     /**
@@ -58,7 +69,11 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
@@ -66,12 +81,16 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getEventName(): ?string {
-        return $this->getBackingStore()->get('eventName');
+        $val = $this->getBackingStore()->get('eventName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +108,11 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return DeviceManagementTroubleshootingErrorDetails|null
     */
     public function getTroubleshootingErrorDetails(): ?DeviceManagementTroubleshootingErrorDetails {
-        return $this->getBackingStore()->get('troubleshootingErrorDetails');
+        $val = $this->getBackingStore()->get('troubleshootingErrorDetails');
+        if (is_null($val) || $val instanceof DeviceManagementTroubleshootingErrorDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'troubleshootingErrorDetails'");
     }
 
     /**

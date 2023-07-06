@@ -29,7 +29,11 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getDefaultHealthyThreshold(): ?int {
-        return $this->getBackingStore()->get('defaultHealthyThreshold');
+        $val = $this->getBackingStore()->get('defaultHealthyThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultHealthyThreshold'");
     }
 
     /**
@@ -37,12 +41,16 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getDefaultUnhealthyThreshold(): ?int {
-        return $this->getBackingStore()->get('defaultUnhealthyThreshold');
+        $val = $this->getBackingStore()->get('defaultUnhealthyThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultUnhealthyThreshold'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getHealthyThreshold(): ?int {
-        return $this->getBackingStore()->get('healthyThreshold');
+        $val = $this->getBackingStore()->get('healthyThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthyThreshold'");
     }
 
     /**
@@ -67,7 +79,11 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getUnhealthyThreshold(): ?int {
-        return $this->getBackingStore()->get('unhealthyThreshold');
+        $val = $this->getBackingStore()->get('unhealthyThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unhealthyThreshold'");
     }
 
     /**

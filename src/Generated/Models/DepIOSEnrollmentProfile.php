@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsable 
 {
@@ -30,7 +31,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getAppearanceScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('appearanceScreenDisabled');
+        $val = $this->getBackingStore()->get('appearanceScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appearanceScreenDisabled'");
     }
 
     /**
@@ -38,7 +43,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getAwaitDeviceConfiguredConfirmation(): ?bool {
-        return $this->getBackingStore()->get('awaitDeviceConfiguredConfirmation');
+        $val = $this->getBackingStore()->get('awaitDeviceConfiguredConfirmation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'awaitDeviceConfiguredConfirmation'");
     }
 
     /**
@@ -46,7 +55,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return string|null
     */
     public function getCarrierActivationUrl(): ?string {
-        return $this->getBackingStore()->get('carrierActivationUrl');
+        $val = $this->getBackingStore()->get('carrierActivationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'carrierActivationUrl'");
     }
 
     /**
@@ -54,7 +67,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return string|null
     */
     public function getCompanyPortalVppTokenId(): ?string {
-        return $this->getBackingStore()->get('companyPortalVppTokenId');
+        $val = $this->getBackingStore()->get('companyPortalVppTokenId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyPortalVppTokenId'");
     }
 
     /**
@@ -62,7 +79,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getDeviceToDeviceMigrationDisabled(): ?bool {
-        return $this->getBackingStore()->get('deviceToDeviceMigrationDisabled');
+        $val = $this->getBackingStore()->get('deviceToDeviceMigrationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceToDeviceMigrationDisabled'");
     }
 
     /**
@@ -70,7 +91,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getEnableSharedIPad(): ?bool {
-        return $this->getBackingStore()->get('enableSharedIPad');
+        $val = $this->getBackingStore()->get('enableSharedIPad');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSharedIPad'");
     }
 
     /**
@@ -78,7 +103,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getEnableSingleAppEnrollmentMode(): ?bool {
-        return $this->getBackingStore()->get('enableSingleAppEnrollmentMode');
+        $val = $this->getBackingStore()->get('enableSingleAppEnrollmentMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSingleAppEnrollmentMode'");
     }
 
     /**
@@ -86,12 +115,16 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getExpressLanguageScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('expressLanguageScreenDisabled');
+        $val = $this->getBackingStore()->get('expressLanguageScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expressLanguageScreenDisabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -133,7 +166,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getForceTemporarySession(): ?bool {
-        return $this->getBackingStore()->get('forceTemporarySession');
+        $val = $this->getBackingStore()->get('forceTemporarySession');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forceTemporarySession'");
     }
 
     /**
@@ -141,7 +178,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getHomeButtonScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('homeButtonScreenDisabled');
+        $val = $this->getBackingStore()->get('homeButtonScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeButtonScreenDisabled'");
     }
 
     /**
@@ -149,7 +190,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getIMessageAndFaceTimeScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('iMessageAndFaceTimeScreenDisabled');
+        $val = $this->getBackingStore()->get('iMessageAndFaceTimeScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iMessageAndFaceTimeScreenDisabled'");
     }
 
     /**
@@ -157,7 +202,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return ITunesPairingMode|null
     */
     public function getITunesPairingMode(): ?ITunesPairingMode {
-        return $this->getBackingStore()->get('iTunesPairingMode');
+        $val = $this->getBackingStore()->get('iTunesPairingMode');
+        if (is_null($val) || $val instanceof ITunesPairingMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iTunesPairingMode'");
     }
 
     /**
@@ -165,7 +214,13 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return array<ManagementCertificateWithThumbprint>|null
     */
     public function getManagementCertificates(): ?array {
-        return $this->getBackingStore()->get('managementCertificates');
+        $val = $this->getBackingStore()->get('managementCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementCertificateWithThumbprint::class);
+            /** @var array<ManagementCertificateWithThumbprint>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementCertificates'");
     }
 
     /**
@@ -173,7 +228,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getOnBoardingScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('onBoardingScreenDisabled');
+        $val = $this->getBackingStore()->get('onBoardingScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onBoardingScreenDisabled'");
     }
 
     /**
@@ -181,7 +240,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getPassCodeDisabled(): ?bool {
-        return $this->getBackingStore()->get('passCodeDisabled');
+        $val = $this->getBackingStore()->get('passCodeDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passCodeDisabled'");
     }
 
     /**
@@ -189,7 +252,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return int|null
     */
     public function getPasscodeLockGracePeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('passcodeLockGracePeriodInSeconds');
+        $val = $this->getBackingStore()->get('passcodeLockGracePeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passcodeLockGracePeriodInSeconds'");
     }
 
     /**
@@ -197,7 +264,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getPreferredLanguageScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('preferredLanguageScreenDisabled');
+        $val = $this->getBackingStore()->get('preferredLanguageScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredLanguageScreenDisabled'");
     }
 
     /**
@@ -205,7 +276,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getRestoreCompletedScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('restoreCompletedScreenDisabled');
+        $val = $this->getBackingStore()->get('restoreCompletedScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restoreCompletedScreenDisabled'");
     }
 
     /**
@@ -213,7 +288,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getRestoreFromAndroidDisabled(): ?bool {
-        return $this->getBackingStore()->get('restoreFromAndroidDisabled');
+        $val = $this->getBackingStore()->get('restoreFromAndroidDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restoreFromAndroidDisabled'");
     }
 
     /**
@@ -221,7 +300,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return int|null
     */
     public function getSharedIPadMaximumUserCount(): ?int {
-        return $this->getBackingStore()->get('sharedIPadMaximumUserCount');
+        $val = $this->getBackingStore()->get('sharedIPadMaximumUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedIPadMaximumUserCount'");
     }
 
     /**
@@ -229,7 +312,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getSimSetupScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('simSetupScreenDisabled');
+        $val = $this->getBackingStore()->get('simSetupScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simSetupScreenDisabled'");
     }
 
     /**
@@ -237,7 +324,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getSoftwareUpdateScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('softwareUpdateScreenDisabled');
+        $val = $this->getBackingStore()->get('softwareUpdateScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateScreenDisabled'");
     }
 
     /**
@@ -245,7 +336,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return int|null
     */
     public function getTemporarySessionTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('temporarySessionTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('temporarySessionTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'temporarySessionTimeoutInSeconds'");
     }
 
     /**
@@ -253,7 +348,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getUpdateCompleteScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('updateCompleteScreenDisabled');
+        $val = $this->getBackingStore()->get('updateCompleteScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateCompleteScreenDisabled'");
     }
 
     /**
@@ -261,7 +360,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getUserlessSharedAadModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('userlessSharedAadModeEnabled');
+        $val = $this->getBackingStore()->get('userlessSharedAadModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userlessSharedAadModeEnabled'");
     }
 
     /**
@@ -269,7 +372,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return int|null
     */
     public function getUserSessionTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('userSessionTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('userSessionTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSessionTimeoutInSeconds'");
     }
 
     /**
@@ -277,7 +384,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getWatchMigrationScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('watchMigrationScreenDisabled');
+        $val = $this->getBackingStore()->get('watchMigrationScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'watchMigrationScreenDisabled'");
     }
 
     /**
@@ -285,7 +396,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getWelcomeScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('welcomeScreenDisabled');
+        $val = $this->getBackingStore()->get('welcomeScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'welcomeScreenDisabled'");
     }
 
     /**
@@ -293,7 +408,11 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
      * @return bool|null
     */
     public function getZoomDisabled(): ?bool {
-        return $this->getBackingStore()->get('zoomDisabled');
+        $val = $this->getBackingStore()->get('zoomDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zoomDisabled'");
     }
 
     /**

@@ -28,7 +28,7 @@ class UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendat
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendat
      * @return DateInterval|null
     */
     public function getRecommendationLookBackDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('recommendationLookBackDuration');
+        $val = $this->getBackingStore()->get('recommendationLookBackDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationLookBackDuration'");
     }
 
     /**
@@ -51,7 +55,11 @@ class UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendat
      * @return UserSignInRecommendationScope|null
     */
     public function getSignInScope(): ?UserSignInRecommendationScope {
-        return $this->getBackingStore()->get('signInScope');
+        $val = $this->getBackingStore()->get('signInScope');
+        if (is_null($val) || $val instanceof UserSignInRecommendationScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInScope'");
     }
 
     /**

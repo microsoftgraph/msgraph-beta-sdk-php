@@ -31,12 +31,16 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
-        return $this->getBackingStore()->get('deploymentChannel');
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +57,11 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
      * @return StreamInterface|null
     */
     public function getPayload(): ?StreamInterface {
-        return $this->getBackingStore()->get('payload');
+        $val = $this->getBackingStore()->get('payload');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payload'");
     }
 
     /**
@@ -61,7 +69,11 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getPayloadFileName(): ?string {
-        return $this->getBackingStore()->get('payloadFileName');
+        $val = $this->getBackingStore()->get('payloadFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadFileName'");
     }
 
     /**
@@ -69,7 +81,11 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getPayloadName(): ?string {
-        return $this->getBackingStore()->get('payloadName');
+        $val = $this->getBackingStore()->get('payloadName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadName'");
     }
 
     /**

@@ -42,7 +42,12 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +76,11 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return int|null
     */
     public function getMaxValue(): ?int {
-        return $this->getBackingStore()->get('maxValue');
+        $val = $this->getBackingStore()->get('maxValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxValue'");
     }
 
     /**
@@ -79,7 +88,11 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return int|null
     */
     public function getMinValue(): ?int {
-        return $this->getBackingStore()->get('minValue');
+        $val = $this->getBackingStore()->get('minValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minValue'");
     }
 
     /**
@@ -87,7 +100,11 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

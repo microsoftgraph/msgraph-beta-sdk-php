@@ -30,12 +30,16 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +63,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getFirst(): ?string {
-        return $this->getBackingStore()->get('first');
+        $val = $this->getBackingStore()->get('first');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'first'");
     }
 
     /**
@@ -67,7 +75,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getInitials(): ?string {
-        return $this->getBackingStore()->get('initials');
+        $val = $this->getBackingStore()->get('initials');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initials'");
     }
 
     /**
@@ -75,7 +87,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->getBackingStore()->get('languageTag');
+        $val = $this->getBackingStore()->get('languageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
     }
 
     /**
@@ -83,7 +99,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getLast(): ?string {
-        return $this->getBackingStore()->get('last');
+        $val = $this->getBackingStore()->get('last');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'last'");
     }
 
     /**
@@ -91,7 +111,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getMaiden(): ?string {
-        return $this->getBackingStore()->get('maiden');
+        $val = $this->getBackingStore()->get('maiden');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maiden'");
     }
 
     /**
@@ -99,7 +123,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getMiddle(): ?string {
-        return $this->getBackingStore()->get('middle');
+        $val = $this->getBackingStore()->get('middle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'middle'");
     }
 
     /**
@@ -107,7 +135,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getNickname(): ?string {
-        return $this->getBackingStore()->get('nickname');
+        $val = $this->getBackingStore()->get('nickname');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nickname'");
     }
 
     /**
@@ -115,7 +147,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return PersonNamePronounciation|null
     */
     public function getPronunciation(): ?PersonNamePronounciation {
-        return $this->getBackingStore()->get('pronunciation');
+        $val = $this->getBackingStore()->get('pronunciation');
+        if (is_null($val) || $val instanceof PersonNamePronounciation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pronunciation'");
     }
 
     /**
@@ -123,7 +159,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getSuffix(): ?string {
-        return $this->getBackingStore()->get('suffix');
+        $val = $this->getBackingStore()->get('suffix');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'suffix'");
     }
 
     /**
@@ -131,7 +171,11 @@ class PersonName extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**

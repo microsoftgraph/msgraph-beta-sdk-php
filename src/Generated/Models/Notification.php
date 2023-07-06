@@ -30,7 +30,11 @@ class Notification extends Entity implements Parsable
      * @return int|null
     */
     public function getDisplayTimeToLive(): ?int {
-        return $this->getBackingStore()->get('displayTimeToLive');
+        $val = $this->getBackingStore()->get('displayTimeToLive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayTimeToLive'");
     }
 
     /**
@@ -38,12 +42,16 @@ class Notification extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +71,11 @@ class Notification extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupName(): ?string {
-        return $this->getBackingStore()->get('groupName');
+        $val = $this->getBackingStore()->get('groupName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupName'");
     }
 
     /**
@@ -71,7 +83,11 @@ class Notification extends Entity implements Parsable
      * @return PayloadTypes|null
     */
     public function getPayload(): ?PayloadTypes {
-        return $this->getBackingStore()->get('payload');
+        $val = $this->getBackingStore()->get('payload');
+        if (is_null($val) || $val instanceof PayloadTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payload'");
     }
 
     /**
@@ -79,7 +95,11 @@ class Notification extends Entity implements Parsable
      * @return Priority|null
     */
     public function getPriority(): ?Priority {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || $val instanceof Priority) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -87,7 +107,11 @@ class Notification extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetHostName(): ?string {
-        return $this->getBackingStore()->get('targetHostName');
+        $val = $this->getBackingStore()->get('targetHostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetHostName'");
     }
 
     /**
@@ -95,7 +119,11 @@ class Notification extends Entity implements Parsable
      * @return TargetPolicyEndpoints|null
     */
     public function getTargetPolicy(): ?TargetPolicyEndpoints {
-        return $this->getBackingStore()->get('targetPolicy');
+        $val = $this->getBackingStore()->get('targetPolicy');
+        if (is_null($val) || $val instanceof TargetPolicyEndpoints) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetPolicy'");
     }
 
     /**

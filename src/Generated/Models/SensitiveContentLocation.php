@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getConfidence(): ?int {
-        return $this->getBackingStore()->get('confidence');
+        $val = $this->getBackingStore()->get('confidence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'confidence'");
     }
 
     /**
@@ -63,12 +73,18 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return array<SensitiveContentEvidence>|null
     */
     public function getEvidences(): ?array {
-        return $this->getBackingStore()->get('evidences');
+        $val = $this->getBackingStore()->get('evidences');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitiveContentEvidence::class);
+            /** @var array<SensitiveContentEvidence>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evidences'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +103,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getIdMatch(): ?string {
-        return $this->getBackingStore()->get('idMatch');
+        $val = $this->getBackingStore()->get('idMatch');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'idMatch'");
     }
 
     /**
@@ -95,7 +115,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getLength(): ?int {
-        return $this->getBackingStore()->get('length');
+        $val = $this->getBackingStore()->get('length');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'length'");
     }
 
     /**
@@ -103,7 +127,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +139,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getOffset(): ?int {
-        return $this->getBackingStore()->get('offset');
+        $val = $this->getBackingStore()->get('offset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offset'");
     }
 
     /**

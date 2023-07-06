@@ -6,7 +6,11 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity describes all of the information about a single group policy.
+*/
 class GroupPolicyDefinition extends Entity implements Parsable 
 {
     /**
@@ -30,7 +34,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyCategory|null
     */
     public function getCategory(): ?GroupPolicyCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof GroupPolicyCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -38,7 +46,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getCategoryPath(): ?string {
-        return $this->getBackingStore()->get('categoryPath');
+        $val = $this->getBackingStore()->get('categoryPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryPath'");
     }
 
     /**
@@ -46,7 +58,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinitionClassType|null
     */
     public function getClassType(): ?GroupPolicyDefinitionClassType {
-        return $this->getBackingStore()->get('classType');
+        $val = $this->getBackingStore()->get('classType');
+        if (is_null($val) || $val instanceof GroupPolicyDefinitionClassType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classType'");
     }
 
     /**
@@ -54,7 +70,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinitionFile|null
     */
     public function getDefinitionFile(): ?GroupPolicyDefinitionFile {
-        return $this->getBackingStore()->get('definitionFile');
+        $val = $this->getBackingStore()->get('definitionFile');
+        if (is_null($val) || $val instanceof GroupPolicyDefinitionFile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitionFile'");
     }
 
     /**
@@ -62,7 +82,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -70,12 +94,16 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getExplainText(): ?string {
-        return $this->getBackingStore()->get('explainText');
+        $val = $this->getBackingStore()->get('explainText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'explainText'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -105,7 +133,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupPolicyCategoryId(): ?string {
-        return $this->getBackingStore()->get('groupPolicyCategoryId');
+        $val = $this->getBackingStore()->get('groupPolicyCategoryId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyCategoryId'");
     }
 
     /**
@@ -113,7 +145,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasRelatedDefinitions(): ?bool {
-        return $this->getBackingStore()->get('hasRelatedDefinitions');
+        $val = $this->getBackingStore()->get('hasRelatedDefinitions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasRelatedDefinitions'");
     }
 
     /**
@@ -121,7 +157,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -129,7 +169,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getMinDeviceCspVersion(): ?string {
-        return $this->getBackingStore()->get('minDeviceCspVersion');
+        $val = $this->getBackingStore()->get('minDeviceCspVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minDeviceCspVersion'");
     }
 
     /**
@@ -137,7 +181,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getMinUserCspVersion(): ?string {
-        return $this->getBackingStore()->get('minUserCspVersion');
+        $val = $this->getBackingStore()->get('minUserCspVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minUserCspVersion'");
     }
 
     /**
@@ -145,7 +193,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getNextVersionDefinition(): ?GroupPolicyDefinition {
-        return $this->getBackingStore()->get('nextVersionDefinition');
+        $val = $this->getBackingStore()->get('nextVersionDefinition');
+        if (is_null($val) || $val instanceof GroupPolicyDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nextVersionDefinition'");
     }
 
     /**
@@ -153,7 +205,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyType|null
     */
     public function getPolicyType(): ?GroupPolicyType {
-        return $this->getBackingStore()->get('policyType');
+        $val = $this->getBackingStore()->get('policyType');
+        if (is_null($val) || $val instanceof GroupPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyType'");
     }
 
     /**
@@ -161,7 +217,13 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return array<GroupPolicyPresentation>|null
     */
     public function getPresentations(): ?array {
-        return $this->getBackingStore()->get('presentations');
+        $val = $this->getBackingStore()->get('presentations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyPresentation::class);
+            /** @var array<GroupPolicyPresentation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presentations'");
     }
 
     /**
@@ -169,7 +231,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getPreviousVersionDefinition(): ?GroupPolicyDefinition {
-        return $this->getBackingStore()->get('previousVersionDefinition');
+        $val = $this->getBackingStore()->get('previousVersionDefinition');
+        if (is_null($val) || $val instanceof GroupPolicyDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previousVersionDefinition'");
     }
 
     /**
@@ -177,7 +243,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getSupportedOn(): ?string {
-        return $this->getBackingStore()->get('supportedOn');
+        $val = $this->getBackingStore()->get('supportedOn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedOn'");
     }
 
     /**
@@ -185,7 +255,11 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

@@ -6,11 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcBulkAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcBulkAction and sets the default values.
+     * Instantiates a new cloudPcBulkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +39,11 @@ class CloudPcBulkAction extends Entity implements Parsable
      * @return CloudPcBulkActionSummary|null
     */
     public function getActionSummary(): ?CloudPcBulkActionSummary {
-        return $this->getBackingStore()->get('actionSummary');
+        $val = $this->getBackingStore()->get('actionSummary');
+        if (is_null($val) || $val instanceof CloudPcBulkActionSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionSummary'");
     }
 
     /**
@@ -46,7 +51,13 @@ class CloudPcBulkAction extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCloudPcIds(): ?array {
-        return $this->getBackingStore()->get('cloudPcIds');
+        $val = $this->getBackingStore()->get('cloudPcIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcIds'");
     }
 
     /**
@@ -54,7 +65,11 @@ class CloudPcBulkAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -62,18 +77,29 @@ class CloudPcBulkAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'actionSummary' => fn(ParseNode $n) => $o->setActionSummary($n->getObjectValue([CloudPcBulkActionSummary::class, 'createFromDiscriminatorValue'])),
-            'cloudPcIds' => fn(ParseNode $n) => $o->setCloudPcIds($n->getCollectionOfPrimitiveValues()),
+            'cloudPcIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCloudPcIds($val);
+            },
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);

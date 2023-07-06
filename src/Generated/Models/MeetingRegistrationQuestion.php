@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MeetingRegistrationQuestion extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return AnswerInputType|null
     */
     public function getAnswerInputType(): ?AnswerInputType {
-        return $this->getBackingStore()->get('answerInputType');
+        $val = $this->getBackingStore()->get('answerInputType');
+        if (is_null($val) || $val instanceof AnswerInputType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'answerInputType'");
     }
 
     /**
@@ -37,7 +42,13 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAnswerOptions(): ?array {
-        return $this->getBackingStore()->get('answerOptions');
+        $val = $this->getBackingStore()->get('answerOptions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'answerOptions'");
     }
 
     /**
@@ -45,18 +56,29 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'answerInputType' => fn(ParseNode $n) => $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)),
-            'answerOptions' => fn(ParseNode $n) => $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()),
+            'answerOptions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAnswerOptions($val);
+            },
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isRequired' => fn(ParseNode $n) => $o->setIsRequired($n->getBooleanValue()),
         ]);
@@ -67,7 +89,11 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
-        return $this->getBackingStore()->get('isRequired');
+        $val = $this->getBackingStore()->get('isRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRequired'");
     }
 
     /**

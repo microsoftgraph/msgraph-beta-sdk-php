@@ -33,7 +33,11 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
@@ -41,12 +45,16 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorDescription(): ?string {
-        return $this->getBackingStore()->get('errorDescription');
+        $val = $this->getBackingStore()->get('errorDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDescription'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -65,7 +73,11 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastStateUpdateDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastStateUpdateDateTime');
+        $val = $this->getBackingStore()->get('lastStateUpdateDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastStateUpdateDateTime'");
     }
 
     /**
@@ -73,7 +85,11 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return ManagedDevice|null
     */
     public function getManagedDevice(): ?ManagedDevice {
-        return $this->getBackingStore()->get('managedDevice');
+        $val = $this->getBackingStore()->get('managedDevice');
+        if (is_null($val) || $val instanceof ManagedDevice) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevice'");
     }
 
     /**
@@ -81,7 +97,11 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getResultMessage(): ?string {
-        return $this->getBackingStore()->get('resultMessage');
+        $val = $this->getBackingStore()->get('resultMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resultMessage'");
     }
 
     /**
@@ -89,7 +109,11 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
-        return $this->getBackingStore()->get('runState');
+        $val = $this->getBackingStore()->get('runState');
+        if (is_null($val) || $val instanceof RunState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runState'");
     }
 
     /**

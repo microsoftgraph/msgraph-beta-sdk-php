@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkPeripheral extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TeamworkPeripheral and sets the default values.
+     * Instantiates a new teamworkPeripheral and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,12 +29,16 @@ class TeamworkPeripheral extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class TeamworkPeripheral extends Entity implements Parsable
      * @return string|null
     */
     public function getProductId(): ?string {
-        return $this->getBackingStore()->get('productId');
+        $val = $this->getBackingStore()->get('productId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productId'");
     }
 
     /**
@@ -58,7 +66,11 @@ class TeamworkPeripheral extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorId(): ?string {
-        return $this->getBackingStore()->get('vendorId');
+        $val = $this->getBackingStore()->get('vendorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorId'");
     }
 
     /**

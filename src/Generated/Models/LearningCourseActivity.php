@@ -38,7 +38,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completedDateTime');
+        $val = $this->getBackingStore()->get('completedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDateTime'");
     }
 
     /**
@@ -46,7 +50,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletionPercentage(): ?int {
-        return $this->getBackingStore()->get('completionPercentage');
+        $val = $this->getBackingStore()->get('completionPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionPercentage'");
     }
 
     /**
@@ -54,12 +62,16 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalcourseActivityId(): ?string {
-        return $this->getBackingStore()->get('externalcourseActivityId');
+        $val = $this->getBackingStore()->get('externalcourseActivityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalcourseActivityId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +91,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getLearnerUserId(): ?string {
-        return $this->getBackingStore()->get('learnerUserId');
+        $val = $this->getBackingStore()->get('learnerUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'learnerUserId'");
     }
 
     /**
@@ -87,7 +103,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getLearningContentId(): ?string {
-        return $this->getBackingStore()->get('learningContentId');
+        $val = $this->getBackingStore()->get('learningContentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'learningContentId'");
     }
 
     /**
@@ -95,7 +115,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getLearningProviderId(): ?string {
-        return $this->getBackingStore()->get('learningProviderId');
+        $val = $this->getBackingStore()->get('learningProviderId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'learningProviderId'");
     }
 
     /**
@@ -103,7 +127,11 @@ class LearningCourseActivity extends Entity implements Parsable
      * @return CourseStatus|null
     */
     public function getStatus(): ?CourseStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CourseStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

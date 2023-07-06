@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AppleVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -39,7 +40,13 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getAssociatedDomains(): ?array {
-        return $this->getBackingStore()->get('associatedDomains');
+        $val = $this->getBackingStore()->get('associatedDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'associatedDomains'");
     }
 
     /**
@@ -47,7 +54,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof VpnAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -55,7 +66,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->getBackingStore()->get('connectionName');
+        $val = $this->getBackingStore()->get('connectionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionName'");
     }
 
     /**
@@ -63,7 +78,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return AppleVpnConnectionType|null
     */
     public function getConnectionType(): ?AppleVpnConnectionType {
-        return $this->getBackingStore()->get('connectionType');
+        $val = $this->getBackingStore()->get('connectionType');
+        if (is_null($val) || $val instanceof AppleVpnConnectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionType'");
     }
 
     /**
@@ -71,7 +90,13 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValue>|null
     */
     public function getCustomData(): ?array {
-        return $this->getBackingStore()->get('customData');
+        $val = $this->getBackingStore()->get('customData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValue::class);
+            /** @var array<KeyValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customData'");
     }
 
     /**
@@ -79,7 +104,13 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getCustomKeyValueData(): ?array {
-        return $this->getBackingStore()->get('customKeyValueData');
+        $val = $this->getBackingStore()->get('customKeyValueData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customKeyValueData'");
     }
 
     /**
@@ -87,7 +118,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableOnDemandUserOverride(): ?bool {
-        return $this->getBackingStore()->get('disableOnDemandUserOverride');
+        $val = $this->getBackingStore()->get('disableOnDemandUserOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableOnDemandUserOverride'");
     }
 
     /**
@@ -95,7 +130,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisconnectOnIdle(): ?bool {
-        return $this->getBackingStore()->get('disconnectOnIdle');
+        $val = $this->getBackingStore()->get('disconnectOnIdle');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disconnectOnIdle'");
     }
 
     /**
@@ -103,7 +142,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getDisconnectOnIdleTimerInSeconds(): ?int {
-        return $this->getBackingStore()->get('disconnectOnIdleTimerInSeconds');
+        $val = $this->getBackingStore()->get('disconnectOnIdleTimerInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disconnectOnIdleTimerInSeconds'");
     }
 
     /**
@@ -111,7 +154,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnablePerApp(): ?bool {
-        return $this->getBackingStore()->get('enablePerApp');
+        $val = $this->getBackingStore()->get('enablePerApp');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enablePerApp'");
     }
 
     /**
@@ -119,7 +166,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnableSplitTunneling(): ?bool {
-        return $this->getBackingStore()->get('enableSplitTunneling');
+        $val = $this->getBackingStore()->get('enableSplitTunneling');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSplitTunneling'");
     }
 
     /**
@@ -127,17 +178,30 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getExcludedDomains(): ?array {
-        return $this->getBackingStore()->get('excludedDomains');
+        $val = $this->getBackingStore()->get('excludedDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludedDomains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'associatedDomains' => fn(ParseNode $n) => $o->setAssociatedDomains($n->getCollectionOfPrimitiveValues()),
+            'associatedDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAssociatedDomains($val);
+            },
             'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)),
             'connectionName' => fn(ParseNode $n) => $o->setConnectionName($n->getStringValue()),
             'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(AppleVpnConnectionType::class)),
@@ -148,7 +212,14 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
             'disconnectOnIdleTimerInSeconds' => fn(ParseNode $n) => $o->setDisconnectOnIdleTimerInSeconds($n->getIntegerValue()),
             'enablePerApp' => fn(ParseNode $n) => $o->setEnablePerApp($n->getBooleanValue()),
             'enableSplitTunneling' => fn(ParseNode $n) => $o->setEnableSplitTunneling($n->getBooleanValue()),
-            'excludedDomains' => fn(ParseNode $n) => $o->setExcludedDomains($n->getCollectionOfPrimitiveValues()),
+            'excludedDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludedDomains($val);
+            },
             'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
             'loginGroupOrDomain' => fn(ParseNode $n) => $o->setLoginGroupOrDomain($n->getStringValue()),
             'onDemandRules' => fn(ParseNode $n) => $o->setOnDemandRules($n->getCollectionOfObjectValues([VpnOnDemandRule::class, 'createFromDiscriminatorValue'])),
@@ -157,7 +228,14 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
             'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([VpnProxyServer::class, 'createFromDiscriminatorValue'])),
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
-            'safariDomains' => fn(ParseNode $n) => $o->setSafariDomains($n->getCollectionOfPrimitiveValues()),
+            'safariDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSafariDomains($val);
+            },
             'server' => fn(ParseNode $n) => $o->setServer($n->getObjectValue([VpnServer::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -167,7 +245,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getIdentifier(): ?string {
-        return $this->getBackingStore()->get('identifier');
+        $val = $this->getBackingStore()->get('identifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifier'");
     }
 
     /**
@@ -175,7 +257,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getLoginGroupOrDomain(): ?string {
-        return $this->getBackingStore()->get('loginGroupOrDomain');
+        $val = $this->getBackingStore()->get('loginGroupOrDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginGroupOrDomain'");
     }
 
     /**
@@ -183,7 +269,13 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnOnDemandRule>|null
     */
     public function getOnDemandRules(): ?array {
-        return $this->getBackingStore()->get('onDemandRules');
+        $val = $this->getBackingStore()->get('onDemandRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnOnDemandRule::class);
+            /** @var array<VpnOnDemandRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onDemandRules'");
     }
 
     /**
@@ -191,7 +283,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getOptInToDeviceIdSharing(): ?bool {
-        return $this->getBackingStore()->get('optInToDeviceIdSharing');
+        $val = $this->getBackingStore()->get('optInToDeviceIdSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'optInToDeviceIdSharing'");
     }
 
     /**
@@ -199,7 +295,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnProviderType|null
     */
     public function getProviderType(): ?VpnProviderType {
-        return $this->getBackingStore()->get('providerType');
+        $val = $this->getBackingStore()->get('providerType');
+        if (is_null($val) || $val instanceof VpnProviderType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'providerType'");
     }
 
     /**
@@ -207,7 +307,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnProxyServer|null
     */
     public function getProxyServer(): ?VpnProxyServer {
-        return $this->getBackingStore()->get('proxyServer');
+        $val = $this->getBackingStore()->get('proxyServer');
+        if (is_null($val) || $val instanceof VpnProxyServer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyServer'");
     }
 
     /**
@@ -215,7 +319,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -223,7 +331,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRole(): ?string {
-        return $this->getBackingStore()->get('role');
+        $val = $this->getBackingStore()->get('role');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
     }
 
     /**
@@ -231,7 +343,13 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getSafariDomains(): ?array {
-        return $this->getBackingStore()->get('safariDomains');
+        $val = $this->getBackingStore()->get('safariDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'safariDomains'");
     }
 
     /**
@@ -239,7 +357,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnServer|null
     */
     public function getServer(): ?VpnServer {
-        return $this->getBackingStore()->get('server');
+        $val = $this->getBackingStore()->get('server');
+        if (is_null($val) || $val instanceof VpnServer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'server'");
     }
 
     /**

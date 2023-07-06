@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ForwardingProfile extends Profile implements Parsable 
 {
@@ -30,12 +31,18 @@ class ForwardingProfile extends Profile implements Parsable
      * @return array<Association>|null
     */
     public function getAssociations(): ?array {
-        return $this->getBackingStore()->get('associations');
+        $val = $this->getBackingStore()->get('associations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Association::class);
+            /** @var array<Association>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'associations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +58,11 @@ class ForwardingProfile extends Profile implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -59,7 +70,11 @@ class ForwardingProfile extends Profile implements Parsable
      * @return TrafficForwardingType|null
     */
     public function getTrafficForwardingType(): ?TrafficForwardingType {
-        return $this->getBackingStore()->get('trafficForwardingType');
+        $val = $this->getBackingStore()->get('trafficForwardingType');
+        if (is_null($val) || $val instanceof TrafficForwardingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficForwardingType'");
     }
 
     /**

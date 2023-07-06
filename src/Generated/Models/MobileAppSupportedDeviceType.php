@@ -42,7 +42,12 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +77,11 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getMaximumOperatingSystemVersion(): ?string {
-        return $this->getBackingStore()->get('maximumOperatingSystemVersion');
+        $val = $this->getBackingStore()->get('maximumOperatingSystemVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumOperatingSystemVersion'");
     }
 
     /**
@@ -80,7 +89,11 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getMinimumOperatingSystemVersion(): ?string {
-        return $this->getBackingStore()->get('minimumOperatingSystemVersion');
+        $val = $this->getBackingStore()->get('minimumOperatingSystemVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumOperatingSystemVersion'");
     }
 
     /**
@@ -88,7 +101,11 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,7 +113,11 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel,
      * @return DeviceType|null
     */
     public function getType(): ?DeviceType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof DeviceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

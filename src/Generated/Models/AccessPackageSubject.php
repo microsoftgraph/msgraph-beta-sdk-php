@@ -25,11 +25,15 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the altSecId property value. The altSecId property
+     * Gets the altSecId property value. Not Supported.
      * @return string|null
     */
     public function getAltSecId(): ?string {
-        return $this->getBackingStore()->get('altSecId');
+        $val = $this->getBackingStore()->get('altSecId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'altSecId'");
     }
 
     /**
@@ -37,7 +41,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return ConnectedOrganization|null
     */
     public function getConnectedOrganization(): ?ConnectedOrganization {
-        return $this->getBackingStore()->get('connectedOrganization');
+        $val = $this->getBackingStore()->get('connectedOrganization');
+        if (is_null($val) || $val instanceof ConnectedOrganization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectedOrganization'");
     }
 
     /**
@@ -45,7 +53,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectedOrganizationId(): ?string {
-        return $this->getBackingStore()->get('connectedOrganizationId');
+        $val = $this->getBackingStore()->get('connectedOrganizationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectedOrganizationId'");
     }
 
     /**
@@ -53,7 +65,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -61,12 +77,16 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->getBackingStore()->get('email');
+        $val = $this->getBackingStore()->get('email');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'email'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,11 +105,15 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant.
+     * Gets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
      * @return string|null
     */
     public function getObjectId(): ?string {
-        return $this->getBackingStore()->get('objectId');
+        $val = $this->getBackingStore()->get('objectId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'objectId'");
     }
 
     /**
@@ -97,7 +121,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
-        return $this->getBackingStore()->get('onPremisesSecurityIdentifier');
+        $val = $this->getBackingStore()->get('onPremisesSecurityIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSecurityIdentifier'");
     }
 
     /**
@@ -105,15 +133,23 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getPrincipalName(): ?string {
-        return $this->getBackingStore()->get('principalName');
+        $val = $this->getBackingStore()->get('principalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principalName'");
     }
 
     /**
-     * Gets the subjectLifecycle property value. The subjectLifecycle property
+     * Gets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
      * @return AccessPackageSubjectLifecycle|null
     */
     public function getSubjectLifecycle(): ?AccessPackageSubjectLifecycle {
-        return $this->getBackingStore()->get('subjectLifecycle');
+        $val = $this->getBackingStore()->get('subjectLifecycle');
+        if (is_null($val) || $val instanceof AccessPackageSubjectLifecycle) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectLifecycle'");
     }
 
     /**
@@ -121,7 +157,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -143,7 +183,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the altSecId property value. The altSecId property
+     * Sets the altSecId property value. Not Supported.
      * @param string|null $value Value to set for the altSecId property.
     */
     public function setAltSecId(?string $value): void {
@@ -183,7 +223,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant.
+     * Sets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
      * @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value): void {
@@ -207,7 +247,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the subjectLifecycle property value. The subjectLifecycle property
+     * Sets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
      * @param AccessPackageSubjectLifecycle|null $value Value to set for the subjectLifecycle property.
     */
     public function setSubjectLifecycle(?AccessPackageSubjectLifecycle $value): void {

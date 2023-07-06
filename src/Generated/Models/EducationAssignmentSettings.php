@@ -5,11 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationAssignmentSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EducationAssignmentSettings and sets the default values.
+     * Instantiates a new educationAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +27,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class EducationAssignmentSettings extends Entity implements Parsable
      * @return array<EducationGradingCategory>|null
     */
     public function getGradingCategories(): ?array {
-        return $this->getBackingStore()->get('gradingCategories');
+        $val = $this->getBackingStore()->get('gradingCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EducationGradingCategory::class);
+            /** @var array<EducationGradingCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gradingCategories'");
     }
 
     /**
@@ -49,7 +56,11 @@ class EducationAssignmentSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getSubmissionAnimationDisabled(): ?bool {
-        return $this->getBackingStore()->get('submissionAnimationDisabled');
+        $val = $this->getBackingStore()->get('submissionAnimationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'submissionAnimationDisabled'");
     }
 
     /**

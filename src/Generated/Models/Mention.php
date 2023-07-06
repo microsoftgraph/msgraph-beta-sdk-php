@@ -30,7 +30,11 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getApplication(): ?string {
-        return $this->getBackingStore()->get('application');
+        $val = $this->getBackingStore()->get('application');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getClientReference(): ?string {
-        return $this->getBackingStore()->get('clientReference');
+        $val = $this->getBackingStore()->get('clientReference');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientReference'");
     }
 
     /**
@@ -46,7 +54,11 @@ class Mention extends Entity implements Parsable
      * @return EmailAddress|null
     */
     public function getCreatedBy(): ?EmailAddress {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof EmailAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -54,7 +66,11 @@ class Mention extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -62,12 +78,16 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getDeepLink(): ?string {
-        return $this->getBackingStore()->get('deepLink');
+        $val = $this->getBackingStore()->get('deepLink');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deepLink'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +108,11 @@ class Mention extends Entity implements Parsable
      * @return EmailAddress|null
     */
     public function getMentioned(): ?EmailAddress {
-        return $this->getBackingStore()->get('mentioned');
+        $val = $this->getBackingStore()->get('mentioned');
+        if (is_null($val) || $val instanceof EmailAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mentioned'");
     }
 
     /**
@@ -96,7 +120,11 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getMentionText(): ?string {
-        return $this->getBackingStore()->get('mentionText');
+        $val = $this->getBackingStore()->get('mentionText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mentionText'");
     }
 
     /**
@@ -104,7 +132,11 @@ class Mention extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getServerCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('serverCreatedDateTime');
+        $val = $this->getBackingStore()->get('serverCreatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverCreatedDateTime'");
     }
 
     /**

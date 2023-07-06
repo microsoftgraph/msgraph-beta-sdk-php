@@ -39,7 +39,12 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return DataType|null
     */
     public function getDataType(): ?DataType {
-        return $this->getBackingStore()->get('dataType');
+        $val = $this->getBackingStore()->get('dataType');
+        if (is_null($val) || $val instanceof DataType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataType'");
     }
 
     /**
@@ -63,7 +72,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return DeviceComplianceScriptRuleDataType|null
     */
     public function getDeviceComplianceScriptRuleDataType(): ?DeviceComplianceScriptRuleDataType {
-        return $this->getBackingStore()->get('deviceComplianceScriptRuleDataType');
+        $val = $this->getBackingStore()->get('deviceComplianceScriptRuleDataType');
+        if (is_null($val) || $val instanceof DeviceComplianceScriptRuleDataType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceComplianceScriptRuleDataType'");
     }
 
     /**
@@ -71,12 +84,16 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return DeviceComplianceScriptRulOperator|null
     */
     public function getDeviceComplianceScriptRulOperator(): ?DeviceComplianceScriptRulOperator {
-        return $this->getBackingStore()->get('deviceComplianceScriptRulOperator');
+        $val = $this->getBackingStore()->get('deviceComplianceScriptRulOperator');
+        if (is_null($val) || $val instanceof DeviceComplianceScriptRulOperator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceComplianceScriptRulOperator'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOperand(): ?string {
-        return $this->getBackingStore()->get('operand');
+        $val = $this->getBackingStore()->get('operand');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operand'");
     }
 
     /**
@@ -112,7 +137,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return Operator|null
     */
     public function getOperator(): ?Operator {
-        return $this->getBackingStore()->get('operator');
+        $val = $this->getBackingStore()->get('operator');
+        if (is_null($val) || $val instanceof Operator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
     }
 
     /**
@@ -120,7 +149,11 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->getBackingStore()->get('settingName');
+        $val = $this->getBackingStore()->get('settingName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingName'");
     }
 
     /**

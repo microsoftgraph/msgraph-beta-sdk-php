@@ -27,7 +27,7 @@ class WinGetApp extends MobileApp implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class WinGetApp extends MobileApp implements Parsable
      * @return WinGetAppInstallExperience|null
     */
     public function getInstallExperience(): ?WinGetAppInstallExperience {
-        return $this->getBackingStore()->get('installExperience');
+        $val = $this->getBackingStore()->get('installExperience');
+        if (is_null($val) || $val instanceof WinGetAppInstallExperience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installExperience'");
     }
 
     /**
@@ -51,7 +55,11 @@ class WinGetApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getManifestHash(): ?string {
-        return $this->getBackingStore()->get('manifestHash');
+        $val = $this->getBackingStore()->get('manifestHash');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestHash'");
     }
 
     /**
@@ -59,7 +67,11 @@ class WinGetApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageIdentifier(): ?string {
-        return $this->getBackingStore()->get('packageIdentifier');
+        $val = $this->getBackingStore()->get('packageIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageIdentifier'");
     }
 
     /**

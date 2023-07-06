@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes a single artifact for a specific device model.
+*/
 class ZebraFotaArtifact extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ZebraFotaArtifact and sets the default values.
+     * Instantiates a new zebraFotaArtifact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getBoardSupportPackageVersion(): ?string {
-        return $this->getBackingStore()->get('boardSupportPackageVersion');
+        $val = $this->getBackingStore()->get('boardSupportPackageVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'boardSupportPackageVersion'");
     }
 
     /**
@@ -37,7 +44,11 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -45,12 +56,16 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +84,11 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -77,7 +96,11 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getPatchVersion(): ?string {
-        return $this->getBackingStore()->get('patchVersion');
+        $val = $this->getBackingStore()->get('patchVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'patchVersion'");
     }
 
     /**
@@ -85,7 +108,11 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getReleaseNotesUrl(): ?string {
-        return $this->getBackingStore()->get('releaseNotesUrl');
+        $val = $this->getBackingStore()->get('releaseNotesUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseNotesUrl'");
     }
 
     /**

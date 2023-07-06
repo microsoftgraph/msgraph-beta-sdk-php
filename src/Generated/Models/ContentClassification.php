@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContentClassification implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +61,16 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getConfidence(): ?int {
-        return $this->getBackingStore()->get('confidence');
+        $val = $this->getBackingStore()->get('confidence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'confidence'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +88,13 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<MatchLocation>|null
     */
     public function getMatches(): ?array {
-        return $this->getBackingStore()->get('matches');
+        $val = $this->getBackingStore()->get('matches');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MatchLocation::class);
+            /** @var array<MatchLocation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matches'");
     }
 
     /**
@@ -86,7 +102,11 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +114,11 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getSensitiveTypeId(): ?string {
-        return $this->getBackingStore()->get('sensitiveTypeId');
+        $val = $this->getBackingStore()->get('sensitiveTypeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeId'");
     }
 
     /**
@@ -102,7 +126,11 @@ class ContentClassification implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getUniqueCount(): ?int {
-        return $this->getBackingStore()->get('uniqueCount');
+        $val = $this->getBackingStore()->get('uniqueCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueCount'");
     }
 
     /**

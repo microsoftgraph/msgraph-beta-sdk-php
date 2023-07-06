@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamTemplateDefinition extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return TeamTemplateAudience|null
     */
     public function getAudience(): ?TeamTemplateAudience {
-        return $this->getBackingStore()->get('audience');
+        $val = $this->getBackingStore()->get('audience');
+        if (is_null($val) || $val instanceof TeamTemplateAudience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
     }
 
     /**
@@ -38,7 +43,13 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -46,7 +57,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -54,18 +69,29 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(TeamTemplateAudience::class)),
-            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'categories' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCategories($val);
+            },
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'iconUrl' => fn(ParseNode $n) => $o->setIconUrl($n->getStringValue()),
@@ -84,7 +110,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getIconUrl(): ?string {
-        return $this->getBackingStore()->get('iconUrl');
+        $val = $this->getBackingStore()->get('iconUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iconUrl'");
     }
 
     /**
@@ -92,7 +122,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->getBackingStore()->get('languageTag');
+        $val = $this->getBackingStore()->get('languageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
     }
 
     /**
@@ -100,7 +134,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -108,7 +146,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -116,7 +158,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getParentTemplateId(): ?string {
-        return $this->getBackingStore()->get('parentTemplateId');
+        $val = $this->getBackingStore()->get('parentTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentTemplateId'");
     }
 
     /**
@@ -124,7 +170,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisherName(): ?string {
-        return $this->getBackingStore()->get('publisherName');
+        $val = $this->getBackingStore()->get('publisherName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisherName'");
     }
 
     /**
@@ -132,7 +182,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getShortDescription(): ?string {
-        return $this->getBackingStore()->get('shortDescription');
+        $val = $this->getBackingStore()->get('shortDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shortDescription'");
     }
 
     /**
@@ -140,7 +194,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return Team|null
     */
     public function getTeamDefinition(): ?Team {
-        return $this->getBackingStore()->get('teamDefinition');
+        $val = $this->getBackingStore()->get('teamDefinition');
+        if (is_null($val) || $val instanceof Team) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamDefinition'");
     }
 
     /**

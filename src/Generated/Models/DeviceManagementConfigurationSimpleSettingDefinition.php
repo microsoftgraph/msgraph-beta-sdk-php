@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
@@ -32,32 +33,48 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the defaultValue property value. Default setting value for this setting.
+     * Gets the defaultValue property value. Default setting value for this setting
      * @return DeviceManagementConfigurationSettingValue|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationSettingValue {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
-     * Gets the dependedOnBy property value. list of child settings that depend on this setting.
+     * Gets the dependedOnBy property value. list of child settings that depend on this setting
      * @return array<DeviceManagementConfigurationSettingDependedOnBy>|null
     */
     public function getDependedOnBy(): ?array {
-        return $this->getBackingStore()->get('dependedOnBy');
+        $val = $this->getBackingStore()->get('dependedOnBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDependedOnBy::class);
+            /** @var array<DeviceManagementConfigurationSettingDependedOnBy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependedOnBy'");
     }
 
     /**
-     * Gets the dependentOn property value. list of parent settings this setting is dependent on.
+     * Gets the dependentOn property value. list of parent settings this setting is dependent on
      * @return array<DeviceManagementConfigurationDependentOn>|null
     */
     public function getDependentOn(): ?array {
-        return $this->getBackingStore()->get('dependentOn');
+        $val = $this->getBackingStore()->get('dependentOn');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationDependentOn::class);
+            /** @var array<DeviceManagementConfigurationDependentOn>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependentOn'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,11 +87,15 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the valueDefinition property value. Definition of the value for this setting.
+     * Gets the valueDefinition property value. Definition of the value for this setting
      * @return DeviceManagementConfigurationSettingValueDefinition|null
     */
     public function getValueDefinition(): ?DeviceManagementConfigurationSettingValueDefinition {
-        return $this->getBackingStore()->get('valueDefinition');
+        $val = $this->getBackingStore()->get('valueDefinition');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingValueDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueDefinition'");
     }
 
     /**
@@ -90,7 +111,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the defaultValue property value. Default setting value for this setting.
+     * Sets the defaultValue property value. Default setting value for this setting
      * @param DeviceManagementConfigurationSettingValue|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationSettingValue $value): void {
@@ -98,7 +119,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependedOnBy property value. list of child settings that depend on this setting.
+     * Sets the dependedOnBy property value. list of child settings that depend on this setting
      * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
@@ -106,7 +127,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependentOn property value. list of parent settings this setting is dependent on.
+     * Sets the dependentOn property value. list of parent settings this setting is dependent on
      * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
@@ -114,7 +135,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the valueDefinition property value. Definition of the value for this setting.
+     * Sets the valueDefinition property value. Definition of the value for this setting
      * @param DeviceManagementConfigurationSettingValueDefinition|null $value Value to set for the valueDefinition property.
     */
     public function setValueDefinition(?DeviceManagementConfigurationSettingValueDefinition $value): void {

@@ -27,7 +27,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
      * @return int|null
     */
     public function getMaximumLength(): ?int {
-        return $this->getBackingStore()->get('maximumLength');
+        $val = $this->getBackingStore()->get('maximumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumLength'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
      * @return int|null
     */
     public function getMinimumLength(): ?int {
-        return $this->getBackingStore()->get('minimumLength');
+        $val = $this->getBackingStore()->get('minimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumLength'");
     }
 
     /**

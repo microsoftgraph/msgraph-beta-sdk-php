@@ -39,7 +39,12 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getCommentCount(): ?int {
-        return $this->getBackingStore()->get('commentCount');
+        $val = $this->getBackingStore()->get('commentCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'commentCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getLikeCount(): ?int {
-        return $this->getBackingStore()->get('likeCount');
+        $val = $this->getBackingStore()->get('likeCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'likeCount'");
     }
 
     /**
@@ -85,7 +98,11 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getShareCount(): ?int {
-        return $this->getBackingStore()->get('shareCount');
+        $val = $this->getBackingStore()->get('shareCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shareCount'");
     }
 
     /**

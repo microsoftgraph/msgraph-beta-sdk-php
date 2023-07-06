@@ -30,7 +30,11 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
      * @return bool|null
     */
     public function getCheck32BitOn64System(): ?bool {
-        return $this->getBackingStore()->get('check32BitOn64System');
+        $val = $this->getBackingStore()->get('check32BitOn64System');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'check32BitOn64System'");
     }
 
     /**
@@ -38,12 +42,16 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
      * @return Win32LobAppFileSystemDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppFileSystemDetectionType {
-        return $this->getBackingStore()->get('detectionType');
+        $val = $this->getBackingStore()->get('detectionType');
+        if (is_null($val) || $val instanceof Win32LobAppFileSystemDetectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
      * @return string|null
     */
     public function getFileOrFolderName(): ?string {
-        return $this->getBackingStore()->get('fileOrFolderName');
+        $val = $this->getBackingStore()->get('fileOrFolderName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileOrFolderName'");
     }
 
     /**
@@ -68,7 +80,11 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
      * @return string|null
     */
     public function getPath(): ?string {
-        return $this->getBackingStore()->get('path');
+        $val = $this->getBackingStore()->get('path');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'path'");
     }
 
     /**

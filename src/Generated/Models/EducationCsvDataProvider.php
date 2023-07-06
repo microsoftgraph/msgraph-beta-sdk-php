@@ -30,12 +30,16 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->getBackingStore()->get('customizations');
+        $val = $this->getBackingStore()->get('customizations');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomizations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

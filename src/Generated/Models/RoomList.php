@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RoomList extends Place implements Parsable 
 {
@@ -30,12 +31,16 @@ class RoomList extends Place implements Parsable
      * @return string|null
     */
     public function getEmailAddress(): ?string {
-        return $this->getBackingStore()->get('emailAddress');
+        $val = $this->getBackingStore()->get('emailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,13 @@ class RoomList extends Place implements Parsable
      * @return array<Room>|null
     */
     public function getRooms(): ?array {
-        return $this->getBackingStore()->get('rooms');
+        $val = $this->getBackingStore()->get('rooms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Room::class);
+            /** @var array<Room>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rooms'");
     }
 
     /**
@@ -59,7 +70,13 @@ class RoomList extends Place implements Parsable
      * @return array<Workspace>|null
     */
     public function getWorkspaces(): ?array {
-        return $this->getBackingStore()->get('workspaces');
+        $val = $this->getBackingStore()->get('workspaces');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Workspace::class);
+            /** @var array<Workspace>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workspaces'");
     }
 
     /**

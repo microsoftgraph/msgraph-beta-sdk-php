@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return array<AndroidFotaDeploymentAssignment>|null
     */
     public function getDeploymentAssignments(): ?array {
-        return $this->getBackingStore()->get('deploymentAssignments');
+        $val = $this->getBackingStore()->get('deploymentAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidFotaDeploymentAssignment::class);
+            /** @var array<AndroidFotaDeploymentAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentAssignments'");
     }
 
     /**
@@ -37,7 +44,11 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return ZebraFotaDeploymentSettings|null
     */
     public function getDeploymentSettings(): ?ZebraFotaDeploymentSettings {
-        return $this->getBackingStore()->get('deploymentSettings');
+        $val = $this->getBackingStore()->get('deploymentSettings');
+        if (is_null($val) || $val instanceof ZebraFotaDeploymentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSettings'");
     }
 
     /**
@@ -45,7 +56,11 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return ZebraFotaDeploymentStatus|null
     */
     public function getDeploymentStatus(): ?ZebraFotaDeploymentStatus {
-        return $this->getBackingStore()->get('deploymentStatus');
+        $val = $this->getBackingStore()->get('deploymentStatus');
+        if (is_null($val) || $val instanceof ZebraFotaDeploymentStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentStatus'");
     }
 
     /**
@@ -53,7 +68,11 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -61,12 +80,16 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +99,14 @@ class ZebraFotaDeployment extends Entity implements Parsable
             'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getObjectValue([ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ]);
     }
 
@@ -85,7 +115,13 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

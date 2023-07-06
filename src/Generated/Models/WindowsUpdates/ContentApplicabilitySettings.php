@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,13 +58,20 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'offerWhileRecommendedBy' => fn(ParseNode $n) => $o->setOfferWhileRecommendedBy($n->getCollectionOfPrimitiveValues()),
+            'offerWhileRecommendedBy' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOfferWhileRecommendedBy($val);
+            },
             'safeguard' => fn(ParseNode $n) => $o->setSafeguard($n->getObjectValue([SafeguardSettings::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -68,7 +81,11 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -76,7 +93,13 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
      * @return array<string>|null
     */
     public function getOfferWhileRecommendedBy(): ?array {
-        return $this->getBackingStore()->get('offerWhileRecommendedBy');
+        $val = $this->getBackingStore()->get('offerWhileRecommendedBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offerWhileRecommendedBy'");
     }
 
     /**
@@ -84,7 +107,11 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
      * @return SafeguardSettings|null
     */
     public function getSafeguard(): ?SafeguardSettings {
-        return $this->getBackingStore()->get('safeguard');
+        $val = $this->getBackingStore()->get('safeguard');
+        if (is_null($val) || $val instanceof SafeguardSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'safeguard'");
     }
 
     /**

@@ -30,12 +30,16 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->getBackingStore()->get('errorCount');
+        $val = $this->getBackingStore()->get('errorCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +57,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActivityDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActivityDateTime');
+        $val = $this->getBackingStore()->get('lastActivityDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActivityDateTime'");
     }
 
     /**
@@ -61,7 +69,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSynchronizationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSynchronizationDateTime');
+        $val = $this->getBackingStore()->get('lastSynchronizationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSynchronizationDateTime'");
     }
 
     /**
@@ -69,7 +81,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return EducationSynchronizationStatus|null
     */
     public function getStatus(): ?EducationSynchronizationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof EducationSynchronizationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -77,7 +93,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getStatusMessage(): ?string {
-        return $this->getBackingStore()->get('statusMessage');
+        $val = $this->getBackingStore()->get('statusMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusMessage'");
     }
 
     /**

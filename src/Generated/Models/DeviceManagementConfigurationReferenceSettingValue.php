@@ -27,7 +27,7 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
      * @return string|null
     */
     public function getNote(): ?string {
-        return $this->getBackingStore()->get('note');
+        $val = $this->getBackingStore()->get('note');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'note'");
     }
 
     /**

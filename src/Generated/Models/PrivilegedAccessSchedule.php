@@ -38,7 +38,11 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,12 +50,16 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedUsing(): ?string {
-        return $this->getBackingStore()->get('createdUsing');
+        $val = $this->getBackingStore()->get('createdUsing');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdUsing'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +77,11 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('modifiedDateTime');
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**
@@ -77,7 +89,11 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
-        return $this->getBackingStore()->get('scheduleInfo');
+        $val = $this->getBackingStore()->get('scheduleInfo');
+        if (is_null($val) || $val instanceof RequestSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduleInfo'");
     }
 
     /**
@@ -85,7 +101,11 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

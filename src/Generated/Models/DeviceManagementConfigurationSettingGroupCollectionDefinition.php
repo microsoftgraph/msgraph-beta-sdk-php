@@ -26,7 +26,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
      * @return int|null
     */
     public function getMaximumCount(): ?int {
-        return $this->getBackingStore()->get('maximumCount');
+        $val = $this->getBackingStore()->get('maximumCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumCount'");
     }
 
     /**
@@ -49,7 +53,11 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
      * @return int|null
     */
     public function getMinimumCount(): ?int {
-        return $this->getBackingStore()->get('minimumCount');
+        $val = $this->getBackingStore()->get('minimumCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumCount'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
@@ -30,7 +31,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getActiveDirectorySiteCode(): ?string {
-        return $this->getBackingStore()->get('activeDirectorySiteCode');
+        $val = $this->getBackingStore()->get('activeDirectorySiteCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDirectorySiteCode'");
     }
 
     /**
@@ -38,7 +43,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getBlockActiveDirectorySiteAutoDiscovery(): ?bool {
-        return $this->getBackingStore()->get('blockActiveDirectorySiteAutoDiscovery');
+        $val = $this->getBackingStore()->get('blockActiveDirectorySiteAutoDiscovery');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockActiveDirectorySiteAutoDiscovery'");
     }
 
     /**
@@ -46,7 +55,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getBlockAutomaticLogin(): ?bool {
-        return $this->getBackingStore()->get('blockAutomaticLogin');
+        $val = $this->getBackingStore()->get('blockAutomaticLogin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockAutomaticLogin'");
     }
 
     /**
@@ -54,7 +67,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getCacheName(): ?string {
-        return $this->getBackingStore()->get('cacheName');
+        $val = $this->getBackingStore()->get('cacheName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheName'");
     }
 
     /**
@@ -62,7 +79,13 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getCredentialBundleIdAccessControlList(): ?array {
-        return $this->getBackingStore()->get('credentialBundleIdAccessControlList');
+        $val = $this->getBackingStore()->get('credentialBundleIdAccessControlList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialBundleIdAccessControlList'");
     }
 
     /**
@@ -70,7 +93,13 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getDomainRealms(): ?array {
-        return $this->getBackingStore()->get('domainRealms');
+        $val = $this->getBackingStore()->get('domainRealms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainRealms'");
     }
 
     /**
@@ -78,12 +107,18 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->getBackingStore()->get('domains');
+        $val = $this->getBackingStore()->get('domains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,9 +127,30 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
             'blockActiveDirectorySiteAutoDiscovery' => fn(ParseNode $n) => $o->setBlockActiveDirectorySiteAutoDiscovery($n->getBooleanValue()),
             'blockAutomaticLogin' => fn(ParseNode $n) => $o->setBlockAutomaticLogin($n->getBooleanValue()),
             'cacheName' => fn(ParseNode $n) => $o->setCacheName($n->getStringValue()),
-            'credentialBundleIdAccessControlList' => fn(ParseNode $n) => $o->setCredentialBundleIdAccessControlList($n->getCollectionOfPrimitiveValues()),
-            'domainRealms' => fn(ParseNode $n) => $o->setDomainRealms($n->getCollectionOfPrimitiveValues()),
-            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'credentialBundleIdAccessControlList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCredentialBundleIdAccessControlList($val);
+            },
+            'domainRealms' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomainRealms($val);
+            },
+            'domains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomains($val);
+            },
             'isDefaultRealm' => fn(ParseNode $n) => $o->setIsDefaultRealm($n->getBooleanValue()),
             'passwordBlockModification' => fn(ParseNode $n) => $o->setPasswordBlockModification($n->getBooleanValue()),
             'passwordChangeUrl' => fn(ParseNode $n) => $o->setPasswordChangeUrl($n->getStringValue()),
@@ -117,7 +173,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getIsDefaultRealm(): ?bool {
-        return $this->getBackingStore()->get('isDefaultRealm');
+        $val = $this->getBackingStore()->get('isDefaultRealm');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultRealm'");
     }
 
     /**
@@ -125,7 +185,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordBlockModification(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockModification');
+        $val = $this->getBackingStore()->get('passwordBlockModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockModification'");
     }
 
     /**
@@ -133,7 +197,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getPasswordChangeUrl(): ?string {
-        return $this->getBackingStore()->get('passwordChangeUrl');
+        $val = $this->getBackingStore()->get('passwordChangeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordChangeUrl'");
     }
 
     /**
@@ -141,7 +209,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordEnableLocalSync(): ?bool {
-        return $this->getBackingStore()->get('passwordEnableLocalSync');
+        $val = $this->getBackingStore()->get('passwordEnableLocalSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordEnableLocalSync'");
     }
 
     /**
@@ -149,7 +221,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -157,7 +233,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordExpirationNotificationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationNotificationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationNotificationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationNotificationDays'");
     }
 
     /**
@@ -165,7 +245,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordMinimumAgeDays(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumAgeDays');
+        $val = $this->getBackingStore()->get('passwordMinimumAgeDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumAgeDays'");
     }
 
     /**
@@ -173,7 +257,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -181,7 +269,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -189,7 +281,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordRequireActiveDirectoryComplexity(): ?bool {
-        return $this->getBackingStore()->get('passwordRequireActiveDirectoryComplexity');
+        $val = $this->getBackingStore()->get('passwordRequireActiveDirectoryComplexity');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireActiveDirectoryComplexity'");
     }
 
     /**
@@ -197,7 +293,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getPasswordRequirementsDescription(): ?string {
-        return $this->getBackingStore()->get('passwordRequirementsDescription');
+        $val = $this->getBackingStore()->get('passwordRequirementsDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequirementsDescription'");
     }
 
     /**
@@ -205,7 +305,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -213,7 +317,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getRequireUserPresence(): ?bool {
-        return $this->getBackingStore()->get('requireUserPresence');
+        $val = $this->getBackingStore()->get('requireUserPresence');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireUserPresence'");
     }
 
     /**
@@ -221,7 +329,11 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

@@ -39,7 +39,12 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return CommentAction|null
     */
     public function getComment(): ?CommentAction {
-        return $this->getBackingStore()->get('comment');
+        $val = $this->getBackingStore()->get('comment');
+        if (is_null($val) || $val instanceof CommentAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'comment'");
     }
 
     /**
@@ -63,7 +72,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return CreateAction|null
     */
     public function getCreate(): ?CreateAction {
-        return $this->getBackingStore()->get('create');
+        $val = $this->getBackingStore()->get('create');
+        if (is_null($val) || $val instanceof CreateAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'create'");
     }
 
     /**
@@ -71,7 +84,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeleteAction|null
     */
     public function getDelete(): ?DeleteAction {
-        return $this->getBackingStore()->get('delete');
+        $val = $this->getBackingStore()->get('delete');
+        if (is_null($val) || $val instanceof DeleteAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delete'");
     }
 
     /**
@@ -79,12 +96,16 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return EditAction|null
     */
     public function getEdit(): ?EditAction {
-        return $this->getBackingStore()->get('edit');
+        $val = $this->getBackingStore()->get('edit');
+        if (is_null($val) || $val instanceof EditAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edit'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -108,7 +129,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return MentionAction|null
     */
     public function getMention(): ?MentionAction {
-        return $this->getBackingStore()->get('mention');
+        $val = $this->getBackingStore()->get('mention');
+        if (is_null($val) || $val instanceof MentionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mention'");
     }
 
     /**
@@ -116,7 +141,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return MoveAction|null
     */
     public function getMove(): ?MoveAction {
-        return $this->getBackingStore()->get('move');
+        $val = $this->getBackingStore()->get('move');
+        if (is_null($val) || $val instanceof MoveAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'move'");
     }
 
     /**
@@ -124,7 +153,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -132,7 +165,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return RenameAction|null
     */
     public function getRename(): ?RenameAction {
-        return $this->getBackingStore()->get('rename');
+        $val = $this->getBackingStore()->get('rename');
+        if (is_null($val) || $val instanceof RenameAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rename'");
     }
 
     /**
@@ -140,7 +177,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return RestoreAction|null
     */
     public function getRestore(): ?RestoreAction {
-        return $this->getBackingStore()->get('restore');
+        $val = $this->getBackingStore()->get('restore');
+        if (is_null($val) || $val instanceof RestoreAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restore'");
     }
 
     /**
@@ -148,7 +189,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return ShareAction|null
     */
     public function getShare(): ?ShareAction {
-        return $this->getBackingStore()->get('share');
+        $val = $this->getBackingStore()->get('share');
+        if (is_null($val) || $val instanceof ShareAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'share'");
     }
 
     /**
@@ -156,7 +201,11 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
      * @return VersionAction|null
     */
     public function getVersion(): ?VersionAction {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || $val instanceof VersionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

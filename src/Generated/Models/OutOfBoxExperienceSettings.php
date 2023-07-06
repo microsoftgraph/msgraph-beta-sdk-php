@@ -42,7 +42,12 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +63,16 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return WindowsDeviceUsageType|null
     */
     public function getDeviceUsageType(): ?WindowsDeviceUsageType {
-        return $this->getBackingStore()->get('deviceUsageType');
+        $val = $this->getBackingStore()->get('deviceUsageType');
+        if (is_null($val) || $val instanceof WindowsDeviceUsageType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceUsageType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -83,7 +92,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getHideEscapeLink(): ?bool {
-        return $this->getBackingStore()->get('hideEscapeLink');
+        $val = $this->getBackingStore()->get('hideEscapeLink');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hideEscapeLink'");
     }
 
     /**
@@ -91,7 +104,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getHideEULA(): ?bool {
-        return $this->getBackingStore()->get('hideEULA');
+        $val = $this->getBackingStore()->get('hideEULA');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hideEULA'");
     }
 
     /**
@@ -99,7 +116,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getHidePrivacySettings(): ?bool {
-        return $this->getBackingStore()->get('hidePrivacySettings');
+        $val = $this->getBackingStore()->get('hidePrivacySettings');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hidePrivacySettings'");
     }
 
     /**
@@ -107,7 +128,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -115,7 +140,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getSkipKeyboardSelectionPage(): ?bool {
-        return $this->getBackingStore()->get('skipKeyboardSelectionPage');
+        $val = $this->getBackingStore()->get('skipKeyboardSelectionPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skipKeyboardSelectionPage'");
     }
 
     /**
@@ -123,7 +152,11 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
      * @return WindowsUserType|null
     */
     public function getUserType(): ?WindowsUserType {
-        return $this->getBackingStore()->get('userType');
+        $val = $this->getBackingStore()->get('userType');
+        if (is_null($val) || $val instanceof WindowsUserType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userType'");
     }
 
     /**

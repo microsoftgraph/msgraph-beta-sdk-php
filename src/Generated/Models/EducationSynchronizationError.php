@@ -30,7 +30,11 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return string|null
     */
     public function getEntryType(): ?string {
-        return $this->getBackingStore()->get('entryType');
+        $val = $this->getBackingStore()->get('entryType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entryType'");
     }
 
     /**
@@ -38,7 +42,11 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
@@ -46,12 +54,16 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->getBackingStore()->get('errorMessage');
+        $val = $this->getBackingStore()->get('errorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorMessage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +82,11 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return string|null
     */
     public function getJoiningValue(): ?string {
-        return $this->getBackingStore()->get('joiningValue');
+        $val = $this->getBackingStore()->get('joiningValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'joiningValue'");
     }
 
     /**
@@ -78,7 +94,11 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRecordedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('recordedDateTime');
+        $val = $this->getBackingStore()->get('recordedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordedDateTime'");
     }
 
     /**
@@ -86,7 +106,11 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return string|null
     */
     public function getReportableIdentifier(): ?string {
-        return $this->getBackingStore()->get('reportableIdentifier');
+        $val = $this->getBackingStore()->get('reportableIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportableIdentifier'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCollectionHandler implements Parsable 
 {
@@ -30,7 +31,11 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCol
      * @return AuthenticationAttributeCollectionPage|null
     */
     public function getAttributeCollectionPage(): ?AuthenticationAttributeCollectionPage {
-        return $this->getBackingStore()->get('attributeCollectionPage');
+        $val = $this->getBackingStore()->get('attributeCollectionPage');
+        if (is_null($val) || $val instanceof AuthenticationAttributeCollectionPage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeCollectionPage'");
     }
 
     /**
@@ -38,12 +43,18 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCol
      * @return array<IdentityUserFlowAttribute>|null
     */
     public function getAttributes(): ?array {
-        return $this->getBackingStore()->get('attributes');
+        $val = $this->getBackingStore()->get('attributes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityUserFlowAttribute::class);
+            /** @var array<IdentityUserFlowAttribute>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

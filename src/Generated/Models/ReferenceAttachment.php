@@ -27,7 +27,7 @@ class ReferenceAttachment extends Attachment implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return bool|null
     */
     public function getIsFolder(): ?bool {
-        return $this->getBackingStore()->get('isFolder');
+        $val = $this->getBackingStore()->get('isFolder');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isFolder'");
     }
 
     /**
@@ -54,7 +58,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return ReferenceAttachmentPermission|null
     */
     public function getPermission(): ?ReferenceAttachmentPermission {
-        return $this->getBackingStore()->get('permission');
+        $val = $this->getBackingStore()->get('permission');
+        if (is_null($val) || $val instanceof ReferenceAttachmentPermission) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permission'");
     }
 
     /**
@@ -62,7 +70,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getPreviewUrl(): ?string {
-        return $this->getBackingStore()->get('previewUrl');
+        $val = $this->getBackingStore()->get('previewUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previewUrl'");
     }
 
     /**
@@ -70,7 +82,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return ReferenceAttachmentProvider|null
     */
     public function getProviderType(): ?ReferenceAttachmentProvider {
-        return $this->getBackingStore()->get('providerType');
+        $val = $this->getBackingStore()->get('providerType');
+        if (is_null($val) || $val instanceof ReferenceAttachmentProvider) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'providerType'");
     }
 
     /**
@@ -78,7 +94,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getSourceUrl(): ?string {
-        return $this->getBackingStore()->get('sourceUrl');
+        $val = $this->getBackingStore()->get('sourceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceUrl'");
     }
 
     /**
@@ -86,7 +106,11 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->getBackingStore()->get('thumbnailUrl');
+        $val = $this->getBackingStore()->get('thumbnailUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnailUrl'");
     }
 
     /**

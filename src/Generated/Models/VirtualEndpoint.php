@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEndpoint extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcAuditEvent>|null
     */
     public function getAuditEvents(): ?array {
-        return $this->getBackingStore()->get('auditEvents');
+        $val = $this->getBackingStore()->get('auditEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcAuditEvent::class);
+            /** @var array<CloudPcAuditEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'auditEvents'");
     }
 
     /**
@@ -37,7 +44,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcBulkAction>|null
     */
     public function getBulkActions(): ?array {
-        return $this->getBackingStore()->get('bulkActions');
+        $val = $this->getBackingStore()->get('bulkActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcBulkAction::class);
+            /** @var array<CloudPcBulkAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bulkActions'");
     }
 
     /**
@@ -45,7 +58,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPC>|null
     */
     public function getCloudPCs(): ?array {
-        return $this->getBackingStore()->get('cloudPCs');
+        $val = $this->getBackingStore()->get('cloudPCs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPC::class);
+            /** @var array<CloudPC>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPCs'");
     }
 
     /**
@@ -53,7 +72,11 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return CloudPcCrossCloudGovernmentOrganizationMapping|null
     */
     public function getCrossCloudGovernmentOrganizationMapping(): ?CloudPcCrossCloudGovernmentOrganizationMapping {
-        return $this->getBackingStore()->get('crossCloudGovernmentOrganizationMapping');
+        $val = $this->getBackingStore()->get('crossCloudGovernmentOrganizationMapping');
+        if (is_null($val) || $val instanceof CloudPcCrossCloudGovernmentOrganizationMapping) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossCloudGovernmentOrganizationMapping'");
     }
 
     /**
@@ -61,7 +84,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcDeviceImage>|null
     */
     public function getDeviceImages(): ?array {
-        return $this->getBackingStore()->get('deviceImages');
+        $val = $this->getBackingStore()->get('deviceImages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcDeviceImage::class);
+            /** @var array<CloudPcDeviceImage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceImages'");
     }
 
     /**
@@ -69,12 +98,18 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcExternalPartnerSetting>|null
     */
     public function getExternalPartnerSettings(): ?array {
-        return $this->getBackingStore()->get('externalPartnerSettings');
+        $val = $this->getBackingStore()->get('externalPartnerSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcExternalPartnerSetting::class);
+            /** @var array<CloudPcExternalPartnerSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalPartnerSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -103,7 +138,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcGalleryImage>|null
     */
     public function getGalleryImages(): ?array {
-        return $this->getBackingStore()->get('galleryImages');
+        $val = $this->getBackingStore()->get('galleryImages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcGalleryImage::class);
+            /** @var array<CloudPcGalleryImage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'galleryImages'");
     }
 
     /**
@@ -111,7 +152,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcOnPremisesConnection>|null
     */
     public function getOnPremisesConnections(): ?array {
-        return $this->getBackingStore()->get('onPremisesConnections');
+        $val = $this->getBackingStore()->get('onPremisesConnections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcOnPremisesConnection::class);
+            /** @var array<CloudPcOnPremisesConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesConnections'");
     }
 
     /**
@@ -119,7 +166,11 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return CloudPcOrganizationSettings|null
     */
     public function getOrganizationSettings(): ?CloudPcOrganizationSettings {
-        return $this->getBackingStore()->get('organizationSettings');
+        $val = $this->getBackingStore()->get('organizationSettings');
+        if (is_null($val) || $val instanceof CloudPcOrganizationSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationSettings'");
     }
 
     /**
@@ -127,7 +178,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcProvisioningPolicy>|null
     */
     public function getProvisioningPolicies(): ?array {
-        return $this->getBackingStore()->get('provisioningPolicies');
+        $val = $this->getBackingStore()->get('provisioningPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcProvisioningPolicy::class);
+            /** @var array<CloudPcProvisioningPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningPolicies'");
     }
 
     /**
@@ -135,7 +192,11 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return CloudPcReports|null
     */
     public function getReports(): ?CloudPcReports {
-        return $this->getBackingStore()->get('reports');
+        $val = $this->getBackingStore()->get('reports');
+        if (is_null($val) || $val instanceof CloudPcReports) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reports'");
     }
 
     /**
@@ -143,7 +204,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcServicePlan>|null
     */
     public function getServicePlans(): ?array {
-        return $this->getBackingStore()->get('servicePlans');
+        $val = $this->getBackingStore()->get('servicePlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcServicePlan::class);
+            /** @var array<CloudPcServicePlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlans'");
     }
 
     /**
@@ -151,7 +218,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcSharedUseServicePlan>|null
     */
     public function getSharedUseServicePlans(): ?array {
-        return $this->getBackingStore()->get('sharedUseServicePlans');
+        $val = $this->getBackingStore()->get('sharedUseServicePlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcSharedUseServicePlan::class);
+            /** @var array<CloudPcSharedUseServicePlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedUseServicePlans'");
     }
 
     /**
@@ -159,7 +232,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcSnapshot>|null
     */
     public function getSnapshots(): ?array {
-        return $this->getBackingStore()->get('snapshots');
+        $val = $this->getBackingStore()->get('snapshots');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcSnapshot::class);
+            /** @var array<CloudPcSnapshot>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'snapshots'");
     }
 
     /**
@@ -167,7 +246,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcSupportedRegion>|null
     */
     public function getSupportedRegions(): ?array {
-        return $this->getBackingStore()->get('supportedRegions');
+        $val = $this->getBackingStore()->get('supportedRegions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcSupportedRegion::class);
+            /** @var array<CloudPcSupportedRegion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedRegions'");
     }
 
     /**
@@ -175,7 +260,13 @@ class VirtualEndpoint extends Entity implements Parsable
      * @return array<CloudPcUserSetting>|null
     */
     public function getUserSettings(): ?array {
-        return $this->getBackingStore()->get('userSettings');
+        $val = $this->getBackingStore()->get('userSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcUserSetting::class);
+            /** @var array<CloudPcUserSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSettings'");
     }
 
     /**

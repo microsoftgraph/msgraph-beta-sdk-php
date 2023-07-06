@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows update catalog item entity
+*/
 class WindowsUpdateCatalogItem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateCatalogItem and sets the default values.
+     * Instantiates a new windowsUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +41,11 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -46,12 +53,16 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndOfSupportDate(): ?DateTime {
-        return $this->getBackingStore()->get('endOfSupportDate');
+        $val = $this->getBackingStore()->get('endOfSupportDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endOfSupportDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +78,11 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('releaseDateTime');
+        $val = $this->getBackingStore()->get('releaseDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseDateTime'");
     }
 
     /**

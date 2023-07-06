@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class HostSecurityProfile extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('azureSubscriptionId');
+        $val = $this->getBackingStore()->get('azureSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureSubscriptionId'");
     }
 
     /**
@@ -38,12 +43,16 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,9 +71,23 @@ class HostSecurityProfile extends Entity implements Parsable
             'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'parentHost' => fn(ParseNode $n) => $o->setParentHost($n->getStringValue()),
-            'relatedHostIds' => fn(ParseNode $n) => $o->setRelatedHostIds($n->getCollectionOfPrimitiveValues()),
+            'relatedHostIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRelatedHostIds($val);
+            },
             'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -74,7 +97,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -82,7 +109,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getFqdn(): ?string {
-        return $this->getBackingStore()->get('fqdn');
+        $val = $this->getBackingStore()->get('fqdn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fqdn'");
     }
 
     /**
@@ -90,7 +121,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAzureAdJoined(): ?bool {
-        return $this->getBackingStore()->get('isAzureAdJoined');
+        $val = $this->getBackingStore()->get('isAzureAdJoined');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAzureAdJoined'");
     }
 
     /**
@@ -98,7 +133,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAzureAdRegistered(): ?bool {
-        return $this->getBackingStore()->get('isAzureAdRegistered');
+        $val = $this->getBackingStore()->get('isAzureAdRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAzureAdRegistered'");
     }
 
     /**
@@ -106,7 +145,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsHybridAzureDomainJoined(): ?bool {
-        return $this->getBackingStore()->get('isHybridAzureDomainJoined');
+        $val = $this->getBackingStore()->get('isHybridAzureDomainJoined');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHybridAzureDomainJoined'");
     }
 
     /**
@@ -114,7 +157,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -122,7 +169,13 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<LogonUser>|null
     */
     public function getLogonUsers(): ?array {
-        return $this->getBackingStore()->get('logonUsers');
+        $val = $this->getBackingStore()->get('logonUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LogonUser::class);
+            /** @var array<LogonUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logonUsers'");
     }
 
     /**
@@ -130,7 +183,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getNetBiosName(): ?string {
-        return $this->getBackingStore()->get('netBiosName');
+        $val = $this->getBackingStore()->get('netBiosName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'netBiosName'");
     }
 
     /**
@@ -138,7 +195,13 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<NetworkInterface>|null
     */
     public function getNetworkInterfaces(): ?array {
-        return $this->getBackingStore()->get('networkInterfaces');
+        $val = $this->getBackingStore()->get('networkInterfaces');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NetworkInterface::class);
+            /** @var array<NetworkInterface>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkInterfaces'");
     }
 
     /**
@@ -146,7 +209,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOs(): ?string {
-        return $this->getBackingStore()->get('os');
+        $val = $this->getBackingStore()->get('os');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'os'");
     }
 
     /**
@@ -154,7 +221,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -162,7 +233,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getParentHost(): ?string {
-        return $this->getBackingStore()->get('parentHost');
+        $val = $this->getBackingStore()->get('parentHost');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentHost'");
     }
 
     /**
@@ -170,7 +245,13 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRelatedHostIds(): ?array {
-        return $this->getBackingStore()->get('relatedHostIds');
+        $val = $this->getBackingStore()->get('relatedHostIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relatedHostIds'");
     }
 
     /**
@@ -178,7 +259,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->getBackingStore()->get('riskScore');
+        $val = $this->getBackingStore()->get('riskScore');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskScore'");
     }
 
     /**
@@ -186,7 +271,13 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -194,7 +285,11 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->getBackingStore()->get('vendorInformation');
+        $val = $this->getBackingStore()->get('vendorInformation');
+        if (is_null($val) || $val instanceof SecurityVendorInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorInformation'");
     }
 
     /**

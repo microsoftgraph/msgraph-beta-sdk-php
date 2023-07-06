@@ -27,40 +27,56 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Gets the activationCount property value. The activationCount property
+     * Gets the activationCount property value. The length of sequential activation of the same role.
      * @return int|null
     */
     public function getActivationCount(): ?int {
-        return $this->getBackingStore()->get('activationCount');
+        $val = $this->getBackingStore()->get('activationCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activationCount'");
     }
 
     /**
-     * Gets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Gets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeDisplayName(): ?string {
-        return $this->getBackingStore()->get('assigneeDisplayName');
+        $val = $this->getBackingStore()->get('assigneeDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeDisplayName'");
     }
 
     /**
-     * Gets the assigneeId property value. The assigneeId property
+     * Gets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeId(): ?string {
-        return $this->getBackingStore()->get('assigneeId');
+        $val = $this->getBackingStore()->get('assigneeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeId'");
     }
 
     /**
-     * Gets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Gets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @return string|null
     */
     public function getAssigneeUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('assigneeUserPrincipalName');
+        $val = $this->getBackingStore()->get('assigneeUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeUserPrincipalName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,43 +94,63 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Gets the roleDefinitionId property value. The roleDefinitionId property
+     * Gets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->getBackingStore()->get('roleDefinitionId');
+        $val = $this->getBackingStore()->get('roleDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitionId'");
     }
 
     /**
-     * Gets the roleDisplayName property value. The roleDisplayName property
+     * Gets the roleDisplayName property value. The display name for the directory role.
      * @return string|null
     */
     public function getRoleDisplayName(): ?string {
-        return $this->getBackingStore()->get('roleDisplayName');
+        $val = $this->getBackingStore()->get('roleDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDisplayName'");
     }
 
     /**
-     * Gets the roleTemplateId property value. The roleTemplateId property
+     * Gets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
-        return $this->getBackingStore()->get('roleTemplateId');
+        $val = $this->getBackingStore()->get('roleTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleTemplateId'");
     }
 
     /**
-     * Gets the sequenceEndDateTime property value. The sequenceEndDateTime property
+     * Gets the sequenceEndDateTime property value. End date time of the sequential activation event.
      * @return DateTime|null
     */
     public function getSequenceEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('sequenceEndDateTime');
+        $val = $this->getBackingStore()->get('sequenceEndDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequenceEndDateTime'");
     }
 
     /**
-     * Gets the sequenceStartDateTime property value. The sequenceStartDateTime property
+     * Gets the sequenceStartDateTime property value. Start date time of the sequential activation event.
      * @return DateTime|null
     */
     public function getSequenceStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('sequenceStartDateTime');
+        $val = $this->getBackingStore()->get('sequenceStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequenceStartDateTime'");
     }
 
     /**
@@ -135,7 +171,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the activationCount property value. The activationCount property
+     * Sets the activationCount property value. The length of sequential activation of the same role.
      * @param int|null $value Value to set for the activationCount property.
     */
     public function setActivationCount(?int $value): void {
@@ -143,7 +179,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Sets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeDisplayName property.
     */
     public function setAssigneeDisplayName(?string $value): void {
@@ -151,7 +187,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the assigneeId property value. The assigneeId property
+     * Sets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeId property.
     */
     public function setAssigneeId(?string $value): void {
@@ -159,7 +195,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Sets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @param string|null $value Value to set for the assigneeUserPrincipalName property.
     */
     public function setAssigneeUserPrincipalName(?string $value): void {
@@ -167,7 +203,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the roleDefinitionId property value. The roleDefinitionId property
+     * Sets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
@@ -175,7 +211,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the roleDisplayName property value. The roleDisplayName property
+     * Sets the roleDisplayName property value. The display name for the directory role.
      * @param string|null $value Value to set for the roleDisplayName property.
     */
     public function setRoleDisplayName(?string $value): void {
@@ -183,7 +219,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the roleTemplateId property value. The roleTemplateId property
+     * Sets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @param string|null $value Value to set for the roleTemplateId property.
     */
     public function setRoleTemplateId(?string $value): void {
@@ -191,7 +227,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the sequenceEndDateTime property value. The sequenceEndDateTime property
+     * Sets the sequenceEndDateTime property value. End date time of the sequential activation event.
      * @param DateTime|null $value Value to set for the sequenceEndDateTime property.
     */
     public function setSequenceEndDateTime(?DateTime $value): void {
@@ -199,7 +235,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
     }
 
     /**
-     * Sets the sequenceStartDateTime property value. The sequenceStartDateTime property
+     * Sets the sequenceStartDateTime property value. Start date time of the sequential activation event.
      * @param DateTime|null $value Value to set for the sequenceStartDateTime property.
     */
     public function setSequenceStartDateTime(?DateTime $value): void {

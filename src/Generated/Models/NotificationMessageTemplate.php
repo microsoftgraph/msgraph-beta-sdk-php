@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NotificationMessageTemplate extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return NotificationTemplateBrandingOptions|null
     */
     public function getBrandingOptions(): ?NotificationTemplateBrandingOptions {
-        return $this->getBackingStore()->get('brandingOptions');
+        $val = $this->getBackingStore()->get('brandingOptions');
+        if (is_null($val) || $val instanceof NotificationTemplateBrandingOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'brandingOptions'");
     }
 
     /**
@@ -38,7 +43,11 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultLocale(): ?string {
-        return $this->getBackingStore()->get('defaultLocale');
+        $val = $this->getBackingStore()->get('defaultLocale');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLocale'");
     }
 
     /**
@@ -46,12 +55,16 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +74,14 @@ class NotificationMessageTemplate extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localizedNotificationMessages' => fn(ParseNode $n) => $o->setLocalizedNotificationMessages($n->getCollectionOfObjectValues([LocalizedNotificationMessage::class, 'createFromDiscriminatorValue'])),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ]);
     }
 
@@ -70,7 +90,11 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -78,7 +102,13 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return array<LocalizedNotificationMessage>|null
     */
     public function getLocalizedNotificationMessages(): ?array {
-        return $this->getBackingStore()->get('localizedNotificationMessages');
+        $val = $this->getBackingStore()->get('localizedNotificationMessages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LocalizedNotificationMessage::class);
+            /** @var array<LocalizedNotificationMessage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localizedNotificationMessages'");
     }
 
     /**
@@ -86,7 +116,13 @@ class NotificationMessageTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

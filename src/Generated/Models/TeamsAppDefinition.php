@@ -30,7 +30,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppInstallationScopes|null
     */
     public function getAllowedInstallationScopes(): ?TeamsAppInstallationScopes {
-        return $this->getBackingStore()->get('allowedInstallationScopes');
+        $val = $this->getBackingStore()->get('allowedInstallationScopes');
+        if (is_null($val) || $val instanceof TeamsAppInstallationScopes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedInstallationScopes'");
     }
 
     /**
@@ -38,7 +42,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppAuthorization|null
     */
     public function getAuthorization(): ?TeamsAppAuthorization {
-        return $this->getBackingStore()->get('authorization');
+        $val = $this->getBackingStore()->get('authorization');
+        if (is_null($val) || $val instanceof TeamsAppAuthorization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorization'");
     }
 
     /**
@@ -46,7 +54,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureADAppId(): ?string {
-        return $this->getBackingStore()->get('azureADAppId');
+        $val = $this->getBackingStore()->get('azureADAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureADAppId'");
     }
 
     /**
@@ -54,7 +66,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamworkBot|null
     */
     public function getBot(): ?TeamworkBot {
-        return $this->getBackingStore()->get('bot');
+        $val = $this->getBackingStore()->get('bot');
+        if (is_null($val) || $val instanceof TeamworkBot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bot'");
     }
 
     /**
@@ -62,7 +78,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppIcon|null
     */
     public function getColorIcon(): ?TeamsAppIcon {
-        return $this->getBackingStore()->get('colorIcon');
+        $val = $this->getBackingStore()->get('colorIcon');
+        if (is_null($val) || $val instanceof TeamsAppIcon) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'colorIcon'");
     }
 
     /**
@@ -70,7 +90,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -78,7 +102,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -86,12 +114,16 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -118,7 +150,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -126,7 +162,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppIcon|null
     */
     public function getOutlineIcon(): ?TeamsAppIcon {
-        return $this->getBackingStore()->get('outlineIcon');
+        $val = $this->getBackingStore()->get('outlineIcon');
+        if (is_null($val) || $val instanceof TeamsAppIcon) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outlineIcon'");
     }
 
     /**
@@ -134,7 +174,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppPublishingState|null
     */
     public function getPublishingState(): ?TeamsAppPublishingState {
-        return $this->getBackingStore()->get('publishingState');
+        $val = $this->getBackingStore()->get('publishingState');
+        if (is_null($val) || $val instanceof TeamsAppPublishingState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingState'");
     }
 
     /**
@@ -142,7 +186,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getShortdescription(): ?string {
-        return $this->getBackingStore()->get('shortdescription');
+        $val = $this->getBackingStore()->get('shortdescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shortdescription'");
     }
 
     /**
@@ -150,7 +198,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTeamsAppId(): ?string {
-        return $this->getBackingStore()->get('teamsAppId');
+        $val = $this->getBackingStore()->get('teamsAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsAppId'");
     }
 
     /**
@@ -158,7 +210,11 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

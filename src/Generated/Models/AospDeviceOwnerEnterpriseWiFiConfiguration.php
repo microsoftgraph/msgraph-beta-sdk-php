@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,12 +43,16 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return AndroidEapType|null
     */
     public function getEapType(): ?AndroidEapType {
-        return $this->getBackingStore()->get('eapType');
+        $val = $this->getBackingStore()->get('eapType');
+        if (is_null($val) || $val instanceof AndroidEapType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +64,14 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
             'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([AospDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
+            'trustedServerCertificateNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedServerCertificateNames($val);
+            },
         ]);
     }
 
@@ -64,7 +80,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return AospDeviceOwnerCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?AospDeviceOwnerCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof AospDeviceOwnerCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -72,7 +92,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEapTtls'");
     }
 
     /**
@@ -80,7 +104,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return NonEapAuthenticationMethodForPeap|null
     */
     public function getInnerAuthenticationProtocolForPeap(): ?NonEapAuthenticationMethodForPeap {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForPeap');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForPeap');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForPeap) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForPeap'");
     }
 
     /**
@@ -88,7 +116,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return string|null
     */
     public function getOuterIdentityPrivacyTemporaryValue(): ?string {
-        return $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        $val = $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outerIdentityPrivacyTemporaryValue'");
     }
 
     /**
@@ -96,7 +128,11 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return AospDeviceOwnerTrustedRootCertificate|null
     */
     public function getRootCertificateForServerValidation(): ?AospDeviceOwnerTrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificateForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificateForServerValidation');
+        if (is_null($val) || $val instanceof AospDeviceOwnerTrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateForServerValidation'");
     }
 
     /**
@@ -104,7 +140,13 @@ class AospDeviceOwnerEnterpriseWiFiConfiguration extends AospDeviceOwnerWiFiConf
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->getBackingStore()->get('trustedServerCertificateNames');
+        $val = $this->getBackingStore()->get('trustedServerCertificateNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedServerCertificateNames'");
     }
 
     /**

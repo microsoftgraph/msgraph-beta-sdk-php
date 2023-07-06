@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new credentialUserRegistrationsSummary and sets the default values.
+     * Instantiates a new CredentialUserRegistrationsSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -28,7 +28,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,6 +43,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
             'ssprRegisteredUserCount' => fn(ParseNode $n) => $o->setSsprRegisteredUserCount($n->getIntegerValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'tenantLicenseType' => fn(ParseNode $n) => $o->setTenantLicenseType($n->getStringValue()),
             'totalUserCount' => fn(ParseNode $n) => $o->setTotalUserCount($n->getIntegerValue()),
         ]);
     }
@@ -52,7 +53,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -60,7 +65,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaAndSsprCapableUserCount(): ?int {
-        return $this->getBackingStore()->get('mfaAndSsprCapableUserCount');
+        $val = $this->getBackingStore()->get('mfaAndSsprCapableUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaAndSsprCapableUserCount'");
     }
 
     /**
@@ -68,7 +77,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getMfaConditionalAccessPolicyState(): ?string {
-        return $this->getBackingStore()->get('mfaConditionalAccessPolicyState');
+        $val = $this->getBackingStore()->get('mfaConditionalAccessPolicyState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaConditionalAccessPolicyState'");
     }
 
     /**
@@ -76,7 +89,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaExcludedUserCount(): ?int {
-        return $this->getBackingStore()->get('mfaExcludedUserCount');
+        $val = $this->getBackingStore()->get('mfaExcludedUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaExcludedUserCount'");
     }
 
     /**
@@ -84,7 +101,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaRegisteredUserCount(): ?int {
-        return $this->getBackingStore()->get('mfaRegisteredUserCount');
+        $val = $this->getBackingStore()->get('mfaRegisteredUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaRegisteredUserCount'");
     }
 
     /**
@@ -92,7 +113,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return bool|null
     */
     public function getSecurityDefaultsEnabled(): ?bool {
-        return $this->getBackingStore()->get('securityDefaultsEnabled');
+        $val = $this->getBackingStore()->get('securityDefaultsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityDefaultsEnabled'");
     }
 
     /**
@@ -100,7 +125,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSsprEnabledUserCount(): ?int {
-        return $this->getBackingStore()->get('ssprEnabledUserCount');
+        $val = $this->getBackingStore()->get('ssprEnabledUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssprEnabledUserCount'");
     }
 
     /**
@@ -108,7 +137,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSsprRegisteredUserCount(): ?int {
-        return $this->getBackingStore()->get('ssprRegisteredUserCount');
+        $val = $this->getBackingStore()->get('ssprRegisteredUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssprRegisteredUserCount'");
     }
 
     /**
@@ -116,7 +149,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -124,7 +161,23 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
+    }
+
+    /**
+     * Gets the tenantLicenseType property value. The tenantLicenseType property
+     * @return string|null
+    */
+    public function getTenantLicenseType(): ?string {
+        $val = $this->getBackingStore()->get('tenantLicenseType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantLicenseType'");
     }
 
     /**
@@ -132,7 +185,11 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
-        return $this->getBackingStore()->get('totalUserCount');
+        $val = $this->getBackingStore()->get('totalUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalUserCount'");
     }
 
     /**
@@ -151,6 +208,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
         $writer->writeIntegerValue('ssprRegisteredUserCount', $this->getSsprRegisteredUserCount());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('tenantLicenseType', $this->getTenantLicenseType());
         $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
     }
 
@@ -232,6 +290,14 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the tenantLicenseType property value. The tenantLicenseType property
+     * @param string|null $value Value to set for the tenantLicenseType property.
+    */
+    public function setTenantLicenseType(?string $value): void {
+        $this->getBackingStore()->set('tenantLicenseType', $value);
     }
 
     /**

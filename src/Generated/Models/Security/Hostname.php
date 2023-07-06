@@ -27,7 +27,7 @@ class Hostname extends Host implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class Hostname extends Host implements Parsable
      * @return string|null
     */
     public function getRegistrant(): ?string {
-        return $this->getBackingStore()->get('registrant');
+        $val = $this->getBackingStore()->get('registrant');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrant'");
     }
 
     /**
@@ -50,7 +54,11 @@ class Hostname extends Host implements Parsable
      * @return string|null
     */
     public function getRegistrar(): ?string {
-        return $this->getBackingStore()->get('registrar');
+        $val = $this->getBackingStore()->get('registrar');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrar'");
     }
 
     /**

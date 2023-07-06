@@ -29,7 +29,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @return int|null
     */
     public function getDeployedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('deployedDeviceCount');
+        $val = $this->getBackingStore()->get('deployedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployedDeviceCount'");
     }
 
     /**
@@ -37,12 +41,16 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('failedDeviceCount');
+        $val = $this->getBackingStore()->get('failedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

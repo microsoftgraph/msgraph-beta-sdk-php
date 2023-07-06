@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AttackSimulationRoot extends Entity implements Parsable 
 {
@@ -25,17 +26,63 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the endUserNotifications property value. The endUserNotifications property
+     * @return array<EndUserNotification>|null
+    */
+    public function getEndUserNotifications(): ?array {
+        $val = $this->getBackingStore()->get('endUserNotifications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EndUserNotification::class);
+            /** @var array<EndUserNotification>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endUserNotifications'");
+    }
+
+    /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'endUserNotifications' => fn(ParseNode $n) => $o->setEndUserNotifications($n->getCollectionOfObjectValues([EndUserNotification::class, 'createFromDiscriminatorValue'])),
+            'landingPages' => fn(ParseNode $n) => $o->setLandingPages($n->getCollectionOfObjectValues([LandingPage::class, 'createFromDiscriminatorValue'])),
+            'loginPages' => fn(ParseNode $n) => $o->setLoginPages($n->getCollectionOfObjectValues([LoginPage::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([AttackSimulationOperation::class, 'createFromDiscriminatorValue'])),
             'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([Payload::class, 'createFromDiscriminatorValue'])),
             'simulationAutomations' => fn(ParseNode $n) => $o->setSimulationAutomations($n->getCollectionOfObjectValues([SimulationAutomation::class, 'createFromDiscriminatorValue'])),
             'simulations' => fn(ParseNode $n) => $o->setSimulations($n->getCollectionOfObjectValues([Simulation::class, 'createFromDiscriminatorValue'])),
+            'trainings' => fn(ParseNode $n) => $o->setTrainings($n->getCollectionOfObjectValues([Training::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the landingPages property value. The landingPages property
+     * @return array<LandingPage>|null
+    */
+    public function getLandingPages(): ?array {
+        $val = $this->getBackingStore()->get('landingPages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LandingPage::class);
+            /** @var array<LandingPage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'landingPages'");
+    }
+
+    /**
+     * Gets the loginPages property value. The loginPages property
+     * @return array<LoginPage>|null
+    */
+    public function getLoginPages(): ?array {
+        $val = $this->getBackingStore()->get('loginPages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LoginPage::class);
+            /** @var array<LoginPage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginPages'");
     }
 
     /**
@@ -43,7 +90,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<AttackSimulationOperation>|null
     */
     public function getOperations(): ?array {
-        return $this->getBackingStore()->get('operations');
+        $val = $this->getBackingStore()->get('operations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AttackSimulationOperation::class);
+            /** @var array<AttackSimulationOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
     }
 
     /**
@@ -51,7 +104,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<Payload>|null
     */
     public function getPayloads(): ?array {
-        return $this->getBackingStore()->get('payloads');
+        $val = $this->getBackingStore()->get('payloads');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Payload::class);
+            /** @var array<Payload>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloads'");
     }
 
     /**
@@ -59,7 +118,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<SimulationAutomation>|null
     */
     public function getSimulationAutomations(): ?array {
-        return $this->getBackingStore()->get('simulationAutomations');
+        $val = $this->getBackingStore()->get('simulationAutomations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SimulationAutomation::class);
+            /** @var array<SimulationAutomation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simulationAutomations'");
     }
 
     /**
@@ -67,7 +132,27 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<Simulation>|null
     */
     public function getSimulations(): ?array {
-        return $this->getBackingStore()->get('simulations');
+        $val = $this->getBackingStore()->get('simulations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Simulation::class);
+            /** @var array<Simulation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simulations'");
+    }
+
+    /**
+     * Gets the trainings property value. The trainings property
+     * @return array<Training>|null
+    */
+    public function getTrainings(): ?array {
+        $val = $this->getBackingStore()->get('trainings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Training::class);
+            /** @var array<Training>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trainings'");
     }
 
     /**
@@ -76,10 +161,38 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('endUserNotifications', $this->getEndUserNotifications());
+        $writer->writeCollectionOfObjectValues('landingPages', $this->getLandingPages());
+        $writer->writeCollectionOfObjectValues('loginPages', $this->getLoginPages());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());
         $writer->writeCollectionOfObjectValues('simulations', $this->getSimulations());
+        $writer->writeCollectionOfObjectValues('trainings', $this->getTrainings());
+    }
+
+    /**
+     * Sets the endUserNotifications property value. The endUserNotifications property
+     * @param array<EndUserNotification>|null $value Value to set for the endUserNotifications property.
+    */
+    public function setEndUserNotifications(?array $value): void {
+        $this->getBackingStore()->set('endUserNotifications', $value);
+    }
+
+    /**
+     * Sets the landingPages property value. The landingPages property
+     * @param array<LandingPage>|null $value Value to set for the landingPages property.
+    */
+    public function setLandingPages(?array $value): void {
+        $this->getBackingStore()->set('landingPages', $value);
+    }
+
+    /**
+     * Sets the loginPages property value. The loginPages property
+     * @param array<LoginPage>|null $value Value to set for the loginPages property.
+    */
+    public function setLoginPages(?array $value): void {
+        $this->getBackingStore()->set('loginPages', $value);
     }
 
     /**
@@ -112,6 +225,14 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function setSimulations(?array $value): void {
         $this->getBackingStore()->set('simulations', $value);
+    }
+
+    /**
+     * Sets the trainings property value. The trainings property
+     * @param array<Training>|null $value Value to set for the trainings property.
+    */
+    public function setTrainings(?array $value): void {
+        $this->getBackingStore()->set('trainings', $value);
     }
 
 }

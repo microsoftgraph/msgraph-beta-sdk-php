@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationSynchronizationProfile extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationDataProvider|null
     */
     public function getDataProvider(): ?EducationSynchronizationDataProvider {
-        return $this->getBackingStore()->get('dataProvider');
+        $val = $this->getBackingStore()->get('dataProvider');
+        if (is_null($val) || $val instanceof EducationSynchronizationDataProvider) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataProvider'");
     }
 
     /**
@@ -38,7 +43,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -46,7 +55,13 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return array<EducationSynchronizationError>|null
     */
     public function getErrors(): ?array {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EducationSynchronizationError::class);
+            /** @var array<EducationSynchronizationError>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
@@ -54,12 +69,16 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
-        return $this->getBackingStore()->get('expirationDate');
+        $val = $this->getBackingStore()->get('expirationDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +100,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getHandleSpecialCharacterConstraint(): ?bool {
-        return $this->getBackingStore()->get('handleSpecialCharacterConstraint');
+        $val = $this->getBackingStore()->get('handleSpecialCharacterConstraint');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'handleSpecialCharacterConstraint'");
     }
 
     /**
@@ -89,7 +112,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationIdentitySynchronizationConfiguration|null
     */
     public function getIdentitySynchronizationConfiguration(): ?EducationIdentitySynchronizationConfiguration {
-        return $this->getBackingStore()->get('identitySynchronizationConfiguration');
+        $val = $this->getBackingStore()->get('identitySynchronizationConfiguration');
+        if (is_null($val) || $val instanceof EducationIdentitySynchronizationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identitySynchronizationConfiguration'");
     }
 
     /**
@@ -97,7 +124,13 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return array<EducationSynchronizationLicenseAssignment>|null
     */
     public function getLicensesToAssign(): ?array {
-        return $this->getBackingStore()->get('licensesToAssign');
+        $val = $this->getBackingStore()->get('licensesToAssign');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EducationSynchronizationLicenseAssignment::class);
+            /** @var array<EducationSynchronizationLicenseAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licensesToAssign'");
     }
 
     /**
@@ -105,7 +138,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationProfileStatus|null
     */
     public function getProfileStatus(): ?EducationSynchronizationProfileStatus {
-        return $this->getBackingStore()->get('profileStatus');
+        $val = $this->getBackingStore()->get('profileStatus');
+        if (is_null($val) || $val instanceof EducationSynchronizationProfileStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileStatus'");
     }
 
     /**
@@ -113,7 +150,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationProfileState|null
     */
     public function getState(): ?EducationSynchronizationProfileState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof EducationSynchronizationProfileState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health os performance entity contains battery related information for all operating system versions in their organization.
+*/
 class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthOsPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthOsPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->getBackingStore()->get('activeDevices');
+        $val = $this->getBackingStore()->get('activeDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDevices'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return int|null
     */
     public function getAverageBatteryAgeInDays(): ?int {
-        return $this->getBackingStore()->get('averageBatteryAgeInDays');
+        $val = $this->getBackingStore()->get('averageBatteryAgeInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageBatteryAgeInDays'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return int|null
     */
     public function getAverageEstimatedRuntimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('averageEstimatedRuntimeInMinutes');
+        $val = $this->getBackingStore()->get('averageEstimatedRuntimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageEstimatedRuntimeInMinutes'");
     }
 
     /**
@@ -53,12 +68,16 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return int|null
     */
     public function getAverageMaxCapacityPercentage(): ?int {
-        return $this->getBackingStore()->get('averageMaxCapacityPercentage');
+        $val = $this->getBackingStore()->get('averageMaxCapacityPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageMaxCapacityPercentage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +96,11 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->getBackingStore()->get('osBuildNumber');
+        $val = $this->getBackingStore()->get('osBuildNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osBuildNumber'");
     }
 
     /**
@@ -85,7 +108,11 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**

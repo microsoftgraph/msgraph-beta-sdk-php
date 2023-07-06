@@ -27,7 +27,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
      * @return AssignmentFilterPayloadType|null
     */
     public function getPayloadType(): ?AssignmentFilterPayloadType {
-        return $this->getBackingStore()->get('payloadType');
+        $val = $this->getBackingStore()->get('payloadType');
+        if (is_null($val) || $val instanceof AssignmentFilterPayloadType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadType'");
     }
 
     /**

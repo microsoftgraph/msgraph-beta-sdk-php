@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UnifiedRoleAssignmentMultiple extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAppScopeIds(): ?array {
-        return $this->getBackingStore()->get('appScopeIds');
+        $val = $this->getBackingStore()->get('appScopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appScopeIds'");
     }
 
     /**
@@ -37,7 +44,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<AppScope>|null
     */
     public function getAppScopes(): ?array {
-        return $this->getBackingStore()->get('appScopes');
+        $val = $this->getBackingStore()->get('appScopes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppScope::class);
+            /** @var array<AppScope>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appScopes'");
     }
 
     /**
@@ -45,7 +58,11 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getCondition(): ?string {
-        return $this->getBackingStore()->get('condition');
+        $val = $this->getBackingStore()->get('condition');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'condition'");
     }
 
     /**
@@ -53,7 +70,11 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -61,7 +82,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDirectoryScopeIds(): ?array {
-        return $this->getBackingStore()->get('directoryScopeIds');
+        $val = $this->getBackingStore()->get('directoryScopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directoryScopeIds'");
     }
 
     /**
@@ -69,7 +96,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getDirectoryScopes(): ?array {
-        return $this->getBackingStore()->get('directoryScopes');
+        $val = $this->getBackingStore()->get('directoryScopes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directoryScopes'");
     }
 
     /**
@@ -77,24 +110,49 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appScopeIds' => fn(ParseNode $n) => $o->setAppScopeIds($n->getCollectionOfPrimitiveValues()),
+            'appScopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAppScopeIds($val);
+            },
             'appScopes' => fn(ParseNode $n) => $o->setAppScopes($n->getCollectionOfObjectValues([AppScope::class, 'createFromDiscriminatorValue'])),
             'condition' => fn(ParseNode $n) => $o->setCondition($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'directoryScopeIds' => fn(ParseNode $n) => $o->setDirectoryScopeIds($n->getCollectionOfPrimitiveValues()),
+            'directoryScopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDirectoryScopeIds($val);
+            },
             'directoryScopes' => fn(ParseNode $n) => $o->setDirectoryScopes($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'principalIds' => fn(ParseNode $n) => $o->setPrincipalIds($n->getCollectionOfPrimitiveValues()),
+            'principalIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPrincipalIds($val);
+            },
             'principals' => fn(ParseNode $n) => $o->setPrincipals($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
@@ -106,7 +164,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getPrincipalIds(): ?array {
-        return $this->getBackingStore()->get('principalIds');
+        $val = $this->getBackingStore()->get('principalIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principalIds'");
     }
 
     /**
@@ -114,7 +178,13 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getPrincipals(): ?array {
-        return $this->getBackingStore()->get('principals');
+        $val = $this->getBackingStore()->get('principals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principals'");
     }
 
     /**
@@ -122,7 +192,11 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return UnifiedRoleDefinition|null
     */
     public function getRoleDefinition(): ?UnifiedRoleDefinition {
-        return $this->getBackingStore()->get('roleDefinition');
+        $val = $this->getBackingStore()->get('roleDefinition');
+        if (is_null($val) || $val instanceof UnifiedRoleDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinition'");
     }
 
     /**
@@ -130,7 +204,11 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->getBackingStore()->get('roleDefinitionId');
+        $val = $this->getBackingStore()->get('roleDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitionId'");
     }
 
     /**

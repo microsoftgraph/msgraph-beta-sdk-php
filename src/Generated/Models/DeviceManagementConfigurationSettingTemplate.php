@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Setting Template
@@ -29,7 +30,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +45,13 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->getBackingStore()->get('settingDefinitions');
+        $val = $this->getBackingStore()->get('settingDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDefinition::class);
+            /** @var array<DeviceManagementConfigurationSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDefinitions'");
     }
 
     /**
@@ -52,7 +59,11 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
      * @return DeviceManagementConfigurationSettingInstanceTemplate|null
     */
     public function getSettingInstanceTemplate(): ?DeviceManagementConfigurationSettingInstanceTemplate {
-        return $this->getBackingStore()->get('settingInstanceTemplate');
+        $val = $this->getBackingStore()->get('settingInstanceTemplate');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingInstanceTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingInstanceTemplate'");
     }
 
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
+use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Descriptors\DescriptorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\DispositionReviewStagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\RetentionEventType\RetentionEventTypeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class RetentionLabelItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the descriptors property of the microsoft.graph.security.retentionLabel entity.
+    */
+    public function descriptors(): DescriptorsRequestBuilder {
+        return new DescriptorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
     */
@@ -67,7 +75,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabels from security
+     * Represents how customers can manage their data, whether and for how long to retain or delete it.
      * @param RetentionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -122,7 +130,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabels from security
+     * Represents how customers can manage their data, whether and for how long to retain or delete it.
      * @param RetentionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

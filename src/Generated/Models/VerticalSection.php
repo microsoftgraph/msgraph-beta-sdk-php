@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VerticalSection extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class VerticalSection extends Entity implements Parsable
      * @return SectionEmphasisType|null
     */
     public function getEmphasis(): ?SectionEmphasisType {
-        return $this->getBackingStore()->get('emphasis');
+        $val = $this->getBackingStore()->get('emphasis');
+        if (is_null($val) || $val instanceof SectionEmphasisType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emphasis'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +54,13 @@ class VerticalSection extends Entity implements Parsable
      * @return array<WebPart>|null
     */
     public function getWebparts(): ?array {
-        return $this->getBackingStore()->get('webparts');
+        $val = $this->getBackingStore()->get('webparts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WebPart::class);
+            /** @var array<WebPart>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webparts'");
     }
 
     /**

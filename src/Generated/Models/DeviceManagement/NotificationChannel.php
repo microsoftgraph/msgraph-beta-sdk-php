@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +58,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +66,14 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
             'notificationChannelType' => fn(ParseNode $n) => $o->setNotificationChannelType($n->getEnumValue(NotificationChannelType::class)),
             'notificationReceivers' => fn(ParseNode $n) => $o->setNotificationReceivers($n->getCollectionOfObjectValues([NotificationReceiver::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'receivers' => fn(ParseNode $n) => $o->setReceivers($n->getCollectionOfPrimitiveValues()),
+            'receivers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setReceivers($val);
+            },
         ];
     }
 
@@ -69,7 +82,11 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
      * @return NotificationChannelType|null
     */
     public function getNotificationChannelType(): ?NotificationChannelType {
-        return $this->getBackingStore()->get('notificationChannelType');
+        $val = $this->getBackingStore()->get('notificationChannelType');
+        if (is_null($val) || $val instanceof NotificationChannelType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationChannelType'");
     }
 
     /**
@@ -77,7 +94,13 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<NotificationReceiver>|null
     */
     public function getNotificationReceivers(): ?array {
-        return $this->getBackingStore()->get('notificationReceivers');
+        $val = $this->getBackingStore()->get('notificationReceivers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NotificationReceiver::class);
+            /** @var array<NotificationReceiver>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationReceivers'");
     }
 
     /**
@@ -85,7 +108,11 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +120,13 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getReceivers(): ?array {
-        return $this->getBackingStore()->get('receivers');
+        $val = $this->getBackingStore()->get('receivers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivers'");
     }
 
     /**

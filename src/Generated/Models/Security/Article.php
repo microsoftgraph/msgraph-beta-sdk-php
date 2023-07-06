@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Article extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class Article extends Entity implements Parsable
      * @return FormattedContent|null
     */
     public function getBody(): ?FormattedContent {
-        return $this->getBackingStore()->get('body');
+        $val = $this->getBackingStore()->get('body');
+        if (is_null($val) || $val instanceof FormattedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'body'");
     }
 
     /**
@@ -39,12 +44,16 @@ class Article extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -56,7 +65,14 @@ class Article extends Entity implements Parsable
             'isFeatured' => fn(ParseNode $n) => $o->setIsFeatured($n->getBooleanValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
     }
@@ -66,7 +82,11 @@ class Article extends Entity implements Parsable
      * @return string|null
     */
     public function getImageUrl(): ?string {
-        return $this->getBackingStore()->get('imageUrl');
+        $val = $this->getBackingStore()->get('imageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageUrl'");
     }
 
     /**
@@ -74,7 +94,13 @@ class Article extends Entity implements Parsable
      * @return array<ArticleIndicator>|null
     */
     public function getIndicators(): ?array {
-        return $this->getBackingStore()->get('indicators');
+        $val = $this->getBackingStore()->get('indicators');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ArticleIndicator::class);
+            /** @var array<ArticleIndicator>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'indicators'");
     }
 
     /**
@@ -82,7 +108,11 @@ class Article extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsFeatured(): ?bool {
-        return $this->getBackingStore()->get('isFeatured');
+        $val = $this->getBackingStore()->get('isFeatured');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isFeatured'");
     }
 
     /**
@@ -90,7 +120,11 @@ class Article extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -98,7 +132,11 @@ class Article extends Entity implements Parsable
      * @return FormattedContent|null
     */
     public function getSummary(): ?FormattedContent {
-        return $this->getBackingStore()->get('summary');
+        $val = $this->getBackingStore()->get('summary');
+        if (is_null($val) || $val instanceof FormattedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'summary'");
     }
 
     /**
@@ -106,7 +144,13 @@ class Article extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -114,7 +158,11 @@ class Article extends Entity implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**

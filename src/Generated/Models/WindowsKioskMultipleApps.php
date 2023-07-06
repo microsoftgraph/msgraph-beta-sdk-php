@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
@@ -31,7 +32,11 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getAllowAccessToDownloadsFolder(): ?bool {
-        return $this->getBackingStore()->get('allowAccessToDownloadsFolder');
+        $val = $this->getBackingStore()->get('allowAccessToDownloadsFolder');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowAccessToDownloadsFolder'");
     }
 
     /**
@@ -39,7 +44,13 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return array<WindowsKioskAppBase>|null
     */
     public function getApps(): ?array {
-        return $this->getBackingStore()->get('apps');
+        $val = $this->getBackingStore()->get('apps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsKioskAppBase::class);
+            /** @var array<WindowsKioskAppBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apps'");
     }
 
     /**
@@ -47,12 +58,16 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getDisallowDesktopApps(): ?bool {
-        return $this->getBackingStore()->get('disallowDesktopApps');
+        $val = $this->getBackingStore()->get('disallowDesktopApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disallowDesktopApps'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +85,11 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getShowTaskBar(): ?bool {
-        return $this->getBackingStore()->get('showTaskBar');
+        $val = $this->getBackingStore()->get('showTaskBar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showTaskBar'");
     }
 
     /**
@@ -78,7 +97,11 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return StreamInterface|null
     */
     public function getStartMenuLayoutXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('startMenuLayoutXml');
+        $val = $this->getBackingStore()->get('startMenuLayoutXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuLayoutXml'");
     }
 
     /**

@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores.
-*/
 class UserExperienceAnalyticsBaseline extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsBaseline and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBaseline and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,56 +26,80 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the appHealthMetrics property value. The user experience analytics app health metrics.
+     * Gets the appHealthMetrics property value. The scores and insights for the application health metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getAppHealthMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('appHealthMetrics');
+        $val = $this->getBackingStore()->get('appHealthMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appHealthMetrics'");
     }
 
     /**
-     * Gets the batteryHealthMetrics property value. The user experience analytics battery health metrics.
+     * Gets the batteryHealthMetrics property value. The scores and insights for the battery health metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getBatteryHealthMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('batteryHealthMetrics');
+        $val = $this->getBackingStore()->get('batteryHealthMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryHealthMetrics'");
     }
 
     /**
-     * Gets the bestPracticesMetrics property value. The user experience analytics best practices metrics.
+     * Gets the bestPracticesMetrics property value. The scores and insights for the best practices metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getBestPracticesMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('bestPracticesMetrics');
+        $val = $this->getBackingStore()->get('bestPracticesMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bestPracticesMetrics'");
     }
 
     /**
-     * Gets the createdDateTime property value. The date the custom baseline was created.
+     * Gets the createdDateTime property value. The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
-     * Gets the deviceBootPerformanceMetrics property value. The user experience analytics device boot performance metrics.
+     * Gets the deviceBootPerformanceMetrics property value. The scores and insights for the device boot performance metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getDeviceBootPerformanceMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('deviceBootPerformanceMetrics');
+        $val = $this->getBackingStore()->get('deviceBootPerformanceMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceBootPerformanceMetrics'");
     }
 
     /**
-     * Gets the displayName property value. The name of the user experience analytics baseline.
+     * Gets the displayName property value. The name of the baseline.
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,35 +118,51 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the isBuiltIn property value. Signifies if the current baseline is the commercial median baseline or a custom baseline.
+     * Gets the isBuiltIn property value. When TRUE, indicates the current baseline is the commercial median baseline. When FALSE, indicates it is a custom baseline. FALSE by default.
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->getBackingStore()->get('isBuiltIn');
+        $val = $this->getBackingStore()->get('isBuiltIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
     }
 
     /**
-     * Gets the rebootAnalyticsMetrics property value. The user experience analytics reboot analytics metrics.
+     * Gets the rebootAnalyticsMetrics property value. The scores and insights for the reboot analytics metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getRebootAnalyticsMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('rebootAnalyticsMetrics');
+        $val = $this->getBackingStore()->get('rebootAnalyticsMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rebootAnalyticsMetrics'");
     }
 
     /**
-     * Gets the resourcePerformanceMetrics property value. The user experience analytics resource performance metrics.
+     * Gets the resourcePerformanceMetrics property value. The scores and insights for the resource performance metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getResourcePerformanceMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('resourcePerformanceMetrics');
+        $val = $this->getBackingStore()->get('resourcePerformanceMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourcePerformanceMetrics'");
     }
 
     /**
-     * Gets the workFromAnywhereMetrics property value. The user experience analytics work from anywhere metrics.
+     * Gets the workFromAnywhereMetrics property value. The scores and insights for the work from anywhere metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getWorkFromAnywhereMetrics(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('workFromAnywhereMetrics');
+        $val = $this->getBackingStore()->get('workFromAnywhereMetrics');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workFromAnywhereMetrics'");
     }
 
     /**
@@ -147,7 +184,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the appHealthMetrics property value. The user experience analytics app health metrics.
+     * Sets the appHealthMetrics property value. The scores and insights for the application health metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the appHealthMetrics property.
     */
     public function setAppHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -155,7 +192,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the batteryHealthMetrics property value. The user experience analytics battery health metrics.
+     * Sets the batteryHealthMetrics property value. The scores and insights for the battery health metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the batteryHealthMetrics property.
     */
     public function setBatteryHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -163,7 +200,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the bestPracticesMetrics property value. The user experience analytics best practices metrics.
+     * Sets the bestPracticesMetrics property value. The scores and insights for the best practices metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the bestPracticesMetrics property.
     */
     public function setBestPracticesMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -171,7 +208,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date the custom baseline was created.
+     * Sets the createdDateTime property value. The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -179,7 +216,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceBootPerformanceMetrics property value. The user experience analytics device boot performance metrics.
+     * Sets the deviceBootPerformanceMetrics property value. The scores and insights for the device boot performance metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the deviceBootPerformanceMetrics property.
     */
     public function setDeviceBootPerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -187,7 +224,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the user experience analytics baseline.
+     * Sets the displayName property value. The name of the baseline.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -195,7 +232,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the isBuiltIn property value. Signifies if the current baseline is the commercial median baseline or a custom baseline.
+     * Sets the isBuiltIn property value. When TRUE, indicates the current baseline is the commercial median baseline. When FALSE, indicates it is a custom baseline. FALSE by default.
      * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
@@ -203,7 +240,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the rebootAnalyticsMetrics property value. The user experience analytics reboot analytics metrics.
+     * Sets the rebootAnalyticsMetrics property value. The scores and insights for the reboot analytics metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the rebootAnalyticsMetrics property.
     */
     public function setRebootAnalyticsMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -211,7 +248,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourcePerformanceMetrics property value. The user experience analytics resource performance metrics.
+     * Sets the resourcePerformanceMetrics property value. The scores and insights for the resource performance metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the resourcePerformanceMetrics property.
     */
     public function setResourcePerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -219,7 +256,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the workFromAnywhereMetrics property value. The user experience analytics work from anywhere metrics.
+     * Sets the workFromAnywhereMetrics property value. The scores and insights for the work from anywhere metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the workFromAnywhereMetrics property.
     */
     public function setWorkFromAnywhereMetrics(?UserExperienceAnalyticsCategory $value): void {

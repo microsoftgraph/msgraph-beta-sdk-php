@@ -56,7 +56,11 @@ class ItemFacet extends Entity implements Parsable
      * @return AllowedAudiences|null
     */
     public function getAllowedAudiences(): ?AllowedAudiences {
-        return $this->getBackingStore()->get('allowedAudiences');
+        $val = $this->getBackingStore()->get('allowedAudiences');
+        if (is_null($val) || $val instanceof AllowedAudiences) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAudiences'");
     }
 
     /**
@@ -64,7 +68,11 @@ class ItemFacet extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -72,12 +80,16 @@ class ItemFacet extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +110,11 @@ class ItemFacet extends Entity implements Parsable
      * @return InferenceData|null
     */
     public function getInference(): ?InferenceData {
-        return $this->getBackingStore()->get('inference');
+        $val = $this->getBackingStore()->get('inference');
+        if (is_null($val) || $val instanceof InferenceData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inference'");
     }
 
     /**
@@ -106,7 +122,11 @@ class ItemFacet extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSearchable(): ?bool {
-        return $this->getBackingStore()->get('isSearchable');
+        $val = $this->getBackingStore()->get('isSearchable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSearchable'");
     }
 
     /**
@@ -114,7 +134,11 @@ class ItemFacet extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -122,7 +146,11 @@ class ItemFacet extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -130,7 +158,11 @@ class ItemFacet extends Entity implements Parsable
      * @return PersonDataSources|null
     */
     public function getSource(): ?PersonDataSources {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || $val instanceof PersonDataSources) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**

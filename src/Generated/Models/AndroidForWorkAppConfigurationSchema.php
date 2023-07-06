@@ -5,12 +5,16 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Schema describing an Android for Work application's custom configurations.
+*/
 class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkAppConfigurationSchema and sets the default values.
+     * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,12 +34,16 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getExampleJson(): ?StreamInterface {
-        return $this->getBackingStore()->get('exampleJson');
+        $val = $this->getBackingStore()->get('exampleJson');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exampleJson'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +58,13 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
      * @return array<AndroidForWorkAppConfigurationSchemaItem>|null
     */
     public function getSchemaItems(): ?array {
-        return $this->getBackingStore()->get('schemaItems');
+        $val = $this->getBackingStore()->get('schemaItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidForWorkAppConfigurationSchemaItem::class);
+            /** @var array<AndroidForWorkAppConfigurationSchemaItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schemaItems'");
     }
 
     /**

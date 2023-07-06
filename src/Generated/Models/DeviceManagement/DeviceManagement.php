@@ -171,6 +171,7 @@ use Microsoft\Graph\Beta\Generated\Models\ZebraFotaDeployment;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagement extends Entity implements Parsable 
 {
@@ -195,7 +196,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAccountMoveCompletionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('accountMoveCompletionDateTime');
+        $val = $this->getBackingStore()->get('accountMoveCompletionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountMoveCompletionDateTime'");
     }
 
     /**
@@ -203,7 +208,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return AdminConsent|null
     */
     public function getAdminConsent(): ?AdminConsent {
-        return $this->getBackingStore()->get('adminConsent');
+        $val = $this->getBackingStore()->get('adminConsent');
+        if (is_null($val) || $val instanceof AdminConsent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminConsent'");
     }
 
     /**
@@ -211,7 +220,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return AdvancedThreatProtectionOnboardingStateSummary|null
     */
     public function getAdvancedThreatProtectionOnboardingStateSummary(): ?AdvancedThreatProtectionOnboardingStateSummary {
-        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingStateSummary');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOnboardingStateSummary');
+        if (is_null($val) || $val instanceof AdvancedThreatProtectionOnboardingStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOnboardingStateSummary'");
     }
 
     /**
@@ -219,7 +232,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidDeviceOwnerEnrollmentProfile>|null
     */
     public function getAndroidDeviceOwnerEnrollmentProfiles(): ?array {
-        return $this->getBackingStore()->get('androidDeviceOwnerEnrollmentProfiles');
+        $val = $this->getBackingStore()->get('androidDeviceOwnerEnrollmentProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerEnrollmentProfile::class);
+            /** @var array<AndroidDeviceOwnerEnrollmentProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidDeviceOwnerEnrollmentProfiles'");
     }
 
     /**
@@ -227,7 +246,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidForWorkAppConfigurationSchema>|null
     */
     public function getAndroidForWorkAppConfigurationSchemas(): ?array {
-        return $this->getBackingStore()->get('androidForWorkAppConfigurationSchemas');
+        $val = $this->getBackingStore()->get('androidForWorkAppConfigurationSchemas');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidForWorkAppConfigurationSchema::class);
+            /** @var array<AndroidForWorkAppConfigurationSchema>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidForWorkAppConfigurationSchemas'");
     }
 
     /**
@@ -235,7 +260,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidForWorkEnrollmentProfile>|null
     */
     public function getAndroidForWorkEnrollmentProfiles(): ?array {
-        return $this->getBackingStore()->get('androidForWorkEnrollmentProfiles');
+        $val = $this->getBackingStore()->get('androidForWorkEnrollmentProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidForWorkEnrollmentProfile::class);
+            /** @var array<AndroidForWorkEnrollmentProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidForWorkEnrollmentProfiles'");
     }
 
     /**
@@ -243,7 +274,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return AndroidForWorkSettings|null
     */
     public function getAndroidForWorkSettings(): ?AndroidForWorkSettings {
-        return $this->getBackingStore()->get('androidForWorkSettings');
+        $val = $this->getBackingStore()->get('androidForWorkSettings');
+        if (is_null($val) || $val instanceof AndroidForWorkSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidForWorkSettings'");
     }
 
     /**
@@ -251,7 +286,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return AndroidManagedStoreAccountEnterpriseSettings|null
     */
     public function getAndroidManagedStoreAccountEnterpriseSettings(): ?AndroidManagedStoreAccountEnterpriseSettings {
-        return $this->getBackingStore()->get('androidManagedStoreAccountEnterpriseSettings');
+        $val = $this->getBackingStore()->get('androidManagedStoreAccountEnterpriseSettings');
+        if (is_null($val) || $val instanceof AndroidManagedStoreAccountEnterpriseSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidManagedStoreAccountEnterpriseSettings'");
     }
 
     /**
@@ -259,7 +298,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidManagedStoreAppConfigurationSchema>|null
     */
     public function getAndroidManagedStoreAppConfigurationSchemas(): ?array {
-        return $this->getBackingStore()->get('androidManagedStoreAppConfigurationSchemas');
+        $val = $this->getBackingStore()->get('androidManagedStoreAppConfigurationSchemas');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidManagedStoreAppConfigurationSchema::class);
+            /** @var array<AndroidManagedStoreAppConfigurationSchema>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidManagedStoreAppConfigurationSchemas'");
     }
 
     /**
@@ -267,7 +312,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return ApplePushNotificationCertificate|null
     */
     public function getApplePushNotificationCertificate(): ?ApplePushNotificationCertificate {
-        return $this->getBackingStore()->get('applePushNotificationCertificate');
+        $val = $this->getBackingStore()->get('applePushNotificationCertificate');
+        if (is_null($val) || $val instanceof ApplePushNotificationCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applePushNotificationCertificate'");
     }
 
     /**
@@ -275,7 +324,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AppleUserInitiatedEnrollmentProfile>|null
     */
     public function getAppleUserInitiatedEnrollmentProfiles(): ?array {
-        return $this->getBackingStore()->get('appleUserInitiatedEnrollmentProfiles');
+        $val = $this->getBackingStore()->get('appleUserInitiatedEnrollmentProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppleUserInitiatedEnrollmentProfile::class);
+            /** @var array<AppleUserInitiatedEnrollmentProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleUserInitiatedEnrollmentProfiles'");
     }
 
     /**
@@ -283,7 +338,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceAndAppManagementAssignmentFilter>|null
     */
     public function getAssignmentFilters(): ?array {
-        return $this->getBackingStore()->get('assignmentFilters');
+        $val = $this->getBackingStore()->get('assignmentFilters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceAndAppManagementAssignmentFilter::class);
+            /** @var array<DeviceAndAppManagementAssignmentFilter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilters'");
     }
 
     /**
@@ -291,7 +352,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AuditEvent>|null
     */
     public function getAuditEvents(): ?array {
-        return $this->getBackingStore()->get('auditEvents');
+        $val = $this->getBackingStore()->get('auditEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuditEvent::class);
+            /** @var array<AuditEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'auditEvents'");
     }
 
     /**
@@ -299,7 +366,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementAutopilotEvent>|null
     */
     public function getAutopilotEvents(): ?array {
-        return $this->getBackingStore()->get('autopilotEvents');
+        $val = $this->getBackingStore()->get('autopilotEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementAutopilotEvent::class);
+            /** @var array<DeviceManagementAutopilotEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autopilotEvents'");
     }
 
     /**
@@ -307,7 +380,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CartToClassAssociation>|null
     */
     public function getCartToClassAssociations(): ?array {
-        return $this->getBackingStore()->get('cartToClassAssociations');
+        $val = $this->getBackingStore()->get('cartToClassAssociations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CartToClassAssociation::class);
+            /** @var array<CartToClassAssociation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cartToClassAssociations'");
     }
 
     /**
@@ -315,7 +394,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementSettingCategory>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingCategory::class);
+            /** @var array<DeviceManagementSettingCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -323,7 +408,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CertificateConnectorDetails>|null
     */
     public function getCertificateConnectorDetails(): ?array {
-        return $this->getBackingStore()->get('certificateConnectorDetails');
+        $val = $this->getBackingStore()->get('certificateConnectorDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CertificateConnectorDetails::class);
+            /** @var array<CertificateConnectorDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateConnectorDetails'");
     }
 
     /**
@@ -331,7 +422,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ChromeOSOnboardingSettings>|null
     */
     public function getChromeOSOnboardingSettings(): ?array {
-        return $this->getBackingStore()->get('chromeOSOnboardingSettings');
+        $val = $this->getBackingStore()->get('chromeOSOnboardingSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ChromeOSOnboardingSettings::class);
+            /** @var array<ChromeOSOnboardingSettings>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'chromeOSOnboardingSettings'");
     }
 
     /**
@@ -339,7 +436,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CloudPCConnectivityIssue>|null
     */
     public function getCloudPCConnectivityIssues(): ?array {
-        return $this->getBackingStore()->get('cloudPCConnectivityIssues');
+        $val = $this->getBackingStore()->get('cloudPCConnectivityIssues');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPCConnectivityIssue::class);
+            /** @var array<CloudPCConnectivityIssue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPCConnectivityIssues'");
     }
 
     /**
@@ -347,7 +450,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDevice>|null
     */
     public function getComanagedDevices(): ?array {
-        return $this->getBackingStore()->get('comanagedDevices');
+        $val = $this->getBackingStore()->get('comanagedDevices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDevice::class);
+            /** @var array<ManagedDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'comanagedDevices'");
     }
 
     /**
@@ -355,7 +464,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ComanagementEligibleDevice>|null
     */
     public function getComanagementEligibleDevices(): ?array {
-        return $this->getBackingStore()->get('comanagementEligibleDevices');
+        $val = $this->getBackingStore()->get('comanagementEligibleDevices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ComanagementEligibleDevice::class);
+            /** @var array<ComanagementEligibleDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'comanagementEligibleDevices'");
     }
 
     /**
@@ -363,7 +478,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationCategory>|null
     */
     public function getComplianceCategories(): ?array {
-        return $this->getBackingStore()->get('complianceCategories');
+        $val = $this->getBackingStore()->get('complianceCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationCategory::class);
+            /** @var array<DeviceManagementConfigurationCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceCategories'");
     }
 
     /**
@@ -371,7 +492,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ComplianceManagementPartner>|null
     */
     public function getComplianceManagementPartners(): ?array {
-        return $this->getBackingStore()->get('complianceManagementPartners');
+        $val = $this->getBackingStore()->get('complianceManagementPartners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ComplianceManagementPartner::class);
+            /** @var array<ComplianceManagementPartner>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceManagementPartners'");
     }
 
     /**
@@ -379,7 +506,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementCompliancePolicy>|null
     */
     public function getCompliancePolicies(): ?array {
-        return $this->getBackingStore()->get('compliancePolicies');
+        $val = $this->getBackingStore()->get('compliancePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementCompliancePolicy::class);
+            /** @var array<DeviceManagementCompliancePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicies'");
     }
 
     /**
@@ -387,7 +520,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getComplianceSettings(): ?array {
-        return $this->getBackingStore()->get('complianceSettings');
+        $val = $this->getBackingStore()->get('complianceSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDefinition::class);
+            /** @var array<DeviceManagementConfigurationSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceSettings'");
     }
 
     /**
@@ -395,7 +534,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return OnPremisesConditionalAccessSettings|null
     */
     public function getConditionalAccessSettings(): ?OnPremisesConditionalAccessSettings {
-        return $this->getBackingStore()->get('conditionalAccessSettings');
+        $val = $this->getBackingStore()->get('conditionalAccessSettings');
+        if (is_null($val) || $val instanceof OnPremisesConditionalAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessSettings'");
     }
 
     /**
@@ -403,7 +546,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ConfigManagerCollection>|null
     */
     public function getConfigManagerCollections(): ?array {
-        return $this->getBackingStore()->get('configManagerCollections');
+        $val = $this->getBackingStore()->get('configManagerCollections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConfigManagerCollection::class);
+            /** @var array<ConfigManagerCollection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configManagerCollections'");
     }
 
     /**
@@ -411,7 +560,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationCategory>|null
     */
     public function getConfigurationCategories(): ?array {
-        return $this->getBackingStore()->get('configurationCategories');
+        $val = $this->getBackingStore()->get('configurationCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationCategory::class);
+            /** @var array<DeviceManagementConfigurationCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationCategories'");
     }
 
     /**
@@ -419,7 +574,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicy>|null
     */
     public function getConfigurationPolicies(): ?array {
-        return $this->getBackingStore()->get('configurationPolicies');
+        $val = $this->getBackingStore()->get('configurationPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationPolicy::class);
+            /** @var array<DeviceManagementConfigurationPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationPolicies'");
     }
 
     /**
@@ -427,7 +588,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicyTemplate>|null
     */
     public function getConfigurationPolicyTemplates(): ?array {
-        return $this->getBackingStore()->get('configurationPolicyTemplates');
+        $val = $this->getBackingStore()->get('configurationPolicyTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationPolicyTemplate::class);
+            /** @var array<DeviceManagementConfigurationPolicyTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationPolicyTemplates'");
     }
 
     /**
@@ -435,7 +602,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getConfigurationSettings(): ?array {
-        return $this->getBackingStore()->get('configurationSettings');
+        $val = $this->getBackingStore()->get('configurationSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDefinition::class);
+            /** @var array<DeviceManagementConfigurationSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationSettings'");
     }
 
     /**
@@ -443,7 +616,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ConnectorStatusDetails>|null
     */
     public function getConnectorStatus(): ?array {
-        return $this->getBackingStore()->get('connectorStatus');
+        $val = $this->getBackingStore()->get('connectorStatus');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConnectorStatusDetails::class);
+            /** @var array<ConnectorStatusDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorStatus'");
     }
 
     /**
@@ -451,7 +630,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DataProcessorServiceForWindowsFeaturesOnboarding|null
     */
     public function getDataProcessorServiceForWindowsFeaturesOnboarding(): ?DataProcessorServiceForWindowsFeaturesOnboarding {
-        return $this->getBackingStore()->get('dataProcessorServiceForWindowsFeaturesOnboarding');
+        $val = $this->getBackingStore()->get('dataProcessorServiceForWindowsFeaturesOnboarding');
+        if (is_null($val) || $val instanceof DataProcessorServiceForWindowsFeaturesOnboarding) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataProcessorServiceForWindowsFeaturesOnboarding'");
     }
 
     /**
@@ -459,7 +642,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DataSharingConsent>|null
     */
     public function getDataSharingConsents(): ?array {
-        return $this->getBackingStore()->get('dataSharingConsents');
+        $val = $this->getBackingStore()->get('dataSharingConsents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DataSharingConsent::class);
+            /** @var array<DataSharingConsent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSharingConsents'");
     }
 
     /**
@@ -467,7 +656,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DepOnboardingSetting>|null
     */
     public function getDepOnboardingSettings(): ?array {
-        return $this->getBackingStore()->get('depOnboardingSettings');
+        $val = $this->getBackingStore()->get('depOnboardingSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DepOnboardingSetting::class);
+            /** @var array<DepOnboardingSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'depOnboardingSettings'");
     }
 
     /**
@@ -475,7 +670,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementDerivedCredentialSettings>|null
     */
     public function getDerivedCredentials(): ?array {
-        return $this->getBackingStore()->get('derivedCredentials');
+        $val = $this->getBackingStore()->get('derivedCredentials');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementDerivedCredentialSettings::class);
+            /** @var array<DeviceManagementDerivedCredentialSettings>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'derivedCredentials'");
     }
 
     /**
@@ -483,7 +684,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DetectedApp>|null
     */
     public function getDetectedApps(): ?array {
-        return $this->getBackingStore()->get('detectedApps');
+        $val = $this->getBackingStore()->get('detectedApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DetectedApp::class);
+            /** @var array<DetectedApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectedApps'");
     }
 
     /**
@@ -491,7 +698,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCategory>|null
     */
     public function getDeviceCategories(): ?array {
-        return $this->getBackingStore()->get('deviceCategories');
+        $val = $this->getBackingStore()->get('deviceCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceCategory::class);
+            /** @var array<DeviceCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCategories'");
     }
 
     /**
@@ -499,7 +712,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCompliancePolicy>|null
     */
     public function getDeviceCompliancePolicies(): ?array {
-        return $this->getBackingStore()->get('deviceCompliancePolicies');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceCompliancePolicy::class);
+            /** @var array<DeviceCompliancePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicies'");
     }
 
     /**
@@ -507,7 +726,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceCompliancePolicyDeviceStateSummary|null
     */
     public function getDeviceCompliancePolicyDeviceStateSummary(): ?DeviceCompliancePolicyDeviceStateSummary {
-        return $this->getBackingStore()->get('deviceCompliancePolicyDeviceStateSummary');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicyDeviceStateSummary');
+        if (is_null($val) || $val instanceof DeviceCompliancePolicyDeviceStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicyDeviceStateSummary'");
     }
 
     /**
@@ -515,7 +738,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCompliancePolicySettingStateSummary>|null
     */
     public function getDeviceCompliancePolicySettingStateSummaries(): ?array {
-        return $this->getBackingStore()->get('deviceCompliancePolicySettingStateSummaries');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicySettingStateSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceCompliancePolicySettingStateSummary::class);
+            /** @var array<DeviceCompliancePolicySettingStateSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicySettingStateSummaries'");
     }
 
     /**
@@ -523,7 +752,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeviceComplianceReportSummarizationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deviceComplianceReportSummarizationDateTime');
+        $val = $this->getBackingStore()->get('deviceComplianceReportSummarizationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceComplianceReportSummarizationDateTime'");
     }
 
     /**
@@ -531,7 +764,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceComplianceScript>|null
     */
     public function getDeviceComplianceScripts(): ?array {
-        return $this->getBackingStore()->get('deviceComplianceScripts');
+        $val = $this->getBackingStore()->get('deviceComplianceScripts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceComplianceScript::class);
+            /** @var array<DeviceComplianceScript>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceComplianceScripts'");
     }
 
     /**
@@ -539,7 +778,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceConfigurationConflictSummary>|null
     */
     public function getDeviceConfigurationConflictSummary(): ?array {
-        return $this->getBackingStore()->get('deviceConfigurationConflictSummary');
+        $val = $this->getBackingStore()->get('deviceConfigurationConflictSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceConfigurationConflictSummary::class);
+            /** @var array<DeviceConfigurationConflictSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationConflictSummary'");
     }
 
     /**
@@ -547,7 +792,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceConfigurationDeviceStateSummary|null
     */
     public function getDeviceConfigurationDeviceStateSummaries(): ?DeviceConfigurationDeviceStateSummary {
-        return $this->getBackingStore()->get('deviceConfigurationDeviceStateSummaries');
+        $val = $this->getBackingStore()->get('deviceConfigurationDeviceStateSummaries');
+        if (is_null($val) || $val instanceof DeviceConfigurationDeviceStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationDeviceStateSummaries'");
     }
 
     /**
@@ -555,7 +804,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RestrictedAppsViolation>|null
     */
     public function getDeviceConfigurationRestrictedAppsViolations(): ?array {
-        return $this->getBackingStore()->get('deviceConfigurationRestrictedAppsViolations');
+        $val = $this->getBackingStore()->get('deviceConfigurationRestrictedAppsViolations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RestrictedAppsViolation::class);
+            /** @var array<RestrictedAppsViolation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationRestrictedAppsViolations'");
     }
 
     /**
@@ -563,7 +818,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceConfiguration>|null
     */
     public function getDeviceConfigurations(): ?array {
-        return $this->getBackingStore()->get('deviceConfigurations');
+        $val = $this->getBackingStore()->get('deviceConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceConfiguration::class);
+            /** @var array<DeviceConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurations'");
     }
 
     /**
@@ -571,7 +832,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedAllDeviceCertificateState>|null
     */
     public function getDeviceConfigurationsAllManagedDeviceCertificateStates(): ?array {
-        return $this->getBackingStore()->get('deviceConfigurationsAllManagedDeviceCertificateStates');
+        $val = $this->getBackingStore()->get('deviceConfigurationsAllManagedDeviceCertificateStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedAllDeviceCertificateState::class);
+            /** @var array<ManagedAllDeviceCertificateState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationsAllManagedDeviceCertificateStates'");
     }
 
     /**
@@ -579,7 +846,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceConfigurationUserStateSummary|null
     */
     public function getDeviceConfigurationUserStateSummaries(): ?DeviceConfigurationUserStateSummary {
-        return $this->getBackingStore()->get('deviceConfigurationUserStateSummaries');
+        $val = $this->getBackingStore()->get('deviceConfigurationUserStateSummaries');
+        if (is_null($val) || $val instanceof DeviceConfigurationUserStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationUserStateSummaries'");
     }
 
     /**
@@ -587,7 +858,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCustomAttributeShellScript>|null
     */
     public function getDeviceCustomAttributeShellScripts(): ?array {
-        return $this->getBackingStore()->get('deviceCustomAttributeShellScripts');
+        $val = $this->getBackingStore()->get('deviceCustomAttributeShellScripts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceCustomAttributeShellScript::class);
+            /** @var array<DeviceCustomAttributeShellScript>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCustomAttributeShellScripts'");
     }
 
     /**
@@ -595,7 +872,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceEnrollmentConfiguration>|null
     */
     public function getDeviceEnrollmentConfigurations(): ?array {
-        return $this->getBackingStore()->get('deviceEnrollmentConfigurations');
+        $val = $this->getBackingStore()->get('deviceEnrollmentConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceEnrollmentConfiguration::class);
+            /** @var array<DeviceEnrollmentConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceEnrollmentConfigurations'");
     }
 
     /**
@@ -603,7 +886,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceHealthScript>|null
     */
     public function getDeviceHealthScripts(): ?array {
-        return $this->getBackingStore()->get('deviceHealthScripts');
+        $val = $this->getBackingStore()->get('deviceHealthScripts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScript::class);
+            /** @var array<DeviceHealthScript>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceHealthScripts'");
     }
 
     /**
@@ -611,7 +900,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementPartner>|null
     */
     public function getDeviceManagementPartners(): ?array {
-        return $this->getBackingStore()->get('deviceManagementPartners');
+        $val = $this->getBackingStore()->get('deviceManagementPartners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementPartner::class);
+            /** @var array<DeviceManagementPartner>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManagementPartners'");
     }
 
     /**
@@ -619,7 +914,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementScript>|null
     */
     public function getDeviceManagementScripts(): ?array {
-        return $this->getBackingStore()->get('deviceManagementScripts');
+        $val = $this->getBackingStore()->get('deviceManagementScripts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScript::class);
+            /** @var array<DeviceManagementScript>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManagementScripts'");
     }
 
     /**
@@ -627,7 +928,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceProtectionOverview|null
     */
     public function getDeviceProtectionOverview(): ?DeviceProtectionOverview {
-        return $this->getBackingStore()->get('deviceProtectionOverview');
+        $val = $this->getBackingStore()->get('deviceProtectionOverview');
+        if (is_null($val) || $val instanceof DeviceProtectionOverview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceProtectionOverview'");
     }
 
     /**
@@ -635,7 +940,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceShellScript>|null
     */
     public function getDeviceShellScripts(): ?array {
-        return $this->getBackingStore()->get('deviceShellScripts');
+        $val = $this->getBackingStore()->get('deviceShellScripts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceShellScript::class);
+            /** @var array<DeviceShellScript>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceShellScripts'");
     }
 
     /**
@@ -643,7 +954,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementDomainJoinConnector>|null
     */
     public function getDomainJoinConnectors(): ?array {
-        return $this->getBackingStore()->get('domainJoinConnectors');
+        $val = $this->getBackingStore()->get('domainJoinConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementDomainJoinConnector::class);
+            /** @var array<DeviceManagementDomainJoinConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinConnectors'");
     }
 
     /**
@@ -651,7 +968,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCodePool>|null
     */
     public function getEmbeddedSIMActivationCodePools(): ?array {
-        return $this->getBackingStore()->get('embeddedSIMActivationCodePools');
+        $val = $this->getBackingStore()->get('embeddedSIMActivationCodePools');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddedSIMActivationCodePool::class);
+            /** @var array<EmbeddedSIMActivationCodePool>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'embeddedSIMActivationCodePools'");
     }
 
     /**
@@ -659,7 +982,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementExchangeConnector>|null
     */
     public function getExchangeConnectors(): ?array {
-        return $this->getBackingStore()->get('exchangeConnectors');
+        $val = $this->getBackingStore()->get('exchangeConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementExchangeConnector::class);
+            /** @var array<DeviceManagementExchangeConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeConnectors'");
     }
 
     /**
@@ -667,7 +996,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementExchangeOnPremisesPolicy>|null
     */
     public function getExchangeOnPremisesPolicies(): ?array {
-        return $this->getBackingStore()->get('exchangeOnPremisesPolicies');
+        $val = $this->getBackingStore()->get('exchangeOnPremisesPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementExchangeOnPremisesPolicy::class);
+            /** @var array<DeviceManagementExchangeOnPremisesPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeOnPremisesPolicies'");
     }
 
     /**
@@ -675,12 +1010,16 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementExchangeOnPremisesPolicy|null
     */
     public function getExchangeOnPremisesPolicy(): ?DeviceManagementExchangeOnPremisesPolicy {
-        return $this->getBackingStore()->get('exchangeOnPremisesPolicy');
+        $val = $this->getBackingStore()->get('exchangeOnPremisesPolicy');
+        if (is_null($val) || $val instanceof DeviceManagementExchangeOnPremisesPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeOnPremisesPolicy'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -873,7 +1212,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyCategory>|null
     */
     public function getGroupPolicyCategories(): ?array {
-        return $this->getBackingStore()->get('groupPolicyCategories');
+        $val = $this->getBackingStore()->get('groupPolicyCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyCategory::class);
+            /** @var array<GroupPolicyCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyCategories'");
     }
 
     /**
@@ -881,7 +1226,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyConfiguration>|null
     */
     public function getGroupPolicyConfigurations(): ?array {
-        return $this->getBackingStore()->get('groupPolicyConfigurations');
+        $val = $this->getBackingStore()->get('groupPolicyConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyConfiguration::class);
+            /** @var array<GroupPolicyConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyConfigurations'");
     }
 
     /**
@@ -889,7 +1240,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyDefinitionFile>|null
     */
     public function getGroupPolicyDefinitionFiles(): ?array {
-        return $this->getBackingStore()->get('groupPolicyDefinitionFiles');
+        $val = $this->getBackingStore()->get('groupPolicyDefinitionFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyDefinitionFile::class);
+            /** @var array<GroupPolicyDefinitionFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyDefinitionFiles'");
     }
 
     /**
@@ -897,7 +1254,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyDefinition>|null
     */
     public function getGroupPolicyDefinitions(): ?array {
-        return $this->getBackingStore()->get('groupPolicyDefinitions');
+        $val = $this->getBackingStore()->get('groupPolicyDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyDefinition::class);
+            /** @var array<GroupPolicyDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyDefinitions'");
     }
 
     /**
@@ -905,7 +1268,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyMigrationReport>|null
     */
     public function getGroupPolicyMigrationReports(): ?array {
-        return $this->getBackingStore()->get('groupPolicyMigrationReports');
+        $val = $this->getBackingStore()->get('groupPolicyMigrationReports');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyMigrationReport::class);
+            /** @var array<GroupPolicyMigrationReport>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyMigrationReports'");
     }
 
     /**
@@ -913,7 +1282,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyObjectFile>|null
     */
     public function getGroupPolicyObjectFiles(): ?array {
-        return $this->getBackingStore()->get('groupPolicyObjectFiles');
+        $val = $this->getBackingStore()->get('groupPolicyObjectFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyObjectFile::class);
+            /** @var array<GroupPolicyObjectFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyObjectFiles'");
     }
 
     /**
@@ -921,7 +1296,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyUploadedDefinitionFile>|null
     */
     public function getGroupPolicyUploadedDefinitionFiles(): ?array {
-        return $this->getBackingStore()->get('groupPolicyUploadedDefinitionFiles');
+        $val = $this->getBackingStore()->get('groupPolicyUploadedDefinitionFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyUploadedDefinitionFile::class);
+            /** @var array<GroupPolicyUploadedDefinitionFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyUploadedDefinitionFiles'");
     }
 
     /**
@@ -929,7 +1310,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ImportedDeviceIdentity>|null
     */
     public function getImportedDeviceIdentities(): ?array {
-        return $this->getBackingStore()->get('importedDeviceIdentities');
+        $val = $this->getBackingStore()->get('importedDeviceIdentities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ImportedDeviceIdentity::class);
+            /** @var array<ImportedDeviceIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedDeviceIdentities'");
     }
 
     /**
@@ -937,7 +1324,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ImportedWindowsAutopilotDeviceIdentity>|null
     */
     public function getImportedWindowsAutopilotDeviceIdentities(): ?array {
-        return $this->getBackingStore()->get('importedWindowsAutopilotDeviceIdentities');
+        $val = $this->getBackingStore()->get('importedWindowsAutopilotDeviceIdentities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ImportedWindowsAutopilotDeviceIdentity::class);
+            /** @var array<ImportedWindowsAutopilotDeviceIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedWindowsAutopilotDeviceIdentities'");
     }
 
     /**
@@ -945,7 +1338,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementIntent>|null
     */
     public function getIntents(): ?array {
-        return $this->getBackingStore()->get('intents');
+        $val = $this->getBackingStore()->get('intents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementIntent::class);
+            /** @var array<DeviceManagementIntent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intents'");
     }
 
     /**
@@ -953,7 +1352,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return string|null
     */
     public function getIntuneAccountId(): ?string {
-        return $this->getBackingStore()->get('intuneAccountId');
+        $val = $this->getBackingStore()->get('intuneAccountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneAccountId'");
     }
 
     /**
@@ -961,7 +1364,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return IntuneBrand|null
     */
     public function getIntuneBrand(): ?IntuneBrand {
-        return $this->getBackingStore()->get('intuneBrand');
+        $val = $this->getBackingStore()->get('intuneBrand');
+        if (is_null($val) || $val instanceof IntuneBrand) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneBrand'");
     }
 
     /**
@@ -969,7 +1376,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<IntuneBrandingProfile>|null
     */
     public function getIntuneBrandingProfiles(): ?array {
-        return $this->getBackingStore()->get('intuneBrandingProfiles');
+        $val = $this->getBackingStore()->get('intuneBrandingProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IntuneBrandingProfile::class);
+            /** @var array<IntuneBrandingProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneBrandingProfiles'");
     }
 
     /**
@@ -977,7 +1390,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<IosUpdateDeviceStatus>|null
     */
     public function getIosUpdateStatuses(): ?array {
-        return $this->getBackingStore()->get('iosUpdateStatuses');
+        $val = $this->getBackingStore()->get('iosUpdateStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosUpdateDeviceStatus::class);
+            /** @var array<IosUpdateDeviceStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iosUpdateStatuses'");
     }
 
     /**
@@ -985,7 +1404,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportAggregationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportAggregationDateTime');
+        $val = $this->getBackingStore()->get('lastReportAggregationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportAggregationDateTime'");
     }
 
     /**
@@ -993,7 +1416,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return bool|null
     */
     public function getLegacyPcManangementEnabled(): ?bool {
-        return $this->getBackingStore()->get('legacyPcManangementEnabled');
+        $val = $this->getBackingStore()->get('legacyPcManangementEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'legacyPcManangementEnabled'");
     }
 
     /**
@@ -1001,7 +1428,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MacOSSoftwareUpdateAccountSummary>|null
     */
     public function getMacOSSoftwareUpdateAccountSummaries(): ?array {
-        return $this->getBackingStore()->get('macOSSoftwareUpdateAccountSummaries');
+        $val = $this->getBackingStore()->get('macOSSoftwareUpdateAccountSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSSoftwareUpdateAccountSummary::class);
+            /** @var array<MacOSSoftwareUpdateAccountSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macOSSoftwareUpdateAccountSummaries'");
     }
 
     /**
@@ -1009,7 +1442,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return ManagedDeviceCleanupSettings|null
     */
     public function getManagedDeviceCleanupSettings(): ?ManagedDeviceCleanupSettings {
-        return $this->getBackingStore()->get('managedDeviceCleanupSettings');
+        $val = $this->getBackingStore()->get('managedDeviceCleanupSettings');
+        if (is_null($val) || $val instanceof ManagedDeviceCleanupSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCleanupSettings'");
     }
 
     /**
@@ -1017,7 +1454,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDeviceEncryptionState>|null
     */
     public function getManagedDeviceEncryptionStates(): ?array {
-        return $this->getBackingStore()->get('managedDeviceEncryptionStates');
+        $val = $this->getBackingStore()->get('managedDeviceEncryptionStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceEncryptionState::class);
+            /** @var array<ManagedDeviceEncryptionState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceEncryptionStates'");
     }
 
     /**
@@ -1025,7 +1468,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return ManagedDeviceOverview|null
     */
     public function getManagedDeviceOverview(): ?ManagedDeviceOverview {
-        return $this->getBackingStore()->get('managedDeviceOverview');
+        $val = $this->getBackingStore()->get('managedDeviceOverview');
+        if (is_null($val) || $val instanceof ManagedDeviceOverview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceOverview'");
     }
 
     /**
@@ -1033,7 +1480,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDevice>|null
     */
     public function getManagedDevices(): ?array {
-        return $this->getBackingStore()->get('managedDevices');
+        $val = $this->getBackingStore()->get('managedDevices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDevice::class);
+            /** @var array<ManagedDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevices'");
     }
 
     /**
@@ -1041,7 +1494,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return int|null
     */
     public function getMaximumDepTokens(): ?int {
-        return $this->getBackingStore()->get('maximumDepTokens');
+        $val = $this->getBackingStore()->get('maximumDepTokens');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumDepTokens'");
     }
 
     /**
@@ -1049,7 +1506,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelConfiguration>|null
     */
     public function getMicrosoftTunnelConfigurations(): ?array {
-        return $this->getBackingStore()->get('microsoftTunnelConfigurations');
+        $val = $this->getBackingStore()->get('microsoftTunnelConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftTunnelConfiguration::class);
+            /** @var array<MicrosoftTunnelConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelConfigurations'");
     }
 
     /**
@@ -1057,7 +1520,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelHealthThreshold>|null
     */
     public function getMicrosoftTunnelHealthThresholds(): ?array {
-        return $this->getBackingStore()->get('microsoftTunnelHealthThresholds');
+        $val = $this->getBackingStore()->get('microsoftTunnelHealthThresholds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftTunnelHealthThreshold::class);
+            /** @var array<MicrosoftTunnelHealthThreshold>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelHealthThresholds'");
     }
 
     /**
@@ -1065,7 +1534,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelServerLogCollectionResponse>|null
     */
     public function getMicrosoftTunnelServerLogCollectionResponses(): ?array {
-        return $this->getBackingStore()->get('microsoftTunnelServerLogCollectionResponses');
+        $val = $this->getBackingStore()->get('microsoftTunnelServerLogCollectionResponses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftTunnelServerLogCollectionResponse::class);
+            /** @var array<MicrosoftTunnelServerLogCollectionResponse>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelServerLogCollectionResponses'");
     }
 
     /**
@@ -1073,7 +1548,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelSite>|null
     */
     public function getMicrosoftTunnelSites(): ?array {
-        return $this->getBackingStore()->get('microsoftTunnelSites');
+        $val = $this->getBackingStore()->get('microsoftTunnelSites');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftTunnelSite::class);
+            /** @var array<MicrosoftTunnelSite>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelSites'");
     }
 
     /**
@@ -1081,7 +1562,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MobileAppTroubleshootingEvent>|null
     */
     public function getMobileAppTroubleshootingEvents(): ?array {
-        return $this->getBackingStore()->get('mobileAppTroubleshootingEvents');
+        $val = $this->getBackingStore()->get('mobileAppTroubleshootingEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppTroubleshootingEvent::class);
+            /** @var array<MobileAppTroubleshootingEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppTroubleshootingEvents'");
     }
 
     /**
@@ -1089,7 +1576,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MobileThreatDefenseConnector>|null
     */
     public function getMobileThreatDefenseConnectors(): ?array {
-        return $this->getBackingStore()->get('mobileThreatDefenseConnectors');
+        $val = $this->getBackingStore()->get('mobileThreatDefenseConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileThreatDefenseConnector::class);
+            /** @var array<MobileThreatDefenseConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileThreatDefenseConnectors'");
     }
 
     /**
@@ -1097,7 +1590,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return Monitoring|null
     */
     public function getMonitoring(): ?Monitoring {
-        return $this->getBackingStore()->get('monitoring');
+        $val = $this->getBackingStore()->get('monitoring');
+        if (is_null($val) || $val instanceof Monitoring) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monitoring'");
     }
 
     /**
@@ -1105,7 +1602,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<NdesConnector>|null
     */
     public function getNdesConnectors(): ?array {
-        return $this->getBackingStore()->get('ndesConnectors');
+        $val = $this->getBackingStore()->get('ndesConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NdesConnector::class);
+            /** @var array<NdesConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ndesConnectors'");
     }
 
     /**
@@ -1113,7 +1616,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<NotificationMessageTemplate>|null
     */
     public function getNotificationMessageTemplates(): ?array {
-        return $this->getBackingStore()->get('notificationMessageTemplates');
+        $val = $this->getBackingStore()->get('notificationMessageTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NotificationMessageTemplate::class);
+            /** @var array<NotificationMessageTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationMessageTemplates'");
     }
 
     /**
@@ -1121,7 +1630,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<PrivilegeManagementElevation>|null
     */
     public function getPrivilegeManagementElevations(): ?array {
-        return $this->getBackingStore()->get('privilegeManagementElevations');
+        $val = $this->getBackingStore()->get('privilegeManagementElevations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegeManagementElevation::class);
+            /** @var array<PrivilegeManagementElevation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privilegeManagementElevations'");
     }
 
     /**
@@ -1129,7 +1644,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RemoteActionAudit>|null
     */
     public function getRemoteActionAudits(): ?array {
-        return $this->getBackingStore()->get('remoteActionAudits');
+        $val = $this->getBackingStore()->get('remoteActionAudits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RemoteActionAudit::class);
+            /** @var array<RemoteActionAudit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteActionAudits'");
     }
 
     /**
@@ -1137,7 +1658,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RemoteAssistancePartner>|null
     */
     public function getRemoteAssistancePartners(): ?array {
-        return $this->getBackingStore()->get('remoteAssistancePartners');
+        $val = $this->getBackingStore()->get('remoteAssistancePartners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RemoteAssistancePartner::class);
+            /** @var array<RemoteAssistancePartner>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAssistancePartners'");
     }
 
     /**
@@ -1145,7 +1672,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return RemoteAssistanceSettings|null
     */
     public function getRemoteAssistanceSettings(): ?RemoteAssistanceSettings {
-        return $this->getBackingStore()->get('remoteAssistanceSettings');
+        $val = $this->getBackingStore()->get('remoteAssistanceSettings');
+        if (is_null($val) || $val instanceof RemoteAssistanceSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAssistanceSettings'");
     }
 
     /**
@@ -1153,7 +1684,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementReports|null
     */
     public function getReports(): ?DeviceManagementReports {
-        return $this->getBackingStore()->get('reports');
+        $val = $this->getBackingStore()->get('reports');
+        if (is_null($val) || $val instanceof DeviceManagementReports) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reports'");
     }
 
     /**
@@ -1161,7 +1696,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementResourceAccessProfileBase>|null
     */
     public function getResourceAccessProfiles(): ?array {
-        return $this->getBackingStore()->get('resourceAccessProfiles');
+        $val = $this->getBackingStore()->get('resourceAccessProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementResourceAccessProfileBase::class);
+            /** @var array<DeviceManagementResourceAccessProfileBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceAccessProfiles'");
     }
 
     /**
@@ -1169,7 +1710,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ResourceOperation>|null
     */
     public function getResourceOperations(): ?array {
-        return $this->getBackingStore()->get('resourceOperations');
+        $val = $this->getBackingStore()->get('resourceOperations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResourceOperation::class);
+            /** @var array<ResourceOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceOperations'");
     }
 
     /**
@@ -1177,7 +1724,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementReusablePolicySetting>|null
     */
     public function getReusablePolicySettings(): ?array {
-        return $this->getBackingStore()->get('reusablePolicySettings');
+        $val = $this->getBackingStore()->get('reusablePolicySettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementReusablePolicySetting::class);
+            /** @var array<DeviceManagementReusablePolicySetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reusablePolicySettings'");
     }
 
     /**
@@ -1185,7 +1738,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getReusableSettings(): ?array {
-        return $this->getBackingStore()->get('reusableSettings');
+        $val = $this->getBackingStore()->get('reusableSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingDefinition::class);
+            /** @var array<DeviceManagementConfigurationSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reusableSettings'");
     }
 
     /**
@@ -1193,7 +1752,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceAndAppManagementRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->getBackingStore()->get('roleAssignments');
+        $val = $this->getBackingStore()->get('roleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceAndAppManagementRoleAssignment::class);
+            /** @var array<DeviceAndAppManagementRoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignments'");
     }
 
     /**
@@ -1201,7 +1766,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->getBackingStore()->get('roleDefinitions');
+        $val = $this->getBackingStore()->get('roleDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RoleDefinition::class);
+            /** @var array<RoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitions'");
     }
 
     /**
@@ -1209,7 +1780,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RoleScopeTag>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->getBackingStore()->get('roleScopeTags');
+        $val = $this->getBackingStore()->get('roleScopeTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RoleScopeTag::class);
+            /** @var array<RoleScopeTag>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTags'");
     }
 
     /**
@@ -1217,7 +1794,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ServiceNowConnection>|null
     */
     public function getServiceNowConnections(): ?array {
-        return $this->getBackingStore()->get('serviceNowConnections');
+        $val = $this->getBackingStore()->get('serviceNowConnections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServiceNowConnection::class);
+            /** @var array<ServiceNowConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceNowConnections'");
     }
 
     /**
@@ -1225,7 +1808,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->getBackingStore()->get('settingDefinitions');
+        $val = $this->getBackingStore()->get('settingDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingDefinition::class);
+            /** @var array<DeviceManagementSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDefinitions'");
     }
 
     /**
@@ -1233,7 +1822,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSettings|null
     */
     public function getSettings(): ?DeviceManagementSettings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof DeviceManagementSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -1241,7 +1834,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return SoftwareUpdateStatusSummary|null
     */
     public function getSoftwareUpdateStatusSummary(): ?SoftwareUpdateStatusSummary {
-        return $this->getBackingStore()->get('softwareUpdateStatusSummary');
+        $val = $this->getBackingStore()->get('softwareUpdateStatusSummary');
+        if (is_null($val) || $val instanceof SoftwareUpdateStatusSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateStatusSummary'");
     }
 
     /**
@@ -1249,7 +1846,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSubscriptions|null
     */
     public function getSubscriptions(): ?DeviceManagementSubscriptions {
-        return $this->getBackingStore()->get('subscriptions');
+        $val = $this->getBackingStore()->get('subscriptions');
+        if (is_null($val) || $val instanceof DeviceManagementSubscriptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptions'");
     }
 
     /**
@@ -1257,7 +1858,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSubscriptionState|null
     */
     public function getSubscriptionState(): ?DeviceManagementSubscriptionState {
-        return $this->getBackingStore()->get('subscriptionState');
+        $val = $this->getBackingStore()->get('subscriptionState');
+        if (is_null($val) || $val instanceof DeviceManagementSubscriptionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionState'");
     }
 
     /**
@@ -1265,7 +1870,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<TelecomExpenseManagementPartner>|null
     */
     public function getTelecomExpenseManagementPartners(): ?array {
-        return $this->getBackingStore()->get('telecomExpenseManagementPartners');
+        $val = $this->getBackingStore()->get('telecomExpenseManagementPartners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TelecomExpenseManagementPartner::class);
+            /** @var array<TelecomExpenseManagementPartner>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'telecomExpenseManagementPartners'");
     }
 
     /**
@@ -1273,7 +1884,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementTemplateInsightsDefinition>|null
     */
     public function getTemplateInsights(): ?array {
-        return $this->getBackingStore()->get('templateInsights');
+        $val = $this->getBackingStore()->get('templateInsights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementTemplateInsightsDefinition::class);
+            /** @var array<DeviceManagementTemplateInsightsDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateInsights'");
     }
 
     /**
@@ -1281,7 +1898,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementTemplate>|null
     */
     public function getTemplates(): ?array {
-        return $this->getBackingStore()->get('templates');
+        $val = $this->getBackingStore()->get('templates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementTemplate::class);
+            /** @var array<DeviceManagementTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templates'");
     }
 
     /**
@@ -1289,7 +1912,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingTemplate>|null
     */
     public function getTemplateSettings(): ?array {
-        return $this->getBackingStore()->get('templateSettings');
+        $val = $this->getBackingStore()->get('templateSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingTemplate::class);
+            /** @var array<DeviceManagementConfigurationSettingTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateSettings'");
     }
 
     /**
@@ -1297,7 +1926,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return TenantAttachRBAC|null
     */
     public function getTenantAttachRBAC(): ?TenantAttachRBAC {
-        return $this->getBackingStore()->get('tenantAttachRBAC');
+        $val = $this->getBackingStore()->get('tenantAttachRBAC');
+        if (is_null($val) || $val instanceof TenantAttachRBAC) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAttachRBAC'");
     }
 
     /**
@@ -1305,7 +1938,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<TermsAndConditions>|null
     */
     public function getTermsAndConditions(): ?array {
-        return $this->getBackingStore()->get('termsAndConditions');
+        $val = $this->getBackingStore()->get('termsAndConditions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TermsAndConditions::class);
+            /** @var array<TermsAndConditions>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termsAndConditions'");
     }
 
     /**
@@ -1313,7 +1952,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementTroubleshootingEvent>|null
     */
     public function getTroubleshootingEvents(): ?array {
-        return $this->getBackingStore()->get('troubleshootingEvents');
+        $val = $this->getBackingStore()->get('troubleshootingEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementTroubleshootingEvent::class);
+            /** @var array<DeviceManagementTroubleshootingEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'troubleshootingEvents'");
     }
 
     /**
@@ -1321,7 +1966,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return bool|null
     */
     public function getUnlicensedAdminstratorsEnabled(): ?bool {
-        return $this->getBackingStore()->get('unlicensedAdminstratorsEnabled');
+        $val = $this->getBackingStore()->get('unlicensedAdminstratorsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unlicensedAdminstratorsEnabled'");
     }
 
     /**
@@ -1329,7 +1978,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAnomaly>|null
     */
     public function getUserExperienceAnalyticsAnomaly(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAnomaly');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAnomaly');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAnomaly::class);
+            /** @var array<UserExperienceAnalyticsAnomaly>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAnomaly'");
     }
 
     /**
@@ -1337,7 +1992,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAnomalyCorrelationGroupOverview>|null
     */
     public function getUserExperienceAnalyticsAnomalyCorrelationGroupOverview(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalyCorrelationGroupOverview');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAnomalyCorrelationGroupOverview');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAnomalyCorrelationGroupOverview::class);
+            /** @var array<UserExperienceAnalyticsAnomalyCorrelationGroupOverview>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAnomalyCorrelationGroupOverview'");
     }
 
     /**
@@ -1345,7 +2006,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAnomalyDevice>|null
     */
     public function getUserExperienceAnalyticsAnomalyDevice(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalyDevice');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAnomalyDevice');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAnomalyDevice::class);
+            /** @var array<UserExperienceAnalyticsAnomalyDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAnomalyDevice'");
     }
 
     /**
@@ -1353,7 +2020,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsAnomalySeverityOverview|null
     */
     public function getUserExperienceAnalyticsAnomalySeverityOverview(): ?UserExperienceAnalyticsAnomalySeverityOverview {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalySeverityOverview');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAnomalySeverityOverview');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalySeverityOverview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAnomalySeverityOverview'");
     }
 
     /**
@@ -1361,7 +2032,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthApplicationPerformance::class);
+            /** @var array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformance'");
     }
 
     /**
@@ -1369,7 +2046,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion'");
     }
 
     /**
@@ -1377,7 +2060,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails'");
     }
 
     /**
@@ -1385,7 +2074,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId'");
     }
 
     /**
@@ -1393,7 +2088,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion'");
     }
 
     /**
@@ -1401,7 +2102,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthDeviceModelPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDeviceModelPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDeviceModelPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthDeviceModelPerformance::class);
+            /** @var array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthDeviceModelPerformance'");
     }
 
     /**
@@ -1409,7 +2116,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthDevicePerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthDevicePerformance::class);
+            /** @var array<UserExperienceAnalyticsAppHealthDevicePerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthDevicePerformance'");
     }
 
     /**
@@ -1417,7 +2130,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null
     */
     public function getUserExperienceAnalyticsAppHealthDevicePerformanceDetails(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformanceDetails');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformanceDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthDevicePerformanceDetails::class);
+            /** @var array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthDevicePerformanceDetails'");
     }
 
     /**
@@ -1425,7 +2144,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthOSVersionPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOSVersionPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOSVersionPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthOSVersionPerformance::class);
+            /** @var array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthOSVersionPerformance'");
     }
 
     /**
@@ -1433,7 +2158,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getUserExperienceAnalyticsAppHealthOverview(): ?UserExperienceAnalyticsCategory {
-        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOverview');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOverview');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthOverview'");
     }
 
     /**
@@ -1441,7 +2170,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBaseline>|null
     */
     public function getUserExperienceAnalyticsBaselines(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBaselines');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBaselines');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBaseline::class);
+            /** @var array<UserExperienceAnalyticsBaseline>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBaselines'");
     }
 
     /**
@@ -1449,7 +2184,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthAppImpact>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthAppImpact(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthAppImpact');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthAppImpact');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthAppImpact::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthAppImpact>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthAppImpact'");
     }
 
     /**
@@ -1457,7 +2198,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsBatteryHealthCapacityDetails|null
     */
     public function getUserExperienceAnalyticsBatteryHealthCapacityDetails(): ?UserExperienceAnalyticsBatteryHealthCapacityDetails {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthCapacityDetails');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthCapacityDetails');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsBatteryHealthCapacityDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthCapacityDetails'");
     }
 
     /**
@@ -1465,7 +2210,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDeviceAppImpact(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceAppImpact');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceAppImpact');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthDeviceAppImpact::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthDeviceAppImpact'");
     }
 
     /**
@@ -1473,7 +2224,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDevicePerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDevicePerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDevicePerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthDevicePerformance::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthDevicePerformance'");
     }
 
     /**
@@ -1481,7 +2238,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory'");
     }
 
     /**
@@ -1489,7 +2252,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthModelPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthModelPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthModelPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthModelPerformance::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthModelPerformance'");
     }
 
     /**
@@ -1497,7 +2266,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthOsPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthOsPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthOsPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsBatteryHealthOsPerformance::class);
+            /** @var array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthOsPerformance'");
     }
 
     /**
@@ -1505,7 +2280,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsBatteryHealthRuntimeDetails|null
     */
     public function getUserExperienceAnalyticsBatteryHealthRuntimeDetails(): ?UserExperienceAnalyticsBatteryHealthRuntimeDetails {
-        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthRuntimeDetails');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthRuntimeDetails');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsBatteryHealthRuntimeDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsBatteryHealthRuntimeDetails'");
     }
 
     /**
@@ -1513,7 +2292,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsCategory>|null
     */
     public function getUserExperienceAnalyticsCategories(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsCategories');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsCategory::class);
+            /** @var array<UserExperienceAnalyticsCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsCategories'");
     }
 
     /**
@@ -1521,7 +2306,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsMetricHistory>|null
     */
     public function getUserExperienceAnalyticsDeviceMetricHistory(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceMetricHistory');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceMetricHistory');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsMetricHistory::class);
+            /** @var array<UserExperienceAnalyticsMetricHistory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceMetricHistory'");
     }
 
     /**
@@ -1529,7 +2320,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsDevicePerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDevicePerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDevicePerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDevicePerformance::class);
+            /** @var array<UserExperienceAnalyticsDevicePerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDevicePerformance'");
     }
 
     /**
@@ -1537,7 +2334,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsDeviceScope|null
     */
     public function getUserExperienceAnalyticsDeviceScope(): ?UserExperienceAnalyticsDeviceScope {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScope');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceScope');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsDeviceScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceScope'");
     }
 
     /**
@@ -1545,7 +2346,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceScope>|null
     */
     public function getUserExperienceAnalyticsDeviceScopes(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScopes');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceScopes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceScope::class);
+            /** @var array<UserExperienceAnalyticsDeviceScope>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceScopes'");
     }
 
     /**
@@ -1553,7 +2360,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceScores>|null
     */
     public function getUserExperienceAnalyticsDeviceScores(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScores');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceScores');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceScores::class);
+            /** @var array<UserExperienceAnalyticsDeviceScores>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceScores'");
     }
 
     /**
@@ -1561,7 +2374,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupHistory>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupHistory(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupHistory');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupHistory');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceStartupHistory::class);
+            /** @var array<UserExperienceAnalyticsDeviceStartupHistory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceStartupHistory'");
     }
 
     /**
@@ -1569,7 +2388,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupProcess>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupProcesses(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcesses');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcesses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceStartupProcess::class);
+            /** @var array<UserExperienceAnalyticsDeviceStartupProcess>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceStartupProcesses'");
     }
 
     /**
@@ -1577,7 +2402,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupProcessPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcessPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcessPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceStartupProcessPerformance::class);
+            /** @var array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceStartupProcessPerformance'");
     }
 
     /**
@@ -1585,7 +2416,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null
     */
     public function getUserExperienceAnalyticsDevicesWithoutCloudIdentity(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDevicesWithoutCloudIdentity');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDevicesWithoutCloudIdentity');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceWithoutCloudIdentity::class);
+            /** @var array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDevicesWithoutCloudIdentity'");
     }
 
     /**
@@ -1593,7 +2430,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceTimelineEvent>|null
     */
     public function getUserExperienceAnalyticsDeviceTimelineEvent(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceTimelineEvent');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsDeviceTimelineEvent');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceTimelineEvent::class);
+            /** @var array<UserExperienceAnalyticsDeviceTimelineEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsDeviceTimelineEvent'");
     }
 
     /**
@@ -1601,7 +2444,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsImpactingProcess>|null
     */
     public function getUserExperienceAnalyticsImpactingProcess(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsImpactingProcess');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsImpactingProcess');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsImpactingProcess::class);
+            /** @var array<UserExperienceAnalyticsImpactingProcess>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsImpactingProcess'");
     }
 
     /**
@@ -1609,7 +2458,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsMetricHistory>|null
     */
     public function getUserExperienceAnalyticsMetricHistory(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsMetricHistory');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsMetricHistory');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsMetricHistory::class);
+            /** @var array<UserExperienceAnalyticsMetricHistory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsMetricHistory'");
     }
 
     /**
@@ -1617,7 +2472,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsModelScores>|null
     */
     public function getUserExperienceAnalyticsModelScores(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsModelScores');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsModelScores');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsModelScores::class);
+            /** @var array<UserExperienceAnalyticsModelScores>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsModelScores'");
     }
 
     /**
@@ -1625,7 +2486,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null
     */
     public function getUserExperienceAnalyticsNotAutopilotReadyDevice(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsNotAutopilotReadyDevice');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsNotAutopilotReadyDevice');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsNotAutopilotReadyDevice::class);
+            /** @var array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsNotAutopilotReadyDevice'");
     }
 
     /**
@@ -1633,7 +2500,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsOverview|null
     */
     public function getUserExperienceAnalyticsOverview(): ?UserExperienceAnalyticsOverview {
-        return $this->getBackingStore()->get('userExperienceAnalyticsOverview');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsOverview');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsOverview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsOverview'");
     }
 
     /**
@@ -1641,7 +2512,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsRemoteConnection>|null
     */
     public function getUserExperienceAnalyticsRemoteConnection(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsRemoteConnection');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsRemoteConnection');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsRemoteConnection::class);
+            /** @var array<UserExperienceAnalyticsRemoteConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsRemoteConnection'");
     }
 
     /**
@@ -1649,7 +2526,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsResourcePerformance>|null
     */
     public function getUserExperienceAnalyticsResourcePerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsResourcePerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsResourcePerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsResourcePerformance::class);
+            /** @var array<UserExperienceAnalyticsResourcePerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsResourcePerformance'");
     }
 
     /**
@@ -1657,7 +2540,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsScoreHistory>|null
     */
     public function getUserExperienceAnalyticsScoreHistory(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsScoreHistory');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsScoreHistory');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsScoreHistory::class);
+            /** @var array<UserExperienceAnalyticsScoreHistory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsScoreHistory'");
     }
 
     /**
@@ -1665,7 +2554,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsSettings|null
     */
     public function getUserExperienceAnalyticsSettings(): ?UserExperienceAnalyticsSettings {
-        return $this->getBackingStore()->get('userExperienceAnalyticsSettings');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsSettings');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsSettings'");
     }
 
     /**
@@ -1673,7 +2566,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): ?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric {
-        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric'");
     }
 
     /**
@@ -1681,7 +2578,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereMetrics(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereMetrics');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereMetrics');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsWorkFromAnywhereMetric::class);
+            /** @var array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsWorkFromAnywhereMetrics'");
     }
 
     /**
@@ -1689,7 +2592,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereModelPerformance(): ?array {
-        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereModelPerformance');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereModelPerformance');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsWorkFromAnywhereModelPerformance::class);
+            /** @var array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsWorkFromAnywhereModelPerformance'");
     }
 
     /**
@@ -1697,7 +2606,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserPFXCertificate>|null
     */
     public function getUserPfxCertificates(): ?array {
-        return $this->getBackingStore()->get('userPfxCertificates');
+        $val = $this->getBackingStore()->get('userPfxCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserPFXCertificate::class);
+            /** @var array<UserPFXCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPfxCertificates'");
     }
 
     /**
@@ -1705,7 +2620,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return VirtualEndpoint|null
     */
     public function getVirtualEndpoint(): ?VirtualEndpoint {
-        return $this->getBackingStore()->get('virtualEndpoint');
+        $val = $this->getBackingStore()->get('virtualEndpoint');
+        if (is_null($val) || $val instanceof VirtualEndpoint) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualEndpoint'");
     }
 
     /**
@@ -1713,7 +2632,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsAutopilotDeploymentProfile>|null
     */
     public function getWindowsAutopilotDeploymentProfiles(): ?array {
-        return $this->getBackingStore()->get('windowsAutopilotDeploymentProfiles');
+        $val = $this->getBackingStore()->get('windowsAutopilotDeploymentProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsAutopilotDeploymentProfile::class);
+            /** @var array<WindowsAutopilotDeploymentProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsAutopilotDeploymentProfiles'");
     }
 
     /**
@@ -1721,7 +2646,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsAutopilotDeviceIdentity>|null
     */
     public function getWindowsAutopilotDeviceIdentities(): ?array {
-        return $this->getBackingStore()->get('windowsAutopilotDeviceIdentities');
+        $val = $this->getBackingStore()->get('windowsAutopilotDeviceIdentities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsAutopilotDeviceIdentity::class);
+            /** @var array<WindowsAutopilotDeviceIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsAutopilotDeviceIdentities'");
     }
 
     /**
@@ -1729,7 +2660,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return WindowsAutopilotSettings|null
     */
     public function getWindowsAutopilotSettings(): ?WindowsAutopilotSettings {
-        return $this->getBackingStore()->get('windowsAutopilotSettings');
+        $val = $this->getBackingStore()->get('windowsAutopilotSettings');
+        if (is_null($val) || $val instanceof WindowsAutopilotSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsAutopilotSettings'");
     }
 
     /**
@@ -1737,7 +2672,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsDriverUpdateProfile>|null
     */
     public function getWindowsDriverUpdateProfiles(): ?array {
-        return $this->getBackingStore()->get('windowsDriverUpdateProfiles');
+        $val = $this->getBackingStore()->get('windowsDriverUpdateProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDriverUpdateProfile::class);
+            /** @var array<WindowsDriverUpdateProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsDriverUpdateProfiles'");
     }
 
     /**
@@ -1745,7 +2686,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsFeatureUpdateProfile>|null
     */
     public function getWindowsFeatureUpdateProfiles(): ?array {
-        return $this->getBackingStore()->get('windowsFeatureUpdateProfiles');
+        $val = $this->getBackingStore()->get('windowsFeatureUpdateProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsFeatureUpdateProfile::class);
+            /** @var array<WindowsFeatureUpdateProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsFeatureUpdateProfiles'");
     }
 
     /**
@@ -1753,7 +2700,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsInformationProtectionAppLearningSummary>|null
     */
     public function getWindowsInformationProtectionAppLearningSummaries(): ?array {
-        return $this->getBackingStore()->get('windowsInformationProtectionAppLearningSummaries');
+        $val = $this->getBackingStore()->get('windowsInformationProtectionAppLearningSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsInformationProtectionAppLearningSummary::class);
+            /** @var array<WindowsInformationProtectionAppLearningSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsInformationProtectionAppLearningSummaries'");
     }
 
     /**
@@ -1761,7 +2714,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsInformationProtectionNetworkLearningSummary>|null
     */
     public function getWindowsInformationProtectionNetworkLearningSummaries(): ?array {
-        return $this->getBackingStore()->get('windowsInformationProtectionNetworkLearningSummaries');
+        $val = $this->getBackingStore()->get('windowsInformationProtectionNetworkLearningSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsInformationProtectionNetworkLearningSummary::class);
+            /** @var array<WindowsInformationProtectionNetworkLearningSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsInformationProtectionNetworkLearningSummaries'");
     }
 
     /**
@@ -1769,7 +2728,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsMalwareInformation>|null
     */
     public function getWindowsMalwareInformation(): ?array {
-        return $this->getBackingStore()->get('windowsMalwareInformation');
+        $val = $this->getBackingStore()->get('windowsMalwareInformation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsMalwareInformation::class);
+            /** @var array<WindowsMalwareInformation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsMalwareInformation'");
     }
 
     /**
@@ -1777,7 +2742,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return WindowsMalwareOverview|null
     */
     public function getWindowsMalwareOverview(): ?WindowsMalwareOverview {
-        return $this->getBackingStore()->get('windowsMalwareOverview');
+        $val = $this->getBackingStore()->get('windowsMalwareOverview');
+        if (is_null($val) || $val instanceof WindowsMalwareOverview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsMalwareOverview'");
     }
 
     /**
@@ -1785,7 +2754,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsQualityUpdateProfile>|null
     */
     public function getWindowsQualityUpdateProfiles(): ?array {
-        return $this->getBackingStore()->get('windowsQualityUpdateProfiles');
+        $val = $this->getBackingStore()->get('windowsQualityUpdateProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsQualityUpdateProfile::class);
+            /** @var array<WindowsQualityUpdateProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsQualityUpdateProfiles'");
     }
 
     /**
@@ -1793,7 +2768,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsUpdateCatalogItem>|null
     */
     public function getWindowsUpdateCatalogItems(): ?array {
-        return $this->getBackingStore()->get('windowsUpdateCatalogItems');
+        $val = $this->getBackingStore()->get('windowsUpdateCatalogItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsUpdateCatalogItem::class);
+            /** @var array<WindowsUpdateCatalogItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsUpdateCatalogItems'");
     }
 
     /**
@@ -1801,7 +2782,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ZebraFotaArtifact>|null
     */
     public function getZebraFotaArtifacts(): ?array {
-        return $this->getBackingStore()->get('zebraFotaArtifacts');
+        $val = $this->getBackingStore()->get('zebraFotaArtifacts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ZebraFotaArtifact::class);
+            /** @var array<ZebraFotaArtifact>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zebraFotaArtifacts'");
     }
 
     /**
@@ -1809,7 +2796,11 @@ class DeviceManagement extends Entity implements Parsable
      * @return ZebraFotaConnector|null
     */
     public function getZebraFotaConnector(): ?ZebraFotaConnector {
-        return $this->getBackingStore()->get('zebraFotaConnector');
+        $val = $this->getBackingStore()->get('zebraFotaConnector');
+        if (is_null($val) || $val instanceof ZebraFotaConnector) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zebraFotaConnector'");
     }
 
     /**
@@ -1817,7 +2808,13 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ZebraFotaDeployment>|null
     */
     public function getZebraFotaDeployments(): ?array {
-        return $this->getBackingStore()->get('zebraFotaDeployments');
+        $val = $this->getBackingStore()->get('zebraFotaDeployments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ZebraFotaDeployment::class);
+            /** @var array<ZebraFotaDeployment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zebraFotaDeployments'");
     }
 
     /**

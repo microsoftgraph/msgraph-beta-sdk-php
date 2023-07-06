@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
 {
@@ -30,12 +31,18 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return array<MobileContainedApp>|null
     */
     public function getContainedApps(): ?array {
-        return $this->getBackingStore()->get('containedApps');
+        $val = $this->getBackingStore()->get('containedApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileContainedApp::class);
+            /** @var array<MobileContainedApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'containedApps'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +62,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return MicrosoftStoreForBusinessLicenseType|null
     */
     public function getLicenseType(): ?MicrosoftStoreForBusinessLicenseType {
-        return $this->getBackingStore()->get('licenseType');
+        $val = $this->getBackingStore()->get('licenseType');
+        if (is_null($val) || $val instanceof MicrosoftStoreForBusinessLicenseType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseType'");
     }
 
     /**
@@ -63,7 +74,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return VppLicensingType|null
     */
     public function getLicensingType(): ?VppLicensingType {
-        return $this->getBackingStore()->get('licensingType');
+        $val = $this->getBackingStore()->get('licensingType');
+        if (is_null($val) || $val instanceof VppLicensingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licensingType'");
     }
 
     /**
@@ -71,7 +86,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageIdentityName(): ?string {
-        return $this->getBackingStore()->get('packageIdentityName');
+        $val = $this->getBackingStore()->get('packageIdentityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageIdentityName'");
     }
 
     /**
@@ -79,7 +98,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getProductKey(): ?string {
-        return $this->getBackingStore()->get('productKey');
+        $val = $this->getBackingStore()->get('productKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productKey'");
     }
 
     /**
@@ -87,7 +110,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->getBackingStore()->get('totalLicenseCount');
+        $val = $this->getBackingStore()->get('totalLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicenseCount'");
     }
 
     /**
@@ -95,7 +122,11 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->getBackingStore()->get('usedLicenseCount');
+        $val = $this->getBackingStore()->get('usedLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usedLicenseCount'");
     }
 
     /**

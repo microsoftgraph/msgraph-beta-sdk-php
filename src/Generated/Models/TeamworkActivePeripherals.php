@@ -39,7 +39,12 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheral|null
     */
     public function getCommunicationSpeaker(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('communicationSpeaker');
+        $val = $this->getBackingStore()->get('communicationSpeaker');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'communicationSpeaker'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheral|null
     */
     public function getContentCamera(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('contentCamera');
+        $val = $this->getBackingStore()->get('contentCamera');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCamera'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +100,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheral|null
     */
     public function getMicrophone(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('microphone');
+        $val = $this->getBackingStore()->get('microphone');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphone'");
     }
 
     /**
@@ -95,7 +112,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +124,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheral|null
     */
     public function getRoomCamera(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('roomCamera');
+        $val = $this->getBackingStore()->get('roomCamera');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roomCamera'");
     }
 
     /**
@@ -111,7 +136,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheral|null
     */
     public function getSpeaker(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('speaker');
+        $val = $this->getBackingStore()->get('speaker');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speaker'");
     }
 
     /**

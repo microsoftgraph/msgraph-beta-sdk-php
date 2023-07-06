@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementTemplateStep extends Entity implements Parsable 
 {
@@ -32,7 +33,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementTemplateStepVersion|null
     */
     public function getAcceptedVersion(): ?ManagementTemplateStepVersion {
-        return $this->getBackingStore()->get('acceptedVersion');
+        $val = $this->getBackingStore()->get('acceptedVersion');
+        if (is_null($val) || $val instanceof ManagementTemplateStepVersion) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acceptedVersion'");
     }
 
     /**
@@ -40,7 +45,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof ManagementCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -48,7 +57,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -56,7 +69,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -64,7 +81,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -72,12 +93,16 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -102,7 +127,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -110,7 +139,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -118,7 +151,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementTemplate|null
     */
     public function getManagementTemplate(): ?ManagementTemplate {
-        return $this->getBackingStore()->get('managementTemplate');
+        $val = $this->getBackingStore()->get('managementTemplate');
+        if (is_null($val) || $val instanceof ManagementTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplate'");
     }
 
     /**
@@ -126,7 +163,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ActionUrl|null
     */
     public function getPortalLink(): ?ActionUrl {
-        return $this->getBackingStore()->get('portalLink');
+        $val = $this->getBackingStore()->get('portalLink');
+        if (is_null($val) || $val instanceof ActionUrl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'portalLink'");
     }
 
     /**
@@ -134,7 +175,11 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -142,7 +187,13 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return array<ManagementTemplateStepVersion>|null
     */
     public function getVersions(): ?array {
-        return $this->getBackingStore()->get('versions');
+        $val = $this->getBackingStore()->get('versions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementTemplateStepVersion::class);
+            /** @var array<ManagementTemplateStepVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versions'");
     }
 
     /**

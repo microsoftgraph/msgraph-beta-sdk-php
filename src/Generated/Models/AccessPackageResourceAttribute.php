@@ -39,7 +39,12 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return AccessPackageResourceAttributeDestination|null
     */
     public function getAttributeDestination(): ?AccessPackageResourceAttributeDestination {
-        return $this->getBackingStore()->get('attributeDestination');
+        $val = $this->getBackingStore()->get('attributeDestination');
+        if (is_null($val) || $val instanceof AccessPackageResourceAttributeDestination) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeDestination'");
     }
 
     /**
@@ -55,7 +64,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getAttributeName(): ?string {
-        return $this->getBackingStore()->get('attributeName');
+        $val = $this->getBackingStore()->get('attributeName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeName'");
     }
 
     /**
@@ -63,7 +76,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return AccessPackageResourceAttributeSource|null
     */
     public function getAttributeSource(): ?AccessPackageResourceAttributeSource {
-        return $this->getBackingStore()->get('attributeSource');
+        $val = $this->getBackingStore()->get('attributeSource');
+        if (is_null($val) || $val instanceof AccessPackageResourceAttributeSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeSource'");
     }
 
     /**
@@ -76,7 +93,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -104,7 +125,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return bool|null
     */
     public function getIsEditable(): ?bool {
-        return $this->getBackingStore()->get('isEditable');
+        $val = $this->getBackingStore()->get('isEditable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEditable'");
     }
 
     /**
@@ -112,7 +137,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return bool|null
     */
     public function getIsPersistedOnAssignmentRemoval(): ?bool {
-        return $this->getBackingStore()->get('isPersistedOnAssignmentRemoval');
+        $val = $this->getBackingStore()->get('isPersistedOnAssignmentRemoval');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPersistedOnAssignmentRemoval'");
     }
 
     /**
@@ -120,7 +149,11 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

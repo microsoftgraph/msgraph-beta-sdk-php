@@ -39,7 +39,12 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getDuration(): ?string {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->getBackingStore()->get('reason');
+        $val = $this->getBackingStore()->get('reason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reason'");
     }
 
     /**
@@ -85,7 +98,11 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getTicketNumber(): ?string {
-        return $this->getBackingStore()->get('ticketNumber');
+        $val = $this->getBackingStore()->get('ticketNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketNumber'");
     }
 
     /**
@@ -93,7 +110,11 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getTicketSystem(): ?string {
-        return $this->getBackingStore()->get('ticketSystem');
+        $val = $this->getBackingStore()->get('ticketSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketSystem'");
     }
 
     /**

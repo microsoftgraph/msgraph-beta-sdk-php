@@ -27,7 +27,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
      * @return string|null
     */
     public function getFolderIdentifier(): ?string {
-        return $this->getBackingStore()->get('folderIdentifier');
+        $val = $this->getBackingStore()->get('folderIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'folderIdentifier'");
     }
 
     /**
@@ -50,7 +54,11 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
      * @return string|null
     */
     public function getFolderName(): ?string {
-        return $this->getBackingStore()->get('folderName');
+        $val = $this->getBackingStore()->get('folderName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'folderName'");
     }
 
     /**

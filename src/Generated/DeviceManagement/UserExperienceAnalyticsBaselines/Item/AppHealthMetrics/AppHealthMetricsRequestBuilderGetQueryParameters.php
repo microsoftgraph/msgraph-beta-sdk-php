@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The user experience analytics app health metrics.
+ * The scores and insights for the application health metrics.
 */
 class AppHealthMetricsRequestBuilderGetQueryParameters 
 {

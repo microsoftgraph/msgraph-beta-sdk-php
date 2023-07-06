@@ -38,12 +38,16 @@ class EncryptContent extends LabelActionBase implements Parsable
      * @return EncryptWith|null
     */
     public function getEncryptWith(): ?EncryptWith {
-        return $this->getBackingStore()->get('encryptWith');
+        $val = $this->getBackingStore()->get('encryptWith');
+        if (is_null($val) || $val instanceof EncryptWith) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptWith'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

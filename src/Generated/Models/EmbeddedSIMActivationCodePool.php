@@ -6,14 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * A pool represents a group of embedded SIM activation codes.
-*/
 class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new embeddedSIMActivationCodePool and sets the default values.
+     * Instantiates a new EmbeddedSIMActivationCodePool and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +31,11 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return int|null
     */
     public function getActivationCodeCount(): ?int {
-        return $this->getBackingStore()->get('activationCodeCount');
+        $val = $this->getBackingStore()->get('activationCodeCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activationCodeCount'");
     }
 
     /**
@@ -41,7 +43,13 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCode>|null
     */
     public function getActivationCodes(): ?array {
-        return $this->getBackingStore()->get('activationCodes');
+        $val = $this->getBackingStore()->get('activationCodes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddedSIMActivationCode::class);
+            /** @var array<EmbeddedSIMActivationCode>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activationCodes'");
     }
 
     /**
@@ -49,7 +57,13 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCodePoolAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddedSIMActivationCodePoolAssignment::class);
+            /** @var array<EmbeddedSIMActivationCodePoolAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -57,7 +71,11 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -65,7 +83,13 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMDeviceState>|null
     */
     public function getDeviceStates(): ?array {
-        return $this->getBackingStore()->get('deviceStates');
+        $val = $this->getBackingStore()->get('deviceStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddedSIMDeviceState::class);
+            /** @var array<EmbeddedSIMDeviceState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStates'");
     }
 
     /**
@@ -73,12 +97,16 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +126,11 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('modifiedDateTime');
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**

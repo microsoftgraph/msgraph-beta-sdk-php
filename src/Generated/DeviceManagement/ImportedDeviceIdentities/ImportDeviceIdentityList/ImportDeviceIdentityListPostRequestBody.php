@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, B
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -53,7 +59,7 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, B
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +74,13 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, B
      * @return array<ImportedDeviceIdentity>|null
     */
     public function getImportedDeviceIdentities(): ?array {
-        return $this->getBackingStore()->get('importedDeviceIdentities');
+        $val = $this->getBackingStore()->get('importedDeviceIdentities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ImportedDeviceIdentity::class);
+            /** @var array<ImportedDeviceIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedDeviceIdentities'");
     }
 
     /**
@@ -76,7 +88,11 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, B
      * @return bool|null
     */
     public function getOverwriteImportedDeviceIdentities(): ?bool {
-        return $this->getBackingStore()->get('overwriteImportedDeviceIdentities');
+        $val = $this->getBackingStore()->get('overwriteImportedDeviceIdentities');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'overwriteImportedDeviceIdentities'");
     }
 
     /**

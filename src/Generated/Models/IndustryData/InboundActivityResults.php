@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\IndustryData;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class InboundActivityResults extends IndustryDataActivityStatistics implements Parsable 
 {
@@ -30,12 +31,16 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return int|null
     */
     public function getErrors(): ?int {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -56,7 +61,11 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return IndustryDataRunEntityCountMetric|null
     */
     public function getGroups(): ?IndustryDataRunEntityCountMetric {
-        return $this->getBackingStore()->get('groups');
+        $val = $this->getBackingStore()->get('groups');
+        if (is_null($val) || $val instanceof IndustryDataRunEntityCountMetric) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groups'");
     }
 
     /**
@@ -64,7 +73,13 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getMatchedPeopleByRole(): ?array {
-        return $this->getBackingStore()->get('matchedPeopleByRole');
+        $val = $this->getBackingStore()->get('matchedPeopleByRole');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRunRoleCountMetric::class);
+            /** @var array<IndustryDataRunRoleCountMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchedPeopleByRole'");
     }
 
     /**
@@ -72,7 +87,11 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return IndustryDataRunEntityCountMetric|null
     */
     public function getMemberships(): ?IndustryDataRunEntityCountMetric {
-        return $this->getBackingStore()->get('memberships');
+        $val = $this->getBackingStore()->get('memberships');
+        if (is_null($val) || $val instanceof IndustryDataRunEntityCountMetric) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberships'");
     }
 
     /**
@@ -80,7 +99,11 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return IndustryDataRunEntityCountMetric|null
     */
     public function getOrganizations(): ?IndustryDataRunEntityCountMetric {
-        return $this->getBackingStore()->get('organizations');
+        $val = $this->getBackingStore()->get('organizations');
+        if (is_null($val) || $val instanceof IndustryDataRunEntityCountMetric) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizations'");
     }
 
     /**
@@ -88,7 +111,11 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return IndustryDataRunEntityCountMetric|null
     */
     public function getPeople(): ?IndustryDataRunEntityCountMetric {
-        return $this->getBackingStore()->get('people');
+        $val = $this->getBackingStore()->get('people');
+        if (is_null($val) || $val instanceof IndustryDataRunEntityCountMetric) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'people'");
     }
 
     /**
@@ -96,7 +123,13 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getUnmatchedPeopleByRole(): ?array {
-        return $this->getBackingStore()->get('unmatchedPeopleByRole');
+        $val = $this->getBackingStore()->get('unmatchedPeopleByRole');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRunRoleCountMetric::class);
+            /** @var array<IndustryDataRunRoleCountMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unmatchedPeopleByRole'");
     }
 
     /**
@@ -104,7 +137,11 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
      * @return int|null
     */
     public function getWarnings(): ?int {
-        return $this->getBackingStore()->get('warnings');
+        $val = $this->getBackingStore()->get('warnings');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'warnings'");
     }
 
     /**

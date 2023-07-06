@@ -29,7 +29,11 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return SensitivityLabelTarget|null
     */
     public function getApplicableTo(): ?SensitivityLabelTarget {
-        return $this->getBackingStore()->get('applicableTo');
+        $val = $this->getBackingStore()->get('applicableTo');
+        if (is_null($val) || $val instanceof SensitivityLabelTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableTo'");
     }
 
     /**
@@ -37,12 +41,16 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getDowngradeSensitivityRequiresJustification(): ?bool {
-        return $this->getBackingStore()->get('downgradeSensitivityRequiresJustification');
+        $val = $this->getBackingStore()->get('downgradeSensitivityRequiresJustification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'downgradeSensitivityRequiresJustification'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return string|null
     */
     public function getHelpWebUrl(): ?string {
-        return $this->getBackingStore()->get('helpWebUrl');
+        $val = $this->getBackingStore()->get('helpWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'helpWebUrl'");
     }
 
     /**
@@ -67,7 +79,11 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->getBackingStore()->get('isMandatory');
+        $val = $this->getBackingStore()->get('isMandatory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMandatory'");
     }
 
     /**

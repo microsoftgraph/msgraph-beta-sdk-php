@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Planner extends Entity implements Parsable 
 {
@@ -29,12 +30,18 @@ class Planner extends Entity implements Parsable
      * @return array<PlannerBucket>|null
     */
     public function getBuckets(): ?array {
-        return $this->getBackingStore()->get('buckets');
+        $val = $this->getBackingStore()->get('buckets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerBucket::class);
+            /** @var array<PlannerBucket>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'buckets'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +58,13 @@ class Planner extends Entity implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getPlans(): ?array {
-        return $this->getBackingStore()->get('plans');
+        $val = $this->getBackingStore()->get('plans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlan::class);
+            /** @var array<PlannerPlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'plans'");
     }
 
     /**
@@ -59,7 +72,13 @@ class Planner extends Entity implements Parsable
      * @return array<PlannerRoster>|null
     */
     public function getRosters(): ?array {
-        return $this->getBackingStore()->get('rosters');
+        $val = $this->getBackingStore()->get('rosters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerRoster::class);
+            /** @var array<PlannerRoster>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rosters'");
     }
 
     /**
@@ -67,7 +86,13 @@ class Planner extends Entity implements Parsable
      * @return array<PlannerTask>|null
     */
     public function getTasks(): ?array {
-        return $this->getBackingStore()->get('tasks');
+        $val = $this->getBackingStore()->get('tasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerTask::class);
+            /** @var array<PlannerTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
     }
 
     /**

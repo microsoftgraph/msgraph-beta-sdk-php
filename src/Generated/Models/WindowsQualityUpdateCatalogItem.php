@@ -30,12 +30,16 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return WindowsQualityUpdateClassification|null
     */
     public function getClassification(): ?WindowsQualityUpdateClassification {
-        return $this->getBackingStore()->get('classification');
+        $val = $this->getBackingStore()->get('classification');
+        if (is_null($val) || $val instanceof WindowsQualityUpdateClassification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classification'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return bool|null
     */
     public function getIsExpeditable(): ?bool {
-        return $this->getBackingStore()->get('isExpeditable');
+        $val = $this->getBackingStore()->get('isExpeditable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isExpeditable'");
     }
 
     /**
@@ -59,7 +67,11 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return string|null
     */
     public function getKbArticleId(): ?string {
-        return $this->getBackingStore()->get('kbArticleId');
+        $val = $this->getBackingStore()->get('kbArticleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kbArticleId'");
     }
 
     /**

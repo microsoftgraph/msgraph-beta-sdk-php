@@ -27,7 +27,7 @@ class InvalidLicenseAlertIncident extends UnifiedRoleManagementAlertIncident imp
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,11 +37,15 @@ class InvalidLicenseAlertIncident extends UnifiedRoleManagementAlertIncident imp
     }
 
     /**
-     * Gets the tenantLicenseStatus property value. The tenantLicenseStatus property
+     * Gets the tenantLicenseStatus property value. Status of the tenant's Azure AD Premium P2 license.
      * @return string|null
     */
     public function getTenantLicenseStatus(): ?string {
-        return $this->getBackingStore()->get('tenantLicenseStatus');
+        $val = $this->getBackingStore()->get('tenantLicenseStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantLicenseStatus'");
     }
 
     /**
@@ -54,7 +58,7 @@ class InvalidLicenseAlertIncident extends UnifiedRoleManagementAlertIncident imp
     }
 
     /**
-     * Sets the tenantLicenseStatus property value. The tenantLicenseStatus property
+     * Sets the tenantLicenseStatus property value. Status of the tenant's Azure AD Premium P2 license.
      * @param string|null $value Value to set for the tenantLicenseStatus property.
     */
     public function setTenantLicenseStatus(?string $value): void {

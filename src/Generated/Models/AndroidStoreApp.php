@@ -30,7 +30,11 @@ class AndroidStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
-        return $this->getBackingStore()->get('appIdentifier');
+        $val = $this->getBackingStore()->get('appIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appIdentifier'");
     }
 
     /**
@@ -38,12 +42,16 @@ class AndroidStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->getBackingStore()->get('appStoreUrl');
+        $val = $this->getBackingStore()->get('appStoreUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appStoreUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class AndroidStoreApp extends MobileApp implements Parsable
      * @return AndroidMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?AndroidMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof AndroidMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -68,7 +80,11 @@ class AndroidStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->getBackingStore()->get('packageId');
+        $val = $this->getBackingStore()->get('packageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageId'");
     }
 
     /**

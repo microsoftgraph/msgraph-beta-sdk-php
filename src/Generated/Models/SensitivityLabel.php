@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SensitivityLabel extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return SensitivityLabelTarget|null
     */
     public function getApplicableTo(): ?SensitivityLabelTarget {
-        return $this->getBackingStore()->get('applicableTo');
+        $val = $this->getBackingStore()->get('applicableTo');
+        if (is_null($val) || $val instanceof SensitivityLabelTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableTo'");
     }
 
     /**
@@ -37,7 +42,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return ApplicationMode|null
     */
     public function getApplicationMode(): ?ApplicationMode {
-        return $this->getBackingStore()->get('applicationMode');
+        $val = $this->getBackingStore()->get('applicationMode');
+        if (is_null($val) || $val instanceof ApplicationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationMode'");
     }
 
     /**
@@ -45,7 +54,13 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<LabelPolicy>|null
     */
     public function getAssignedPolicies(): ?array {
-        return $this->getBackingStore()->get('assignedPolicies');
+        $val = $this->getBackingStore()->get('assignedPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LabelPolicy::class);
+            /** @var array<LabelPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedPolicies'");
     }
 
     /**
@@ -53,7 +68,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return AutoLabeling|null
     */
     public function getAutoLabeling(): ?AutoLabeling {
-        return $this->getBackingStore()->get('autoLabeling');
+        $val = $this->getBackingStore()->get('autoLabeling');
+        if (is_null($val) || $val instanceof AutoLabeling) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoLabeling'");
     }
 
     /**
@@ -61,7 +80,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -69,12 +92,16 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +127,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -108,7 +139,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEndpointProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEndpointProtectionEnabled');
+        $val = $this->getBackingStore()->get('isEndpointProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEndpointProtectionEnabled'");
     }
 
     /**
@@ -116,7 +151,13 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<LabelActionBase>|null
     */
     public function getLabelActions(): ?array {
-        return $this->getBackingStore()->get('labelActions');
+        $val = $this->getBackingStore()->get('labelActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LabelActionBase::class);
+            /** @var array<LabelActionBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelActions'");
     }
 
     /**
@@ -124,7 +165,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -132,7 +177,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -140,7 +189,13 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSublabels(): ?array {
-        return $this->getBackingStore()->get('sublabels');
+        $val = $this->getBackingStore()->get('sublabels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitivityLabel::class);
+            /** @var array<SensitivityLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sublabels'");
     }
 
     /**
@@ -148,7 +203,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getToolTip(): ?string {
-        return $this->getBackingStore()->get('toolTip');
+        $val = $this->getBackingStore()->get('toolTip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'toolTip'");
     }
 
     /**

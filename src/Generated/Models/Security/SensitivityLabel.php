@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SensitivityLabel extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getColor(): ?string {
-        return $this->getBackingStore()->get('color');
+        $val = $this->getBackingStore()->get('color');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'color'");
     }
 
     /**
@@ -38,7 +43,13 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getContentFormats(): ?array {
-        return $this->getBackingStore()->get('contentFormats');
+        $val = $this->getBackingStore()->get('contentFormats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentFormats'");
     }
 
     /**
@@ -46,18 +57,29 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
-            'contentFormats' => fn(ParseNode $n) => $o->setContentFormats($n->getCollectionOfPrimitiveValues()),
+            'contentFormats' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setContentFormats($val);
+            },
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'hasProtection' => fn(ParseNode $n) => $o->setHasProtection($n->getBooleanValue()),
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
@@ -74,7 +96,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasProtection(): ?bool {
-        return $this->getBackingStore()->get('hasProtection');
+        $val = $this->getBackingStore()->get('hasProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasProtection'");
     }
 
     /**
@@ -82,7 +108,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->getBackingStore()->get('isActive');
+        $val = $this->getBackingStore()->get('isActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isActive'");
     }
 
     /**
@@ -90,7 +120,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAppliable(): ?bool {
-        return $this->getBackingStore()->get('isAppliable');
+        $val = $this->getBackingStore()->get('isAppliable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAppliable'");
     }
 
     /**
@@ -98,7 +132,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -106,7 +144,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return SensitivityLabel|null
     */
     public function getParent(): ?SensitivityLabel {
-        return $this->getBackingStore()->get('parent');
+        $val = $this->getBackingStore()->get('parent');
+        if (is_null($val) || $val instanceof SensitivityLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parent'");
     }
 
     /**
@@ -114,7 +156,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return int|null
     */
     public function getSensitivity(): ?int {
-        return $this->getBackingStore()->get('sensitivity');
+        $val = $this->getBackingStore()->get('sensitivity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivity'");
     }
 
     /**
@@ -122,7 +168,11 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getTooltip(): ?string {
-        return $this->getBackingStore()->get('tooltip');
+        $val = $this->getBackingStore()->get('tooltip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tooltip'");
     }
 
     /**

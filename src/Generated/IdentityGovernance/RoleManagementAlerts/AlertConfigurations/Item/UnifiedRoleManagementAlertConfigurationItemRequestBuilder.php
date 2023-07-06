@@ -58,7 +58,7 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get alertConfigurations from identityGovernance
+     * The various configurations of an alert for Azure AD roles. The configurations are pre-defined and cannot be created or deleted, but some of the configurations can be modified.
      * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get alertConfigurations from identityGovernance
+     * The various configurations of an alert for Azure AD roles. The configurations are pre-defined and cannot be created or deleted, but some of the configurations can be modified.
      * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

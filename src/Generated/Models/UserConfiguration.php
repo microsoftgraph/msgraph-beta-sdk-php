@@ -30,12 +30,16 @@ class UserConfiguration extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getBinaryData(): ?StreamInterface {
-        return $this->getBackingStore()->get('binaryData');
+        $val = $this->getBackingStore()->get('binaryData');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'binaryData'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

@@ -30,7 +30,11 @@ class MessageEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('dateTime');
+        $val = $this->getBackingStore()->get('dateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateTime'");
     }
 
     /**
@@ -38,7 +42,11 @@ class MessageEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -46,12 +54,16 @@ class MessageEvent extends Entity implements Parsable
      * @return MessageEventType|null
     */
     public function getEventType(): ?MessageEventType {
-        return $this->getBackingStore()->get('eventType');
+        $val = $this->getBackingStore()->get('eventType');
+        if (is_null($val) || $val instanceof MessageEventType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

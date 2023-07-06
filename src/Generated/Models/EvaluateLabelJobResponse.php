@@ -26,7 +26,7 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +40,11 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
      * @return EvaluateLabelJobResultGroup|null
     */
     public function getResult(): ?EvaluateLabelJobResultGroup {
-        return $this->getBackingStore()->get('result');
+        $val = $this->getBackingStore()->get('result');
+        if (is_null($val) || $val instanceof EvaluateLabelJobResultGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * iOS Kerberos authentication settings for single sign-on
@@ -42,7 +43,12 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,13 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return array<AppListItem>|null
     */
     public function getAllowedAppsList(): ?array {
-        return $this->getBackingStore()->get('allowedAppsList');
+        $val = $this->getBackingStore()->get('allowedAppsList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAppsList'");
     }
 
     /**
@@ -58,7 +70,13 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string>|null
     */
     public function getAllowedUrls(): ?array {
-        return $this->getBackingStore()->get('allowedUrls');
+        $val = $this->getBackingStore()->get('allowedUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedUrls'");
     }
 
     /**
@@ -74,18 +92,29 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'allowedAppsList' => fn(ParseNode $n) => $o->setAllowedAppsList($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
-            'allowedUrls' => fn(ParseNode $n) => $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()),
+            'allowedUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedUrls($val);
+            },
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'kerberosPrincipalName' => fn(ParseNode $n) => $o->setKerberosPrincipalName($n->getStringValue()),
             'kerberosRealm' => fn(ParseNode $n) => $o->setKerberosRealm($n->getStringValue()),
@@ -98,7 +127,11 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getKerberosPrincipalName(): ?string {
-        return $this->getBackingStore()->get('kerberosPrincipalName');
+        $val = $this->getBackingStore()->get('kerberosPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kerberosPrincipalName'");
     }
 
     /**
@@ -106,7 +139,11 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getKerberosRealm(): ?string {
-        return $this->getBackingStore()->get('kerberosRealm');
+        $val = $this->getBackingStore()->get('kerberosRealm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kerberosRealm'");
     }
 
     /**
@@ -114,7 +151,11 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -39,7 +39,12 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getBlockedCount(): ?int {
-        return $this->getBackingStore()->get('blockedCount');
+        $val = $this->getBackingStore()->get('blockedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockedCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,7 +98,11 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getTotalCount(): ?int {
-        return $this->getBackingStore()->get('totalCount');
+        $val = $this->getBackingStore()->get('totalCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCount'");
     }
 
     /**
@@ -93,7 +110,11 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return TrafficType|null
     */
     public function getTrafficType(): ?TrafficType {
-        return $this->getBackingStore()->get('trafficType');
+        $val = $this->getBackingStore()->get('trafficType');
+        if (is_null($val) || $val instanceof TrafficType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficType'");
     }
 
     /**

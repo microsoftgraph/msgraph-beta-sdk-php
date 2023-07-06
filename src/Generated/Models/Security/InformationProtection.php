@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class InformationProtection extends Entity implements Parsable 
 {
@@ -27,7 +28,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +43,11 @@ class InformationProtection extends Entity implements Parsable
      * @return InformationProtectionPolicySetting|null
     */
     public function getLabelPolicySettings(): ?InformationProtectionPolicySetting {
-        return $this->getBackingStore()->get('labelPolicySettings');
+        $val = $this->getBackingStore()->get('labelPolicySettings');
+        if (is_null($val) || $val instanceof InformationProtectionPolicySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelPolicySettings'");
     }
 
     /**
@@ -50,7 +55,13 @@ class InformationProtection extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->getBackingStore()->get('sensitivityLabels');
+        $val = $this->getBackingStore()->get('sensitivityLabels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitivityLabel::class);
+            /** @var array<SensitivityLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabels'");
     }
 
     /**

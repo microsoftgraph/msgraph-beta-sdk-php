@@ -30,7 +30,11 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return MobileAppDependencyType|null
     */
     public function getDependencyType(): ?MobileAppDependencyType {
-        return $this->getBackingStore()->get('dependencyType');
+        $val = $this->getBackingStore()->get('dependencyType');
+        if (is_null($val) || $val instanceof MobileAppDependencyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependencyType'");
     }
 
     /**
@@ -38,7 +42,11 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getDependentAppCount(): ?int {
-        return $this->getBackingStore()->get('dependentAppCount');
+        $val = $this->getBackingStore()->get('dependentAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependentAppCount'");
     }
 
     /**
@@ -46,12 +54,16 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getDependsOnAppCount(): ?int {
-        return $this->getBackingStore()->get('dependsOnAppCount');
+        $val = $this->getBackingStore()->get('dependsOnAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dependsOnAppCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

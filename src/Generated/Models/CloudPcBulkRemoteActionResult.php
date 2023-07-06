@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,21 +61,55 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getFailedDeviceIds(): ?array {
-        return $this->getBackingStore()->get('failedDeviceIds');
+        $val = $this->getBackingStore()->get('failedDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedDeviceIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedDeviceIds' => fn(ParseNode $n) => $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()),
-            'notFoundDeviceIds' => fn(ParseNode $n) => $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()),
-            'notSupportedDeviceIds' => fn(ParseNode $n) => $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'failedDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFailedDeviceIds($val);
+            },
+            'notFoundDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNotFoundDeviceIds($val);
+            },
+            'notSupportedDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNotSupportedDeviceIds($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'successfulDeviceIds' => fn(ParseNode $n) => $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'successfulDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSuccessfulDeviceIds($val);
+            },
         ];
     }
 
@@ -78,7 +118,13 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getNotFoundDeviceIds(): ?array {
-        return $this->getBackingStore()->get('notFoundDeviceIds');
+        $val = $this->getBackingStore()->get('notFoundDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notFoundDeviceIds'");
     }
 
     /**
@@ -86,7 +132,13 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getNotSupportedDeviceIds(): ?array {
-        return $this->getBackingStore()->get('notSupportedDeviceIds');
+        $val = $this->getBackingStore()->get('notSupportedDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notSupportedDeviceIds'");
     }
 
     /**
@@ -94,7 +146,11 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +158,13 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
      * @return array<string>|null
     */
     public function getSuccessfulDeviceIds(): ?array {
-        return $this->getBackingStore()->get('successfulDeviceIds');
+        $val = $this->getBackingStore()->get('successfulDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulDeviceIds'");
     }
 
     /**

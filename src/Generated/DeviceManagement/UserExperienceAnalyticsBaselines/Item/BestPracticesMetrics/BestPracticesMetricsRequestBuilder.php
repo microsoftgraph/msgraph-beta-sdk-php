@@ -32,7 +32,7 @@ class BestPracticesMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics best practices metrics.
+     * The scores and insights for the best practices metrics.
      * @param BestPracticesMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class BestPracticesMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics best practices metrics.
+     * The scores and insights for the best practices metrics.
      * @param BestPracticesMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

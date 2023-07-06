@@ -30,7 +30,11 @@ class ProtectSite extends LabelActionBase implements Parsable
      * @return SiteAccessType|null
     */
     public function getAccessType(): ?SiteAccessType {
-        return $this->getBackingStore()->get('accessType');
+        $val = $this->getBackingStore()->get('accessType');
+        if (is_null($val) || $val instanceof SiteAccessType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessType'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ProtectSite extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getConditionalAccessProtectionLevelId(): ?string {
-        return $this->getBackingStore()->get('conditionalAccessProtectionLevelId');
+        $val = $this->getBackingStore()->get('conditionalAccessProtectionLevelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessProtectionLevelId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

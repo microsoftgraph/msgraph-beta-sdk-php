@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PlannerUser extends PlannerDelta implements Parsable 
 {
@@ -29,7 +30,13 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerDelta>|null
     */
     public function getAll(): ?array {
-        return $this->getBackingStore()->get('all');
+        $val = $this->getBackingStore()->get('all');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerDelta::class);
+            /** @var array<PlannerDelta>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'all'");
     }
 
     /**
@@ -37,7 +44,11 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return PlannerFavoritePlanReferenceCollection|null
     */
     public function getFavoritePlanReferences(): ?PlannerFavoritePlanReferenceCollection {
-        return $this->getBackingStore()->get('favoritePlanReferences');
+        $val = $this->getBackingStore()->get('favoritePlanReferences');
+        if (is_null($val) || $val instanceof PlannerFavoritePlanReferenceCollection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'favoritePlanReferences'");
     }
 
     /**
@@ -45,12 +56,18 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getFavoritePlans(): ?array {
-        return $this->getBackingStore()->get('favoritePlans');
+        $val = $this->getBackingStore()->get('favoritePlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlan::class);
+            /** @var array<PlannerPlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'favoritePlans'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +88,13 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getPlans(): ?array {
-        return $this->getBackingStore()->get('plans');
+        $val = $this->getBackingStore()->get('plans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlan::class);
+            /** @var array<PlannerPlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'plans'");
     }
 
     /**
@@ -79,7 +102,11 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return PlannerRecentPlanReferenceCollection|null
     */
     public function getRecentPlanReferences(): ?PlannerRecentPlanReferenceCollection {
-        return $this->getBackingStore()->get('recentPlanReferences');
+        $val = $this->getBackingStore()->get('recentPlanReferences');
+        if (is_null($val) || $val instanceof PlannerRecentPlanReferenceCollection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recentPlanReferences'");
     }
 
     /**
@@ -87,7 +114,13 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getRecentPlans(): ?array {
-        return $this->getBackingStore()->get('recentPlans');
+        $val = $this->getBackingStore()->get('recentPlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlan::class);
+            /** @var array<PlannerPlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recentPlans'");
     }
 
     /**
@@ -95,7 +128,13 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getRosterPlans(): ?array {
-        return $this->getBackingStore()->get('rosterPlans');
+        $val = $this->getBackingStore()->get('rosterPlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlan::class);
+            /** @var array<PlannerPlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rosterPlans'");
     }
 
     /**
@@ -103,7 +142,13 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<PlannerTask>|null
     */
     public function getTasks(): ?array {
-        return $this->getBackingStore()->get('tasks');
+        $val = $this->getBackingStore()->get('tasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerTask::class);
+            /** @var array<PlannerTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
     }
 
     /**

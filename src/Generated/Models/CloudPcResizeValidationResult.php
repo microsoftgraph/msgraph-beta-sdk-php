@@ -39,7 +39,12 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,16 +56,20 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the cloudPcId property value. The cloudPcId property
+     * Gets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
      * @return string|null
     */
     public function getCloudPcId(): ?string {
-        return $this->getBackingStore()->get('cloudPcId');
+        $val = $this->getBackingStore()->get('cloudPcId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,15 +85,23 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the validationResult property value. The validationResult property
+     * Gets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
      * @return CloudPcResizeValidationCode|null
     */
     public function getValidationResult(): ?CloudPcResizeValidationCode {
-        return $this->getBackingStore()->get('validationResult');
+        $val = $this->getBackingStore()->get('validationResult');
+        if (is_null($val) || $val instanceof CloudPcResizeValidationCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'validationResult'");
     }
 
     /**
@@ -115,7 +132,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the cloudPcId property value. The cloudPcId property
+     * Sets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
      * @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value): void {
@@ -131,7 +148,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the validationResult property value. The validationResult property
+     * Sets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
      * @param CloudPcResizeValidationCode|null $value Value to set for the validationResult property.
     */
     public function setValidationResult(?CloudPcResizeValidationCode $value): void {

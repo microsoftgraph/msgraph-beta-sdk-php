@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,13 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<TeamworkConfiguredPeripheral>|null
     */
     public function getConfiguredDisplays(): ?array {
-        return $this->getBackingStore()->get('configuredDisplays');
+        $val = $this->getBackingStore()->get('configuredDisplays');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkConfiguredPeripheral::class);
+            /** @var array<TeamworkConfiguredPeripheral>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configuredDisplays'");
     }
 
     /**
@@ -63,12 +75,16 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return int|null
     */
     public function getDisplayCount(): ?int {
-        return $this->getBackingStore()->get('displayCount');
+        $val = $this->getBackingStore()->get('displayCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +103,11 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return TeamworkDisplayScreenConfiguration|null
     */
     public function getInBuiltDisplayScreenConfiguration(): ?TeamworkDisplayScreenConfiguration {
-        return $this->getBackingStore()->get('inBuiltDisplayScreenConfiguration');
+        $val = $this->getBackingStore()->get('inBuiltDisplayScreenConfiguration');
+        if (is_null($val) || $val instanceof TeamworkDisplayScreenConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inBuiltDisplayScreenConfiguration'");
     }
 
     /**
@@ -95,7 +115,11 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsContentDuplicationAllowed(): ?bool {
-        return $this->getBackingStore()->get('isContentDuplicationAllowed');
+        $val = $this->getBackingStore()->get('isContentDuplicationAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContentDuplicationAllowed'");
     }
 
     /**
@@ -103,7 +127,11 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsDualDisplayModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('isDualDisplayModeEnabled');
+        $val = $this->getBackingStore()->get('isDualDisplayModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDualDisplayModeEnabled'");
     }
 
     /**
@@ -111,7 +139,11 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

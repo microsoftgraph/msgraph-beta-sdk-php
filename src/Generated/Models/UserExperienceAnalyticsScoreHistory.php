@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup score history.
+*/
 class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsScoreHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsScoreHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +30,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,11 +40,15 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
     }
 
     /**
-     * Gets the startupDateTime property value. The user experience analytics device startup date time.
+     * Gets the startupDateTime property value. The device startup date time. The value cannot be modified and is automatically populated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @return DateTime|null
     */
     public function getStartupDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startupDateTime');
+        $val = $this->getBackingStore()->get('startupDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupDateTime'");
     }
 
     /**
@@ -54,7 +61,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
     }
 
     /**
-     * Sets the startupDateTime property value. The user experience analytics device startup date time.
+     * Sets the startupDateTime property value. The device startup date time. The value cannot be modified and is automatically populated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @param DateTime|null $value Value to set for the startupDateTime property.
     */
     public function setStartupDateTime(?DateTime $value): void {

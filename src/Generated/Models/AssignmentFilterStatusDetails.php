@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represent status details for device and payload and all associated applied filters.
@@ -42,7 +43,12 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,13 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return array<KeyValuePair>|null
     */
     public function getDeviceProperties(): ?array {
-        return $this->getBackingStore()->get('deviceProperties');
+        $val = $this->getBackingStore()->get('deviceProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceProperties'");
     }
 
     /**
@@ -66,12 +78,18 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return array<AssignmentFilterEvaluationSummary>|null
     */
     public function getEvalutionSummaries(): ?array {
-        return $this->getBackingStore()->get('evalutionSummaries');
+        $val = $this->getBackingStore()->get('evalutionSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AssignmentFilterEvaluationSummary::class);
+            /** @var array<AssignmentFilterEvaluationSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evalutionSummaries'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +108,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -98,7 +120,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -106,7 +132,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->getBackingStore()->get('payloadId');
+        $val = $this->getBackingStore()->get('payloadId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadId'");
     }
 
     /**
@@ -114,7 +144,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementTemplateStepVersion extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return ManagementTemplateStep|null
     */
     public function getAcceptedFor(): ?ManagementTemplateStep {
-        return $this->getBackingStore()->get('acceptedFor');
+        $val = $this->getBackingStore()->get('acceptedFor');
+        if (is_null($val) || $val instanceof ManagementTemplateStep) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acceptedFor'");
     }
 
     /**
@@ -39,7 +44,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return string|null
     */
     public function getContentMarkdown(): ?string {
-        return $this->getBackingStore()->get('contentMarkdown');
+        $val = $this->getBackingStore()->get('contentMarkdown');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentMarkdown'");
     }
 
     /**
@@ -47,7 +56,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -55,7 +68,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -63,12 +80,18 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return array<ManagementTemplateStepDeployment>|null
     */
     public function getDeployments(): ?array {
-        return $this->getBackingStore()->get('deployments');
+        $val = $this->getBackingStore()->get('deployments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementTemplateStepDeployment::class);
+            /** @var array<ManagementTemplateStepDeployment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployments'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +115,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -100,7 +127,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -108,7 +139,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -116,7 +151,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return ManagementTemplateStep|null
     */
     public function getTemplateStep(): ?ManagementTemplateStep {
-        return $this->getBackingStore()->get('templateStep');
+        $val = $this->getBackingStore()->get('templateStep');
+        if (is_null($val) || $val instanceof ManagementTemplateStep) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateStep'");
     }
 
     /**
@@ -124,7 +163,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**
@@ -132,7 +175,11 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
      * @return string|null
     */
     public function getVersionInformation(): ?string {
-        return $this->getBackingStore()->get('versionInformation');
+        $val = $this->getBackingStore()->get('versionInformation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versionInformation'");
     }
 
     /**

@@ -38,12 +38,16 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getDataStoreId(): ?string {
-        return $this->getBackingStore()->get('dataStoreId');
+        $val = $this->getBackingStore()->get('dataStoreId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataStoreId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +68,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return DateTime|null
     */
     public function getProcessingCompletionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('processingCompletionDateTime');
+        $val = $this->getBackingStore()->get('processingCompletionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processingCompletionDateTime'");
     }
 
     /**
@@ -72,7 +80,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getRemainingBlockCount(): ?int {
-        return $this->getBackingStore()->get('remainingBlockCount');
+        $val = $this->getBackingStore()->get('remainingBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remainingBlockCount'");
     }
 
     /**
@@ -80,7 +92,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getRemainingJobCount(): ?int {
-        return $this->getBackingStore()->get('remainingJobCount');
+        $val = $this->getBackingStore()->get('remainingJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remainingJobCount'");
     }
 
     /**
@@ -88,7 +104,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -96,7 +116,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getTotalBlockCount(): ?int {
-        return $this->getBackingStore()->get('totalBlockCount');
+        $val = $this->getBackingStore()->get('totalBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBlockCount'");
     }
 
     /**
@@ -104,7 +128,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getTotalJobCount(): ?int {
-        return $this->getBackingStore()->get('totalJobCount');
+        $val = $this->getBackingStore()->get('totalJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalJobCount'");
     }
 
     /**
@@ -112,7 +140,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return DateTime|null
     */
     public function getUploadCompletionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('uploadCompletionDateTime');
+        $val = $this->getBackingStore()->get('uploadCompletionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadCompletionDateTime'");
     }
 
     /**

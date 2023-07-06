@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +62,16 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return DelegatedPrivilegeStatus|null
     */
     public function getDelegatedPrivilegeStatus(): ?DelegatedPrivilegeStatus {
-        return $this->getBackingStore()->get('delegatedPrivilegeStatus');
+        $val = $this->getBackingStore()->get('delegatedPrivilegeStatus');
+        if (is_null($val) || $val instanceof DelegatedPrivilegeStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedPrivilegeStatus'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +94,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return DateTime|null
     */
     public function getLastDelegatedPrivilegeRefreshDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastDelegatedPrivilegeRefreshDateTime');
+        $val = $this->getBackingStore()->get('lastDelegatedPrivilegeRefreshDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastDelegatedPrivilegeRefreshDateTime'");
     }
 
     /**
@@ -92,7 +106,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -100,7 +118,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOffboardedByUserId(): ?string {
-        return $this->getBackingStore()->get('offboardedByUserId');
+        $val = $this->getBackingStore()->get('offboardedByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offboardedByUserId'");
     }
 
     /**
@@ -108,7 +130,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return DateTime|null
     */
     public function getOffboardedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('offboardedDateTime');
+        $val = $this->getBackingStore()->get('offboardedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offboardedDateTime'");
     }
 
     /**
@@ -116,7 +142,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOnboardedByUserId(): ?string {
-        return $this->getBackingStore()->get('onboardedByUserId');
+        $val = $this->getBackingStore()->get('onboardedByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardedByUserId'");
     }
 
     /**
@@ -124,7 +154,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return DateTime|null
     */
     public function getOnboardedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('onboardedDateTime');
+        $val = $this->getBackingStore()->get('onboardedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardedDateTime'");
     }
 
     /**
@@ -132,7 +166,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return TenantOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?TenantOnboardingStatus {
-        return $this->getBackingStore()->get('onboardingStatus');
+        $val = $this->getBackingStore()->get('onboardingStatus');
+        if (is_null($val) || $val instanceof TenantOnboardingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardingStatus'");
     }
 
     /**
@@ -140,7 +178,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return TenantOnboardingEligibilityReason|null
     */
     public function getTenantOnboardingEligibilityReason(): ?TenantOnboardingEligibilityReason {
-        return $this->getBackingStore()->get('tenantOnboardingEligibilityReason');
+        $val = $this->getBackingStore()->get('tenantOnboardingEligibilityReason');
+        if (is_null($val) || $val instanceof TenantOnboardingEligibilityReason) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantOnboardingEligibilityReason'");
     }
 
     /**
@@ -148,7 +190,13 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
      * @return array<WorkloadStatus>|null
     */
     public function getWorkloadStatuses(): ?array {
-        return $this->getBackingStore()->get('workloadStatuses');
+        $val = $this->getBackingStore()->get('workloadStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WorkloadStatus::class);
+            /** @var array<WorkloadStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workloadStatuses'");
     }
 
     /**

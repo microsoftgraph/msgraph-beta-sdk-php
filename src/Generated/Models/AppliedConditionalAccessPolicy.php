@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return AuthenticationStrength|null
     */
     public function getAuthenticationStrength(): ?AuthenticationStrength {
-        return $this->getBackingStore()->get('authenticationStrength');
+        $val = $this->getBackingStore()->get('authenticationStrength');
+        if (is_null($val) || $val instanceof AuthenticationStrength) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationStrength'");
     }
 
     /**
@@ -63,7 +73,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<ConditionalAccessConditions>|null
     */
     public function getConditionsNotSatisfied(): ?array {
-        return $this->getBackingStore()->get('conditionsNotSatisfied');
+        $val = $this->getBackingStore()->get('conditionsNotSatisfied');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessConditions::class);
+            /** @var array<ConditionalAccessConditions>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionsNotSatisfied'");
     }
 
     /**
@@ -71,7 +87,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<ConditionalAccessConditions>|null
     */
     public function getConditionsSatisfied(): ?array {
-        return $this->getBackingStore()->get('conditionsSatisfied');
+        $val = $this->getBackingStore()->get('conditionsSatisfied');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessConditions::class);
+            /** @var array<ConditionalAccessConditions>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionsSatisfied'");
     }
 
     /**
@@ -79,7 +101,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -87,7 +113,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getEnforcedGrantControls(): ?array {
-        return $this->getBackingStore()->get('enforcedGrantControls');
+        $val = $this->getBackingStore()->get('enforcedGrantControls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforcedGrantControls'");
     }
 
     /**
@@ -95,7 +127,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getEnforcedSessionControls(): ?array {
-        return $this->getBackingStore()->get('enforcedSessionControls');
+        $val = $this->getBackingStore()->get('enforcedSessionControls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforcedSessionControls'");
     }
 
     /**
@@ -103,12 +141,18 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<ConditionalAccessRuleSatisfied>|null
     */
     public function getExcludeRulesSatisfied(): ?array {
-        return $this->getBackingStore()->get('excludeRulesSatisfied');
+        $val = $this->getBackingStore()->get('excludeRulesSatisfied');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessRuleSatisfied::class);
+            /** @var array<ConditionalAccessRuleSatisfied>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeRulesSatisfied'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -117,14 +161,35 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
             'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
             'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'enforcedGrantControls' => fn(ParseNode $n) => $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()),
-            'enforcedSessionControls' => fn(ParseNode $n) => $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()),
+            'enforcedGrantControls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnforcedGrantControls($val);
+            },
+            'enforcedSessionControls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnforcedSessionControls($val);
+            },
             'excludeRulesSatisfied' => fn(ParseNode $n) => $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues([ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'includeRulesSatisfied' => fn(ParseNode $n) => $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues([ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)),
-            'sessionControlsNotSatisfied' => fn(ParseNode $n) => $o->setSessionControlsNotSatisfied($n->getCollectionOfPrimitiveValues()),
+            'sessionControlsNotSatisfied' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSessionControlsNotSatisfied($val);
+            },
         ];
     }
 
@@ -133,7 +198,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -141,7 +210,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<ConditionalAccessRuleSatisfied>|null
     */
     public function getIncludeRulesSatisfied(): ?array {
-        return $this->getBackingStore()->get('includeRulesSatisfied');
+        $val = $this->getBackingStore()->get('includeRulesSatisfied');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessRuleSatisfied::class);
+            /** @var array<ConditionalAccessRuleSatisfied>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeRulesSatisfied'");
     }
 
     /**
@@ -149,7 +224,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -157,7 +236,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return AppliedConditionalAccessPolicyResult|null
     */
     public function getResult(): ?AppliedConditionalAccessPolicyResult {
-        return $this->getBackingStore()->get('result');
+        $val = $this->getBackingStore()->get('result');
+        if (is_null($val) || $val instanceof AppliedConditionalAccessPolicyResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
     }
 
     /**
@@ -165,7 +248,13 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getSessionControlsNotSatisfied(): ?array {
-        return $this->getBackingStore()->get('sessionControlsNotSatisfied');
+        $val = $this->getBackingStore()->get('sessionControlsNotSatisfied');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessionControlsNotSatisfied'");
     }
 
     /**

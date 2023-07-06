@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
@@ -26,12 +27,19 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'implementations' => fn(ParseNode $n) => $o->setImplementations($n->getCollectionOfPrimitiveValues()),
+            'implementations' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setImplementations($val);
+            },
         ]);
     }
 
@@ -40,7 +48,13 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
      * @return array<string>|null
     */
     public function getImplementations(): ?array {
-        return $this->getBackingStore()->get('implementations');
+        $val = $this->getBackingStore()->get('implementations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'implementations'");
     }
 
     /**

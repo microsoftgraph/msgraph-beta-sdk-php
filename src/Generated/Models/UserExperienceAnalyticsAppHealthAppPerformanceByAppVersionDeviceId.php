@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains application performance by application version device id.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +33,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
-        return $this->getBackingStore()->get('appCrashCount');
+        $val = $this->getBackingStore()->get('appCrashCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appCrashCount'");
     }
 
     /**
@@ -38,7 +45,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -46,7 +57,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->getBackingStore()->get('appName');
+        $val = $this->getBackingStore()->get('appName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appName'");
     }
 
     /**
@@ -54,7 +69,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->getBackingStore()->get('appPublisher');
+        $val = $this->getBackingStore()->get('appPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPublisher'");
     }
 
     /**
@@ -62,28 +81,40 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->getBackingStore()->get('appVersion');
+        $val = $this->getBackingStore()->get('appVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appVersion'");
     }
 
     /**
-     * Gets the deviceDisplayName property value. The name of the device.
+     * Gets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
-     * Gets the deviceId property value. The id of the device.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,11 +131,15 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Gets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Gets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getProcessedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('processedDateTime');
+        $val = $this->getBackingStore()->get('processedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processedDateTime'");
     }
 
     /**
@@ -164,7 +199,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the deviceDisplayName property value. The name of the device.
+     * Sets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
@@ -172,7 +207,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the deviceId property value. The id of the device.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -180,7 +215,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Sets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the processedDateTime property.
     */
     public function setProcessedDateTime(?DateTime $value): void {

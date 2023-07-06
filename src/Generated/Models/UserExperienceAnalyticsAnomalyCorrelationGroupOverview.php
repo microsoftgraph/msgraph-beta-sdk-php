@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return int|null
     */
     public function getAnomalyCorrelationGroupCount(): ?int {
-        return $this->getBackingStore()->get('anomalyCorrelationGroupCount');
+        $val = $this->getBackingStore()->get('anomalyCorrelationGroupCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyCorrelationGroupCount'");
     }
 
     /**
@@ -37,7 +42,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return string|null
     */
     public function getAnomalyId(): ?string {
-        return $this->getBackingStore()->get('anomalyId');
+        $val = $this->getBackingStore()->get('anomalyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyId'");
     }
 
     /**
@@ -45,7 +54,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return int|null
     */
     public function getCorrelationGroupAnomalousDeviceCount(): ?int {
-        return $this->getBackingStore()->get('correlationGroupAnomalousDeviceCount');
+        $val = $this->getBackingStore()->get('correlationGroupAnomalousDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupAnomalousDeviceCount'");
     }
 
     /**
@@ -53,7 +66,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return int|null
     */
     public function getCorrelationGroupAtRiskDeviceCount(): ?int {
-        return $this->getBackingStore()->get('correlationGroupAtRiskDeviceCount');
+        $val = $this->getBackingStore()->get('correlationGroupAtRiskDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupAtRiskDeviceCount'");
     }
 
     /**
@@ -61,7 +78,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return int|null
     */
     public function getCorrelationGroupDeviceCount(): ?int {
-        return $this->getBackingStore()->get('correlationGroupDeviceCount');
+        $val = $this->getBackingStore()->get('correlationGroupDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupDeviceCount'");
     }
 
     /**
@@ -69,7 +90,13 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return array<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>|null
     */
     public function getCorrelationGroupFeatures(): ?array {
-        return $this->getBackingStore()->get('correlationGroupFeatures');
+        $val = $this->getBackingStore()->get('correlationGroupFeatures');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAnomalyCorrelationGroupFeature::class);
+            /** @var array<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupFeatures'");
     }
 
     /**
@@ -77,7 +104,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return string|null
     */
     public function getCorrelationGroupId(): ?string {
-        return $this->getBackingStore()->get('correlationGroupId');
+        $val = $this->getBackingStore()->get('correlationGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupId'");
     }
 
     /**
@@ -85,7 +116,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence|null
     */
     public function getCorrelationGroupPrevalence(): ?UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence {
-        return $this->getBackingStore()->get('correlationGroupPrevalence');
+        $val = $this->getBackingStore()->get('correlationGroupPrevalence');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupPrevalence'");
     }
 
     /**
@@ -93,12 +128,16 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return float|null
     */
     public function getCorrelationGroupPrevalencePercentage(): ?float {
-        return $this->getBackingStore()->get('correlationGroupPrevalencePercentage');
+        $val = $this->getBackingStore()->get('correlationGroupPrevalencePercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupPrevalencePercentage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -121,7 +160,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
      * @return int|null
     */
     public function getTotalDeviceCount(): ?int {
-        return $this->getBackingStore()->get('totalDeviceCount');
+        $val = $this->getBackingStore()->get('totalDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDeviceCount'");
     }
 
     /**

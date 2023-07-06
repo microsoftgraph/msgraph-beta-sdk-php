@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Teamwork extends Entity implements Parsable 
 {
@@ -25,11 +26,31 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
+     * Gets the deletedChats property value. The deletedChats property
+     * @return array<DeletedChat>|null
+    */
+    public function getDeletedChats(): ?array {
+        $val = $this->getBackingStore()->get('deletedChats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeletedChat::class);
+            /** @var array<DeletedChat>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedChats'");
+    }
+
+    /**
      * Gets the deletedTeams property value. A collection of deleted teams.
      * @return array<DeletedTeam>|null
     */
     public function getDeletedTeams(): ?array {
-        return $this->getBackingStore()->get('deletedTeams');
+        $val = $this->getBackingStore()->get('deletedTeams');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeletedTeam::class);
+            /** @var array<DeletedTeam>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedTeams'");
     }
 
     /**
@@ -37,16 +58,23 @@ class Teamwork extends Entity implements Parsable
      * @return array<TeamworkDevice>|null
     */
     public function getDevices(): ?array {
-        return $this->getBackingStore()->get('devices');
+        $val = $this->getBackingStore()->get('devices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkDevice::class);
+            /** @var array<TeamworkDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devices'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deletedChats' => fn(ParseNode $n) => $o->setDeletedChats($n->getCollectionOfObjectValues([DeletedChat::class, 'createFromDiscriminatorValue'])),
             'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
             'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
@@ -60,7 +88,11 @@ class Teamwork extends Entity implements Parsable
      * @return TeamsAppSettings|null
     */
     public function getTeamsAppSettings(): ?TeamsAppSettings {
-        return $this->getBackingStore()->get('teamsAppSettings');
+        $val = $this->getBackingStore()->get('teamsAppSettings');
+        if (is_null($val) || $val instanceof TeamsAppSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsAppSettings'");
     }
 
     /**
@@ -68,7 +100,13 @@ class Teamwork extends Entity implements Parsable
      * @return array<TeamTemplate>|null
     */
     public function getTeamTemplates(): ?array {
-        return $this->getBackingStore()->get('teamTemplates');
+        $val = $this->getBackingStore()->get('teamTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamTemplate::class);
+            /** @var array<TeamTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamTemplates'");
     }
 
     /**
@@ -76,7 +114,13 @@ class Teamwork extends Entity implements Parsable
      * @return array<WorkforceIntegration>|null
     */
     public function getWorkforceIntegrations(): ?array {
-        return $this->getBackingStore()->get('workforceIntegrations');
+        $val = $this->getBackingStore()->get('workforceIntegrations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WorkforceIntegration::class);
+            /** @var array<WorkforceIntegration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workforceIntegrations'");
     }
 
     /**
@@ -85,11 +129,20 @@ class Teamwork extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('deletedChats', $this->getDeletedChats());
         $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
         $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
         $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
         $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->getWorkforceIntegrations());
+    }
+
+    /**
+     * Sets the deletedChats property value. The deletedChats property
+     * @param array<DeletedChat>|null $value Value to set for the deletedChats property.
+    */
+    public function setDeletedChats(?array $value): void {
+        $this->getBackingStore()->set('deletedChats', $value);
     }
 
     /**

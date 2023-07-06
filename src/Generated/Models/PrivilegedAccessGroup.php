@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrivilegedAccessGroup extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<Approval>|null
     */
     public function getAssignmentApprovals(): ?array {
-        return $this->getBackingStore()->get('assignmentApprovals');
+        $val = $this->getBackingStore()->get('assignmentApprovals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Approval::class);
+            /** @var array<Approval>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentApprovals'");
     }
 
     /**
@@ -37,7 +44,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupAssignmentScheduleInstance>|null
     */
     public function getAssignmentScheduleInstances(): ?array {
-        return $this->getBackingStore()->get('assignmentScheduleInstances');
+        $val = $this->getBackingStore()->get('assignmentScheduleInstances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupAssignmentScheduleInstance::class);
+            /** @var array<PrivilegedAccessGroupAssignmentScheduleInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentScheduleInstances'");
     }
 
     /**
@@ -45,7 +58,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupAssignmentScheduleRequest>|null
     */
     public function getAssignmentScheduleRequests(): ?array {
-        return $this->getBackingStore()->get('assignmentScheduleRequests');
+        $val = $this->getBackingStore()->get('assignmentScheduleRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupAssignmentScheduleRequest::class);
+            /** @var array<PrivilegedAccessGroupAssignmentScheduleRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentScheduleRequests'");
     }
 
     /**
@@ -53,7 +72,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupAssignmentSchedule>|null
     */
     public function getAssignmentSchedules(): ?array {
-        return $this->getBackingStore()->get('assignmentSchedules');
+        $val = $this->getBackingStore()->get('assignmentSchedules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupAssignmentSchedule::class);
+            /** @var array<PrivilegedAccessGroupAssignmentSchedule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentSchedules'");
     }
 
     /**
@@ -61,7 +86,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupEligibilityScheduleInstance>|null
     */
     public function getEligibilityScheduleInstances(): ?array {
-        return $this->getBackingStore()->get('eligibilityScheduleInstances');
+        $val = $this->getBackingStore()->get('eligibilityScheduleInstances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupEligibilityScheduleInstance::class);
+            /** @var array<PrivilegedAccessGroupEligibilityScheduleInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibilityScheduleInstances'");
     }
 
     /**
@@ -69,7 +100,13 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupEligibilityScheduleRequest>|null
     */
     public function getEligibilityScheduleRequests(): ?array {
-        return $this->getBackingStore()->get('eligibilityScheduleRequests');
+        $val = $this->getBackingStore()->get('eligibilityScheduleRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupEligibilityScheduleRequest::class);
+            /** @var array<PrivilegedAccessGroupEligibilityScheduleRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibilityScheduleRequests'");
     }
 
     /**
@@ -77,12 +114,18 @@ class PrivilegedAccessGroup extends Entity implements Parsable
      * @return array<PrivilegedAccessGroupEligibilitySchedule>|null
     */
     public function getEligibilitySchedules(): ?array {
-        return $this->getBackingStore()->get('eligibilitySchedules');
+        $val = $this->getBackingStore()->get('eligibilitySchedules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegedAccessGroupEligibilitySchedule::class);
+            /** @var array<PrivilegedAccessGroupEligibilitySchedule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibilitySchedules'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

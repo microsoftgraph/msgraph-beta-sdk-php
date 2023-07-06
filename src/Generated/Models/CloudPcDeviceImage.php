@@ -31,7 +31,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -39,12 +43,16 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
-        return $this->getBackingStore()->get('expirationDate');
+        $val = $this->getBackingStore()->get('expirationDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +75,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -75,7 +87,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
-        return $this->getBackingStore()->get('operatingSystem');
+        $val = $this->getBackingStore()->get('operatingSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystem'");
     }
 
     /**
@@ -83,7 +99,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->getBackingStore()->get('osBuildNumber');
+        $val = $this->getBackingStore()->get('osBuildNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osBuildNumber'");
     }
 
     /**
@@ -91,7 +111,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return CloudPcDeviceImageOsStatus|null
     */
     public function getOsStatus(): ?CloudPcDeviceImageOsStatus {
-        return $this->getBackingStore()->get('osStatus');
+        $val = $this->getBackingStore()->get('osStatus');
+        if (is_null($val) || $val instanceof CloudPcDeviceImageOsStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osStatus'");
     }
 
     /**
@@ -99,7 +123,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceImageResourceId(): ?string {
-        return $this->getBackingStore()->get('sourceImageResourceId');
+        $val = $this->getBackingStore()->get('sourceImageResourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceImageResourceId'");
     }
 
     /**
@@ -107,7 +135,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return CloudPcDeviceImageStatus|null
     */
     public function getStatus(): ?CloudPcDeviceImageStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CloudPcDeviceImageStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -115,7 +147,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return CloudPcDeviceImageStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcDeviceImageStatusDetails {
-        return $this->getBackingStore()->get('statusDetails');
+        $val = $this->getBackingStore()->get('statusDetails');
+        if (is_null($val) || $val instanceof CloudPcDeviceImageStatusDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusDetails'");
     }
 
     /**
@@ -123,7 +159,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

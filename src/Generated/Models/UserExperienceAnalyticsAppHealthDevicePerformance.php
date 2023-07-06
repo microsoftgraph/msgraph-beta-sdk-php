@@ -26,72 +26,104 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the appCrashCount property value. The number of app crashes for the device. Valid values -2147483648 to 2147483647
+     * Gets the appCrashCount property value. The number of application crashes for the device. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
-        return $this->getBackingStore()->get('appCrashCount');
+        $val = $this->getBackingStore()->get('appCrashCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appCrashCount'");
     }
 
     /**
-     * Gets the appHangCount property value. The number of app hangs for the device. Valid values -2147483648 to 2147483647
+     * Gets the appHangCount property value. The number of application hangs for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppHangCount(): ?int {
-        return $this->getBackingStore()->get('appHangCount');
+        $val = $this->getBackingStore()->get('appHangCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appHangCount'");
     }
 
     /**
-     * Gets the crashedAppCount property value. The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+     * Gets the crashedAppCount property value. The number of distinct application crashes for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getCrashedAppCount(): ?int {
-        return $this->getBackingStore()->get('crashedAppCount');
+        $val = $this->getBackingStore()->get('crashedAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crashedAppCount'");
     }
 
     /**
-     * Gets the deviceAppHealthScore property value. The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the deviceAppHealthScore property value. The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getDeviceAppHealthScore(): ?float {
-        return $this->getBackingStore()->get('deviceAppHealthScore');
+        $val = $this->getBackingStore()->get('deviceAppHealthScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceAppHealthScore'");
     }
 
     /**
-     * Gets the deviceDisplayName property value. The name of the device.
+     * Gets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
-     * Gets the deviceId property value. The id of the device.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
-     * Gets the deviceManufacturer property value. The manufacturer name of the device.
+     * Gets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
-        return $this->getBackingStore()->get('deviceManufacturer');
+        $val = $this->getBackingStore()->get('deviceManufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManufacturer'");
     }
 
     /**
-     * Gets the deviceModel property value. The model name of the device.
+     * Gets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -115,23 +147,35 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->getBackingStore()->get('healthStatus');
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
-     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        $val = $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meanTimeToFailureInMinutes'");
     }
 
     /**
-     * Gets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Gets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getProcessedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('processedDateTime');
+        $val = $this->getBackingStore()->get('processedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processedDateTime'");
     }
 
     /**
@@ -154,7 +198,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the appCrashCount property value. The number of app crashes for the device. Valid values -2147483648 to 2147483647
+     * Sets the appCrashCount property value. The number of application crashes for the device. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
@@ -162,7 +206,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the appHangCount property value. The number of app hangs for the device. Valid values -2147483648 to 2147483647
+     * Sets the appHangCount property value. The number of application hangs for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appHangCount property.
     */
     public function setAppHangCount(?int $value): void {
@@ -170,7 +214,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the crashedAppCount property value. The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+     * Sets the crashedAppCount property value. The number of distinct application crashes for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the crashedAppCount property.
     */
     public function setCrashedAppCount(?int $value): void {
@@ -178,7 +222,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceAppHealthScore property value. The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the deviceAppHealthScore property value. The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the deviceAppHealthScore property.
     */
     public function setDeviceAppHealthScore(?float $value): void {
@@ -186,7 +230,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceDisplayName property value. The name of the device.
+     * Sets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
@@ -194,7 +238,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceId property value. The id of the device.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -202,7 +246,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceManufacturer property value. The manufacturer name of the device.
+     * Sets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
@@ -210,7 +254,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceModel property value. The model name of the device.
+     * Sets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
@@ -226,7 +270,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
@@ -234,7 +278,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Sets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the processedDateTime property.
     */
     public function setProcessedDateTime(?DateTime $value): void {

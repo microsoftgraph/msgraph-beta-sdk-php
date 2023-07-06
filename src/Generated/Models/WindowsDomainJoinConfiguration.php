@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getActiveDirectoryDomainName(): ?string {
-        return $this->getBackingStore()->get('activeDirectoryDomainName');
+        $val = $this->getBackingStore()->get('activeDirectoryDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDirectoryDomainName'");
     }
 
     /**
@@ -38,7 +43,11 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getComputerNameStaticPrefix(): ?string {
-        return $this->getBackingStore()->get('computerNameStaticPrefix');
+        $val = $this->getBackingStore()->get('computerNameStaticPrefix');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'computerNameStaticPrefix'");
     }
 
     /**
@@ -46,12 +55,16 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return int|null
     */
     public function getComputerNameSuffixRandomCharCount(): ?int {
-        return $this->getBackingStore()->get('computerNameSuffixRandomCharCount');
+        $val = $this->getBackingStore()->get('computerNameSuffixRandomCharCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'computerNameSuffixRandomCharCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +82,13 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return array<DeviceConfiguration>|null
     */
     public function getNetworkAccessConfigurations(): ?array {
-        return $this->getBackingStore()->get('networkAccessConfigurations');
+        $val = $this->getBackingStore()->get('networkAccessConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceConfiguration::class);
+            /** @var array<DeviceConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkAccessConfigurations'");
     }
 
     /**
@@ -77,7 +96,11 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getOrganizationalUnit(): ?string {
-        return $this->getBackingStore()->get('organizationalUnit');
+        $val = $this->getBackingStore()->get('organizationalUnit');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationalUnit'");
     }
 
     /**

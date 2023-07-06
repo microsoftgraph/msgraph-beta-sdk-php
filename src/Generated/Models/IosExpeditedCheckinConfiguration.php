@@ -27,7 +27,7 @@ class IosExpeditedCheckinConfiguration extends AppleExpeditedCheckinConfiguratio
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

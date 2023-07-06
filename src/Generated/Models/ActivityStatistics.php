@@ -42,7 +42,11 @@ class ActivityStatistics extends Entity implements Parsable
      * @return AnalyticsActivityType|null
     */
     public function getActivity(): ?AnalyticsActivityType {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || $val instanceof AnalyticsActivityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -50,7 +54,11 @@ class ActivityStatistics extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
@@ -58,12 +66,16 @@ class ActivityStatistics extends Entity implements Parsable
      * @return Date|null
     */
     public function getEndDate(): ?Date {
-        return $this->getBackingStore()->get('endDate');
+        $val = $this->getBackingStore()->get('endDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +93,11 @@ class ActivityStatistics extends Entity implements Parsable
      * @return Date|null
     */
     public function getStartDate(): ?Date {
-        return $this->getBackingStore()->get('startDate');
+        $val = $this->getBackingStore()->get('startDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDate'");
     }
 
     /**
@@ -89,7 +105,11 @@ class ActivityStatistics extends Entity implements Parsable
      * @return string|null
     */
     public function getTimeZoneUsed(): ?string {
-        return $this->getBackingStore()->get('timeZoneUsed');
+        $val = $this->getBackingStore()->get('timeZoneUsed');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeZoneUsed'");
     }
 
     /**

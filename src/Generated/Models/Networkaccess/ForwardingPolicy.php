@@ -27,7 +27,7 @@ class ForwardingPolicy extends Policy implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class ForwardingPolicy extends Policy implements Parsable
      * @return TrafficForwardingType|null
     */
     public function getTrafficForwardingType(): ?TrafficForwardingType {
-        return $this->getBackingStore()->get('trafficForwardingType');
+        $val = $this->getBackingStore()->get('trafficForwardingType');
+        if (is_null($val) || $val instanceof TrafficForwardingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficForwardingType'");
     }
 
     /**

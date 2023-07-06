@@ -30,7 +30,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return Enablement|null
     */
     public function getEnhancedBiometricsState(): ?Enablement {
-        return $this->getBackingStore()->get('enhancedBiometricsState');
+        $val = $this->getBackingStore()->get('enhancedBiometricsState');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enhancedBiometricsState'");
     }
 
     /**
@@ -38,12 +42,16 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return int|null
     */
     public function getEnhancedSignInSecurity(): ?int {
-        return $this->getBackingStore()->get('enhancedSignInSecurity');
+        $val = $this->getBackingStore()->get('enhancedSignInSecurity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enhancedSignInSecurity'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +78,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return int|null
     */
     public function getPinExpirationInDays(): ?int {
-        return $this->getBackingStore()->get('pinExpirationInDays');
+        $val = $this->getBackingStore()->get('pinExpirationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinExpirationInDays'");
     }
 
     /**
@@ -78,7 +90,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinLowercaseCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
-        return $this->getBackingStore()->get('pinLowercaseCharactersUsage');
+        $val = $this->getBackingStore()->get('pinLowercaseCharactersUsage');
+        if (is_null($val) || $val instanceof WindowsHelloForBusinessPinUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinLowercaseCharactersUsage'");
     }
 
     /**
@@ -86,7 +102,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return int|null
     */
     public function getPinMaximumLength(): ?int {
-        return $this->getBackingStore()->get('pinMaximumLength');
+        $val = $this->getBackingStore()->get('pinMaximumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinMaximumLength'");
     }
 
     /**
@@ -94,7 +114,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return int|null
     */
     public function getPinMinimumLength(): ?int {
-        return $this->getBackingStore()->get('pinMinimumLength');
+        $val = $this->getBackingStore()->get('pinMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinMinimumLength'");
     }
 
     /**
@@ -102,7 +126,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return int|null
     */
     public function getPinPreviousBlockCount(): ?int {
-        return $this->getBackingStore()->get('pinPreviousBlockCount');
+        $val = $this->getBackingStore()->get('pinPreviousBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinPreviousBlockCount'");
     }
 
     /**
@@ -110,7 +138,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinSpecialCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
-        return $this->getBackingStore()->get('pinSpecialCharactersUsage');
+        $val = $this->getBackingStore()->get('pinSpecialCharactersUsage');
+        if (is_null($val) || $val instanceof WindowsHelloForBusinessPinUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinSpecialCharactersUsage'");
     }
 
     /**
@@ -118,7 +150,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinUppercaseCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
-        return $this->getBackingStore()->get('pinUppercaseCharactersUsage');
+        $val = $this->getBackingStore()->get('pinUppercaseCharactersUsage');
+        if (is_null($val) || $val instanceof WindowsHelloForBusinessPinUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinUppercaseCharactersUsage'");
     }
 
     /**
@@ -126,7 +162,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return bool|null
     */
     public function getRemotePassportEnabled(): ?bool {
-        return $this->getBackingStore()->get('remotePassportEnabled');
+        $val = $this->getBackingStore()->get('remotePassportEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remotePassportEnabled'");
     }
 
     /**
@@ -134,7 +174,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return bool|null
     */
     public function getSecurityDeviceRequired(): ?bool {
-        return $this->getBackingStore()->get('securityDeviceRequired');
+        $val = $this->getBackingStore()->get('securityDeviceRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityDeviceRequired'");
     }
 
     /**
@@ -142,7 +186,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return Enablement|null
     */
     public function getSecurityKeyForSignIn(): ?Enablement {
-        return $this->getBackingStore()->get('securityKeyForSignIn');
+        $val = $this->getBackingStore()->get('securityKeyForSignIn');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityKeyForSignIn'");
     }
 
     /**
@@ -150,7 +198,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return Enablement|null
     */
     public function getState(): ?Enablement {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -158,7 +210,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
      * @return bool|null
     */
     public function getUnlockWithBiometricsEnabled(): ?bool {
-        return $this->getBackingStore()->get('unlockWithBiometricsEnabled');
+        $val = $this->getBackingStore()->get('unlockWithBiometricsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unlockWithBiometricsEnabled'");
     }
 
     /**

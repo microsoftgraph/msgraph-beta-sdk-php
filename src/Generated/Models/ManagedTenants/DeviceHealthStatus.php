@@ -31,7 +31,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getBlueScreenCount(): ?int {
-        return $this->getBackingStore()->get('blueScreenCount');
+        $val = $this->getBackingStore()->get('blueScreenCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blueScreenCount'");
     }
 
     /**
@@ -39,7 +43,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return float|null
     */
     public function getBootTotalDurationInSeconds(): ?float {
-        return $this->getBackingStore()->get('bootTotalDurationInSeconds');
+        $val = $this->getBackingStore()->get('bootTotalDurationInSeconds');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bootTotalDurationInSeconds'");
     }
 
     /**
@@ -47,7 +55,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -55,7 +67,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceMake(): ?string {
-        return $this->getBackingStore()->get('deviceMake');
+        $val = $this->getBackingStore()->get('deviceMake');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceMake'");
     }
 
     /**
@@ -63,7 +79,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
@@ -71,12 +91,16 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +128,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getHealthStatus(): ?string {
-        return $this->getBackingStore()->get('healthStatus');
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
@@ -112,7 +140,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -120,7 +152,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -128,7 +164,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getPrimaryDiskType(): ?string {
-        return $this->getBackingStore()->get('primaryDiskType');
+        $val = $this->getBackingStore()->get('primaryDiskType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryDiskType'");
     }
 
     /**
@@ -136,7 +176,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getRestartCount(): ?int {
-        return $this->getBackingStore()->get('restartCount');
+        $val = $this->getBackingStore()->get('restartCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restartCount'");
     }
 
     /**
@@ -144,7 +188,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return float|null
     */
     public function getStartupPerformanceScore(): ?float {
-        return $this->getBackingStore()->get('startupPerformanceScore');
+        $val = $this->getBackingStore()->get('startupPerformanceScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupPerformanceScore'");
     }
 
     /**
@@ -152,7 +200,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -160,7 +212,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -168,7 +224,11 @@ class DeviceHealthStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTopProcesses(): ?string {
-        return $this->getBackingStore()->get('topProcesses');
+        $val = $this->getBackingStore()->get('topProcesses');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'topProcesses'");
     }
 
     /**

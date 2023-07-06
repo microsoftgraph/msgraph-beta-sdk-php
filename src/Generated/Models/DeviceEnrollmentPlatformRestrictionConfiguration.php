@@ -27,7 +27,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getPlatformRestriction(): ?DeviceEnrollmentPlatformRestriction {
-        return $this->getBackingStore()->get('platformRestriction');
+        $val = $this->getBackingStore()->get('platformRestriction');
+        if (is_null($val) || $val instanceof DeviceEnrollmentPlatformRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformRestriction'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
      * @return EnrollmentRestrictionPlatformType|null
     */
     public function getPlatformType(): ?EnrollmentRestrictionPlatformType {
-        return $this->getBackingStore()->get('platformType');
+        $val = $this->getBackingStore()->get('platformType');
+        if (is_null($val) || $val instanceof EnrollmentRestrictionPlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformType'");
     }
 
     /**

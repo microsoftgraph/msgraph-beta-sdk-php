@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getAllOtherUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->getBackingStore()->get('allOtherUpdateBehavior');
+        $val = $this->getBackingStore()->get('allOtherUpdateBehavior');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allOtherUpdateBehavior'");
     }
 
     /**
@@ -38,7 +43,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getConfigDataUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->getBackingStore()->get('configDataUpdateBehavior');
+        $val = $this->getBackingStore()->get('configDataUpdateBehavior');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configDataUpdateBehavior'");
     }
 
     /**
@@ -46,7 +55,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getCriticalUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->getBackingStore()->get('criticalUpdateBehavior');
+        $val = $this->getBackingStore()->get('criticalUpdateBehavior');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'criticalUpdateBehavior'");
     }
 
     /**
@@ -54,12 +67,18 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return array<CustomUpdateTimeWindow>|null
     */
     public function getCustomUpdateTimeWindows(): ?array {
-        return $this->getBackingStore()->get('customUpdateTimeWindows');
+        $val = $this->getBackingStore()->get('customUpdateTimeWindows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomUpdateTimeWindow::class);
+            /** @var array<CustomUpdateTimeWindow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customUpdateTimeWindows'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +100,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getFirmwareUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->getBackingStore()->get('firmwareUpdateBehavior');
+        $val = $this->getBackingStore()->get('firmwareUpdateBehavior');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareUpdateBehavior'");
     }
 
     /**
@@ -89,7 +112,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getMaxUserDeferralsCount(): ?int {
-        return $this->getBackingStore()->get('maxUserDeferralsCount');
+        $val = $this->getBackingStore()->get('maxUserDeferralsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxUserDeferralsCount'");
     }
 
     /**
@@ -97,7 +124,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSPriority|null
     */
     public function getPriority(): ?MacOSPriority {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || $val instanceof MacOSPriority) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -105,7 +136,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?MacOSSoftwareUpdateScheduleType {
-        return $this->getBackingStore()->get('updateScheduleType');
+        $val = $this->getBackingStore()->get('updateScheduleType');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateScheduleType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateScheduleType'");
     }
 
     /**
@@ -113,7 +148,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getUpdateTimeWindowUtcOffsetInMinutes(): ?int {
-        return $this->getBackingStore()->get('updateTimeWindowUtcOffsetInMinutes');
+        $val = $this->getBackingStore()->get('updateTimeWindowUtcOffsetInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateTimeWindowUtcOffsetInMinutes'");
     }
 
     /**

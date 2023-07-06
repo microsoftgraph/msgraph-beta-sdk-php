@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
@@ -30,12 +31,16 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
      * @return bool|null
     */
     public function getAllowUnmanagedValues(): ?bool {
-        return $this->getBackingStore()->get('allowUnmanagedValues');
+        $val = $this->getBackingStore()->get('allowUnmanagedValues');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowUnmanagedValues'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +55,13 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
      * @return array<DeviceManagementConfigurationSimpleSettingValueTemplate>|null
     */
     public function getSimpleSettingCollectionValueTemplate(): ?array {
-        return $this->getBackingStore()->get('simpleSettingCollectionValueTemplate');
+        $val = $this->getBackingStore()->get('simpleSettingCollectionValueTemplate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSimpleSettingValueTemplate::class);
+            /** @var array<DeviceManagementConfigurationSimpleSettingValueTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simpleSettingCollectionValueTemplate'");
     }
 
     /**

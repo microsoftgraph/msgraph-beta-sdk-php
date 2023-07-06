@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationSettingDefinition extends Entity implements Parsable 
 {
@@ -42,15 +43,23 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingAccessTypes|null
     */
     public function getAccessTypes(): ?DeviceManagementConfigurationSettingAccessTypes {
-        return $this->getBackingStore()->get('accessTypes');
+        $val = $this->getBackingStore()->get('accessTypes');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingAccessTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessTypes'");
     }
 
     /**
-     * Gets the applicability property value. Details which device setting is applicable on. Supports: $filters.
+     * Gets the applicability property value. Details which device setting is applicable on
      * @return DeviceManagementConfigurationSettingApplicability|null
     */
     public function getApplicability(): ?DeviceManagementConfigurationSettingApplicability {
-        return $this->getBackingStore()->get('applicability');
+        $val = $this->getBackingStore()->get('applicability');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingApplicability) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicability'");
     }
 
     /**
@@ -58,36 +67,52 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getBaseUri(): ?string {
-        return $this->getBackingStore()->get('baseUri');
+        $val = $this->getBackingStore()->get('baseUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'baseUri'");
     }
 
     /**
-     * Gets the categoryId property value. Specify category in which the setting is under. Support $filters.
+     * Gets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
      * @return string|null
     */
     public function getCategoryId(): ?string {
-        return $this->getBackingStore()->get('categoryId');
+        $val = $this->getBackingStore()->get('categoryId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryId'");
     }
 
     /**
-     * Gets the description property value. Description of the setting.
+     * Gets the description property value. Description of the item
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
-     * Gets the displayName property value. Name of the setting. For example: Allow Toast.
+     * Gets the displayName property value. Display name of the item
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,8 +124,22 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'helpText' => fn(ParseNode $n) => $o->setHelpText($n->getStringValue()),
-            'infoUrls' => fn(ParseNode $n) => $o->setInfoUrls($n->getCollectionOfPrimitiveValues()),
-            'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getCollectionOfPrimitiveValues()),
+            'infoUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setInfoUrls($val);
+            },
+            'keywords' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKeywords($val);
+            },
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'occurrence' => fn(ParseNode $n) => $o->setOccurrence($n->getObjectValue([DeviceManagementConfigurationSettingOccurrence::class, 'createFromDiscriminatorValue'])),
             'offsetUri' => fn(ParseNode $n) => $o->setOffsetUri($n->getStringValue()),
@@ -114,19 +153,29 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the helpText property value. Help text of the setting. Give more details of the setting.
+     * Gets the helpText property value. Help text of the item
      * @return string|null
     */
     public function getHelpText(): ?string {
-        return $this->getBackingStore()->get('helpText');
+        $val = $this->getBackingStore()->get('helpText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'helpText'");
     }
 
     /**
-     * Gets the infoUrls property value. List of links more info for the setting can be found at.
+     * Gets the infoUrls property value. List of links more info for the setting can be found at
      * @return array<string>|null
     */
     public function getInfoUrls(): ?array {
-        return $this->getBackingStore()->get('infoUrls');
+        $val = $this->getBackingStore()->get('infoUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'infoUrls'");
     }
 
     /**
@@ -134,7 +183,13 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return array<string>|null
     */
     public function getKeywords(): ?array {
-        return $this->getBackingStore()->get('keywords');
+        $val = $this->getBackingStore()->get('keywords');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keywords'");
     }
 
     /**
@@ -142,7 +197,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -150,7 +209,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingOccurrence|null
     */
     public function getOccurrence(): ?DeviceManagementConfigurationSettingOccurrence {
-        return $this->getBackingStore()->get('occurrence');
+        $val = $this->getBackingStore()->get('occurrence');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingOccurrence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'occurrence'");
     }
 
     /**
@@ -158,7 +221,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getOffsetUri(): ?string {
-        return $this->getBackingStore()->get('offsetUri');
+        $val = $this->getBackingStore()->get('offsetUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offsetUri'");
     }
 
     /**
@@ -166,15 +233,25 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return array<DeviceManagementConfigurationReferredSettingInformation>|null
     */
     public function getReferredSettingInformationList(): ?array {
-        return $this->getBackingStore()->get('referredSettingInformationList');
+        $val = $this->getBackingStore()->get('referredSettingInformationList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationReferredSettingInformation::class);
+            /** @var array<DeviceManagementConfigurationReferredSettingInformation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referredSettingInformationList'");
     }
 
     /**
-     * Gets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
+     * Gets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
      * @return string|null
     */
     public function getRootDefinitionId(): ?string {
-        return $this->getBackingStore()->get('rootDefinitionId');
+        $val = $this->getBackingStore()->get('rootDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootDefinitionId'");
     }
 
     /**
@@ -182,7 +259,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingUsage|null
     */
     public function getSettingUsage(): ?DeviceManagementConfigurationSettingUsage {
-        return $this->getBackingStore()->get('settingUsage');
+        $val = $this->getBackingStore()->get('settingUsage');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingUsage'");
     }
 
     /**
@@ -190,7 +271,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationControlType|null
     */
     public function getUxBehavior(): ?DeviceManagementConfigurationControlType {
-        return $this->getBackingStore()->get('uxBehavior');
+        $val = $this->getBackingStore()->get('uxBehavior');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationControlType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uxBehavior'");
     }
 
     /**
@@ -198,7 +283,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**
@@ -206,7 +295,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingVisibility|null
     */
     public function getVisibility(): ?DeviceManagementConfigurationSettingVisibility {
-        return $this->getBackingStore()->get('visibility');
+        $val = $this->getBackingStore()->get('visibility');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingVisibility) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'visibility'");
     }
 
     /**
@@ -244,7 +337,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the applicability property value. Details which device setting is applicable on. Supports: $filters.
+     * Sets the applicability property value. Details which device setting is applicable on
      * @param DeviceManagementConfigurationSettingApplicability|null $value Value to set for the applicability property.
     */
     public function setApplicability(?DeviceManagementConfigurationSettingApplicability $value): void {
@@ -260,7 +353,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the categoryId property value. Specify category in which the setting is under. Support $filters.
+     * Sets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
      * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {
@@ -268,7 +361,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the description property value. Description of the setting.
+     * Sets the description property value. Description of the item
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -276,7 +369,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the displayName property value. Name of the setting. For example: Allow Toast.
+     * Sets the displayName property value. Display name of the item
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -284,7 +377,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the helpText property value. Help text of the setting. Give more details of the setting.
+     * Sets the helpText property value. Help text of the item
      * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
@@ -292,7 +385,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the infoUrls property value. List of links more info for the setting can be found at.
+     * Sets the infoUrls property value. List of links more info for the setting can be found at
      * @param array<string>|null $value Value to set for the infoUrls property.
     */
     public function setInfoUrls(?array $value): void {
@@ -340,7 +433,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
+     * Sets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
      * @param string|null $value Value to set for the rootDefinitionId property.
     */
     public function setRootDefinitionId(?string $value): void {

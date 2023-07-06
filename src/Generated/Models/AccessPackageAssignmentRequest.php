@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessPackageAssignmentRequest extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return AccessPackage|null
     */
     public function getAccessPackage(): ?AccessPackage {
-        return $this->getBackingStore()->get('accessPackage');
+        $val = $this->getBackingStore()->get('accessPackage');
+        if (is_null($val) || $val instanceof AccessPackage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackage'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return AccessPackageAssignment|null
     */
     public function getAccessPackageAssignment(): ?AccessPackageAssignment {
-        return $this->getBackingStore()->get('accessPackageAssignment');
+        $val = $this->getBackingStore()->get('accessPackageAssignment');
+        if (is_null($val) || $val instanceof AccessPackageAssignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageAssignment'");
     }
 
     /**
@@ -46,7 +55,13 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return array<AccessPackageAnswer>|null
     */
     public function getAnswers(): ?array {
-        return $this->getBackingStore()->get('answers');
+        $val = $this->getBackingStore()->get('answers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageAnswer::class);
+            /** @var array<AccessPackageAnswer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'answers'");
     }
 
     /**
@@ -54,7 +69,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDate(): ?DateTime {
-        return $this->getBackingStore()->get('completedDate');
+        $val = $this->getBackingStore()->get('completedDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDate'");
     }
 
     /**
@@ -62,7 +81,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -70,7 +93,13 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return array<CustomExtensionCalloutInstance>|null
     */
     public function getCustomExtensionCalloutInstances(): ?array {
-        return $this->getBackingStore()->get('customExtensionCalloutInstances');
+        $val = $this->getBackingStore()->get('customExtensionCalloutInstances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomExtensionCalloutInstance::class);
+            /** @var array<CustomExtensionCalloutInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customExtensionCalloutInstances'");
     }
 
     /**
@@ -78,7 +107,13 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return array<CustomExtensionHandlerInstance>|null
     */
     public function getCustomExtensionHandlerInstances(): ?array {
-        return $this->getBackingStore()->get('customExtensionHandlerInstances');
+        $val = $this->getBackingStore()->get('customExtensionHandlerInstances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomExtensionHandlerInstance::class);
+            /** @var array<CustomExtensionHandlerInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customExtensionHandlerInstances'");
     }
 
     /**
@@ -86,12 +121,16 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -120,7 +159,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
-        return $this->getBackingStore()->get('isValidationOnly');
+        $val = $this->getBackingStore()->get('isValidationOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isValidationOnly'");
     }
 
     /**
@@ -128,7 +171,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->getBackingStore()->get('justification');
+        $val = $this->getBackingStore()->get('justification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
     }
 
     /**
@@ -136,7 +183,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return AccessPackageSubject|null
     */
     public function getRequestor(): ?AccessPackageSubject {
-        return $this->getBackingStore()->get('requestor');
+        $val = $this->getBackingStore()->get('requestor');
+        if (is_null($val) || $val instanceof AccessPackageSubject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestor'");
     }
 
     /**
@@ -144,7 +195,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestState(): ?string {
-        return $this->getBackingStore()->get('requestState');
+        $val = $this->getBackingStore()->get('requestState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestState'");
     }
 
     /**
@@ -152,7 +207,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestStatus(): ?string {
-        return $this->getBackingStore()->get('requestStatus');
+        $val = $this->getBackingStore()->get('requestStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestStatus'");
     }
 
     /**
@@ -160,7 +219,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestType(): ?string {
-        return $this->getBackingStore()->get('requestType');
+        $val = $this->getBackingStore()->get('requestType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestType'");
     }
 
     /**
@@ -168,7 +231,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return RequestSchedule|null
     */
     public function getSchedule(): ?RequestSchedule {
-        return $this->getBackingStore()->get('schedule');
+        $val = $this->getBackingStore()->get('schedule');
+        if (is_null($val) || $val instanceof RequestSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedule'");
     }
 
     /**
@@ -176,7 +243,13 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @return array<VerifiedCredentialData>|null
     */
     public function getVerifiedCredentialsData(): ?array {
-        return $this->getBackingStore()->get('verifiedCredentialsData');
+        $val = $this->getBackingStore()->get('verifiedCredentialsData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VerifiedCredentialData::class);
+            /** @var array<VerifiedCredentialData>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedCredentialsData'");
     }
 
     /**

@@ -29,7 +29,11 @@ class SensitiveType extends Entity implements Parsable
      * @return ClassificationMethod|null
     */
     public function getClassificationMethod(): ?ClassificationMethod {
-        return $this->getBackingStore()->get('classificationMethod');
+        $val = $this->getBackingStore()->get('classificationMethod');
+        if (is_null($val) || $val instanceof ClassificationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classificationMethod'");
     }
 
     /**
@@ -37,12 +41,16 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -72,7 +84,11 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisherName(): ?string {
-        return $this->getBackingStore()->get('publisherName');
+        $val = $this->getBackingStore()->get('publisherName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisherName'");
     }
 
     /**
@@ -80,7 +96,11 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getRulePackageId(): ?string {
-        return $this->getBackingStore()->get('rulePackageId');
+        $val = $this->getBackingStore()->get('rulePackageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rulePackageId'");
     }
 
     /**
@@ -88,7 +108,11 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getRulePackageType(): ?string {
-        return $this->getBackingStore()->get('rulePackageType');
+        $val = $this->getBackingStore()->get('rulePackageType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rulePackageType'");
     }
 
     /**
@@ -96,7 +120,11 @@ class SensitiveType extends Entity implements Parsable
      * @return SensitiveTypeScope|null
     */
     public function getScope(): ?SensitiveTypeScope {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**
@@ -104,7 +132,11 @@ class SensitiveType extends Entity implements Parsable
      * @return SensitiveTypeSource|null
     */
     public function getSensitiveTypeSource(): ?SensitiveTypeSource {
-        return $this->getBackingStore()->get('sensitiveTypeSource');
+        $val = $this->getBackingStore()->get('sensitiveTypeSource');
+        if (is_null($val) || $val instanceof SensitiveTypeSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeSource'");
     }
 
     /**
@@ -112,7 +144,11 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

@@ -31,7 +31,11 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->getBackingStore()->get('certFileName');
+        $val = $this->getBackingStore()->get('certFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certFileName'");
     }
 
     /**
@@ -39,12 +43,16 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
      * @return CertificateDestinationStore|null
     */
     public function getDestinationStore(): ?CertificateDestinationStore {
-        return $this->getBackingStore()->get('destinationStore');
+        $val = $this->getBackingStore()->get('destinationStore');
+        if (is_null($val) || $val instanceof CertificateDestinationStore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationStore'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
      * @return StreamInterface|null
     */
     public function getTrustedRootCertificate(): ?StreamInterface {
-        return $this->getBackingStore()->get('trustedRootCertificate');
+        $val = $this->getBackingStore()->get('trustedRootCertificate');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedRootCertificate'");
     }
 
     /**

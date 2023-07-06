@@ -30,7 +30,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->getBackingStore()->get('accountName');
+        $val = $this->getBackingStore()->get('accountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->getBackingStore()->get('durationOfEmailToSync');
+        $val = $this->getBackingStore()->get('durationOfEmailToSync');
+        if (is_null($val) || $val instanceof EmailSyncDuration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationOfEmailToSync'");
     }
 
     /**
@@ -46,7 +54,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->getBackingStore()->get('emailAddressSource');
+        $val = $this->getBackingStore()->get('emailAddressSource');
+        if (is_null($val) || $val instanceof UserEmailSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddressSource'");
     }
 
     /**
@@ -54,12 +66,16 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return EmailSyncSchedule|null
     */
     public function getEmailSyncSchedule(): ?EmailSyncSchedule {
-        return $this->getBackingStore()->get('emailSyncSchedule');
+        $val = $this->getBackingStore()->get('emailSyncSchedule');
+        if (is_null($val) || $val instanceof EmailSyncSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSyncSchedule'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +97,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->getBackingStore()->get('hostName');
+        $val = $this->getBackingStore()->get('hostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostName'");
     }
 
     /**
@@ -89,7 +109,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->getBackingStore()->get('requireSsl');
+        $val = $this->getBackingStore()->get('requireSsl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSsl'");
     }
 
     /**
@@ -97,7 +121,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncCalendar(): ?bool {
-        return $this->getBackingStore()->get('syncCalendar');
+        $val = $this->getBackingStore()->get('syncCalendar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncCalendar'");
     }
 
     /**
@@ -105,7 +133,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncContacts(): ?bool {
-        return $this->getBackingStore()->get('syncContacts');
+        $val = $this->getBackingStore()->get('syncContacts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncContacts'");
     }
 
     /**
@@ -113,7 +145,11 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncTasks(): ?bool {
-        return $this->getBackingStore()->get('syncTasks');
+        $val = $this->getBackingStore()->get('syncTasks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncTasks'");
     }
 
     /**

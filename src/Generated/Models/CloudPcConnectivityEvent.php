@@ -40,7 +40,12 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
@@ -64,7 +73,11 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getEventName(): ?string {
-        return $this->getBackingStore()->get('eventName');
+        $val = $this->getBackingStore()->get('eventName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventName'");
     }
 
     /**
@@ -72,7 +85,11 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return CloudPcConnectivityEventResult|null
     */
     public function getEventResult(): ?CloudPcConnectivityEventResult {
-        return $this->getBackingStore()->get('eventResult');
+        $val = $this->getBackingStore()->get('eventResult');
+        if (is_null($val) || $val instanceof CloudPcConnectivityEventResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventResult'");
     }
 
     /**
@@ -80,12 +97,16 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return CloudPcConnectivityEventType|null
     */
     public function getEventType(): ?CloudPcConnectivityEventType {
-        return $this->getBackingStore()->get('eventType');
+        $val = $this->getBackingStore()->get('eventType');
+        if (is_null($val) || $val instanceof CloudPcConnectivityEventType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +125,11 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->getBackingStore()->get('message');
+        $val = $this->getBackingStore()->get('message');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'message'");
     }
 
     /**
@@ -112,7 +137,11 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

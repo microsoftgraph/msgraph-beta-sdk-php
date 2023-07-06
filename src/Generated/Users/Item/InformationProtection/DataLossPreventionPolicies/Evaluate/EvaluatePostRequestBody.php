@@ -41,7 +41,12 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -57,12 +62,16 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return DlpEvaluationInput|null
     */
     public function getEvaluationInput(): ?DlpEvaluationInput {
-        return $this->getBackingStore()->get('evaluationInput');
+        $val = $this->getBackingStore()->get('evaluationInput');
+        if (is_null($val) || $val instanceof DlpEvaluationInput) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationInput'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return DlpNotification|null
     */
     public function getNotificationInfo(): ?DlpNotification {
-        return $this->getBackingStore()->get('notificationInfo');
+        $val = $this->getBackingStore()->get('notificationInfo');
+        if (is_null($val) || $val instanceof DlpNotification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationInfo'");
     }
 
     /**
@@ -86,7 +99,11 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getTarget(): ?string {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

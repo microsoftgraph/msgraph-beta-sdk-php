@@ -38,12 +38,16 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
      * @return ScheduleRequestActions|null
     */
     public function getAction(): ?ScheduleRequestActions {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof ScheduleRequestActions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +65,11 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
-        return $this->getBackingStore()->get('isValidationOnly');
+        $val = $this->getBackingStore()->get('isValidationOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isValidationOnly'");
     }
 
     /**
@@ -69,7 +77,11 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->getBackingStore()->get('justification');
+        $val = $this->getBackingStore()->get('justification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
     }
 
     /**
@@ -77,7 +89,11 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
-        return $this->getBackingStore()->get('scheduleInfo');
+        $val = $this->getBackingStore()->get('scheduleInfo');
+        if (is_null($val) || $val instanceof RequestSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduleInfo'");
     }
 
     /**
@@ -85,7 +101,11 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
      * @return TicketInfo|null
     */
     public function getTicketInfo(): ?TicketInfo {
-        return $this->getBackingStore()->get('ticketInfo');
+        $val = $this->getBackingStore()->get('ticketInfo');
+        if (is_null($val) || $val instanceof TicketInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketInfo'");
     }
 
     /**

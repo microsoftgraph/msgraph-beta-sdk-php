@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementTemplateInsightsDefinition extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class DeviceManagementTemplateInsightsDefinition extends Entity implements Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +41,13 @@ class DeviceManagementTemplateInsightsDefinition extends Entity implements Parsa
      * @return array<DeviceManagementSettingInsightsDefinition>|null
     */
     public function getSettingInsights(): ?array {
-        return $this->getBackingStore()->get('settingInsights');
+        $val = $this->getBackingStore()->get('settingInsights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingInsightsDefinition::class);
+            /** @var array<DeviceManagementSettingInsightsDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingInsights'");
     }
 
     /**

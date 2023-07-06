@@ -30,7 +30,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getConfigurationVersion(): ?int {
-        return $this->getBackingStore()->get('configurationVersion');
+        $val = $this->getBackingStore()->get('configurationVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationVersion'");
     }
 
     /**
@@ -38,7 +42,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->getBackingStore()->get('conflictCount');
+        $val = $this->getBackingStore()->get('conflictCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictCount'");
     }
 
     /**
@@ -46,7 +54,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->getBackingStore()->get('errorCount');
+        $val = $this->getBackingStore()->get('errorCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCount'");
     }
 
     /**
@@ -54,12 +66,16 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedCount(): ?int {
-        return $this->getBackingStore()->get('failedCount');
+        $val = $this->getBackingStore()->get('failedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +96,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdateDateTime');
+        $val = $this->getBackingStore()->get('lastUpdateDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdateDateTime'");
     }
 
     /**
@@ -88,7 +108,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableCount');
+        $val = $this->getBackingStore()->get('notApplicableCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableCount'");
     }
 
     /**
@@ -96,7 +120,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getPendingCount(): ?int {
-        return $this->getBackingStore()->get('pendingCount');
+        $val = $this->getBackingStore()->get('pendingCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingCount'");
     }
 
     /**
@@ -104,7 +132,11 @@ class DeviceComplianceUserOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessCount(): ?int {
-        return $this->getBackingStore()->get('successCount');
+        $val = $this->getBackingStore()->get('successCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successCount'");
     }
 
     /**

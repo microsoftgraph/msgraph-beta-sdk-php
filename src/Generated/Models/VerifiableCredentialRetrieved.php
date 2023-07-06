@@ -31,12 +31,16 @@ class VerifiableCredentialRetrieved extends VerifiableCredentialRequirementStatu
      * @return DateTime|null
     */
     public function getExpiryDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expiryDateTime');
+        $val = $this->getBackingStore()->get('expiryDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expiryDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

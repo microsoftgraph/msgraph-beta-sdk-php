@@ -48,7 +48,12 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,7 +69,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -72,12 +81,16 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return DeviceManagementConfigurationDeviceMode|null
     */
     public function getDeviceMode(): ?DeviceManagementConfigurationDeviceMode {
-        return $this->getBackingStore()->get('deviceMode');
+        $val = $this->getBackingStore()->get('deviceMode');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationDeviceMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceMode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -95,7 +108,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +120,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatform(): ?DeviceManagementConfigurationPlatforms {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationPlatforms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -111,7 +132,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
-        return $this->getBackingStore()->get('technologies');
+        $val = $this->getBackingStore()->get('technologies');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationTechnologies) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'technologies'");
     }
 
     /**

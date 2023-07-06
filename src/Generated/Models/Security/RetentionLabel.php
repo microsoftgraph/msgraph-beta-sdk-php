@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RetentionLabel extends Entity implements Parsable 
 {
@@ -32,7 +33,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return ActionAfterRetentionPeriod|null
     */
     public function getActionAfterRetentionPeriod(): ?ActionAfterRetentionPeriod {
-        return $this->getBackingStore()->get('actionAfterRetentionPeriod');
+        $val = $this->getBackingStore()->get('actionAfterRetentionPeriod');
+        if (is_null($val) || $val instanceof ActionAfterRetentionPeriod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionAfterRetentionPeriod'");
     }
 
     /**
@@ -40,7 +45,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return BehaviorDuringRetentionPeriod|null
     */
     public function getBehaviorDuringRetentionPeriod(): ?BehaviorDuringRetentionPeriod {
-        return $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
+        $val = $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
+        if (is_null($val) || $val instanceof BehaviorDuringRetentionPeriod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'behaviorDuringRetentionPeriod'");
     }
 
     /**
@@ -48,7 +57,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -56,7 +69,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -64,7 +81,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return DefaultRecordBehavior|null
     */
     public function getDefaultRecordBehavior(): ?DefaultRecordBehavior {
-        return $this->getBackingStore()->get('defaultRecordBehavior');
+        $val = $this->getBackingStore()->get('defaultRecordBehavior');
+        if (is_null($val) || $val instanceof DefaultRecordBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultRecordBehavior'");
     }
 
     /**
@@ -72,7 +93,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescriptionForAdmins(): ?string {
-        return $this->getBackingStore()->get('descriptionForAdmins');
+        $val = $this->getBackingStore()->get('descriptionForAdmins');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'descriptionForAdmins'");
     }
 
     /**
@@ -80,7 +105,23 @@ class RetentionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescriptionForUsers(): ?string {
-        return $this->getBackingStore()->get('descriptionForUsers');
+        $val = $this->getBackingStore()->get('descriptionForUsers');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'descriptionForUsers'");
+    }
+
+    /**
+     * Gets the descriptors property value. Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.
+     * @return FilePlanDescriptor|null
+    */
+    public function getDescriptors(): ?FilePlanDescriptor {
+        $val = $this->getBackingStore()->get('descriptors');
+        if (is_null($val) || $val instanceof FilePlanDescriptor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'descriptors'");
     }
 
     /**
@@ -88,20 +129,30 @@ class RetentionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
-     * Gets the dispositionReviewStages property value. Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * Gets the dispositionReviewStages property value. When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @return array<DispositionReviewStage>|null
     */
     public function getDispositionReviewStages(): ?array {
-        return $this->getBackingStore()->get('dispositionReviewStages');
+        $val = $this->getBackingStore()->get('dispositionReviewStages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DispositionReviewStage::class);
+            /** @var array<DispositionReviewStage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dispositionReviewStages'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -113,6 +164,7 @@ class RetentionLabel extends Entity implements Parsable
             'defaultRecordBehavior' => fn(ParseNode $n) => $o->setDefaultRecordBehavior($n->getEnumValue(DefaultRecordBehavior::class)),
             'descriptionForAdmins' => fn(ParseNode $n) => $o->setDescriptionForAdmins($n->getStringValue()),
             'descriptionForUsers' => fn(ParseNode $n) => $o->setDescriptionForUsers($n->getStringValue()),
+            'descriptors' => fn(ParseNode $n) => $o->setDescriptors($n->getObjectValue([FilePlanDescriptor::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'dispositionReviewStages' => fn(ParseNode $n) => $o->setDispositionReviewStages($n->getCollectionOfObjectValues([DispositionReviewStage::class, 'createFromDiscriminatorValue'])),
             'isInUse' => fn(ParseNode $n) => $o->setIsInUse($n->getBooleanValue()),
@@ -130,7 +182,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsInUse(): ?bool {
-        return $this->getBackingStore()->get('isInUse');
+        $val = $this->getBackingStore()->get('isInUse');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isInUse'");
     }
 
     /**
@@ -138,7 +194,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getLabelToBeApplied(): ?string {
-        return $this->getBackingStore()->get('labelToBeApplied');
+        $val = $this->getBackingStore()->get('labelToBeApplied');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelToBeApplied'");
     }
 
     /**
@@ -146,7 +206,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -154,7 +218,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -162,15 +230,23 @@ class RetentionLabel extends Entity implements Parsable
      * @return RetentionDuration|null
     */
     public function getRetentionDuration(): ?RetentionDuration {
-        return $this->getBackingStore()->get('retentionDuration');
+        $val = $this->getBackingStore()->get('retentionDuration');
+        if (is_null($val) || $val instanceof RetentionDuration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionDuration'");
     }
 
     /**
-     * Gets the retentionEventType property value. The retentionEventType property
+     * Gets the retentionEventType property value. Represents the type associated with a retention event.
      * @return RetentionEventType|null
     */
     public function getRetentionEventType(): ?RetentionEventType {
-        return $this->getBackingStore()->get('retentionEventType');
+        $val = $this->getBackingStore()->get('retentionEventType');
+        if (is_null($val) || $val instanceof RetentionEventType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionEventType'");
     }
 
     /**
@@ -178,7 +254,11 @@ class RetentionLabel extends Entity implements Parsable
      * @return RetentionTrigger|null
     */
     public function getRetentionTrigger(): ?RetentionTrigger {
-        return $this->getBackingStore()->get('retentionTrigger');
+        $val = $this->getBackingStore()->get('retentionTrigger');
+        if (is_null($val) || $val instanceof RetentionTrigger) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionTrigger'");
     }
 
     /**
@@ -194,6 +274,7 @@ class RetentionLabel extends Entity implements Parsable
         $writer->writeEnumValue('defaultRecordBehavior', $this->getDefaultRecordBehavior());
         $writer->writeStringValue('descriptionForAdmins', $this->getDescriptionForAdmins());
         $writer->writeStringValue('descriptionForUsers', $this->getDescriptionForUsers());
+        $writer->writeObjectValue('descriptors', $this->getDescriptors());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('dispositionReviewStages', $this->getDispositionReviewStages());
         $writer->writeBooleanValue('isInUse', $this->getIsInUse());
@@ -262,6 +343,14 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
+     * Sets the descriptors property value. Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.
+     * @param FilePlanDescriptor|null $value Value to set for the descriptors property.
+    */
+    public function setDescriptors(?FilePlanDescriptor $value): void {
+        $this->getBackingStore()->set('descriptors', $value);
+    }
+
+    /**
      * Sets the displayName property value. Unique string that defines a label name.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -270,7 +359,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the dispositionReviewStages property value. Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * Sets the dispositionReviewStages property value. When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @param array<DispositionReviewStage>|null $value Value to set for the dispositionReviewStages property.
     */
     public function setDispositionReviewStages(?array $value): void {
@@ -318,7 +407,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the retentionEventType property value. The retentionEventType property
+     * Sets the retentionEventType property value. Represents the type associated with a retention event.
      * @param RetentionEventType|null $value Value to set for the retentionEventType property.
     */
     public function setRetentionEventType(?RetentionEventType $value): void {

@@ -27,7 +27,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
      * @return DeliveryOptimizationGroupIdOptionsType|null
     */
     public function getGroupIdSourceOption(): ?DeliveryOptimizationGroupIdOptionsType {
-        return $this->getBackingStore()->get('groupIdSourceOption');
+        $val = $this->getBackingStore()->get('groupIdSourceOption');
+        if (is_null($val) || $val instanceof DeliveryOptimizationGroupIdOptionsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupIdSourceOption'");
     }
 
     /**

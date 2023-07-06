@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getActivationLockWhenSupervisedAllowed(): ?bool {
-        return $this->getBackingStore()->get('activationLockWhenSupervisedAllowed');
+        $val = $this->getBackingStore()->get('activationLockWhenSupervisedAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activationLockWhenSupervisedAllowed'");
     }
 
     /**
@@ -38,7 +43,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getAddingGameCenterFriendsBlocked(): ?bool {
-        return $this->getBackingStore()->get('addingGameCenterFriendsBlocked');
+        $val = $this->getBackingStore()->get('addingGameCenterFriendsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addingGameCenterFriendsBlocked'");
     }
 
     /**
@@ -46,7 +55,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getAirDropBlocked(): ?bool {
-        return $this->getBackingStore()->get('airDropBlocked');
+        $val = $this->getBackingStore()->get('airDropBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'airDropBlocked'");
     }
 
     /**
@@ -54,7 +67,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getAppleWatchBlockAutoUnlock(): ?bool {
-        return $this->getBackingStore()->get('appleWatchBlockAutoUnlock');
+        $val = $this->getBackingStore()->get('appleWatchBlockAutoUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleWatchBlockAutoUnlock'");
     }
 
     /**
@@ -62,7 +79,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->getBackingStore()->get('cameraBlocked');
+        $val = $this->getBackingStore()->get('cameraBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameraBlocked'");
     }
 
     /**
@@ -70,7 +91,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getClassroomAppBlockRemoteScreenObservation(): ?bool {
-        return $this->getBackingStore()->get('classroomAppBlockRemoteScreenObservation');
+        $val = $this->getBackingStore()->get('classroomAppBlockRemoteScreenObservation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomAppBlockRemoteScreenObservation'");
     }
 
     /**
@@ -78,7 +103,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getClassroomAppForceUnpromptedScreenObservation(): ?bool {
-        return $this->getBackingStore()->get('classroomAppForceUnpromptedScreenObservation');
+        $val = $this->getBackingStore()->get('classroomAppForceUnpromptedScreenObservation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomAppForceUnpromptedScreenObservation'");
     }
 
     /**
@@ -86,7 +115,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getClassroomForceAutomaticallyJoinClasses(): ?bool {
-        return $this->getBackingStore()->get('classroomForceAutomaticallyJoinClasses');
+        $val = $this->getBackingStore()->get('classroomForceAutomaticallyJoinClasses');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomForceAutomaticallyJoinClasses'");
     }
 
     /**
@@ -94,7 +127,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getClassroomForceRequestPermissionToLeaveClasses(): ?bool {
-        return $this->getBackingStore()->get('classroomForceRequestPermissionToLeaveClasses');
+        $val = $this->getBackingStore()->get('classroomForceRequestPermissionToLeaveClasses');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomForceRequestPermissionToLeaveClasses'");
     }
 
     /**
@@ -102,7 +139,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getClassroomForceUnpromptedAppAndDeviceLock(): ?bool {
-        return $this->getBackingStore()->get('classroomForceUnpromptedAppAndDeviceLock');
+        $val = $this->getBackingStore()->get('classroomForceUnpromptedAppAndDeviceLock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomForceUnpromptedAppAndDeviceLock'");
     }
 
     /**
@@ -110,7 +151,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return AppListType|null
     */
     public function getCompliantAppListType(): ?AppListType {
-        return $this->getBackingStore()->get('compliantAppListType');
+        $val = $this->getBackingStore()->get('compliantAppListType');
+        if (is_null($val) || $val instanceof AppListType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantAppListType'");
     }
 
     /**
@@ -118,7 +163,13 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return array<AppListItem>|null
     */
     public function getCompliantAppsList(): ?array {
-        return $this->getBackingStore()->get('compliantAppsList');
+        $val = $this->getBackingStore()->get('compliantAppsList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantAppsList'");
     }
 
     /**
@@ -126,7 +177,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getContentCachingBlocked(): ?bool {
-        return $this->getBackingStore()->get('contentCachingBlocked');
+        $val = $this->getBackingStore()->get('contentCachingBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingBlocked'");
     }
 
     /**
@@ -134,7 +189,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getDefinitionLookupBlocked(): ?bool {
-        return $this->getBackingStore()->get('definitionLookupBlocked');
+        $val = $this->getBackingStore()->get('definitionLookupBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitionLookupBlocked'");
     }
 
     /**
@@ -142,7 +201,13 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return array<string>|null
     */
     public function getEmailInDomainSuffixes(): ?array {
-        return $this->getBackingStore()->get('emailInDomainSuffixes');
+        $val = $this->getBackingStore()->get('emailInDomainSuffixes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailInDomainSuffixes'");
     }
 
     /**
@@ -150,12 +215,16 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getEraseContentAndSettingsBlocked(): ?bool {
-        return $this->getBackingStore()->get('eraseContentAndSettingsBlocked');
+        $val = $this->getBackingStore()->get('eraseContentAndSettingsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eraseContentAndSettingsBlocked'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -174,7 +243,14 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
             'compliantAppsList' => fn(ParseNode $n) => $o->setCompliantAppsList($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
             'contentCachingBlocked' => fn(ParseNode $n) => $o->setContentCachingBlocked($n->getBooleanValue()),
             'definitionLookupBlocked' => fn(ParseNode $n) => $o->setDefinitionLookupBlocked($n->getBooleanValue()),
-            'emailInDomainSuffixes' => fn(ParseNode $n) => $o->setEmailInDomainSuffixes($n->getCollectionOfPrimitiveValues()),
+            'emailInDomainSuffixes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEmailInDomainSuffixes($val);
+            },
             'eraseContentAndSettingsBlocked' => fn(ParseNode $n) => $o->setEraseContentAndSettingsBlocked($n->getBooleanValue()),
             'gameCenterBlocked' => fn(ParseNode $n) => $o->setGameCenterBlocked($n->getBooleanValue()),
             'iCloudBlockActivityContinuation' => fn(ParseNode $n) => $o->setICloudBlockActivityContinuation($n->getBooleanValue()),
@@ -228,7 +304,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getGameCenterBlocked(): ?bool {
-        return $this->getBackingStore()->get('gameCenterBlocked');
+        $val = $this->getBackingStore()->get('gameCenterBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gameCenterBlocked'");
     }
 
     /**
@@ -236,7 +316,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockActivityContinuation(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockActivityContinuation');
+        $val = $this->getBackingStore()->get('iCloudBlockActivityContinuation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockActivityContinuation'");
     }
 
     /**
@@ -244,7 +328,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockAddressBook(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockAddressBook');
+        $val = $this->getBackingStore()->get('iCloudBlockAddressBook');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockAddressBook'");
     }
 
     /**
@@ -252,7 +340,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockBookmarks(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockBookmarks');
+        $val = $this->getBackingStore()->get('iCloudBlockBookmarks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockBookmarks'");
     }
 
     /**
@@ -260,7 +352,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockCalendar(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockCalendar');
+        $val = $this->getBackingStore()->get('iCloudBlockCalendar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockCalendar'");
     }
 
     /**
@@ -268,7 +364,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockDocumentSync(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockDocumentSync');
+        $val = $this->getBackingStore()->get('iCloudBlockDocumentSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockDocumentSync'");
     }
 
     /**
@@ -276,7 +376,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockMail(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockMail');
+        $val = $this->getBackingStore()->get('iCloudBlockMail');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockMail'");
     }
 
     /**
@@ -284,7 +388,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockNotes(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockNotes');
+        $val = $this->getBackingStore()->get('iCloudBlockNotes');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockNotes'");
     }
 
     /**
@@ -292,7 +400,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockPhotoLibrary(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockPhotoLibrary');
+        $val = $this->getBackingStore()->get('iCloudBlockPhotoLibrary');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockPhotoLibrary'");
     }
 
     /**
@@ -300,7 +412,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudBlockReminders(): ?bool {
-        return $this->getBackingStore()->get('iCloudBlockReminders');
+        $val = $this->getBackingStore()->get('iCloudBlockReminders');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudBlockReminders'");
     }
 
     /**
@@ -308,7 +424,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudDesktopAndDocumentsBlocked(): ?bool {
-        return $this->getBackingStore()->get('iCloudDesktopAndDocumentsBlocked');
+        $val = $this->getBackingStore()->get('iCloudDesktopAndDocumentsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudDesktopAndDocumentsBlocked'");
     }
 
     /**
@@ -316,7 +436,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getICloudPrivateRelayBlocked(): ?bool {
-        return $this->getBackingStore()->get('iCloudPrivateRelayBlocked');
+        $val = $this->getBackingStore()->get('iCloudPrivateRelayBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudPrivateRelayBlocked'");
     }
 
     /**
@@ -324,7 +448,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getITunesBlockFileSharing(): ?bool {
-        return $this->getBackingStore()->get('iTunesBlockFileSharing');
+        $val = $this->getBackingStore()->get('iTunesBlockFileSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iTunesBlockFileSharing'");
     }
 
     /**
@@ -332,7 +460,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getITunesBlockMusicService(): ?bool {
-        return $this->getBackingStore()->get('iTunesBlockMusicService');
+        $val = $this->getBackingStore()->get('iTunesBlockMusicService');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iTunesBlockMusicService'");
     }
 
     /**
@@ -340,7 +472,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getKeyboardBlockDictation(): ?bool {
-        return $this->getBackingStore()->get('keyboardBlockDictation');
+        $val = $this->getBackingStore()->get('keyboardBlockDictation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyboardBlockDictation'");
     }
 
     /**
@@ -348,7 +484,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getKeychainBlockCloudSync(): ?bool {
-        return $this->getBackingStore()->get('keychainBlockCloudSync');
+        $val = $this->getBackingStore()->get('keychainBlockCloudSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keychainBlockCloudSync'");
     }
 
     /**
@@ -356,7 +496,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getMultiplayerGamingBlocked(): ?bool {
-        return $this->getBackingStore()->get('multiplayerGamingBlocked');
+        $val = $this->getBackingStore()->get('multiplayerGamingBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multiplayerGamingBlocked'");
     }
 
     /**
@@ -364,7 +508,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockAirDropSharing(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockAirDropSharing');
+        $val = $this->getBackingStore()->get('passwordBlockAirDropSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockAirDropSharing'");
     }
 
     /**
@@ -372,7 +520,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockAutoFill(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockAutoFill');
+        $val = $this->getBackingStore()->get('passwordBlockAutoFill');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockAutoFill'");
     }
 
     /**
@@ -380,7 +532,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockFingerprintUnlock(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockFingerprintUnlock');
+        $val = $this->getBackingStore()->get('passwordBlockFingerprintUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockFingerprintUnlock'");
     }
 
     /**
@@ -388,7 +544,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockModification(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockModification');
+        $val = $this->getBackingStore()->get('passwordBlockModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockModification'");
     }
 
     /**
@@ -396,7 +556,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockProximityRequests(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockProximityRequests');
+        $val = $this->getBackingStore()->get('passwordBlockProximityRequests');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockProximityRequests'");
     }
 
     /**
@@ -404,7 +568,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockSimple');
+        $val = $this->getBackingStore()->get('passwordBlockSimple');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockSimple'");
     }
 
     /**
@@ -412,7 +580,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -420,7 +592,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMaximumAttemptCount(): ?int {
-        return $this->getBackingStore()->get('passwordMaximumAttemptCount');
+        $val = $this->getBackingStore()->get('passwordMaximumAttemptCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMaximumAttemptCount'");
     }
 
     /**
@@ -428,7 +604,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        $val = $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumCharacterSetCount'");
     }
 
     /**
@@ -436,7 +616,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -444,7 +628,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeLock'");
     }
 
     /**
@@ -452,7 +640,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -460,7 +652,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordMinutesUntilFailedLoginReset(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesUntilFailedLoginReset');
+        $val = $this->getBackingStore()->get('passwordMinutesUntilFailedLoginReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesUntilFailedLoginReset'");
     }
 
     /**
@@ -468,7 +664,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -476,7 +676,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->getBackingStore()->get('passwordRequired');
+        $val = $this->getBackingStore()->get('passwordRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequired'");
     }
 
     /**
@@ -484,7 +688,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof RequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -492,7 +700,13 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return array<MacOSPrivacyAccessControlItem>|null
     */
     public function getPrivacyAccessControls(): ?array {
-        return $this->getBackingStore()->get('privacyAccessControls');
+        $val = $this->getBackingStore()->get('privacyAccessControls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSPrivacyAccessControlItem::class);
+            /** @var array<MacOSPrivacyAccessControlItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyAccessControls'");
     }
 
     /**
@@ -500,7 +714,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getSafariBlockAutofill(): ?bool {
-        return $this->getBackingStore()->get('safariBlockAutofill');
+        $val = $this->getBackingStore()->get('safariBlockAutofill');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'safariBlockAutofill'");
     }
 
     /**
@@ -508,7 +726,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('screenCaptureBlocked');
+        $val = $this->getBackingStore()->get('screenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureBlocked'");
     }
 
     /**
@@ -516,7 +738,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getSoftwareUpdateMajorOSDeferredInstallDelayInDays(): ?int {
-        return $this->getBackingStore()->get('softwareUpdateMajorOSDeferredInstallDelayInDays');
+        $val = $this->getBackingStore()->get('softwareUpdateMajorOSDeferredInstallDelayInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateMajorOSDeferredInstallDelayInDays'");
     }
 
     /**
@@ -524,7 +750,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getSoftwareUpdateMinorOSDeferredInstallDelayInDays(): ?int {
-        return $this->getBackingStore()->get('softwareUpdateMinorOSDeferredInstallDelayInDays');
+        $val = $this->getBackingStore()->get('softwareUpdateMinorOSDeferredInstallDelayInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateMinorOSDeferredInstallDelayInDays'");
     }
 
     /**
@@ -532,7 +762,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getSoftwareUpdateNonOSDeferredInstallDelayInDays(): ?int {
-        return $this->getBackingStore()->get('softwareUpdateNonOSDeferredInstallDelayInDays');
+        $val = $this->getBackingStore()->get('softwareUpdateNonOSDeferredInstallDelayInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateNonOSDeferredInstallDelayInDays'");
     }
 
     /**
@@ -540,7 +774,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getSoftwareUpdatesEnforcedDelayInDays(): ?int {
-        return $this->getBackingStore()->get('softwareUpdatesEnforcedDelayInDays');
+        $val = $this->getBackingStore()->get('softwareUpdatesEnforcedDelayInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdatesEnforcedDelayInDays'");
     }
 
     /**
@@ -548,7 +786,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getSpotlightBlockInternetResults(): ?bool {
-        return $this->getBackingStore()->get('spotlightBlockInternetResults');
+        $val = $this->getBackingStore()->get('spotlightBlockInternetResults');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spotlightBlockInternetResults'");
     }
 
     /**
@@ -556,7 +798,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return int|null
     */
     public function getTouchIdTimeoutInHours(): ?int {
-        return $this->getBackingStore()->get('touchIdTimeoutInHours');
+        $val = $this->getBackingStore()->get('touchIdTimeoutInHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'touchIdTimeoutInHours'");
     }
 
     /**
@@ -564,7 +810,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return MacOSSoftwareUpdateDelayPolicy|null
     */
     public function getUpdateDelayPolicy(): ?MacOSSoftwareUpdateDelayPolicy {
-        return $this->getBackingStore()->get('updateDelayPolicy');
+        $val = $this->getBackingStore()->get('updateDelayPolicy');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateDelayPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateDelayPolicy'");
     }
 
     /**
@@ -572,7 +822,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
      * @return bool|null
     */
     public function getWallpaperModificationBlocked(): ?bool {
-        return $this->getBackingStore()->get('wallpaperModificationBlocked');
+        $val = $this->getBackingStore()->get('wallpaperModificationBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wallpaperModificationBlocked'");
     }
 
     /**

@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidForWorkSettings extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return AndroidForWorkBindStatus|null
     */
     public function getBindStatus(): ?AndroidForWorkBindStatus {
-        return $this->getBackingStore()->get('bindStatus');
+        $val = $this->getBackingStore()->get('bindStatus');
+        if (is_null($val) || $val instanceof AndroidForWorkBindStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bindStatus'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getDeviceOwnerManagementEnabled(): ?bool {
-        return $this->getBackingStore()->get('deviceOwnerManagementEnabled');
+        $val = $this->getBackingStore()->get('deviceOwnerManagementEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOwnerManagementEnabled'");
     }
 
     /**
@@ -46,12 +55,16 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return AndroidForWorkEnrollmentTarget|null
     */
     public function getEnrollmentTarget(): ?AndroidForWorkEnrollmentTarget {
-        return $this->getBackingStore()->get('enrollmentTarget');
+        $val = $this->getBackingStore()->get('enrollmentTarget');
+        if (is_null($val) || $val instanceof AndroidForWorkEnrollmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentTarget'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +77,14 @@ class AndroidForWorkSettings extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'ownerOrganizationName' => fn(ParseNode $n) => $o->setOwnerOrganizationName($n->getStringValue()),
             'ownerUserPrincipalName' => fn(ParseNode $n) => $o->setOwnerUserPrincipalName($n->getStringValue()),
-            'targetGroupIds' => fn(ParseNode $n) => $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()),
+            'targetGroupIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTargetGroupIds($val);
+            },
         ]);
     }
 
@@ -73,7 +93,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastAppSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastAppSyncDateTime');
+        $val = $this->getBackingStore()->get('lastAppSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastAppSyncDateTime'");
     }
 
     /**
@@ -81,7 +105,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return AndroidForWorkSyncStatus|null
     */
     public function getLastAppSyncStatus(): ?AndroidForWorkSyncStatus {
-        return $this->getBackingStore()->get('lastAppSyncStatus');
+        $val = $this->getBackingStore()->get('lastAppSyncStatus');
+        if (is_null($val) || $val instanceof AndroidForWorkSyncStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastAppSyncStatus'");
     }
 
     /**
@@ -89,7 +117,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -97,7 +129,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerOrganizationName(): ?string {
-        return $this->getBackingStore()->get('ownerOrganizationName');
+        $val = $this->getBackingStore()->get('ownerOrganizationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerOrganizationName'");
     }
 
     /**
@@ -105,7 +141,11 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('ownerUserPrincipalName');
+        $val = $this->getBackingStore()->get('ownerUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerUserPrincipalName'");
     }
 
     /**
@@ -113,7 +153,13 @@ class AndroidForWorkSettings extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTargetGroupIds(): ?array {
-        return $this->getBackingStore()->get('targetGroupIds');
+        $val = $this->getBackingStore()->get('targetGroupIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetGroupIds'");
     }
 
     /**

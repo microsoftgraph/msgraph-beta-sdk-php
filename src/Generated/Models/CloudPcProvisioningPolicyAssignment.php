@@ -5,11 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcProvisioningPolicyAssignment and sets the default values.
+     * Instantiates a new CloudPcProvisioningPolicyAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,12 +30,18 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
      * @return array<User>|null
     */
     public function getAssignedUsers(): ?array {
-        return $this->getBackingStore()->get('assignedUsers');
+        $val = $this->getBackingStore()->get('assignedUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, User::class);
+            /** @var array<User>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedUsers'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +56,11 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
      * @return CloudPcManagementAssignmentTarget|null
     */
     public function getTarget(): ?CloudPcManagementAssignmentTarget {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof CloudPcManagementAssignmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

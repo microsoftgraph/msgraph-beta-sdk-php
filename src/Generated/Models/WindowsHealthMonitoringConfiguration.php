@@ -30,7 +30,11 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAllowDeviceHealthMonitoring(): ?Enablement {
-        return $this->getBackingStore()->get('allowDeviceHealthMonitoring');
+        $val = $this->getBackingStore()->get('allowDeviceHealthMonitoring');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeviceHealthMonitoring'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getConfigDeviceHealthMonitoringCustomScope(): ?string {
-        return $this->getBackingStore()->get('configDeviceHealthMonitoringCustomScope');
+        $val = $this->getBackingStore()->get('configDeviceHealthMonitoringCustomScope');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configDeviceHealthMonitoringCustomScope'");
     }
 
     /**
@@ -46,12 +54,16 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return WindowsHealthMonitoringScope|null
     */
     public function getConfigDeviceHealthMonitoringScope(): ?WindowsHealthMonitoringScope {
-        return $this->getBackingStore()->get('configDeviceHealthMonitoringScope');
+        $val = $this->getBackingStore()->get('configDeviceHealthMonitoringScope');
+        if (is_null($val) || $val instanceof WindowsHealthMonitoringScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configDeviceHealthMonitoringScope'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

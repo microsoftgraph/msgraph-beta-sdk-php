@@ -40,7 +40,12 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return TeamworkDateTimeConfiguration|null
     */
     public function getDateTimeConfiguration(): ?TeamworkDateTimeConfiguration {
-        return $this->getBackingStore()->get('dateTimeConfiguration');
+        $val = $this->getBackingStore()->get('dateTimeConfiguration');
+        if (is_null($val) || $val instanceof TeamworkDateTimeConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateTimeConfiguration'");
     }
 
     /**
@@ -64,7 +73,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getDefaultPassword(): ?string {
-        return $this->getBackingStore()->get('defaultPassword');
+        $val = $this->getBackingStore()->get('defaultPassword');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultPassword'");
     }
 
     /**
@@ -72,12 +85,16 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return DateInterval|null
     */
     public function getDeviceLockTimeout(): ?DateInterval {
-        return $this->getBackingStore()->get('deviceLockTimeout');
+        $val = $this->getBackingStore()->get('deviceLockTimeout');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLockTimeout'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -103,7 +120,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsDeviceLockEnabled(): ?bool {
-        return $this->getBackingStore()->get('isDeviceLockEnabled');
+        $val = $this->getBackingStore()->get('isDeviceLockEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeviceLockEnabled'");
     }
 
     /**
@@ -111,7 +132,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsLoggingEnabled(): ?bool {
-        return $this->getBackingStore()->get('isLoggingEnabled');
+        $val = $this->getBackingStore()->get('isLoggingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isLoggingEnabled'");
     }
 
     /**
@@ -119,7 +144,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsPowerSavingEnabled(): ?bool {
-        return $this->getBackingStore()->get('isPowerSavingEnabled');
+        $val = $this->getBackingStore()->get('isPowerSavingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPowerSavingEnabled'");
     }
 
     /**
@@ -127,7 +156,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsScreenCaptureEnabled(): ?bool {
-        return $this->getBackingStore()->get('isScreenCaptureEnabled');
+        $val = $this->getBackingStore()->get('isScreenCaptureEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isScreenCaptureEnabled'");
     }
 
     /**
@@ -135,7 +168,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsSilentModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('isSilentModeEnabled');
+        $val = $this->getBackingStore()->get('isSilentModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSilentModeEnabled'");
     }
 
     /**
@@ -143,7 +180,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getLanguage(): ?string {
-        return $this->getBackingStore()->get('language');
+        $val = $this->getBackingStore()->get('language');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
     }
 
     /**
@@ -151,7 +192,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getLockPin(): ?string {
-        return $this->getBackingStore()->get('lockPin');
+        $val = $this->getBackingStore()->get('lockPin');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockPin'");
     }
 
     /**
@@ -159,7 +204,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getLoggingLevel(): ?string {
-        return $this->getBackingStore()->get('loggingLevel');
+        $val = $this->getBackingStore()->get('loggingLevel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loggingLevel'");
     }
 
     /**
@@ -167,7 +216,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return TeamworkNetworkConfiguration|null
     */
     public function getNetworkConfiguration(): ?TeamworkNetworkConfiguration {
-        return $this->getBackingStore()->get('networkConfiguration');
+        $val = $this->getBackingStore()->get('networkConfiguration');
+        if (is_null($val) || $val instanceof TeamworkNetworkConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkConfiguration'");
     }
 
     /**
@@ -175,7 +228,11 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

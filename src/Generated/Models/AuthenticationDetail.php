@@ -40,7 +40,12 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAuthenticationMethod(): ?string {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -56,7 +65,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAuthenticationMethodDetail(): ?string {
-        return $this->getBackingStore()->get('authenticationMethodDetail');
+        $val = $this->getBackingStore()->get('authenticationMethodDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethodDetail'");
     }
 
     /**
@@ -64,7 +77,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return DateTime|null
     */
     public function getAuthenticationStepDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('authenticationStepDateTime');
+        $val = $this->getBackingStore()->get('authenticationStepDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationStepDateTime'");
     }
 
     /**
@@ -72,7 +89,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAuthenticationStepRequirement(): ?string {
-        return $this->getBackingStore()->get('authenticationStepRequirement');
+        $val = $this->getBackingStore()->get('authenticationStepRequirement');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationStepRequirement'");
     }
 
     /**
@@ -80,7 +101,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAuthenticationStepResultDetail(): ?string {
-        return $this->getBackingStore()->get('authenticationStepResultDetail');
+        $val = $this->getBackingStore()->get('authenticationStepResultDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationStepResultDetail'");
     }
 
     /**
@@ -93,7 +118,7 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -113,7 +138,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,7 +150,11 @@ class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getSucceeded(): ?bool {
-        return $this->getBackingStore()->get('succeeded');
+        $val = $this->getBackingStore()->get('succeeded');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'succeeded'");
     }
 
     /**

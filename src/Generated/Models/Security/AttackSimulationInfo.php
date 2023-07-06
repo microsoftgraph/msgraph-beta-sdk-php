@@ -41,7 +41,12 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -49,7 +54,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return DateTime|null
     */
     public function getAttackSimDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('attackSimDateTime');
+        $val = $this->getBackingStore()->get('attackSimDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackSimDateTime'");
     }
 
     /**
@@ -57,7 +66,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return DateInterval|null
     */
     public function getAttackSimDurationTime(): ?DateInterval {
-        return $this->getBackingStore()->get('attackSimDurationTime');
+        $val = $this->getBackingStore()->get('attackSimDurationTime');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackSimDurationTime'");
     }
 
     /**
@@ -65,7 +78,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAttackSimId(): ?string {
-        return $this->getBackingStore()->get('attackSimId');
+        $val = $this->getBackingStore()->get('attackSimId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackSimId'");
     }
 
     /**
@@ -73,7 +90,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAttackSimUserId(): ?string {
-        return $this->getBackingStore()->get('attackSimUserId');
+        $val = $this->getBackingStore()->get('attackSimUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackSimUserId'");
     }
 
     /**
@@ -86,7 +107,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +125,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

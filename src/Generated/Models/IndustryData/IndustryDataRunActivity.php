@@ -39,7 +39,11 @@ class IndustryDataRunActivity extends Entity implements Parsable
      * @return IndustryDataActivity|null
     */
     public function getActivity(): ?IndustryDataActivity {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || $val instanceof IndustryDataActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -47,7 +51,11 @@ class IndustryDataRunActivity extends Entity implements Parsable
      * @return PublicError|null
     */
     public function getBlockingError(): ?PublicError {
-        return $this->getBackingStore()->get('blockingError');
+        $val = $this->getBackingStore()->get('blockingError');
+        if (is_null($val) || $val instanceof PublicError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockingError'");
     }
 
     /**
@@ -55,12 +63,16 @@ class IndustryDataRunActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class IndustryDataRunActivity extends Entity implements Parsable
      * @return IndustryDataActivityStatus|null
     */
     public function getStatus(): ?IndustryDataActivityStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof IndustryDataActivityStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

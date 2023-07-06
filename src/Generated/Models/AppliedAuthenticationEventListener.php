@@ -39,7 +39,12 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
      * @return AuthenticationEventType|null
     */
     public function getEventType(): ?AuthenticationEventType {
-        return $this->getBackingStore()->get('eventType');
+        $val = $this->getBackingStore()->get('eventType');
+        if (is_null($val) || $val instanceof AuthenticationEventType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventType'");
     }
 
     /**
@@ -63,12 +72,16 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getExecutedListenerId(): ?string {
-        return $this->getBackingStore()->get('executedListenerId');
+        $val = $this->getBackingStore()->get('executedListenerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'executedListenerId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +98,11 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
      * @return AuthenticationEventHandlerResult|null
     */
     public function getHandlerResult(): ?AuthenticationEventHandlerResult {
-        return $this->getBackingStore()->get('handlerResult');
+        $val = $this->getBackingStore()->get('handlerResult');
+        if (is_null($val) || $val instanceof AuthenticationEventHandlerResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'handlerResult'");
     }
 
     /**
@@ -93,7 +110,11 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostTrackers\Host
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelligenceProfileIndicators\IntelligenceProfileIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\IntelProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\PassiveDnsRecordsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Subdomains\SubdomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\VulnerabilitiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -88,6 +89,13 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     */
     public function passiveDnsRecords(): PassiveDnsRecordsRequestBuilder {
         return new PassiveDnsRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the subdomains property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function subdomains(): SubdomainsRequestBuilder {
+        return new SubdomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

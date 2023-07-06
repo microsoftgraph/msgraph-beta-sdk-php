@@ -30,12 +30,16 @@ class ServiceProvisioningXmlError extends ServiceProvisioningError implements Pa
      * @return string|null
     */
     public function getErrorDetail(): ?string {
-        return $this->getBackingStore()->get('errorDetail');
+        $val = $this->getBackingStore()->get('errorDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDetail'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

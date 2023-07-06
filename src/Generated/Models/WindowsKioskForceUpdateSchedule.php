@@ -43,7 +43,12 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return int|null
     */
     public function getDayofMonth(): ?int {
-        return $this->getBackingStore()->get('dayofMonth');
+        $val = $this->getBackingStore()->get('dayofMonth');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dayofMonth'");
     }
 
     /**
@@ -67,12 +76,16 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return DayOfWeek|null
     */
     public function getDayofWeek(): ?DayOfWeek {
-        return $this->getBackingStore()->get('dayofWeek');
+        $val = $this->getBackingStore()->get('dayofWeek');
+        if (is_null($val) || $val instanceof DayOfWeek) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dayofWeek'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +104,11 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,7 +116,11 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return Windows10AppsUpdateRecurrence|null
     */
     public function getRecurrence(): ?Windows10AppsUpdateRecurrence {
-        return $this->getBackingStore()->get('recurrence');
+        $val = $this->getBackingStore()->get('recurrence');
+        if (is_null($val) || $val instanceof Windows10AppsUpdateRecurrence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrence'");
     }
 
     /**
@@ -107,7 +128,11 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return bool|null
     */
     public function getRunImmediatelyIfAfterStartDateTime(): ?bool {
-        return $this->getBackingStore()->get('runImmediatelyIfAfterStartDateTime');
+        $val = $this->getBackingStore()->get('runImmediatelyIfAfterStartDateTime');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runImmediatelyIfAfterStartDateTime'");
     }
 
     /**
@@ -115,7 +140,11 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**

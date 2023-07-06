@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAdminShowHostInfo(): ?bool {
-        return $this->getBackingStore()->get('adminShowHostInfo');
+        $val = $this->getBackingStore()->get('adminShowHostInfo');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminShowHostInfo'");
     }
 
     /**
@@ -38,7 +43,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<MacOSAssociatedDomainsItem>|null
     */
     public function getAppAssociatedDomains(): ?array {
-        return $this->getBackingStore()->get('appAssociatedDomains');
+        $val = $this->getBackingStore()->get('appAssociatedDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSAssociatedDomainsItem::class);
+            /** @var array<MacOSAssociatedDomainsItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appAssociatedDomains'");
     }
 
     /**
@@ -46,7 +57,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<KeyValuePair>|null
     */
     public function getAssociatedDomains(): ?array {
-        return $this->getBackingStore()->get('associatedDomains');
+        $val = $this->getBackingStore()->get('associatedDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'associatedDomains'");
     }
 
     /**
@@ -54,7 +71,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHidden(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListHidden');
+        $val = $this->getBackingStore()->get('authorizedUsersListHidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListHidden'");
     }
 
     /**
@@ -62,7 +83,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideAdminUsers(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListHideAdminUsers');
+        $val = $this->getBackingStore()->get('authorizedUsersListHideAdminUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListHideAdminUsers'");
     }
 
     /**
@@ -70,7 +95,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideLocalUsers(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListHideLocalUsers');
+        $val = $this->getBackingStore()->get('authorizedUsersListHideLocalUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListHideLocalUsers'");
     }
 
     /**
@@ -78,7 +107,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideMobileAccounts(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListHideMobileAccounts');
+        $val = $this->getBackingStore()->get('authorizedUsersListHideMobileAccounts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListHideMobileAccounts'");
     }
 
     /**
@@ -86,7 +119,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListIncludeNetworkUsers(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListIncludeNetworkUsers');
+        $val = $this->getBackingStore()->get('authorizedUsersListIncludeNetworkUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListIncludeNetworkUsers'");
     }
 
     /**
@@ -94,7 +131,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListShowOtherManagedUsers(): ?bool {
-        return $this->getBackingStore()->get('authorizedUsersListShowOtherManagedUsers');
+        $val = $this->getBackingStore()->get('authorizedUsersListShowOtherManagedUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedUsersListShowOtherManagedUsers'");
     }
 
     /**
@@ -102,7 +143,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<MacOSLaunchItem>|null
     */
     public function getAutoLaunchItems(): ?array {
-        return $this->getBackingStore()->get('autoLaunchItems');
+        $val = $this->getBackingStore()->get('autoLaunchItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSLaunchItem::class);
+            /** @var array<MacOSLaunchItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoLaunchItems'");
     }
 
     /**
@@ -110,7 +157,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getConsoleAccessDisabled(): ?bool {
-        return $this->getBackingStore()->get('consoleAccessDisabled');
+        $val = $this->getBackingStore()->get('consoleAccessDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'consoleAccessDisabled'");
     }
 
     /**
@@ -118,7 +169,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingBlockDeletion(): ?bool {
-        return $this->getBackingStore()->get('contentCachingBlockDeletion');
+        $val = $this->getBackingStore()->get('contentCachingBlockDeletion');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingBlockDeletion'");
     }
 
     /**
@@ -126,7 +181,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingClientListenRanges(): ?array {
-        return $this->getBackingStore()->get('contentCachingClientListenRanges');
+        $val = $this->getBackingStore()->get('contentCachingClientListenRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingClientListenRanges'");
     }
 
     /**
@@ -134,7 +195,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingClientPolicy|null
     */
     public function getContentCachingClientPolicy(): ?MacOSContentCachingClientPolicy {
-        return $this->getBackingStore()->get('contentCachingClientPolicy');
+        $val = $this->getBackingStore()->get('contentCachingClientPolicy');
+        if (is_null($val) || $val instanceof MacOSContentCachingClientPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingClientPolicy'");
     }
 
     /**
@@ -142,7 +207,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return string|null
     */
     public function getContentCachingDataPath(): ?string {
-        return $this->getBackingStore()->get('contentCachingDataPath');
+        $val = $this->getBackingStore()->get('contentCachingDataPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingDataPath'");
     }
 
     /**
@@ -150,7 +219,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingDisableConnectionSharing(): ?bool {
-        return $this->getBackingStore()->get('contentCachingDisableConnectionSharing');
+        $val = $this->getBackingStore()->get('contentCachingDisableConnectionSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingDisableConnectionSharing'");
     }
 
     /**
@@ -158,7 +231,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingEnabled(): ?bool {
-        return $this->getBackingStore()->get('contentCachingEnabled');
+        $val = $this->getBackingStore()->get('contentCachingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingEnabled'");
     }
 
     /**
@@ -166,7 +243,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingForceConnectionSharing(): ?bool {
-        return $this->getBackingStore()->get('contentCachingForceConnectionSharing');
+        $val = $this->getBackingStore()->get('contentCachingForceConnectionSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingForceConnectionSharing'");
     }
 
     /**
@@ -174,7 +255,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingKeepAwake(): ?bool {
-        return $this->getBackingStore()->get('contentCachingKeepAwake');
+        $val = $this->getBackingStore()->get('contentCachingKeepAwake');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingKeepAwake'");
     }
 
     /**
@@ -182,7 +267,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingLogClientIdentities(): ?bool {
-        return $this->getBackingStore()->get('contentCachingLogClientIdentities');
+        $val = $this->getBackingStore()->get('contentCachingLogClientIdentities');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingLogClientIdentities'");
     }
 
     /**
@@ -190,7 +279,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return int|null
     */
     public function getContentCachingMaxSizeBytes(): ?int {
-        return $this->getBackingStore()->get('contentCachingMaxSizeBytes');
+        $val = $this->getBackingStore()->get('contentCachingMaxSizeBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingMaxSizeBytes'");
     }
 
     /**
@@ -198,7 +291,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<string>|null
     */
     public function getContentCachingParents(): ?array {
-        return $this->getBackingStore()->get('contentCachingParents');
+        $val = $this->getBackingStore()->get('contentCachingParents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingParents'");
     }
 
     /**
@@ -206,7 +305,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingParentSelectionPolicy|null
     */
     public function getContentCachingParentSelectionPolicy(): ?MacOSContentCachingParentSelectionPolicy {
-        return $this->getBackingStore()->get('contentCachingParentSelectionPolicy');
+        $val = $this->getBackingStore()->get('contentCachingParentSelectionPolicy');
+        if (is_null($val) || $val instanceof MacOSContentCachingParentSelectionPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingParentSelectionPolicy'");
     }
 
     /**
@@ -214,7 +317,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPeerFilterRanges(): ?array {
-        return $this->getBackingStore()->get('contentCachingPeerFilterRanges');
+        $val = $this->getBackingStore()->get('contentCachingPeerFilterRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingPeerFilterRanges'");
     }
 
     /**
@@ -222,7 +331,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPeerListenRanges(): ?array {
-        return $this->getBackingStore()->get('contentCachingPeerListenRanges');
+        $val = $this->getBackingStore()->get('contentCachingPeerListenRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingPeerListenRanges'");
     }
 
     /**
@@ -230,7 +345,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingPeerPolicy|null
     */
     public function getContentCachingPeerPolicy(): ?MacOSContentCachingPeerPolicy {
-        return $this->getBackingStore()->get('contentCachingPeerPolicy');
+        $val = $this->getBackingStore()->get('contentCachingPeerPolicy');
+        if (is_null($val) || $val instanceof MacOSContentCachingPeerPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingPeerPolicy'");
     }
 
     /**
@@ -238,7 +357,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return int|null
     */
     public function getContentCachingPort(): ?int {
-        return $this->getBackingStore()->get('contentCachingPort');
+        $val = $this->getBackingStore()->get('contentCachingPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingPort'");
     }
 
     /**
@@ -246,7 +369,13 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPublicRanges(): ?array {
-        return $this->getBackingStore()->get('contentCachingPublicRanges');
+        $val = $this->getBackingStore()->get('contentCachingPublicRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingPublicRanges'");
     }
 
     /**
@@ -254,7 +383,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingShowAlerts(): ?bool {
-        return $this->getBackingStore()->get('contentCachingShowAlerts');
+        $val = $this->getBackingStore()->get('contentCachingShowAlerts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingShowAlerts'");
     }
 
     /**
@@ -262,12 +395,16 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingType|null
     */
     public function getContentCachingType(): ?MacOSContentCachingType {
-        return $this->getBackingStore()->get('contentCachingType');
+        $val = $this->getBackingStore()->get('contentCachingType');
+        if (is_null($val) || $val instanceof MacOSContentCachingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCachingType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -293,7 +430,14 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
             'contentCachingKeepAwake' => fn(ParseNode $n) => $o->setContentCachingKeepAwake($n->getBooleanValue()),
             'contentCachingLogClientIdentities' => fn(ParseNode $n) => $o->setContentCachingLogClientIdentities($n->getBooleanValue()),
             'contentCachingMaxSizeBytes' => fn(ParseNode $n) => $o->setContentCachingMaxSizeBytes($n->getIntegerValue()),
-            'contentCachingParents' => fn(ParseNode $n) => $o->setContentCachingParents($n->getCollectionOfPrimitiveValues()),
+            'contentCachingParents' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setContentCachingParents($val);
+            },
             'contentCachingParentSelectionPolicy' => fn(ParseNode $n) => $o->setContentCachingParentSelectionPolicy($n->getEnumValue(MacOSContentCachingParentSelectionPolicy::class)),
             'contentCachingPeerFilterRanges' => fn(ParseNode $n) => $o->setContentCachingPeerFilterRanges($n->getCollectionOfObjectValues([IpRange::class, 'createFromDiscriminatorValue'])),
             'contentCachingPeerListenRanges' => fn(ParseNode $n) => $o->setContentCachingPeerListenRanges($n->getCollectionOfObjectValues([IpRange::class, 'createFromDiscriminatorValue'])),
@@ -322,7 +466,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return string|null
     */
     public function getLoginWindowText(): ?string {
-        return $this->getBackingStore()->get('loginWindowText');
+        $val = $this->getBackingStore()->get('loginWindowText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginWindowText'");
     }
 
     /**
@@ -330,7 +478,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getLogOutDisabledWhileLoggedIn(): ?bool {
-        return $this->getBackingStore()->get('logOutDisabledWhileLoggedIn');
+        $val = $this->getBackingStore()->get('logOutDisabledWhileLoggedIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logOutDisabledWhileLoggedIn'");
     }
 
     /**
@@ -338,7 +490,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSSingleSignOnExtension|null
     */
     public function getMacOSSingleSignOnExtension(): ?MacOSSingleSignOnExtension {
-        return $this->getBackingStore()->get('macOSSingleSignOnExtension');
+        $val = $this->getBackingStore()->get('macOSSingleSignOnExtension');
+        if (is_null($val) || $val instanceof MacOSSingleSignOnExtension) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macOSSingleSignOnExtension'");
     }
 
     /**
@@ -346,7 +502,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getPowerOffDisabledWhileLoggedIn(): ?bool {
-        return $this->getBackingStore()->get('powerOffDisabledWhileLoggedIn');
+        $val = $this->getBackingStore()->get('powerOffDisabledWhileLoggedIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerOffDisabledWhileLoggedIn'");
     }
 
     /**
@@ -354,7 +514,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getRestartDisabled(): ?bool {
-        return $this->getBackingStore()->get('restartDisabled');
+        $val = $this->getBackingStore()->get('restartDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restartDisabled'");
     }
 
     /**
@@ -362,7 +526,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getRestartDisabledWhileLoggedIn(): ?bool {
-        return $this->getBackingStore()->get('restartDisabledWhileLoggedIn');
+        $val = $this->getBackingStore()->get('restartDisabledWhileLoggedIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restartDisabledWhileLoggedIn'");
     }
 
     /**
@@ -370,7 +538,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getScreenLockDisableImmediate(): ?bool {
-        return $this->getBackingStore()->get('screenLockDisableImmediate');
+        $val = $this->getBackingStore()->get('screenLockDisableImmediate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenLockDisableImmediate'");
     }
 
     /**
@@ -378,7 +550,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getShutDownDisabled(): ?bool {
-        return $this->getBackingStore()->get('shutDownDisabled');
+        $val = $this->getBackingStore()->get('shutDownDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shutDownDisabled'");
     }
 
     /**
@@ -386,7 +562,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getShutDownDisabledWhileLoggedIn(): ?bool {
-        return $this->getBackingStore()->get('shutDownDisabledWhileLoggedIn');
+        $val = $this->getBackingStore()->get('shutDownDisabledWhileLoggedIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shutDownDisabledWhileLoggedIn'");
     }
 
     /**
@@ -394,7 +574,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return SingleSignOnExtension|null
     */
     public function getSingleSignOnExtension(): ?SingleSignOnExtension {
-        return $this->getBackingStore()->get('singleSignOnExtension');
+        $val = $this->getBackingStore()->get('singleSignOnExtension');
+        if (is_null($val) || $val instanceof SingleSignOnExtension) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnExtension'");
     }
 
     /**
@@ -402,7 +586,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSCertificateProfileBase|null
     */
     public function getSingleSignOnExtensionPkinitCertificate(): ?MacOSCertificateProfileBase {
-        return $this->getBackingStore()->get('singleSignOnExtensionPkinitCertificate');
+        $val = $this->getBackingStore()->get('singleSignOnExtensionPkinitCertificate');
+        if (is_null($val) || $val instanceof MacOSCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnExtensionPkinitCertificate'");
     }
 
     /**
@@ -410,7 +598,11 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getSleepDisabled(): ?bool {
-        return $this->getBackingStore()->get('sleepDisabled');
+        $val = $this->getBackingStore()->get('sleepDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sleepDisabled'");
     }
 
     /**

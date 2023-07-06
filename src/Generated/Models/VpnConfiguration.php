@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VpnConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -37,7 +38,11 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof VpnAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -45,12 +50,16 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->getBackingStore()->get('connectionName');
+        $val = $this->getBackingStore()->get('connectionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +77,11 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -76,7 +89,11 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRole(): ?string {
-        return $this->getBackingStore()->get('role');
+        $val = $this->getBackingStore()->get('role');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
     }
 
     /**
@@ -84,7 +101,13 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->getBackingStore()->get('servers');
+        $val = $this->getBackingStore()->get('servers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnServer::class);
+            /** @var array<VpnServer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servers'");
     }
 
     /**

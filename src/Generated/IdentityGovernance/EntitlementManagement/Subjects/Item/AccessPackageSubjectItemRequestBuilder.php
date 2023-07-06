@@ -58,7 +58,7 @@ class AccessPackageSubjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subjects from identityGovernance
+     * Represents the subjects within entitlement management.
      * @param AccessPackageSubjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class AccessPackageSubjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subjects from identityGovernance
+     * Represents the subjects within entitlement management.
      * @param AccessPackageSubjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

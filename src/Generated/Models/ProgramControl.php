@@ -30,7 +30,11 @@ class ProgramControl extends Entity implements Parsable
      * @return string|null
     */
     public function getControlId(): ?string {
-        return $this->getBackingStore()->get('controlId');
+        $val = $this->getBackingStore()->get('controlId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'controlId'");
     }
 
     /**
@@ -38,7 +42,11 @@ class ProgramControl extends Entity implements Parsable
      * @return string|null
     */
     public function getControlTypeId(): ?string {
-        return $this->getBackingStore()->get('controlTypeId');
+        $val = $this->getBackingStore()->get('controlTypeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'controlTypeId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class ProgramControl extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -54,12 +66,16 @@ class ProgramControl extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +97,11 @@ class ProgramControl extends Entity implements Parsable
      * @return UserIdentity|null
     */
     public function getOwner(): ?UserIdentity {
-        return $this->getBackingStore()->get('owner');
+        $val = $this->getBackingStore()->get('owner');
+        if (is_null($val) || $val instanceof UserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'owner'");
     }
 
     /**
@@ -89,7 +109,11 @@ class ProgramControl extends Entity implements Parsable
      * @return Program|null
     */
     public function getProgram(): ?Program {
-        return $this->getBackingStore()->get('program');
+        $val = $this->getBackingStore()->get('program');
+        if (is_null($val) || $val instanceof Program) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'program'");
     }
 
     /**
@@ -97,7 +121,11 @@ class ProgramControl extends Entity implements Parsable
      * @return string|null
     */
     public function getProgramId(): ?string {
-        return $this->getBackingStore()->get('programId');
+        $val = $this->getBackingStore()->get('programId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'programId'");
     }
 
     /**
@@ -105,7 +133,11 @@ class ProgramControl extends Entity implements Parsable
      * @return ProgramResource|null
     */
     public function getResource(): ?ProgramResource {
-        return $this->getBackingStore()->get('resource');
+        $val = $this->getBackingStore()->get('resource');
+        if (is_null($val) || $val instanceof ProgramResource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resource'");
     }
 
     /**
@@ -113,7 +145,11 @@ class ProgramControl extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

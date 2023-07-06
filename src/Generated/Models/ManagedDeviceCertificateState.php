@@ -30,7 +30,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateEnhancedKeyUsage(): ?string {
-        return $this->getBackingStore()->get('certificateEnhancedKeyUsage');
+        $val = $this->getBackingStore()->get('certificateEnhancedKeyUsage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateEnhancedKeyUsage'");
     }
 
     /**
@@ -38,7 +42,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateErrorCode(): ?int {
-        return $this->getBackingStore()->get('certificateErrorCode');
+        $val = $this->getBackingStore()->get('certificateErrorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateErrorCode'");
     }
 
     /**
@@ -46,7 +54,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('certificateExpirationDateTime');
+        $val = $this->getBackingStore()->get('certificateExpirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateExpirationDateTime'");
     }
 
     /**
@@ -54,7 +66,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateIssuanceDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('certificateIssuanceDateTime');
+        $val = $this->getBackingStore()->get('certificateIssuanceDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateIssuanceDateTime'");
     }
 
     /**
@@ -62,7 +78,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateIssuanceStates|null
     */
     public function getCertificateIssuanceState(): ?CertificateIssuanceStates {
-        return $this->getBackingStore()->get('certificateIssuanceState');
+        $val = $this->getBackingStore()->get('certificateIssuanceState');
+        if (is_null($val) || $val instanceof CertificateIssuanceStates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateIssuanceState'");
     }
 
     /**
@@ -70,7 +90,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateIssuer(): ?string {
-        return $this->getBackingStore()->get('certificateIssuer');
+        $val = $this->getBackingStore()->get('certificateIssuer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateIssuer'");
     }
 
     /**
@@ -78,7 +102,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateKeyLength(): ?int {
-        return $this->getBackingStore()->get('certificateKeyLength');
+        $val = $this->getBackingStore()->get('certificateKeyLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateKeyLength'");
     }
 
     /**
@@ -86,7 +114,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return KeyStorageProviderOption|null
     */
     public function getCertificateKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->getBackingStore()->get('certificateKeyStorageProvider');
+        $val = $this->getBackingStore()->get('certificateKeyStorageProvider');
+        if (is_null($val) || $val instanceof KeyStorageProviderOption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateKeyStorageProvider'");
     }
 
     /**
@@ -94,7 +126,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return KeyUsages|null
     */
     public function getCertificateKeyUsage(): ?KeyUsages {
-        return $this->getBackingStore()->get('certificateKeyUsage');
+        $val = $this->getBackingStore()->get('certificateKeyUsage');
+        if (is_null($val) || $val instanceof KeyUsages) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateKeyUsage'");
     }
 
     /**
@@ -102,7 +138,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateLastIssuanceStateChangedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('certificateLastIssuanceStateChangedDateTime');
+        $val = $this->getBackingStore()->get('certificateLastIssuanceStateChangedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateLastIssuanceStateChangedDateTime'");
     }
 
     /**
@@ -110,7 +150,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateProfileDisplayName(): ?string {
-        return $this->getBackingStore()->get('certificateProfileDisplayName');
+        $val = $this->getBackingStore()->get('certificateProfileDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateProfileDisplayName'");
     }
 
     /**
@@ -118,7 +162,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateRevocationStatus|null
     */
     public function getCertificateRevokeStatus(): ?CertificateRevocationStatus {
-        return $this->getBackingStore()->get('certificateRevokeStatus');
+        $val = $this->getBackingStore()->get('certificateRevokeStatus');
+        if (is_null($val) || $val instanceof CertificateRevocationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateRevokeStatus'");
     }
 
     /**
@@ -126,7 +174,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSerialNumber(): ?string {
-        return $this->getBackingStore()->get('certificateSerialNumber');
+        $val = $this->getBackingStore()->get('certificateSerialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateSerialNumber'");
     }
 
     /**
@@ -134,7 +186,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return SubjectAlternativeNameType|null
     */
     public function getCertificateSubjectAlternativeNameFormat(): ?SubjectAlternativeNameType {
-        return $this->getBackingStore()->get('certificateSubjectAlternativeNameFormat');
+        $val = $this->getBackingStore()->get('certificateSubjectAlternativeNameFormat');
+        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateSubjectAlternativeNameFormat'");
     }
 
     /**
@@ -142,7 +198,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSubjectAlternativeNameFormatString(): ?string {
-        return $this->getBackingStore()->get('certificateSubjectAlternativeNameFormatString');
+        $val = $this->getBackingStore()->get('certificateSubjectAlternativeNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateSubjectAlternativeNameFormatString'");
     }
 
     /**
@@ -150,7 +210,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return SubjectNameFormat|null
     */
     public function getCertificateSubjectNameFormat(): ?SubjectNameFormat {
-        return $this->getBackingStore()->get('certificateSubjectNameFormat');
+        $val = $this->getBackingStore()->get('certificateSubjectNameFormat');
+        if (is_null($val) || $val instanceof SubjectNameFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateSubjectNameFormat'");
     }
 
     /**
@@ -158,7 +222,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSubjectNameFormatString(): ?string {
-        return $this->getBackingStore()->get('certificateSubjectNameFormatString');
+        $val = $this->getBackingStore()->get('certificateSubjectNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateSubjectNameFormatString'");
     }
 
     /**
@@ -166,7 +234,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateThumbprint(): ?string {
-        return $this->getBackingStore()->get('certificateThumbprint');
+        $val = $this->getBackingStore()->get('certificateThumbprint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateThumbprint'");
     }
 
     /**
@@ -174,7 +246,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateValidityPeriod(): ?int {
-        return $this->getBackingStore()->get('certificateValidityPeriod');
+        $val = $this->getBackingStore()->get('certificateValidityPeriod');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriod'");
     }
 
     /**
@@ -182,7 +258,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodUnits(): ?CertificateValidityPeriodScale {
-        return $this->getBackingStore()->get('certificateValidityPeriodUnits');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodUnits');
+        if (is_null($val) || $val instanceof CertificateValidityPeriodScale) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodUnits'");
     }
 
     /**
@@ -190,7 +270,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
@@ -198,12 +282,16 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getDevicePlatform(): ?DevicePlatformType {
-        return $this->getBackingStore()->get('devicePlatform');
+        $val = $this->getBackingStore()->get('devicePlatform');
+        if (is_null($val) || $val instanceof DevicePlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicePlatform'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -240,7 +328,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCertificateStateChangeDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCertificateStateChangeDateTime');
+        $val = $this->getBackingStore()->get('lastCertificateStateChangeDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCertificateStateChangeDateTime'");
     }
 
     /**
@@ -248,7 +340,11 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**

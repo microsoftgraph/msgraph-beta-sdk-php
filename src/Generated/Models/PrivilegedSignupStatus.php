@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedSignupStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new privilegedSignupStatus and sets the default values.
+     * Instantiates a new PrivilegedSignupStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class PrivilegedSignupStatus extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRegistered(): ?bool {
-        return $this->getBackingStore()->get('isRegistered');
+        $val = $this->getBackingStore()->get('isRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRegistered'");
     }
 
     /**
@@ -49,7 +53,11 @@ class PrivilegedSignupStatus extends Entity implements Parsable
      * @return SetupStatus|null
     */
     public function getStatus(): ?SetupStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof SetupStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

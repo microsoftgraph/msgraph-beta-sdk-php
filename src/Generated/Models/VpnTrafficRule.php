@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * VPN Traffic Rule definition.
@@ -42,7 +43,12 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -58,7 +68,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnTrafficRuleAppType|null
     */
     public function getAppType(): ?VpnTrafficRuleAppType {
-        return $this->getBackingStore()->get('appType');
+        $val = $this->getBackingStore()->get('appType');
+        if (is_null($val) || $val instanceof VpnTrafficRuleAppType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appType'");
     }
 
     /**
@@ -74,12 +88,16 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getClaims(): ?string {
-        return $this->getBackingStore()->get('claims');
+        $val = $this->getBackingStore()->get('claims');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claims'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +122,13 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IPv4Range>|null
     */
     public function getLocalAddressRanges(): ?array {
-        return $this->getBackingStore()->get('localAddressRanges');
+        $val = $this->getBackingStore()->get('localAddressRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IPv4Range::class);
+            /** @var array<IPv4Range>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localAddressRanges'");
     }
 
     /**
@@ -112,7 +136,13 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<NumberRange>|null
     */
     public function getLocalPortRanges(): ?array {
-        return $this->getBackingStore()->get('localPortRanges');
+        $val = $this->getBackingStore()->get('localPortRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NumberRange::class);
+            /** @var array<NumberRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localPortRanges'");
     }
 
     /**
@@ -120,7 +150,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -128,7 +162,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -136,7 +174,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getProtocols(): ?int {
-        return $this->getBackingStore()->get('protocols');
+        $val = $this->getBackingStore()->get('protocols');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protocols'");
     }
 
     /**
@@ -144,7 +186,13 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IPv4Range>|null
     */
     public function getRemoteAddressRanges(): ?array {
-        return $this->getBackingStore()->get('remoteAddressRanges');
+        $val = $this->getBackingStore()->get('remoteAddressRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IPv4Range::class);
+            /** @var array<IPv4Range>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAddressRanges'");
     }
 
     /**
@@ -152,7 +200,13 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<NumberRange>|null
     */
     public function getRemotePortRanges(): ?array {
-        return $this->getBackingStore()->get('remotePortRanges');
+        $val = $this->getBackingStore()->get('remotePortRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NumberRange::class);
+            /** @var array<NumberRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remotePortRanges'");
     }
 
     /**
@@ -160,7 +214,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnTrafficRuleRoutingPolicyType|null
     */
     public function getRoutingPolicyType(): ?VpnTrafficRuleRoutingPolicyType {
-        return $this->getBackingStore()->get('routingPolicyType');
+        $val = $this->getBackingStore()->get('routingPolicyType');
+        if (is_null($val) || $val instanceof VpnTrafficRuleRoutingPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routingPolicyType'");
     }
 
     /**
@@ -168,7 +226,11 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnTrafficDirection|null
     */
     public function getVpnTrafficDirection(): ?VpnTrafficDirection {
-        return $this->getBackingStore()->get('vpnTrafficDirection');
+        $val = $this->getBackingStore()->get('vpnTrafficDirection');
+        if (is_null($val) || $val instanceof VpnTrafficDirection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnTrafficDirection'");
     }
 
     /**

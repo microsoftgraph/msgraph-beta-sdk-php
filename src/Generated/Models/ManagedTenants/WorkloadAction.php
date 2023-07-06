@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -18,7 +19,7 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new WorkloadAction and sets the default values.
+     * Instantiates a new workloadAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -39,7 +40,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getActionId(): ?string {
-        return $this->getBackingStore()->get('actionId');
+        $val = $this->getBackingStore()->get('actionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionId'");
     }
 
     /**
@@ -47,7 +52,12 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -63,7 +73,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return WorkloadActionCategory|null
     */
     public function getCategory(): ?WorkloadActionCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof WorkloadActionCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -71,7 +85,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -79,12 +97,16 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -93,7 +115,14 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'licenses' => fn(ParseNode $n) => $o->setLicenses($n->getCollectionOfPrimitiveValues()),
+            'licenses' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLicenses($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'service' => fn(ParseNode $n) => $o->setService($n->getStringValue()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([Setting::class, 'createFromDiscriminatorValue'])),
@@ -105,7 +134,13 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getLicenses(): ?array {
-        return $this->getBackingStore()->get('licenses');
+        $val = $this->getBackingStore()->get('licenses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licenses'");
     }
 
     /**
@@ -113,7 +148,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,7 +160,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getService(): ?string {
-        return $this->getBackingStore()->get('service');
+        $val = $this->getBackingStore()->get('service');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'service'");
     }
 
     /**
@@ -129,7 +172,13 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<Setting>|null
     */
     public function getSettings(): ?array {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Setting::class);
+            /** @var array<Setting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**

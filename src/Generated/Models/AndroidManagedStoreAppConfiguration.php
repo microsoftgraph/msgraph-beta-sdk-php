@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return bool|null
     */
     public function getAppSupportsOemConfig(): ?bool {
-        return $this->getBackingStore()->get('appSupportsOemConfig');
+        $val = $this->getBackingStore()->get('appSupportsOemConfig');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appSupportsOemConfig'");
     }
 
     /**
@@ -38,12 +43,16 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return bool|null
     */
     public function getConnectedAppsEnabled(): ?bool {
-        return $this->getBackingStore()->get('connectedAppsEnabled');
+        $val = $this->getBackingStore()->get('connectedAppsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectedAppsEnabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +71,11 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->getBackingStore()->get('packageId');
+        $val = $this->getBackingStore()->get('packageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageId'");
     }
 
     /**
@@ -70,7 +83,11 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return string|null
     */
     public function getPayloadJson(): ?string {
-        return $this->getBackingStore()->get('payloadJson');
+        $val = $this->getBackingStore()->get('payloadJson');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadJson'");
     }
 
     /**
@@ -78,7 +95,13 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return array<AndroidPermissionAction>|null
     */
     public function getPermissionActions(): ?array {
-        return $this->getBackingStore()->get('permissionActions');
+        $val = $this->getBackingStore()->get('permissionActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidPermissionAction::class);
+            /** @var array<AndroidPermissionAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionActions'");
     }
 
     /**
@@ -86,7 +109,11 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return AndroidProfileApplicability|null
     */
     public function getProfileApplicability(): ?AndroidProfileApplicability {
-        return $this->getBackingStore()->get('profileApplicability');
+        $val = $this->getBackingStore()->get('profileApplicability');
+        if (is_null($val) || $val instanceof AndroidProfileApplicability) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileApplicability'");
     }
 
     /**

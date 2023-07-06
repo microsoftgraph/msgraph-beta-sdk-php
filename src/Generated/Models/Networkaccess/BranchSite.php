@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BranchSite extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class BranchSite extends Entity implements Parsable
      * @return int|null
     */
     public function getBandwidthCapacity(): ?int {
-        return $this->getBackingStore()->get('bandwidthCapacity');
+        $val = $this->getBackingStore()->get('bandwidthCapacity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthCapacity'");
     }
 
     /**
@@ -39,7 +44,11 @@ class BranchSite extends Entity implements Parsable
      * @return ConnectivityState|null
     */
     public function getConnectivityState(): ?ConnectivityState {
-        return $this->getBackingStore()->get('connectivityState');
+        $val = $this->getBackingStore()->get('connectivityState');
+        if (is_null($val) || $val instanceof ConnectivityState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivityState'");
     }
 
     /**
@@ -47,7 +56,11 @@ class BranchSite extends Entity implements Parsable
      * @return string|null
     */
     public function getCountry(): ?string {
-        return $this->getBackingStore()->get('country');
+        $val = $this->getBackingStore()->get('country');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'country'");
     }
 
     /**
@@ -55,12 +68,18 @@ class BranchSite extends Entity implements Parsable
      * @return array<DeviceLink>|null
     */
     public function getDeviceLinks(): ?array {
-        return $this->getBackingStore()->get('deviceLinks');
+        $val = $this->getBackingStore()->get('deviceLinks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceLink::class);
+            /** @var array<DeviceLink>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLinks'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +101,13 @@ class BranchSite extends Entity implements Parsable
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
-        return $this->getBackingStore()->get('forwardingProfiles');
+        $val = $this->getBackingStore()->get('forwardingProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ForwardingProfile::class);
+            /** @var array<ForwardingProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingProfiles'");
     }
 
     /**
@@ -90,7 +115,11 @@ class BranchSite extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -98,7 +127,11 @@ class BranchSite extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -106,7 +139,11 @@ class BranchSite extends Entity implements Parsable
      * @return Region|null
     */
     public function getRegion(): ?Region {
-        return $this->getBackingStore()->get('region');
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || $val instanceof Region) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**
@@ -114,7 +151,11 @@ class BranchSite extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

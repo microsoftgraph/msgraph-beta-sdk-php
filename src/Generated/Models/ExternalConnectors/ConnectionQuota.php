@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConnectionQuota extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new connectionQuota and sets the default values.
+     * Instantiates a new ConnectionQuota and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class ConnectionQuota extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class ConnectionQuota extends Entity implements Parsable
      * @return int|null
     */
     public function getItemsRemaining(): ?int {
-        return $this->getBackingStore()->get('itemsRemaining');
+        $val = $this->getBackingStore()->get('itemsRemaining');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemsRemaining'");
     }
 
     /**

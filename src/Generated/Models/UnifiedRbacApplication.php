@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UnifiedRbacApplication extends Entity implements Parsable 
 {
@@ -29,12 +30,18 @@ class UnifiedRbacApplication extends Entity implements Parsable
      * @return array<CustomAppScope>|null
     */
     public function getCustomAppScopes(): ?array {
-        return $this->getBackingStore()->get('customAppScopes');
+        $val = $this->getBackingStore()->get('customAppScopes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomAppScope::class);
+            /** @var array<CustomAppScope>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customAppScopes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +59,13 @@ class UnifiedRbacApplication extends Entity implements Parsable
      * @return array<UnifiedRbacResourceNamespace>|null
     */
     public function getResourceNamespaces(): ?array {
-        return $this->getBackingStore()->get('resourceNamespaces');
+        $val = $this->getBackingStore()->get('resourceNamespaces');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRbacResourceNamespace::class);
+            /** @var array<UnifiedRbacResourceNamespace>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceNamespaces'");
     }
 
     /**
@@ -60,7 +73,13 @@ class UnifiedRbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->getBackingStore()->get('roleAssignments');
+        $val = $this->getBackingStore()->get('roleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRoleAssignment::class);
+            /** @var array<UnifiedRoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignments'");
     }
 
     /**
@@ -68,7 +87,13 @@ class UnifiedRbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->getBackingStore()->get('roleDefinitions');
+        $val = $this->getBackingStore()->get('roleDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRoleDefinition::class);
+            /** @var array<UnifiedRoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitions'");
     }
 
     /**
@@ -76,7 +101,13 @@ class UnifiedRbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getTransitiveRoleAssignments(): ?array {
-        return $this->getBackingStore()->get('transitiveRoleAssignments');
+        $val = $this->getBackingStore()->get('transitiveRoleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRoleAssignment::class);
+            /** @var array<UnifiedRoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transitiveRoleAssignments'");
     }
 
     /**

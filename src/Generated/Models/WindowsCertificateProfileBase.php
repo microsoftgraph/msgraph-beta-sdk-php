@@ -42,7 +42,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->getBackingStore()->get('certificateValidityPeriodScale');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodScale');
+        if (is_null($val) || $val instanceof CertificateValidityPeriodScale) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodScale'");
     }
 
     /**
@@ -50,12 +54,16 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->getBackingStore()->get('certificateValidityPeriodValue');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -74,7 +82,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->getBackingStore()->get('keyStorageProvider');
+        $val = $this->getBackingStore()->get('keyStorageProvider');
+        if (is_null($val) || $val instanceof KeyStorageProviderOption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyStorageProvider'");
     }
 
     /**
@@ -82,7 +94,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('renewalThresholdPercentage');
+        $val = $this->getBackingStore()->get('renewalThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'renewalThresholdPercentage'");
     }
 
     /**
@@ -90,7 +106,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
-        return $this->getBackingStore()->get('subjectAlternativeNameType');
+        $val = $this->getBackingStore()->get('subjectAlternativeNameType');
+        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
     }
 
     /**
@@ -98,7 +118,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
-        return $this->getBackingStore()->get('subjectNameFormat');
+        $val = $this->getBackingStore()->get('subjectNameFormat');
+        if (is_null($val) || $val instanceof SubjectNameFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormat'");
     }
 
     /**

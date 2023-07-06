@@ -31,7 +31,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivity(): ?string {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -39,7 +43,11 @@ class AuditEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('activityDateTime');
+        $val = $this->getBackingStore()->get('activityDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityDateTime'");
     }
 
     /**
@@ -47,7 +55,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivityId(): ?string {
-        return $this->getBackingStore()->get('activityId');
+        $val = $this->getBackingStore()->get('activityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityId'");
     }
 
     /**
@@ -55,12 +67,16 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +102,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getHttpVerb(): ?string {
-        return $this->getBackingStore()->get('httpVerb');
+        $val = $this->getBackingStore()->get('httpVerb');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'httpVerb'");
     }
 
     /**
@@ -94,7 +114,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByAppId(): ?string {
-        return $this->getBackingStore()->get('initiatedByAppId');
+        $val = $this->getBackingStore()->get('initiatedByAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedByAppId'");
     }
 
     /**
@@ -102,7 +126,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByUpn(): ?string {
-        return $this->getBackingStore()->get('initiatedByUpn');
+        $val = $this->getBackingStore()->get('initiatedByUpn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedByUpn'");
     }
 
     /**
@@ -110,7 +138,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByUserId(): ?string {
-        return $this->getBackingStore()->get('initiatedByUserId');
+        $val = $this->getBackingStore()->get('initiatedByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedByUserId'");
     }
 
     /**
@@ -118,7 +150,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -126,7 +162,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestBody(): ?string {
-        return $this->getBackingStore()->get('requestBody');
+        $val = $this->getBackingStore()->get('requestBody');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestBody'");
     }
 
     /**
@@ -134,7 +174,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestUrl(): ?string {
-        return $this->getBackingStore()->get('requestUrl');
+        $val = $this->getBackingStore()->get('requestUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestUrl'");
     }
 
     /**
@@ -142,7 +186,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantIds(): ?string {
-        return $this->getBackingStore()->get('tenantIds');
+        $val = $this->getBackingStore()->get('tenantIds');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantIds'");
     }
 
     /**
@@ -150,7 +198,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantNames(): ?string {
-        return $this->getBackingStore()->get('tenantNames');
+        $val = $this->getBackingStore()->get('tenantNames');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantNames'");
     }
 
     /**

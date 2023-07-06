@@ -40,7 +40,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAcquiredByPrinter(): ?bool {
-        return $this->getBackingStore()->get('acquiredByPrinter');
+        $val = $this->getBackingStore()->get('acquiredByPrinter');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acquiredByPrinter'");
     }
 
     /**
@@ -48,7 +52,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getAcquiredDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('acquiredDateTime');
+        $val = $this->getBackingStore()->get('acquiredDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acquiredDateTime'");
     }
 
     /**
@@ -56,7 +64,12 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -72,7 +85,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getBlackAndWhitePageCount(): ?int {
-        return $this->getBackingStore()->get('blackAndWhitePageCount');
+        $val = $this->getBackingStore()->get('blackAndWhitePageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blackAndWhitePageCount'");
     }
 
     /**
@@ -80,7 +97,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getColorPageCount(): ?int {
-        return $this->getBackingStore()->get('colorPageCount');
+        $val = $this->getBackingStore()->get('colorPageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'colorPageCount'");
     }
 
     /**
@@ -88,7 +109,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getCompletionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completionDateTime');
+        $val = $this->getBackingStore()->get('completionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionDateTime'");
     }
 
     /**
@@ -96,7 +121,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getCopiesPrinted(): ?int {
-        return $this->getBackingStore()->get('copiesPrinted');
+        $val = $this->getBackingStore()->get('copiesPrinted');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'copiesPrinted'");
     }
 
     /**
@@ -104,7 +133,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return UserIdentity|null
     */
     public function getCreatedBy(): ?UserIdentity {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof UserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -112,7 +145,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -120,12 +157,16 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getDuplexPageCount(): ?int {
-        return $this->getBackingStore()->get('duplexPageCount');
+        $val = $this->getBackingStore()->get('duplexPageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duplexPageCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -153,7 +194,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -161,7 +206,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -169,7 +218,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getPageCount(): ?int {
-        return $this->getBackingStore()->get('pageCount');
+        $val = $this->getBackingStore()->get('pageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pageCount'");
     }
 
     /**
@@ -177,7 +230,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPrinterId(): ?string {
-        return $this->getBackingStore()->get('printerId');
+        $val = $this->getBackingStore()->get('printerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerId'");
     }
 
     /**
@@ -185,7 +242,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return PrintJobProcessingState|null
     */
     public function getProcessingState(): ?PrintJobProcessingState {
-        return $this->getBackingStore()->get('processingState');
+        $val = $this->getBackingStore()->get('processingState');
+        if (is_null($val) || $val instanceof PrintJobProcessingState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processingState'");
     }
 
     /**
@@ -193,7 +254,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getSimplexPageCount(): ?int {
-        return $this->getBackingStore()->get('simplexPageCount');
+        $val = $this->getBackingStore()->get('simplexPageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simplexPageCount'");
     }
 
     /**

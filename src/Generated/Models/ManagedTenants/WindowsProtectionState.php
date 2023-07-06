@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsProtectionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsProtectionState and sets the default values.
+     * Instantiates a new WindowsProtectionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +31,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getAntiMalwareVersion(): ?string {
-        return $this->getBackingStore()->get('antiMalwareVersion');
+        $val = $this->getBackingStore()->get('antiMalwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'antiMalwareVersion'");
     }
 
     /**
@@ -39,7 +43,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getAttentionRequired(): ?bool {
-        return $this->getBackingStore()->get('attentionRequired');
+        $val = $this->getBackingStore()->get('attentionRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attentionRequired'");
     }
 
     /**
@@ -47,7 +55,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getDeviceDeleted(): ?bool {
-        return $this->getBackingStore()->get('deviceDeleted');
+        $val = $this->getBackingStore()->get('deviceDeleted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDeleted'");
     }
 
     /**
@@ -55,7 +67,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDevicePropertyRefreshDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('devicePropertyRefreshDateTime');
+        $val = $this->getBackingStore()->get('devicePropertyRefreshDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicePropertyRefreshDateTime'");
     }
 
     /**
@@ -63,12 +79,16 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getEngineVersion(): ?string {
-        return $this->getBackingStore()->get('engineVersion');
+        $val = $this->getBackingStore()->get('engineVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'engineVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -106,7 +126,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getFullScanOverdue(): ?bool {
-        return $this->getBackingStore()->get('fullScanOverdue');
+        $val = $this->getBackingStore()->get('fullScanOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fullScanOverdue'");
     }
 
     /**
@@ -114,7 +138,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getFullScanRequired(): ?bool {
-        return $this->getBackingStore()->get('fullScanRequired');
+        $val = $this->getBackingStore()->get('fullScanRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fullScanRequired'");
     }
 
     /**
@@ -122,7 +150,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastFullScanDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastFullScanDateTime');
+        $val = $this->getBackingStore()->get('lastFullScanDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastFullScanDateTime'");
     }
 
     /**
@@ -130,7 +162,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastFullScanSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('lastFullScanSignatureVersion');
+        $val = $this->getBackingStore()->get('lastFullScanSignatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastFullScanSignatureVersion'");
     }
 
     /**
@@ -138,7 +174,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastQuickScanDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastQuickScanDateTime');
+        $val = $this->getBackingStore()->get('lastQuickScanDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastQuickScanDateTime'");
     }
 
     /**
@@ -146,7 +186,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastQuickScanSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('lastQuickScanSignatureVersion');
+        $val = $this->getBackingStore()->get('lastQuickScanSignatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastQuickScanSignatureVersion'");
     }
 
     /**
@@ -154,7 +198,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -162,7 +210,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportedDateTime');
+        $val = $this->getBackingStore()->get('lastReportedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
     }
 
     /**
@@ -170,7 +222,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getMalwareProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('malwareProtectionEnabled');
+        $val = $this->getBackingStore()->get('malwareProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malwareProtectionEnabled'");
     }
 
     /**
@@ -178,7 +234,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceHealthState(): ?string {
-        return $this->getBackingStore()->get('managedDeviceHealthState');
+        $val = $this->getBackingStore()->get('managedDeviceHealthState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceHealthState'");
     }
 
     /**
@@ -186,7 +246,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -194,7 +258,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->getBackingStore()->get('managedDeviceName');
+        $val = $this->getBackingStore()->get('managedDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
     }
 
     /**
@@ -202,7 +270,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getNetworkInspectionSystemEnabled(): ?bool {
-        return $this->getBackingStore()->get('networkInspectionSystemEnabled');
+        $val = $this->getBackingStore()->get('networkInspectionSystemEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkInspectionSystemEnabled'");
     }
 
     /**
@@ -210,7 +282,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getQuickScanOverdue(): ?bool {
-        return $this->getBackingStore()->get('quickScanOverdue');
+        $val = $this->getBackingStore()->get('quickScanOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'quickScanOverdue'");
     }
 
     /**
@@ -218,7 +294,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getRealTimeProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('realTimeProtectionEnabled');
+        $val = $this->getBackingStore()->get('realTimeProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realTimeProtectionEnabled'");
     }
 
     /**
@@ -226,7 +306,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getRebootRequired(): ?bool {
-        return $this->getBackingStore()->get('rebootRequired');
+        $val = $this->getBackingStore()->get('rebootRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rebootRequired'");
     }
 
     /**
@@ -234,7 +318,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getSignatureUpdateOverdue(): ?bool {
-        return $this->getBackingStore()->get('signatureUpdateOverdue');
+        $val = $this->getBackingStore()->get('signatureUpdateOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signatureUpdateOverdue'");
     }
 
     /**
@@ -242,7 +330,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('signatureVersion');
+        $val = $this->getBackingStore()->get('signatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signatureVersion'");
     }
 
     /**
@@ -250,7 +342,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -258,7 +354,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

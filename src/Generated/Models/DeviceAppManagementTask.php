@@ -42,7 +42,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignedTo(): ?string {
-        return $this->getBackingStore()->get('assignedTo');
+        $val = $this->getBackingStore()->get('assignedTo');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedTo'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return DeviceAppManagementTaskCategory|null
     */
     public function getCategory(): ?DeviceAppManagementTaskCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof DeviceAppManagementTaskCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -58,7 +66,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -66,7 +78,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return string|null
     */
     public function getCreator(): ?string {
-        return $this->getBackingStore()->get('creator');
+        $val = $this->getBackingStore()->get('creator');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creator'");
     }
 
     /**
@@ -74,7 +90,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatorNotes(): ?string {
-        return $this->getBackingStore()->get('creatorNotes');
+        $val = $this->getBackingStore()->get('creatorNotes');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creatorNotes'");
     }
 
     /**
@@ -82,7 +102,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -90,7 +114,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -98,12 +126,16 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('dueDateTime');
+        $val = $this->getBackingStore()->get('dueDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dueDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -126,7 +158,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return DeviceAppManagementTaskPriority|null
     */
     public function getPriority(): ?DeviceAppManagementTaskPriority {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || $val instanceof DeviceAppManagementTaskPriority) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -134,7 +170,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return DeviceAppManagementTaskStatus|null
     */
     public function getStatus(): ?DeviceAppManagementTaskStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof DeviceAppManagementTaskStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

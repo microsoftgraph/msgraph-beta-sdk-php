@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -53,12 +59,19 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'managedDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setManagedDeviceIds($val);
+            },
             'scopedToAllDevices' => fn(ParseNode $n) => $o->setScopedToAllDevices($n->getBooleanValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ScheduledRetireState::class)),
         ];
@@ -69,7 +82,13 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
-        return $this->getBackingStore()->get('managedDeviceIds');
+        $val = $this->getBackingStore()->get('managedDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceIds'");
     }
 
     /**
@@ -77,7 +96,11 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return bool|null
     */
     public function getScopedToAllDevices(): ?bool {
-        return $this->getBackingStore()->get('scopedToAllDevices');
+        $val = $this->getBackingStore()->get('scopedToAllDevices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopedToAllDevices'");
     }
 
     /**
@@ -85,7 +108,11 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return ScheduledRetireState|null
     */
     public function getState(): ?ScheduledRetireState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof ScheduledRetireState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

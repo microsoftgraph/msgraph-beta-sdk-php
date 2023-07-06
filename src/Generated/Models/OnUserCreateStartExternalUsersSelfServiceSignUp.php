@@ -27,7 +27,7 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp extends OnUserCreateStartH
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp extends OnUserCreateStartH
      * @return UserType|null
     */
     public function getUserTypeToCreate(): ?UserType {
-        return $this->getBackingStore()->get('userTypeToCreate');
+        $val = $this->getBackingStore()->get('userTypeToCreate');
+        if (is_null($val) || $val instanceof UserType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userTypeToCreate'");
     }
 
     /**

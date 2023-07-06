@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WebApplicationSegment extends ApplicationSegment implements Parsable 
 {
@@ -30,7 +31,11 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
-        return $this->getBackingStore()->get('alternateUrl');
+        $val = $this->getBackingStore()->get('alternateUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternateUrl'");
     }
 
     /**
@@ -38,7 +43,13 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
      * @return array<CorsConfiguration_v2>|null
     */
     public function getCorsConfigurations(): ?array {
-        return $this->getBackingStore()->get('corsConfigurations');
+        $val = $this->getBackingStore()->get('corsConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CorsConfiguration_v2::class);
+            /** @var array<CorsConfiguration_v2>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'corsConfigurations'");
     }
 
     /**
@@ -46,12 +57,16 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
      * @return string|null
     */
     public function getExternalUrl(): ?string {
-        return $this->getBackingStore()->get('externalUrl');
+        $val = $this->getBackingStore()->get('externalUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +83,11 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
      * @return string|null
     */
     public function getInternalUrl(): ?string {
-        return $this->getBackingStore()->get('internalUrl');
+        $val = $this->getBackingStore()->get('internalUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internalUrl'");
     }
 
     /**

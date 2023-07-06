@@ -29,7 +29,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getAverageSpikeTimeScore(): ?int {
-        return $this->getBackingStore()->get('averageSpikeTimeScore');
+        $val = $this->getBackingStore()->get('averageSpikeTimeScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageSpikeTimeScore'");
     }
 
     /**
@@ -37,7 +41,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getCpuSpikeTimePercentage(): ?float {
-        return $this->getBackingStore()->get('cpuSpikeTimePercentage');
+        $val = $this->getBackingStore()->get('cpuSpikeTimePercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuSpikeTimePercentage'");
     }
 
     /**
@@ -45,7 +53,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getCpuSpikeTimePercentageThreshold(): ?float {
-        return $this->getBackingStore()->get('cpuSpikeTimePercentageThreshold');
+        $val = $this->getBackingStore()->get('cpuSpikeTimePercentageThreshold');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuSpikeTimePercentageThreshold'");
     }
 
     /**
@@ -53,7 +65,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getCpuSpikeTimeScore(): ?int {
-        return $this->getBackingStore()->get('cpuSpikeTimeScore');
+        $val = $this->getBackingStore()->get('cpuSpikeTimeScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuSpikeTimeScore'");
     }
 
     /**
@@ -61,7 +77,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->getBackingStore()->get('deviceCount');
+        $val = $this->getBackingStore()->get('deviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCount'");
     }
 
     /**
@@ -69,7 +89,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -77,7 +101,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -85,12 +113,16 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getDeviceResourcePerformanceScore(): ?int {
-        return $this->getBackingStore()->get('deviceResourcePerformanceScore');
+        $val = $this->getBackingStore()->get('deviceResourcePerformanceScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceResourcePerformanceScore'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -116,7 +148,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -124,7 +160,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -132,7 +172,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getRamSpikeTimePercentage(): ?float {
-        return $this->getBackingStore()->get('ramSpikeTimePercentage');
+        $val = $this->getBackingStore()->get('ramSpikeTimePercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ramSpikeTimePercentage'");
     }
 
     /**
@@ -140,7 +184,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getRamSpikeTimePercentageThreshold(): ?float {
-        return $this->getBackingStore()->get('ramSpikeTimePercentageThreshold');
+        $val = $this->getBackingStore()->get('ramSpikeTimePercentageThreshold');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ramSpikeTimePercentageThreshold'");
     }
 
     /**
@@ -148,7 +196,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getRamSpikeTimeScore(): ?int {
-        return $this->getBackingStore()->get('ramSpikeTimeScore');
+        $val = $this->getBackingStore()->get('ramSpikeTimeScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ramSpikeTimeScore'");
     }
 
     /**

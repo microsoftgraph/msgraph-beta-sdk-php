@@ -30,12 +30,16 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
      * @return string|null
     */
     public function getApplicationType(): ?string {
-        return $this->getBackingStore()->get('applicationType');
+        $val = $this->getBackingStore()->get('applicationType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->getBackingStore()->get('hidden');
+        $val = $this->getBackingStore()->get('hidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hidden'");
     }
 
     /**

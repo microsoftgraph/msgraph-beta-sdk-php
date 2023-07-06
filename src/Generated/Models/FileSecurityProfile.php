@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class FileSecurityProfile extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getActivityGroupNames(): ?array {
-        return $this->getBackingStore()->get('activityGroupNames');
+        $val = $this->getBackingStore()->get('activityGroupNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityGroupNames'");
     }
 
     /**
@@ -38,7 +45,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('azureSubscriptionId');
+        $val = $this->getBackingStore()->get('azureSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureSubscriptionId'");
     }
 
     /**
@@ -46,7 +57,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
@@ -54,7 +69,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateThumbprint(): ?string {
-        return $this->getBackingStore()->get('certificateThumbprint');
+        $val = $this->getBackingStore()->get('certificateThumbprint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateThumbprint'");
     }
 
     /**
@@ -62,30 +81,64 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getExtensions(): ?array {
-        return $this->getBackingStore()->get('extensions');
+        $val = $this->getBackingStore()->get('extensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensions'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => fn(ParseNode $n) => $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()),
+            'activityGroupNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setActivityGroupNames($val);
+            },
             'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
             'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
             'certificateThumbprint' => fn(ParseNode $n) => $o->setCertificateThumbprint($n->getStringValue()),
-            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfPrimitiveValues()),
+            'extensions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExtensions($val);
+            },
             'fileType' => fn(ParseNode $n) => $o->setFileType($n->getStringValue()),
             'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
             'hashes' => fn(ParseNode $n) => $o->setHashes($n->getCollectionOfObjectValues([FileHash::class, 'createFromDiscriminatorValue'])),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
             'malwareStates' => fn(ParseNode $n) => $o->setMalwareStates($n->getCollectionOfObjectValues([MalwareState::class, 'createFromDiscriminatorValue'])),
-            'names' => fn(ParseNode $n) => $o->setNames($n->getCollectionOfPrimitiveValues()),
+            'names' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNames($val);
+            },
             'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
             'vulnerabilityStates' => fn(ParseNode $n) => $o->setVulnerabilityStates($n->getCollectionOfObjectValues([VulnerabilityState::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -96,7 +149,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getFileType(): ?string {
-        return $this->getBackingStore()->get('fileType');
+        $val = $this->getBackingStore()->get('fileType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileType'");
     }
 
     /**
@@ -104,7 +161,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -112,7 +173,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<FileHash>|null
     */
     public function getHashes(): ?array {
-        return $this->getBackingStore()->get('hashes');
+        $val = $this->getBackingStore()->get('hashes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FileHash::class);
+            /** @var array<FileHash>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hashes'");
     }
 
     /**
@@ -120,7 +187,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -128,7 +199,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<MalwareState>|null
     */
     public function getMalwareStates(): ?array {
-        return $this->getBackingStore()->get('malwareStates');
+        $val = $this->getBackingStore()->get('malwareStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MalwareState::class);
+            /** @var array<MalwareState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malwareStates'");
     }
 
     /**
@@ -136,7 +213,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getNames(): ?array {
-        return $this->getBackingStore()->get('names');
+        $val = $this->getBackingStore()->get('names');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'names'");
     }
 
     /**
@@ -144,7 +227,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->getBackingStore()->get('riskScore');
+        $val = $this->getBackingStore()->get('riskScore');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskScore'");
     }
 
     /**
@@ -152,7 +239,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -160,7 +251,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -168,7 +265,11 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->getBackingStore()->get('vendorInformation');
+        $val = $this->getBackingStore()->get('vendorInformation');
+        if (is_null($val) || $val instanceof SecurityVendorInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorInformation'");
     }
 
     /**
@@ -176,7 +277,13 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<VulnerabilityState>|null
     */
     public function getVulnerabilityStates(): ?array {
-        return $this->getBackingStore()->get('vulnerabilityStates');
+        $val = $this->getBackingStore()->get('vulnerabilityStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VulnerabilityState::class);
+            /** @var array<VulnerabilityState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vulnerabilityStates'");
     }
 
     /**

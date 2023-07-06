@@ -6,14 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * Windows Driver Update Profile
-*/
 class WindowsDriverUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDriverUpdateProfile and sets the default values.
+     * Instantiates a new WindowsDriverUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +31,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return DriverUpdateProfileApprovalType|null
     */
     public function getApprovalType(): ?DriverUpdateProfileApprovalType {
-        return $this->getBackingStore()->get('approvalType');
+        $val = $this->getBackingStore()->get('approvalType');
+        if (is_null($val) || $val instanceof DriverUpdateProfileApprovalType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalType'");
     }
 
     /**
@@ -41,7 +43,13 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return array<WindowsDriverUpdateProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDriverUpdateProfileAssignment::class);
+            /** @var array<WindowsDriverUpdateProfileAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -49,7 +57,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -57,7 +69,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getDeploymentDeferralInDays(): ?int {
-        return $this->getBackingStore()->get('deploymentDeferralInDays');
+        $val = $this->getBackingStore()->get('deploymentDeferralInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentDeferralInDays'");
     }
 
     /**
@@ -65,7 +81,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -73,7 +93,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceReporting(): ?int {
-        return $this->getBackingStore()->get('deviceReporting');
+        $val = $this->getBackingStore()->get('deviceReporting');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceReporting'");
     }
 
     /**
@@ -81,7 +105,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -89,12 +117,18 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return array<WindowsDriverUpdateInventory>|null
     */
     public function getDriverInventories(): ?array {
-        return $this->getBackingStore()->get('driverInventories');
+        $val = $this->getBackingStore()->get('driverInventories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDriverUpdateInventory::class);
+            /** @var array<WindowsDriverUpdateInventory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driverInventories'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -110,7 +144,14 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
             'inventorySyncStatus' => fn(ParseNode $n) => $o->setInventorySyncStatus($n->getObjectValue([WindowsDriverUpdateProfileInventorySyncStatus::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'newUpdates' => fn(ParseNode $n) => $o->setNewUpdates($n->getIntegerValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ]);
     }
 
@@ -119,7 +160,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return WindowsDriverUpdateProfileInventorySyncStatus|null
     */
     public function getInventorySyncStatus(): ?WindowsDriverUpdateProfileInventorySyncStatus {
-        return $this->getBackingStore()->get('inventorySyncStatus');
+        $val = $this->getBackingStore()->get('inventorySyncStatus');
+        if (is_null($val) || $val instanceof WindowsDriverUpdateProfileInventorySyncStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inventorySyncStatus'");
     }
 
     /**
@@ -127,7 +172,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -135,7 +184,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getNewUpdates(): ?int {
-        return $this->getBackingStore()->get('newUpdates');
+        $val = $this->getBackingStore()->get('newUpdates');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'newUpdates'");
     }
 
     /**
@@ -143,7 +196,13 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

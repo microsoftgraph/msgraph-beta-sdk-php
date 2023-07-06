@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +58,7 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +75,11 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -77,7 +87,11 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
      * @return ResponsiblePolicy|null
     */
     public function getResponsiblePolicy(): ?ResponsiblePolicy {
-        return $this->getBackingStore()->get('responsiblePolicy');
+        $val = $this->getBackingStore()->get('responsiblePolicy');
+        if (is_null($val) || $val instanceof ResponsiblePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responsiblePolicy'");
     }
 
     /**
@@ -85,7 +99,13 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<ResponsibleSensitiveType>|null
     */
     public function getResponsibleSensitiveTypes(): ?array {
-        return $this->getBackingStore()->get('responsibleSensitiveTypes');
+        $val = $this->getBackingStore()->get('responsibleSensitiveTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResponsibleSensitiveType::class);
+            /** @var array<ResponsibleSensitiveType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responsibleSensitiveTypes'");
     }
 
     /**
@@ -93,7 +113,11 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, BackedModel, Parsa
      * @return MatchingLabel|null
     */
     public function getSensitivityLabel(): ?MatchingLabel {
-        return $this->getBackingStore()->get('sensitivityLabel');
+        $val = $this->getBackingStore()->get('sensitivityLabel');
+        if (is_null($val) || $val instanceof MatchingLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabel'");
     }
 
     /**

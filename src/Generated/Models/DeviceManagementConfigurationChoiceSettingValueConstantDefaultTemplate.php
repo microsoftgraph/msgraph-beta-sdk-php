@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements Parsable 
 {
@@ -30,12 +31,18 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
      * @return array<DeviceManagementConfigurationSettingInstanceTemplate>|null
     */
     public function getChildren(): ?array {
-        return $this->getBackingStore()->get('children');
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingInstanceTemplate::class);
+            /** @var array<DeviceManagementConfigurationSettingInstanceTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +57,11 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
      * @return string|null
     */
     public function getSettingDefinitionOptionId(): ?string {
-        return $this->getBackingStore()->get('settingDefinitionOptionId');
+        $val = $this->getBackingStore()->get('settingDefinitionOptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDefinitionOptionId'");
     }
 
     /**

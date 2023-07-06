@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation implements Parsable 
 {
@@ -30,12 +31,16 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return GroupPolicyPresentationDropdownListItem|null
     */
     public function getDefaultItem(): ?GroupPolicyPresentationDropdownListItem {
-        return $this->getBackingStore()->get('defaultItem');
+        $val = $this->getBackingStore()->get('defaultItem');
+        if (is_null($val) || $val instanceof GroupPolicyPresentationDropdownListItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultItem'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,13 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return array<GroupPolicyPresentationDropdownListItem>|null
     */
     public function getItems(): ?array {
-        return $this->getBackingStore()->get('items');
+        $val = $this->getBackingStore()->get('items');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyPresentationDropdownListItem::class);
+            /** @var array<GroupPolicyPresentationDropdownListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'items'");
     }
 
     /**
@@ -59,7 +70,11 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->getBackingStore()->get('required');
+        $val = $this->getBackingStore()->get('required');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'required'");
     }
 
     /**

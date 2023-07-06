@@ -30,12 +30,16 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchange(): ?int {
-        return $this->getBackingStore()->get('exchange');
+        $val = $this->getBackingStore()->get('exchange');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchange'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +62,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOffice365(): ?int {
-        return $this->getBackingStore()->get('office365');
+        $val = $this->getBackingStore()->get('office365');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'office365'");
     }
 
     /**
@@ -66,7 +74,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOneDrive(): ?int {
-        return $this->getBackingStore()->get('oneDrive');
+        $val = $this->getBackingStore()->get('oneDrive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDrive'");
     }
 
     /**
@@ -74,7 +86,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->getBackingStore()->get('reportDate');
+        $val = $this->getBackingStore()->get('reportDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportDate'");
     }
 
     /**
@@ -82,7 +98,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->getBackingStore()->get('reportPeriod');
+        $val = $this->getBackingStore()->get('reportPeriod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportPeriod'");
     }
 
     /**
@@ -90,7 +110,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->getBackingStore()->get('reportRefreshDate');
+        $val = $this->getBackingStore()->get('reportRefreshDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportRefreshDate'");
     }
 
     /**
@@ -98,7 +122,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePoint(): ?int {
-        return $this->getBackingStore()->get('sharePoint');
+        $val = $this->getBackingStore()->get('sharePoint');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePoint'");
     }
 
     /**
@@ -106,7 +134,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSkypeForBusiness(): ?int {
-        return $this->getBackingStore()->get('skypeForBusiness');
+        $val = $this->getBackingStore()->get('skypeForBusiness');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skypeForBusiness'");
     }
 
     /**
@@ -114,7 +146,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeams(): ?int {
-        return $this->getBackingStore()->get('teams');
+        $val = $this->getBackingStore()->get('teams');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teams'");
     }
 
     /**
@@ -122,7 +158,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammer(): ?int {
-        return $this->getBackingStore()->get('yammer');
+        $val = $this->getBackingStore()->get('yammer');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammer'");
     }
 
     /**

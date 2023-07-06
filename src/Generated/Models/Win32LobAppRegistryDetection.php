@@ -30,7 +30,11 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return bool|null
     */
     public function getCheck32BitOn64System(): ?bool {
-        return $this->getBackingStore()->get('check32BitOn64System');
+        $val = $this->getBackingStore()->get('check32BitOn64System');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'check32BitOn64System'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return Win32LobAppRegistryDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppRegistryDetectionType {
-        return $this->getBackingStore()->get('detectionType');
+        $val = $this->getBackingStore()->get('detectionType');
+        if (is_null($val) || $val instanceof Win32LobAppRegistryDetectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionType'");
     }
 
     /**
@@ -46,12 +54,16 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return string|null
     */
     public function getDetectionValue(): ?string {
-        return $this->getBackingStore()->get('detectionValue');
+        $val = $this->getBackingStore()->get('detectionValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +82,11 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return string|null
     */
     public function getKeyPath(): ?string {
-        return $this->getBackingStore()->get('keyPath');
+        $val = $this->getBackingStore()->get('keyPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyPath'");
     }
 
     /**
@@ -78,7 +94,11 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
-        return $this->getBackingStore()->get('operator');
+        $val = $this->getBackingStore()->get('operator');
+        if (is_null($val) || $val instanceof Win32LobAppDetectionOperator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
     }
 
     /**
@@ -86,7 +106,11 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
      * @return string|null
     */
     public function getValueName(): ?string {
-        return $this->getBackingStore()->get('valueName');
+        $val = $this->getBackingStore()->get('valueName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueName'");
     }
 
     /**

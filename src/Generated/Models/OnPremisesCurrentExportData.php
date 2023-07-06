@@ -39,7 +39,12 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getClientMachineName(): ?string {
-        return $this->getBackingStore()->get('clientMachineName');
+        $val = $this->getBackingStore()->get('clientMachineName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientMachineName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +91,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -90,7 +103,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getPendingObjectsAddition(): ?int {
-        return $this->getBackingStore()->get('pendingObjectsAddition');
+        $val = $this->getBackingStore()->get('pendingObjectsAddition');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingObjectsAddition'");
     }
 
     /**
@@ -98,7 +115,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getPendingObjectsDeletion(): ?int {
-        return $this->getBackingStore()->get('pendingObjectsDeletion');
+        $val = $this->getBackingStore()->get('pendingObjectsDeletion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingObjectsDeletion'");
     }
 
     /**
@@ -106,7 +127,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getPendingObjectsUpdate(): ?int {
-        return $this->getBackingStore()->get('pendingObjectsUpdate');
+        $val = $this->getBackingStore()->get('pendingObjectsUpdate');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingObjectsUpdate'");
     }
 
     /**
@@ -114,7 +139,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getServiceAccount(): ?string {
-        return $this->getBackingStore()->get('serviceAccount');
+        $val = $this->getBackingStore()->get('serviceAccount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceAccount'");
     }
 
     /**
@@ -122,7 +151,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getSuccessfulLinksProvisioningCount(): ?int {
-        return $this->getBackingStore()->get('successfulLinksProvisioningCount');
+        $val = $this->getBackingStore()->get('successfulLinksProvisioningCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulLinksProvisioningCount'");
     }
 
     /**
@@ -130,7 +163,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getSuccessfulObjectsProvisioningCount(): ?int {
-        return $this->getBackingStore()->get('successfulObjectsProvisioningCount');
+        $val = $this->getBackingStore()->get('successfulObjectsProvisioningCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulObjectsProvisioningCount'");
     }
 
     /**
@@ -138,7 +175,11 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getTotalConnectorSpaceObjects(): ?int {
-        return $this->getBackingStore()->get('totalConnectorSpaceObjects');
+        $val = $this->getBackingStore()->get('totalConnectorSpaceObjects');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalConnectorSpaceObjects'");
     }
 
     /**

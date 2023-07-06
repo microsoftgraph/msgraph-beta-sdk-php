@@ -39,7 +39,11 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, B
      * @return string|null
     */
     public function getActionName(): ?string {
-        return $this->getBackingStore()->get('actionName');
+        $val = $this->getBackingStore()->get('actionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionName'");
     }
 
     /**
@@ -47,7 +51,12 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, B
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, B
      * @return string|null
     */
     public function getDeviceScopeId(): ?string {
-        return $this->getBackingStore()->get('deviceScopeId');
+        $val = $this->getBackingStore()->get('deviceScopeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceScopeId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

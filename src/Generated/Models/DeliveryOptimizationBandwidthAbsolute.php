@@ -27,7 +27,7 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
      * @return int|null
     */
     public function getMaximumDownloadBandwidthInKilobytesPerSecond(): ?int {
-        return $this->getBackingStore()->get('maximumDownloadBandwidthInKilobytesPerSecond');
+        $val = $this->getBackingStore()->get('maximumDownloadBandwidthInKilobytesPerSecond');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumDownloadBandwidthInKilobytesPerSecond'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
      * @return int|null
     */
     public function getMaximumUploadBandwidthInKilobytesPerSecond(): ?int {
-        return $this->getBackingStore()->get('maximumUploadBandwidthInKilobytesPerSecond');
+        $val = $this->getBackingStore()->get('maximumUploadBandwidthInKilobytesPerSecond');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumUploadBandwidthInKilobytesPerSecond'");
     }
 
     /**

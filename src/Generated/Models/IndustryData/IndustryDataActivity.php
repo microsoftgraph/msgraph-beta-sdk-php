@@ -38,12 +38,16 @@ class IndustryDataActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +62,11 @@ class IndustryDataActivity extends Entity implements Parsable
      * @return ReadinessStatus|null
     */
     public function getReadinessStatus(): ?ReadinessStatus {
-        return $this->getBackingStore()->get('readinessStatus');
+        $val = $this->getBackingStore()->get('readinessStatus');
+        if (is_null($val) || $val instanceof ReadinessStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'readinessStatus'");
     }
 
     /**

@@ -30,12 +30,16 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
      * @return IosEduCertificateSettings|null
     */
     public function getDeviceCertificateSettings(): ?IosEduCertificateSettings {
-        return $this->getBackingStore()->get('deviceCertificateSettings');
+        $val = $this->getBackingStore()->get('deviceCertificateSettings');
+        if (is_null($val) || $val instanceof IosEduCertificateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCertificateSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
      * @return IosEduCertificateSettings|null
     */
     public function getStudentCertificateSettings(): ?IosEduCertificateSettings {
-        return $this->getBackingStore()->get('studentCertificateSettings');
+        $val = $this->getBackingStore()->get('studentCertificateSettings');
+        if (is_null($val) || $val instanceof IosEduCertificateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'studentCertificateSettings'");
     }
 
     /**
@@ -59,7 +67,11 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
      * @return IosEduCertificateSettings|null
     */
     public function getTeacherCertificateSettings(): ?IosEduCertificateSettings {
-        return $this->getBackingStore()->get('teacherCertificateSettings');
+        $val = $this->getBackingStore()->get('teacherCertificateSettings');
+        if (is_null($val) || $val instanceof IosEduCertificateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teacherCertificateSettings'");
     }
 
     /**

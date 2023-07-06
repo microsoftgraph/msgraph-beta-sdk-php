@@ -30,7 +30,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getAccessibilityScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('accessibilityScreenDisabled');
+        $val = $this->getBackingStore()->get('accessibilityScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessibilityScreenDisabled'");
     }
 
     /**
@@ -38,7 +42,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getAdminAccountFullName(): ?string {
-        return $this->getBackingStore()->get('adminAccountFullName');
+        $val = $this->getBackingStore()->get('adminAccountFullName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminAccountFullName'");
     }
 
     /**
@@ -46,7 +54,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getAdminAccountPassword(): ?string {
-        return $this->getBackingStore()->get('adminAccountPassword');
+        $val = $this->getBackingStore()->get('adminAccountPassword');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminAccountPassword'");
     }
 
     /**
@@ -54,7 +66,23 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getAdminAccountUserName(): ?string {
-        return $this->getBackingStore()->get('adminAccountUserName');
+        $val = $this->getBackingStore()->get('adminAccountUserName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminAccountUserName'");
+    }
+
+    /**
+     * Gets the autoAdvanceSetupEnabled property value. Indicates if Setup Assistant will automatically advance through its screen
+     * @return bool|null
+    */
+    public function getAutoAdvanceSetupEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('autoAdvanceSetupEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoAdvanceSetupEnabled'");
     }
 
     /**
@@ -62,7 +90,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getAutoUnlockWithWatchDisabled(): ?bool {
-        return $this->getBackingStore()->get('autoUnlockWithWatchDisabled');
+        $val = $this->getBackingStore()->get('autoUnlockWithWatchDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoUnlockWithWatchDisabled'");
     }
 
     /**
@@ -70,7 +102,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getChooseYourLockScreenDisabled(): ?bool {
-        return $this->getBackingStore()->get('chooseYourLockScreenDisabled');
+        $val = $this->getBackingStore()->get('chooseYourLockScreenDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'chooseYourLockScreenDisabled'");
     }
 
     /**
@@ -78,7 +114,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getDontAutoPopulatePrimaryAccountInfo(): ?bool {
-        return $this->getBackingStore()->get('dontAutoPopulatePrimaryAccountInfo');
+        $val = $this->getBackingStore()->get('dontAutoPopulatePrimaryAccountInfo');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dontAutoPopulatePrimaryAccountInfo'");
     }
 
     /**
@@ -86,12 +126,16 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getEnableRestrictEditing(): ?bool {
-        return $this->getBackingStore()->get('enableRestrictEditing');
+        $val = $this->getBackingStore()->get('enableRestrictEditing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableRestrictEditing'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,6 +144,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
             'adminAccountFullName' => fn(ParseNode $n) => $o->setAdminAccountFullName($n->getStringValue()),
             'adminAccountPassword' => fn(ParseNode $n) => $o->setAdminAccountPassword($n->getStringValue()),
             'adminAccountUserName' => fn(ParseNode $n) => $o->setAdminAccountUserName($n->getStringValue()),
+            'autoAdvanceSetupEnabled' => fn(ParseNode $n) => $o->setAutoAdvanceSetupEnabled($n->getBooleanValue()),
             'autoUnlockWithWatchDisabled' => fn(ParseNode $n) => $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()),
             'chooseYourLockScreenDisabled' => fn(ParseNode $n) => $o->setChooseYourLockScreenDisabled($n->getBooleanValue()),
             'dontAutoPopulatePrimaryAccountInfo' => fn(ParseNode $n) => $o->setDontAutoPopulatePrimaryAccountInfo($n->getBooleanValue()),
@@ -124,7 +169,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getFileVaultDisabled(): ?bool {
-        return $this->getBackingStore()->get('fileVaultDisabled');
+        $val = $this->getBackingStore()->get('fileVaultDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultDisabled'");
     }
 
     /**
@@ -132,7 +181,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getHideAdminAccount(): ?bool {
-        return $this->getBackingStore()->get('hideAdminAccount');
+        $val = $this->getBackingStore()->get('hideAdminAccount');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hideAdminAccount'");
     }
 
     /**
@@ -140,7 +193,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getICloudDiagnosticsDisabled(): ?bool {
-        return $this->getBackingStore()->get('iCloudDiagnosticsDisabled');
+        $val = $this->getBackingStore()->get('iCloudDiagnosticsDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudDiagnosticsDisabled'");
     }
 
     /**
@@ -148,7 +205,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getICloudStorageDisabled(): ?bool {
-        return $this->getBackingStore()->get('iCloudStorageDisabled');
+        $val = $this->getBackingStore()->get('iCloudStorageDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCloudStorageDisabled'");
     }
 
     /**
@@ -156,7 +217,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getPassCodeDisabled(): ?bool {
-        return $this->getBackingStore()->get('passCodeDisabled');
+        $val = $this->getBackingStore()->get('passCodeDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passCodeDisabled'");
     }
 
     /**
@@ -164,7 +229,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryAccountFullName(): ?string {
-        return $this->getBackingStore()->get('primaryAccountFullName');
+        $val = $this->getBackingStore()->get('primaryAccountFullName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryAccountFullName'");
     }
 
     /**
@@ -172,7 +241,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryAccountUserName(): ?string {
-        return $this->getBackingStore()->get('primaryAccountUserName');
+        $val = $this->getBackingStore()->get('primaryAccountUserName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryAccountUserName'");
     }
 
     /**
@@ -180,7 +253,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getRegistrationDisabled(): ?bool {
-        return $this->getBackingStore()->get('registrationDisabled');
+        $val = $this->getBackingStore()->get('registrationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationDisabled'");
     }
 
     /**
@@ -188,7 +265,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getRequestRequiresNetworkTether(): ?bool {
-        return $this->getBackingStore()->get('requestRequiresNetworkTether');
+        $val = $this->getBackingStore()->get('requestRequiresNetworkTether');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestRequiresNetworkTether'");
     }
 
     /**
@@ -196,7 +277,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getSetPrimarySetupAccountAsRegularUser(): ?bool {
-        return $this->getBackingStore()->get('setPrimarySetupAccountAsRegularUser');
+        $val = $this->getBackingStore()->get('setPrimarySetupAccountAsRegularUser');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setPrimarySetupAccountAsRegularUser'");
     }
 
     /**
@@ -204,7 +289,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getSkipPrimarySetupAccountCreation(): ?bool {
-        return $this->getBackingStore()->get('skipPrimarySetupAccountCreation');
+        $val = $this->getBackingStore()->get('skipPrimarySetupAccountCreation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skipPrimarySetupAccountCreation'");
     }
 
     /**
@@ -212,7 +301,11 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getZoomDisabled(): ?bool {
-        return $this->getBackingStore()->get('zoomDisabled');
+        $val = $this->getBackingStore()->get('zoomDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zoomDisabled'");
     }
 
     /**
@@ -225,6 +318,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $writer->writeStringValue('adminAccountFullName', $this->getAdminAccountFullName());
         $writer->writeStringValue('adminAccountPassword', $this->getAdminAccountPassword());
         $writer->writeStringValue('adminAccountUserName', $this->getAdminAccountUserName());
+        $writer->writeBooleanValue('autoAdvanceSetupEnabled', $this->getAutoAdvanceSetupEnabled());
         $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->getAutoUnlockWithWatchDisabled());
         $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->getChooseYourLockScreenDisabled());
         $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->getDontAutoPopulatePrimaryAccountInfo());
@@ -273,6 +367,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setAdminAccountUserName(?string $value): void {
         $this->getBackingStore()->set('adminAccountUserName', $value);
+    }
+
+    /**
+     * Sets the autoAdvanceSetupEnabled property value. Indicates if Setup Assistant will automatically advance through its screen
+     * @param bool|null $value Value to set for the autoAdvanceSetupEnabled property.
+    */
+    public function setAutoAdvanceSetupEnabled(?bool $value): void {
+        $this->getBackingStore()->set('autoAdvanceSetupEnabled', $value);
     }
 
     /**
