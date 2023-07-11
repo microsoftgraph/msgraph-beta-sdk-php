@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Note extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new Note and sets the default values.
+     * Instantiates a new note and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +79,7 @@ class Note extends OutlookItem implements Parsable
             'hasAttachments' => fn(ParseNode $n) => $o->setHasAttachments($n->getBooleanValue()),
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
@@ -123,6 +124,18 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
@@ -160,6 +173,7 @@ class Note extends OutlookItem implements Parsable
         $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
         $writer->writeStringValue('subject', $this->getSubject());
     }
@@ -210,6 +224,14 @@ class Note extends OutlookItem implements Parsable
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

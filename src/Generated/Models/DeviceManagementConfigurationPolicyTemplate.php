@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device Management Configuration Policy Template
+*/
 class DeviceManagementConfigurationPolicyTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationPolicyTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationPolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -98,6 +101,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
             'lifecycleState' => fn(ParseNode $n) => $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)),
             'settingTemplateCount' => fn(ParseNode $n) => $o->setSettingTemplateCount($n->getIntegerValue()),
             'settingTemplates' => fn(ParseNode $n) => $o->setSettingTemplates($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'])),
@@ -117,6 +121,18 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecycleState'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -205,6 +221,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('displayVersion', $this->getDisplayVersion());
         $writer->writeEnumValue('lifecycleState', $this->getLifecycleState());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platforms', $this->getPlatforms());
         $writer->writeCollectionOfObjectValues('settingTemplates', $this->getSettingTemplates());
         $writer->writeEnumValue('technologies', $this->getTechnologies());
@@ -257,6 +274,14 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     */
     public function setLifecycleState(?DeviceManagementTemplateLifecycleState $value): void {
         $this->getBackingStore()->set('lifecycleState', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

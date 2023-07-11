@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Event extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new Event and sets the default values.
+     * Instantiates a new event and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -195,6 +195,7 @@ class Event extends OutlookItem implements Parsable
             'locations' => fn(ParseNode $n) => $o->setLocations($n->getCollectionOfObjectValues([Location::class, 'createFromDiscriminatorValue'])),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'occurrenceId' => fn(ParseNode $n) => $o->setOccurrenceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onlineMeeting' => fn(ParseNode $n) => $o->setOnlineMeeting($n->getObjectValue([OnlineMeetingInfo::class, 'createFromDiscriminatorValue'])),
             'onlineMeetingProvider' => fn(ParseNode $n) => $o->setOnlineMeetingProvider($n->getEnumValue(OnlineMeetingProviderType::class)),
             'onlineMeetingUrl' => fn(ParseNode $n) => $o->setOnlineMeetingUrl($n->getStringValue()),
@@ -391,6 +392,18 @@ class Event extends OutlookItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'occurrenceId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -677,6 +690,7 @@ class Event extends OutlookItem implements Parsable
         $writer->writeCollectionOfObjectValues('locations', $this->getLocations());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
         $writer->writeStringValue('occurrenceId', $this->getOccurrenceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onlineMeeting', $this->getOnlineMeeting());
         $writer->writeEnumValue('onlineMeetingProvider', $this->getOnlineMeetingProvider());
         $writer->writeStringValue('onlineMeetingUrl', $this->getOnlineMeetingUrl());
@@ -890,6 +904,14 @@ class Event extends OutlookItem implements Parsable
     */
     public function setOccurrenceId(?string $value): void {
         $this->getBackingStore()->set('occurrenceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HostSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new HostSecurityProfile and sets the default values.
+     * Instantiates a new hostSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +68,7 @@ class HostSecurityProfile extends Entity implements Parsable
             'logonUsers' => fn(ParseNode $n) => $o->setLogonUsers($n->getCollectionOfObjectValues([LogonUser::class, 'createFromDiscriminatorValue'])),
             'netBiosName' => fn(ParseNode $n) => $o->setNetBiosName($n->getStringValue()),
             'networkInterfaces' => fn(ParseNode $n) => $o->setNetworkInterfaces($n->getCollectionOfObjectValues([NetworkInterface::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'parentHost' => fn(ParseNode $n) => $o->setParentHost($n->getStringValue()),
@@ -205,6 +206,18 @@ class HostSecurityProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the os property value. The os property
      * @return string|null
     */
@@ -309,6 +322,7 @@ class HostSecurityProfile extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('logonUsers', $this->getLogonUsers());
         $writer->writeStringValue('netBiosName', $this->getNetBiosName());
         $writer->writeCollectionOfObjectValues('networkInterfaces', $this->getNetworkInterfaces());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('os', $this->getOs());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('parentHost', $this->getParentHost());
@@ -404,6 +418,14 @@ class HostSecurityProfile extends Entity implements Parsable
     */
     public function setNetworkInterfaces(?array $value): void {
         $this->getBackingStore()->set('networkInterfaces', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryCustodian extends DataSourceContainer implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryCustodian and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryCustodian and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -130,6 +135,7 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
         $writer->writeDateTimeValue('acknowledgedDateTime', $this->getAcknowledgedDateTime());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('lastIndexOperation', $this->getLastIndexOperation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('siteSources', $this->getSiteSources());
         $writer->writeCollectionOfObjectValues('unifiedGroupSources', $this->getUnifiedGroupSources());
         $writer->writeCollectionOfObjectValues('userSources', $this->getUserSources());

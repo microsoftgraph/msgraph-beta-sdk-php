@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAllDeviceCertificateState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAllDeviceCertificateState and sets the default values.
+     * Instantiates a new managedAllDeviceCertificateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -163,6 +163,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
             'certificateSubjectName' => fn(ParseNode $n) => $o->setCertificateSubjectName($n->getStringValue()),
             'certificateThumbprint' => fn(ParseNode $n) => $o->setCertificateThumbprint($n->getStringValue()),
             'managedDeviceDisplayName' => fn(ParseNode $n) => $o->setManagedDeviceDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
@@ -177,6 +178,18 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceDisplayName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -208,6 +221,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
         $writer->writeStringValue('certificateSubjectName', $this->getCertificateSubjectName());
         $writer->writeStringValue('certificateThumbprint', $this->getCertificateThumbprint());
         $writer->writeStringValue('managedDeviceDisplayName', $this->getManagedDeviceDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
@@ -297,6 +311,14 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     */
     public function setManagedDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceDisplayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MessageRecipient extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MessageRecipient and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new messageRecipient and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,6 +89,7 @@ class MessageRecipient extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('deliveryStatus', $this->getDeliveryStatus());
         $writer->writeCollectionOfObjectValues('events', $this->getEvents());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('recipientEmail', $this->getRecipientEmail());
     }
 

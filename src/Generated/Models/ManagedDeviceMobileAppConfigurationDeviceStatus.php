@@ -75,6 +75,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
             'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
             'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
             'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getIntegerValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ComplianceStatus::class)),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
@@ -92,6 +93,18 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -152,6 +165,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('platform', $this->getPlatform());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('userName', $this->getUserName());
@@ -188,6 +202,14 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

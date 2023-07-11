@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows Domain Join device configuration.
+*/
 class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsDomainJoinConfiguration and sets the default values.
+     * Instantiates a new windowsDomainJoinConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -73,6 +76,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
             'computerNameStaticPrefix' => fn(ParseNode $n) => $o->setComputerNameStaticPrefix($n->getStringValue()),
             'computerNameSuffixRandomCharCount' => fn(ParseNode $n) => $o->setComputerNameSuffixRandomCharCount($n->getIntegerValue()),
             'networkAccessConfigurations' => fn(ParseNode $n) => $o->setNetworkAccessConfigurations($n->getCollectionOfObjectValues([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
         ]);
     }
@@ -89,6 +93,18 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkAccessConfigurations'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,6 +129,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
         $writer->writeStringValue('computerNameStaticPrefix', $this->getComputerNameStaticPrefix());
         $writer->writeIntegerValue('computerNameSuffixRandomCharCount', $this->getComputerNameSuffixRandomCharCount());
         $writer->writeCollectionOfObjectValues('networkAccessConfigurations', $this->getNetworkAccessConfigurations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
     }
 
@@ -146,6 +163,14 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     */
     public function setNetworkAccessConfigurations(?array $value): void {
         $this->getBackingStore()->set('networkAccessConfigurations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OperationalInsightsConnection extends ResourceConnection implements Parsable 
 {
     /**
-     * Instantiates a new OperationalInsightsConnection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new operationalInsightsConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
         parent::serialize($writer);
         $writer->writeStringValue('azureResourceGroupName', $this->getAzureResourceGroupName());
         $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('workspaceName', $this->getWorkspaceName());
     }
 

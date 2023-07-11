@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateStepDeployment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managementTemplateStepDeployment and sets the default values.
     */
     public function __construct() {
@@ -151,6 +156,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
         $writer->writeObjectValue('error', $this->getError());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeObjectValue('templateStepVersion', $this->getTemplateStepVersion());
         $writer->writeStringValue('tenantId', $this->getTenantId());

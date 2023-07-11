@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Constraint enforcing the file extension is acceptable for a given setting
+*/
 class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingFileConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingFileConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,6 +72,7 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('supportedExtensions', $this->getSupportedExtensions());
     }
 

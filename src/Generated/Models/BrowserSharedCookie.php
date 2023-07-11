@@ -90,6 +90,7 @@ class BrowserSharedCookie extends Entity implements Parsable
             'hostOrDomain' => fn(ParseNode $n) => $o->setHostOrDomain($n->getStringValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'path' => fn(ParseNode $n) => $o->setPath($n->getStringValue()),
             'sourceEnvironment' => fn(ParseNode $n) => $o->setSourceEnvironment($n->getEnumValue(BrowserSharedCookieSourceEnvironment::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(BrowserSharedCookieStatus::class)),
@@ -159,6 +160,18 @@ class BrowserSharedCookie extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the path property value. The path of the cookie.
      * @return string|null
     */
@@ -209,6 +222,7 @@ class BrowserSharedCookie extends Entity implements Parsable
         $writer->writeStringValue('hostOrDomain', $this->getHostOrDomain());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('path', $this->getPath());
         $writer->writeEnumValue('sourceEnvironment', $this->getSourceEnvironment());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -284,6 +298,14 @@ class BrowserSharedCookie extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsAutopilotDeploymentProfileAssignment and sets the default values.
     */
     public function __construct() {
@@ -82,6 +87,7 @@ class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeStringValue('sourceId', $this->getSourceId());
         $writer->writeObjectValue('target', $this->getTarget());

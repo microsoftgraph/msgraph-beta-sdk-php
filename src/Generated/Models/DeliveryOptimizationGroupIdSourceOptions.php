@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Group id options type
+*/
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationGroupIdSourceOptions and sets the default values.
+     * Instantiates a new deliveryOptimizationGroupIdSourceOptions and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +36,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'groupIdSourceOption' => fn(ParseNode $n) => $o->setGroupIdSourceOption($n->getEnumValue(DeliveryOptimizationGroupIdOptionsType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +53,25 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('groupIdSourceOption', $this->getGroupIdSourceOption());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +80,14 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     */
     public function setGroupIdSourceOption(?DeliveryOptimizationGroupIdOptionsType $value): void {
         $this->getBackingStore()->set('groupIdSourceOption', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

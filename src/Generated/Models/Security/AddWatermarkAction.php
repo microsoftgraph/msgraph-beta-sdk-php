@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new AddWatermarkAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new addWatermarkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +128,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
         $writer->writeStringValue('fontName', $this->getFontName());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
         $writer->writeEnumValue('layout', $this->getLayout());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
         $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }

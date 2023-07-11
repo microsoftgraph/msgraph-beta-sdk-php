@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the androidDeviceOwnerGeneralDeviceConfiguration resource.
+*/
 class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerGeneralDeviceConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceOwnerGeneralDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1925,6 +1933,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeEnumValue('microsoftLauncherSearchBarPlacementConfiguration', $this->getMicrosoftLauncherSearchBarPlacementConfiguration());
         $writer->writeBooleanValue('networkEscapeHatchAllowed', $this->getNetworkEscapeHatchAllowed());
         $writer->writeBooleanValue('nfcBlockOutgoingBeam', $this->getNfcBlockOutgoingBeam());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passwordBlockKeyguard', $this->getPasswordBlockKeyguard());
         $writer->writeCollectionOfEnumValues('passwordBlockKeyguardFeatures', $this->getPasswordBlockKeyguardFeatures());
         $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());

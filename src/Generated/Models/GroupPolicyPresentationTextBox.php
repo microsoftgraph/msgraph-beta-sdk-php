@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an ADMX textBox element and an ADMX text element.
+*/
 class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationTextBox and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationTextBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +90,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
         parent::serialize($writer);
         $writer->writeStringValue('defaultValue', $this->getDefaultValue());
         $writer->writeIntegerValue('maxLength', $this->getMaxLength());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('required', $this->getRequired());
     }
 

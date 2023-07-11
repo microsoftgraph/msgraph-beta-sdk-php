@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAccountInformation extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new UserAccountInformation and sets the default values.
+     * Instantiates a new userAccountInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,9 +58,22 @@ class UserAccountInformation extends ItemFacet implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'ageGroup' => fn(ParseNode $n) => $o->setAgeGroup($n->getStringValue()),
             'countryCode' => fn(ParseNode $n) => $o->setCountryCode($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'preferredLanguageTag' => fn(ParseNode $n) => $o->setPreferredLanguageTag($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +108,7 @@ class UserAccountInformation extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('ageGroup', $this->getAgeGroup());
         $writer->writeStringValue('countryCode', $this->getCountryCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('preferredLanguageTag', $this->getPreferredLanguageTag());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -113,6 +127,14 @@ class UserAccountInformation extends ItemFacet implements Parsable
     */
     public function setCountryCode(?string $value): void {
         $this->getBackingStore()->set('countryCode', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

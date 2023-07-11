@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DirectorySettingTemplate extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new DirectorySettingTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new directorySettingTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +90,7 @@ class DirectorySettingTemplate extends DirectoryObject implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('values', $this->getValues());
     }
 

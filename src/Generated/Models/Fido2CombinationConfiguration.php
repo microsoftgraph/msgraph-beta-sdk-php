@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Fido2CombinationConfiguration extends AuthenticationCombinationConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Fido2CombinationConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new fido2CombinationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,6 +70,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('allowedAAGUIDs', $this->getAllowedAAGUIDs());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

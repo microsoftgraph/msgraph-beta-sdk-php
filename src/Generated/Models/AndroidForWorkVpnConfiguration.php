@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
+*/
 class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkVpnConfiguration and sets the default values.
+     * Instantiates a new androidForWorkVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,6 +107,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Pars
             'customKeyValueData' => fn(ParseNode $n) => $o->setCustomKeyValueData($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'fingerprint' => fn(ParseNode $n) => $o->setFingerprint($n->getStringValue()),
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidForWorkCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
             'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfObjectValues([VpnServer::class, 'createFromDiscriminatorValue'])),
@@ -132,6 +136,18 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -185,6 +201,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Pars
         $writer->writeCollectionOfObjectValues('customKeyValueData', $this->getCustomKeyValueData());
         $writer->writeStringValue('fingerprint', $this->getFingerprint());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('realm', $this->getRealm());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeCollectionOfObjectValues('servers', $this->getServers());
@@ -244,6 +261,14 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Pars
     */
     public function setIdentityCertificate(?AndroidForWorkCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

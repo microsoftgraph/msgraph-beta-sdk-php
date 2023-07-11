@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows 10 Edition Upgrade configuration.
+*/
 class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new EditionUpgradeConfiguration and sets the default values.
+     * Instantiates a new editionUpgradeConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +37,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
         return array_merge(parent::getFieldDeserializers(), [
             'license' => fn(ParseNode $n) => $o->setLicense($n->getStringValue()),
             'licenseType' => fn(ParseNode $n) => $o->setLicenseType($n->getEnumValue(EditionUpgradeLicenseType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'productKey' => fn(ParseNode $n) => $o->setProductKey($n->getStringValue()),
             'targetEdition' => fn(ParseNode $n) => $o->setTargetEdition($n->getEnumValue(Windows10EditionType::class)),
             'windowsSMode' => fn(ParseNode $n) => $o->setWindowsSMode($n->getEnumValue(WindowsSModeConfiguration::class)),
@@ -62,6 +66,18 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseType'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,6 +124,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
         parent::serialize($writer);
         $writer->writeStringValue('license', $this->getLicense());
         $writer->writeEnumValue('licenseType', $this->getLicenseType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productKey', $this->getProductKey());
         $writer->writeEnumValue('targetEdition', $this->getTargetEdition());
         $writer->writeEnumValue('windowsSMode', $this->getWindowsSMode());
@@ -127,6 +144,14 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     */
     public function setLicenseType(?EditionUpgradeLicenseType $value): void {
         $this->getBackingStore()->set('licenseType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

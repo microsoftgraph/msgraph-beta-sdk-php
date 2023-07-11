@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
+*/
 class WindowsAutopilotSettings extends Entity implements Parsable 
 {
     /**
@@ -34,6 +37,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'lastManualSyncTriggerDateTime' => fn(ParseNode $n) => $o->setLastManualSyncTriggerDateTime($n->getDateTimeValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'syncStatus' => fn(ParseNode $n) => $o->setSyncStatus($n->getEnumValue(WindowsAutopilotSyncStatus::class)),
         ]);
     }
@@ -63,6 +67,18 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the syncStatus property value. The syncStatus property
      * @return WindowsAutopilotSyncStatus|null
     */
@@ -82,6 +98,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastManualSyncTriggerDateTime', $this->getLastManualSyncTriggerDateTime());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('syncStatus', $this->getSyncStatus());
     }
 
@@ -99,6 +116,14 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

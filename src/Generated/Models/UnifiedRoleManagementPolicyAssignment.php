@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UnifiedRoleManagementPolicyAssignment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new unifiedRoleManagementPolicyAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -105,6 +110,7 @@ class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());

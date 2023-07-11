@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android Device Owner certificate profile base.
+*/
 class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerCertificateProfileBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceOwnerCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -147,6 +155,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
         $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
         $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
         $writer->writeObjectValue('rootCertificate', $this->getRootCertificate());
         $writer->writeEnumValue('subjectAlternativeNameType', $this->getSubjectAlternativeNameType());

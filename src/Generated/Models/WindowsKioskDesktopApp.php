@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base class for a type of apps
+*/
 class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskDesktopApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskDesktopApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +90,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('desktopApplicationId', $this->getDesktopApplicationId());
         $writer->writeStringValue('desktopApplicationLinkPath', $this->getDesktopApplicationLinkPath());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('path', $this->getPath());
     }
 

@@ -48,6 +48,7 @@ class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule 
             'group' => fn(ParseNode $n) => $o->setGroup($n->getObjectValue([Group::class, 'createFromDiscriminatorValue'])),
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
             'memberType' => fn(ParseNode $n) => $o->setMemberType($n->getEnumValue(PrivilegedAccessGroupMemberType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'principal' => fn(ParseNode $n) => $o->setPrincipal($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'principalId' => fn(ParseNode $n) => $o->setPrincipalId($n->getStringValue()),
         ]);
@@ -90,6 +91,18 @@ class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule 
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the principal property value. References the principal that's in the scope of this membership or ownership eligibility request to the group that's governed by PIM. Supports $expand.
      * @return DirectoryObject|null
     */
@@ -123,6 +136,7 @@ class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule 
         $writer->writeObjectValue('group', $this->getGroup());
         $writer->writeStringValue('groupId', $this->getGroupId());
         $writer->writeEnumValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalId', $this->getPrincipalId());
     }
@@ -157,6 +171,14 @@ class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule 
     */
     public function setMemberType(?PrivilegedAccessGroupMemberType $value): void {
         $this->getBackingStore()->set('memberType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

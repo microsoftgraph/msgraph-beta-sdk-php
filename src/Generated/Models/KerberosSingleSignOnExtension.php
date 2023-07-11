@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Kerberos-type Single Sign-On extension profile.
+*/
 class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new KerberosSingleSignOnExtension and sets the default values.
+     * Instantiates a new kerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -152,6 +155,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
                 $this->setDomains($val);
             },
             'isDefaultRealm' => fn(ParseNode $n) => $o->setIsDefaultRealm($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'passwordBlockModification' => fn(ParseNode $n) => $o->setPasswordBlockModification($n->getBooleanValue()),
             'passwordChangeUrl' => fn(ParseNode $n) => $o->setPasswordChangeUrl($n->getStringValue()),
             'passwordEnableLocalSync' => fn(ParseNode $n) => $o->setPasswordEnableLocalSync($n->getBooleanValue()),
@@ -178,6 +182,18 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultRealm'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -350,6 +366,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
         $writer->writeCollectionOfPrimitiveValues('domainRealms', $this->getDomainRealms());
         $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
         $writer->writeBooleanValue('isDefaultRealm', $this->getIsDefaultRealm());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passwordBlockModification', $this->getPasswordBlockModification());
         $writer->writeStringValue('passwordChangeUrl', $this->getPasswordChangeUrl());
         $writer->writeBooleanValue('passwordEnableLocalSync', $this->getPasswordEnableLocalSync());
@@ -427,6 +444,14 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
     */
     public function setIsDefaultRealm(?bool $value): void {
         $this->getBackingStore()->set('isDefaultRealm', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

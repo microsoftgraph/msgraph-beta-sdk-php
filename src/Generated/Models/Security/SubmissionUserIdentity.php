@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SubmissionUserIdentity extends Identity implements Parsable 
 {
     /**
-     * Instantiates a new SubmissionUserIdentity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new submissionUserIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class SubmissionUserIdentity extends Identity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

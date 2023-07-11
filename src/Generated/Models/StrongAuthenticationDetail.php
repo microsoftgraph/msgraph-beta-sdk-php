@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class StrongAuthenticationDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new StrongAuthenticationDetail and sets the default values.
+     * Instantiates a new strongAuthenticationDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,8 +45,21 @@ class StrongAuthenticationDetail extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'encryptedPinHashHistory' => fn(ParseNode $n) => $o->setEncryptedPinHashHistory($n->getBinaryContent()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'proofupTime' => fn(ParseNode $n) => $o->setProofupTime($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -68,6 +81,7 @@ class StrongAuthenticationDetail extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('encryptedPinHashHistory', $this->getEncryptedPinHashHistory());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('proofupTime', $this->getProofupTime());
     }
 
@@ -77,6 +91,14 @@ class StrongAuthenticationDetail extends Entity implements Parsable
     */
     public function setEncryptedPinHashHistory(?StreamInterface $value): void {
         $this->getBackingStore()->set('encryptedPinHashHistory', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

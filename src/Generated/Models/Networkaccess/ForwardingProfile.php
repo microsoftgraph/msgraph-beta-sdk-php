@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingProfile extends Profile implements Parsable 
 {
     /**
-     * Instantiates a new ForwardingProfile and sets the default values.
+     * Instantiates a new forwardingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Gets the associations property value. The associations property
+     * Gets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
      * @return array<Association>|null
     */
     public function getAssociations(): ?array {
@@ -48,13 +48,26 @@ class ForwardingProfile extends Profile implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'associations' => fn(ParseNode $n) => $o->setAssociations($n->getCollectionOfObjectValues([Association::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
             'trafficForwardingType' => fn(ParseNode $n) => $o->setTrafficForwardingType($n->getEnumValue(TrafficForwardingType::class)),
         ]);
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the priority property value. Profile priority.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -84,12 +97,13 @@ class ForwardingProfile extends Profile implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('associations', $this->getAssociations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('priority', $this->getPriority());
         $writer->writeEnumValue('trafficForwardingType', $this->getTrafficForwardingType());
     }
 
     /**
-     * Sets the associations property value. The associations property
+     * Sets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
      * @param array<Association>|null $value Value to set for the associations property.
     */
     public function setAssociations(?array $value): void {
@@ -97,7 +111,15 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the priority property value. Profile priority.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

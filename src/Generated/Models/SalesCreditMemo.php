@@ -21,7 +21,7 @@ class SalesCreditMemo implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new SalesCreditMemo and sets the default values.
+     * Instantiates a new salesCreditMemo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

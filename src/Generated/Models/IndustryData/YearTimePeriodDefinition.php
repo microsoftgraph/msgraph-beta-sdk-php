@@ -59,9 +59,22 @@ class YearTimePeriodDefinition extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
             'year' => fn(ParseNode $n) => $o->setYear($n->getObjectValue([YearReferenceValue::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,6 +109,7 @@ class YearTimePeriodDefinition extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('endDate', $this->getEndDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeObjectValue('year', $this->getYear());
     }
@@ -114,6 +128,14 @@ class YearTimePeriodDefinition extends Entity implements Parsable
     */
     public function setEndDate(?Date $value): void {
         $this->getBackingStore()->set('endDate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

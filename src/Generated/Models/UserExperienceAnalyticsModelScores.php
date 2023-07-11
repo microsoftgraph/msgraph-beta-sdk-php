@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics model scores entity consolidates the various Endpoint Analytics scores.
+*/
 class UserExperienceAnalyticsModelScores extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsModelScores and sets the default values.
+     * Instantiates a new userExperienceAnalyticsModelScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +77,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'modelDeviceCount' => fn(ParseNode $n) => $o->setModelDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startupPerformanceScore' => fn(ParseNode $n) => $o->setStartupPerformanceScore($n->getFloatValue()),
             'workFromAnywhereScore' => fn(ParseNode $n) => $o->setWorkFromAnywhereScore($n->getFloatValue()),
         ]);
@@ -128,6 +132,18 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the startupPerformanceScore property value. Indicates a weighted average of boot score and logon score used for measuring startup performance. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
@@ -164,6 +180,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeIntegerValue('modelDeviceCount', $this->getModelDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('startupPerformanceScore', $this->getStartupPerformanceScore());
         $writer->writeFloatValue('workFromAnywhereScore', $this->getWorkFromAnywhereScore());
     }
@@ -222,6 +239,14 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     */
     public function setModelDeviceCount(?int $value): void {
         $this->getBackingStore()->set('modelDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

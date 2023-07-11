@@ -46,6 +46,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'isElevated' => fn(ParseNode $n) => $o->setIsElevated($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resultMessage' => fn(ParseNode $n) => $o->setResultMessage($n->getStringValue()),
             'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
             'roleInfo' => fn(ParseNode $n) => $o->setRoleInfo($n->getObjectValue([PrivilegedRole::class, 'createFromDiscriminatorValue'])),
@@ -63,6 +64,18 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isElevated'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,6 +134,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeBooleanValue('isElevated', $this->getIsElevated());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resultMessage', $this->getResultMessage());
         $writer->writeStringValue('roleId', $this->getRoleId());
         $writer->writeObjectValue('roleInfo', $this->getRoleInfo());
@@ -141,6 +155,14 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     */
     public function setIsElevated(?bool $value): void {
         $this->getBackingStore()->set('isElevated', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

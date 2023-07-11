@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * Instantiates a new QualityUpdateCatalogEntry and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new qualityUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('qualityUpdateClassification', $this->getQualityUpdateClassification());
     }
 

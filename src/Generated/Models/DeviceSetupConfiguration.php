@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This is the base class for Setup Configuration. Setup configurations are platform specific and individual per-platform setup configurations inherit from here.
+*/
 class DeviceSetupConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceSetupConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceSetupConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,6 +118,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('version', $this->getVersion());
     }
 

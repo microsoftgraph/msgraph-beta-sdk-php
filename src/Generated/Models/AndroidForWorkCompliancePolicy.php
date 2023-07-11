@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This class contains compliance settings for Android for Work.
+*/
 class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkCompliancePolicy and sets the default values.
+     * Instantiates a new androidForWorkCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +62,7 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
             'deviceThreatProtectionEnabled' => fn(ParseNode $n) => $o->setDeviceThreatProtectionEnabled($n->getBooleanValue()),
             'deviceThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setDeviceThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
             'minAndroidSecurityPatchLevel' => fn(ParseNode $n) => $o->setMinAndroidSecurityPatchLevel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
             'osMinimumVersion' => fn(ParseNode $n) => $o->setOsMinimumVersion($n->getStringValue()),
             'passwordExpirationDays' => fn(ParseNode $n) => $o->setPasswordExpirationDays($n->getIntegerValue()),
@@ -93,6 +97,18 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'minAndroidSecurityPatchLevel'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -356,6 +372,7 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
         $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->getDeviceThreatProtectionEnabled());
         $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->getDeviceThreatProtectionRequiredSecurityLevel());
         $writer->writeStringValue('minAndroidSecurityPatchLevel', $this->getMinAndroidSecurityPatchLevel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
         $writer->writeStringValue('osMinimumVersion', $this->getOsMinimumVersion());
         $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());
@@ -401,6 +418,14 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
     */
     public function setMinAndroidSecurityPatchLevel(?string $value): void {
         $this->getBackingStore()->set('minAndroidSecurityPatchLevel', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A class containing the properties for iOS Vpp eBook.
+*/
 class IosVppEBook extends ManagedEBook implements Parsable 
 {
     /**
-     * Instantiates a new IosVppEBook and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosVppEBook and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -180,6 +188,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
         $writer->writeStringValue('appleId', $this->getAppleId());
         $writer->writeCollectionOfPrimitiveValues('genres', $this->getGenres());
         $writer->writeStringValue('language', $this->getLanguage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeStringValue('seller', $this->getSeller());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());

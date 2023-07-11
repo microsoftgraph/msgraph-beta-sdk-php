@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedOperationEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedOperationEvent and sets the default values.
+     * Instantiates a new privilegedOperationEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +71,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
             'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getStringValue()),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'referenceKey' => fn(ParseNode $n) => $o->setReferenceKey($n->getStringValue()),
             'referenceSystem' => fn(ParseNode $n) => $o->setReferenceSystem($n->getStringValue()),
             'requestorId' => fn(ParseNode $n) => $o->setRequestorId($n->getStringValue()),
@@ -83,6 +84,18 @@ class PrivilegedOperationEvent extends Entity implements Parsable
             'userMail' => fn(ParseNode $n) => $o->setUserMail($n->getStringValue()),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -226,6 +239,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
         $writer->writeStringValue('additionalInformation', $this->getAdditionalInformation());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceKey', $this->getReferenceKey());
         $writer->writeStringValue('referenceSystem', $this->getReferenceSystem());
         $writer->writeStringValue('requestorId', $this->getRequestorId());
@@ -261,6 +275,14 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

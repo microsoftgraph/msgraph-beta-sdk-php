@@ -47,6 +47,7 @@ class ItemAnalytics extends Entity implements Parsable
             'allTime' => fn(ParseNode $n) => $o->setAllTime($n->getObjectValue([ItemActivityStat::class, 'createFromDiscriminatorValue'])),
             'itemActivityStats' => fn(ParseNode $n) => $o->setItemActivityStats($n->getCollectionOfObjectValues([ItemActivityStat::class, 'createFromDiscriminatorValue'])),
             'lastSevenDays' => fn(ParseNode $n) => $o->setLastSevenDays($n->getObjectValue([ItemActivityStat::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -77,6 +78,18 @@ class ItemAnalytics extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -85,6 +98,7 @@ class ItemAnalytics extends Entity implements Parsable
         $writer->writeObjectValue('allTime', $this->getAllTime());
         $writer->writeCollectionOfObjectValues('itemActivityStats', $this->getItemActivityStats());
         $writer->writeObjectValue('lastSevenDays', $this->getLastSevenDays());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -109,6 +123,14 @@ class ItemAnalytics extends Entity implements Parsable
     */
     public function setLastSevenDays(?ItemActivityStat $value): void {
         $this->getBackingStore()->set('lastSevenDays', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

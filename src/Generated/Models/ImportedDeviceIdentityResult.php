@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The importedDeviceIdentityResult resource represents the result of attempting to import a device identity.
+*/
 class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Parsable 
 {
     /**
-     * Instantiates a new ImportedDeviceIdentityResult and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new importedDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +61,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('status', $this->getStatus());
     }
 

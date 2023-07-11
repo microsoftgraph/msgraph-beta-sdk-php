@@ -80,6 +80,7 @@ class MobileAppContentFile extends Entity implements Parsable
             'isFrameworkFile' => fn(ParseNode $n) => $o->setIsFrameworkFile($n->getBooleanValue()),
             'manifest' => fn(ParseNode $n) => $o->setManifest($n->getBinaryContent()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'sizeEncrypted' => fn(ParseNode $n) => $o->setSizeEncrypted($n->getIntegerValue()),
             'uploadState' => fn(ParseNode $n) => $o->setUploadState($n->getEnumValue(MobileAppContentFileUploadState::class)),
@@ -147,6 +148,18 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the size property value. The size of the file prior to encryption.
      * @return int|null
     */
@@ -196,6 +209,7 @@ class MobileAppContentFile extends Entity implements Parsable
         $writer->writeBooleanValue('isFrameworkFile', $this->getIsFrameworkFile());
         $writer->writeBinaryContent('manifest', $this->getManifest());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('size', $this->getSize());
         $writer->writeIntegerValue('sizeEncrypted', $this->getSizeEncrypted());
         $writer->writeEnumValue('uploadState', $this->getUploadState());
@@ -263,6 +277,14 @@ class MobileAppContentFile extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

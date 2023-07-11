@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This entity provides descriptions of the declared methods, properties and relationships exposed by the Wired Network CSP.
+*/
 class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsWiredNetworkConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsWiredNetworkConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -380,6 +388,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
         $writer->writeEnumValue('innerAuthenticationProtocolForEAPTTLS', $this->getInnerAuthenticationProtocolForEAPTTLS());
         $writer->writeIntegerValue('maximumAuthenticationFailures', $this->getMaximumAuthenticationFailures());
         $writer->writeIntegerValue('maximumEAPOLStartMessages', $this->getMaximumEAPOLStartMessages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('outerIdentityPrivacyTemporaryValue', $this->getOuterIdentityPrivacyTemporaryValue());
         $writer->writeBooleanValue('performServerValidation', $this->getPerformServerValidation());
         $writer->writeBooleanValue('requireCryptographicBinding', $this->getRequireCryptographicBinding());

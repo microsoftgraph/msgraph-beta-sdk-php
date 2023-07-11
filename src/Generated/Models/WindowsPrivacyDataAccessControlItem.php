@@ -86,7 +86,20 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'appPackageFamilyName' => fn(ParseNode $n) => $o->setAppPackageFamilyName($n->getStringValue()),
             'dataCategory' => fn(ParseNode $n) => $o->setDataCategory($n->getEnumValue(WindowsPrivacyDataCategory::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,6 +112,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appPackageFamilyName', $this->getAppPackageFamilyName());
         $writer->writeEnumValue('dataCategory', $this->getDataCategory());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -131,6 +145,14 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     */
     public function setDataCategory(?WindowsPrivacyDataCategory $value): void {
         $this->getBackingStore()->set('dataCategory', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AadUserConversationMember extends ConversationMember implements Parsable 
 {
     /**
-     * Instantiates a new AadUserConversationMember and sets the default values.
+     * Instantiates a new aadUserConversationMember and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,10 +45,23 @@ class AadUserConversationMember extends ConversationMember implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,6 +107,7 @@ class AadUserConversationMember extends ConversationMember implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('user', $this->getUser());
         $writer->writeStringValue('userId', $this->getUserId());
@@ -105,6 +119,14 @@ class AadUserConversationMember extends ConversationMember implements Parsable
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

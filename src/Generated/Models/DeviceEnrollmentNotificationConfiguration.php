@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enrollment Notification Configuration which is used to send notification
+*/
 class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentNotificationConfiguration and sets the default values.
+     * Instantiates a new deviceEnrollmentNotificationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +71,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
                 /** @var array<string>|null $val */
                 $this->setNotificationTemplates($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)),
             'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getEnumValue(EnrollmentNotificationTemplateType::class)),
         ]);
@@ -97,6 +101,18 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationTemplates'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -133,6 +149,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
         $writer->writeStringValue('defaultLocale', $this->getDefaultLocale());
         $writer->writeStringValue('notificationMessageTemplateId', $this->getNotificationMessageTemplateId());
         $writer->writeCollectionOfPrimitiveValues('notificationTemplates', $this->getNotificationTemplates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeEnumValue('templateType', $this->getTemplateType());
     }
@@ -167,6 +184,14 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     */
     public function setNotificationTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationTemplates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

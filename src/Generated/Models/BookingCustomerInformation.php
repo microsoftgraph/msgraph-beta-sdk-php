@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingCustomerInformation extends BookingCustomerInformationBase implements Parsable 
 {
     /**
-     * Instantiates a new BookingCustomerInformation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new bookingCustomerInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -167,6 +172,7 @@ class BookingCustomerInformation extends BookingCustomerInformationBase implemen
         $writer->writeObjectValue('location', $this->getLocation());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phone', $this->getPhone());
         $writer->writeBooleanValue('smsNotificationsEnabled', $this->getSmsNotificationsEnabled());
         $writer->writeStringValue('timeZone', $this->getTimeZone());

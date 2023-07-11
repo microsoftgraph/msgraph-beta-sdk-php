@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify an AzureAD user account for the kiosk configuration
+*/
 class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskAzureADUser and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskAzureADUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +75,7 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }

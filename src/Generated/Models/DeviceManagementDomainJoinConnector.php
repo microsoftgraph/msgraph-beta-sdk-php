@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A Domain Join Connector is a connector that is responsible to allocate (and delete) machine account blobs
+*/
 class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementDomainJoinConnector and sets the default values.
+     * Instantiates a new deviceManagementDomainJoinConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +49,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(DeviceManagementDomainJoinConnectorState::class)),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
@@ -61,6 +65,18 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectionDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +111,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('version', $this->getVersion());
     }
@@ -113,6 +130,14 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     */
     public function setLastConnectionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastConnectionDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

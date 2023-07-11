@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS wired network configuration profile.
+*/
 class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSWiredNetworkConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSWiredNetworkConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -189,6 +197,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
         $writer->writeEnumValue('networkInterface', $this->getNetworkInterface());
         $writer->writeStringValue('networkName', $this->getNetworkName());
         $writer->writeEnumValue('nonEapAuthenticationMethodForEapTtls', $this->getNonEapAuthenticationMethodForEapTtls());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('rootCertificateForServerValidation', $this->getRootCertificateForServerValidation());
         $writer->writeCollectionOfPrimitiveValues('trustedServerCertificateNames', $this->getTrustedServerCertificateNames());
     }

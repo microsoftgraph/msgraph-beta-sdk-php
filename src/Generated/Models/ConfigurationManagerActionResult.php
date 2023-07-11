@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Result of the ConfigurationManager action
+*/
 class ConfigurationManagerActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new ConfigurationManagerActionResult and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new configurationManagerActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +76,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
         parent::serialize($writer);
         $writer->writeEnumValue('actionDeliveryStatus', $this->getActionDeliveryStatus());
         $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TiIndicator extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TiIndicator and sets the default values.
+     * Instantiates a new tiIndicator and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -334,6 +334,7 @@ class TiIndicator extends Entity implements Parsable
             'networkSourceIPv4' => fn(ParseNode $n) => $o->setNetworkSourceIPv4($n->getStringValue()),
             'networkSourceIPv6' => fn(ParseNode $n) => $o->setNetworkSourceIPv6($n->getStringValue()),
             'networkSourcePort' => fn(ParseNode $n) => $o->setNetworkSourcePort($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'passiveOnly' => fn(ParseNode $n) => $o->setPassiveOnly($n->getBooleanValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getIntegerValue()),
             'tags' => function (ParseNode $n) {
@@ -729,6 +730,18 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false.
      * @return bool|null
     */
@@ -882,6 +895,7 @@ class TiIndicator extends Entity implements Parsable
         $writer->writeStringValue('networkSourceIPv4', $this->getNetworkSourceIPv4());
         $writer->writeStringValue('networkSourceIPv6', $this->getNetworkSourceIPv6());
         $writer->writeIntegerValue('networkSourcePort', $this->getNetworkSourcePort());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passiveOnly', $this->getPassiveOnly());
         $writer->writeIntegerValue('severity', $this->getSeverity());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
@@ -1290,6 +1304,14 @@ class TiIndicator extends Entity implements Parsable
     */
     public function setNetworkSourcePort(?int $value): void {
         $this->getBackingStore()->set('networkSourcePort', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

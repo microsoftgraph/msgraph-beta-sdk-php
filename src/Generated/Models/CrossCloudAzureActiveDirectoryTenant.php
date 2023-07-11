@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new CrossCloudAzureActiveDirectoryTenant and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new crossCloudAzureActiveDirectoryTenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Par
         parent::serialize($writer);
         $writer->writeStringValue('cloudInstance', $this->getCloudInstance());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 

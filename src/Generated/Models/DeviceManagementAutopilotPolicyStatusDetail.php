@@ -75,6 +75,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
             'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(DeviceManagementAutopilotPolicyType::class)),
             'trackedOnEnrollmentStatus' => fn(ParseNode $n) => $o->setTrackedOnEnrollmentStatus($n->getBooleanValue()),
         ]);
@@ -90,6 +91,18 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -126,6 +139,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('errorCode', $this->getErrorCode());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeBooleanValue('trackedOnEnrollmentStatus', $this->getTrackedOnEnrollmentStatus());
     }
@@ -160,6 +174,14 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

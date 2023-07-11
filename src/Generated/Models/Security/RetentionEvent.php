@@ -146,6 +146,7 @@ class RetentionEvent extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastStatusUpdateDateTime' => fn(ParseNode $n) => $o->setLastStatusUpdateDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'retentionEventType' => fn(ParseNode $n) => $o->setRetentionEventType($n->getObjectValue([RetentionEventType::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -187,6 +188,18 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the retentionEventType property value. Specifies the event that will start the retention period for labels that use this event type when an event is created.
      * @return RetentionEventType|null
     */
@@ -215,6 +228,7 @@ class RetentionEvent extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeDateTimeValue('lastStatusUpdateDateTime', $this->getLastStatusUpdateDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('retentionEventType', $this->getRetentionEventType());
     }
 
@@ -304,6 +318,14 @@ class RetentionEvent extends Entity implements Parsable
     */
     public function setLastStatusUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastStatusUpdateDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for the MacOSPkgApp.
+*/
 class MacOSPkgApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSPkgApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSPkgApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -112,6 +120,7 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
         $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
         $writer->writeCollectionOfObjectValues('includedApps', $this->getIncludedApps());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('primaryBundleId', $this->getPrimaryBundleId());
         $writer->writeStringValue('primaryBundleVersion', $this->getPrimaryBundleVersion());
     }

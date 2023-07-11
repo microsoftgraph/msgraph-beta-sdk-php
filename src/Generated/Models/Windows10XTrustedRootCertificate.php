@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows X Trusted Root Certificate configuration profile
+*/
 class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XTrustedRootCertificate and sets the default values.
+     * Instantiates a new windows10XTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,8 +62,21 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
         return array_merge(parent::getFieldDeserializers(), [
             'certFileName' => fn(ParseNode $n) => $o->setCertFileName($n->getStringValue()),
             'destinationStore' => fn(ParseNode $n) => $o->setDestinationStore($n->getEnumValue(CertificateDestinationStore::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'trustedRootCertificate' => fn(ParseNode $n) => $o->setTrustedRootCertificate($n->getBinaryContent()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,6 +99,7 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
         parent::serialize($writer);
         $writer->writeStringValue('certFileName', $this->getCertFileName());
         $writer->writeEnumValue('destinationStore', $this->getDestinationStore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 
@@ -100,6 +117,14 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
     */
     public function setDestinationStore(?CertificateDestinationStore $value): void {
         $this->getBackingStore()->set('destinationStore', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

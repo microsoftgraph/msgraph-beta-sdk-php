@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class M365ForwardingRule extends ForwardingRule implements Parsable 
 {
     /**
-     * Instantiates a new M365ForwardingRule and sets the default values.
+     * Instantiates a new m365ForwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +46,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ForwardingCategory::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ports' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -59,7 +60,19 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @return array<string>|null
     */
     public function getPorts(): ?array {
@@ -91,6 +104,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('ports', $this->getPorts());
         $writer->writeEnumValue('protocol', $this->getProtocol());
     }
@@ -104,7 +118,15 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @param array<string>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {

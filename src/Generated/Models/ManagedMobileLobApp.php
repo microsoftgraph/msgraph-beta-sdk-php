@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * An abstract base class containing properties for all managed mobile line of business apps.
+*/
 class ManagedMobileLobApp extends ManagedApp implements Parsable 
 {
     /**
-     * Instantiates a new ManagedMobileLobApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedMobileLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -107,6 +115,7 @@ class ManagedMobileLobApp extends ManagedApp implements Parsable
         $writer->writeStringValue('committedContentVersion', $this->getCommittedContentVersion());
         $writer->writeCollectionOfObjectValues('contentVersions', $this->getContentVersions());
         $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('size', $this->getSize());
     }
 

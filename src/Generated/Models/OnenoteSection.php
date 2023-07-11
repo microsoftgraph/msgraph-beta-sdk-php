@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new onenoteSection and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeObjectValue('links', $this->getLinks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());
         $writer->writeStringValue('pagesUrl', $this->getPagesUrl());
         $writer->writeObjectValue('parentNotebook', $this->getParentNotebook());

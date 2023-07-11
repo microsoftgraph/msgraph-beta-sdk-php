@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A complex type to store the PowerShell script rule data for a Win32 LOB app.
+*/
 class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppPowerShellScriptRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppPowerShellScriptRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -148,6 +156,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
         $writer->writeStringValue('comparisonValue', $this->getComparisonValue());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operationType', $this->getOperationType());
         $writer->writeEnumValue('operator', $this->getOperator());
         $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());

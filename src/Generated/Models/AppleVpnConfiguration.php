@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Apple VPN configuration profile.
+*/
 class AppleVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AppleVpnConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new appleVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -384,6 +392,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeCollectionOfPrimitiveValues('excludedDomains', $this->getExcludedDomains());
         $writer->writeStringValue('identifier', $this->getIdentifier());
         $writer->writeStringValue('loginGroupOrDomain', $this->getLoginGroupOrDomain());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onDemandRules', $this->getOnDemandRules());
         $writer->writeBooleanValue('optInToDeviceIdSharing', $this->getOptInToDeviceIdSharing());
         $writer->writeEnumValue('providerType', $this->getProviderType());

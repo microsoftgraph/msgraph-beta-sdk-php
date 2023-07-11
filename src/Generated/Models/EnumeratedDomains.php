@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EnumeratedDomains extends ValidatingDomains implements Parsable 
 {
     /**
-     * Instantiates a new EnumeratedDomains and sets the default values.
+     * Instantiates a new enumeratedDomains and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,20 @@ class EnumeratedDomains extends ValidatingDomains implements Parsable
                 /** @var array<string>|null $val */
                 $this->setDomainNames($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -65,6 +78,7 @@ class EnumeratedDomains extends ValidatingDomains implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('domainNames', $this->getDomainNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -73,6 +87,14 @@ class EnumeratedDomains extends ValidatingDomains implements Parsable
     */
     public function setDomainNames(?array $value): void {
         $this->getBackingStore()->set('domainNames', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

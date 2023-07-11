@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Organization extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new Organization and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new organization and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -530,6 +535,7 @@ class Organization extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('isMultipleDataLocationsForServicesEnabled', $this->getIsMultipleDataLocationsForServicesEnabled());
         $writer->writeCollectionOfPrimitiveValues('marketingNotificationEmails', $this->getMarketingNotificationEmails());
         $writer->writeEnumValue('mobileDeviceManagementAuthority', $this->getMobileDeviceManagementAuthority());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('onPremisesLastPasswordSyncDateTime', $this->getOnPremisesLastPasswordSyncDateTime());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());

@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * IOS Update Configuration, allows you to configure time window within week to install iOS updates
+*/
 class IosUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosUpdateConfiguration and sets the default values.
+     * Instantiates a new iosUpdateConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -102,6 +105,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
             'desiredOsVersion' => fn(ParseNode $n) => $o->setDesiredOsVersion($n->getStringValue()),
             'enforcedSoftwareUpdateDelayInDays' => fn(ParseNode $n) => $o->setEnforcedSoftwareUpdateDelayInDays($n->getIntegerValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scheduledInstallDays' => fn(ParseNode $n) => $o->setScheduledInstallDays($n->getCollectionOfEnumValues(DayOfWeek::class)),
             'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(IosSoftwareUpdateScheduleType::class)),
             'utcTimeOffsetInMinutes' => fn(ParseNode $n) => $o->setUtcTimeOffsetInMinutes($n->getIntegerValue()),
@@ -118,6 +122,18 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -170,6 +186,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeStringValue('desiredOsVersion', $this->getDesiredOsVersion());
         $writer->writeIntegerValue('enforcedSoftwareUpdateDelayInDays', $this->getEnforcedSoftwareUpdateDelayInDays());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfEnumValues('scheduledInstallDays', $this->getScheduledInstallDays());
         $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
         $writer->writeIntegerValue('utcTimeOffsetInMinutes', $this->getUtcTimeOffsetInMinutes());
@@ -221,6 +238,14 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

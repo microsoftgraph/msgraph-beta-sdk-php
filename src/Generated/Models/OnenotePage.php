@@ -77,6 +77,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'level' => fn(ParseNode $n) => $o->setLevel($n->getIntegerValue()),
             'links' => fn(ParseNode $n) => $o->setLinks($n->getObjectValue([PageLinks::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'order' => fn(ParseNode $n) => $o->setOrder($n->getIntegerValue()),
             'parentNotebook' => fn(ParseNode $n) => $o->setParentNotebook($n->getObjectValue([Notebook::class, 'createFromDiscriminatorValue'])),
             'parentSection' => fn(ParseNode $n) => $o->setParentSection($n->getObjectValue([OnenoteSection::class, 'createFromDiscriminatorValue'])),
@@ -126,6 +127,18 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'links'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -202,6 +215,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeIntegerValue('level', $this->getLevel());
         $writer->writeObjectValue('links', $this->getLinks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('order', $this->getOrder());
         $writer->writeObjectValue('parentNotebook', $this->getParentNotebook());
         $writer->writeObjectValue('parentSection', $this->getParentSection());
@@ -255,6 +269,14 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable
     */
     public function setLinks(?PageLinks $value): void {
         $this->getBackingStore()->set('links', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

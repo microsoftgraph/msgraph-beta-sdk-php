@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSource extends DataSource implements Parsable 
 {
     /**
-     * Instantiates a new UserSource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class UserSource extends DataSource implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeEnumValue('includedSources', $this->getIncludedSources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('siteWebUrl', $this->getSiteWebUrl());
     }
 

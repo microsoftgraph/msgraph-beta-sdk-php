@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Activate device eSIM action result
+*/
 class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new ActivateDeviceEsimActionResult and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new activateDeviceEsimActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('carrierUrl', $this->getCarrierUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

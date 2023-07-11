@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryFile extends File implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryFile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,6 +75,7 @@ class EdiscoveryFile extends File implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('custodian', $this->getCustodian());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 

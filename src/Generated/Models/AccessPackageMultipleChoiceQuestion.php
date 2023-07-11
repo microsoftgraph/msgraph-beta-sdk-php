@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implements Parsable 
 {
     /**
-     * Instantiates a new AccessPackageMultipleChoiceQuestion and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new accessPackageMultipleChoiceQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +77,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
         parent::serialize($writer);
         $writer->writeBooleanValue('allowsMultipleSelection', $this->getAllowsMultipleSelection());
         $writer->writeCollectionOfObjectValues('choices', $this->getChoices());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

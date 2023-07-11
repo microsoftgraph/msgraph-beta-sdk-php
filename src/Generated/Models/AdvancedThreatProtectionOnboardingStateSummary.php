@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows defender advanced threat protection onboarding state summary across the account.
+*/
 class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new advancedThreatProtectionOnboardingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -167,6 +175,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
         $writer->writeIntegerValue('nonCompliantDeviceCount', $this->getNonCompliantDeviceCount());
         $writer->writeIntegerValue('notApplicableDeviceCount', $this->getNotApplicableDeviceCount());
         $writer->writeIntegerValue('notAssignedDeviceCount', $this->getNotAssignedDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('remediatedDeviceCount', $this->getRemediatedDeviceCount());
         $writer->writeIntegerValue('unknownDeviceCount', $this->getUnknownDeviceCount());
     }

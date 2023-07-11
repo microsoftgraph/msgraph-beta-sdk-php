@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApplicationTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationTemplate and sets the default values.
+     * Instantiates a new applicationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +83,7 @@ class ApplicationTemplate extends Entity implements Parsable
             'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
             'informationalUrls' => fn(ParseNode $n) => $o->setInformationalUrls($n->getObjectValue([InformationalUrls::class, 'createFromDiscriminatorValue'])),
             'logoUrl' => fn(ParseNode $n) => $o->setLogoUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'supportedClaimConfiguration' => fn(ParseNode $n) => $o->setSupportedClaimConfiguration($n->getObjectValue([SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'])),
             'supportedProvisioningTypes' => function (ParseNode $n) {
@@ -138,6 +139,18 @@ class ApplicationTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'logoUrl'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -204,6 +217,7 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
         $writer->writeObjectValue('informationalUrls', $this->getInformationalUrls());
         $writer->writeStringValue('logoUrl', $this->getLogoUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeObjectValue('supportedClaimConfiguration', $this->getSupportedClaimConfiguration());
         $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->getSupportedProvisioningTypes());
@@ -256,6 +270,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setLogoUrl(?string $value): void {
         $this->getBackingStore()->set('logoUrl', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

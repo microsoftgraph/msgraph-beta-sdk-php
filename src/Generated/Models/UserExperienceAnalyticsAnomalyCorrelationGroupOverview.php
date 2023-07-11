@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
+*/
 class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -151,8 +154,21 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
             'correlationGroupId' => fn(ParseNode $n) => $o->setCorrelationGroupId($n->getStringValue()),
             'correlationGroupPrevalence' => fn(ParseNode $n) => $o->setCorrelationGroupPrevalence($n->getEnumValue(UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence::class)),
             'correlationGroupPrevalencePercentage' => fn(ParseNode $n) => $o->setCorrelationGroupPrevalencePercentage($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'totalDeviceCount' => fn(ParseNode $n) => $o->setTotalDeviceCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -182,6 +198,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
         $writer->writeStringValue('correlationGroupId', $this->getCorrelationGroupId());
         $writer->writeEnumValue('correlationGroupPrevalence', $this->getCorrelationGroupPrevalence());
         $writer->writeFloatValue('correlationGroupPrevalencePercentage', $this->getCorrelationGroupPrevalencePercentage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('totalDeviceCount', $this->getTotalDeviceCount());
     }
 
@@ -255,6 +272,14 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
     */
     public function setCorrelationGroupPrevalencePercentage(?float $value): void {
         $this->getBackingStore()->set('correlationGroupPrevalencePercentage', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

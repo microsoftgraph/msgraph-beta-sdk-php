@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureResourceEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new AzureResourceEvidence and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new azureResourceEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +84,7 @@ class AzureResourceEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeStringValue('resourceName', $this->getResourceName());
         $writer->writeStringValue('resourceType', $this->getResourceType());

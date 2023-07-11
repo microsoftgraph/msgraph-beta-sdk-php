@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an ADMX decimalTextBox element and an ADMX decimal element.
+*/
 class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationDecimalTextBox and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationDecimalTextBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -122,6 +130,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
         $writer->writeIntegerValue('defaultValue', $this->getDefaultValue());
         $writer->writeIntegerValue('maxValue', $this->getMaxValue());
         $writer->writeIntegerValue('minValue', $this->getMinValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('required', $this->getRequired());
         $writer->writeBooleanValue('spin', $this->getSpin());
         $writer->writeIntegerValue('spinStep', $this->getSpinStep());

@@ -19,7 +19,7 @@ class DeviceKey implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new DeviceKey and sets the default values.
+     * Instantiates a new deviceKey and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -104,6 +104,7 @@ class ConnectedOrganization extends Entity implements Parsable
             'internalSponsors' => fn(ParseNode $n) => $o->setInternalSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ConnectedOrganizationState::class)),
         ]);
     }
@@ -161,6 +162,18 @@ class ConnectedOrganization extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
      * @return ConnectedOrganizationState|null
     */
@@ -187,6 +200,7 @@ class ConnectedOrganization extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('internalSponsors', $this->getInternalSponsors());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
     }
 
@@ -260,6 +274,14 @@ class ConnectedOrganization extends Entity implements Parsable
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

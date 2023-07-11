@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MarkContent extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new MarkContent and sets the default values.
+     * Instantiates a new markContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -43,6 +43,7 @@ class MarkContent extends LabelActionBase implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'fontColor' => fn(ParseNode $n) => $o->setFontColor($n->getStringValue()),
             'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ]);
     }
@@ -72,6 +73,18 @@ class MarkContent extends LabelActionBase implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the text property value. The text property
      * @return string|null
     */
@@ -91,6 +104,7 @@ class MarkContent extends LabelActionBase implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('fontColor', $this->getFontColor());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
     }
 
@@ -108,6 +122,14 @@ class MarkContent extends LabelActionBase implements Parsable
     */
     public function setFontSize(?int $value): void {
         $this->getBackingStore()->set('fontSize', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

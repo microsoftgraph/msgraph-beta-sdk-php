@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsAnomalyDevice and sets the default values.
     */
     public function __construct() {
@@ -196,6 +201,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeEnumValue('deviceStatus', $this->getDeviceStatus());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osName', $this->getOsName());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
     }

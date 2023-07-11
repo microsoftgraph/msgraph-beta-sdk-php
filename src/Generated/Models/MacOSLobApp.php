@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for the macOS LOB App.
+*/
 class MacOSLobApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSLobApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -178,6 +186,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
         $writer->writeCollectionOfPrimitiveValues('md5Hash', $this->getMd5Hash());
         $writer->writeIntegerValue('md5HashChunkSize', $this->getMd5HashChunkSize());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('versionNumber', $this->getVersionNumber());
     }
 

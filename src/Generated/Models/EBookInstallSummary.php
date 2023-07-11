@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation summary of a book for a device.
+*/
 class EBookInstallSummary extends Entity implements Parsable 
 {
     /**
@@ -61,6 +64,7 @@ class EBookInstallSummary extends Entity implements Parsable
             'installedUserCount' => fn(ParseNode $n) => $o->setInstalledUserCount($n->getIntegerValue()),
             'notInstalledDeviceCount' => fn(ParseNode $n) => $o->setNotInstalledDeviceCount($n->getIntegerValue()),
             'notInstalledUserCount' => fn(ParseNode $n) => $o->setNotInstalledUserCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -113,6 +117,18 @@ class EBookInstallSummary extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -124,6 +140,7 @@ class EBookInstallSummary extends Entity implements Parsable
         $writer->writeIntegerValue('installedUserCount', $this->getInstalledUserCount());
         $writer->writeIntegerValue('notInstalledDeviceCount', $this->getNotInstalledDeviceCount());
         $writer->writeIntegerValue('notInstalledUserCount', $this->getNotInstalledUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -172,6 +189,14 @@ class EBookInstallSummary extends Entity implements Parsable
     */
     public function setNotInstalledUserCount(?int $value): void {
         $this->getBackingStore()->set('notInstalledUserCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Instance of a GroupSetting
+*/
 class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingInstance and sets the default values.
+     * Instantiates a new deviceManagementConfigurationGroupSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +36,7 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'groupSettingValue' => fn(ParseNode $n) => $o->setGroupSettingValue($n->getObjectValue([DeviceManagementConfigurationGroupSettingValue::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +53,25 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('groupSettingValue', $this->getGroupSettingValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +80,14 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
     */
     public function setGroupSettingValue(?DeviceManagementConfigurationGroupSettingValue $value): void {
         $this->getBackingStore()->set('groupSettingValue', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -77,6 +77,7 @@ class Set extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'localizedNames' => fn(ParseNode $n) => $o->setLocalizedNames($n->getCollectionOfObjectValues([LocalizedName::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentGroup' => fn(ParseNode $n) => $o->setParentGroup($n->getObjectValue([Group::class, 'createFromDiscriminatorValue'])),
             'properties' => fn(ParseNode $n) => $o->setProperties($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
             'relations' => fn(ParseNode $n) => $o->setRelations($n->getCollectionOfObjectValues([Relation::class, 'createFromDiscriminatorValue'])),
@@ -96,6 +97,18 @@ class Set extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localizedNames'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -162,6 +175,7 @@ class Set extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeCollectionOfObjectValues('localizedNames', $this->getLocalizedNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parentGroup', $this->getParentGroup());
         $writer->writeCollectionOfObjectValues('properties', $this->getProperties());
         $writer->writeCollectionOfObjectValues('relations', $this->getRelations());
@@ -198,6 +212,14 @@ class Set extends Entity implements Parsable
     */
     public function setLocalizedNames(?array $value): void {
         $this->getBackingStore()->set('localizedNames', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

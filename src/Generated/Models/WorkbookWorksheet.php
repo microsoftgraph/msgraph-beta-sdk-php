@@ -49,6 +49,7 @@ class WorkbookWorksheet extends Entity implements Parsable
             'charts' => fn(ParseNode $n) => $o->setCharts($n->getCollectionOfObjectValues([WorkbookChart::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'names' => fn(ParseNode $n) => $o->setNames($n->getCollectionOfObjectValues([WorkbookNamedItem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pivotTables' => fn(ParseNode $n) => $o->setPivotTables($n->getCollectionOfObjectValues([WorkbookPivotTable::class, 'createFromDiscriminatorValue'])),
             'position' => fn(ParseNode $n) => $o->setPosition($n->getIntegerValue()),
             'protection' => fn(ParseNode $n) => $o->setProtection($n->getObjectValue([WorkbookWorksheetProtection::class, 'createFromDiscriminatorValue'])),
@@ -81,6 +82,18 @@ class WorkbookWorksheet extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'names'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -156,6 +169,7 @@ class WorkbookWorksheet extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('charts', $this->getCharts());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeCollectionOfObjectValues('names', $this->getNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('pivotTables', $this->getPivotTables());
         $writer->writeIntegerValue('position', $this->getPosition());
         $writer->writeObjectValue('protection', $this->getProtection());
@@ -185,6 +199,14 @@ class WorkbookWorksheet extends Entity implements Parsable
     */
     public function setNames(?array $value): void {
         $this->getBackingStore()->set('names', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

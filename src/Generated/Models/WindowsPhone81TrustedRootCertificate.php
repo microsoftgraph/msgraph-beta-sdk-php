@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows Phone 8.1+ Trusted Root Certificate configuration profile
+*/
 class WindowsPhone81TrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsPhone81TrustedRootCertificate and sets the default values.
     */
@@ -69,6 +77,7 @@ class WindowsPhone81TrustedRootCertificate extends DeviceConfiguration implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('certFileName', $this->getCertFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 

@@ -437,6 +437,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.authenticationStrengthRoot': return new AuthenticationStrengthRoot();
                 case '#microsoft.graph.authoredNote': return new AuthoredNote();
                 case '#microsoft.graph.authorizationPolicy': return new AuthorizationPolicy();
+                case '#microsoft.graph.azureADAuthentication': return new AzureADAuthentication();
                 case '#microsoft.graph.azureADWindowsAutopilotDeploymentProfile': return new AzureADWindowsAutopilotDeploymentProfile();
                 case '#microsoft.graph.azureCommunicationServicesUserConversationMember': return new AzureCommunicationServicesUserConversationMember();
                 case '#microsoft.graph.b2cAuthenticationMethodsPolicy': return new B2cAuthenticationMethodsPolicy();
@@ -459,6 +460,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.browserSite': return new BrowserSite();
                 case '#microsoft.graph.browserSiteList': return new BrowserSiteList();
                 case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
+                case '#microsoft.graph.bulkUpload': return new BulkUpload();
                 case '#microsoft.graph.businessFlow': return new BusinessFlow();
                 case '#microsoft.graph.businessFlowTemplate': return new BusinessFlowTemplate();
                 case '#microsoft.graph.businessScenario': return new BusinessScenario();
@@ -1252,6 +1254,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.payload': return new Payload();
                 case '#microsoft.graph.payloadCompatibleAssignmentFilter': return new PayloadCompatibleAssignmentFilter();
                 case '#microsoft.graph.payloadResponse': return new PayloadResponse();
+                case '#microsoft.graph.peopleAdminSettings': return new PeopleAdminSettings();
                 case '#microsoft.graph.permission': return new Permission();
                 case '#microsoft.graph.permissionGrantConditionSet': return new PermissionGrantConditionSet();
                 case '#microsoft.graph.permissionGrantPolicy': return new PermissionGrantPolicy();
@@ -1495,6 +1498,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.serviceAnnouncementBase': return new ServiceAnnouncementBase();
                 case '#microsoft.graph.serviceHealth': return new ServiceHealth();
                 case '#microsoft.graph.serviceHealthIssue': return new ServiceHealthIssue();
+                case '#microsoft.graph.serviceLevelAgreementRoot': return new ServiceLevelAgreementRoot();
                 case '#microsoft.graph.serviceNowConnection': return new ServiceNowConnection();
                 case '#microsoft.graph.servicePrincipal': return new ServicePrincipal();
                 case '#microsoft.graph.servicePrincipalCreationConditionSet': return new ServicePrincipalCreationConditionSet();

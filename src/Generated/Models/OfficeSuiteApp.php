@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Contains properties and inherited properties for the Office365 Suite App.
+*/
 class OfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new OfficeSuiteApp and sets the default values.
+     * Instantiates a new officeSuiteApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +72,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
                 /** @var array<string>|null $val */
                 $this->setLocalesToInstall($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'officeConfigurationXml' => fn(ParseNode $n) => $o->setOfficeConfigurationXml($n->getBinaryContent()),
             'officePlatformArchitecture' => fn(ParseNode $n) => $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)),
             'officeSuiteAppDefaultFileFormat' => fn(ParseNode $n) => $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)),
@@ -105,6 +109,18 @@ class OfficeSuiteApp extends MobileApp implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localesToInstall'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -227,6 +243,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
         $writer->writeObjectValue('excludedApps', $this->getExcludedApps());
         $writer->writeEnumValue('installProgressDisplayLevel', $this->getInstallProgressDisplayLevel());
         $writer->writeCollectionOfPrimitiveValues('localesToInstall', $this->getLocalesToInstall());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('officeConfigurationXml', $this->getOfficeConfigurationXml());
         $writer->writeEnumValue('officePlatformArchitecture', $this->getOfficePlatformArchitecture());
         $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->getOfficeSuiteAppDefaultFileFormat());
@@ -268,6 +285,14 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     */
     public function setLocalesToInstall(?array $value): void {
         $this->getBackingStore()->set('localesToInstall', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends EducationSynchronizationConnectionSettings implements Parsable 
 {
     /**
-     * Instantiates a new EducationSynchronizationOAuth2ClientCredentialsConnectionSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationSynchronizationOAuth2ClientCredentialsConnectionSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +72,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scope', $this->getScope());
         $writer->writeStringValue('tokenUrl', $this->getTokenUrl());
     }

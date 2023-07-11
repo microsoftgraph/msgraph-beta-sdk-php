@@ -124,7 +124,20 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
                 $this->setApplicationTenantIds($val);
             },
             'certifiedApplicationsOnly' => fn(ParseNode $n) => $o->setCertifiedApplicationsOnly($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -138,6 +151,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
         $writer->writeBooleanValue('applicationsFromVerifiedPublisherOnly', $this->getApplicationsFromVerifiedPublisherOnly());
         $writer->writeCollectionOfPrimitiveValues('applicationTenantIds', $this->getApplicationTenantIds());
         $writer->writeBooleanValue('certifiedApplicationsOnly', $this->getCertifiedApplicationsOnly());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -178,6 +192,14 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
     */
     public function setCertifiedApplicationsOnly(?bool $value): void {
         $this->getBackingStore()->set('certifiedApplicationsOnly', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

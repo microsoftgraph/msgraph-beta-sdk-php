@@ -72,6 +72,7 @@ class Settings extends Entity implements Parsable
             'crossTenantAccess' => fn(ParseNode $n) => $o->setCrossTenantAccess($n->getObjectValue([CrossTenantAccessSettings::class, 'createFromDiscriminatorValue'])),
             'enrichedAuditLogs' => fn(ParseNode $n) => $o->setEnrichedAuditLogs($n->getObjectValue([EnrichedAuditLogs::class, 'createFromDiscriminatorValue'])),
             'forwardingOptions' => fn(ParseNode $n) => $o->setForwardingOptions($n->getObjectValue([ForwardingOptions::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -88,6 +89,18 @@ class Settings extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -97,6 +110,7 @@ class Settings extends Entity implements Parsable
         $writer->writeObjectValue('crossTenantAccess', $this->getCrossTenantAccess());
         $writer->writeObjectValue('enrichedAuditLogs', $this->getEnrichedAuditLogs());
         $writer->writeObjectValue('forwardingOptions', $this->getForwardingOptions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -129,6 +143,14 @@ class Settings extends Entity implements Parsable
     */
     public function setForwardingOptions(?ForwardingOptions $value): void {
         $this->getBackingStore()->set('forwardingOptions', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

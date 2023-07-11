@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows management app entity.
+*/
 class WindowsManagementApp extends Entity implements Parsable 
 {
     /**
@@ -48,6 +51,7 @@ class WindowsManagementApp extends Entity implements Parsable
             'healthStates' => fn(ParseNode $n) => $o->setHealthStates($n->getCollectionOfObjectValues([WindowsManagementAppHealthState::class, 'createFromDiscriminatorValue'])),
             'managedInstaller' => fn(ParseNode $n) => $o->setManagedInstaller($n->getEnumValue(ManagedInstallerStatus::class)),
             'managedInstallerConfiguredDateTime' => fn(ParseNode $n) => $o->setManagedInstallerConfiguredDateTime($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -90,6 +94,18 @@ class WindowsManagementApp extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -99,6 +115,7 @@ class WindowsManagementApp extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('healthStates', $this->getHealthStates());
         $writer->writeEnumValue('managedInstaller', $this->getManagedInstaller());
         $writer->writeStringValue('managedInstallerConfiguredDateTime', $this->getManagedInstallerConfiguredDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -131,6 +148,14 @@ class WindowsManagementApp extends Entity implements Parsable
     */
     public function setManagedInstallerConfiguredDateTime(?string $value): void {
         $this->getBackingStore()->set('managedInstallerConfiguredDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

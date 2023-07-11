@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * Base type of Device health script time schedule.
+*/
 class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptTimeSchedule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceHealthScriptTimeSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +84,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeTimeValue('time', $this->getTime());
         $writer->writeBooleanValue('useUtc', $this->getUseUtc());
     }

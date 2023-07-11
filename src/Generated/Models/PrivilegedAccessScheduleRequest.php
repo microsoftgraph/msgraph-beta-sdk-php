@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedAccessScheduleRequest extends Request implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedAccessScheduleRequest and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new privilegedAccessScheduleRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -117,6 +122,7 @@ class PrivilegedAccessScheduleRequest extends Request implements Parsable
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('scheduleInfo', $this->getScheduleInfo());
         $writer->writeObjectValue('ticketInfo', $this->getTicketInfo());
     }

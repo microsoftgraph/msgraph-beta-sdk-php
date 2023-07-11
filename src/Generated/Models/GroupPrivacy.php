@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Enum;
 
 class GroupPrivacy extends Enum {
     public const UNSPECIFIED = 'unspecified';
-    public const ESCAPED_PUBLIC = 'public';
-    public const ESCAPED_PRIVATE = 'private';
+    public const PUBLIC = 'public';
+    public const PRIVATE = 'private';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

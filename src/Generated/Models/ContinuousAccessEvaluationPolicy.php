@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ContinuousAccessEvaluationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ContinuousAccessEvaluationPolicy and sets the default values.
+     * Instantiates a new continuousAccessEvaluationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +68,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
             },
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'migrate' => fn(ParseNode $n) => $o->setMigrate($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'users' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -118,6 +119,18 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the users property value. The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
      * @return array<string>|null
     */
@@ -142,6 +155,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('groups', $this->getGroups());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('migrate', $this->getMigrate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('users', $this->getUsers());
     }
 
@@ -183,6 +197,14 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
     */
     public function setMigrate(?bool $value): void {
         $this->getBackingStore()->set('migrate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

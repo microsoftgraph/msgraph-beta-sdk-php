@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Contact extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new Contact and sets the default values.
+     * Instantiates a new contact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -172,6 +172,7 @@ class Contact extends OutlookItem implements Parsable
             'middleName' => fn(ParseNode $n) => $o->setMiddleName($n->getStringValue()),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'nickName' => fn(ParseNode $n) => $o->setNickName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'officeLocation' => fn(ParseNode $n) => $o->setOfficeLocation($n->getStringValue()),
             'parentFolderId' => fn(ParseNode $n) => $o->setParentFolderId($n->getStringValue()),
             'personalNotes' => fn(ParseNode $n) => $o->setPersonalNotes($n->getStringValue()),
@@ -349,6 +350,18 @@ class Contact extends OutlookItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'nickName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -578,6 +591,7 @@ class Contact extends OutlookItem implements Parsable
         $writer->writeStringValue('middleName', $this->getMiddleName());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
         $writer->writeStringValue('nickName', $this->getNickName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('officeLocation', $this->getOfficeLocation());
         $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
         $writer->writeStringValue('personalNotes', $this->getPersonalNotes());
@@ -762,6 +776,14 @@ class Contact extends OutlookItem implements Parsable
     */
     public function setNickName(?string $value): void {
         $this->getBackingStore()->set('nickName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceLocalCredentialInfo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceLocalCredentialInfo and sets the default values.
+     * Instantiates a new deviceLocalCredentialInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,6 +62,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
             'credentials' => fn(ParseNode $n) => $o->setCredentials($n->getCollectionOfObjectValues([DeviceLocalCredential::class, 'createFromDiscriminatorValue'])),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'lastBackupDateTime' => fn(ParseNode $n) => $o->setLastBackupDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'refreshDateTime' => fn(ParseNode $n) => $o->setRefreshDateTime($n->getDateTimeValue()),
         ]);
     }
@@ -76,6 +77,18 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastBackupDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,6 +112,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('credentials', $this->getCredentials());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeDateTimeValue('lastBackupDateTime', $this->getLastBackupDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('refreshDateTime', $this->getRefreshDateTime());
     }
 
@@ -124,6 +138,14 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
     */
     public function setLastBackupDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastBackupDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

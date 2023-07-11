@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
+*/
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementExchangeOnPremisesPolicy and sets the default values.
+     * Instantiates a new deviceManagementExchangeOnPremisesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +79,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
             'defaultAccessLevel' => fn(ParseNode $n) => $o->setDefaultAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)),
             'knownDeviceClasses' => fn(ParseNode $n) => $o->setKnownDeviceClasses($n->getCollectionOfObjectValues([DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'])),
             'notificationContent' => fn(ParseNode $n) => $o->setNotificationContent($n->getBinaryContent()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -106,6 +110,18 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -116,6 +132,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
         $writer->writeEnumValue('defaultAccessLevel', $this->getDefaultAccessLevel());
         $writer->writeCollectionOfObjectValues('knownDeviceClasses', $this->getKnownDeviceClasses());
         $writer->writeBinaryContent('notificationContent', $this->getNotificationContent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -156,6 +173,14 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function setNotificationContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('notificationContent', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

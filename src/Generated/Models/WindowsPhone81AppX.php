@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Windows Phone 8.1 AppX Line Of Business apps. Inherits from graph.mobileLobApp. Will be deprecated in February 2023.
+*/
 class WindowsPhone81AppX extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81AppX and sets the default values.
+     * Instantiates a new windowsPhone81AppX and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +60,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
             'identityResourceIdentifier' => fn(ParseNode $n) => $o->setIdentityResourceIdentifier($n->getStringValue()),
             'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'phoneProductIdentifier' => fn(ParseNode $n) => $o->setPhoneProductIdentifier($n->getStringValue()),
             'phonePublisherId' => fn(ParseNode $n) => $o->setPhonePublisherId($n->getStringValue()),
         ]);
@@ -123,6 +127,18 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the phoneProductIdentifier property value. The Phone Product Identifier.
      * @return string|null
     */
@@ -158,6 +174,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
         $writer->writeStringValue('identityResourceIdentifier', $this->getIdentityResourceIdentifier());
         $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phoneProductIdentifier', $this->getPhoneProductIdentifier());
         $writer->writeStringValue('phonePublisherId', $this->getPhonePublisherId());
     }
@@ -208,6 +225,14 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

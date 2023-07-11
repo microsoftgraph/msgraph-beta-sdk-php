@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint enforcing a given string length range
+*/
 class DeviceManagementSettingStringLengthConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingStringLengthConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingStringLengthConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumLength', $this->getMaximumLength());
         $writer->writeIntegerValue('minimumLength', $this->getMinimumLength());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

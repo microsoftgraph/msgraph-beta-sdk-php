@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This entity provides descriptions of the declared methods, properties and relationships exposed by Windows Hello for Business.
+*/
 class WindowsIdentityProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsIdentityProtectionConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsIdentityProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -224,6 +232,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('enhancedAntiSpoofingForFacialFeaturesEnabled', $this->getEnhancedAntiSpoofingForFacialFeaturesEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pinExpirationInDays', $this->getPinExpirationInDays());
         $writer->writeEnumValue('pinLowercaseCharactersUsage', $this->getPinLowercaseCharactersUsage());
         $writer->writeIntegerValue('pinMaximumLength', $this->getPinMaximumLength());

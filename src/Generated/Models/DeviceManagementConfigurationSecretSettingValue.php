@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Graph model for a secret setting value
+*/
 class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementConfigurationSimpleSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSecretSettingValue and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationSecretSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +75,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('value', $this->getValue());
         $writer->writeEnumValue('valueState', $this->getValueState());
     }

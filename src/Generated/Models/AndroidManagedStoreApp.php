@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Android Managed Store Apps.
+*/
 class AndroidManagedStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreApp and sets the default values.
+     * Instantiates a new androidManagedStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +86,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
             'appTracks' => fn(ParseNode $n) => $o->setAppTracks($n->getCollectionOfObjectValues([AndroidManagedStoreAppTrack::class, 'createFromDiscriminatorValue'])),
             'isPrivate' => fn(ParseNode $n) => $o->setIsPrivate($n->getBooleanValue()),
             'isSystemApp' => fn(ParseNode $n) => $o->setIsSystemApp($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
             'supportsOemConfig' => fn(ParseNode $n) => $o->setSupportsOemConfig($n->getBooleanValue()),
             'totalLicenseCount' => fn(ParseNode $n) => $o->setTotalLicenseCount($n->getIntegerValue()),
@@ -112,6 +116,18 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isSystemApp'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -173,6 +189,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
         $writer->writeCollectionOfObjectValues('appTracks', $this->getAppTracks());
         $writer->writeBooleanValue('isPrivate', $this->getIsPrivate());
         $writer->writeBooleanValue('isSystemApp', $this->getIsSystemApp());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeBooleanValue('supportsOemConfig', $this->getSupportsOemConfig());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
@@ -217,6 +234,14 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     */
     public function setIsSystemApp(?bool $value): void {
         $this->getBackingStore()->set('isSystemApp', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

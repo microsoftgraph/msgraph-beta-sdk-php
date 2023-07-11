@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for an iOS store app that you can manage with an Intune app protection policy.
+*/
 class ManagedIOSStoreApp extends ManagedApp implements Parsable 
 {
     /**
-     * Instantiates a new ManagedIOSStoreApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedIOSStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -97,6 +105,7 @@ class ManagedIOSStoreApp extends ManagedApp implements Parsable
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

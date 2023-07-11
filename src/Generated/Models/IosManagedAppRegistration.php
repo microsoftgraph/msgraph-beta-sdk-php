@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents the synchronization details of an ios app, with management capabilities, for a specific user.
+*/
 class IosManagedAppRegistration extends ManagedAppRegistration implements Parsable 
 {
     /**
-     * Instantiates a new IosManagedAppRegistration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosManagedAppRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +49,7 @@ class IosManagedAppRegistration extends ManagedAppRegistration implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

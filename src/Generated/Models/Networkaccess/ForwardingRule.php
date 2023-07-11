@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingRule extends PolicyRule implements Parsable 
 {
     /**
-     * Instantiates a new ForwardingRule and sets the default values.
+     * Instantiates a new forwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,7 +47,7 @@ class ForwardingRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Gets the destinations property value. The destinations property
+     * Gets the destinations property value. Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.
      * @return array<RuleDestination>|null
     */
     public function getDestinations(): ?array {
@@ -69,8 +69,21 @@ class ForwardingRule extends PolicyRule implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(ForwardingRuleAction::class)),
             'destinations' => fn(ParseNode $n) => $o->setDestinations($n->getCollectionOfObjectValues([RuleDestination::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ruleType' => fn(ParseNode $n) => $o->setRuleType($n->getEnumValue(NetworkDestinationType::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,6 +106,7 @@ class ForwardingRule extends PolicyRule implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeCollectionOfObjectValues('destinations', $this->getDestinations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('ruleType', $this->getRuleType());
     }
 
@@ -105,11 +119,19 @@ class ForwardingRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Sets the destinations property value. The destinations property
+     * Sets the destinations property value. Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.
      * @param array<RuleDestination>|null $value Value to set for the destinations property.
     */
     public function setDestinations(?array $value): void {
         $this->getBackingStore()->set('destinations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

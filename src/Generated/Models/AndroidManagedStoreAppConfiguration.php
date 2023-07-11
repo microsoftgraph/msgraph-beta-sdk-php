@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
+*/
 class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidManagedStoreAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,6 +132,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
         parent::serialize($writer);
         $writer->writeBooleanValue('appSupportsOemConfig', $this->getAppSupportsOemConfig());
         $writer->writeBooleanValue('connectedAppsEnabled', $this->getConnectedAppsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeStringValue('payloadJson', $this->getPayloadJson());
         $writer->writeCollectionOfObjectValues('permissionActions', $this->getPermissionActions());

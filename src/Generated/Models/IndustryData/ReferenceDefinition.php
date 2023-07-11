@@ -61,6 +61,7 @@ class ReferenceDefinition extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'referenceType' => fn(ParseNode $n) => $o->setReferenceType($n->getStringValue()),
             'sortIndex' => fn(ParseNode $n) => $o->setSortIndex($n->getIntegerValue()),
             'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
@@ -89,6 +90,18 @@ class ReferenceDefinition extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -135,6 +148,7 @@ class ReferenceDefinition extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('code', $this->getCode());
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceType', $this->getReferenceType());
         $writer->writeIntegerValue('sortIndex', $this->getSortIndex());
     }
@@ -169,6 +183,14 @@ class ReferenceDefinition extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

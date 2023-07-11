@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Windows Universal AppX Line Of Business apps.
+*/
 class WindowsUniversalAppX extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUniversalAppX and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsUniversalAppX and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -170,6 +178,7 @@ class WindowsUniversalAppX extends MobileLobApp implements Parsable
         $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeBooleanValue('isBundle', $this->getIsBundle());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

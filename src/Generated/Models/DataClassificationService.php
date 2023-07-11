@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DataClassificationService extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DataClassificationService and sets the default values.
+     * Instantiates a new dataClassificationService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +123,7 @@ class DataClassificationService extends Entity implements Parsable
             'exactMatchDataStores' => fn(ParseNode $n) => $o->setExactMatchDataStores($n->getCollectionOfObjectValues([ExactMatchDataStore::class, 'createFromDiscriminatorValue'])),
             'exactMatchUploadAgents' => fn(ParseNode $n) => $o->setExactMatchUploadAgents($n->getCollectionOfObjectValues([ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'])),
             'jobs' => fn(ParseNode $n) => $o->setJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sensitiveTypes' => fn(ParseNode $n) => $o->setSensitiveTypes($n->getCollectionOfObjectValues([SensitiveType::class, 'createFromDiscriminatorValue'])),
             'sensitivityLabels' => fn(ParseNode $n) => $o->setSensitivityLabels($n->getCollectionOfObjectValues([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -140,6 +141,18 @@ class DataClassificationService extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'jobs'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -183,6 +196,7 @@ class DataClassificationService extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('exactMatchDataStores', $this->getExactMatchDataStores());
         $writer->writeCollectionOfObjectValues('exactMatchUploadAgents', $this->getExactMatchUploadAgents());
         $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('sensitiveTypes', $this->getSensitiveTypes());
         $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
     }
@@ -241,6 +255,14 @@ class DataClassificationService extends Entity implements Parsable
     */
     public function setJobs(?array $value): void {
         $this->getBackingStore()->set('jobs', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

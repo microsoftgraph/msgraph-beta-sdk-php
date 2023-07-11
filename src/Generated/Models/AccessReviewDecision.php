@@ -98,6 +98,7 @@ class AccessReviewDecision extends Entity implements Parsable
             'appliedDateTime' => fn(ParseNode $n) => $o->setAppliedDateTime($n->getDateTimeValue()),
             'applyResult' => fn(ParseNode $n) => $o->setApplyResult($n->getStringValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reviewedBy' => fn(ParseNode $n) => $o->setReviewedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'reviewedDateTime' => fn(ParseNode $n) => $o->setReviewedDateTime($n->getDateTimeValue()),
             'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getStringValue()),
@@ -114,6 +115,18 @@ class AccessReviewDecision extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -164,6 +177,7 @@ class AccessReviewDecision extends Entity implements Parsable
         $writer->writeDateTimeValue('appliedDateTime', $this->getAppliedDateTime());
         $writer->writeStringValue('applyResult', $this->getApplyResult());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reviewedBy', $this->getReviewedBy());
         $writer->writeDateTimeValue('reviewedDateTime', $this->getReviewedDateTime());
         $writer->writeStringValue('reviewResult', $this->getReviewResult());
@@ -215,6 +229,14 @@ class AccessReviewDecision extends Entity implements Parsable
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

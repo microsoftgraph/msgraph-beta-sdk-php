@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Integer Setting Value Template
+*/
 class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationIntegerSettingValueTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationIntegerSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -81,6 +89,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('defaultValue', $this->getDefaultValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('recommendedValueDefinition', $this->getRecommendedValueDefinition());
         $writer->writeObjectValue('requiredValueDefinition', $this->getRequiredValueDefinition());
     }

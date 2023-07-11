@@ -10,7 +10,12 @@ use Psr\Http\Message\StreamInterface;
 class TaskFileAttachment extends AttachmentBase implements Parsable 
 {
     /**
-     * Instantiates a new TaskFileAttachment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new taskFileAttachment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('contentBytes', $this->getContentBytes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -47,6 +47,7 @@ class OrganizationSettings extends Entity implements Parsable
             'contactInsights' => fn(ParseNode $n) => $o->setContactInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'microsoftApplicationDataAccess' => fn(ParseNode $n) => $o->setMicrosoftApplicationDataAccess($n->getObjectValue([MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'peopleInsights' => fn(ParseNode $n) => $o->setPeopleInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
             'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
@@ -78,6 +79,18 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the peopleInsights property value. Contains the properties that are configured by an administrator for the visibility of a list of people relevant and working with a user in Microsoft 365. List peopleInsights returns the settings to display or return people insights in an organization.
      * @return InsightsSettings|null
     */
@@ -104,7 +117,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Gets the pronouns property value. The pronouns property
      * @return PronounsSettings|null
     */
     public function getPronouns(): ?PronounsSettings {
@@ -124,6 +137,7 @@ class OrganizationSettings extends Entity implements Parsable
         $writer->writeObjectValue('contactInsights', $this->getContactInsights());
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
         $writer->writeObjectValue('microsoftApplicationDataAccess', $this->getMicrosoftApplicationDataAccess());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('peopleInsights', $this->getPeopleInsights());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
         $writer->writeObjectValue('pronouns', $this->getPronouns());
@@ -154,6 +168,14 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
      * Sets the peopleInsights property value. Contains the properties that are configured by an administrator for the visibility of a list of people relevant and working with a user in Microsoft 365. List peopleInsights returns the settings to display or return people insights in an organization.
      * @param InsightsSettings|null $value Value to set for the peopleInsights property.
     */
@@ -170,7 +192,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Sets the pronouns property value. The pronouns property
      * @param PronounsSettings|null $value Value to set for the pronouns property.
     */
     public function setPronouns(?PronounsSettings $value): void {

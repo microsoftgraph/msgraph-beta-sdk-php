@@ -62,6 +62,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
             'agentImageDigest' => fn(ParseNode $n) => $o->setAgentImageDigest($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastCheckinDateTime' => fn(ParseNode $n) => $o->setLastCheckinDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'serverImageDigest' => fn(ParseNode $n) => $o->setServerImageDigest($n->getStringValue()),
             'tunnelServerHealthStatus' => fn(ParseNode $n) => $o->setTunnelServerHealthStatus($n->getEnumValue(MicrosoftTunnelServerHealthStatus::class)),
         ]);
@@ -77,6 +78,18 @@ class MicrosoftTunnelServer extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckinDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,6 +125,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
         $writer->writeStringValue('agentImageDigest', $this->getAgentImageDigest());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serverImageDigest', $this->getServerImageDigest());
         $writer->writeEnumValue('tunnelServerHealthStatus', $this->getTunnelServerHealthStatus());
     }
@@ -138,6 +152,14 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     */
     public function setLastCheckinDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckinDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

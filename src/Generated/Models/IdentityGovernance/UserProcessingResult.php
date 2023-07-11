@@ -61,6 +61,7 @@ class UserProcessingResult extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
             'failedTasksCount' => fn(ParseNode $n) => $o->setFailedTasksCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(LifecycleWorkflowProcessingStatus::class)),
             'scheduledDateTime' => fn(ParseNode $n) => $o->setScheduledDateTime($n->getDateTimeValue()),
             'startedDateTime' => fn(ParseNode $n) => $o->setStartedDateTime($n->getDateTimeValue()),
@@ -71,6 +72,18 @@ class UserProcessingResult extends Entity implements Parsable
             'workflowExecutionType' => fn(ParseNode $n) => $o->setWorkflowExecutionType($n->getEnumValue(WorkflowExecutionType::class)),
             'workflowVersion' => fn(ParseNode $n) => $o->setWorkflowVersion($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -191,6 +204,7 @@ class UserProcessingResult extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
         $writer->writeIntegerValue('failedTasksCount', $this->getFailedTasksCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('processingStatus', $this->getProcessingStatus());
         $writer->writeDateTimeValue('scheduledDateTime', $this->getScheduledDateTime());
         $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
@@ -216,6 +230,14 @@ class UserProcessingResult extends Entity implements Parsable
     */
     public function setFailedTasksCount(?int $value): void {
         $this->getBackingStore()->set('failedTasksCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

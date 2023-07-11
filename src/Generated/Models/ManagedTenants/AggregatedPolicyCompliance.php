@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AggregatedPolicyCompliance extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new aggregatedPolicyCompliance and sets the default values.
     */
     public function __construct() {
@@ -193,6 +198,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
         $writer->writeIntegerValue('numberOfCompliantDevices', $this->getNumberOfCompliantDevices());
         $writer->writeIntegerValue('numberOfErrorDevices', $this->getNumberOfErrorDevices());
         $writer->writeIntegerValue('numberOfNonCompliantDevices', $this->getNumberOfNonCompliantDevices());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('policyModifiedDateTime', $this->getPolicyModifiedDateTime());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing the configurations in this profile you can instruct the macOS device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
+*/
 class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSWiFiConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -181,6 +189,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
         $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
         $writer->writeStringValue('networkName', $this->getNetworkName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
         $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->getProxyAutomaticConfigurationUrl());
         $writer->writeStringValue('proxyManualAddress', $this->getProxyManualAddress());

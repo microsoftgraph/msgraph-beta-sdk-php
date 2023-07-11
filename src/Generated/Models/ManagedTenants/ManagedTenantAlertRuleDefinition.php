@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenantAlertRuleDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedTenantAlertRuleDefinition and sets the default values.
     */
     public function __construct() {
@@ -143,6 +148,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

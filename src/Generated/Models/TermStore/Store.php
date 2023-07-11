@@ -55,6 +55,7 @@ class Store extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setLanguageTags($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sets' => fn(ParseNode $n) => $o->setSets($n->getCollectionOfObjectValues([Set::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -88,6 +89,18 @@ class Store extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the sets property value. Collection of all sets available in the term store.
      * @return array<Set>|null
     */
@@ -110,6 +123,7 @@ class Store extends Entity implements Parsable
         $writer->writeStringValue('defaultLanguageTag', $this->getDefaultLanguageTag());
         $writer->writeCollectionOfObjectValues('groups', $this->getGroups());
         $writer->writeCollectionOfPrimitiveValues('languageTags', $this->getLanguageTags());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('sets', $this->getSets());
     }
 
@@ -135,6 +149,14 @@ class Store extends Entity implements Parsable
     */
     public function setLanguageTags(?array $value): void {
         $this->getBackingStore()->set('languageTags', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

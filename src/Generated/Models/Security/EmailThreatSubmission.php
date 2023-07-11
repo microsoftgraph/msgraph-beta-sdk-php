@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new EmailThreatSubmission and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new emailThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -169,6 +174,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('attackSimulationInfo', $this->getAttackSimulationInfo());
         $writer->writeStringValue('internetMessageId', $this->getInternetMessageId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('originalCategory', $this->getOriginalCategory());
         $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
         $writer->writeStringValue('recipientEmailAddress', $this->getRecipientEmailAddress());

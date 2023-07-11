@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 class Message extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new Message and sets the default values.
+     * Instantiates a new message and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -171,6 +171,7 @@ class Message extends OutlookItem implements Parsable
             'mentions' => fn(ParseNode $n) => $o->setMentions($n->getCollectionOfObjectValues([Mention::class, 'createFromDiscriminatorValue'])),
             'mentionsPreview' => fn(ParseNode $n) => $o->setMentionsPreview($n->getObjectValue([MentionsPreview::class, 'createFromDiscriminatorValue'])),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentFolderId' => fn(ParseNode $n) => $o->setParentFolderId($n->getStringValue()),
             'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
             'replyTo' => fn(ParseNode $n) => $o->setReplyTo($n->getCollectionOfObjectValues([Recipient::class, 'createFromDiscriminatorValue'])),
@@ -368,6 +369,18 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the parentFolderId property value. The parentFolderId property
      * @return string|null
     */
@@ -547,6 +560,7 @@ class Message extends OutlookItem implements Parsable
         $writer->writeCollectionOfObjectValues('mentions', $this->getMentions());
         $writer->writeObjectValue('mentionsPreview', $this->getMentionsPreview());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
         $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
         $writer->writeCollectionOfObjectValues('replyTo', $this->getReplyTo());
@@ -735,6 +749,14 @@ class Message extends OutlookItem implements Parsable
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

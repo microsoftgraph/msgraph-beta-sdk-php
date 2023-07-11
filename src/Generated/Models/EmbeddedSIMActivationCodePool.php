@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A pool represents a group of embedded SIM activation codes.
+*/
 class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EmbeddedSIMActivationCodePool and sets the default values.
+     * Instantiates a new embeddedSIMActivationCodePool and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -118,6 +121,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
             'deviceStates' => fn(ParseNode $n) => $o->setDeviceStates($n->getCollectionOfObjectValues([EmbeddedSIMDeviceState::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -134,6 +138,18 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -146,6 +162,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceStates', $this->getDeviceStates());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -202,6 +219,14 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
 {
     /**
-     * Instantiates a new OnenoteResource and sets the default values.
+     * Instantiates a new onenoteResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,7 +59,20 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'contentUrl' => fn(ParseNode $n) => $o->setContentUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -70,6 +83,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeStringValue('contentUrl', $this->getContentUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -86,6 +100,14 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     */
     public function setContentUrl(?string $value): void {
         $this->getBackingStore()->set('contentUrl', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

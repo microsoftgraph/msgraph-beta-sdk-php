@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties, inherited properties and actions for AFW mobile app configurations.
+*/
 class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkMobileAppConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidForWorkMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,6 +118,7 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('connectedAppsEnabled', $this->getConnectedAppsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeStringValue('payloadJson', $this->getPayloadJson());
         $writer->writeCollectionOfObjectValues('permissionActions', $this->getPermissionActions());

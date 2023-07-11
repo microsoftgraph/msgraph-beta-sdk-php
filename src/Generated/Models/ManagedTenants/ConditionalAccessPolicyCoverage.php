@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessPolicyCoverage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConditionalAccessPolicyCoverage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new conditionalAccessPolicyCoverage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -96,6 +101,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('conditionalAccessPolicyState', $this->getConditionalAccessPolicyState());
         $writer->writeDateTimeValue('latestPolicyModifiedDateTime', $this->getLatestPolicyModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('requiresDeviceCompliance', $this->getRequiresDeviceCompliance());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
     }

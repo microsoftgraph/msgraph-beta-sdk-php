@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InboundFileFlow extends InboundFlow implements Parsable 
 {
     /**
-     * Instantiates a new InboundFileFlow and sets the default values.
+     * Instantiates a new inboundFileFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();

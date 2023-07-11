@@ -21,7 +21,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new VpnServer and sets the default values.
+     * Instantiates a new vpnServer and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

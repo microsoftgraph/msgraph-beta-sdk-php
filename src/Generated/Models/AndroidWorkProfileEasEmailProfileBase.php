@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base for Android Work Profile EAS Email profiles
+*/
 class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidWorkProfileEasEmailProfileBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidWorkProfileEasEmailProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -145,6 +153,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
         $writer->writeEnumValue('emailAddressSource', $this->getEmailAddressSource());
         $writer->writeStringValue('hostName', $this->getHostName());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('requireSsl', $this->getRequireSsl());
         $writer->writeEnumValue('usernameSource', $this->getUsernameSource());
     }

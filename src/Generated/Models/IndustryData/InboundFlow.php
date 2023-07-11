@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InboundFlow extends IndustryDataActivity implements Parsable 
 {
     /**
-     * Instantiates a new InboundFlow and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new inboundFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -118,6 +123,7 @@ class InboundFlow extends IndustryDataActivity implements Parsable
         $writer->writeEnumValue('dataDomain', $this->getDataDomain());
         $writer->writeDateTimeValue('effectiveDateTime', $this->getEffectiveDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('year', $this->getYear());
     }
 

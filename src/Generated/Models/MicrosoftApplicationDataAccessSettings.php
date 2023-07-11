@@ -45,6 +45,7 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'disabledForGroup' => fn(ParseNode $n) => $o->setDisabledForGroup($n->getStringValue()),
             'isEnabledForAllMicrosoftApplications' => fn(ParseNode $n) => $o->setIsEnabledForAllMicrosoftApplications($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -61,6 +62,18 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -68,6 +81,7 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('disabledForGroup', $this->getDisabledForGroup());
         $writer->writeBooleanValue('isEnabledForAllMicrosoftApplications', $this->getIsEnabledForAllMicrosoftApplications());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -84,6 +98,14 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
     */
     public function setIsEnabledForAllMicrosoftApplications(?bool $value): void {
         $this->getBackingStore()->set('isEnabledForAllMicrosoftApplications', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

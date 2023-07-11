@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GovernanceResource extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GovernanceResource and sets the default values.
+     * Instantiates a new governanceResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +59,7 @@ class GovernanceResource extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
             'registeredDateTime' => fn(ParseNode $n) => $o->setRegisteredDateTime($n->getDateTimeValue()),
             'registeredRoot' => fn(ParseNode $n) => $o->setRegisteredRoot($n->getStringValue()),
@@ -69,6 +70,18 @@ class GovernanceResource extends Entity implements Parsable
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -195,6 +208,7 @@ class GovernanceResource extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
         $writer->writeDateTimeValue('registeredDateTime', $this->getRegisteredDateTime());
         $writer->writeStringValue('registeredRoot', $this->getRegisteredRoot());
@@ -220,6 +234,14 @@ class GovernanceResource extends Entity implements Parsable
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -86,6 +86,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
             'isAuthenticationContextSettable' => fn(ParseNode $n) => $o->setIsAuthenticationContextSettable($n->getBooleanValue()),
             'isPrivileged' => fn(ParseNode $n) => $o->setIsPrivileged($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceScope' => fn(ParseNode $n) => $o->setResourceScope($n->getObjectValue([UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'])),
             'resourceScopeId' => fn(ParseNode $n) => $o->setResourceScopeId($n->getStringValue()),
         ]);
@@ -128,6 +129,18 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the resourceScope property value. The resourceScope property
      * @return UnifiedRbacResourceScope|null
     */
@@ -164,6 +177,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
         $writer->writeBooleanValue('isAuthenticationContextSettable', $this->getIsAuthenticationContextSettable());
         $writer->writeBooleanValue('isPrivileged', $this->getIsPrivileged());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('resourceScope', $this->getResourceScope());
         $writer->writeStringValue('resourceScopeId', $this->getResourceScopeId());
     }
@@ -222,6 +236,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

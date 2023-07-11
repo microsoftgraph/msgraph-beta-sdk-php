@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Android store apps that you can manage with an Intune app protection policy.
+*/
 class ManagedAndroidStoreApp extends ManagedApp implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAndroidStoreApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedAndroidStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +90,7 @@ class ManagedAndroidStoreApp extends ManagedApp implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
     }
 

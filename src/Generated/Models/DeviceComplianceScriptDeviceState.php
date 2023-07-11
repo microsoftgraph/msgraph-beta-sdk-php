@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptDeviceState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceComplianceScriptDeviceState and sets the default values.
     */
     public function __construct() {
@@ -140,6 +145,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
         $writer->writeDateTimeValue('lastStateUpdateDateTime', $this->getLastStateUpdateDateTime());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeObjectValue('managedDevice', $this->getManagedDevice());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scriptError', $this->getScriptError());
         $writer->writeStringValue('scriptOutput', $this->getScriptOutput());
     }

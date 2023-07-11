@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MeetingRegistration extends MeetingRegistrationBase implements Parsable 
 {
     /**
-     * Instantiates a new MeetingRegistration and sets the default values.
+     * Instantiates a new meetingRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,12 +75,25 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
             'customQuestions' => fn(ParseNode $n) => $o->setCustomQuestions($n->getCollectionOfObjectValues([MeetingRegistrationQuestion::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'registrationPageViewCount' => fn(ParseNode $n) => $o->setRegistrationPageViewCount($n->getIntegerValue()),
             'registrationPageWebUrl' => fn(ParseNode $n) => $o->setRegistrationPageWebUrl($n->getStringValue()),
             'speakers' => fn(ParseNode $n) => $o->setSpeakers($n->getCollectionOfObjectValues([MeetingSpeaker::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -154,6 +167,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
         $writer->writeCollectionOfObjectValues('customQuestions', $this->getCustomQuestions());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('registrationPageViewCount', $this->getRegistrationPageViewCount());
         $writer->writeStringValue('registrationPageWebUrl', $this->getRegistrationPageWebUrl());
         $writer->writeCollectionOfObjectValues('speakers', $this->getSpeakers());
@@ -183,6 +197,14 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

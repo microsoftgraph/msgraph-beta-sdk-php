@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationalActivity extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new EducationalActivity and sets the default values.
+     * Instantiates a new educationalActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,6 +60,7 @@ class EducationalActivity extends ItemFacet implements Parsable
             'completionMonthYear' => fn(ParseNode $n) => $o->setCompletionMonthYear($n->getDateValue()),
             'endMonthYear' => fn(ParseNode $n) => $o->setEndMonthYear($n->getDateValue()),
             'institution' => fn(ParseNode $n) => $o->setInstitution($n->getObjectValue([InstitutionData::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'program' => fn(ParseNode $n) => $o->setProgram($n->getObjectValue([EducationalActivityDetail::class, 'createFromDiscriminatorValue'])),
             'startMonthYear' => fn(ParseNode $n) => $o->setStartMonthYear($n->getDateValue()),
         ]);
@@ -75,6 +76,18 @@ class EducationalActivity extends ItemFacet implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'institution'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -110,6 +123,7 @@ class EducationalActivity extends ItemFacet implements Parsable
         $writer->writeDateValue('completionMonthYear', $this->getCompletionMonthYear());
         $writer->writeDateValue('endMonthYear', $this->getEndMonthYear());
         $writer->writeObjectValue('institution', $this->getInstitution());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('program', $this->getProgram());
         $writer->writeDateValue('startMonthYear', $this->getStartMonthYear());
     }
@@ -136,6 +150,14 @@ class EducationalActivity extends ItemFacet implements Parsable
     */
     public function setInstitution(?InstitutionData $value): void {
         $this->getBackingStore()->set('institution', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

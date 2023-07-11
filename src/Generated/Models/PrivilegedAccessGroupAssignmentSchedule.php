@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedAccessGroupAssignmentSchedule and sets the default values.
+     * Instantiates a new privilegedAccessGroupAssignmentSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +74,7 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
             'group' => fn(ParseNode $n) => $o->setGroup($n->getObjectValue([Group::class, 'createFromDiscriminatorValue'])),
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
             'memberType' => fn(ParseNode $n) => $o->setMemberType($n->getEnumValue(PrivilegedAccessGroupMemberType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'principal' => fn(ParseNode $n) => $o->setPrincipal($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'principalId' => fn(ParseNode $n) => $o->setPrincipalId($n->getStringValue()),
         ]);
@@ -116,6 +117,18 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the principal property value. References the principal that's in the scope of this membership or ownership assignment request to the group that's governed by PIM. Supports $expand.
      * @return DirectoryObject|null
     */
@@ -151,6 +164,7 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
         $writer->writeObjectValue('group', $this->getGroup());
         $writer->writeStringValue('groupId', $this->getGroupId());
         $writer->writeEnumValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalId', $this->getPrincipalId());
     }
@@ -201,6 +215,14 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
     */
     public function setMemberType(?PrivilegedAccessGroupMemberType $value): void {
         $this->getBackingStore()->set('memberType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

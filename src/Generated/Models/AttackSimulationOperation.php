@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationOperation extends LongRunningOperation implements Parsable 
 {
     /**
-     * Instantiates a new AttackSimulationOperation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new attackSimulationOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +84,7 @@ class AttackSimulationOperation extends LongRunningOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('percentageCompleted', $this->getPercentageCompleted());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeEnumValue('type', $this->getType());

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * History Item contained in the Mobile App Troubleshooting Event.
+*/
 class MobileAppTroubleshootingAppUpdateHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppTroubleshootingAppUpdateHistory and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mobileAppTroubleshootingAppUpdateHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,6 +48,7 @@ class MobileAppTroubleshootingAppUpdateHistory extends MobileAppTroubleshootingH
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

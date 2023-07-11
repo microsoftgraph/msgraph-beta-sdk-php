@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new macOSSoftwareUpdateStateSummary and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productKey', $this->getProductKey());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeEnumValue('updateCategory', $this->getUpdateCategory());

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPC extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new cloudPC and sets the default values.
     */
     public function __construct() {
@@ -380,6 +385,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeObjectValue('lastRemoteActionResult', $this->getLastRemoteActionResult());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onPremisesConnectionName', $this->getOnPremisesConnectionName());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('partnerAgentInstallResults', $this->getPartnerAgentInstallResults());

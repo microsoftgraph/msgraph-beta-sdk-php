@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint that enforces the maximum number of elements a collection
+*/
 class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingCollectionConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingCollectionConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumLength', $this->getMaximumLength());
         $writer->writeIntegerValue('minimumLength', $this->getMinimumLength());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

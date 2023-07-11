@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS extensions configuration profile.
+*/
 class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSExtensionsConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSExtensionsConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -160,6 +168,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
         $writer->writeCollectionOfPrimitiveValues('kernelExtensionAllowedTeamIdentifiers', $this->getKernelExtensionAllowedTeamIdentifiers());
         $writer->writeBooleanValue('kernelExtensionOverridesAllowed', $this->getKernelExtensionOverridesAllowed());
         $writer->writeCollectionOfObjectValues('kernelExtensionsAllowed', $this->getKernelExtensionsAllowed());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('systemExtensionsAllowed', $this->getSystemExtensionsAllowed());
         $writer->writeCollectionOfPrimitiveValues('systemExtensionsAllowedTeamIdentifiers', $this->getSystemExtensionsAllowedTeamIdentifiers());
         $writer->writeCollectionOfObjectValues('systemExtensionsAllowedTypes', $this->getSystemExtensionsAllowedTypes());

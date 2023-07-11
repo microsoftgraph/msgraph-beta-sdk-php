@@ -126,7 +126,20 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'eventType' => fn(ParseNode $n) => $o->setEventType($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -142,6 +155,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('eventType', $this->getEventType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -198,6 +212,14 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     */
     public function setEventType(?string $value): void {
         $this->getBackingStore()->set('eventType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

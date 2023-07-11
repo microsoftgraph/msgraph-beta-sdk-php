@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Invitation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Invitation and sets the default values.
+     * Instantiates a new invitation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,6 +38,7 @@ class Invitation extends Entity implements Parsable
             'invitedUserType' => fn(ParseNode $n) => $o->setInvitedUserType($n->getStringValue()),
             'inviteRedeemUrl' => fn(ParseNode $n) => $o->setInviteRedeemUrl($n->getStringValue()),
             'inviteRedirectUrl' => fn(ParseNode $n) => $o->setInviteRedirectUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resetRedemption' => fn(ParseNode $n) => $o->setResetRedemption($n->getBooleanValue()),
             'sendInvitationMessage' => fn(ParseNode $n) => $o->setSendInvitationMessage($n->getBooleanValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
@@ -129,6 +130,18 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the resetRedemption property value. Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user (Preview).
      * @return bool|null
     */
@@ -177,6 +190,7 @@ class Invitation extends Entity implements Parsable
         $writer->writeStringValue('invitedUserType', $this->getInvitedUserType());
         $writer->writeStringValue('inviteRedeemUrl', $this->getInviteRedeemUrl());
         $writer->writeStringValue('inviteRedirectUrl', $this->getInviteRedirectUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('resetRedemption', $this->getResetRedemption());
         $writer->writeBooleanValue('sendInvitationMessage', $this->getSendInvitationMessage());
         $writer->writeStringValue('status', $this->getStatus());
@@ -236,6 +250,14 @@ class Invitation extends Entity implements Parsable
     */
     public function setInviteRedirectUrl(?string $value): void {
         $this->getBackingStore()->set('inviteRedirectUrl', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

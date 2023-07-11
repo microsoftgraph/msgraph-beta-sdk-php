@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an ADMX dropdownList element and an ADMX enum element.
+*/
 class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationDropdownList and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationDropdownList and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +93,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
         parent::serialize($writer);
         $writer->writeObjectValue('defaultItem', $this->getDefaultItem());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('required', $this->getRequired());
     }
 

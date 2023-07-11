@@ -76,6 +76,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
             'enrollmentDateTime' => fn(ParseNode $n) => $o->setEnrollmentDateTime($n->getDateTimeValue()),
             'lastCheckinDateTime' => fn(ParseNode $n) => $o->setLastCheckinDateTime($n->getDateTimeValue()),
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -104,6 +105,18 @@ class CertificateConnectorDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -114,6 +127,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
         $writer->writeDateTimeValue('enrollmentDateTime', $this->getEnrollmentDateTime());
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
         $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -154,6 +168,14 @@ class CertificateConnectorDetails extends Entity implements Parsable
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

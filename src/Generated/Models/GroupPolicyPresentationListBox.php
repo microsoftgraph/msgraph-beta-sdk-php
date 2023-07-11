@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an ADMX listBox element and an ADMX list element.
+*/
 class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationListBox and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationListBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +76,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('explicitValue', $this->getExplicitValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('valuePrefix', $this->getValuePrefix());
     }
 

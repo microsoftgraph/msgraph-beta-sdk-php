@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable 
 {
     /**
-     * Instantiates a new ExactMatchLookupJob and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new exactMatchLookupJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +76,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('matchingRows', $this->getMatchingRows());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('state', $this->getState());
     }
 

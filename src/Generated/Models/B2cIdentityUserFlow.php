@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable 
 {
     /**
-     * Instantiates a new B2cIdentityUserFlow and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new b2cIdentityUserFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -145,6 +150,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
         $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
         $writer->writeBooleanValue('isLanguageCustomizationEnabled', $this->getIsLanguageCustomizationEnabled());
         $writer->writeCollectionOfObjectValues('languages', $this->getLanguages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('userAttributeAssignments', $this->getUserAttributeAssignments());
         $writer->writeCollectionOfObjectValues('userFlowIdentityProviders', $this->getUserFlowIdentityProviders());
     }

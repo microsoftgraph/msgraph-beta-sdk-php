@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Bandwidth limit as a percentage with business hours.
+*/
 class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationBandwidthHoursWithPercentage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deliveryOptimizationBandwidthHoursWithPercentage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
         parent::serialize($writer);
         $writer->writeObjectValue('bandwidthBackgroundPercentageHours', $this->getBandwidthBackgroundPercentageHours());
         $writer->writeObjectValue('bandwidthForegroundPercentageHours', $this->getBandwidthForegroundPercentageHours());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

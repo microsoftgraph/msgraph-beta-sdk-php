@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that describes tenant level settings for derived credentials
+*/
 class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
 {
     /**
@@ -47,6 +50,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
             'helpUrl' => fn(ParseNode $n) => $o->setHelpUrl($n->getStringValue()),
             'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getEnumValue(DeviceManagementDerivedCredentialIssuer::class)),
             'notificationType' => fn(ParseNode $n) => $o->setNotificationType($n->getEnumValue(DeviceManagementDerivedCredentialNotificationType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
         ]);
     }
@@ -88,6 +92,18 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the renewalThresholdPercentage property value. The nominal percentage of time before certificate renewal is initiated by the client.
      * @return int|null
     */
@@ -109,6 +125,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
         $writer->writeStringValue('helpUrl', $this->getHelpUrl());
         $writer->writeEnumValue('issuer', $this->getIssuer());
         $writer->writeEnumValue('notificationType', $this->getNotificationType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
     }
 
@@ -142,6 +159,14 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     */
     public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value): void {
         $this->getBackingStore()->set('notificationType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Win32 apps.
+*/
 class Win32LobApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -297,6 +305,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('minimumSupportedWindowsRelease', $this->getMinimumSupportedWindowsRelease());
         $writer->writeObjectValue('msiInformation', $this->getMsiInformation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('requirementRules', $this->getRequirementRules());
         $writer->writeCollectionOfObjectValues('returnCodes', $this->getReturnCodes());
         $writer->writeCollectionOfObjectValues('rules', $this->getRules());

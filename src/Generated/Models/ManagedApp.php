@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy.
+*/
 class ManagedApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new ManagedApp and sets the default values.
+     * Instantiates a new managedApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,8 +59,21 @@ class ManagedApp extends MobileApp implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'appAvailability' => fn(ParseNode $n) => $o->setAppAvailability($n->getEnumValue(ManagedAppAvailability::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -79,6 +95,7 @@ class ManagedApp extends MobileApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('appAvailability', $this->getAppAvailability());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('version', $this->getVersion());
     }
 
@@ -88,6 +105,14 @@ class ManagedApp extends MobileApp implements Parsable
     */
     public function setAppAvailability(?ManagedAppAvailability $value): void {
         $this->getBackingStore()->set('appAvailability', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

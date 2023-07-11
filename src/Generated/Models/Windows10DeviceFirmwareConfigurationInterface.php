@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Graph properties for Device Firmware Configuration Interface 
+*/
 class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10DeviceFirmwareConfigurationInterface and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10DeviceFirmwareConfigurationInterface and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -324,6 +332,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
         $writer->writeEnumValue('microphone', $this->getMicrophone());
         $writer->writeEnumValue('microphonesAndSpeakers', $this->getMicrophonesAndSpeakers());
         $writer->writeEnumValue('nearFieldCommunication', $this->getNearFieldCommunication());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('radios', $this->getRadios());
         $writer->writeEnumValue('rearCamera', $this->getRearCamera());
         $writer->writeEnumValue('sdCard', $this->getSdCard());

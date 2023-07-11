@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementPolicyRule implements Parsable 
 {
     /**
-     * Instantiates a new UnifiedRoleManagementPolicyNotificationRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new unifiedRoleManagementPolicyNotificationRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -120,6 +125,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
         $writer->writeStringValue('notificationLevel', $this->getNotificationLevel());
         $writer->writeCollectionOfPrimitiveValues('notificationRecipients', $this->getNotificationRecipients());
         $writer->writeStringValue('notificationType', $this->getNotificationType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('recipientType', $this->getRecipientType());
     }
 

@@ -184,6 +184,7 @@ class ColumnDefinition extends Entity implements Parsable
             'lookup' => fn(ParseNode $n) => $o->setLookup($n->getObjectValue([LookupColumn::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getObjectValue([NumberColumn::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'personOrGroup' => fn(ParseNode $n) => $o->setPersonOrGroup($n->getObjectValue([PersonOrGroupColumn::class, 'createFromDiscriminatorValue'])),
             'propagateChanges' => fn(ParseNode $n) => $o->setPropagateChanges($n->getBooleanValue()),
             'readOnly' => fn(ParseNode $n) => $o->setReadOnly($n->getBooleanValue()),
@@ -316,6 +317,18 @@ class ColumnDefinition extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'number'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -477,6 +490,7 @@ class ColumnDefinition extends Entity implements Parsable
         $writer->writeObjectValue('lookup', $this->getLookup());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('number', $this->getNumber());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('personOrGroup', $this->getPersonOrGroup());
         $writer->writeBooleanValue('propagateChanges', $this->getPropagateChanges());
         $writer->writeBooleanValue('readOnly', $this->getReadOnly());
@@ -656,6 +670,14 @@ class ColumnDefinition extends Entity implements Parsable
     */
     public function setNumber(?NumberColumn $value): void {
         $this->getBackingStore()->set('number', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

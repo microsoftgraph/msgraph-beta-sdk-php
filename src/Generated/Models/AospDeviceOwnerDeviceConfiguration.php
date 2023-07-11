@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the AndroidDeviceOwnerAOSPDeviceConfiguration resource.
+*/
 class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AospDeviceOwnerDeviceConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new aospDeviceOwnerDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -228,6 +236,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
         $writer->writeBooleanValue('bluetoothBlocked', $this->getBluetoothBlocked());
         $writer->writeBooleanValue('cameraBlocked', $this->getCameraBlocked());
         $writer->writeBooleanValue('factoryResetBlocked', $this->getFactoryResetBlocked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
         $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeScreenTimeout', $this->getPasswordMinutesOfInactivityBeforeScreenTimeout());
         $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());

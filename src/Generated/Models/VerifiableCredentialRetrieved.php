@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VerifiableCredentialRetrieved extends VerifiableCredentialRequirementStatus implements Parsable 
 {
     /**
-     * Instantiates a new VerifiableCredentialRetrieved and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new verifiableCredentialRetrieved and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class VerifiableCredentialRetrieved extends VerifiableCredentialRequirementStatu
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('expiryDateTime', $this->getExpiryDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

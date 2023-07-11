@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows update catalog item entity
+*/
 class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
 {
     /**
-     * Instantiates a new WindowsQualityUpdateCatalogItem and sets the default values.
+     * Instantiates a new windowsQualityUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,6 +50,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
             'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(WindowsQualityUpdateClassification::class)),
             'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
             'kbArticleId' => fn(ParseNode $n) => $o->setKbArticleId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -75,6 +79,18 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -83,6 +99,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
         $writer->writeEnumValue('classification', $this->getClassification());
         $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
         $writer->writeStringValue('kbArticleId', $this->getKbArticleId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +124,14 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function setKbArticleId(?string $value): void {
         $this->getBackingStore()->set('kbArticleId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

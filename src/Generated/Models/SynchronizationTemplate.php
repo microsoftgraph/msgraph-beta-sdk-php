@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SynchronizationTemplate extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new synchronizationTemplate and sets the default values.
     */
     public function __construct() {
@@ -140,6 +145,7 @@ class SynchronizationTemplate extends Entity implements Parsable
         $writer->writeBooleanValue('default', $this->getDefault());
         $writer->writeStringValue('factoryTag', $this->getFactoryTag());
         $writer->writeCollectionOfObjectValues('metadata', $this->getMetadata());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('schema', $this->getSchema());
     }
 

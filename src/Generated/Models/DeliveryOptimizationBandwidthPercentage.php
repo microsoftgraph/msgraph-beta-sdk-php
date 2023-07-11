@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Bandwidth limits specified as a percentage.
+*/
 class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationBandwidthPercentage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deliveryOptimizationBandwidthPercentage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumBackgroundBandwidthPercentage', $this->getMaximumBackgroundBandwidthPercentage());
         $writer->writeIntegerValue('maximumForegroundBandwidthPercentage', $this->getMaximumForegroundBandwidthPercentage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

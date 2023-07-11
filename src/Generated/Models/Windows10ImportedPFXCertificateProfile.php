@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows 10 Desktop and Mobile PFX Import certificate profile
+*/
 class Windows10ImportedPFXCertificateProfile extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10ImportedPFXCertificateProfile and sets the default values.
+     * Instantiates a new windows10ImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

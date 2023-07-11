@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProvisionedIdentity extends Identity implements Parsable 
 {
     /**
-     * Instantiates a new ProvisionedIdentity and sets the default values.
+     * Instantiates a new provisionedIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +46,7 @@ class ProvisionedIdentity extends Identity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([DetailsInfo::class, 'createFromDiscriminatorValue'])),
             'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +63,18 @@ class ProvisionedIdentity extends Identity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +82,7 @@ class ProvisionedIdentity extends Identity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeStringValue('identityType', $this->getIdentityType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +99,14 @@ class ProvisionedIdentity extends Identity implements Parsable
     */
     public function setIdentityType(?string $value): void {
         $this->getBackingStore()->set('identityType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

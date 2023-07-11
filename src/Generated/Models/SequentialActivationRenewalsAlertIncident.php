@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new SequentialActivationRenewalsAlertIncident and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new sequentialActivationRenewalsAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -163,6 +168,7 @@ class SequentialActivationRenewalsAlertIncident extends UnifiedRoleManagementAle
         $writer->writeStringValue('assigneeDisplayName', $this->getAssigneeDisplayName());
         $writer->writeStringValue('assigneeId', $this->getAssigneeId());
         $writer->writeStringValue('assigneeUserPrincipalName', $this->getAssigneeUserPrincipalName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
         $writer->writeStringValue('roleDisplayName', $this->getRoleDisplayName());
         $writer->writeStringValue('roleTemplateId', $this->getRoleTemplateId());

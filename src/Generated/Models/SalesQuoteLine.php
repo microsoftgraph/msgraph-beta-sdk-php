@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SalesQuoteLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SalesQuoteLine and sets the default values.
+     * Instantiates a new salesQuoteLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -154,6 +154,7 @@ class SalesQuoteLine extends Entity implements Parsable
             'netAmount' => fn(ParseNode $n) => $o->setNetAmount($n->getStringValue()),
             'netAmountIncludingTax' => fn(ParseNode $n) => $o->setNetAmountIncludingTax($n->getStringValue()),
             'netTaxAmount' => fn(ParseNode $n) => $o->setNetTaxAmount($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'quantity' => fn(ParseNode $n) => $o->setQuantity($n->getStringValue()),
             'sequence' => fn(ParseNode $n) => $o->setSequence($n->getIntegerValue()),
             'taxCode' => fn(ParseNode $n) => $o->setTaxCode($n->getStringValue()),
@@ -234,6 +235,18 @@ class SalesQuoteLine extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'netTaxAmount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -341,6 +354,7 @@ class SalesQuoteLine extends Entity implements Parsable
         $writer->writeStringValue('netAmount', $this->getNetAmount());
         $writer->writeStringValue('netAmountIncludingTax', $this->getNetAmountIncludingTax());
         $writer->writeStringValue('netTaxAmount', $this->getNetTaxAmount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('quantity', $this->getQuantity());
         $writer->writeIntegerValue('sequence', $this->getSequence());
         $writer->writeStringValue('taxCode', $this->getTaxCode());
@@ -468,6 +482,14 @@ class SalesQuoteLine extends Entity implements Parsable
     */
     public function setNetTaxAmount(?string $value): void {
         $this->getBackingStore()->set('netTaxAmount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

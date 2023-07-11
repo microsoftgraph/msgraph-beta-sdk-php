@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEndpoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -121,6 +121,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
             'externalPartnerSettings' => fn(ParseNode $n) => $o->setExternalPartnerSettings($n->getCollectionOfObjectValues([CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'])),
             'galleryImages' => fn(ParseNode $n) => $o->setGalleryImages($n->getCollectionOfObjectValues([CloudPcGalleryImage::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
             'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
@@ -145,6 +146,18 @@ class VirtualEndpoint extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'galleryImages'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -282,6 +295,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->getExternalPartnerSettings());
         $writer->writeCollectionOfObjectValues('galleryImages', $this->getGalleryImages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());
@@ -347,6 +361,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setGalleryImages(?array $value): void {
         $this->getBackingStore()->set('galleryImages', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

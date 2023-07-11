@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new RedundantAssignmentAlertIncident and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new redundantAssignmentAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -137,6 +142,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
         $writer->writeStringValue('assigneeId', $this->getAssigneeId());
         $writer->writeStringValue('assigneeUserPrincipalName', $this->getAssigneeUserPrincipalName());
         $writer->writeDateTimeValue('lastActivationDateTime', $this->getLastActivationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
         $writer->writeStringValue('roleDisplayName', $this->getRoleDisplayName());
         $writer->writeStringValue('roleTemplateId', $this->getRoleTemplateId());

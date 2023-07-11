@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementIntent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementIntent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managementIntent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,6 +91,7 @@ class ManagementIntent extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isGlobal', $this->getIsGlobal());
         $writer->writeCollectionOfObjectValues('managementTemplates', $this->getManagementTemplates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

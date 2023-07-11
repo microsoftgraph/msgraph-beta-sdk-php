@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10TeamGeneralConfiguration resource.
+*/
 class Windows10TeamGeneralConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10TeamGeneralConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10TeamGeneralConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -312,6 +320,7 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration implements P
         $writer->writeBooleanValue('miracastBlocked', $this->getMiracastBlocked());
         $writer->writeEnumValue('miracastChannel', $this->getMiracastChannel());
         $writer->writeBooleanValue('miracastRequirePin', $this->getMiracastRequirePin());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('settingsBlockMyMeetingsAndFiles', $this->getSettingsBlockMyMeetingsAndFiles());
         $writer->writeBooleanValue('settingsBlockSessionResume', $this->getSettingsBlockSessionResume());
         $writer->writeBooleanValue('settingsBlockSigninSuggestions', $this->getSettingsBlockSigninSuggestions());

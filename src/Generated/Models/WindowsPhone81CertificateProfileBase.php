@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Base Windows Phone 8.1+ certificate profile.
+*/
 class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsPhone81CertificateProfileBase and sets the default values.
     */
@@ -146,6 +154,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
         $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
         $writer->writeEnumValue('keyStorageProvider', $this->getKeyStorageProvider());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
         $writer->writeEnumValue('subjectAlternativeNameType', $this->getSubjectAlternativeNameType());
         $writer->writeEnumValue('subjectNameFormat', $this->getSubjectNameFormat());

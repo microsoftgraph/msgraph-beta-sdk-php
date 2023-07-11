@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health capacity entity contains count of devices broken down into 3 categories - devices with capacity > 80%, devices with capacity 50-80% and devices with capacity < 50 %.This API provides the count of devices in these 3 categories..
+*/
 class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements Parsable 
 {
     /**
@@ -85,6 +88,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
             'batteryCapacityGood' => fn(ParseNode $n) => $o->setBatteryCapacityGood($n->getIntegerValue()),
             'batteryCapacityPoor' => fn(ParseNode $n) => $o->setBatteryCapacityPoor($n->getIntegerValue()),
             'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -101,6 +105,18 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -111,6 +127,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
         $writer->writeIntegerValue('batteryCapacityGood', $this->getBatteryCapacityGood());
         $writer->writeIntegerValue('batteryCapacityPoor', $this->getBatteryCapacityPoor());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -151,6 +168,14 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

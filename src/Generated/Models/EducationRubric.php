@@ -89,6 +89,7 @@ class EducationRubric extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'levels' => fn(ParseNode $n) => $o->setLevels($n->getCollectionOfObjectValues([RubricLevel::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'qualities' => fn(ParseNode $n) => $o->setQualities($n->getCollectionOfObjectValues([RubricQuality::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -144,6 +145,18 @@ class EducationRubric extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the qualities property value. The collection of qualities making up this rubric.
      * @return array<RubricQuality>|null
     */
@@ -167,6 +180,7 @@ class EducationRubric extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('grading', $this->getGrading());
         $writer->writeCollectionOfObjectValues('levels', $this->getLevels());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('qualities', $this->getQualities());
     }
 
@@ -232,6 +246,14 @@ class EducationRubric extends Entity implements Parsable
     */
     public function setLevels(?array $value): void {
         $this->getBackingStore()->set('levels', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

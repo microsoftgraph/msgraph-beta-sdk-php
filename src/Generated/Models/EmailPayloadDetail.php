@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailPayloadDetail extends PayloadDetail implements Parsable 
 {
     /**
-     * Instantiates a new EmailPayloadDetail and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new emailPayloadDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -96,6 +101,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
         $writer->writeStringValue('fromEmail', $this->getFromEmail());
         $writer->writeStringValue('fromName', $this->getFromName());
         $writer->writeBooleanValue('isExternalSender', $this->getIsExternalSender());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('subject', $this->getSubject());
     }
 

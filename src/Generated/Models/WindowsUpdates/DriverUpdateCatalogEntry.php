@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * Instantiates a new DriverUpdateCatalogEntry and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new driverUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -136,6 +141,7 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('driverClass', $this->getDriverClass());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('provider', $this->getProvider());
         $writer->writeStringValue('setupInformationFile', $this->getSetupInformationFile());
         $writer->writeStringValue('version', $this->getVersion());

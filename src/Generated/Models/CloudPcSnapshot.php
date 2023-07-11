@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSnapshot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcSnapshot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcSnapshot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +128,7 @@ class CloudPcSnapshot extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeDateTimeValue('lastRestoredDateTime', $this->getLastRestoredDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('snapshotType', $this->getSnapshotType());
         $writer->writeEnumValue('status', $this->getStatus());
     }

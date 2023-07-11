@@ -46,6 +46,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
             'elevatedCount' => fn(ParseNode $n) => $o->setElevatedCount($n->getIntegerValue()),
             'managedCount' => fn(ParseNode $n) => $o->setManagedCount($n->getIntegerValue()),
             'mfaEnabled' => fn(ParseNode $n) => $o->setMfaEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)),
             'usersCount' => fn(ParseNode $n) => $o->setUsersCount($n->getIntegerValue()),
         ]);
@@ -73,6 +74,18 @@ class PrivilegedRoleSummary extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaEnabled'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,6 +121,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
         $writer->writeIntegerValue('elevatedCount', $this->getElevatedCount());
         $writer->writeIntegerValue('managedCount', $this->getManagedCount());
         $writer->writeBooleanValue('mfaEnabled', $this->getMfaEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeIntegerValue('usersCount', $this->getUsersCount());
     }
@@ -134,6 +148,14 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     */
     public function setMfaEnabled(?bool $value): void {
         $this->getBackingStore()->set('mfaEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

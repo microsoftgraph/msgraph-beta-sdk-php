@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RiskyServicePrincipal extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RiskyServicePrincipal and sets the default values.
+     * Instantiates a new riskyServicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +82,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([RiskyServicePrincipalHistoryItem::class, 'createFromDiscriminatorValue'])),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isProcessing' => fn(ParseNode $n) => $o->setIsProcessing($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
             'riskLastUpdatedDateTime' => fn(ParseNode $n) => $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()),
             'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
@@ -126,6 +127,18 @@ class RiskyServicePrincipal extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isProcessing'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -200,6 +213,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isProcessing', $this->getIsProcessing());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
         $writer->writeDateTimeValue('riskLastUpdatedDateTime', $this->getRiskLastUpdatedDateTime());
         $writer->writeEnumValue('riskLevel', $this->getRiskLevel());
@@ -253,6 +267,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function setIsProcessing(?bool $value): void {
         $this->getBackingStore()->set('isProcessing', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

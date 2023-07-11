@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Call extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Call and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new call and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -465,6 +470,7 @@ class Call extends Entity implements Parsable
         $writer->writeObjectValue('meetingCapability', $this->getMeetingCapability());
         $writer->writeObjectValue('meetingInfo', $this->getMeetingInfo());
         $writer->writeStringValue('myParticipantId', $this->getMyParticipantId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
         $writer->writeCollectionOfEnumValues('requestedModalities', $this->getRequestedModalities());

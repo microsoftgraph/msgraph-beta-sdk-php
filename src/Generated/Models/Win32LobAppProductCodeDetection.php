@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains product code and version properties to detect a Win32 App
+*/
 class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppProductCodeDetection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppProductCodeDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,6 +88,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productCode', $this->getProductCode());
         $writer->writeStringValue('productVersion', $this->getProductVersion());
         $writer->writeEnumValue('productVersionOperator', $this->getProductVersionOperator());

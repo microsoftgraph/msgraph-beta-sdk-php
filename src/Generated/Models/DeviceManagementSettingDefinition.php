@@ -124,6 +124,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setKeywords($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'placeholderText' => fn(ParseNode $n) => $o->setPlaceholderText($n->getStringValue()),
             'valueType' => fn(ParseNode $n) => $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)),
         ]);
@@ -180,6 +181,18 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the placeholderText property value. Placeholder text as an example of valid input
      * @return string|null
     */
@@ -218,6 +231,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
         $writer->writeStringValue('headerTitle', $this->getHeaderTitle());
         $writer->writeBooleanValue('isTopLevel', $this->getIsTopLevel());
         $writer->writeCollectionOfPrimitiveValues('keywords', $this->getKeywords());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('placeholderText', $this->getPlaceholderText());
         $writer->writeEnumValue('valueType', $this->getValueType());
     }
@@ -292,6 +306,14 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     */
     public function setKeywords(?array $value): void {
         $this->getBackingStore()->set('keywords', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

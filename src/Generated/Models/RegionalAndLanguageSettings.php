@@ -99,9 +99,22 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
             'defaultRegionalFormat' => fn(ParseNode $n) => $o->setDefaultRegionalFormat($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
             'defaultSpeechInputLanguage' => fn(ParseNode $n) => $o->setDefaultSpeechInputLanguage($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
             'defaultTranslationLanguage' => fn(ParseNode $n) => $o->setDefaultTranslationLanguage($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'regionalFormatOverrides' => fn(ParseNode $n) => $o->setRegionalFormatOverrides($n->getObjectValue([RegionalFormatOverrides::class, 'createFromDiscriminatorValue'])),
             'translationPreferences' => fn(ParseNode $n) => $o->setTranslationPreferences($n->getObjectValue([TranslationPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -139,6 +152,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
         $writer->writeObjectValue('defaultRegionalFormat', $this->getDefaultRegionalFormat());
         $writer->writeObjectValue('defaultSpeechInputLanguage', $this->getDefaultSpeechInputLanguage());
         $writer->writeObjectValue('defaultTranslationLanguage', $this->getDefaultTranslationLanguage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('regionalFormatOverrides', $this->getRegionalFormatOverrides());
         $writer->writeObjectValue('translationPreferences', $this->getTranslationPreferences());
     }
@@ -181,6 +195,14 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
     */
     public function setDefaultTranslationLanguage(?LocaleInfo $value): void {
         $this->getBackingStore()->set('defaultTranslationLanguage', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

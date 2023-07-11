@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The depEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
+*/
 class DepEnrollmentProfile extends EnrollmentProfile implements Parsable 
 {
     /**
-     * Instantiates a new DepEnrollmentProfile and sets the default values.
+     * Instantiates a new depEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -105,6 +108,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
             'macOSFileVaultDisabled' => fn(ParseNode $n) => $o->setMacOSFileVaultDisabled($n->getBooleanValue()),
             'macOSRegistrationDisabled' => fn(ParseNode $n) => $o->setMacOSRegistrationDisabled($n->getBooleanValue()),
             'managementCertificates' => fn(ParseNode $n) => $o->setManagementCertificates($n->getCollectionOfObjectValues([ManagementCertificateWithThumbprint::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'passCodeDisabled' => fn(ParseNode $n) => $o->setPassCodeDisabled($n->getBooleanValue()),
             'profileRemovalDisabled' => fn(ParseNode $n) => $o->setProfileRemovalDisabled($n->getBooleanValue()),
             'restoreBlocked' => fn(ParseNode $n) => $o->setRestoreBlocked($n->getBooleanValue()),
@@ -204,6 +208,18 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managementCertificates'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -368,6 +384,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
         $writer->writeBooleanValue('macOSFileVaultDisabled', $this->getMacOSFileVaultDisabled());
         $writer->writeBooleanValue('macOSRegistrationDisabled', $this->getMacOSRegistrationDisabled());
         $writer->writeCollectionOfObjectValues('managementCertificates', $this->getManagementCertificates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passCodeDisabled', $this->getPassCodeDisabled());
         $writer->writeBooleanValue('profileRemovalDisabled', $this->getProfileRemovalDisabled());
         $writer->writeBooleanValue('restoreBlocked', $this->getRestoreBlocked());
@@ -476,6 +493,14 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
     */
     public function setManagementCertificates(?array $value): void {
         $this->getBackingStore()->set('managementCertificates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

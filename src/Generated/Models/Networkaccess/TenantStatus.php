@@ -32,13 +32,26 @@ class TenantStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onboardingErrorMessage' => fn(ParseNode $n) => $o->setOnboardingErrorMessage($n->getStringValue()),
             'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)),
         ]);
     }
 
     /**
-     * Gets the onboardingErrorMessage property value. The onboardingErrorMessage property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
      * @return string|null
     */
     public function getOnboardingErrorMessage(): ?string {
@@ -67,12 +80,21 @@ class TenantStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onboardingErrorMessage', $this->getOnboardingErrorMessage());
         $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
     }
 
     /**
-     * Sets the onboardingErrorMessage property value. The onboardingErrorMessage property
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
      * @param string|null $value Value to set for the onboardingErrorMessage property.
     */
     public function setOnboardingErrorMessage(?string $value): void {

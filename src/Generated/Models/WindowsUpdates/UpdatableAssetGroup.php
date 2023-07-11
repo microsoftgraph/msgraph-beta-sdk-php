@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UpdatableAssetGroup extends UpdatableAsset implements Parsable 
 {
     /**
-     * Instantiates a new UpdatableAssetGroup and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new updatableAssetGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class UpdatableAssetGroup extends UpdatableAsset implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUsageSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUsageSummary and sets the default values.
+     * Instantiates a new credentialUsageSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,8 +70,21 @@ class CredentialUsageSummary extends Entity implements Parsable
             'authMethod' => fn(ParseNode $n) => $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)),
             'failureActivityCount' => fn(ParseNode $n) => $o->setFailureActivityCount($n->getIntegerValue()),
             'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(FeatureType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'successfulActivityCount' => fn(ParseNode $n) => $o->setSuccessfulActivityCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +108,7 @@ class CredentialUsageSummary extends Entity implements Parsable
         $writer->writeEnumValue('authMethod', $this->getAuthMethod());
         $writer->writeIntegerValue('failureActivityCount', $this->getFailureActivityCount());
         $writer->writeEnumValue('feature', $this->getFeature());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successfulActivityCount', $this->getSuccessfulActivityCount());
     }
 
@@ -120,6 +134,14 @@ class CredentialUsageSummary extends Entity implements Parsable
     */
     public function setFeature(?FeatureType $value): void {
         $this->getBackingStore()->set('feature', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

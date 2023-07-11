@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Assigned Access profile for Windows.
+*/
 class WindowsAssignedAccessProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAssignedAccessProfile and sets the default values.
+     * Instantiates a new windowsAssignedAccessProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -77,6 +80,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setDesktopAppPaths($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
             'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
             'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
@@ -89,6 +93,18 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
                 $this->setUserAccounts($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -149,6 +165,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('appUserModelIds', $this->getAppUserModelIds());
         $writer->writeCollectionOfPrimitiveValues('desktopAppPaths', $this->getDesktopAppPaths());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('profileName', $this->getProfileName());
         $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
         $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
@@ -169,6 +186,14 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
     */
     public function setDesktopAppPaths(?array $value): void {
         $this->getBackingStore()->set('desktopAppPaths', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsProtectionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsProtectionState and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsProtectionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -385,6 +390,7 @@ class WindowsProtectionState extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
         $writer->writeBooleanValue('networkInspectionSystemEnabled', $this->getNetworkInspectionSystemEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('quickScanOverdue', $this->getQuickScanOverdue());
         $writer->writeBooleanValue('realTimeProtectionEnabled', $this->getRealTimeProtectionEnabled());
         $writer->writeBooleanValue('rebootRequired', $this->getRebootRequired());

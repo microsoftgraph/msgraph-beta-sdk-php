@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConnectionQuota extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConnectionQuota and sets the default values.
+     * Instantiates a new connectionQuota and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class ConnectionQuota extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'itemsRemaining' => fn(ParseNode $n) => $o->setItemsRemaining($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +50,25 @@ class ConnectionQuota extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('itemsRemaining', $this->getItemsRemaining());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +77,14 @@ class ConnectionQuota extends Entity implements Parsable
     */
     public function setItemsRemaining(?int $value): void {
         $this->getBackingStore()->set('itemsRemaining', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

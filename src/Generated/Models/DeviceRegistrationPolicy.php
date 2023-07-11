@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceRegistrationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceRegistrationPolicy and sets the default values.
+     * Instantiates a new deviceRegistrationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +85,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'localAdminPassword' => fn(ParseNode $n) => $o->setLocalAdminPassword($n->getObjectValue([LocalAdminPasswordSettings::class, 'createFromDiscriminatorValue'])),
             'multiFactorAuthConfiguration' => fn(ParseNode $n) => $o->setMultiFactorAuthConfiguration($n->getEnumValue(MultiFactorAuthConfiguration::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userDeviceQuota' => fn(ParseNode $n) => $o->setUserDeviceQuota($n->getIntegerValue()),
         ]);
     }
@@ -114,6 +115,18 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the userDeviceQuota property value. Specifies the maximum number of devices that a user can have within your organization before blocking new device registrations. The default value is set to 50. If this property is not specified during the policy update operation, it is automatically reset to 0 to indicate that users are not allowed to join any devices.
      * @return int|null
     */
@@ -137,6 +150,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('localAdminPassword', $this->getLocalAdminPassword());
         $writer->writeEnumValue('multiFactorAuthConfiguration', $this->getMultiFactorAuthConfiguration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('userDeviceQuota', $this->getUserDeviceQuota());
     }
 
@@ -186,6 +200,14 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     */
     public function setMultiFactorAuthConfiguration(?MultiFactorAuthConfiguration $value): void {
         $this->getBackingStore()->set('multiFactorAuthConfiguration', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

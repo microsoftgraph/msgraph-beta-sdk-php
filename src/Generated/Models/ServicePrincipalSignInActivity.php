@@ -97,6 +97,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
             'delegatedClientSignInActivity' => fn(ParseNode $n) => $o->setDelegatedClientSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
             'delegatedResourceSignInActivity' => fn(ParseNode $n) => $o->setDelegatedResourceSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
             'lastSignInActivity' => fn(ParseNode $n) => $o->setLastSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -113,6 +114,18 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -124,6 +137,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
         $writer->writeObjectValue('delegatedClientSignInActivity', $this->getDelegatedClientSignInActivity());
         $writer->writeObjectValue('delegatedResourceSignInActivity', $this->getDelegatedResourceSignInActivity());
         $writer->writeObjectValue('lastSignInActivity', $this->getLastSignInActivity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -172,6 +186,14 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     */
     public function setLastSignInActivity(?SignInActivity $value): void {
         $this->getBackingStore()->set('lastSignInActivity', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

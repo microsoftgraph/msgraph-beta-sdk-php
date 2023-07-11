@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows X WifiXml configuration profile
+*/
 class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XWifiConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10XWifiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,6 +92,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
         $writer->writeStringValue('authenticationCertificateId', $this->getAuthenticationCertificateId());
         $writer->writeBinaryContent('customXml', $this->getCustomXml());
         $writer->writeStringValue('customXmlFileName', $this->getCustomXmlFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

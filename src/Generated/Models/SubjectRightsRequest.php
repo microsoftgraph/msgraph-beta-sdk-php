@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SubjectRightsRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SubjectRightsRequest and sets the default values.
+     * Instantiates a new subjectRightsRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -202,6 +202,7 @@ class SubjectRightsRequest extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'mailboxlocations' => fn(ParseNode $n) => $o->setMailboxlocations($n->getObjectValue([SubjectRightsRequestMailboxLocation::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getCollectionOfObjectValues([AuthoredNote::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pauseAfterEstimate' => fn(ParseNode $n) => $o->setPauseAfterEstimate($n->getBooleanValue()),
             'regulations' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -332,6 +333,18 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @return bool|null
     */
@@ -446,6 +459,7 @@ class SubjectRightsRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('mailboxlocations', $this->getMailboxlocations());
         $writer->writeCollectionOfObjectValues('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('pauseAfterEstimate', $this->getPauseAfterEstimate());
         $writer->writeCollectionOfPrimitiveValues('regulations', $this->getRegulations());
         $writer->writeObjectValue('sitelocations', $this->getSitelocations());
@@ -621,6 +635,14 @@ class SubjectRightsRequest extends Entity implements Parsable
     */
     public function setNotes(?array $value): void {
         $this->getBackingStore()->set('notes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

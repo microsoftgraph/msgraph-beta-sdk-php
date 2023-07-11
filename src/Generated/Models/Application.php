@@ -12,7 +12,12 @@ use Psr\Http\Message\StreamInterface;
 class Application extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new Application and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new application and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -719,6 +724,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeBinaryContent('logo', $this->getLogo());
         $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onPremisesPublishing', $this->getOnPremisesPublishing());
         $writer->writeObjectValue('optionalClaims', $this->getOptionalClaims());
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());

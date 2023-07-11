@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleManagementAlertConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new TooManyGlobalAdminsAssignedToTenantAlertConfiguration and sets the default values.
+     * Instantiates a new tooManyGlobalAdminsAssignedToTenantAlertConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'globalAdminCountThreshold' => fn(ParseNode $n) => $o->setGlobalAdminCountThreshold($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'percentageOfGlobalAdminsOutOfRolesThreshold' => fn(ParseNode $n) => $o->setPercentageOfGlobalAdminsOutOfRolesThreshold($n->getIntegerValue()),
         ]);
     }
@@ -47,6 +48,18 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'globalAdminCountThreshold'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -68,6 +81,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('globalAdminCountThreshold', $this->getGlobalAdminCountThreshold());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('percentageOfGlobalAdminsOutOfRolesThreshold', $this->getPercentageOfGlobalAdminsOutOfRolesThreshold());
     }
 
@@ -77,6 +91,14 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     */
     public function setGlobalAdminCountThreshold(?int $value): void {
         $this->getBackingStore()->set('globalAdminCountThreshold', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipient implements Parsable 
 {
     /**
-     * Instantiates a new EducationAssignmentIndividualRecipient and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationAssignmentIndividualRecipient and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,6 +69,7 @@ class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipien
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }
 

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemEmail extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ItemEmail and sets the default values.
+     * Instantiates a new itemEmail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,8 +58,21 @@ class ItemEmail extends ItemFacet implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(EmailType::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -82,6 +95,7 @@ class ItemEmail extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('address', $this->getAddress());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('type', $this->getType());
     }
 
@@ -99,6 +113,14 @@ class ItemEmail extends ItemFacet implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

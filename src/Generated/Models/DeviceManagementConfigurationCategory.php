@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device Management Configuration Policy
+*/
 class DeviceManagementConfigurationCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationCategory and sets the default values.
+     * Instantiates a new deviceManagementConfigurationCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +98,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'helpText' => fn(ParseNode $n) => $o->setHelpText($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentCategoryId' => fn(ParseNode $n) => $o->setParentCategoryId($n->getStringValue()),
             'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)),
             'rootCategoryId' => fn(ParseNode $n) => $o->setRootCategoryId($n->getStringValue()),
@@ -125,6 +129,18 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -199,6 +215,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('helpText', $this->getHelpText());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('parentCategoryId', $this->getParentCategoryId());
         $writer->writeEnumValue('platforms', $this->getPlatforms());
         $writer->writeStringValue('rootCategoryId', $this->getRootCategoryId());
@@ -252,6 +269,14 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

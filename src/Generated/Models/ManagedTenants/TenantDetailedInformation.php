@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantDetailedInformation extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new tenantDetailedInformation and sets the default values.
     */
     public function __construct() {
@@ -177,6 +182,7 @@ class TenantDetailedInformation extends Entity implements Parsable
         $writer->writeStringValue('defaultDomainName', $this->getDefaultDomainName());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('industryName', $this->getIndustryName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('region', $this->getRegion());
         $writer->writeStringValue('segmentName', $this->getSegmentName());
         $writer->writeStringValue('tenantId', $this->getTenantId());

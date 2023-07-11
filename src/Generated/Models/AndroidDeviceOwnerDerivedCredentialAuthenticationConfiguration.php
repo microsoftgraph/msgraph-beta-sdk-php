@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android COBO Derived Credential profile.
+*/
 class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceOwnerDerivedCredentialAuthenticationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +93,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
         parent::serialize($writer);
         $writer->writeEnumValue('certificateAccessType', $this->getCertificateAccessType());
         $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->getSilentCertificateAccessDetails());
     }
 

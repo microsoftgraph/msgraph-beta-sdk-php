@@ -98,6 +98,7 @@ class PrivilegedApproval extends Entity implements Parsable
             'approvalType' => fn(ParseNode $n) => $o->setApprovalType($n->getStringValue()),
             'approverReason' => fn(ParseNode $n) => $o->setApproverReason($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'request' => fn(ParseNode $n) => $o->setRequest($n->getObjectValue([PrivilegedRoleAssignmentRequest::class, 'createFromDiscriminatorValue'])),
             'requestorReason' => fn(ParseNode $n) => $o->setRequestorReason($n->getStringValue()),
             'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
@@ -105,6 +106,18 @@ class PrivilegedApproval extends Entity implements Parsable
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -190,6 +203,7 @@ class PrivilegedApproval extends Entity implements Parsable
         $writer->writeStringValue('approvalType', $this->getApprovalType());
         $writer->writeStringValue('approverReason', $this->getApproverReason());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('request', $this->getRequest());
         $writer->writeStringValue('requestorReason', $this->getRequestorReason());
         $writer->writeStringValue('roleId', $this->getRoleId());
@@ -236,6 +250,14 @@ class PrivilegedApproval extends Entity implements Parsable
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

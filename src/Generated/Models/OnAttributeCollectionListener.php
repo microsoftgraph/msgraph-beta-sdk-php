@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnAttributeCollectionListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * Instantiates a new OnAttributeCollectionListener and sets the default values.
+     * Instantiates a new onAttributeCollectionListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'handler' => fn(ParseNode $n) => $o->setHandler($n->getObjectValue([OnAttributeCollectionHandler::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +50,25 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('handler', $this->getHandler());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +77,14 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
     */
     public function setHandler(?OnAttributeCollectionHandler $value): void {
         $this->getBackingStore()->set('handler', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

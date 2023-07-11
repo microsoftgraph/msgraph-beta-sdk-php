@@ -35,7 +35,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the activeDeviceCount property value. The activeDeviceCount property
+     * Gets the activeDeviceCount property value. The number of distinct device IDs in the time frame between endDateTime and discoveryPivotDateTime.
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
@@ -82,7 +82,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the inactiveDeviceCount property value. The inactiveDeviceCount property
+     * Gets the inactiveDeviceCount property value. The number of distinct device IDs havn't seen in the time frame between endDateTime and discoveryPivotDateTime but have seen in the time frame between discoveryPivotDateTime and startDateTime.
      * @return int|null
     */
     public function getInactiveDeviceCount(): ?int {
@@ -106,7 +106,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalDeviceCount property value. The totalDeviceCount property
+     * Gets the totalDeviceCount property value. The number of distinct device IDs in the time frame between startDateTime and endDateTime.
      * @return int|null
     */
     public function getTotalDeviceCount(): ?int {
@@ -130,7 +130,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the activeDeviceCount property value. The activeDeviceCount property
+     * Sets the activeDeviceCount property value. The number of distinct device IDs in the time frame between endDateTime and discoveryPivotDateTime.
      * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
@@ -154,7 +154,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the inactiveDeviceCount property value. The inactiveDeviceCount property
+     * Sets the inactiveDeviceCount property value. The number of distinct device IDs havn't seen in the time frame between endDateTime and discoveryPivotDateTime but have seen in the time frame between discoveryPivotDateTime and startDateTime.
      * @param int|null $value Value to set for the inactiveDeviceCount property.
     */
     public function setInactiveDeviceCount(?int $value): void {
@@ -170,7 +170,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalDeviceCount property value. The totalDeviceCount property
+     * Sets the totalDeviceCount property value. The number of distinct device IDs in the time frame between startDateTime and endDateTime.
      * @param int|null $value Value to set for the totalDeviceCount property.
     */
     public function setTotalDeviceCount(?int $value): void {

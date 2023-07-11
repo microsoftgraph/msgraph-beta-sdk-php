@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoTrainingNotificationSetting extends EndUserNotificationSetting implements Parsable 
 {
     /**
-     * Instantiates a new NoTrainingNotificationSetting and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new noTrainingNotificationSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class NoTrainingNotificationSetting extends EndUserNotificationSetting implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('simulationNotification', $this->getSimulationNotification());
     }
 

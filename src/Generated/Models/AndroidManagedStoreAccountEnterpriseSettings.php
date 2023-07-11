@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enterprise settings for an Android managed store account.
+*/
 class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Parsable 
 {
     /**
@@ -111,6 +114,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
                 /** @var array<string>|null $val */
                 $this->setManagedGooglePlayInitialScopeTagIds($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ownerOrganizationName' => fn(ParseNode $n) => $o->setOwnerOrganizationName($n->getStringValue()),
             'ownerUserPrincipalName' => fn(ParseNode $n) => $o->setOwnerUserPrincipalName($n->getStringValue()),
             'targetGroupIds' => function (ParseNode $n) {
@@ -175,6 +179,18 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the ownerOrganizationName property value. Organization name used when onboarding Android Enterprise
      * @return string|null
     */
@@ -227,6 +243,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
         $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('managedGooglePlayInitialScopeTagIds', $this->getManagedGooglePlayInitialScopeTagIds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
         $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->getTargetGroupIds());
@@ -302,6 +319,14 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     */
     public function setManagedGooglePlayInitialScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('managedGooglePlayInitialScopeTagIds', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

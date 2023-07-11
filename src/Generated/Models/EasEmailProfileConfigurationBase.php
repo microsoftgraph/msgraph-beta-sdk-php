@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Apple device features configuration profile.
+*/
 class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new EasEmailProfileConfigurationBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new easEmailProfileConfigurationBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -103,6 +111,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('customDomainName', $this->getCustomDomainName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('userDomainNameSource', $this->getUserDomainNameSource());
         $writer->writeEnumValue('usernameAADSource', $this->getUsernameAADSource());
         $writer->writeEnumValue('usernameSource', $this->getUsernameSource());

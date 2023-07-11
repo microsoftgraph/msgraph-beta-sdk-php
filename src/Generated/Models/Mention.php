@@ -99,6 +99,7 @@ class Mention extends Entity implements Parsable
             'deepLink' => fn(ParseNode $n) => $o->setDeepLink($n->getStringValue()),
             'mentioned' => fn(ParseNode $n) => $o->setMentioned($n->getObjectValue([EmailAddress::class, 'createFromDiscriminatorValue'])),
             'mentionText' => fn(ParseNode $n) => $o->setMentionText($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'serverCreatedDateTime' => fn(ParseNode $n) => $o->setServerCreatedDateTime($n->getDateTimeValue()),
         ]);
     }
@@ -128,6 +129,18 @@ class Mention extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the serverCreatedDateTime property value. The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
      * @return DateTime|null
     */
@@ -152,6 +165,7 @@ class Mention extends Entity implements Parsable
         $writer->writeStringValue('deepLink', $this->getDeepLink());
         $writer->writeObjectValue('mentioned', $this->getMentioned());
         $writer->writeStringValue('mentionText', $this->getMentionText());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('serverCreatedDateTime', $this->getServerCreatedDateTime());
     }
 
@@ -209,6 +223,14 @@ class Mention extends Entity implements Parsable
     */
     public function setMentionText(?string $value): void {
         $this->getBackingStore()->set('mentionText', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Android Line Of Business apps.
+*/
 class AndroidLobApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new AndroidLobApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -122,6 +130,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('identityName', $this->getIdentityName());
         $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeStringValue('versionCode', $this->getVersionCode());
         $writer->writeStringValue('versionName', $this->getVersionName());

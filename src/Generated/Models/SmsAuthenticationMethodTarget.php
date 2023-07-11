@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
 {
     /**
-     * Instantiates a new SmsAuthenticationMethodTarget and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new smsAuthenticationMethodTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isUsableForSignIn', $this->getIsUsableForSignIn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -63,6 +63,7 @@ class WorkbookChart extends Entity implements Parsable
             'left' => fn(ParseNode $n) => $o->setLeft($n->getFloatValue()),
             'legend' => fn(ParseNode $n) => $o->setLegend($n->getObjectValue([WorkbookChartLegend::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'series' => fn(ParseNode $n) => $o->setSeries($n->getCollectionOfObjectValues([WorkbookChartSeries::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getObjectValue([WorkbookChartTitle::class, 'createFromDiscriminatorValue'])),
             'top' => fn(ParseNode $n) => $o->setTop($n->getFloatValue()),
@@ -129,6 +130,18 @@ class WorkbookChart extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -206,6 +219,7 @@ class WorkbookChart extends Entity implements Parsable
         $writer->writeFloatValue('left', $this->getLeft());
         $writer->writeObjectValue('legend', $this->getLegend());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('series', $this->getSeries());
         $writer->writeObjectValue('title', $this->getTitle());
         $writer->writeFloatValue('top', $this->getTop());
@@ -267,6 +281,14 @@ class WorkbookChart extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

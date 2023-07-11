@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SignIn extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SignIn and sets the default values.
+     * Instantiates a new signIn and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -367,6 +367,7 @@ class SignIn extends Entity implements Parsable
             'managedServiceIdentity' => fn(ParseNode $n) => $o->setManagedServiceIdentity($n->getObjectValue([ManagedIdentity::class, 'createFromDiscriminatorValue'])),
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
             'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
             'privateLinkDetails' => fn(ParseNode $n) => $o->setPrivateLinkDetails($n->getObjectValue([PrivateLinkDetails::class, 'createFromDiscriminatorValue'])),
             'processingTimeInMilliseconds' => fn(ParseNode $n) => $o->setProcessingTimeInMilliseconds($n->getIntegerValue()),
@@ -557,6 +558,18 @@ class SignIn extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkLocationDetails'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -954,6 +967,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
         $writer->writeCollectionOfObjectValues('networkLocationDetails', $this->getNetworkLocationDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originalRequestId', $this->getOriginalRequestId());
         $writer->writeObjectValue('privateLinkDetails', $this->getPrivateLinkDetails());
         $writer->writeIntegerValue('processingTimeInMilliseconds', $this->getProcessingTimeInMilliseconds());
@@ -1263,6 +1277,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setNetworkLocationDetails(?array $value): void {
         $this->getBackingStore()->set('networkLocationDetails', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

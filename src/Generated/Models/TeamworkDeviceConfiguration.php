@@ -88,6 +88,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'microphoneConfiguration' => fn(ParseNode $n) => $o->setMicrophoneConfiguration($n->getObjectValue([TeamworkMicrophoneConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'softwareVersions' => fn(ParseNode $n) => $o->setSoftwareVersions($n->getObjectValue([TeamworkDeviceSoftwareVersions::class, 'createFromDiscriminatorValue'])),
             'speakerConfiguration' => fn(ParseNode $n) => $o->setSpeakerConfiguration($n->getObjectValue([TeamworkSpeakerConfiguration::class, 'createFromDiscriminatorValue'])),
             'systemConfiguration' => fn(ParseNode $n) => $o->setSystemConfiguration($n->getObjectValue([TeamworkSystemConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -141,6 +142,18 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microphoneConfiguration'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -205,6 +218,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('microphoneConfiguration', $this->getMicrophoneConfiguration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('softwareVersions', $this->getSoftwareVersions());
         $writer->writeObjectValue('speakerConfiguration', $this->getSpeakerConfiguration());
         $writer->writeObjectValue('systemConfiguration', $this->getSystemConfiguration());
@@ -273,6 +287,14 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
     */
     public function setMicrophoneConfiguration(?TeamworkMicrophoneConfiguration $value): void {
         $this->getBackingStore()->set('microphoneConfiguration', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

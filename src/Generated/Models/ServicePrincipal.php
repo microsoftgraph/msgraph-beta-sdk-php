@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServicePrincipal extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new ServicePrincipal and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new servicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -894,6 +899,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeStringValue('notes', $this->getNotes());
         $writer->writeCollectionOfPrimitiveValues('notificationEmailAddresses', $this->getNotificationEmailAddresses());
         $writer->writeCollectionOfObjectValues('oauth2PermissionGrants', $this->getOauth2PermissionGrants());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('ownedObjects', $this->getOwnedObjects());
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
         $writer->writeCollectionOfObjectValues('passwordCredentials', $this->getPasswordCredentials());

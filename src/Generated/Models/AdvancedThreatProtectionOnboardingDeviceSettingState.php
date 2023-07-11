@@ -87,6 +87,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implem
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(DeviceType::class)),
             'setting' => fn(ParseNode $n) => $o->setSetting($n->getStringValue()),
             'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
@@ -96,6 +97,18 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implem
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -204,6 +217,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implem
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeStringValue('setting', $this->getSetting());
         $writer->writeStringValue('settingName', $this->getSettingName());
@@ -244,6 +258,14 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implem
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

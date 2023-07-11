@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomTrainingSetting extends TrainingSetting implements Parsable 
 {
     /**
-     * Instantiates a new CustomTrainingSetting and sets the default values.
+     * Instantiates a new customTrainingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -87,8 +87,21 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'durationInMinutes' => fn(ParseNode $n) => $o->setDurationInMinutes($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,6 +126,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('durationInMinutes', $this->getDurationInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('url', $this->getUrl());
     }
 
@@ -146,6 +160,14 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     */
     public function setDurationInMinutes(?string $value): void {
         $this->getBackingStore()->set('durationInMinutes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlayPromptOperation extends CommsOperation implements Parsable 
 {
     /**
-     * Instantiates a new PlayPromptOperation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new playPromptOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('completionReason', $this->getCompletionReason());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonAward extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonAward and sets the default values.
+     * Instantiates a new personAward and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -61,6 +61,7 @@ class PersonAward extends ItemFacet implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'issuedDate' => fn(ParseNode $n) => $o->setIssuedDate($n->getDateValue()),
             'issuingAuthority' => fn(ParseNode $n) => $o->setIssuingAuthority($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
@@ -88,6 +89,18 @@ class PersonAward extends ItemFacet implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'issuingAuthority'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -124,6 +137,7 @@ class PersonAward extends ItemFacet implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('issuedDate', $this->getIssuedDate());
         $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
@@ -158,6 +172,14 @@ class PersonAward extends ItemFacet implements Parsable
     */
     public function setIssuingAuthority(?string $value): void {
         $this->getBackingStore()->set('issuingAuthority', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

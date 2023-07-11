@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceRequest extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessPackageResourceRequest and sets the default values.
     */
     public function __construct() {
@@ -177,6 +182,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('requestor', $this->getRequestor());
         $writer->writeStringValue('requestState', $this->getRequestState());
         $writer->writeStringValue('requestStatus', $this->getRequestStatus());

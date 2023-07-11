@@ -39,10 +39,23 @@ class PolicyLink extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([Policy::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(Status::class)),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -70,7 +83,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -87,9 +100,18 @@ class PolicyLink extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('version', $this->getVersion());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
@@ -109,7 +131,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

@@ -61,6 +61,7 @@ class PassiveDnsRecord extends Artifact implements Parsable
             'collectedDateTime' => fn(ParseNode $n) => $o->setCollectedDateTime($n->getDateTimeValue()),
             'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentHost' => fn(ParseNode $n) => $o->setParentHost($n->getObjectValue([Host::class, 'createFromDiscriminatorValue'])),
             'recordType' => fn(ParseNode $n) => $o->setRecordType($n->getStringValue()),
         ]);
@@ -88,6 +89,18 @@ class PassiveDnsRecord extends Artifact implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -124,6 +137,7 @@ class PassiveDnsRecord extends Artifact implements Parsable
         $writer->writeDateTimeValue('collectedDateTime', $this->getCollectedDateTime());
         $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parentHost', $this->getParentHost());
         $writer->writeStringValue('recordType', $this->getRecordType());
     }
@@ -158,6 +172,14 @@ class PassiveDnsRecord extends Artifact implements Parsable
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

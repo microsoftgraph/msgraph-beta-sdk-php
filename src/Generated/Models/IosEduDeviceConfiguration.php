@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * iOS Education device configuration
+*/
 class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosEduDeviceConfiguration and sets the default values.
+     * Instantiates a new iosEduDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,9 +48,22 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'deviceCertificateSettings' => fn(ParseNode $n) => $o->setDeviceCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'studentCertificateSettings' => fn(ParseNode $n) => $o->setStudentCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
             'teacherCertificateSettings' => fn(ParseNode $n) => $o->setTeacherCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +97,7 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('deviceCertificateSettings', $this->getDeviceCertificateSettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('studentCertificateSettings', $this->getStudentCertificateSettings());
         $writer->writeObjectValue('teacherCertificateSettings', $this->getTeacherCertificateSettings());
     }
@@ -91,6 +108,14 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setDeviceCertificateSettings(?IosEduCertificateSettings $value): void {
         $this->getBackingStore()->set('deviceCertificateSettings', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

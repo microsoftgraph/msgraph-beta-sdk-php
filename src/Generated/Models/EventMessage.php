@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EventMessage extends Message implements Parsable 
 {
     /**
-     * Instantiates a new EventMessage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new eventMessage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -186,6 +191,7 @@ class EventMessage extends Message implements Parsable
         $writer->writeBooleanValue('isOutOfDate', $this->getIsOutOfDate());
         $writer->writeObjectValue('location', $this->getLocation());
         $writer->writeEnumValue('meetingMessageType', $this->getMeetingMessageType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('recurrence', $this->getRecurrence());
         $writer->writeObjectValue('startDateTime', $this->getStartDateTime());
         $writer->writeEnumValue('type', $this->getType());

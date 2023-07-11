@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Event representing a users device application install status.
+*/
 class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppTroubleshootingEvent and sets the default values.
+     * Instantiates a new mobileAppTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,6 +78,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([MobileAppTroubleshootingHistoryItem::class, 'createFromDiscriminatorValue'])),
             'managedDeviceIdentifier' => fn(ParseNode $n) => $o->setManagedDeviceIdentifier($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
@@ -106,6 +110,18 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the userId property value. Identifier for the user that tried to enroll the device.
      * @return string|null
     */
@@ -128,6 +144,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeStringValue('managedDeviceIdentifier', $this->getManagedDeviceIdentifier());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userId', $this->getUserId());
     }
 
@@ -169,6 +186,14 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     */
     public function setManagedDeviceIdentifier(?string $value): void {
         $this->getBackingStore()->set('managedDeviceIdentifier', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

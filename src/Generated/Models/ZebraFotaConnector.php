@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Zebra FOTA connector entity that represents the tenant's authorization status for Intune to call Zebra Update Services.
+*/
 class ZebraFotaConnector extends Entity implements Parsable 
 {
     /**
@@ -60,6 +63,7 @@ class ZebraFotaConnector extends Entity implements Parsable
             'enrollmentToken' => fn(ParseNode $n) => $o->setEnrollmentToken($n->getStringValue()),
             'fotaAppsApproved' => fn(ParseNode $n) => $o->setFotaAppsApproved($n->getBooleanValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ZebraFotaConnectorState::class)),
         ]);
     }
@@ -89,6 +93,18 @@ class ZebraFotaConnector extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the state property value. Represents various states for Zebra FOTA connector.
      * @return ZebraFotaConnectorState|null
     */
@@ -110,6 +126,7 @@ class ZebraFotaConnector extends Entity implements Parsable
         $writer->writeStringValue('enrollmentToken', $this->getEnrollmentToken());
         $writer->writeBooleanValue('fotaAppsApproved', $this->getFotaAppsApproved());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
     }
 
@@ -143,6 +160,14 @@ class ZebraFotaConnector extends Entity implements Parsable
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

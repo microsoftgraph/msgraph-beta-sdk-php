@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new rolesAssignedOutsidePrivilegedIdentityManagementAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -137,6 +142,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
         $writer->writeStringValue('assigneeId', $this->getAssigneeId());
         $writer->writeStringValue('assigneeUserPrincipalName', $this->getAssigneeUserPrincipalName());
         $writer->writeDateTimeValue('assignmentCreatedDateTime', $this->getAssignmentCreatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
         $writer->writeStringValue('roleDisplayName', $this->getRoleDisplayName());
         $writer->writeStringValue('roleTemplateId', $this->getRoleTemplateId());

@@ -72,6 +72,7 @@ class EducationSynchronizationError extends Entity implements Parsable
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
             'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
             'joiningValue' => fn(ParseNode $n) => $o->setJoiningValue($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'recordedDateTime' => fn(ParseNode $n) => $o->setRecordedDateTime($n->getDateTimeValue()),
             'reportableIdentifier' => fn(ParseNode $n) => $o->setReportableIdentifier($n->getStringValue()),
         ]);
@@ -87,6 +88,18 @@ class EducationSynchronizationError extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'joiningValue'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,6 +136,7 @@ class EducationSynchronizationError extends Entity implements Parsable
         $writer->writeStringValue('errorCode', $this->getErrorCode());
         $writer->writeStringValue('errorMessage', $this->getErrorMessage());
         $writer->writeStringValue('joiningValue', $this->getJoiningValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('recordedDateTime', $this->getRecordedDateTime());
         $writer->writeStringValue('reportableIdentifier', $this->getReportableIdentifier());
     }
@@ -157,6 +171,14 @@ class EducationSynchronizationError extends Entity implements Parsable
     */
     public function setJoiningValue(?string $value): void {
         $this->getBackingStore()->set('joiningValue', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

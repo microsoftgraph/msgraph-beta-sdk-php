@@ -143,6 +143,7 @@ class RecommendationBase extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
             'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
@@ -250,6 +251,18 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the postponeUntilDateTime property value. The future date and time when the status of a postponed recommendation will be active again.
      * @return DateTime|null
     */
@@ -330,6 +343,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
@@ -455,6 +469,14 @@ class RecommendationBase extends Entity implements Parsable
     */
     public function setMaxScore(?float $value): void {
         $this->getBackingStore()->set('maxScore', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

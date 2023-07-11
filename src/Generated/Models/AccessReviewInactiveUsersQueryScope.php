@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewInactiveUsersQueryScope and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new accessReviewInactiveUsersQueryScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateIntervalValue('inactiveDuration', $this->getInactiveDuration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

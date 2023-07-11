@@ -69,6 +69,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
             'isReportToCustomizedEmailAddressEnabled' => fn(ParseNode $n) => $o->setIsReportToCustomizedEmailAddressEnabled($n->getBooleanValue()),
             'isReportToMicrosoftEnabled' => fn(ParseNode $n) => $o->setIsReportToMicrosoftEnabled($n->getBooleanValue()),
             'isReviewEmailNotificationEnabled' => fn(ParseNode $n) => $o->setIsReviewEmailNotificationEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -205,6 +206,18 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -223,6 +236,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('isReportToCustomizedEmailAddressEnabled', $this->getIsReportToCustomizedEmailAddressEnabled());
         $writer->writeBooleanValue('isReportToMicrosoftEnabled', $this->getIsReportToMicrosoftEnabled());
         $writer->writeBooleanValue('isReviewEmailNotificationEnabled', $this->getIsReviewEmailNotificationEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -327,6 +341,14 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     */
     public function setIsReviewEmailNotificationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isReviewEmailNotificationEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

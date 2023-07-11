@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IpSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new IpSecurityProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ipSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -243,6 +248,7 @@ class IpSecurityProfile extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('ipCategories', $this->getIpCategories());
         $writer->writeCollectionOfObjectValues('ipReferenceData', $this->getIpReferenceData());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('riskScore', $this->getRiskScore());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
         $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());

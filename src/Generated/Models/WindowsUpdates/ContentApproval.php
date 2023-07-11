@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ContentApproval extends ComplianceChange implements Parsable 
 {
     /**
-     * Instantiates a new ContentApproval and sets the default values.
+     * Instantiates a new contentApproval and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,7 +74,20 @@ class ContentApproval extends ComplianceChange implements Parsable
             'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([DeployableContent::class, 'createFromDiscriminatorValue'])),
             'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([Deployment::class, 'createFromDiscriminatorValue'])),
             'deploymentSettings' => fn(ParseNode $n) => $o->setDeploymentSettings($n->getObjectValue([DeploymentSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -86,6 +99,7 @@ class ContentApproval extends ComplianceChange implements Parsable
         $writer->writeObjectValue('content', $this->getContent());
         $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
         $writer->writeObjectValue('deploymentSettings', $this->getDeploymentSettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -110,6 +124,14 @@ class ContentApproval extends ComplianceChange implements Parsable
     */
     public function setDeploymentSettings(?DeploymentSettings $value): void {
         $this->getBackingStore()->set('deploymentSettings', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

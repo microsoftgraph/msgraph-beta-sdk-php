@@ -57,6 +57,7 @@ class Command extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'appServiceName' => fn(ParseNode $n) => $o->setAppServiceName($n->getStringValue()),
             'error' => fn(ParseNode $n) => $o->setError($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'packageFamilyName' => fn(ParseNode $n) => $o->setPackageFamilyName($n->getStringValue()),
             'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([PayloadRequest::class, 'createFromDiscriminatorValue'])),
             'permissionTicket' => fn(ParseNode $n) => $o->setPermissionTicket($n->getStringValue()),
@@ -65,6 +66,18 @@ class Command extends Entity implements Parsable
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -159,6 +172,7 @@ class Command extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appServiceName', $this->getAppServiceName());
         $writer->writeStringValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageFamilyName', $this->getPackageFamilyName());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeStringValue('permissionTicket', $this->getPermissionTicket());
@@ -182,6 +196,14 @@ class Command extends Entity implements Parsable
     */
     public function setError(?string $value): void {
         $this->getBackingStore()->set('error', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

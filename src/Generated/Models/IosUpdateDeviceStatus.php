@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosUpdateDeviceStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new IosUpdateDeviceStatus and sets the default values.
+     * Instantiates a new iosUpdateDeviceStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,6 +86,7 @@ class IosUpdateDeviceStatus extends Entity implements Parsable
             'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
             'installStatus' => fn(ParseNode $n) => $o->setInstallStatus($n->getEnumValue(IosUpdatesInstallStatus::class)),
             'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getIntegerValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ComplianceStatus::class)),
@@ -117,6 +118,18 @@ class IosUpdateDeviceStatus extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -203,6 +216,7 @@ class IosUpdateDeviceStatus extends Entity implements Parsable
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeEnumValue('installStatus', $this->getInstallStatus());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeIntegerValue('platform', $this->getPlatform());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -257,6 +271,14 @@ class IosUpdateDeviceStatus extends Entity implements Parsable
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

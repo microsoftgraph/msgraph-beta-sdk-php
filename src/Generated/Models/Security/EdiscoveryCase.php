@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryCase extends EscapedCase implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryCase and sets the default values.
+     * Instantiates a new ediscoveryCase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -91,6 +91,7 @@ class EdiscoveryCase extends EscapedCase implements Parsable
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             'legalHolds' => fn(ParseNode $n) => $o->setLegalHolds($n->getCollectionOfObjectValues([EdiscoveryHoldPolicy::class, 'createFromDiscriminatorValue'])),
             'noncustodialDataSources' => fn(ParseNode $n) => $o->setNoncustodialDataSources($n->getCollectionOfObjectValues([EdiscoveryNoncustodialDataSource::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([CaseOperation::class, 'createFromDiscriminatorValue'])),
             'reviewSets' => fn(ParseNode $n) => $o->setReviewSets($n->getCollectionOfObjectValues([EdiscoveryReviewSet::class, 'createFromDiscriminatorValue'])),
             'searches' => fn(ParseNode $n) => $o->setSearches($n->getCollectionOfObjectValues([EdiscoverySearch::class, 'createFromDiscriminatorValue'])),
@@ -125,6 +126,18 @@ class EdiscoveryCase extends EscapedCase implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'noncustodialDataSources'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -207,6 +220,7 @@ class EdiscoveryCase extends EscapedCase implements Parsable
         $writer->writeStringValue('externalId', $this->getExternalId());
         $writer->writeCollectionOfObjectValues('legalHolds', $this->getLegalHolds());
         $writer->writeCollectionOfObjectValues('noncustodialDataSources', $this->getNoncustodialDataSources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('reviewSets', $this->getReviewSets());
         $writer->writeCollectionOfObjectValues('searches', $this->getSearches());
@@ -260,6 +274,14 @@ class EdiscoveryCase extends EscapedCase implements Parsable
     */
     public function setNoncustodialDataSources(?array $value): void {
         $this->getBackingStore()->set('noncustodialDataSources', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

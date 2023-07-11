@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on a Windows device
+*/
 class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new WindowsManagedAppProtection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsManagedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -380,6 +388,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeStringValue('minimumWipeOsVersion', $this->getMinimumWipeOsVersion());
         $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
         $writer->writeEnumValue('mobileThreatDefenseRemediationAction', $this->getMobileThreatDefenseRemediationAction());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateIntervalValue('periodOfflineBeforeAccessCheck', $this->getPeriodOfflineBeforeAccessCheck());
         $writer->writeDateIntervalValue('periodOfflineBeforeWipeIsEnforced', $this->getPeriodOfflineBeforeWipeIsEnforced());
         $writer->writeBooleanValue('printBlocked', $this->getPrintBlocked());

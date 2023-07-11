@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnPremisesPublishingProfileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesPublishingProfileCollectionResponse and sets the default values.
+     * Instantiates a new onPremisesPublishingProfileCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FileSecurityProfile and sets the default values.
+     * Instantiates a new fileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -129,6 +129,7 @@ class FileSecurityProfile extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setNames($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'tags' => function (ParseNode $n) {
@@ -223,6 +224,18 @@ class FileSecurityProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the riskScore property value. The riskScore property
      * @return string|null
     */
@@ -303,6 +316,7 @@ class FileSecurityProfile extends Entity implements Parsable
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
         $writer->writeCollectionOfObjectValues('malwareStates', $this->getMalwareStates());
         $writer->writeCollectionOfPrimitiveValues('names', $this->getNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('riskScore', $this->getRiskScore());
         $writer->writeIntegerValue('size', $this->getSize());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
@@ -396,6 +410,14 @@ class FileSecurityProfile extends Entity implements Parsable
     */
     public function setNames(?array $value): void {
         $this->getBackingStore()->set('names', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A reference to folder containing apps and weblinks on the Managed Home Screen
+*/
 class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerKioskModeManagedFolderReference and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceOwnerKioskModeManagedFolderReference and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
         parent::serialize($writer);
         $writer->writeStringValue('folderIdentifier', $this->getFolderIdentifier());
         $writer->writeStringValue('folderName', $this->getFolderName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

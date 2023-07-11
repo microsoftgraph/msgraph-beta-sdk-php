@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A complex type to store the product code and version rule data for a Win32 LOB app. This rule is not supported as a requirement rule.
+*/
 class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppProductCodeRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppProductCodeRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,6 +88,7 @@ class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productCode', $this->getProductCode());
         $writer->writeStringValue('productVersion', $this->getProductVersion());
         $writer->writeEnumValue('productVersionOperator', $this->getProductVersionOperator());

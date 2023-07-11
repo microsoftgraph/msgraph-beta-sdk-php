@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebAccount extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new WebAccount and sets the default values.
+     * Instantiates a new webAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,12 +45,25 @@ class WebAccount extends ItemFacet implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'service' => fn(ParseNode $n) => $o->setService($n->getObjectValue([ServiceInformation::class, 'createFromDiscriminatorValue'])),
             'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getStringValue()),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,6 +133,7 @@ class WebAccount extends ItemFacet implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('service', $this->getService());
         $writer->writeStringValue('statusMessage', $this->getStatusMessage());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
@@ -133,6 +147,14 @@ class WebAccount extends ItemFacet implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

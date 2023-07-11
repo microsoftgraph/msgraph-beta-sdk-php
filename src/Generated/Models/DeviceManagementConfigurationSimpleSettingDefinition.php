@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSimpleSettingDefinition and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSimpleSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +33,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the defaultValue property value. Default setting value for this setting
+     * Gets the defaultValue property value. Default setting value for this setting.
      * @return DeviceManagementConfigurationSettingValue|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationSettingValue {
@@ -45,7 +45,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the dependedOnBy property value. list of child settings that depend on this setting
+     * Gets the dependedOnBy property value. list of child settings that depend on this setting.
      * @return array<DeviceManagementConfigurationSettingDependedOnBy>|null
     */
     public function getDependedOnBy(): ?array {
@@ -59,7 +59,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the dependentOn property value. list of parent settings this setting is dependent on
+     * Gets the dependentOn property value. list of parent settings this setting is dependent on.
      * @return array<DeviceManagementConfigurationDependentOn>|null
     */
     public function getDependentOn(): ?array {
@@ -82,12 +82,25 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
             'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'])),
             'dependedOnBy' => fn(ParseNode $n) => $o->setDependedOnBy($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'])),
             'dependentOn' => fn(ParseNode $n) => $o->setDependentOn($n->getCollectionOfObjectValues([DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'valueDefinition' => fn(ParseNode $n) => $o->setValueDefinition($n->getObjectValue([DeviceManagementConfigurationSettingValueDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the valueDefinition property value. Definition of the value for this setting
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the valueDefinition property value. Definition of the value for this setting.
      * @return DeviceManagementConfigurationSettingValueDefinition|null
     */
     public function getValueDefinition(): ?DeviceManagementConfigurationSettingValueDefinition {
@@ -107,11 +120,12 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
         $writer->writeObjectValue('defaultValue', $this->getDefaultValue());
         $writer->writeCollectionOfObjectValues('dependedOnBy', $this->getDependedOnBy());
         $writer->writeCollectionOfObjectValues('dependentOn', $this->getDependentOn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('valueDefinition', $this->getValueDefinition());
     }
 
     /**
-     * Sets the defaultValue property value. Default setting value for this setting
+     * Sets the defaultValue property value. Default setting value for this setting.
      * @param DeviceManagementConfigurationSettingValue|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationSettingValue $value): void {
@@ -119,7 +133,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependedOnBy property value. list of child settings that depend on this setting
+     * Sets the dependedOnBy property value. list of child settings that depend on this setting.
      * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
@@ -127,7 +141,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependentOn property value. list of parent settings this setting is dependent on
+     * Sets the dependentOn property value. list of parent settings this setting is dependent on.
      * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
@@ -135,7 +149,15 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the valueDefinition property value. Definition of the value for this setting
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the valueDefinition property value. Definition of the value for this setting.
      * @param DeviceManagementConfigurationSettingValueDefinition|null $value Value to set for the valueDefinition property.
     */
     public function setValueDefinition(?DeviceManagementConfigurationSettingValueDefinition $value): void {

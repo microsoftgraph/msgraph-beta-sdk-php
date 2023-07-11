@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedDevice extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedDevice and sets the default values.
     */
     public function __construct() {
@@ -1311,6 +1316,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeEnumValue('managementFeatures', $this->getManagementFeatures());
         $writer->writeEnumValue('managementState', $this->getManagementState());
         $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('ownerType', $this->getOwnerType());
         $writer->writeEnumValue('partnerReportedThreatState', $this->getPartnerReportedThreatState());
         $writer->writeEnumValue('processorArchitecture', $this->getProcessorArchitecture());

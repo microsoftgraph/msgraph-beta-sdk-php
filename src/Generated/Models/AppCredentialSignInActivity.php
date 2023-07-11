@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppCredentialSignInActivity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AppCredentialSignInActivity and sets the default values.
+     * Instantiates a new appCredentialSignInActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -100,6 +100,7 @@ class AppCredentialSignInActivity extends Entity implements Parsable
             'keyId' => fn(ParseNode $n) => $o->setKeyId($n->getStringValue()),
             'keyType' => fn(ParseNode $n) => $o->setKeyType($n->getEnumValue(ApplicationKeyType::class)),
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(ApplicationKeyUsage::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
             'servicePrincipalObjectId' => fn(ParseNode $n) => $o->setServicePrincipalObjectId($n->getStringValue()),
             'signInActivity' => fn(ParseNode $n) => $o->setSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
@@ -140,6 +141,18 @@ class AppCredentialSignInActivity extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyUsage'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -192,6 +205,7 @@ class AppCredentialSignInActivity extends Entity implements Parsable
         $writer->writeStringValue('keyId', $this->getKeyId());
         $writer->writeEnumValue('keyType', $this->getKeyType());
         $writer->writeEnumValue('keyUsage', $this->getKeyUsage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeStringValue('servicePrincipalObjectId', $this->getServicePrincipalObjectId());
         $writer->writeObjectValue('signInActivity', $this->getSignInActivity());
@@ -259,6 +273,14 @@ class AppCredentialSignInActivity extends Entity implements Parsable
     */
     public function setKeyUsage(?ApplicationKeyUsage $value): void {
         $this->getBackingStore()->set('keyUsage', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

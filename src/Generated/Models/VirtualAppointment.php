@@ -86,8 +86,21 @@ class VirtualAppointment extends Entity implements Parsable
             'appointmentClients' => fn(ParseNode $n) => $o->setAppointmentClients($n->getCollectionOfObjectValues([VirtualAppointmentUser::class, 'createFromDiscriminatorValue'])),
             'externalAppointmentId' => fn(ParseNode $n) => $o->setExternalAppointmentId($n->getStringValue()),
             'externalAppointmentUrl' => fn(ParseNode $n) => $o->setExternalAppointmentUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([VirtualAppointmentSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,6 +125,7 @@ class VirtualAppointment extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('appointmentClients', $this->getAppointmentClients());
         $writer->writeStringValue('externalAppointmentId', $this->getExternalAppointmentId());
         $writer->writeStringValue('externalAppointmentUrl', $this->getExternalAppointmentUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('settings', $this->getSettings());
     }
 
@@ -145,6 +159,14 @@ class VirtualAppointment extends Entity implements Parsable
     */
     public function setExternalAppointmentUrl(?string $value): void {
         $this->getBackingStore()->set('externalAppointmentUrl', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

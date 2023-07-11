@@ -96,6 +96,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
             'condition' => fn(ParseNode $n) => $o->setCondition($n->getStringValue()),
             'directoryScope' => fn(ParseNode $n) => $o->setDirectoryScope($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'directoryScopeId' => fn(ParseNode $n) => $o->setDirectoryScopeId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'principal' => fn(ParseNode $n) => $o->setPrincipal($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'principalId' => fn(ParseNode $n) => $o->setPrincipalId($n->getStringValue()),
             'principalOrganizationId' => fn(ParseNode $n) => $o->setPrincipalOrganizationId($n->getStringValue()),
@@ -103,6 +104,18 @@ class UnifiedRoleAssignment extends Entity implements Parsable
             'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -188,6 +201,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
         $writer->writeStringValue('condition', $this->getCondition());
         $writer->writeObjectValue('directoryScope', $this->getDirectoryScope());
         $writer->writeStringValue('directoryScopeId', $this->getDirectoryScopeId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalId', $this->getPrincipalId());
         $writer->writeStringValue('principalOrganizationId', $this->getPrincipalOrganizationId());
@@ -234,6 +248,14 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     */
     public function setDirectoryScopeId(?string $value): void {
         $this->getBackingStore()->set('directoryScopeId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

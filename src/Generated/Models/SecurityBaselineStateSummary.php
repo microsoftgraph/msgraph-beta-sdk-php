@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineStateSummary extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new securityBaselineStateSummary and sets the default values.
     */
     public function __construct() {
@@ -132,6 +137,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
         $writer->writeIntegerValue('errorCount', $this->getErrorCount());
         $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
         $writer->writeIntegerValue('notSecureCount', $this->getNotSecureCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('secureCount', $this->getSecureCount());
         $writer->writeIntegerValue('unknownCount', $this->getUnknownCount());
     }

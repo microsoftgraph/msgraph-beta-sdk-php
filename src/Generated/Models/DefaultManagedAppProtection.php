@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy
+*/
 class DefaultManagedAppProtection extends ManagedAppProtection implements Parsable 
 {
     /**
-     * Instantiates a new DefaultManagedAppProtection and sets the default values.
+     * Instantiates a new defaultManagedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -503,6 +506,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
             'minimumWipeCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumWipeCompanyPortalVersion($n->getStringValue()),
             'minimumWipePatchVersion' => fn(ParseNode $n) => $o->setMinimumWipePatchVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'protectInboundDataFromUnknownSources' => fn(ParseNode $n) => $o->setProtectInboundDataFromUnknownSources($n->getBooleanValue()),
             'requireClass3Biometrics' => fn(ParseNode $n) => $o->setRequireClass3Biometrics($n->getBooleanValue()),
             'requiredAndroidSafetyNetAppsVerificationType' => fn(ParseNode $n) => $o->setRequiredAndroidSafetyNetAppsVerificationType($n->getEnumValue(AndroidManagedAppSafetyNetAppsVerificationType::class)),
@@ -646,6 +650,18 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWipeSdkVersion'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -819,6 +835,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
         $writer->writeStringValue('minimumWipeCompanyPortalVersion', $this->getMinimumWipeCompanyPortalVersion());
         $writer->writeStringValue('minimumWipePatchVersion', $this->getMinimumWipePatchVersion());
         $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('protectInboundDataFromUnknownSources', $this->getProtectInboundDataFromUnknownSources());
         $writer->writeBooleanValue('requireClass3Biometrics', $this->getRequireClass3Biometrics());
         $writer->writeEnumValue('requiredAndroidSafetyNetAppsVerificationType', $this->getRequiredAndroidSafetyNetAppsVerificationType());
@@ -1189,6 +1206,14 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function setMinimumWipeSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

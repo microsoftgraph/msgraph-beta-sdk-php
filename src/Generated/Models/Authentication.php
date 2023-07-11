@@ -64,6 +64,7 @@ class Authentication extends Entity implements Parsable
             'fido2Methods' => fn(ParseNode $n) => $o->setFido2Methods($n->getCollectionOfObjectValues([Fido2AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'methods' => fn(ParseNode $n) => $o->setMethods($n->getCollectionOfObjectValues([AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'microsoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([MicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([LongRunningOperation::class, 'createFromDiscriminatorValue'])),
             'passwordlessMicrosoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -101,6 +102,18 @@ class Authentication extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAuthenticatorMethods'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -223,6 +236,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('fido2Methods', $this->getFido2Methods());
         $writer->writeCollectionOfObjectValues('methods', $this->getMethods());
         $writer->writeCollectionOfObjectValues('microsoftAuthenticatorMethods', $this->getMicrosoftAuthenticatorMethods());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('passwordlessMicrosoftAuthenticatorMethods', $this->getPasswordlessMicrosoftAuthenticatorMethods());
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
@@ -263,6 +277,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setMicrosoftAuthenticatorMethods(?array $value): void {
         $this->getBackingStore()->set('microsoftAuthenticatorMethods', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

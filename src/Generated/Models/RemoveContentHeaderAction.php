@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RemoveContentHeaderAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new RemoveContentHeaderAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new removeContentHeaderAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,6 +69,7 @@ class RemoveContentHeaderAction extends InformationProtectionAction implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('uiElementNames', $this->getUiElementNames());
     }
 

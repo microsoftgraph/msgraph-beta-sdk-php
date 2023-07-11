@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PersonAnnotation extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonAnnotation and sets the default values.
+     * Instantiates a new personAnnotation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,8 +58,21 @@ class PersonAnnotation extends ItemFacet implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -82,6 +95,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('detail', $this->getDetail());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
     }
 
@@ -99,6 +113,14 @@ class PersonAnnotation extends ItemFacet implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

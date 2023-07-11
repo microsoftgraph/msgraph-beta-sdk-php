@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Android for Work (AFW) Apps.
+*/
 class AndroidForWorkApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidForWorkApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -108,6 +116,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appIdentifier', $this->getAppIdentifier());
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
         $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());

@@ -60,11 +60,24 @@ class InformationProtection extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'bitlocker' => fn(ParseNode $n) => $o->setBitlocker($n->getObjectValue([Bitlocker::class, 'createFromDiscriminatorValue'])),
             'dataLossPreventionPolicies' => fn(ParseNode $n) => $o->setDataLossPreventionPolicies($n->getCollectionOfObjectValues([DataLossPreventionPolicy::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([InformationProtectionPolicy::class, 'createFromDiscriminatorValue'])),
             'sensitivityLabels' => fn(ParseNode $n) => $o->setSensitivityLabels($n->getCollectionOfObjectValues([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
             'sensitivityPolicySettings' => fn(ParseNode $n) => $o->setSensitivityPolicySettings($n->getObjectValue([SensitivityPolicySettings::class, 'createFromDiscriminatorValue'])),
             'threatAssessmentRequests' => fn(ParseNode $n) => $o->setThreatAssessmentRequests($n->getCollectionOfObjectValues([ThreatAssessmentRequest::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -127,6 +140,7 @@ class InformationProtection extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('bitlocker', $this->getBitlocker());
         $writer->writeCollectionOfObjectValues('dataLossPreventionPolicies', $this->getDataLossPreventionPolicies());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
         $writer->writeObjectValue('sensitivityPolicySettings', $this->getSensitivityPolicySettings());
@@ -147,6 +161,14 @@ class InformationProtection extends Entity implements Parsable
     */
     public function setDataLossPreventionPolicies(?array $value): void {
         $this->getBackingStore()->set('dataLossPreventionPolicies', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

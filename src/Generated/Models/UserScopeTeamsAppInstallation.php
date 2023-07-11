@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Parsable 
 {
     /**
-     * Instantiates a new UserScopeTeamsAppInstallation and sets the default values.
+     * Instantiates a new userScopeTeamsAppInstallation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +45,20 @@ class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Pars
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'chat' => fn(ParseNode $n) => $o->setChat($n->getObjectValue([Chat::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -55,6 +68,7 @@ class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('chat', $this->getChat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +77,14 @@ class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Pars
     */
     public function setChat(?Chat $value): void {
         $this->getBackingStore()->set('chat', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

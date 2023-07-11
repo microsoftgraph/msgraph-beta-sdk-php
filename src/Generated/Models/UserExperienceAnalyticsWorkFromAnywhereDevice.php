@@ -182,6 +182,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getStringValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osCheckFailed' => fn(ParseNode $n) => $o->setOsCheckFailed($n->getBooleanValue()),
             'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
@@ -261,6 +262,18 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -501,6 +514,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
         $writer->writeStringValue('managedBy', $this->getManagedBy());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('osCheckFailed', $this->getOsCheckFailed());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
@@ -647,6 +661,14 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows81GeneralConfiguration resource.
+*/
 class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows81GeneralConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows81GeneralConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -517,6 +525,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeBooleanValue('cellularBlockDataRoaming', $this->getCellularBlockDataRoaming());
         $writer->writeBooleanValue('diagnosticsBlockDataSubmission', $this->getDiagnosticsBlockDataSubmission());
         $writer->writeEnumValue('minimumAutoInstallClassification', $this->getMinimumAutoInstallClassification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passwordBlockPicturePasswordAndPin', $this->getPasswordBlockPicturePasswordAndPin());
         $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());
         $writer->writeIntegerValue('passwordMinimumCharacterSetCount', $this->getPasswordMinimumCharacterSetCount());

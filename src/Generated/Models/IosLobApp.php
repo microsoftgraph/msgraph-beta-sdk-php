@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for iOS Line Of Business apps.
+*/
 class IosLobApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new IosLobApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,6 +133,7 @@ class IosLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('versionNumber', $this->getVersionNumber());
     }
 

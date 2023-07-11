@@ -94,6 +94,7 @@ class LabelsRoot extends Entity implements Parsable
             'citations' => fn(ParseNode $n) => $o->setCitations($n->getCollectionOfObjectValues([CitationTemplate::class, 'createFromDiscriminatorValue'])),
             'departments' => fn(ParseNode $n) => $o->setDepartments($n->getCollectionOfObjectValues([DepartmentTemplate::class, 'createFromDiscriminatorValue'])),
             'filePlanReferences' => fn(ParseNode $n) => $o->setFilePlanReferences($n->getCollectionOfObjectValues([FilePlanReferenceTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'retentionLabels' => fn(ParseNode $n) => $o->setRetentionLabels($n->getCollectionOfObjectValues([RetentionLabel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -110,6 +111,18 @@ class LabelsRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filePlanReferences'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -137,6 +150,7 @@ class LabelsRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('citations', $this->getCitations());
         $writer->writeCollectionOfObjectValues('departments', $this->getDepartments());
         $writer->writeCollectionOfObjectValues('filePlanReferences', $this->getFilePlanReferences());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('retentionLabels', $this->getRetentionLabels());
     }
 
@@ -178,6 +192,14 @@ class LabelsRoot extends Entity implements Parsable
     */
     public function setFilePlanReferences(?array $value): void {
         $this->getBackingStore()->set('filePlanReferences', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

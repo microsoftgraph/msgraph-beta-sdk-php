@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Policy used to configure detailed management settings for a specified set of apps
+*/
 class ManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppProtection and sets the default values.
+     * Instantiates a new managedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -262,6 +265,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'mobileThreatDefensePartnerPriority' => fn(ParseNode $n) => $o->setMobileThreatDefensePartnerPriority($n->getEnumValue(MobileThreatDefensePartnerPriority::class)),
             'mobileThreatDefenseRemediationAction' => fn(ParseNode $n) => $o->setMobileThreatDefenseRemediationAction($n->getEnumValue(ManagedAppRemediationAction::class)),
             'notificationRestriction' => fn(ParseNode $n) => $o->setNotificationRestriction($n->getEnumValue(ManagedAppNotificationRestriction::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizationalCredentialsRequired' => fn(ParseNode $n) => $o->setOrganizationalCredentialsRequired($n->getBooleanValue()),
             'periodBeforePinReset' => fn(ParseNode $n) => $o->setPeriodBeforePinReset($n->getDateIntervalValue()),
             'periodOfflineBeforeAccessCheck' => fn(ParseNode $n) => $o->setPeriodOfflineBeforeAccessCheck($n->getDateIntervalValue()),
@@ -506,6 +510,18 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the organizationalCredentialsRequired property value. Indicates whether organizational credentials are required for app use.
      * @return bool|null
     */
@@ -689,6 +705,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeEnumValue('mobileThreatDefensePartnerPriority', $this->getMobileThreatDefensePartnerPriority());
         $writer->writeEnumValue('mobileThreatDefenseRemediationAction', $this->getMobileThreatDefenseRemediationAction());
         $writer->writeEnumValue('notificationRestriction', $this->getNotificationRestriction());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('organizationalCredentialsRequired', $this->getOrganizationalCredentialsRequired());
         $writer->writeDateIntervalValue('periodBeforePinReset', $this->getPeriodBeforePinReset());
         $writer->writeDateIntervalValue('periodOfflineBeforeAccessCheck', $this->getPeriodOfflineBeforeAccessCheck());
@@ -973,6 +990,14 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setNotificationRestriction(?ManagedAppNotificationRestriction $value): void {
         $this->getBackingStore()->set('notificationRestriction', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

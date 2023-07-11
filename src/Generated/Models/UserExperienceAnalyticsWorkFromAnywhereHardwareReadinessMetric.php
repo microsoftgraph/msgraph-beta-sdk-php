@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics hardware readiness entity contains account level information about hardware blockers for windows upgrade.
+*/
 class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -183,6 +191,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('osCheckFailedPercentage', $this->getOsCheckFailedPercentage());
         $writer->writeFloatValue('processor64BitCheckFailedPercentage', $this->getProcessor64BitCheckFailedPercentage());
         $writer->writeFloatValue('processorCoreCountCheckFailedPercentage', $this->getProcessorCoreCountCheckFailedPercentage());

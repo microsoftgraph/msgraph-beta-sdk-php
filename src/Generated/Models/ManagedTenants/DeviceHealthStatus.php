@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthStatus extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceHealthStatus and sets the default values.
     */
     public function __construct() {
@@ -245,6 +250,7 @@ class DeviceHealthStatus extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('healthStatus', $this->getHealthStatus());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('primaryDiskType', $this->getPrimaryDiskType());
         $writer->writeIntegerValue('restartCount', $this->getRestartCount());

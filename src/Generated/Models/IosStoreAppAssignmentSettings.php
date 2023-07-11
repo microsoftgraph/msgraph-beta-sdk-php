@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an iOS Store mobile app to a group.
+*/
 class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new IosStoreAppAssignmentSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,6 +102,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isRemovable', $this->getIsRemovable());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
         $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
         $writer->writeStringValue('vpnConfigurationId', $this->getVpnConfigurationId());

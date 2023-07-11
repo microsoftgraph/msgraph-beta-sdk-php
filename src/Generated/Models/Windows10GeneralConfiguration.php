@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10GeneralConfiguration resource.
+*/
 class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10GeneralConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10GeneralConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -3970,6 +3978,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeBooleanValue('networkProxyDisableAutoDetect', $this->getNetworkProxyDisableAutoDetect());
         $writer->writeObjectValue('networkProxyServer', $this->getNetworkProxyServer());
         $writer->writeBooleanValue('nfcBlocked', $this->getNfcBlocked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('oneDriveDisableFileSync', $this->getOneDriveDisableFileSync());
         $writer->writeBooleanValue('passwordBlockSimple', $this->getPasswordBlockSimple());
         $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());

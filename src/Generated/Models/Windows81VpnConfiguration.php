@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing the configurations in this profile you can instruct the Windows 8.1 (and later) devices to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
+*/
 class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows81VpnConfiguration and sets the default values.
+     * Instantiates a new windows81VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS Software Update Configuration
+*/
 class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSSoftwareUpdateConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSSoftwareUpdateConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -167,6 +175,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
         $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->getCustomUpdateTimeWindows());
         $writer->writeEnumValue('firmwareUpdateBehavior', $this->getFirmwareUpdateBehavior());
         $writer->writeIntegerValue('maxUserDeferralsCount', $this->getMaxUserDeferralsCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
         $writer->writeIntegerValue('updateTimeWindowUtcOffsetInMinutes', $this->getUpdateTimeWindowUtcOffsetInMinutes());

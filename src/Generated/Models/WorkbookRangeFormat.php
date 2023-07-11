@@ -63,6 +63,7 @@ class WorkbookRangeFormat extends Entity implements Parsable
             'fill' => fn(ParseNode $n) => $o->setFill($n->getObjectValue([WorkbookRangeFill::class, 'createFromDiscriminatorValue'])),
             'font' => fn(ParseNode $n) => $o->setFont($n->getObjectValue([WorkbookRangeFont::class, 'createFromDiscriminatorValue'])),
             'horizontalAlignment' => fn(ParseNode $n) => $o->setHorizontalAlignment($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'protection' => fn(ParseNode $n) => $o->setProtection($n->getObjectValue([WorkbookFormatProtection::class, 'createFromDiscriminatorValue'])),
             'rowHeight' => fn(ParseNode $n) => $o->setRowHeight($n->getFloatValue()),
             'verticalAlignment' => fn(ParseNode $n) => $o->setVerticalAlignment($n->getStringValue()),
@@ -104,6 +105,18 @@ class WorkbookRangeFormat extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'horizontalAlignment'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -165,6 +178,7 @@ class WorkbookRangeFormat extends Entity implements Parsable
         $writer->writeObjectValue('fill', $this->getFill());
         $writer->writeObjectValue('font', $this->getFont());
         $writer->writeStringValue('horizontalAlignment', $this->getHorizontalAlignment());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('protection', $this->getProtection());
         $writer->writeFloatValue('rowHeight', $this->getRowHeight());
         $writer->writeStringValue('verticalAlignment', $this->getVerticalAlignment());
@@ -209,6 +223,14 @@ class WorkbookRangeFormat extends Entity implements Parsable
     */
     public function setHorizontalAlignment(?string $value): void {
         $this->getBackingStore()->set('horizontalAlignment', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

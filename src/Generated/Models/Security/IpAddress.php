@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpAddress extends Host implements Parsable 
 {
     /**
-     * Instantiates a new IpAddress and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ipAddress and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -97,6 +102,7 @@ class IpAddress extends Host implements Parsable
         $writer->writeStringValue('countryOrRegion', $this->getCountryOrRegion());
         $writer->writeStringValue('hostingProvider', $this->getHostingProvider());
         $writer->writeStringValue('netblock', $this->getNetblock());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

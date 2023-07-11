@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Mac OS SCEP certificate profile.
+*/
 class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new MacOSScepCertificateProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -221,6 +229,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
         $writer->writeEnumValue('keySize', $this->getKeySize());
         $writer->writeEnumValue('keyUsage', $this->getKeyUsage());
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('rootCertificate', $this->getRootCertificate());
         $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->getScepServerUrls());
         $writer->writeStringValue('subjectAlternativeNameFormatString', $this->getSubjectAlternativeNameFormatString());

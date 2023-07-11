@@ -75,6 +75,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'loginStatus' => fn(ParseNode $n) => $o->setLoginStatus($n->getObjectValue([TeamworkLoginStatus::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'peripheralsHealth' => fn(ParseNode $n) => $o->setPeripheralsHealth($n->getObjectValue([TeamworkPeripheralsHealth::class, 'createFromDiscriminatorValue'])),
             'softwareUpdateHealth' => fn(ParseNode $n) => $o->setSoftwareUpdateHealth($n->getObjectValue([TeamworkSoftwareUpdateHealth::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -129,6 +130,18 @@ class TeamworkDeviceHealth extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the peripheralsHealth property value. Health details about all peripherals (for example, speaker and microphone) attached to a device.
      * @return TeamworkPeripheralsHealth|null
     */
@@ -165,6 +178,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('loginStatus', $this->getLoginStatus());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('peripheralsHealth', $this->getPeripheralsHealth());
         $writer->writeObjectValue('softwareUpdateHealth', $this->getSoftwareUpdateHealth());
     }
@@ -223,6 +237,14 @@ class TeamworkDeviceHealth extends Entity implements Parsable
     */
     public function setLoginStatus(?TeamworkLoginStatus $value): void {
         $this->getBackingStore()->set('loginStatus', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

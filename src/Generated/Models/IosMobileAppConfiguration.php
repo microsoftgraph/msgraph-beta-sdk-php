@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Contains properties, inherited properties and actions for iOS mobile app configurations.
+*/
 class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosMobileAppConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +80,7 @@ class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration impl
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('encodedSettingXml', $this->getEncodedSettingXml());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
     }
 

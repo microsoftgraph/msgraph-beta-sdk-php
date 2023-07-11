@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends DeviceManagementConfigurationSimpleSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSimpleSettingCollectionDefinition and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSimpleSettingCollectionDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
         return array_merge(parent::getFieldDeserializers(), [
             'maximumCount' => fn(ParseNode $n) => $o->setMaximumCount($n->getIntegerValue()),
             'minimumCount' => fn(ParseNode $n) => $o->setMinimumCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -61,6 +62,18 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -68,6 +81,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumCount', $this->getMaximumCount());
         $writer->writeIntegerValue('minimumCount', $this->getMinimumCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -84,6 +98,14 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     */
     public function setMinimumCount(?int $value): void {
         $this->getBackingStore()->set('minimumCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificationRecipientScope implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewNotificationRecipientQueryScope and sets the default values.
+     * Instantiates a new accessReviewNotificationRecipientQueryScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,6 +32,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'query' => fn(ParseNode $n) => $o->setQuery($n->getStringValue()),
             'queryRoot' => fn(ParseNode $n) => $o->setQueryRoot($n->getStringValue()),
             'queryType' => fn(ParseNode $n) => $o->setQueryType($n->getStringValue()),
@@ -39,7 +40,19 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Gets the query property value. This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the query property value. Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
      * @return string|null
     */
     public function getQuery(): ?string {
@@ -51,7 +64,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Gets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+     * Gets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
      * @return string|null
     */
     public function getQueryRoot(): ?string {
@@ -80,13 +93,22 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('query', $this->getQuery());
         $writer->writeStringValue('queryRoot', $this->getQueryRoot());
         $writer->writeStringValue('queryType', $this->getQueryType());
     }
 
     /**
-     * Sets the query property value. This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the query property value. Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
      * @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value): void {
@@ -94,7 +116,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+     * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
      * @param string|null $value Value to set for the queryRoot property.
     */
     public function setQueryRoot(?string $value): void {

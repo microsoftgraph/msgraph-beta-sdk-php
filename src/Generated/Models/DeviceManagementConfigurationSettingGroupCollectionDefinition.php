@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingGroupCollectionDefinition extends DeviceManagementConfigurationSettingGroupDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingGroupCollectionDefinition and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationSettingGroupCollectionDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumCount', $this->getMaximumCount());
         $writer->writeIntegerValue('minimumCount', $this->getMinimumCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Compliance management partner for all platforms
+*/
 class ComplianceManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ComplianceManagementPartner and sets the default values.
+     * Instantiates a new complianceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +82,7 @@ class ComplianceManagementPartner extends Entity implements Parsable
             'lastHeartbeatDateTime' => fn(ParseNode $n) => $o->setLastHeartbeatDateTime($n->getDateTimeValue()),
             'macOsEnrollmentAssignments' => fn(ParseNode $n) => $o->setMacOsEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
             'macOsOnboarded' => fn(ParseNode $n) => $o->setMacOsOnboarded($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'partnerState' => fn(ParseNode $n) => $o->setPartnerState($n->getEnumValue(DeviceManagementPartnerTenantState::class)),
         ]);
     }
@@ -148,6 +152,18 @@ class ComplianceManagementPartner extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the partnerState property value. Partner state of this tenant.
      * @return DeviceManagementPartnerTenantState|null
     */
@@ -173,6 +189,7 @@ class ComplianceManagementPartner extends Entity implements Parsable
         $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->getLastHeartbeatDateTime());
         $writer->writeCollectionOfObjectValues('macOsEnrollmentAssignments', $this->getMacOsEnrollmentAssignments());
         $writer->writeBooleanValue('macOsOnboarded', $this->getMacOsOnboarded());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
     }
 
@@ -238,6 +255,14 @@ class ComplianceManagementPartner extends Entity implements Parsable
     */
     public function setMacOsOnboarded(?bool $value): void {
         $this->getBackingStore()->set('macOsOnboarded', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

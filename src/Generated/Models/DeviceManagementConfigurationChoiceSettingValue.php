@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Setting value
+*/
 class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationChoiceSettingValue and sets the default values.
+     * Instantiates a new deviceManagementConfigurationChoiceSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -48,8 +51,21 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -71,6 +87,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('value', $this->getValue());
     }
 
@@ -80,6 +97,14 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

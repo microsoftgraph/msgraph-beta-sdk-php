@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceManagementConfigurationSettingApplicability implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationWindowsSettingApplicability and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationWindowsSettingApplicability and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,6 +130,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
         $writer->writeStringValue('configurationServiceProviderVersion', $this->getConfigurationServiceProviderVersion());
         $writer->writeStringValue('maximumSupportedVersion', $this->getMaximumSupportedVersion());
         $writer->writeStringValue('minimumSupportedVersion', $this->getMinimumSupportedVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('requiredAzureAdTrustType', $this->getRequiredAzureAdTrustType());
         $writer->writeBooleanValue('requiresAzureAd', $this->getRequiresAzureAd());
         $writer->writeCollectionOfEnumValues('windowsSkus', $this->getWindowsSkus());

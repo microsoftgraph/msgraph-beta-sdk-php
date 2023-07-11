@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents an intent to apply settings to a device
+*/
 class DeviceManagementIntent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementIntent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementIntent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -268,6 +276,7 @@ class DeviceManagementIntent extends Entity implements Parsable
         $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
         $writer->writeBooleanValue('isMigratingToConfigurationPolicy', $this->getIsMigratingToConfigurationPolicy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
         $writer->writeStringValue('templateId', $this->getTemplateId());

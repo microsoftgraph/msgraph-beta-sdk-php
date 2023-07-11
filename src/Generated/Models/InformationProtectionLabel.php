@@ -59,6 +59,7 @@ class InformationProtectionLabel extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([ParentLabelDetails::class, 'createFromDiscriminatorValue'])),
             'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getIntegerValue()),
             'tooltip' => fn(ParseNode $n) => $o->setTooltip($n->getStringValue()),
@@ -87,6 +88,18 @@ class InformationProtectionLabel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -135,6 +148,7 @@ class InformationProtectionLabel extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBooleanValue('isActive', $this->getIsActive());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
         $writer->writeIntegerValue('sensitivity', $this->getSensitivity());
         $writer->writeStringValue('tooltip', $this->getTooltip());
@@ -170,6 +184,14 @@ class InformationProtectionLabel extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

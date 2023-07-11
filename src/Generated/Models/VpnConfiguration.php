@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Base VPN Configuration profile.
+*/
 class VpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new VpnConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new vpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -118,6 +126,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
         $writer->writeStringValue('connectionName', $this->getConnectionName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('realm', $this->getRealm());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeCollectionOfObjectValues('servers', $this->getServers());

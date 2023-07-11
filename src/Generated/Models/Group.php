@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Group extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new Group and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new group and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1208,6 +1213,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeStringValue('membershipRuleProcessingState', $this->getMembershipRuleProcessingState());
         $writer->writeObjectValue('membershipRuleProcessingStatus', $this->getMembershipRuleProcessingStatus());
         $writer->writeCollectionOfObjectValues('membersWithLicenseErrors', $this->getMembersWithLicenseErrors());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeStringValue('onPremisesDomainName', $this->getOnPremisesDomainName());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());

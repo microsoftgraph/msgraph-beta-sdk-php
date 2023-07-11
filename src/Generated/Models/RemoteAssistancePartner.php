@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
+*/
 class RemoteAssistancePartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteAssistancePartner and sets the default values.
+     * Instantiates a new remoteAssistancePartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +49,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onboardingRequestExpiryDateTime' => fn(ParseNode $n) => $o->setOnboardingRequestExpiryDateTime($n->getDateTimeValue()),
             'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(RemoteAssistanceOnboardingStatus::class)),
             'onboardingUrl' => fn(ParseNode $n) => $o->setOnboardingUrl($n->getStringValue()),
@@ -62,6 +66,18 @@ class RemoteAssistancePartner extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectionDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,6 +124,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('onboardingRequestExpiryDateTime', $this->getOnboardingRequestExpiryDateTime());
         $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
         $writer->writeStringValue('onboardingUrl', $this->getOnboardingUrl());
@@ -127,6 +144,14 @@ class RemoteAssistancePartner extends Entity implements Parsable
     */
     public function setLastConnectionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastConnectionDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

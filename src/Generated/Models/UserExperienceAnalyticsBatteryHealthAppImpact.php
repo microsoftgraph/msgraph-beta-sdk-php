@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
     */
     public function __construct() {
@@ -127,6 +132,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
         $writer->writeStringValue('appPublisher', $this->getAppPublisher());
         $writer->writeFloatValue('batteryUsagePercentage', $this->getBatteryUsagePercentage());
         $writer->writeBooleanValue('isForegroundApp', $this->getIsForegroundApp());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

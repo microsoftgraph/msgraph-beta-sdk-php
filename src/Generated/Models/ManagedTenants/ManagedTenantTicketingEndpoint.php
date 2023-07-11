@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantTicketingEndpoint extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedTenantTicketingEndpoint and sets the default values.
     */
     public function __construct() {
@@ -139,6 +144,7 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phoneNumber', $this->getPhoneNumber());
     }
 

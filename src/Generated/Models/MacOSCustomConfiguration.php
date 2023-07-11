@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
+*/
 class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSCustomConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSCustomConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +103,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('payload', $this->getPayload());
         $writer->writeStringValue('payloadFileName', $this->getPayloadFileName());
         $writer->writeStringValue('payloadName', $this->getPayloadName());

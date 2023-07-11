@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint that enforces a particular required setting that is not null/undefined/empty string/not configured
+*/
 class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingRequiredConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingRequiredConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('notConfiguredValue', $this->getNotConfiguredValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

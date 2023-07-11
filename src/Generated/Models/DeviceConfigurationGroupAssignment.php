@@ -60,8 +60,21 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'deviceConfiguration' => fn(ParseNode $n) => $o->setDeviceConfiguration($n->getObjectValue([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
             'excludeGroup' => fn(ParseNode $n) => $o->setExcludeGroup($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'targetGroupId' => fn(ParseNode $n) => $o->setTargetGroupId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,6 +97,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('deviceConfiguration', $this->getDeviceConfiguration());
         $writer->writeBooleanValue('excludeGroup', $this->getExcludeGroup());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 
@@ -101,6 +115,14 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
     */
     public function setExcludeGroup(?bool $value): void {
         $this->getBackingStore()->set('excludeGroup', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

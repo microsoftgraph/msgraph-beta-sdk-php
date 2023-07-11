@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddHeader extends MarkContent implements Parsable 
 {
     /**
-     * Instantiates a new AddHeader and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new addHeader and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class AddHeader extends MarkContent implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('alignment', $this->getAlignment());
         $writer->writeIntegerValue('margin', $this->getMargin());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource.
+*/
 class Windows10SecureAssessmentConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10SecureAssessmentConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10SecureAssessmentConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -153,6 +161,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
         $writer->writeEnumValue('configurationAccountType', $this->getConfigurationAccountType());
         $writer->writeStringValue('launchUri', $this->getLaunchUri());
         $writer->writeStringValue('localGuestAccountName', $this->getLocalGuestAccountName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

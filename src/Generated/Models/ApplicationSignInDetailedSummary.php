@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationSignInDetailedSummary and sets the default values.
+     * Instantiates a new applicationSignInDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,9 +71,22 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
             'aggregatedEventDateTime' => fn(ParseNode $n) => $o->setAggregatedEventDateTime($n->getDateTimeValue()),
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'signInCount' => fn(ParseNode $n) => $o->setSignInCount($n->getIntegerValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -109,6 +122,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
         $writer->writeDateTimeValue('aggregatedEventDateTime', $this->getAggregatedEventDateTime());
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('signInCount', $this->getSignInCount());
         $writer->writeObjectValue('status', $this->getStatus());
     }
@@ -135,6 +149,14 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

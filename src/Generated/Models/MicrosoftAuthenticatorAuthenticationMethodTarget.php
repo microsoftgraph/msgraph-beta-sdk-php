@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodTarget and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftAuthenticatorAuthenticationMethodTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('authenticationMode', $this->getAuthenticationMode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

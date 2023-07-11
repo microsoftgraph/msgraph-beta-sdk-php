@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedEmailDomainInvitation extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new sharedEmailDomainInvitation and sets the default values.
     */
     public function __construct() {
@@ -83,6 +88,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
         $writer->writeDateTimeValue('expiryTime', $this->getExpiryTime());
         $writer->writeStringValue('invitationDomain', $this->getInvitationDomain());
         $writer->writeStringValue('invitationStatus', $this->getInvitationStatus());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

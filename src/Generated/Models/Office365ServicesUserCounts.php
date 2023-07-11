@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365ServicesUserCounts extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Office365ServicesUserCounts and sets the default values.
+     * Instantiates a new office365ServicesUserCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +58,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'exchangeActive' => fn(ParseNode $n) => $o->setExchangeActive($n->getIntegerValue()),
             'exchangeInactive' => fn(ParseNode $n) => $o->setExchangeInactive($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'office365Active' => fn(ParseNode $n) => $o->setOffice365Active($n->getIntegerValue()),
             'office365Inactive' => fn(ParseNode $n) => $o->setOffice365Inactive($n->getIntegerValue()),
             'oneDriveActive' => fn(ParseNode $n) => $o->setOneDriveActive($n->getIntegerValue()),
@@ -73,6 +74,18 @@ class Office365ServicesUserCounts extends Entity implements Parsable
             'yammerActive' => fn(ParseNode $n) => $o->setYammerActive($n->getIntegerValue()),
             'yammerInactive' => fn(ParseNode $n) => $o->setYammerInactive($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -251,6 +264,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('exchangeActive', $this->getExchangeActive());
         $writer->writeIntegerValue('exchangeInactive', $this->getExchangeInactive());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('office365Active', $this->getOffice365Active());
         $writer->writeIntegerValue('office365Inactive', $this->getOffice365Inactive());
         $writer->writeIntegerValue('oneDriveActive', $this->getOneDriveActive());
@@ -281,6 +295,14 @@ class Office365ServicesUserCounts extends Entity implements Parsable
     */
     public function setExchangeInactive(?int $value): void {
         $this->getBackingStore()->set('exchangeInactive', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

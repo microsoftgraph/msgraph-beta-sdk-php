@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * UnsupportedDeviceConfiguration is used when an entity cannot be mapped to another model-compliant subtype of deviceConfiguration.
+*/
 class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new UnsupportedDeviceConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new unsupportedDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +79,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('details', $this->getDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originalEntityTypeName', $this->getOriginalEntityTypeName());
     }
 

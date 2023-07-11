@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MediaPrompt extends Prompt implements Parsable 
 {
     /**
-     * Instantiates a new MediaPrompt and sets the default values.
+     * Instantiates a new mediaPrompt and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +34,7 @@ class MediaPrompt extends Prompt implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'loop' => fn(ParseNode $n) => $o->setLoop($n->getIntegerValue()),
             'mediaInfo' => fn(ParseNode $n) => $o->setMediaInfo($n->getObjectValue([MediaInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +63,18 @@ class MediaPrompt extends Prompt implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +82,7 @@ class MediaPrompt extends Prompt implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('loop', $this->getLoop());
         $writer->writeObjectValue('mediaInfo', $this->getMediaInfo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +99,14 @@ class MediaPrompt extends Prompt implements Parsable
     */
     public function setMediaInfo(?MediaInfo $value): void {
         $this->getBackingStore()->set('mediaInfo', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

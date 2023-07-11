@@ -46,6 +46,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
             'linkedEligibleRoleAssignmentId' => fn(ParseNode $n) => $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reason' => fn(ParseNode $n) => $o->setReason($n->getStringValue()),
             'requestedDateTime' => fn(ParseNode $n) => $o->setRequestedDateTime($n->getDateTimeValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
@@ -70,6 +71,18 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'linkedEligibleRoleAssignmentId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -212,6 +225,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('assignmentState', $this->getAssignmentState());
         $writer->writeStringValue('linkedEligibleRoleAssignmentId', $this->getLinkedEligibleRoleAssignmentId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('reason', $this->getReason());
         $writer->writeDateTimeValue('requestedDateTime', $this->getRequestedDateTime());
         $writer->writeObjectValue('resource', $this->getResource());
@@ -239,6 +253,14 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
     */
     public function setLinkedEligibleRoleAssignmentId(?string $value): void {
         $this->getBackingStore()->set('linkedEligibleRoleAssignmentId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

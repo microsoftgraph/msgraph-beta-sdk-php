@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StandardWebPart extends WebPart implements Parsable 
 {
     /**
-     * Instantiates a new StandardWebPart and sets the default values.
+     * Instantiates a new standardWebPart and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,12 +45,25 @@ class StandardWebPart extends WebPart implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([WebPartData::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'webPartType' => fn(ParseNode $n) => $o->setWebPartType($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the webPartType property value. A Guid which indicates the type of the webParts
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the webPartType property value. A Guid that indicates the webPart type.
      * @return string|null
     */
     public function getWebPartType(): ?string {
@@ -68,6 +81,7 @@ class StandardWebPart extends WebPart implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('data', $this->getData());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('webPartType', $this->getWebPartType());
     }
 
@@ -80,7 +94,15 @@ class StandardWebPart extends WebPart implements Parsable
     }
 
     /**
-     * Sets the webPartType property value. A Guid which indicates the type of the webParts
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the webPartType property value. A Guid that indicates the webPart type.
      * @param string|null $value Value to set for the webPartType property.
     */
     public function setWebPartType(?string $value): void {

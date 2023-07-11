@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties used to assign an Android Managed Store mobile app to a group.
+*/
 class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppAssignmentSettings and sets the default values.
+     * Instantiates a new androidManagedStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,7 +71,20 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
                 $this->setAndroidManagedStoreAppTrackIds($val);
             },
             'autoUpdateMode' => fn(ParseNode $n) => $o->setAutoUpdateMode($n->getEnumValue(AndroidManagedStoreAutoUpdateMode::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -79,6 +95,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('androidManagedStoreAppTrackIds', $this->getAndroidManagedStoreAppTrackIds());
         $writer->writeEnumValue('autoUpdateMode', $this->getAutoUpdateMode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -95,6 +112,14 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     */
     public function setAutoUpdateMode(?AndroidManagedStoreAutoUpdateMode $value): void {
         $this->getBackingStore()->set('autoUpdateMode', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

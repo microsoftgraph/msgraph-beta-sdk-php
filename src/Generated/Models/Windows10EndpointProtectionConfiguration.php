@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the Windows10EndpointProtectionConfiguration resource.
+*/
 class Windows10EndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10EndpointProtectionConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10EndpointProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -3236,6 +3244,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
         $writer->writeBooleanValue('localSecurityOptionsUseAdminApprovalMode', $this->getLocalSecurityOptionsUseAdminApprovalMode());
         $writer->writeBooleanValue('localSecurityOptionsUseAdminApprovalModeForAdministrators', $this->getLocalSecurityOptionsUseAdminApprovalModeForAdministrators());
         $writer->writeBooleanValue('localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations', $this->getLocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('smartScreenBlockOverrideForFiles', $this->getSmartScreenBlockOverrideForFiles());
         $writer->writeBooleanValue('smartScreenEnableInShell', $this->getSmartScreenEnableInShell());
         $writer->writeObjectValue('userRightsAccessCredentialManagerAsTrustedCaller', $this->getUserRightsAccessCredentialManagerAsTrustedCaller());

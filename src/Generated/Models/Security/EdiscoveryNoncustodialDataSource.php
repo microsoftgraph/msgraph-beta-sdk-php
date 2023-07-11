@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryNoncustodialDataSource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryNoncustodialDataSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
         parent::serialize($writer);
         $writer->writeObjectValue('dataSource', $this->getDataSource());
         $writer->writeObjectValue('lastIndexOperation', $this->getLastIndexOperation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

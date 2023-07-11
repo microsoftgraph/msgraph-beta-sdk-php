@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
+*/
 class DeviceManagementScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -262,6 +270,7 @@ class DeviceManagementScript extends Entity implements Parsable
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());

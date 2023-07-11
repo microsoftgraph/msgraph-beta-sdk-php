@@ -81,10 +81,23 @@ class AdminWindowsUpdates extends Entity implements Parsable
             'catalog' => fn(ParseNode $n) => $o->setCatalog($n->getObjectValue([Catalog::class, 'createFromDiscriminatorValue'])),
             'deploymentAudiences' => fn(ParseNode $n) => $o->setDeploymentAudiences($n->getCollectionOfObjectValues([DeploymentAudience::class, 'createFromDiscriminatorValue'])),
             'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([Deployment::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceConnections' => fn(ParseNode $n) => $o->setResourceConnections($n->getCollectionOfObjectValues([ResourceConnection::class, 'createFromDiscriminatorValue'])),
             'updatableAssets' => fn(ParseNode $n) => $o->setUpdatableAssets($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
             'updatePolicies' => fn(ParseNode $n) => $o->setUpdatePolicies($n->getCollectionOfObjectValues([UpdatePolicy::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -138,6 +151,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
         $writer->writeObjectValue('catalog', $this->getCatalog());
         $writer->writeCollectionOfObjectValues('deploymentAudiences', $this->getDeploymentAudiences());
         $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('resourceConnections', $this->getResourceConnections());
         $writer->writeCollectionOfObjectValues('updatableAssets', $this->getUpdatableAssets());
         $writer->writeCollectionOfObjectValues('updatePolicies', $this->getUpdatePolicies());
@@ -165,6 +179,14 @@ class AdminWindowsUpdates extends Entity implements Parsable
     */
     public function setDeployments(?array $value): void {
         $this->getBackingStore()->set('deployments', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

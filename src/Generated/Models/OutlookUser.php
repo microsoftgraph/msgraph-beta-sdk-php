@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OutlookUser extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new outlookUser and sets the default values.
     */
     public function __construct() {
@@ -102,6 +107,7 @@ class OutlookUser extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('masterCategories', $this->getMasterCategories());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('taskFolders', $this->getTaskFolders());
         $writer->writeCollectionOfObjectValues('taskGroups', $this->getTaskGroups());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());

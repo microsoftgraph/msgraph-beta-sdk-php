@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A security configuration task.
+*/
 class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * Instantiates a new SecurityConfigurationTask and sets the default values.
+     * Instantiates a new securityConfigurationTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +79,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
             'intendedSettings' => fn(ParseNode $n) => $o->setIntendedSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCount' => fn(ParseNode $n) => $o->setManagedDeviceCount($n->getIntegerValue()),
             'managedDevices' => fn(ParseNode $n) => $o->setManagedDevices($n->getCollectionOfObjectValues([VulnerableManagedDevice::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -132,6 +136,18 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -144,6 +160,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
         $writer->writeCollectionOfObjectValues('intendedSettings', $this->getIntendedSettings());
         $writer->writeIntegerValue('managedDeviceCount', $this->getManagedDeviceCount());
         $writer->writeCollectionOfObjectValues('managedDevices', $this->getManagedDevices());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -200,6 +217,14 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     */
     public function setManagedDevices(?array $value): void {
         $this->getBackingStore()->set('managedDevices', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

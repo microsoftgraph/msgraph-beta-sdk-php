@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains registry properties to detect a Win32 App
+*/
 class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppRegistryRequirement and sets the default values.
+     * Instantiates a new win32LobAppRegistryRequirement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +62,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
             'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
             'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)),
             'keyPath' => fn(ParseNode $n) => $o->setKeyPath($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'valueName' => fn(ParseNode $n) => $o->setValueName($n->getStringValue()),
         ]);
     }
@@ -73,6 +77,18 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyPath'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,6 +112,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
         $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
         $writer->writeEnumValue('detectionType', $this->getDetectionType());
         $writer->writeStringValue('keyPath', $this->getKeyPath());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('valueName', $this->getValueName());
     }
 
@@ -121,6 +138,14 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     */
     public function setKeyPath(?string $value): void {
         $this->getBackingStore()->set('keyPath', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

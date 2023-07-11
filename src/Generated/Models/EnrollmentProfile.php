@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile's configurations at enrollment of the corresponding device.
+*/
 class EnrollmentProfile extends Entity implements Parsable 
 {
     /**
@@ -93,9 +96,22 @@ class EnrollmentProfile extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enableAuthenticationViaCompanyPortal' => fn(ParseNode $n) => $o->setEnableAuthenticationViaCompanyPortal($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requireCompanyPortalOnSetupAssistantEnrolledDevices' => fn(ParseNode $n) => $o->setRequireCompanyPortalOnSetupAssistantEnrolledDevices($n->getBooleanValue()),
             'requiresUserAuthentication' => fn(ParseNode $n) => $o->setRequiresUserAuthentication($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -132,6 +148,7 @@ class EnrollmentProfile extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enableAuthenticationViaCompanyPortal', $this->getEnableAuthenticationViaCompanyPortal());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('requireCompanyPortalOnSetupAssistantEnrolledDevices', $this->getRequireCompanyPortalOnSetupAssistantEnrolledDevices());
         $writer->writeBooleanValue('requiresUserAuthentication', $this->getRequiresUserAuthentication());
     }
@@ -166,6 +183,14 @@ class EnrollmentProfile extends Entity implements Parsable
     */
     public function setEnableAuthenticationViaCompanyPortal(?bool $value): void {
         $this->getBackingStore()->set('enableAuthenticationViaCompanyPortal', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

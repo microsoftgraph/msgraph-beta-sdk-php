@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NetworkAccessRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new NetworkAccessRoot and sets the default values.
+     * Instantiates a new networkAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivity property value. The connectivity property
+     * Gets the connectivity property value. Connectivity represents all the connectivity components in Global Secure Access.
      * @return Connectivity|null
     */
     public function getConnectivity(): ?Connectivity {
@@ -49,6 +49,7 @@ class NetworkAccessRoot extends Entity implements Parsable
             'forwardingPolicies' => fn(ParseNode $n) => $o->setForwardingPolicies($n->getCollectionOfObjectValues([ForwardingPolicy::class, 'createFromDiscriminatorValue'])),
             'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
             'logs' => fn(ParseNode $n) => $o->setLogs($n->getObjectValue([Logs::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([Reports::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
             'tenantStatus' => fn(ParseNode $n) => $o->setTenantStatus($n->getObjectValue([TenantStatus::class, 'createFromDiscriminatorValue'])),
@@ -56,7 +57,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingPolicies property value. The forwardingPolicies property
+     * Gets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Gloval Secure Access Service. It is then added to a forwarding profile.
      * @return array<ForwardingPolicy>|null
     */
     public function getForwardingPolicies(): ?array {
@@ -70,7 +71,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingProfiles property value. The forwardingProfiles property
+     * Gets the forwardingProfiles property value. A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
@@ -84,7 +85,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the logs property value. The logs property
+     * Gets the logs property value. Represnts network connections that are routed through Global Secure Access.
      * @return Logs|null
     */
     public function getLogs(): ?Logs {
@@ -96,7 +97,19 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. The reports property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the reports property value. Represents the status of the Global Secure Access services for the tenant.
      * @return Reports|null
     */
     public function getReports(): ?Reports {
@@ -108,7 +121,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the settings property value. The settings property
+     * Gets the settings property value. Global Secure Access settings.
      * @return Settings|null
     */
     public function getSettings(): ?Settings {
@@ -120,7 +133,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantStatus property value. The tenantStatus property
+     * Gets the tenantStatus property value. Represents the status of the Global Secure Access services for the tenant.
      * @return TenantStatus|null
     */
     public function getTenantStatus(): ?TenantStatus {
@@ -141,13 +154,14 @@ class NetworkAccessRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('forwardingPolicies', $this->getForwardingPolicies());
         $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
         $writer->writeObjectValue('logs', $this->getLogs());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('tenantStatus', $this->getTenantStatus());
     }
 
     /**
-     * Sets the connectivity property value. The connectivity property
+     * Sets the connectivity property value. Connectivity represents all the connectivity components in Global Secure Access.
      * @param Connectivity|null $value Value to set for the connectivity property.
     */
     public function setConnectivity(?Connectivity $value): void {
@@ -155,7 +169,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingPolicies property value. The forwardingPolicies property
+     * Sets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Gloval Secure Access Service. It is then added to a forwarding profile.
      * @param array<ForwardingPolicy>|null $value Value to set for the forwardingPolicies property.
     */
     public function setForwardingPolicies(?array $value): void {
@@ -163,7 +177,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingProfiles property value. The forwardingProfiles property
+     * Sets the forwardingProfiles property value. A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
      * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
     */
     public function setForwardingProfiles(?array $value): void {
@@ -171,7 +185,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the logs property value. The logs property
+     * Sets the logs property value. Represnts network connections that are routed through Global Secure Access.
      * @param Logs|null $value Value to set for the logs property.
     */
     public function setLogs(?Logs $value): void {
@@ -179,7 +193,15 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. The reports property
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the reports property value. Represents the status of the Global Secure Access services for the tenant.
      * @param Reports|null $value Value to set for the reports property.
     */
     public function setReports(?Reports $value): void {
@@ -187,7 +209,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. The settings property
+     * Sets the settings property value. Global Secure Access settings.
      * @param Settings|null $value Value to set for the settings property.
     */
     public function setSettings(?Settings $value): void {
@@ -195,7 +217,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantStatus property value. The tenantStatus property
+     * Sets the tenantStatus property value. Represents the status of the Global Secure Access services for the tenant.
      * @param TenantStatus|null $value Value to set for the tenantStatus property.
     */
     public function setTenantStatus(?TenantStatus $value): void {

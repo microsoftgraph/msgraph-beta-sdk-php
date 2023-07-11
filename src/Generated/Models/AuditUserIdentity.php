@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuditUserIdentity extends UserIdentity implements Parsable 
 {
     /**
-     * Instantiates a new AuditUserIdentity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new auditUserIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('homeTenantId', $this->getHomeTenantId());
         $writer->writeStringValue('homeTenantName', $this->getHomeTenantName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

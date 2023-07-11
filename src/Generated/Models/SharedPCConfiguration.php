@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the sharedPCConfiguration resource.
+*/
 class SharedPCConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new SharedPCConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new sharedPCConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -290,6 +298,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeStringValue('kioskAppUserModelId', $this->getKioskAppUserModelId());
         $writer->writeEnumValue('localStorage', $this->getLocalStorage());
         $writer->writeTimeValue('maintenanceStartTime', $this->getMaintenanceStartTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('setAccountManager', $this->getSetAccountManager());
         $writer->writeEnumValue('setEduPolicies', $this->getSetEduPolicies());
         $writer->writeEnumValue('setPowerPolicies', $this->getSetPowerPolicies());

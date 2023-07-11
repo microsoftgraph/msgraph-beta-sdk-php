@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows 10 Enrollment Status Page Configuration
+*/
 class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10EnrollmentCompletionPageConfiguration and sets the default values.
+     * Instantiates a new windows10EnrollmentCompletionPageConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -126,6 +129,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
             'disableUserStatusTrackingAfterFirstUser' => fn(ParseNode $n) => $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()),
             'installProgressTimeoutInMinutes' => fn(ParseNode $n) => $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()),
             'installQualityUpdates' => fn(ParseNode $n) => $o->setInstallQualityUpdates($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'selectedMobileAppIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -161,6 +165,18 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'installQualityUpdates'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -216,6 +232,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
         $writer->writeBooleanValue('disableUserStatusTrackingAfterFirstUser', $this->getDisableUserStatusTrackingAfterFirstUser());
         $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->getInstallProgressTimeoutInMinutes());
         $writer->writeBooleanValue('installQualityUpdates', $this->getInstallQualityUpdates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('selectedMobileAppIds', $this->getSelectedMobileAppIds());
         $writer->writeBooleanValue('showInstallationProgress', $this->getShowInstallationProgress());
         $writer->writeBooleanValue('trackInstallProgressForAutopilotOnly', $this->getTrackInstallProgressForAutopilotOnly());
@@ -291,6 +308,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function setInstallQualityUpdates(?bool $value): void {
         $this->getBackingStore()->set('installQualityUpdates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

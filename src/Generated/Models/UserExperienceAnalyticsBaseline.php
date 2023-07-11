@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores.
+*/
 class UserExperienceAnalyticsBaseline extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBaseline and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsBaseline and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -178,6 +186,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
         $writer->writeObjectValue('deviceBootPerformanceMetrics', $this->getDeviceBootPerformanceMetrics());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('rebootAnalyticsMetrics', $this->getRebootAnalyticsMetrics());
         $writer->writeObjectValue('resourcePerformanceMetrics', $this->getResourcePerformanceMetrics());
         $writer->writeObjectValue('workFromAnywhereMetrics', $this->getWorkFromAnywhereMetrics());

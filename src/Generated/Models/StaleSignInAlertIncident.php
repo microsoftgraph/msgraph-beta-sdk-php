@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StaleSignInAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new StaleSignInAlertIncident and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new staleSignInAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -151,6 +156,7 @@ class StaleSignInAlertIncident extends UnifiedRoleManagementAlertIncident implem
         $writer->writeStringValue('assigneeUserPrincipalName', $this->getAssigneeUserPrincipalName());
         $writer->writeDateTimeValue('assignmentCreatedDateTime', $this->getAssignmentCreatedDateTime());
         $writer->writeDateTimeValue('lastSignInDateTime', $this->getLastSignInDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
         $writer->writeStringValue('roleDisplayName', $this->getRoleDisplayName());
         $writer->writeStringValue('roleTemplateId', $this->getRoleTemplateId());

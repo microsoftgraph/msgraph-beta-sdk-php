@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an icon for an app on the Home Screen
+*/
 class IosHomeScreenApp extends IosHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new IosHomeScreenApp and sets the default values.
+     * Instantiates a new iosHomeScreenApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +49,7 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'bundleID' => fn(ParseNode $n) => $o->setBundleID($n->getStringValue()),
             'isWebClip' => fn(ParseNode $n) => $o->setIsWebClip($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +66,18 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +85,7 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('bundleID', $this->getBundleID());
         $writer->writeBooleanValue('isWebClip', $this->getIsWebClip());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +102,14 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
     */
     public function setIsWebClip(?bool $value): void {
         $this->getBackingStore()->set('isWebClip', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

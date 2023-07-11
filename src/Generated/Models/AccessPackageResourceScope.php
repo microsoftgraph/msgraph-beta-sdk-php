@@ -71,6 +71,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isRootScope' => fn(ParseNode $n) => $o->setIsRootScope($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
             'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
             'roleOriginId' => fn(ParseNode $n) => $o->setRoleOriginId($n->getStringValue()),
@@ -88,6 +89,18 @@ class AccessPackageResourceScope extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isRootScope'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -148,6 +161,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isRootScope', $this->getIsRootScope());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
         $writer->writeStringValue('roleOriginId', $this->getRoleOriginId());
@@ -184,6 +198,14 @@ class AccessPackageResourceScope extends Entity implements Parsable
     */
     public function setIsRootScope(?bool $value): void {
         $this->getBackingStore()->set('isRootScope', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

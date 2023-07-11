@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationCsvDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new EducationCsvDataProvider and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationCsvDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Parsable 
 {
     /**
-     * Instantiates a new OpenIdConnectIdentityProvider and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new openIdConnectIdentityProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -150,6 +155,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
         $writer->writeStringValue('clientSecret', $this->getClientSecret());
         $writer->writeStringValue('domainHint', $this->getDomainHint());
         $writer->writeStringValue('metadataUrl', $this->getMetadataUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('responseMode', $this->getResponseMode());
         $writer->writeEnumValue('responseType', $this->getResponseType());
         $writer->writeStringValue('scope', $this->getScope());

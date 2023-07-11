@@ -63,6 +63,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
             'errorDescription' => fn(ParseNode $n) => $o->setErrorDescription($n->getStringValue()),
             'lastStateUpdateDateTime' => fn(ParseNode $n) => $o->setLastStateUpdateDateTime($n->getDateTimeValue()),
             'managedDevice' => fn(ParseNode $n) => $o->setManagedDevice($n->getObjectValue([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resultMessage' => fn(ParseNode $n) => $o->setResultMessage($n->getStringValue()),
             'runState' => fn(ParseNode $n) => $o->setRunState($n->getEnumValue(RunState::class)),
         ]);
@@ -90,6 +91,18 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevice'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -126,6 +139,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
         $writer->writeStringValue('errorDescription', $this->getErrorDescription());
         $writer->writeDateTimeValue('lastStateUpdateDateTime', $this->getLastStateUpdateDateTime());
         $writer->writeObjectValue('managedDevice', $this->getManagedDevice());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resultMessage', $this->getResultMessage());
         $writer->writeEnumValue('runState', $this->getRunState());
     }
@@ -160,6 +174,14 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     */
     public function setManagedDevice(?ManagedDevice $value): void {
         $this->getBackingStore()->set('managedDevice', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

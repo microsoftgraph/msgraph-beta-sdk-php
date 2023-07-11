@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * An abstract base class containing properties for all mobile line of business apps.
+*/
 class MobileLobApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MobileLobApp and sets the default values.
+     * Instantiates a new mobileLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,6 +83,7 @@ class MobileLobApp extends MobileApp implements Parsable
             'committedContentVersion' => fn(ParseNode $n) => $o->setCommittedContentVersion($n->getStringValue()),
             'contentVersions' => fn(ParseNode $n) => $o->setContentVersions($n->getCollectionOfObjectValues([MobileAppContent::class, 'createFromDiscriminatorValue'])),
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
         ]);
     }
@@ -94,6 +98,18 @@ class MobileLobApp extends MobileApp implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -117,6 +133,7 @@ class MobileLobApp extends MobileApp implements Parsable
         $writer->writeStringValue('committedContentVersion', $this->getCommittedContentVersion());
         $writer->writeCollectionOfObjectValues('contentVersions', $this->getContentVersions());
         $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('size', $this->getSize());
     }
 
@@ -142,6 +159,14 @@ class MobileLobApp extends MobileApp implements Parsable
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

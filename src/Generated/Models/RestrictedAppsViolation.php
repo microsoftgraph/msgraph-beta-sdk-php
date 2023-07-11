@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Violation of restricted apps configuration profile per device per user
+*/
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RestrictedAppsViolation and sets the default values.
+     * Instantiates a new restrictedAppsViolation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +75,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
             'deviceConfigurationName' => fn(ParseNode $n) => $o->setDeviceConfigurationName($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)),
             'restrictedApps' => fn(ParseNode $n) => $o->setRestrictedApps($n->getCollectionOfObjectValues([ManagedDeviceReportedApp::class, 'createFromDiscriminatorValue'])),
             'restrictedAppsState' => fn(ParseNode $n) => $o->setRestrictedAppsState($n->getEnumValue(RestrictedAppsState::class)),
@@ -90,6 +94,18 @@ class RestrictedAppsViolation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -164,6 +180,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
         $writer->writeStringValue('deviceConfigurationName', $this->getDeviceConfigurationName());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeCollectionOfObjectValues('restrictedApps', $this->getRestrictedApps());
         $writer->writeEnumValue('restrictedAppsState', $this->getRestrictedAppsState());
@@ -201,6 +218,14 @@ class RestrictedAppsViolation extends Entity implements Parsable
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

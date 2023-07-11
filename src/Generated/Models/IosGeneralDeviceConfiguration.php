@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the iosGeneralDeviceConfiguration resource.
+*/
 class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosGeneralDeviceConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosGeneralDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -2648,6 +2656,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeCollectionOfObjectValues('networkUsageRules', $this->getNetworkUsageRules());
         $writer->writeBooleanValue('nfcBlocked', $this->getNfcBlocked());
         $writer->writeBooleanValue('notificationsBlockSettingsModification', $this->getNotificationsBlockSettingsModification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('onDeviceOnlyDictationForced', $this->getOnDeviceOnlyDictationForced());
         $writer->writeBooleanValue('onDeviceOnlyTranslationForced', $this->getOnDeviceOnlyTranslationForced());
         $writer->writeBooleanValue('passcodeBlockFingerprintModification', $this->getPasscodeBlockFingerprintModification());

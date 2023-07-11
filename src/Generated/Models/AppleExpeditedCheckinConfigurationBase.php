@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Experimental profile to increase the rate of device check-ins per day of iOS/macOS devices. This profile type is deprecated.
+*/
 class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AppleExpeditedCheckinConfigurationBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new appleExpeditedCheckinConfigurationBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,6 +70,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('enableExpeditedCheckin', $this->getEnableExpeditedCheckin());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

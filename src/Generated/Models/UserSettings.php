@@ -71,6 +71,7 @@ class UserSettings extends Entity implements Parsable
             'contributionToContentDiscoveryAsOrganizationDisabled' => fn(ParseNode $n) => $o->setContributionToContentDiscoveryAsOrganizationDisabled($n->getBooleanValue()),
             'contributionToContentDiscoveryDisabled' => fn(ParseNode $n) => $o->setContributionToContentDiscoveryDisabled($n->getBooleanValue()),
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([UserInsightsSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'regionalAndLanguageSettings' => fn(ParseNode $n) => $o->setRegionalAndLanguageSettings($n->getObjectValue([RegionalAndLanguageSettings::class, 'createFromDiscriminatorValue'])),
             'shiftPreferences' => fn(ParseNode $n) => $o->setShiftPreferences($n->getObjectValue([ShiftPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -86,6 +87,18 @@ class UserSettings extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'itemInsights'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -122,6 +135,7 @@ class UserSettings extends Entity implements Parsable
         $writer->writeBooleanValue('contributionToContentDiscoveryAsOrganizationDisabled', $this->getContributionToContentDiscoveryAsOrganizationDisabled());
         $writer->writeBooleanValue('contributionToContentDiscoveryDisabled', $this->getContributionToContentDiscoveryDisabled());
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('regionalAndLanguageSettings', $this->getRegionalAndLanguageSettings());
         $writer->writeObjectValue('shiftPreferences', $this->getShiftPreferences());
     }
@@ -156,6 +170,14 @@ class UserSettings extends Entity implements Parsable
     */
     public function setItemInsights(?UserInsightsSettings $value): void {
         $this->getBackingStore()->set('itemInsights', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

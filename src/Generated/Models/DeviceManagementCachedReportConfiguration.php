@@ -52,6 +52,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
             'lastRefreshDateTime' => fn(ParseNode $n) => $o->setLastRefreshDateTime($n->getDateTimeValue()),
             'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'orderBy' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -107,6 +108,18 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'metadata'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -171,6 +184,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeDateTimeValue('lastRefreshDateTime', $this->getLastRefreshDateTime());
         $writer->writeStringValue('metadata', $this->getMetadata());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
         $writer->writeStringValue('reportName', $this->getReportName());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
@@ -207,6 +221,14 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     */
     public function setMetadata(?string $value): void {
         $this->getBackingStore()->set('metadata', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

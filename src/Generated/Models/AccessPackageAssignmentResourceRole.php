@@ -86,10 +86,23 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
             'accessPackageResourceRole' => fn(ParseNode $n) => $o->setAccessPackageResourceRole($n->getObjectValue([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
             'accessPackageResourceScope' => fn(ParseNode $n) => $o->setAccessPackageResourceScope($n->getObjectValue([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
             'accessPackageSubject' => fn(ParseNode $n) => $o->setAccessPackageSubject($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
             'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -138,6 +151,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
         $writer->writeObjectValue('accessPackageResourceRole', $this->getAccessPackageResourceRole());
         $writer->writeObjectValue('accessPackageResourceScope', $this->getAccessPackageResourceScope());
         $writer->writeObjectValue('accessPackageSubject', $this->getAccessPackageSubject());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
         $writer->writeStringValue('status', $this->getStatus());
@@ -173,6 +187,14 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     */
     public function setAccessPackageSubject(?AccessPackageSubject $value): void {
         $this->getBackingStore()->set('accessPackageSubject', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

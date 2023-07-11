@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Site extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new Site and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new site and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -347,6 +352,7 @@ class Site extends BaseItem implements Parsable
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeCollectionOfObjectValues('lists', $this->getLists());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());

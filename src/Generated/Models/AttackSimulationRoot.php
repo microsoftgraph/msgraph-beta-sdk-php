@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AttackSimulationRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AttackSimulationRoot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new attackSimulationRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -164,6 +169,7 @@ class AttackSimulationRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('endUserNotifications', $this->getEndUserNotifications());
         $writer->writeCollectionOfObjectValues('landingPages', $this->getLandingPages());
         $writer->writeCollectionOfObjectValues('loginPages', $this->getLoginPages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());

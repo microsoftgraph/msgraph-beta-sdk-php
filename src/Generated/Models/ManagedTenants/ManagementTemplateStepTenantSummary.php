@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateStepTenantSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementTemplateStepTenantSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managementTemplateStepTenantSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -252,6 +257,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
         $writer->writeStringValue('managementTemplateStepDisplayName', $this->getManagementTemplateStepDisplayName());
         $writer->writeStringValue('managementTemplateStepId', $this->getManagementTemplateStepId());
         $writer->writeIntegerValue('notCompliantTenantsCount', $this->getNotCompliantTenantsCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

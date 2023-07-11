@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceComplianceTrend extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedDeviceComplianceTrend and sets the default values.
     */
     public function __construct() {
@@ -164,6 +169,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
         $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
         $writer->writeIntegerValue('inGracePeriodDeviceCount', $this->getInGracePeriodDeviceCount());
         $writer->writeIntegerValue('noncompliantDeviceCount', $this->getNoncompliantDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('unknownDeviceCount', $this->getUnknownDeviceCount());

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ExactMatchSession extends ExactMatchSessionBase implements Parsable 
 {
     /**
-     * Instantiates a new ExactMatchSession and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new exactMatchSession and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -158,6 +163,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
         $writer->writeStringValue('dataUploadURI', $this->getDataUploadURI());
         $writer->writeCollectionOfPrimitiveValues('fields', $this->getFields());
         $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rowsPerBlock', $this->getRowsPerBlock());
         $writer->writeStringValue('salt', $this->getSalt());
         $writer->writeObjectValue('uploadAgent', $this->getUploadAgent());

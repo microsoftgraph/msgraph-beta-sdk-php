@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsIdentitySet extends IdentitySet implements Parsable 
 {
     /**
-     * Instantiates a new CommunicationsIdentitySet and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new communicationsIdentitySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -151,6 +156,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
         $writer->writeObjectValue('encrypted', $this->getEncrypted());
         $writer->writeEnumValue('endpointType', $this->getEndpointType());
         $writer->writeObjectValue('guest', $this->getGuest());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onPremises', $this->getOnPremises());
         $writer->writeObjectValue('phone', $this->getPhone());
     }

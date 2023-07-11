@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new TenantGroupCollectionResponse and sets the default values.
+     * Instantiates a new tenantGroupCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

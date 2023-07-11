@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity representing the defintion for a complex setting
+*/
 class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementComplexSettingDefinition and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementComplexSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +71,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('propertyDefinitionIds', $this->getPropertyDefinitionIds());
     }
 

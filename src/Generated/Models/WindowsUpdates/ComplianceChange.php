@@ -54,6 +54,7 @@ class ComplianceChange extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'isRevoked' => fn(ParseNode $n) => $o->setIsRevoked($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'revokedDateTime' => fn(ParseNode $n) => $o->setRevokedDateTime($n->getDateTimeValue()),
             'updatePolicy' => fn(ParseNode $n) => $o->setUpdatePolicy($n->getObjectValue([UpdatePolicy::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -69,6 +70,18 @@ class ComplianceChange extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isRevoked'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,6 +116,7 @@ class ComplianceChange extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeBooleanValue('isRevoked', $this->getIsRevoked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('revokedDateTime', $this->getRevokedDateTime());
         $writer->writeObjectValue('updatePolicy', $this->getUpdatePolicy());
     }
@@ -121,6 +135,14 @@ class ComplianceChange extends Entity implements Parsable
     */
     public function setIsRevoked(?bool $value): void {
         $this->getBackingStore()->set('isRevoked', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

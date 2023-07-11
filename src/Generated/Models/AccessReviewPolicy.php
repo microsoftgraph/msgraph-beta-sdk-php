@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewPolicy extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessReviewPolicy and sets the default values.
     */
     public function __construct() {
@@ -82,6 +87,7 @@ class AccessReviewPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isGroupOwnerManagementEnabled', $this->getIsGroupOwnerManagementEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

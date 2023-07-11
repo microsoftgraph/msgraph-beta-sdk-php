@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutboundFlowActivity extends IndustryDataRunActivity implements Parsable 
 {
     /**
-     * Instantiates a new OutboundFlowActivity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new outboundFlowActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +46,7 @@ class OutboundFlowActivity extends IndustryDataRunActivity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

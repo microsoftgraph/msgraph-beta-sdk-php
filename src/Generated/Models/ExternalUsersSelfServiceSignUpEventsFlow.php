@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow implements Parsable 
 {
     /**
-     * Instantiates a new ExternalUsersSelfServiceSignUpEventsFlow and sets the default values.
+     * Instantiates a new externalUsersSelfServiceSignUpEventsFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,11 +32,24 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onAttributeCollection' => fn(ParseNode $n) => $o->setOnAttributeCollection($n->getObjectValue([OnAttributeCollectionHandler::class, 'createFromDiscriminatorValue'])),
             'onAuthenticationMethodLoadStart' => fn(ParseNode $n) => $o->setOnAuthenticationMethodLoadStart($n->getObjectValue([OnAuthenticationMethodLoadStartHandler::class, 'createFromDiscriminatorValue'])),
             'onInteractiveAuthFlowStart' => fn(ParseNode $n) => $o->setOnInteractiveAuthFlowStart($n->getObjectValue([OnInteractiveAuthFlowStartHandler::class, 'createFromDiscriminatorValue'])),
             'onUserCreateStart' => fn(ParseNode $n) => $o->setOnUserCreateStart($n->getObjectValue([OnUserCreateStartHandler::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,10 +106,19 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onAttributeCollection', $this->getOnAttributeCollection());
         $writer->writeObjectValue('onAuthenticationMethodLoadStart', $this->getOnAuthenticationMethodLoadStart());
         $writer->writeObjectValue('onInteractiveAuthFlowStart', $this->getOnInteractiveAuthFlowStart());
         $writer->writeObjectValue('onUserCreateStart', $this->getOnUserCreateStart());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

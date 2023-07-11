@@ -18,7 +18,7 @@ class PolicyRuleDelta implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new PolicyRuleDelta and sets the default values.
+     * Instantiates a new policyRuleDelta and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -93,7 +93,7 @@ class PolicyRuleDelta implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ruleId property value. The ruleId property
+     * Gets the ruleId property value. The identifier of the policy rule to update.
      * @return string|null
     */
     public function getRuleId(): ?string {
@@ -148,7 +148,7 @@ class PolicyRuleDelta implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ruleId property value. The ruleId property
+     * Sets the ruleId property value. The identifier of the policy rule to update.
      * @param string|null $value Value to set for the ruleId property.
     */
     public function setRuleId(?string $value): void {

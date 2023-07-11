@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MetadataAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new MetadataAction and sets the default values.
+     * Instantiates a new metadataAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -42,6 +42,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
                 /** @var array<string>|null $val */
                 $this->setMetadataToRemove($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -74,6 +75,18 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -81,6 +94,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('metadataToAdd', $this->getMetadataToAdd());
         $writer->writeCollectionOfPrimitiveValues('metadataToRemove', $this->getMetadataToRemove());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -97,6 +111,14 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     */
     public function setMetadataToRemove(?array $value): void {
         $this->getBackingStore()->set('metadataToRemove', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

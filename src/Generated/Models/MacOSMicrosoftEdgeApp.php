@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for the macOS Microsoft Edge App.
+*/
 class MacOSMicrosoftEdgeApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSMicrosoftEdgeApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSMicrosoftEdgeApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class MacOSMicrosoftEdgeApp extends MobileApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('channel', $this->getChannel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

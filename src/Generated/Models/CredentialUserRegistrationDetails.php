@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationDetails and sets the default values.
+     * Instantiates a new credentialUserRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,6 +51,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isMfaRegistered' => fn(ParseNode $n) => $o->setIsMfaRegistered($n->getBooleanValue()),
             'isRegistered' => fn(ParseNode $n) => $o->setIsRegistered($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
@@ -105,6 +106,18 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the userDisplayName property value. Provides the user name of the corresponding user.
      * @return string|null
     */
@@ -139,6 +152,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isMfaRegistered', $this->getIsMfaRegistered());
         $writer->writeBooleanValue('isRegistered', $this->getIsRegistered());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -181,6 +195,14 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     */
     public function setIsRegistered(?bool $value): void {
         $this->getBackingStore()->set('isRegistered', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

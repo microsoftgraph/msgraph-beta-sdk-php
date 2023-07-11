@@ -64,6 +64,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
             'emailThreats' => fn(ParseNode $n) => $o->setEmailThreats($n->getCollectionOfObjectValues([EmailThreatSubmission::class, 'createFromDiscriminatorValue'])),
             'emailThreatSubmissionPolicies' => fn(ParseNode $n) => $o->setEmailThreatSubmissionPolicies($n->getCollectionOfObjectValues([EmailThreatSubmissionPolicy::class, 'createFromDiscriminatorValue'])),
             'fileThreats' => fn(ParseNode $n) => $o->setFileThreats($n->getCollectionOfObjectValues([FileThreatSubmission::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'urlThreats' => fn(ParseNode $n) => $o->setUrlThreats($n->getCollectionOfObjectValues([UrlThreatSubmission::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -80,6 +81,18 @@ class ThreatSubmissionRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileThreats'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -105,6 +118,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('emailThreats', $this->getEmailThreats());
         $writer->writeCollectionOfObjectValues('emailThreatSubmissionPolicies', $this->getEmailThreatSubmissionPolicies());
         $writer->writeCollectionOfObjectValues('fileThreats', $this->getFileThreats());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('urlThreats', $this->getUrlThreats());
     }
 
@@ -130,6 +144,14 @@ class ThreatSubmissionRoot extends Entity implements Parsable
     */
     public function setFileThreats(?array $value): void {
         $this->getBackingStore()->set('fileThreats', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

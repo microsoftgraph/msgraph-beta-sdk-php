@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the iosCustomConfiguration resource.
+*/
 class IosCustomConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosCustomConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosCustomConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -81,6 +89,7 @@ class IosCustomConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('payload', $this->getPayload());
         $writer->writeStringValue('payloadFileName', $this->getPayloadFileName());
         $writer->writeStringValue('payloadName', $this->getPayloadName());

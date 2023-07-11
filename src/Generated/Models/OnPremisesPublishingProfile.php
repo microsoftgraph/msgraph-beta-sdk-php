@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesPublishingProfile and sets the default values.
+     * Instantiates a new onPremisesPublishingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +95,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
             'hybridAgentUpdaterConfiguration' => fn(ParseNode $n) => $o->setHybridAgentUpdaterConfiguration($n->getObjectValue([HybridAgentUpdaterConfiguration::class, 'createFromDiscriminatorValue'])),
             'isDefaultAccessEnabled' => fn(ParseNode $n) => $o->setIsDefaultAccessEnabled($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'publishedResources' => fn(ParseNode $n) => $o->setPublishedResources($n->getCollectionOfObjectValues([PublishedResource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -136,6 +137,18 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the publishedResources property value. List of existing publishedResource objects. Read-only. Nullable.
      * @return array<PublishedResource>|null
     */
@@ -162,6 +175,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
         $writer->writeObjectValue('hybridAgentUpdaterConfiguration', $this->getHybridAgentUpdaterConfiguration());
         $writer->writeBooleanValue('isDefaultAccessEnabled', $this->getIsDefaultAccessEnabled());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
     }
 
@@ -219,6 +233,14 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

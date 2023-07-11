@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectSite extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new ProtectSite and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new protectSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class ProtectSite extends LabelActionBase implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('accessType', $this->getAccessType());
         $writer->writeStringValue('conditionalAccessProtectionLevelId', $this->getConditionalAccessProtectionLevelId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

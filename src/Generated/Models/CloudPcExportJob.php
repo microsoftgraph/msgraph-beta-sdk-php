@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcExportJob and sets the default values.
+     * Instantiates a new cloudPcExportJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +74,7 @@ class CloudPcExportJob extends Entity implements Parsable
             'exportUrl' => fn(ParseNode $n) => $o->setExportUrl($n->getStringValue()),
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
             'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcReportName::class)),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
             'select' => function (ParseNode $n) {
@@ -109,6 +110,18 @@ class CloudPcExportJob extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -160,6 +173,7 @@ class CloudPcExportJob extends Entity implements Parsable
         $writer->writeStringValue('exportUrl', $this->getExportUrl());
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeStringValue('format', $this->getFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('reportName', $this->getReportName());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
@@ -203,6 +217,14 @@ class CloudPcExportJob extends Entity implements Parsable
     */
     public function setFormat(?string $value): void {
         $this->getBackingStore()->set('format', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

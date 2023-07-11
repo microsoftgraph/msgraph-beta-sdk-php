@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing the configurations in this profile you can instruct the Android for Work device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user. This profile provides limited and simpler security types than Enterprise Wi-Fi profile.
+*/
 class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkWiFiConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidForWorkWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -116,6 +124,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
         $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
         $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
         $writer->writeStringValue('networkName', $this->getNetworkName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ssid', $this->getSsid());
         $writer->writeEnumValue('wiFiSecurityType', $this->getWiFiSecurityType());
     }

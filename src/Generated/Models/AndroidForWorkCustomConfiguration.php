@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android For Work custom configuration
+*/
 class AndroidForWorkCustomConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkCustomConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidForWorkCustomConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +65,7 @@ class AndroidForWorkCustomConfiguration extends DeviceConfiguration implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('omaSettings', $this->getOmaSettings());
     }
 

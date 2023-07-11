@@ -61,6 +61,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
             'isConfigurable' => fn(ParseNode $n) => $o->setIsConfigurable($n->getBooleanValue()),
             'isRemediatable' => fn(ParseNode $n) => $o->setIsRemediatable($n->getBooleanValue()),
             'mitigationSteps' => fn(ParseNode $n) => $o->setMitigationSteps($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scopeId' => fn(ParseNode $n) => $o->setScopeId($n->getStringValue()),
             'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getStringValue()),
             'securityImpact' => fn(ParseNode $n) => $o->setSecurityImpact($n->getStringValue()),
@@ -114,6 +115,18 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mitigationSteps'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -176,6 +189,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
         $writer->writeBooleanValue('isConfigurable', $this->getIsConfigurable());
         $writer->writeBooleanValue('isRemediatable', $this->getIsRemediatable());
         $writer->writeStringValue('mitigationSteps', $this->getMitigationSteps());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scopeId', $this->getScopeId());
         $writer->writeStringValue('scopeType', $this->getScopeType());
         $writer->writeStringValue('securityImpact', $this->getSecurityImpact());
@@ -228,6 +242,14 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     */
     public function setMitigationSteps(?string $value): void {
         $this->getBackingStore()->set('mitigationSteps', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

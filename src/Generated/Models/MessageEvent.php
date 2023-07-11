@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MessageEvent and sets the default values.
+     * Instantiates a new messageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,7 +71,20 @@ class MessageEvent extends Entity implements Parsable
             'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(MessageEventType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,6 +96,7 @@ class MessageEvent extends Entity implements Parsable
         $writer->writeDateTimeValue('dateTime', $this->getDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeEnumValue('eventType', $this->getEventType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +121,14 @@ class MessageEvent extends Entity implements Parsable
     */
     public function setEventType(?MessageEventType $value): void {
         $this->getBackingStore()->set('eventType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppRelationship extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new mobileAppRelationship and sets the default values.
     */
     public function __construct() {
@@ -116,6 +121,7 @@ class MobileAppRelationship extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('targetDisplayName', $this->getTargetDisplayName());
         $writer->writeStringValue('targetDisplayVersion', $this->getTargetDisplayVersion());
         $writer->writeStringValue('targetId', $this->getTargetId());

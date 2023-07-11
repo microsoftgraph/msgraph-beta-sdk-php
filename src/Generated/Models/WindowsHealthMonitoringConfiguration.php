@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows device health monitoring configuration
+*/
 class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsHealthMonitoringConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsHealthMonitoringConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +91,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
         $writer->writeEnumValue('allowDeviceHealthMonitoring', $this->getAllowDeviceHealthMonitoring());
         $writer->writeStringValue('configDeviceHealthMonitoringCustomScope', $this->getConfigDeviceHealthMonitoringCustomScope());
         $writer->writeEnumValue('configDeviceHealthMonitoringScope', $this->getConfigDeviceHealthMonitoringScope());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

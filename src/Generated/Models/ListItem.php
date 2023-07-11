@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ListItem extends BaseItem implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new listItem and sets the default values.
     */
     public function __construct() {
@@ -172,6 +177,7 @@ class ListItem extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('documentSetVersions', $this->getDocumentSetVersions());
         $writer->writeObjectValue('driveItem', $this->getDriveItem());
         $writer->writeObjectValue('fields', $this->getFields());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('sharepointIds', $this->getSharepointIds());
         $writer->writeCollectionOfObjectValues('versions', $this->getVersions());
     }

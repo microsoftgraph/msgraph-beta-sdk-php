@@ -18,7 +18,7 @@ class InstitutionData implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new InstitutionData and sets the default values.
+     * Instantiates a new institutionData and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

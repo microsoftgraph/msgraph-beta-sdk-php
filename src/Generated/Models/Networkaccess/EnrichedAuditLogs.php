@@ -26,7 +26,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchange property value. The exchange property
+     * Gets the exchange property value. Exchange Online enriched audit logs settings.
      * @return EnrichedAuditLogsSettings|null
     */
     public function getExchange(): ?EnrichedAuditLogsSettings {
@@ -45,13 +45,26 @@ class EnrichedAuditLogs extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'exchange' => fn(ParseNode $n) => $o->setExchange($n->getObjectValue([EnrichedAuditLogsSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sharepoint' => fn(ParseNode $n) => $o->setSharepoint($n->getObjectValue([EnrichedAuditLogsSettings::class, 'createFromDiscriminatorValue'])),
             'teams' => fn(ParseNode $n) => $o->setTeams($n->getObjectValue([EnrichedAuditLogsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the sharepoint property value. The sharepoint property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the sharepoint property value. SharePoint Online enriched audit logs settings.
      * @return EnrichedAuditLogsSettings|null
     */
     public function getSharepoint(): ?EnrichedAuditLogsSettings {
@@ -63,7 +76,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Gets the teams property value. The teams property
+     * Gets the teams property value. Teams enriched audit logs settings.
      * @return EnrichedAuditLogsSettings|null
     */
     public function getTeams(): ?EnrichedAuditLogsSettings {
@@ -81,12 +94,13 @@ class EnrichedAuditLogs extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('exchange', $this->getExchange());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('sharepoint', $this->getSharepoint());
         $writer->writeObjectValue('teams', $this->getTeams());
     }
 
     /**
-     * Sets the exchange property value. The exchange property
+     * Sets the exchange property value. Exchange Online enriched audit logs settings.
      * @param EnrichedAuditLogsSettings|null $value Value to set for the exchange property.
     */
     public function setExchange(?EnrichedAuditLogsSettings $value): void {
@@ -94,7 +108,15 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharepoint property value. The sharepoint property
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the sharepoint property value. SharePoint Online enriched audit logs settings.
      * @param EnrichedAuditLogsSettings|null $value Value to set for the sharepoint property.
     */
     public function setSharepoint(?EnrichedAuditLogsSettings $value): void {
@@ -102,7 +124,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Sets the teams property value. The teams property
+     * Sets the teams property value. Teams enriched audit logs settings.
      * @param EnrichedAuditLogsSettings|null $value Value to set for the teams property.
     */
     public function setTeams(?EnrichedAuditLogsSettings $value): void {

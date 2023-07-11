@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationsSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new credentialUserRegistrationsSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -203,6 +208,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
         $writer->writeStringValue('mfaConditionalAccessPolicyState', $this->getMfaConditionalAccessPolicyState());
         $writer->writeIntegerValue('mfaExcludedUserCount', $this->getMfaExcludedUserCount());
         $writer->writeIntegerValue('mfaRegisteredUserCount', $this->getMfaRegisteredUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('securityDefaultsEnabled', $this->getSecurityDefaultsEnabled());
         $writer->writeIntegerValue('ssprEnabledUserCount', $this->getSsprEnabledUserCount());
         $writer->writeIntegerValue('ssprRegisteredUserCount', $this->getSsprRegisteredUserCount());

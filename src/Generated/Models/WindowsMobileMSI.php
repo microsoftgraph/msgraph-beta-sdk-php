@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Windows Mobile MSI Line Of Business apps.
+*/
 class WindowsMobileMSI extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsMobileMSI and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsMobileMSI and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -122,6 +130,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
         $writer->writeStringValue('commandLine', $this->getCommandLine());
         $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productCode', $this->getProductCode());
         $writer->writeStringValue('productVersion', $this->getProductVersion());
         $writer->writeBooleanValue('useDeviceContext', $this->getUseDeviceContext());

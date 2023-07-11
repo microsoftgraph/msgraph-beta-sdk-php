@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventWebinar extends VirtualEvent implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEventWebinar and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new virtualEventWebinar and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,6 +89,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('audience', $this->getAudience());
         $writer->writeCollectionOfObjectValues('coOrganizers', $this->getCoOrganizers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('registration', $this->getRegistration());
     }
 

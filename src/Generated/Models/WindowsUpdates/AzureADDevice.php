@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AzureADDevice extends UpdatableAsset implements Parsable 
 {
     /**
-     * Instantiates a new AzureADDevice and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new azureADDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +79,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('enrollments', $this->getEnrollments());
         $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

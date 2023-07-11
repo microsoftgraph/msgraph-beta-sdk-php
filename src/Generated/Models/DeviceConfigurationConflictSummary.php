@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Conflict summary for a set of device configuration policies.
+*/
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceConfigurationConflictSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,6 +102,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('conflictingDeviceConfigurations', $this->getConflictingDeviceConfigurations());
         $writer->writeCollectionOfPrimitiveValues('contributingSettings', $this->getContributingSettings());
         $writer->writeIntegerValue('deviceCheckinsImpacted', $this->getDeviceCheckinsImpacted());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

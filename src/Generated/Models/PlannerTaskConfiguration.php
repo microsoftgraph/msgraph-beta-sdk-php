@@ -44,7 +44,20 @@ class PlannerTaskConfiguration extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'editPolicy' => fn(ParseNode $n) => $o->setEditPolicy($n->getObjectValue([PlannerTaskPolicy::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -54,6 +67,7 @@ class PlannerTaskConfiguration extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('editPolicy', $this->getEditPolicy());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -62,6 +76,14 @@ class PlannerTaskConfiguration extends Entity implements Parsable
     */
     public function setEditPolicy(?PlannerTaskPolicy $value): void {
         $this->getBackingStore()->set('editPolicy', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

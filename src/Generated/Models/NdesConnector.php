@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity which represents an OnPrem Ndes connector.
+*/
 class NdesConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new NdesConnector and sets the default values.
+     * Instantiates a new ndesConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +77,7 @@ class NdesConnector extends Entity implements Parsable
             'enrolledDateTime' => fn(ParseNode $n) => $o->setEnrolledDateTime($n->getDateTimeValue()),
             'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -108,6 +112,18 @@ class NdesConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'machineName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -147,6 +163,7 @@ class NdesConnector extends Entity implements Parsable
         $writer->writeDateTimeValue('enrolledDateTime', $this->getEnrolledDateTime());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
         $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('state', $this->getState());
     }
@@ -189,6 +206,14 @@ class NdesConnector extends Entity implements Parsable
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

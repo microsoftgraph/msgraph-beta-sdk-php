@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Windows Phone 8.1 AppX Bundle Line Of Business apps. Inherits from graph.windowsPhone81AppX (which is also to be deprecated at the same time). Will be deprecated in February 2023.
+*/
 class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81AppXBundle and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsPhone81AppXBundle and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +66,7 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('appXPackageInformationList', $this->getAppXPackageInformationList());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Report of remote actions initiated on the devices belonging to a certain tenant.
+*/
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteActionAudit and sets the default values.
+     * Instantiates a new remoteActionAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -99,6 +102,7 @@ class RemoteActionAudit extends Entity implements Parsable
             'deviceOwnerUserPrincipalName' => fn(ParseNode $n) => $o->setDeviceOwnerUserPrincipalName($n->getStringValue()),
             'initiatedByUserPrincipalName' => fn(ParseNode $n) => $o->setInitiatedByUserPrincipalName($n->getStringValue()),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
@@ -126,6 +130,18 @@ class RemoteActionAudit extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -165,6 +181,7 @@ class RemoteActionAudit extends Entity implements Parsable
         $writer->writeStringValue('deviceOwnerUserPrincipalName', $this->getDeviceOwnerUserPrincipalName());
         $writer->writeStringValue('initiatedByUserPrincipalName', $this->getInitiatedByUserPrincipalName());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeStringValue('userName', $this->getUserName());
     }
@@ -223,6 +240,14 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

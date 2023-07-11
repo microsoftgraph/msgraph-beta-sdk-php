@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Configuration.
+*/
 class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsCertificateProfileBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -134,6 +142,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
         $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
         $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
         $writer->writeEnumValue('keyStorageProvider', $this->getKeyStorageProvider());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
         $writer->writeEnumValue('subjectAlternativeNameType', $this->getSubjectAlternativeNameType());
         $writer->writeEnumValue('subjectNameFormat', $this->getSubjectNameFormat());

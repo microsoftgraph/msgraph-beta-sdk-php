@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PolicySetItem extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new policySetItem and sets the default values.
     */
     public function __construct() {
@@ -183,6 +188,7 @@ class PolicySetItem extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->getGuidedDeploymentTags());
         $writer->writeStringValue('itemType', $this->getItemType());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('payloadId', $this->getPayloadId());
         $writer->writeEnumValue('status', $this->getStatus());
     }

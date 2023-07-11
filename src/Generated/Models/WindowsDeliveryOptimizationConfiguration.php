@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows Delivery Optimization configuration
+*/
 class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsDeliveryOptimizationConfiguration and sets the default values.
+     * Instantiates a new windowsDeliveryOptimizationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -129,6 +132,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
             'minimumFileSizeToCacheInMegabytes' => fn(ParseNode $n) => $o->setMinimumFileSizeToCacheInMegabytes($n->getIntegerValue()),
             'minimumRamAllowedToPeerInGigabytes' => fn(ParseNode $n) => $o->setMinimumRamAllowedToPeerInGigabytes($n->getIntegerValue()),
             'modifyCacheLocation' => fn(ParseNode $n) => $o->setModifyCacheLocation($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictPeerSelectionBy' => fn(ParseNode $n) => $o->setRestrictPeerSelectionBy($n->getEnumValue(DeliveryOptimizationRestrictPeerSelectionByOptions::class)),
             'vpnPeerCaching' => fn(ParseNode $n) => $o->setVpnPeerCaching($n->getEnumValue(Enablement::class)),
         ]);
@@ -243,6 +247,18 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the restrictPeerSelectionBy property value. Values to restrict peer selection by.
      * @return DeliveryOptimizationRestrictPeerSelectionByOptions|null
     */
@@ -287,6 +303,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
         $writer->writeIntegerValue('minimumFileSizeToCacheInMegabytes', $this->getMinimumFileSizeToCacheInMegabytes());
         $writer->writeIntegerValue('minimumRamAllowedToPeerInGigabytes', $this->getMinimumRamAllowedToPeerInGigabytes());
         $writer->writeStringValue('modifyCacheLocation', $this->getModifyCacheLocation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('restrictPeerSelectionBy', $this->getRestrictPeerSelectionBy());
         $writer->writeEnumValue('vpnPeerCaching', $this->getVpnPeerCaching());
     }
@@ -409,6 +426,14 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     */
     public function setModifyCacheLocation(?string $value): void {
         $this->getBackingStore()->set('modifyCacheLocation', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

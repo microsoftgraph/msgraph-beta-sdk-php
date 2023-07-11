@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RelyingPartyDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RelyingPartyDetailedSummary and sets the default values.
+     * Instantiates a new relyingPartyDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,6 +47,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
             'failedSignInCount' => fn(ParseNode $n) => $o->setFailedSignInCount($n->getIntegerValue()),
             'migrationStatus' => fn(ParseNode $n) => $o->setMigrationStatus($n->getEnumValue(MigrationStatus::class)),
             'migrationValidationDetails' => fn(ParseNode $n) => $o->setMigrationValidationDetails($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'relyingPartyId' => fn(ParseNode $n) => $o->setRelyingPartyId($n->getStringValue()),
             'relyingPartyName' => fn(ParseNode $n) => $o->setRelyingPartyName($n->getStringValue()),
             'replyUrls' => function (ParseNode $n) {
@@ -89,6 +90,18 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationValidationDetails'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -198,6 +211,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
         $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
         $writer->writeEnumValue('migrationStatus', $this->getMigrationStatus());
         $writer->writeCollectionOfObjectValues('migrationValidationDetails', $this->getMigrationValidationDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('relyingPartyId', $this->getRelyingPartyId());
         $writer->writeStringValue('relyingPartyName', $this->getRelyingPartyName());
         $writer->writeCollectionOfPrimitiveValues('replyUrls', $this->getReplyUrls());
@@ -230,6 +244,14 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     */
     public function setMigrationValidationDetails(?array $value): void {
         $this->getBackingStore()->set('migrationValidationDetails', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

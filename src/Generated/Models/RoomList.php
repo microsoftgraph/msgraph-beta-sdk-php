@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoomList extends Place implements Parsable 
 {
     /**
-     * Instantiates a new RoomList and sets the default values.
+     * Instantiates a new roomList and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,9 +46,22 @@ class RoomList extends Place implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rooms' => fn(ParseNode $n) => $o->setRooms($n->getCollectionOfObjectValues([Room::class, 'createFromDiscriminatorValue'])),
             'workspaces' => fn(ParseNode $n) => $o->setWorkspaces($n->getCollectionOfObjectValues([Workspace::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -86,6 +99,7 @@ class RoomList extends Place implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('rooms', $this->getRooms());
         $writer->writeCollectionOfObjectValues('workspaces', $this->getWorkspaces());
     }
@@ -96,6 +110,14 @@ class RoomList extends Place implements Parsable
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

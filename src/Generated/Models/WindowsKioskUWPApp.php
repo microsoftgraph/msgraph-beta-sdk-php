@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base class for a type of apps
+*/
 class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskUWPApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskUWPApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +91,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeStringValue('appUserModelId', $this->getAppUserModelId());
         $writer->writeStringValue('containedAppId', $this->getContainedAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

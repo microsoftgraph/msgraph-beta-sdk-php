@@ -86,6 +86,7 @@ class MessageRule extends Entity implements Parsable
             'hasError' => fn(ParseNode $n) => $o->setHasError($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isReadOnly' => fn(ParseNode $n) => $o->setIsReadOnly($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sequence' => fn(ParseNode $n) => $o->setSequence($n->getIntegerValue()),
         ]);
     }
@@ -127,6 +128,18 @@ class MessageRule extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the sequence property value. Indicates the order in which the rule is executed, among other rules.
      * @return int|null
     */
@@ -151,6 +164,7 @@ class MessageRule extends Entity implements Parsable
         $writer->writeBooleanValue('hasError', $this->getHasError());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isReadOnly', $this->getIsReadOnly());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('sequence', $this->getSequence());
     }
 
@@ -208,6 +222,14 @@ class MessageRule extends Entity implements Parsable
     */
     public function setIsReadOnly(?bool $value): void {
         $this->getBackingStore()->set('isReadOnly', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

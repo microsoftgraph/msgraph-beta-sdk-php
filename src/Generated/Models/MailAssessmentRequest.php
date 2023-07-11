@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MailAssessmentRequest extends ThreatAssessmentRequest implements Parsable 
 {
     /**
-     * Instantiates a new MailAssessmentRequest and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mailAssessmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class MailAssessmentRequest extends ThreatAssessmentRequest implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('destinationRoutingReason', $this->getDestinationRoutingReason());
         $writer->writeStringValue('messageUri', $this->getMessageUri());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('recipientEmail', $this->getRecipientEmail());
     }
 

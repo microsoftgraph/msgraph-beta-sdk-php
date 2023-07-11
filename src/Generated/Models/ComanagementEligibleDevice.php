@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Co-Management eligibility state
+*/
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ComanagementEligibleDevice and sets the default values.
+     * Instantiates a new comanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -88,6 +91,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'mdmStatus' => fn(ParseNode $n) => $o->setMdmStatus($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getEnumValue(OwnerType::class)),
@@ -159,6 +163,18 @@ class ComanagementEligibleDevice extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -296,6 +312,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('mdmStatus', $this->getMdmStatus());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeEnumValue('ownerType', $this->getOwnerType());
@@ -378,6 +395,14 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

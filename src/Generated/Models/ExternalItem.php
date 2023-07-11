@@ -60,8 +60,21 @@ class ExternalItem extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'acl' => fn(ParseNode $n) => $o->setAcl($n->getCollectionOfObjectValues([Acl::class, 'createFromDiscriminatorValue'])),
             'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([ExternalItemContent::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'properties' => fn(ParseNode $n) => $o->setProperties($n->getObjectValue([Properties::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,6 +97,7 @@ class ExternalItem extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('acl', $this->getAcl());
         $writer->writeObjectValue('content', $this->getContent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('properties', $this->getProperties());
     }
 
@@ -101,6 +115,14 @@ class ExternalItem extends Entity implements Parsable
     */
     public function setContent(?ExternalItemContent $value): void {
         $this->getBackingStore()->set('content', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

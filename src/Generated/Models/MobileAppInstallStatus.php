@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation state of a mobile app for a device. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class MobileAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppInstallStatus and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mobileAppInstallStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -219,6 +227,7 @@ class MobileAppInstallStatus extends Entity implements Parsable
         $writer->writeEnumValue('installStateDetail', $this->getInstallStateDetail());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeEnumValue('mobileAppInstallStatusValue', $this->getMobileAppInstallStatusValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('userName', $this->getUserName());

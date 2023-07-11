@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChannelRenamedEventMessageDetail extends EventMessageDetail implements Parsable 
 {
     /**
-     * Instantiates a new ChannelRenamedEventMessageDetail and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new channelRenamedEventMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +88,7 @@ class ChannelRenamedEventMessageDetail extends EventMessageDetail implements Par
         $writer->writeStringValue('channelDisplayName', $this->getChannelDisplayName());
         $writer->writeStringValue('channelId', $this->getChannelId());
         $writer->writeObjectValue('initiator', $this->getInitiator());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

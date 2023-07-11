@@ -36,6 +36,7 @@ class ItemRetentionLabel extends Entity implements Parsable
             'labelAppliedBy' => fn(ParseNode $n) => $o->setLabelAppliedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'labelAppliedDateTime' => fn(ParseNode $n) => $o->setLabelAppliedDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'retentionSettings' => fn(ParseNode $n) => $o->setRetentionSettings($n->getObjectValue([RetentionLabelSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -89,6 +90,18 @@ class ItemRetentionLabel extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the retentionSettings property value. The retentionSettings property
      * @return RetentionLabelSettings|null
     */
@@ -110,6 +123,7 @@ class ItemRetentionLabel extends Entity implements Parsable
         $writer->writeObjectValue('labelAppliedBy', $this->getLabelAppliedBy());
         $writer->writeDateTimeValue('labelAppliedDateTime', $this->getLabelAppliedDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('retentionSettings', $this->getRetentionSettings());
     }
 
@@ -143,6 +157,14 @@ class ItemRetentionLabel extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WebApplicationSegment extends ApplicationSegment implements Parsable 
 {
     /**
-     * Instantiates a new WebApplicationSegment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new webApplicationSegment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -100,6 +105,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
         $writer->writeCollectionOfObjectValues('corsConfigurations', $this->getCorsConfigurations());
         $writer->writeStringValue('externalUrl', $this->getExternalUrl());
         $writer->writeStringValue('internalUrl', $this->getInternalUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

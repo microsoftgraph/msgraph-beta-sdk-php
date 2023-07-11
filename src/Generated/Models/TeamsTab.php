@@ -58,6 +58,7 @@ class TeamsTab extends Entity implements Parsable
             'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([TeamsTabConfiguration::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'messageId' => fn(ParseNode $n) => $o->setMessageId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sortOrderIndex' => fn(ParseNode $n) => $o->setSortOrderIndex($n->getStringValue()),
             'teamsApp' => fn(ParseNode $n) => $o->setTeamsApp($n->getObjectValue([TeamsApp::class, 'createFromDiscriminatorValue'])),
             'teamsAppId' => fn(ParseNode $n) => $o->setTeamsAppId($n->getStringValue()),
@@ -75,6 +76,18 @@ class TeamsTab extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'messageId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -134,6 +147,7 @@ class TeamsTab extends Entity implements Parsable
         $writer->writeObjectValue('configuration', $this->getConfiguration());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('messageId', $this->getMessageId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('sortOrderIndex', $this->getSortOrderIndex());
         $writer->writeObjectValue('teamsApp', $this->getTeamsApp());
         $writer->writeStringValue('teamsAppId', $this->getTeamsAppId());
@@ -162,6 +176,14 @@ class TeamsTab extends Entity implements Parsable
     */
     public function setMessageId(?string $value): void {
         $this->getBackingStore()->set('messageId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

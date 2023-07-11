@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity representing the defintion for a collection setting
+*/
 class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementCollectionSettingDefinition and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementCollectionSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('elementDefinitionId', $this->getElementDefinitionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

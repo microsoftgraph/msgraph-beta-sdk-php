@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item\P
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get policy from networkAccess
+ * Policy.
 */
 class PolicyRequestBuilderGetQueryParameters 
 {

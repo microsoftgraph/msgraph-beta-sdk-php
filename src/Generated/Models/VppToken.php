@@ -131,6 +131,7 @@ class VppToken extends Entity implements Parsable
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
             'lastSyncStatus' => fn(ParseNode $n) => $o->setLastSyncStatus($n->getEnumValue(VppTokenSyncStatus::class)),
             'locationName' => fn(ParseNode $n) => $o->setLocationName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizationName' => fn(ParseNode $n) => $o->setOrganizationName($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -193,6 +194,18 @@ class VppToken extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'locationName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -288,6 +301,7 @@ class VppToken extends Entity implements Parsable
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeEnumValue('lastSyncStatus', $this->getLastSyncStatus());
         $writer->writeStringValue('locationName', $this->getLocationName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('organizationName', $this->getOrganizationName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('state', $this->getState());
@@ -382,6 +396,14 @@ class VppToken extends Entity implements Parsable
     */
     public function setLocationName(?string $value): void {
         $this->getBackingStore()->set('locationName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

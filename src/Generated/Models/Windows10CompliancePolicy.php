@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This class contains compliance settings for Windows 10.
+*/
 class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new Windows10CompliancePolicy and sets the default values.
+     * Instantiates a new windows10CompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -191,6 +194,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
             'earlyLaunchAntiMalwareDriverEnabled' => fn(ParseNode $n) => $o->setEarlyLaunchAntiMalwareDriverEnabled($n->getBooleanValue()),
             'mobileOsMaximumVersion' => fn(ParseNode $n) => $o->setMobileOsMaximumVersion($n->getStringValue()),
             'mobileOsMinimumVersion' => fn(ParseNode $n) => $o->setMobileOsMinimumVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
             'osMinimumVersion' => fn(ParseNode $n) => $o->setOsMinimumVersion($n->getStringValue()),
             'passwordBlockSimple' => fn(ParseNode $n) => $o->setPasswordBlockSimple($n->getBooleanValue()),
@@ -234,6 +238,18 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileOsMinimumVersion'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -474,6 +490,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
         $writer->writeBooleanValue('earlyLaunchAntiMalwareDriverEnabled', $this->getEarlyLaunchAntiMalwareDriverEnabled());
         $writer->writeStringValue('mobileOsMaximumVersion', $this->getMobileOsMaximumVersion());
         $writer->writeStringValue('mobileOsMinimumVersion', $this->getMobileOsMinimumVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
         $writer->writeStringValue('osMinimumVersion', $this->getOsMinimumVersion());
         $writer->writeBooleanValue('passwordBlockSimple', $this->getPasswordBlockSimple());
@@ -604,6 +621,14 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     */
     public function setMobileOsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('mobileOsMinimumVersion', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -36,6 +36,7 @@ class GroupPolicyOperation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operationStatus' => fn(ParseNode $n) => $o->setOperationStatus($n->getEnumValue(GroupPolicyOperationStatus::class)),
             'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getEnumValue(GroupPolicyOperationType::class)),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getStringValue()),
@@ -52,6 +53,18 @@ class GroupPolicyOperation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,6 +110,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operationStatus', $this->getOperationStatus());
         $writer->writeEnumValue('operationType', $this->getOperationType());
         $writer->writeStringValue('statusDetails', $this->getStatusDetails());
@@ -108,6 +122,14 @@ class GroupPolicyOperation extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

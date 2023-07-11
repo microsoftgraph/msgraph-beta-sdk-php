@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonCertification extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonCertification and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new personCertification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -179,6 +184,7 @@ class PersonCertification extends ItemFacet implements Parsable
         $writer->writeDateValue('issuedDate', $this->getIssuedDate());
         $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
         $writer->writeStringValue('issuingCompany', $this->getIssuingCompany());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
         $writer->writeStringValue('webUrl', $this->getWebUrl());

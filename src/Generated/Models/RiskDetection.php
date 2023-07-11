@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RiskDetection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RiskDetection and sets the default values.
+     * Instantiates a new riskDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -113,6 +113,7 @@ class RiskDetection extends Entity implements Parsable
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requestId' => fn(ParseNode $n) => $o->setRequestId($n->getStringValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
             'riskEventType' => fn(ParseNode $n) => $o->setRiskEventType($n->getStringValue()),
@@ -161,6 +162,18 @@ class RiskDetection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -310,6 +323,7 @@ class RiskDetection extends Entity implements Parsable
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('requestId', $this->getRequestId());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
         $writer->writeStringValue('riskEventType', $this->getRiskEventType());
@@ -393,6 +407,14 @@ class RiskDetection extends Entity implements Parsable
     */
     public function setLocation(?SignInLocation $value): void {
         $this->getBackingStore()->set('location', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

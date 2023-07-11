@@ -27,7 +27,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the bandwidthCapacityInMbps property value. The bandwidthCapacityInMbps property
+     * Gets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @return BandwidthCapacityInMbps|null
     */
     public function getBandwidthCapacityInMbps(): ?BandwidthCapacityInMbps {
@@ -75,13 +75,14 @@ class DeviceLink extends Entity implements Parsable
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'redundancyConfiguration' => fn(ParseNode $n) => $o->setRedundancyConfiguration($n->getObjectValue([RedundancyConfiguration::class, 'createFromDiscriminatorValue'])),
             'tunnelConfiguration' => fn(ParseNode $n) => $o->setTunnelConfiguration($n->getObjectValue([TunnelConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the ipAddress property value. The ipAddress property
+     * Gets the ipAddress property value. Specifies the client IPv4 of the link
      * @return string|null
     */
     public function getIpAddress(): ?string {
@@ -93,7 +94,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. last modified time.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -105,7 +106,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -114,6 +115,18 @@ class DeviceLink extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -152,12 +165,13 @@ class DeviceLink extends Entity implements Parsable
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('redundancyConfiguration', $this->getRedundancyConfiguration());
         $writer->writeObjectValue('tunnelConfiguration', $this->getTunnelConfiguration());
     }
 
     /**
-     * Sets the bandwidthCapacityInMbps property value. The bandwidthCapacityInMbps property
+     * Sets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @param BandwidthCapacityInMbps|null $value Value to set for the bandwidthCapacityInMbps property.
     */
     public function setBandwidthCapacityInMbps(?BandwidthCapacityInMbps $value): void {
@@ -181,7 +195,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipAddress property value. The ipAddress property
+     * Sets the ipAddress property value. Specifies the client IPv4 of the link
      * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
@@ -189,7 +203,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. last modified time.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -197,11 +211,19 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

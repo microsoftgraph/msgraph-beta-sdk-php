@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Participant extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new participant and sets the default values.
     */
     public function __construct() {
@@ -192,6 +197,7 @@ class Participant extends Entity implements Parsable
         $writer->writeBooleanValue('isMuted', $this->getIsMuted());
         $writer->writeCollectionOfObjectValues('mediaStreams', $this->getMediaStreams());
         $writer->writeStringValue('metadata', $this->getMetadata());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('preferredDisplayName', $this->getPreferredDisplayName());
         $writer->writeObjectValue('recordingInfo', $this->getRecordingInfo());
         $writer->writeObjectValue('removedState', $this->getRemovedState());

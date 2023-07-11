@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TimeCard extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new TimeCard and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new timeCard and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -153,6 +158,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
         $writer->writeObjectValue('clockOutEvent', $this->getClockOutEvent());
         $writer->writeEnumValue('confirmedBy', $this->getConfirmedBy());
         $writer->writeObjectValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('originalEntry', $this->getOriginalEntry());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('userId', $this->getUserId());

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MailSearchFolder extends MailFolder implements Parsable 
 {
     /**
-     * Instantiates a new MailSearchFolder and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mailSearchFolder and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -106,6 +111,7 @@ class MailSearchFolder extends MailFolder implements Parsable
         $writer->writeStringValue('filterQuery', $this->getFilterQuery());
         $writer->writeBooleanValue('includeNestedFolders', $this->getIncludeNestedFolders());
         $writer->writeBooleanValue('isSupported', $this->getIsSupported());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('sourceFolderIds', $this->getSourceFolderIds());
     }
 

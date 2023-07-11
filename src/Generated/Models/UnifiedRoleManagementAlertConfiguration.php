@@ -71,6 +71,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
             'alertDefinition' => fn(ParseNode $n) => $o->setAlertDefinition($n->getObjectValue([UnifiedRoleManagementAlertDefinition::class, 'createFromDiscriminatorValue'])),
             'alertDefinitionId' => fn(ParseNode $n) => $o->setAlertDefinitionId($n->getStringValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scopeId' => fn(ParseNode $n) => $o->setScopeId($n->getStringValue()),
             'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getStringValue()),
         ]);
@@ -86,6 +87,18 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,6 +134,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
         $writer->writeObjectValue('alertDefinition', $this->getAlertDefinition());
         $writer->writeStringValue('alertDefinitionId', $this->getAlertDefinitionId());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scopeId', $this->getScopeId());
         $writer->writeStringValue('scopeType', $this->getScopeType());
     }
@@ -147,6 +161,14 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

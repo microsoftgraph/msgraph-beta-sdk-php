@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS PFX Import certificate profile
+*/
 class MacOSImportedPFXCertificateProfile extends MacOSCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new MacOSImportedPFXCertificateProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +80,7 @@ class MacOSImportedPFXCertificateProfile extends MacOSCertificateProfileBase imp
         parent::serialize($writer);
         $writer->writeEnumValue('intendedPurpose', $this->getIntendedPurpose());
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

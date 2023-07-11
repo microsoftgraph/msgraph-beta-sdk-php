@@ -115,6 +115,7 @@ class Training extends Entity implements Parsable
             'languageDetails' => fn(ParseNode $n) => $o->setLanguageDetails($n->getCollectionOfObjectValues([TrainingLanguageDetail::class, 'createFromDiscriminatorValue'])),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([EmailIdentity::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(SimulationContentSource::class)),
             'supportedLocales' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -187,6 +188,18 @@ class Training extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the source property value. The source property
      * @return SimulationContentSource|null
     */
@@ -254,6 +267,7 @@ class Training extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('languageDetails', $this->getLanguageDetails());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeCollectionOfPrimitiveValues('supportedLocales', $this->getSupportedLocales());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
@@ -338,6 +352,14 @@ class Training extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

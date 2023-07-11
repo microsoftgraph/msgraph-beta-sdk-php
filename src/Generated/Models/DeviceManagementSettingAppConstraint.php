@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Constraint enforcing the setting contains only vaild app types.
+*/
 class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingAppConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingAppConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,6 +72,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('supportedTypes', $this->getSupportedTypes());
     }
 

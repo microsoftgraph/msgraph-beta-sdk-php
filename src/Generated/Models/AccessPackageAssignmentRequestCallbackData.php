@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAssignmentRequestCallbackData extends CustomExtensionData implements Parsable 
 {
     /**
-     * Instantiates a new AccessPackageAssignmentRequestCallbackData and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new accessPackageAssignmentRequestCallbackData and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +100,7 @@ class AccessPackageAssignmentRequestCallbackData extends CustomExtensionData imp
         parent::serialize($writer);
         $writer->writeStringValue('customExtensionStageInstanceDetail', $this->getCustomExtensionStageInstanceDetail());
         $writer->writeStringValue('customExtensionStageInstanceId', $this->getCustomExtensionStageInstanceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('stage', $this->getStage());
         $writer->writeStringValue('state', $this->getState());
     }

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later.
+*/
 class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentWindowsHelloForBusinessConfiguration and sets the default values.
+     * Instantiates a new deviceEnrollmentWindowsHelloForBusinessConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +61,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
         return array_merge(parent::getFieldDeserializers(), [
             'enhancedBiometricsState' => fn(ParseNode $n) => $o->setEnhancedBiometricsState($n->getEnumValue(Enablement::class)),
             'enhancedSignInSecurity' => fn(ParseNode $n) => $o->setEnhancedSignInSecurity($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pinExpirationInDays' => fn(ParseNode $n) => $o->setPinExpirationInDays($n->getIntegerValue()),
             'pinLowercaseCharactersUsage' => fn(ParseNode $n) => $o->setPinLowercaseCharactersUsage($n->getEnumValue(WindowsHelloForBusinessPinUsage::class)),
             'pinMaximumLength' => fn(ParseNode $n) => $o->setPinMaximumLength($n->getIntegerValue()),
@@ -71,6 +75,18 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(Enablement::class)),
             'unlockWithBiometricsEnabled' => fn(ParseNode $n) => $o->setUnlockWithBiometricsEnabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -225,6 +241,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
         parent::serialize($writer);
         $writer->writeEnumValue('enhancedBiometricsState', $this->getEnhancedBiometricsState());
         $writer->writeIntegerValue('enhancedSignInSecurity', $this->getEnhancedSignInSecurity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pinExpirationInDays', $this->getPinExpirationInDays());
         $writer->writeEnumValue('pinLowercaseCharactersUsage', $this->getPinLowercaseCharactersUsage());
         $writer->writeIntegerValue('pinMaximumLength', $this->getPinMaximumLength());
@@ -253,6 +270,14 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     */
     public function setEnhancedSignInSecurity(?int $value): void {
         $this->getBackingStore()->set('enhancedSignInSecurity', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

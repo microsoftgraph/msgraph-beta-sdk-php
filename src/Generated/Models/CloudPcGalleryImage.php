@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcGalleryImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcGalleryImage and sets the default values.
+     * Instantiates a new cloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +71,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
             'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'offer' => fn(ParseNode $n) => $o->setOffer($n->getStringValue()),
             'offerDisplayName' => fn(ParseNode $n) => $o->setOfferDisplayName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
@@ -81,6 +82,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -200,6 +213,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('endDate', $this->getEndDate());
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('offer', $this->getOffer());
         $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
         $writer->writeStringValue('publisher', $this->getPublisher());
@@ -233,6 +247,14 @@ class CloudPcGalleryImage extends Entity implements Parsable
     */
     public function setExpirationDate(?Date $value): void {
         $this->getBackingStore()->set('expirationDate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

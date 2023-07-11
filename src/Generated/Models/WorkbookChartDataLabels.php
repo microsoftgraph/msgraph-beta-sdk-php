@@ -32,6 +32,7 @@ class WorkbookChartDataLabels extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'format' => fn(ParseNode $n) => $o->setFormat($n->getObjectValue([WorkbookChartDataLabelFormat::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'position' => fn(ParseNode $n) => $o->setPosition($n->getStringValue()),
             'separator' => fn(ParseNode $n) => $o->setSeparator($n->getStringValue()),
             'showBubbleSize' => fn(ParseNode $n) => $o->setShowBubbleSize($n->getBooleanValue()),
@@ -53,6 +54,18 @@ class WorkbookChartDataLabels extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -158,6 +171,7 @@ class WorkbookChartDataLabels extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('format', $this->getFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('position', $this->getPosition());
         $writer->writeStringValue('separator', $this->getSeparator());
         $writer->writeBooleanValue('showBubbleSize', $this->getShowBubbleSize());
@@ -174,6 +188,14 @@ class WorkbookChartDataLabels extends Entity implements Parsable
     */
     public function setFormat(?WorkbookChartDataLabelFormat $value): void {
         $this->getBackingStore()->set('format', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

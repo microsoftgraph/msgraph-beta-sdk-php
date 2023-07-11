@@ -97,6 +97,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
             'isSupervised' => fn(ParseNode $n) => $o->setIsSupervised($n->getBooleanValue()),
             'lastContactedDateTime' => fn(ParseNode $n) => $o->setLastContactedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(Platform::class)),
             'requestedEnrollmentProfileAssignmentDateTime' => fn(ParseNode $n) => $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()),
             'requestedEnrollmentProfileId' => fn(ParseNode $n) => $o->setRequestedEnrollmentProfileId($n->getStringValue()),
@@ -138,6 +139,18 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastContactedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -201,6 +214,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeBooleanValue('isSupervised', $this->getIsSupervised());
         $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeDateTimeValue('requestedEnrollmentProfileAssignmentDateTime', $this->getRequestedEnrollmentProfileAssignmentDateTime());
         $writer->writeStringValue('requestedEnrollmentProfileId', $this->getRequestedEnrollmentProfileId());
@@ -261,6 +275,14 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     */
     public function setLastContactedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastContactedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

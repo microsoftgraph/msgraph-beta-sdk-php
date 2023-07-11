@@ -73,7 +73,20 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
             'applicationName' => fn(ParseNode $n) => $o->setApplicationName($n->getStringValue()),
             'applicationType' => fn(ParseNode $n) => $o->setApplicationType($n->getEnumValue(ApplicationType::class)),
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,6 +98,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
         $writer->writeStringValue('applicationName', $this->getApplicationName());
         $writer->writeEnumValue('applicationType', $this->getApplicationType());
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -109,6 +123,14 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

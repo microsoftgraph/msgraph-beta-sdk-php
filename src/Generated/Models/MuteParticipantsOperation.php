@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MuteParticipantsOperation extends CommsOperation implements Parsable 
 {
     /**
-     * Instantiates a new MuteParticipantsOperation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new muteParticipantsOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +68,7 @@ class MuteParticipantsOperation extends CommsOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('participants', $this->getParticipants());
     }
 

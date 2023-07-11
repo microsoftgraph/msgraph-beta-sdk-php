@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Android Device Owner Trusted Root Certificate configuration profile
+*/
 class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
@@ -46,8 +49,21 @@ class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'certFileName' => fn(ParseNode $n) => $o->setCertFileName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'trustedRootCertificate' => fn(ParseNode $n) => $o->setTrustedRootCertificate($n->getBinaryContent()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -69,6 +85,7 @@ class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('certFileName', $this->getCertFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 
@@ -78,6 +95,14 @@ class AndroidDeviceOwnerTrustedRootCertificate extends DeviceConfiguration imple
     */
     public function setCertFileName(?string $value): void {
         $this->getBackingStore()->set('certFileName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

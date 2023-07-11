@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CompanySubscription extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new companySubscription and sets the default values.
     */
     public function __construct() {
@@ -165,6 +170,7 @@ class CompanySubscription extends Entity implements Parsable
         $writer->writeBooleanValue('isTrial', $this->getIsTrial());
         $writer->writeDateTimeValue('nextLifecycleDateTime', $this->getNextLifecycleDateTime());
         $writer->writeStringValue('ocpSubscriptionId', $this->getOcpSubscriptionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('serviceStatus', $this->getServiceStatus());
         $writer->writeStringValue('skuId', $this->getSkuId());
         $writer->writeStringValue('skuPartNumber', $this->getSkuPartNumber());

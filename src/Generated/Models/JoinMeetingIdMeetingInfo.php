@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable 
 {
     /**
-     * Instantiates a new JoinMeetingIdMeetingInfo and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new joinMeetingIdMeetingInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('joinMeetingId', $this->getJoinMeetingId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('passcode', $this->getPasscode());
     }
 

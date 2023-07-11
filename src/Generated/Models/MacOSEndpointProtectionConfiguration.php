@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * MacOS endpoint protection configuration profile.
+*/
 class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSEndpointProtectionConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSEndpointProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -417,6 +425,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
         $writer->writeBooleanValue('firewallEnableStealthMode', $this->getFirewallEnableStealthMode());
         $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->getGatekeeperAllowedAppSource());
         $writer->writeBooleanValue('gatekeeperBlockOverride', $this->getGatekeeperBlockOverride());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ConditionalAccessRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConditionalAccessRoot and sets the default values.
+     * Instantiates a new conditionalAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +74,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
             'authenticationStrength' => fn(ParseNode $n) => $o->setAuthenticationStrength($n->getObjectValue([AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'])),
             'authenticationStrengths' => fn(ParseNode $n) => $o->setAuthenticationStrengths($n->getObjectValue([AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'])),
             'namedLocations' => fn(ParseNode $n) => $o->setNamedLocations($n->getCollectionOfObjectValues([NamedLocation::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -91,6 +92,18 @@ class ConditionalAccessRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'namedLocations'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -131,6 +144,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('authenticationStrength', $this->getAuthenticationStrength());
         $writer->writeObjectValue('authenticationStrengths', $this->getAuthenticationStrengths());
         $writer->writeCollectionOfObjectValues('namedLocations', $this->getNamedLocations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }
@@ -165,6 +179,14 @@ class ConditionalAccessRoot extends Entity implements Parsable
     */
     public function setNamedLocations(?array $value): void {
         $this->getBackingStore()->set('namedLocations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

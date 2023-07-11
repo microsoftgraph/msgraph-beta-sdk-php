@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryReviewSet extends DataSet implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryReviewSet and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryReviewSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -73,6 +78,7 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('files', $this->getFiles());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('queries', $this->getQueries());
     }
 

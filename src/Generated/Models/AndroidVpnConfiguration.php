@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
+*/
 class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidVpnConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -185,6 +193,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeCollectionOfObjectValues('customKeyValueData', $this->getCustomKeyValueData());
         $writer->writeStringValue('fingerprint', $this->getFingerprint());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('realm', $this->getRealm());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeCollectionOfObjectValues('servers', $this->getServers());

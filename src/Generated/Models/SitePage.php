@@ -59,6 +59,7 @@ class SitePage extends BaseItem implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'canvasLayout' => fn(ParseNode $n) => $o->setCanvasLayout($n->getObjectValue([CanvasLayout::class, 'createFromDiscriminatorValue'])),
             'contentType' => fn(ParseNode $n) => $o->setContentType($n->getObjectValue([ContentTypeInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pageLayout' => fn(ParseNode $n) => $o->setPageLayout($n->getEnumValue(PageLayoutType::class)),
             'promotionKind' => fn(ParseNode $n) => $o->setPromotionKind($n->getEnumValue(PagePromotionType::class)),
             'publishingState' => fn(ParseNode $n) => $o->setPublishingState($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
@@ -70,6 +71,18 @@ class SitePage extends BaseItem implements Parsable
             'titleArea' => fn(ParseNode $n) => $o->setTitleArea($n->getObjectValue([TitleArea::class, 'createFromDiscriminatorValue'])),
             'webParts' => fn(ParseNode $n) => $o->setWebParts($n->getCollectionOfObjectValues([WebPart::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -202,6 +215,7 @@ class SitePage extends BaseItem implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('canvasLayout', $this->getCanvasLayout());
         $writer->writeObjectValue('contentType', $this->getContentType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('pageLayout', $this->getPageLayout());
         $writer->writeEnumValue('promotionKind', $this->getPromotionKind());
         $writer->writeObjectValue('publishingState', $this->getPublishingState());
@@ -228,6 +242,14 @@ class SitePage extends BaseItem implements Parsable
     */
     public function setContentType(?ContentTypeInfo $value): void {
         $this->getBackingStore()->set('contentType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

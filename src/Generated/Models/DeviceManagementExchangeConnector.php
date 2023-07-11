@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity which represents a connection to an Exchange environment.
+*/
 class DeviceManagementExchangeConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementExchangeConnector and sets the default values.
+     * Instantiates a new deviceManagementExchangeConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +88,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
             'exchangeConnectorType' => fn(ParseNode $n) => $o->setExchangeConnectorType($n->getEnumValue(DeviceManagementExchangeConnectorType::class)),
             'exchangeOrganization' => fn(ParseNode $n) => $o->setExchangeOrganization($n->getStringValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'primarySmtpAddress' => fn(ParseNode $n) => $o->setPrimarySmtpAddress($n->getStringValue()),
             'serverName' => fn(ParseNode $n) => $o->setServerName($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceManagementExchangeConnectorStatus::class)),
@@ -102,6 +106,18 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -163,6 +179,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
         $writer->writeEnumValue('exchangeConnectorType', $this->getExchangeConnectorType());
         $writer->writeStringValue('exchangeOrganization', $this->getExchangeOrganization());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('primarySmtpAddress', $this->getPrimarySmtpAddress());
         $writer->writeStringValue('serverName', $this->getServerName());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -207,6 +224,14 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
