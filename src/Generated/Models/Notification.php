@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Notification extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new notification and sets the default values.
     */
     public function __construct() {
@@ -135,6 +140,7 @@ class Notification extends Entity implements Parsable
         $writer->writeIntegerValue('displayTimeToLive', $this->getDisplayTimeToLive());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeStringValue('groupName', $this->getGroupName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeStringValue('targetHostName', $this->getTargetHostName());

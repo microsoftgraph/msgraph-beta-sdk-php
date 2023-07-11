@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Encryption report per device
+*/
 class ManagedDeviceEncryptionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceEncryptionState and sets the default values.
+     * Instantiates a new managedDeviceEncryptionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,6 +114,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
             'encryptionReadinessState' => fn(ParseNode $n) => $o->setEncryptionReadinessState($n->getEnumValue(EncryptionReadinessState::class)),
             'encryptionState' => fn(ParseNode $n) => $o->setEncryptionState($n->getEnumValue(EncryptionState::class)),
             'fileVaultStates' => fn(ParseNode $n) => $o->setFileVaultStates($n->getEnumValue(FileVaultState::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'policyDetails' => fn(ParseNode $n) => $o->setPolicyDetails($n->getCollectionOfObjectValues([EncryptionReportPolicyDetails::class, 'createFromDiscriminatorValue'])),
             'tpmSpecificationVersion' => fn(ParseNode $n) => $o->setTpmSpecificationVersion($n->getStringValue()),
@@ -128,6 +132,18 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultStates'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -193,6 +209,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
         $writer->writeEnumValue('encryptionReadinessState', $this->getEncryptionReadinessState());
         $writer->writeEnumValue('encryptionState', $this->getEncryptionState());
         $writer->writeEnumValue('fileVaultStates', $this->getFileVaultStates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('policyDetails', $this->getPolicyDetails());
         $writer->writeStringValue('tpmSpecificationVersion', $this->getTpmSpecificationVersion());
@@ -253,6 +270,14 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     */
     public function setFileVaultStates(?FileVaultState $value): void {
         $this->getBackingStore()->set('fileVaultStates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

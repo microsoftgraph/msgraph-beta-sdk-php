@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows management app entity.
+*/
 class WindowsManagementApp extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsManagementApp and sets the default values.
     */
@@ -99,6 +107,7 @@ class WindowsManagementApp extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('healthStates', $this->getHealthStates());
         $writer->writeEnumValue('managedInstaller', $this->getManagedInstaller());
         $writer->writeStringValue('managedInstallerConfiguredDateTime', $this->getManagedInstallerConfiguredDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

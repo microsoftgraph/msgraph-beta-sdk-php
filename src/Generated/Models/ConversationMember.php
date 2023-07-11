@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ConversationMember extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new conversationMember and sets the default values.
     */
     public function __construct() {
@@ -103,6 +108,7 @@ class ConversationMember extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roles', $this->getRoles());
         $writer->writeDateTimeValue('visibleHistoryStartDateTime', $this->getVisibleHistoryStartDateTime());
     }

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AgreementFile extends AgreementFileProperties implements Parsable 
 {
     /**
-     * Instantiates a new AgreementFile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new agreementFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +62,7 @@ class AgreementFile extends AgreementFileProperties implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('localizations', $this->getLocalizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

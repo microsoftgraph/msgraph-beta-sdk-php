@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenantAlertLogCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ManagedTenantAlertLogCollectionResponse and sets the default values.
+     * Instantiates a new managedTenantAlertLogCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

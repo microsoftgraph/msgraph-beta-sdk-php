@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DispositionReviewStage extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new dispositionReviewStage and sets the default values.
     */
     public function __construct() {
@@ -91,6 +96,7 @@ class DispositionReviewStage extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('reviewersEmailAddresses', $this->getReviewersEmailAddresses());
         $writer->writeIntegerValue('stageNumber', $this->getStageNumber());
     }

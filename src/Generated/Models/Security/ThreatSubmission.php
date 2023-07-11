@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ThreatSubmission extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new threatSubmission and sets the default values.
     */
     public function __construct() {
@@ -191,6 +196,7 @@ class ThreatSubmission extends Entity implements Parsable
         $writer->writeEnumValue('contentType', $this->getContentType());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('result', $this->getResult());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeEnumValue('status', $this->getStatus());

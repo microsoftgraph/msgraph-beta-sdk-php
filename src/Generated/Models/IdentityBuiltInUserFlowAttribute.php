@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IdentityBuiltInUserFlowAttribute extends IdentityUserFlowAttribute implements Parsable 
 {
     /**
-     * Instantiates a new IdentityBuiltInUserFlowAttribute and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new identityBuiltInUserFlowAttribute and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +46,7 @@ class IdentityBuiltInUserFlowAttribute extends IdentityUserFlowAttribute impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

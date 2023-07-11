@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilePlanDescriptor extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new filePlanDescriptor and sets the default values.
     */
     public function __construct() {
@@ -181,6 +186,7 @@ class FilePlanDescriptor extends Entity implements Parsable
         $writer->writeObjectValue('departmentTemplate', $this->getDepartmentTemplate());
         $writer->writeObjectValue('filePlanReference', $this->getFilePlanReference());
         $writer->writeObjectValue('filePlanReferenceTemplate', $this->getFilePlanReferenceTemplate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
+*/
 class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements Parsable 
 {
     /**
-     * Instantiates a new IosVppAppAssignedDeviceLicense and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosVppAppAssignedDeviceLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +76,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
         parent::serialize($writer);
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

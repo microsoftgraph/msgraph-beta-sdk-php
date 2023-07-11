@@ -45,8 +45,21 @@ class VerticalSection extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'emphasis' => fn(ParseNode $n) => $o->setEmphasis($n->getEnumValue(SectionEmphasisType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'webparts' => fn(ParseNode $n) => $o->setWebparts($n->getCollectionOfObjectValues([WebPart::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -70,6 +83,7 @@ class VerticalSection extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('emphasis', $this->getEmphasis());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('webparts', $this->getWebparts());
     }
 
@@ -79,6 +93,14 @@ class VerticalSection extends Entity implements Parsable
     */
     public function setEmphasis(?SectionEmphasisType $value): void {
         $this->getBackingStore()->set('emphasis', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

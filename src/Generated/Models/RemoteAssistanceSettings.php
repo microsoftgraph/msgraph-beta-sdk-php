@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Remote assistance settings for the account
+*/
 class RemoteAssistanceSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteAssistanceSettings and sets the default values.
+     * Instantiates a new remoteAssistanceSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,8 +60,21 @@ class RemoteAssistanceSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowSessionsToUnenrolledDevices' => fn(ParseNode $n) => $o->setAllowSessionsToUnenrolledDevices($n->getBooleanValue()),
             'blockChat' => fn(ParseNode $n) => $o->setBlockChat($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'remoteAssistanceState' => fn(ParseNode $n) => $o->setRemoteAssistanceState($n->getEnumValue(RemoteAssistanceState::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +97,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('allowSessionsToUnenrolledDevices', $this->getAllowSessionsToUnenrolledDevices());
         $writer->writeBooleanValue('blockChat', $this->getBlockChat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('remoteAssistanceState', $this->getRemoteAssistanceState());
     }
 
@@ -98,6 +115,14 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     */
     public function setBlockChat(?bool $value): void {
         $this->getBackingStore()->set('blockChat', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

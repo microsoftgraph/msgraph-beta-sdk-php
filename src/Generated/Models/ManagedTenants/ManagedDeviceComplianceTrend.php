@@ -86,6 +86,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
             'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
             'inGracePeriodDeviceCount' => fn(ParseNode $n) => $o->setInGracePeriodDeviceCount($n->getIntegerValue()),
             'noncompliantDeviceCount' => fn(ParseNode $n) => $o->setNoncompliantDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'unknownDeviceCount' => fn(ParseNode $n) => $o->setUnknownDeviceCount($n->getIntegerValue()),
@@ -114,6 +115,18 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'noncompliantDeviceCount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -164,6 +177,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
         $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
         $writer->writeIntegerValue('inGracePeriodDeviceCount', $this->getInGracePeriodDeviceCount());
         $writer->writeIntegerValue('noncompliantDeviceCount', $this->getNoncompliantDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('unknownDeviceCount', $this->getUnknownDeviceCount());
@@ -215,6 +229,14 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
     */
     public function setNoncompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('noncompliantDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

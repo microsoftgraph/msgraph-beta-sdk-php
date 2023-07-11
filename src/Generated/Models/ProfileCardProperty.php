@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ProfileCardProperty extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new profileCardProperty and sets the default values.
     */
     public function __construct() {
@@ -71,6 +76,7 @@ class ProfileCardProperty extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('annotations', $this->getAnnotations());
         $writer->writeStringValue('directoryPropertyName', $this->getDirectoryPropertyName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

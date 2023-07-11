@@ -16,6 +16,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AdminWindowsUpdates extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new adminWindowsUpdates and sets the default values.
     */
     public function __construct() {
@@ -138,6 +143,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
         $writer->writeObjectValue('catalog', $this->getCatalog());
         $writer->writeCollectionOfObjectValues('deploymentAudiences', $this->getDeploymentAudiences());
         $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('resourceConnections', $this->getResourceConnections());
         $writer->writeCollectionOfObjectValues('updatableAssets', $this->getUpdatableAssets());
         $writer->writeCollectionOfObjectValues('updatePolicies', $this->getUpdatePolicies());

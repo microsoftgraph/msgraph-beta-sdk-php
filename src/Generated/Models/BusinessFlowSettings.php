@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessFlowSettings extends AccessReviewSettings implements Parsable 
 {
     /**
-     * Instantiates a new BusinessFlowSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new businessFlowSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

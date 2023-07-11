@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaArtifact extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new zebraFotaArtifact and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
         $writer->writeStringValue('boardSupportPackageVersion', $this->getBoardSupportPackageVersion());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('patchVersion', $this->getPatchVersion());
         $writer->writeStringValue('releaseNotesUrl', $this->getReleaseNotesUrl());

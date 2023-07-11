@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Security extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new security and sets the default values.
     */
     public function __construct() {
@@ -55,6 +60,7 @@ class Security extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -19,7 +19,7 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new AuthenticationAttributeCollectionInputConfiguration and sets the default values.
+     * Instantiates a new authenticationAttributeCollectionInputConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

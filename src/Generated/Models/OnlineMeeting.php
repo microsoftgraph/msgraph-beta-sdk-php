@@ -12,6 +12,11 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
@@ -608,6 +613,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
         $writer->writeObjectValue('lobbyBypassSettings', $this->getLobbyBypassSettings());
         $writer->writeObjectValue('meetingAttendanceReport', $this->getMeetingAttendanceReport());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('participants', $this->getParticipants());
         $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
         $writer->writeBinaryContent('recording', $this->getRecording());

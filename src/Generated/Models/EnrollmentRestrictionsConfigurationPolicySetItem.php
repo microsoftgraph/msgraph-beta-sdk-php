@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for enrollment restriction PolicySetItem.
+*/
 class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new EnrollmentRestrictionsConfigurationPolicySetItem and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new enrollmentRestrictionsConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +76,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('limit', $this->getLimit());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('priority', $this->getPriority());
     }
 

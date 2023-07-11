@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MetadataAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new MetadataAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new metadataAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -81,6 +86,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('metadataToAdd', $this->getMetadataToAdd());
         $writer->writeCollectionOfPrimitiveValues('metadataToRemove', $this->getMetadataToRemove());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

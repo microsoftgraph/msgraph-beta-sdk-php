@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new TunnelConfigurationIKEv2Custom and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new tunnelConfigurationIKEv2Custom and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -115,7 +120,7 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
     }
 
     /**
-     * Gets the saLifeTimeSeconds property value. The saLifeTimeSeconds property
+     * Gets the saLifeTimeSeconds property value. a standard specifiying Security Association lifetime with recommended values from an RFC standard.
      * @return int|null
     */
     public function getSaLifeTimeSeconds(): ?int {
@@ -137,6 +142,7 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
         $writer->writeEnumValue('ikeIntegrity', $this->getIkeIntegrity());
         $writer->writeEnumValue('ipSecEncryption', $this->getIpSecEncryption());
         $writer->writeEnumValue('ipSecIntegrity', $this->getIpSecIntegrity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('pfsGroup', $this->getPfsGroup());
         $writer->writeIntegerValue('saLifeTimeSeconds', $this->getSaLifeTimeSeconds());
     }
@@ -190,7 +196,7 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
     }
 
     /**
-     * Sets the saLifeTimeSeconds property value. The saLifeTimeSeconds property
+     * Sets the saLifeTimeSeconds property value. a standard specifiying Security Association lifetime with recommended values from an RFC standard.
      * @param int|null $value Value to set for the saLifeTimeSeconds property.
     */
     public function setSaLifeTimeSeconds(?int $value): void {

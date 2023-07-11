@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ConditionalAccessRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConditionalAccessRoot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new conditionalAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -131,6 +136,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('authenticationStrength', $this->getAuthenticationStrength());
         $writer->writeObjectValue('authenticationStrengths', $this->getAuthenticationStrengths());
         $writer->writeCollectionOfObjectValues('namedLocations', $this->getNamedLocations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Apple Single Sign-On Extension.
+*/
 class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new KerberosSingleSignOnExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new kerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -350,6 +358,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
         $writer->writeCollectionOfPrimitiveValues('domainRealms', $this->getDomainRealms());
         $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
         $writer->writeBooleanValue('isDefaultRealm', $this->getIsDefaultRealm());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passwordBlockModification', $this->getPasswordBlockModification());
         $writer->writeStringValue('passwordChangeUrl', $this->getPasswordChangeUrl());
         $writer->writeBooleanValue('passwordEnableLocalSync', $this->getPasswordEnableLocalSync());

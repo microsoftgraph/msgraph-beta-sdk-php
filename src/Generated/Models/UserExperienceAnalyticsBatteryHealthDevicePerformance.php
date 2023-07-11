@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
@@ -169,6 +174,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeIntegerValue('maxCapacityPercentage', $this->getMaxCapacityPercentage());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

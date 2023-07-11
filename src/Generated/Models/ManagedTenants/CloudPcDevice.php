@@ -75,6 +75,7 @@ class CloudPcDevice extends Entity implements Parsable
             'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
             'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getStringValue()),
@@ -118,6 +119,18 @@ class CloudPcDevice extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -204,6 +217,7 @@ class CloudPcDevice extends Entity implements Parsable
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('servicePlanName', $this->getServicePlanName());
         $writer->writeStringValue('servicePlanType', $this->getServicePlanType());
@@ -258,6 +272,14 @@ class CloudPcDevice extends Entity implements Parsable
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

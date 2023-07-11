@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an Apple Single Sign-On Extension.
+*/
 class MacOSSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new MacOSSingleSignOnExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOSSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,6 +59,7 @@ class MacOSSingleSignOnExtension extends SingleSignOnExtension implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

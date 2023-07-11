@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Parsable 
 {
     /**
-     * Instantiates a new AccessPackageTextInputQuestion and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new accessPackageTextInputQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isSingleLineQuestion', $this->getIsSingleLineQuestion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('regexPattern', $this->getRegexPattern());
     }
 

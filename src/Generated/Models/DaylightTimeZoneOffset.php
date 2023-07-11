@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DaylightTimeZoneOffset extends StandardTimeZoneOffset implements Parsable 
 {
     /**
-     * Instantiates a new DaylightTimeZoneOffset and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new daylightTimeZoneOffset and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class DaylightTimeZoneOffset extends StandardTimeZoneOffset implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('daylightBias', $this->getDaylightBias());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -88,6 +88,7 @@ class FeatureRolloutPolicy extends Entity implements Parsable
             'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(StagedFeatureName::class)),
             'isAppliedToOrganization' => fn(ParseNode $n) => $o->setIsAppliedToOrganization($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -116,6 +117,18 @@ class FeatureRolloutPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -127,6 +140,7 @@ class FeatureRolloutPolicy extends Entity implements Parsable
         $writer->writeEnumValue('feature', $this->getFeature());
         $writer->writeBooleanValue('isAppliedToOrganization', $this->getIsAppliedToOrganization());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -175,6 +189,14 @@ class FeatureRolloutPolicy extends Entity implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -48,6 +48,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'buckets' => fn(ParseNode $n) => $o->setBuckets($n->getCollectionOfObjectValues([PlannerPlanConfigurationBucketLocalization::class, 'createFromDiscriminatorValue'])),
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'planTitle' => fn(ParseNode $n) => $o->setPlanTitle($n->getStringValue()),
         ]);
     }
@@ -62,6 +63,18 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,6 +97,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('planTitle', $this->getPlanTitle());
     }
 
@@ -101,6 +115,14 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

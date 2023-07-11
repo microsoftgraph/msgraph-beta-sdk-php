@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off.
+*/
 class TelecomExpenseManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TelecomExpenseManagementPartner and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new telecomExpenseManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,6 +118,7 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('url', $this->getUrl());
     }
 

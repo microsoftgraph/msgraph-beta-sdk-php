@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Office365GroupsActivityDetail and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new office365GroupsActivityDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -324,6 +329,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeDateValue('lastActivityDate', $this->getLastActivityDate());
         $writer->writeIntegerValue('memberCount', $this->getMemberCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ownerPrincipalName', $this->getOwnerPrincipalName());
         $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
         $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());

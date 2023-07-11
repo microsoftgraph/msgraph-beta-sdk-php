@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ContactFolder extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new contactFolder and sets the default values.
     */
     public function __construct() {
@@ -144,6 +149,7 @@ class ContactFolder extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('contacts', $this->getContacts());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
         $writer->writeStringValue('wellKnownName', $this->getWellKnownName());

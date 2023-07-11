@@ -148,6 +148,7 @@ class ChatMessage extends Entity implements Parsable
             'mentions' => fn(ParseNode $n) => $o->setMentions($n->getCollectionOfObjectValues([ChatMessageMention::class, 'createFromDiscriminatorValue'])),
             'messageHistory' => fn(ParseNode $n) => $o->setMessageHistory($n->getCollectionOfObjectValues([ChatMessageHistoryItem::class, 'createFromDiscriminatorValue'])),
             'messageType' => fn(ParseNode $n) => $o->setMessageType($n->getEnumValue(ChatMessageType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onBehalfOf' => fn(ParseNode $n) => $o->setOnBehalfOf($n->getObjectValue([ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'])),
             'policyViolation' => fn(ParseNode $n) => $o->setPolicyViolation($n->getObjectValue([ChatMessagePolicyViolation::class, 'createFromDiscriminatorValue'])),
             'reactions' => fn(ParseNode $n) => $o->setReactions($n->getCollectionOfObjectValues([ChatMessageReaction::class, 'createFromDiscriminatorValue'])),
@@ -274,6 +275,18 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the onBehalfOf property value. User attribution of the message when bot sends a message on behalf of a user.
      * @return ChatMessageFromIdentitySet|null
     */
@@ -396,6 +409,7 @@ class ChatMessage extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mentions', $this->getMentions());
         $writer->writeCollectionOfObjectValues('messageHistory', $this->getMessageHistory());
         $writer->writeEnumValue('messageType', $this->getMessageType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onBehalfOf', $this->getOnBehalfOf());
         $writer->writeObjectValue('policyViolation', $this->getPolicyViolation());
         $writer->writeCollectionOfObjectValues('reactions', $this->getReactions());
@@ -540,6 +554,14 @@ class ChatMessage extends Entity implements Parsable
     */
     public function setMessageType(?ChatMessageType $value): void {
         $this->getBackingStore()->set('messageType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

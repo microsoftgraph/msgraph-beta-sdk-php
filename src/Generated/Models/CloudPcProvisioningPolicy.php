@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcProvisioningPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcProvisioningPolicy and sets the default values.
+     * Instantiates a new cloudPcProvisioningPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -160,6 +160,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
@@ -251,6 +252,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the onPremisesConnectionId property value. The ID of the cloudPcOnPremisesConnection. To ensure that Cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the Cloud PC service.
      * @return string|null
     */
@@ -308,6 +321,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
@@ -439,6 +453,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setMicrosoftManagedDesktop(?MicrosoftManagedDesktop $value): void {
         $this->getBackingStore()->set('microsoftManagedDesktop', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

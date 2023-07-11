@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
+*/
 class DeviceCategory extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new deviceCategory and sets the default values.
     */
@@ -91,6 +99,7 @@ class DeviceCategory extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VirtualEventPresenterInfo extends MeetingParticipantInfo implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEventPresenterInfo and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new virtualEventPresenterInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class VirtualEventPresenterInfo extends MeetingParticipantInfo implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('presenterDetails', $this->getPresenterDetails());
     }
 

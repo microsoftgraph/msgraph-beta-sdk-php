@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the run summary of a device management script.
+*/
 class DeviceComplianceScriptRunSummary extends Entity implements Parsable 
 {
     /**
@@ -61,6 +64,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
             'issueDetectedDeviceCount' => fn(ParseNode $n) => $o->setIssueDetectedDeviceCount($n->getIntegerValue()),
             'lastScriptRunDateTime' => fn(ParseNode $n) => $o->setLastScriptRunDateTime($n->getDateTimeValue()),
             'noIssueDetectedDeviceCount' => fn(ParseNode $n) => $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -101,6 +105,18 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -111,6 +127,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
         $writer->writeIntegerValue('issueDetectedDeviceCount', $this->getIssueDetectedDeviceCount());
         $writer->writeDateTimeValue('lastScriptRunDateTime', $this->getLastScriptRunDateTime());
         $writer->writeIntegerValue('noIssueDetectedDeviceCount', $this->getNoIssueDetectedDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -151,6 +168,14 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
     */
     public function setNoIssueDetectedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('noIssueDetectedDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

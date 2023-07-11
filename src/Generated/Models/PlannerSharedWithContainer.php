@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerSharedWithContainer extends PlannerPlanContainer implements Parsable 
 {
     /**
-     * Instantiates a new PlannerSharedWithContainer and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new plannerSharedWithContainer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class PlannerSharedWithContainer extends PlannerPlanContainer implements Parsabl
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('accessLevel', $this->getAccessLevel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

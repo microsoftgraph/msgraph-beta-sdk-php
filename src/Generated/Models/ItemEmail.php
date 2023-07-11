@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemEmail extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ItemEmail and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new itemEmail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class ItemEmail extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('address', $this->getAddress());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('type', $this->getType());
     }
 

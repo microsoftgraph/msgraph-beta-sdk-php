@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable 
 {
     /**
-     * Instantiates a new PlannerTaskPropertyRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new plannerTaskPropertyRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -344,6 +349,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
         $writer->writeCollectionOfPrimitiveValues('dueDate', $this->getDueDate());
         $writer->writeCollectionOfPrimitiveValues('move', $this->getMove());
         $writer->writeCollectionOfPrimitiveValues('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('order', $this->getOrder());
         $writer->writeCollectionOfPrimitiveValues('percentComplete', $this->getPercentComplete());
         $writer->writeCollectionOfPrimitiveValues('previewType', $this->getPreviewType());

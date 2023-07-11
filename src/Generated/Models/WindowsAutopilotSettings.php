@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
+*/
 class WindowsAutopilotSettings extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsAutopilotSettings and sets the default values.
     */
@@ -82,6 +90,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastManualSyncTriggerDateTime', $this->getLastManualSyncTriggerDateTime());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('syncStatus', $this->getSyncStatus());
     }
 

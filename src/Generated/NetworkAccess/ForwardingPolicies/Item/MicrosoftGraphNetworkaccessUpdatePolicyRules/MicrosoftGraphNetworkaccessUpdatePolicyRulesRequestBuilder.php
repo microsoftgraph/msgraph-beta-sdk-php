@@ -31,10 +31,11 @@ class MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke action updatePolicyRules
+     * Update the rules within a forwarding policy.
      * @param UpdatePolicyRulesPostRequestBody $body The request body
      * @param MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdatePolicyRulesPostRequestBody $body, ?MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke action updatePolicyRules
+     * Update the rules within a forwarding policy.
      * @param UpdatePolicyRulesPostRequestBody $body The request body
      * @param MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

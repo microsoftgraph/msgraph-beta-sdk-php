@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityPolicySettings extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new sensitivityPolicySettings and sets the default values.
     */
     public function __construct() {
@@ -96,6 +101,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
         $writer->writeBooleanValue('downgradeSensitivityRequiresJustification', $this->getDowngradeSensitivityRequiresJustification());
         $writer->writeStringValue('helpWebUrl', $this->getHelpWebUrl());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

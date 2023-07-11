@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SourceSystemDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new sourceSystemDefinition and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class SourceSystemDefinition extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('userMatchingSettings', $this->getUserMatchingSettings());
         $writer->writeStringValue('vendor', $this->getVendor());
     }

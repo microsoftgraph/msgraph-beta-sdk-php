@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PurchaseInvoiceLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PurchaseInvoiceLine and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new purchaseInvoiceLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -357,6 +362,7 @@ class PurchaseInvoiceLine extends Entity implements Parsable
         $writer->writeStringValue('netAmount', $this->getNetAmount());
         $writer->writeStringValue('netAmountIncludingTax', $this->getNetAmountIncludingTax());
         $writer->writeStringValue('netTaxAmount', $this->getNetTaxAmount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('quantity', $this->getQuantity());
         $writer->writeIntegerValue('sequence', $this->getSequence());
         $writer->writeStringValue('taxCode', $this->getTaxCode());

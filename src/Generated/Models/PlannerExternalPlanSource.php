@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable 
 {
     /**
-     * Instantiates a new PlannerExternalPlanSource and sets the default values.
+     * Instantiates a new plannerExternalPlanSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,7 +71,20 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
             'contextScenarioId' => fn(ParseNode $n) => $o->setContextScenarioId($n->getStringValue()),
             'externalContextId' => fn(ParseNode $n) => $o->setExternalContextId($n->getStringValue()),
             'externalObjectId' => fn(ParseNode $n) => $o->setExternalObjectId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,6 +96,7 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
         $writer->writeStringValue('contextScenarioId', $this->getContextScenarioId());
         $writer->writeStringValue('externalContextId', $this->getExternalContextId());
         $writer->writeStringValue('externalObjectId', $this->getExternalObjectId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +121,14 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
     */
     public function setExternalObjectId(?string $value): void {
         $this->getBackingStore()->set('externalObjectId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

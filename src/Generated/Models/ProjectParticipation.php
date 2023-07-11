@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ProjectParticipation extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ProjectParticipation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new projectParticipation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -174,6 +179,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
         $writer->writeCollectionOfObjectValues('colleagues', $this->getColleagues());
         $writer->writeObjectValue('detail', $this->getDetail());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
     }

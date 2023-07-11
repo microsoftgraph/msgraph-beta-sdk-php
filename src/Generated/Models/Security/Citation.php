@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Citation extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new Citation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new citation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class Citation extends FilePlanDescriptorBase implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('citationJurisdiction', $this->getCitationJurisdiction());
         $writer->writeStringValue('citationUrl', $this->getCitationUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

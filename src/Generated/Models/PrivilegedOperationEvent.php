@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedOperationEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedOperationEvent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new privilegedOperationEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -226,6 +231,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
         $writer->writeStringValue('additionalInformation', $this->getAdditionalInformation());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceKey', $this->getReferenceKey());
         $writer->writeStringValue('referenceSystem', $this->getReferenceSystem());
         $writer->writeStringValue('requestorId', $this->getRequestorId());

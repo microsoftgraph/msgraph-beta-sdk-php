@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
+/**
+ * Device health script run once schedule.
+*/
 class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptRunOnceSchedule and sets the default values.
+     * Instantiates a new deviceHealthScriptRunOnceSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +49,20 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -56,6 +72,7 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateValue('date', $this->getDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -64,6 +81,14 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
     */
     public function setDate(?Date $value): void {
         $this->getBackingStore()->set('date', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

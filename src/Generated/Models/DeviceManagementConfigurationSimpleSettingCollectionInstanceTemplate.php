@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Setting Instance Template
+*/
 class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,8 +49,21 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowUnmanagedValues' => fn(ParseNode $n) => $o->setAllowUnmanagedValues($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'simpleSettingCollectionValueTemplate' => fn(ParseNode $n) => $o->setSimpleSettingCollectionValueTemplate($n->getCollectionOfObjectValues([DeviceManagementConfigurationSimpleSettingValueTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -71,6 +87,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowUnmanagedValues', $this->getAllowUnmanagedValues());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('simpleSettingCollectionValueTemplate', $this->getSimpleSettingCollectionValueTemplate());
     }
 
@@ -80,6 +97,14 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
     */
     public function setAllowUnmanagedValues(?bool $value): void {
         $this->getBackingStore()->set('allowUnmanagedValues', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -47,6 +47,7 @@ class CloudPcOverview extends Entity implements Parsable
             'numberOfCloudPcStatusProvisioning' => fn(ParseNode $n) => $o->setNumberOfCloudPcStatusProvisioning($n->getIntegerValue()),
             'numberOfCloudPcStatusUnknown' => fn(ParseNode $n) => $o->setNumberOfCloudPcStatusUnknown($n->getIntegerValue()),
             'numberOfCloudPcStatusUpgrading' => fn(ParseNode $n) => $o->setNumberOfCloudPcStatusUpgrading($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'totalBusinessLicenses' => fn(ParseNode $n) => $o->setTotalBusinessLicenses($n->getIntegerValue()),
@@ -225,6 +226,18 @@ class CloudPcOverview extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
      * @return string|null
     */
@@ -316,6 +329,7 @@ class CloudPcOverview extends Entity implements Parsable
         $writer->writeIntegerValue('numberOfCloudPcStatusProvisioning', $this->getNumberOfCloudPcStatusProvisioning());
         $writer->writeIntegerValue('numberOfCloudPcStatusUnknown', $this->getNumberOfCloudPcStatusUnknown());
         $writer->writeIntegerValue('numberOfCloudPcStatusUpgrading', $this->getNumberOfCloudPcStatusUpgrading());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('totalBusinessLicenses', $this->getTotalBusinessLicenses());
@@ -434,6 +448,14 @@ class CloudPcOverview extends Entity implements Parsable
     */
     public function setNumberOfCloudPcStatusUpgrading(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusUpgrading', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

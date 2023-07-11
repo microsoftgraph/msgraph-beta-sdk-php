@@ -39,6 +39,7 @@ class LocalizedNotificationMessage extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             'messageTemplate' => fn(ParseNode $n) => $o->setMessageTemplate($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
@@ -92,6 +93,18 @@ class LocalizedNotificationMessage extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the subject property value. The Message Template Subject.
      * @return string|null
     */
@@ -113,6 +126,7 @@ class LocalizedNotificationMessage extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('locale', $this->getLocale());
         $writer->writeStringValue('messageTemplate', $this->getMessageTemplate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('subject', $this->getSubject());
     }
 
@@ -146,6 +160,14 @@ class LocalizedNotificationMessage extends Entity implements Parsable
     */
     public function setMessageTemplate(?string $value): void {
         $this->getBackingStore()->set('messageTemplate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

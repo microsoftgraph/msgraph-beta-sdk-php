@@ -21,7 +21,7 @@ class ConfigurationManagerAction implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ConfigurationManagerAction and sets the default values.
+     * Instantiates a new configurationManagerAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

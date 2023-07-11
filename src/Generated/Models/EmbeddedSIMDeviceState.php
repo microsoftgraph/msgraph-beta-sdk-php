@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmbeddedSIMDeviceState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new embeddedSIMDeviceState and sets the default values.
     */
     public function __construct() {
@@ -152,6 +157,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('stateDetails', $this->getStateDetails());
         $writer->writeStringValue('universalIntegratedCircuitCardIdentifier', $this->getUniversalIntegratedCircuitCardIdentifier());

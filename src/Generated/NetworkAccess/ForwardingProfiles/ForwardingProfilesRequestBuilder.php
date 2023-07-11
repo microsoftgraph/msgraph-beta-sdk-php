@@ -53,9 +53,10 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Retrieve a list of forwarding profiles.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-networkaccessroot-list-forwardingprofiles?view=graph-rest-1.0 Find more info here
     */
     public function get(?ForwardingProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Retrieve a list of forwarding profiles.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchJobBase extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new exactMatchJobBase and sets the default values.
     */
     public function __construct() {
@@ -119,6 +124,7 @@ class ExactMatchJobBase extends Entity implements Parsable
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeObjectValue('error', $this->getError());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
     }
 

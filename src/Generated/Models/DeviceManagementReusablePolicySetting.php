@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementReusablePolicySetting and sets the default values.
     */
     public function __construct() {
@@ -166,6 +171,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('referencingConfigurationPolicies', $this->getReferencingConfigurationPolicies());
         $writer->writeStringValue('settingDefinitionId', $this->getSettingDefinitionId());
         $writer->writeObjectValue('settingInstance', $this->getSettingInstance());

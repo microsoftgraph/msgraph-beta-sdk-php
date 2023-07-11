@@ -47,6 +47,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
             'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
             'lastActivityDateTime' => fn(ParseNode $n) => $o->setLastActivityDateTime($n->getDateTimeValue()),
             'lastSynchronizationDateTime' => fn(ParseNode $n) => $o->setLastSynchronizationDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSynchronizationStatus::class)),
             'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getStringValue()),
         ]);
@@ -74,6 +75,18 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSynchronizationDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -109,6 +122,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
         $writer->writeIntegerValue('errorCount', $this->getErrorCount());
         $writer->writeDateTimeValue('lastActivityDateTime', $this->getLastActivityDateTime());
         $writer->writeDateTimeValue('lastSynchronizationDateTime', $this->getLastSynchronizationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('statusMessage', $this->getStatusMessage());
     }
@@ -135,6 +149,14 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     */
     public function setLastSynchronizationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSynchronizationDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VppToken extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new vppToken and sets the default values.
     */
     public function __construct() {
@@ -288,6 +293,7 @@ class VppToken extends Entity implements Parsable
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeEnumValue('lastSyncStatus', $this->getLastSyncStatus());
         $writer->writeStringValue('locationName', $this->getLocationName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('organizationName', $this->getOrganizationName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('state', $this->getState());

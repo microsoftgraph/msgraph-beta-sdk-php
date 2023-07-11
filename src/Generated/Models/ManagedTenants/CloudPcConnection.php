@@ -48,6 +48,7 @@ class CloudPcConnection extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getStringValue()),
             'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
@@ -75,6 +76,18 @@ class CloudPcConnection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -110,6 +123,7 @@ class CloudPcConnection extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('healthCheckStatus', $this->getHealthCheckStatus());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
     }
@@ -136,6 +150,14 @@ class CloudPcConnection extends Entity implements Parsable
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

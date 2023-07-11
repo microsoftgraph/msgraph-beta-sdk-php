@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This class contains compliance settings for Android for Work.
+*/
 class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkCompliancePolicy and sets the default values.
+     * Instantiates a new androidForWorkCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

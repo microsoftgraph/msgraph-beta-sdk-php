@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcOrganizationSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcOrganizationSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -107,6 +112,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('enableMEMAutoEnroll', $this->getEnableMEMAutoEnroll());
         $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());

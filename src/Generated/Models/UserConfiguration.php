@@ -10,6 +10,11 @@ use Psr\Http\Message\StreamInterface;
 class UserConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userConfiguration and sets the default values.
     */
     public function __construct() {
@@ -55,6 +60,7 @@ class UserConfiguration extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('binaryData', $this->getBinaryData());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Abstract class to contain properties used to assign a mobile app to a group.
+*/
 class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new WinGetAppAssignmentSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new winGetAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +90,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
         parent::serialize($writer);
         $writer->writeObjectValue('installTimeSettings', $this->getInstallTimeSettings());
         $writer->writeEnumValue('notifications', $this->getNotifications());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('restartSettings', $this->getRestartSettings());
     }
 

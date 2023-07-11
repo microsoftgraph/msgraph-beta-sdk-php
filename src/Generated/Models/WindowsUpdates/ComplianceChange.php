@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComplianceChange extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new complianceChange and sets the default values.
     */
     public function __construct() {
@@ -103,6 +108,7 @@ class ComplianceChange extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeBooleanValue('isRevoked', $this->getIsRevoked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('revokedDateTime', $this->getRevokedDateTime());
         $writer->writeObjectValue('updatePolicy', $this->getUpdatePolicy());
     }

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AddressBookAccountTargetContent extends AccountTargetContent implements Parsable 
 {
     /**
-     * Instantiates a new AddressBookAccountTargetContent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new addressBookAccountTargetContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,6 +70,7 @@ class AddressBookAccountTargetContent extends AccountTargetContent implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('accountTargetEmails', $this->getAccountTargetEmails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

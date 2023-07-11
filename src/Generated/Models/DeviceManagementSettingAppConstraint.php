@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Base entity for a constraint
+*/
 class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingAppConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingAppConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +36,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'supportedTypes' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -42,6 +46,18 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
                 $this->setSupportedTypes($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -64,7 +80,16 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('supportedTypes', $this->getSupportedTypes());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

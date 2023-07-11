@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for iOS web apps.
+*/
 class IosiPadOSWebClip extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new IosiPadOSWebClip and sets the default values.
+     * Instantiates a new iosiPadOSWebClip and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,6 +50,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
             'appUrl' => fn(ParseNode $n) => $o->setAppUrl($n->getStringValue()),
             'fullScreenEnabled' => fn(ParseNode $n) => $o->setFullScreenEnabled($n->getBooleanValue()),
             'ignoreManifestScope' => fn(ParseNode $n) => $o->setIgnoreManifestScope($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'preComposedIconEnabled' => fn(ParseNode $n) => $o->setPreComposedIconEnabled($n->getBooleanValue()),
             'targetApplicationBundleIdentifier' => fn(ParseNode $n) => $o->setTargetApplicationBundleIdentifier($n->getStringValue()),
             'useManagedBrowser' => fn(ParseNode $n) => $o->setUseManagedBrowser($n->getBooleanValue()),
@@ -78,7 +82,19 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding "shine" to the icon. If FALSE, SpringBoard can add "shine".
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding 'shine' to the icon. If FALSE, SpringBoard can add 'shine'.
      * @return bool|null
     */
     public function getPreComposedIconEnabled(): ?bool {
@@ -122,6 +138,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
         $writer->writeStringValue('appUrl', $this->getAppUrl());
         $writer->writeBooleanValue('fullScreenEnabled', $this->getFullScreenEnabled());
         $writer->writeBooleanValue('ignoreManifestScope', $this->getIgnoreManifestScope());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('preComposedIconEnabled', $this->getPreComposedIconEnabled());
         $writer->writeStringValue('targetApplicationBundleIdentifier', $this->getTargetApplicationBundleIdentifier());
         $writer->writeBooleanValue('useManagedBrowser', $this->getUseManagedBrowser());
@@ -152,7 +169,15 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding "shine" to the icon. If FALSE, SpringBoard can add "shine".
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding 'shine' to the icon. If FALSE, SpringBoard can add 'shine'.
      * @param bool|null $value Value to set for the preComposedIconEnabled property.
     */
     public function setPreComposedIconEnabled(?bool $value): void {

@@ -87,6 +87,7 @@ class Segment extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'failureInfo' => fn(ParseNode $n) => $o->setFailureInfo($n->getObjectValue([FailureInfo::class, 'createFromDiscriminatorValue'])),
             'media' => fn(ParseNode $n) => $o->setMedia($n->getCollectionOfObjectValues([Media::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ]);
     }
@@ -103,6 +104,18 @@ class Segment extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'media'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -128,6 +141,7 @@ class Segment extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeObjectValue('failureInfo', $this->getFailureInfo());
         $writer->writeCollectionOfObjectValues('media', $this->getMedia());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
     }
 
@@ -169,6 +183,14 @@ class Segment extends Entity implements Parsable
     */
     public function setMedia(?array $value): void {
         $this->getBackingStore()->set('media', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

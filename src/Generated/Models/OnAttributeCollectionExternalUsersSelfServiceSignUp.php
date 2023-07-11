@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCollectionHandler implements Parsable 
 {
     /**
-     * Instantiates a new OnAttributeCollectionExternalUsersSelfServiceSignUp and sets the default values.
+     * Instantiates a new onAttributeCollectionExternalUsersSelfServiceSignUp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -61,7 +61,20 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCol
         return array_merge(parent::getFieldDeserializers(), [
             'attributeCollectionPage' => fn(ParseNode $n) => $o->setAttributeCollectionPage($n->getObjectValue([AuthenticationAttributeCollectionPage::class, 'createFromDiscriminatorValue'])),
             'attributes' => fn(ParseNode $n) => $o->setAttributes($n->getCollectionOfObjectValues([IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -72,6 +85,7 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCol
         parent::serialize($writer);
         $writer->writeObjectValue('attributeCollectionPage', $this->getAttributeCollectionPage());
         $writer->writeCollectionOfObjectValues('attributes', $this->getAttributes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -88,6 +102,14 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCol
     */
     public function setAttributes(?array $value): void {
         $this->getBackingStore()->set('attributes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

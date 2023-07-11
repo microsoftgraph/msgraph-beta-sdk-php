@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -194,6 +202,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('processedDateTime', $this->getProcessedDateTime());
     }
 

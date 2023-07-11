@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MessageEvent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new messageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +88,7 @@ class MessageEvent extends Entity implements Parsable
         $writer->writeDateTimeValue('dateTime', $this->getDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeEnumValue('eventType', $this->getEventType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

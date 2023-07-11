@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AmazonResourceEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new AmazonResourceEvidence and sets the default values.
+     * Instantiates a new amazonResourceEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,9 +57,22 @@ class AmazonResourceEvidence extends AlertEvidence implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'amazonAccountId' => fn(ParseNode $n) => $o->setAmazonAccountId($n->getStringValue()),
             'amazonResourceId' => fn(ParseNode $n) => $o->setAmazonResourceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceName' => fn(ParseNode $n) => $o->setResourceName($n->getStringValue()),
             'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,6 +107,7 @@ class AmazonResourceEvidence extends AlertEvidence implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('amazonAccountId', $this->getAmazonAccountId());
         $writer->writeStringValue('amazonResourceId', $this->getAmazonResourceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceName', $this->getResourceName());
         $writer->writeStringValue('resourceType', $this->getResourceType());
     }
@@ -112,6 +126,14 @@ class AmazonResourceEvidence extends AlertEvidence implements Parsable
     */
     public function setAmazonResourceId(?string $value): void {
         $this->getBackingStore()->set('amazonResourceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

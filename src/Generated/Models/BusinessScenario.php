@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BusinessScenario extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new BusinessScenario and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new businessScenario and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -160,6 +165,7 @@ class BusinessScenario extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('ownerAppIds', $this->getOwnerAppIds());
         $writer->writeObjectValue('planner', $this->getPlanner());
         $writer->writeStringValue('uniqueName', $this->getUniqueName());

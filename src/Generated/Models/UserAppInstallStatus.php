@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties for the installation status for a user. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class UserAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserAppInstallStatus and sets the default values.
+     * Instantiates a new userAppInstallStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,6 +78,7 @@ class UserAppInstallStatus extends Entity implements Parsable
             'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
             'installedDeviceCount' => fn(ParseNode $n) => $o->setInstalledDeviceCount($n->getIntegerValue()),
             'notInstalledDeviceCount' => fn(ParseNode $n) => $o->setNotInstalledDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
@@ -102,6 +106,18 @@ class UserAppInstallStatus extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notInstalledDeviceCount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -139,6 +155,7 @@ class UserAppInstallStatus extends Entity implements Parsable
         $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
         $writer->writeIntegerValue('installedDeviceCount', $this->getInstalledDeviceCount());
         $writer->writeIntegerValue('notInstalledDeviceCount', $this->getNotInstalledDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userName', $this->getUserName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -181,6 +198,14 @@ class UserAppInstallStatus extends Entity implements Parsable
     */
     public function setNotInstalledDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notInstalledDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

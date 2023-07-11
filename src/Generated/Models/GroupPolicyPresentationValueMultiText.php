@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents a string value of a multi-line text box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueMultiText and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationValueMultiText and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +71,7 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('values', $this->getValues());
     }
 

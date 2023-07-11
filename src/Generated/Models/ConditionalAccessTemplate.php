@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessTemplate extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new conditionalAccessTemplate and sets the default values.
     */
     public function __construct() {
@@ -95,6 +100,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('scenarios', $this->getScenarios());
     }
 

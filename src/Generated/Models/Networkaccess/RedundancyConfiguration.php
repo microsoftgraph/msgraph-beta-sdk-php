@@ -93,7 +93,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the zoneLocalIpAddress property value. The zoneLocalIpAddress property
+     * Gets the zoneLocalIpAddress property value. Indicate the specific IP address used for establishing the Border Gateway Protocol (BGP) connection with Microsoft's network.
      * @return string|null
     */
     public function getZoneLocalIpAddress(): ?string {
@@ -148,7 +148,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the zoneLocalIpAddress property value. The zoneLocalIpAddress property
+     * Sets the zoneLocalIpAddress property value. Indicate the specific IP address used for establishing the Border Gateway Protocol (BGP) connection with Microsoft's network.
      * @param string|null $value Value to set for the zoneLocalIpAddress property.
     */
     public function setZoneLocalIpAddress(?string $value): void {

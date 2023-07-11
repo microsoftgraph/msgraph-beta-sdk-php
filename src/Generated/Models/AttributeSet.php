@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttributeSet extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new attributeSet and sets the default values.
     */
     public function __construct() {
@@ -68,6 +73,7 @@ class AttributeSet extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeIntegerValue('maxAttributesPerSet', $this->getMaxAttributesPerSet());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

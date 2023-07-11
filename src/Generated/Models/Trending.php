@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Trending extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new trending and sets the default values.
     */
     public function __construct() {
@@ -107,6 +112,7 @@ class Trending extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeFloatValue('weight', $this->getWeight());
     }

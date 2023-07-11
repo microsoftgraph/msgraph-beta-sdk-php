@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemRetentionLabel extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new itemRetentionLabel and sets the default values.
     */
     public function __construct() {
@@ -110,6 +115,7 @@ class ItemRetentionLabel extends Entity implements Parsable
         $writer->writeObjectValue('labelAppliedBy', $this->getLabelAppliedBy());
         $writer->writeDateTimeValue('labelAppliedDateTime', $this->getLabelAppliedDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('retentionSettings', $this->getRetentionSettings());
     }
 

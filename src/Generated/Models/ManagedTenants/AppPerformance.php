@@ -74,6 +74,7 @@ class AppPerformance extends Entity implements Parsable
             'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'totalActiveDeviceCount' => fn(ParseNode $n) => $o->setTotalActiveDeviceCount($n->getIntegerValue()),
@@ -104,6 +105,18 @@ class AppPerformance extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meanTimeToFailureInMinutes'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -177,6 +190,7 @@ class AppPerformance extends Entity implements Parsable
         $writer->writeStringValue('appPublisher', $this->getAppPublisher());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('totalActiveDeviceCount', $this->getTotalActiveDeviceCount());
@@ -222,6 +236,14 @@ class AppPerformance extends Entity implements Parsable
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

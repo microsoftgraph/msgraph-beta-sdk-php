@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MeetingRegistrant extends MeetingRegistrantBase implements Parsable 
 {
     /**
-     * Instantiates a new MeetingRegistrant and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new meetingRegistrant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -127,6 +132,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('firstName', $this->getFirstName());
         $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
         $writer->writeEnumValue('status', $this->getStatus());
     }

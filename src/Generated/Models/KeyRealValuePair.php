@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A key-value pair with a string key and a typed value.
+*/
 class KeyRealValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * Instantiates a new KeyRealValuePair and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new keyRealValuePair and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class KeyRealValuePair extends KeyTypedValuePair implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('value', $this->getValue());
     }
 

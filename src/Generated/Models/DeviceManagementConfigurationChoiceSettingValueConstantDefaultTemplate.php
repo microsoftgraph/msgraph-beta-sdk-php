@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Choice Setting Value Default Template
+*/
 class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +79,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('settingDefinitionOptionId', $this->getSettingDefinitionOptionId());
     }
 

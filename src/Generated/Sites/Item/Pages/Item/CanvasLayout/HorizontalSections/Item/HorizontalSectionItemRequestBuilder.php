@@ -77,10 +77,11 @@ class HorizontalSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property horizontalSections in sites
+     * Update the properties of a horizontalSection object.
      * @param HorizontalSection $body The request body
      * @param HorizontalSectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/horizontalsection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(HorizontalSection $body, ?HorizontalSectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -134,7 +135,7 @@ class HorizontalSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property horizontalSections in sites
+     * Update the properties of a horizontalSection object.
      * @param HorizontalSection $body The request body
      * @param HorizontalSectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

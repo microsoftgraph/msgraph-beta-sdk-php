@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Subdomain extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new subdomain and sets the default values.
     */
     public function __construct() {
@@ -70,6 +75,7 @@ class Subdomain extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
         $writer->writeObjectValue('host', $this->getHost());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

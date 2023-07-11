@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base class to detect a Win32 App
+*/
 class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppFileSystemDetection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppFileSystemDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +131,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
         $writer->writeEnumValue('detectionType', $this->getDetectionType());
         $writer->writeStringValue('detectionValue', $this->getDetectionValue());
         $writer->writeStringValue('fileOrFolderName', $this->getFileOrFolderName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operator', $this->getOperator());
         $writer->writeStringValue('path', $this->getPath());
     }

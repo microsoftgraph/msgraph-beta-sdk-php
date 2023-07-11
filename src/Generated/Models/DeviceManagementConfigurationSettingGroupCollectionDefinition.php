@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingGroupCollectionDefinition extends DeviceManagementConfigurationSettingGroupDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingGroupCollectionDefinition and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSettingGroupCollectionDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Gets the maximumCount property value. Maximum number of setting group count in the collection. Valid values 1 to 100
+     * Gets the maximumCount property value. Maximum number of setting group count in the collection
      * @return int|null
     */
     public function getMaximumCount(): ?int {
@@ -49,7 +49,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Gets the minimumCount property value. Minimum number of setting group count in the collection. Valid values 1 to 100
+     * Gets the minimumCount property value. Minimum number of setting group count in the collection
      * @return int|null
     */
     public function getMinimumCount(): ?int {
@@ -71,7 +71,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Sets the maximumCount property value. Maximum number of setting group count in the collection. Valid values 1 to 100
+     * Sets the maximumCount property value. Maximum number of setting group count in the collection
      * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
@@ -79,7 +79,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Sets the minimumCount property value. Minimum number of setting group count in the collection. Valid values 1 to 100
+     * Sets the minimumCount property value. Minimum number of setting group count in the collection
      * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {

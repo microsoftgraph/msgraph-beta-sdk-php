@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessScenarioGroupTarget extends BusinessScenarioTaskTargetBase implements Parsable 
 {
     /**
-     * Instantiates a new BusinessScenarioGroupTarget and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new businessScenarioGroupTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class BusinessScenarioGroupTarget extends BusinessScenarioTaskTargetBase impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

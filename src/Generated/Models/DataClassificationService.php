@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DataClassificationService extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DataClassificationService and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new dataClassificationService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -183,6 +188,7 @@ class DataClassificationService extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('exactMatchDataStores', $this->getExactMatchDataStores());
         $writer->writeCollectionOfObjectValues('exactMatchUploadAgents', $this->getExactMatchUploadAgents());
         $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('sensitiveTypes', $this->getSensitiveTypes());
         $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
     }

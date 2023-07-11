@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ThreatAssessmentResult extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new threatAssessmentResult and sets the default values.
     */
     public function __construct() {
@@ -82,6 +87,7 @@ class ThreatAssessmentResult extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('resultType', $this->getResultType());
     }
 

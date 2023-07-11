@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup process details.
+*/
 class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcess and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -106,6 +114,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('processName', $this->getProcessName());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeStringValue('publisher', $this->getPublisher());

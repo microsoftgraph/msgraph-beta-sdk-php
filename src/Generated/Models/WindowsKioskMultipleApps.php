@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The app base class used to identify the application info for the kiosk configuration
+*/
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskMultipleApps and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskMultipleApps and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -113,6 +121,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
         $writer->writeBooleanValue('allowAccessToDownloadsFolder', $this->getAllowAccessToDownloadsFolder());
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
         $writer->writeBooleanValue('disallowDesktopApps', $this->getDisallowDesktopApps());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
         $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
     }

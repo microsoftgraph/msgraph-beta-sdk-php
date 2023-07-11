@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ThreatSubmissionRoot extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new threatSubmissionRoot and sets the default values.
     */
     public function __construct() {
@@ -105,6 +110,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('emailThreats', $this->getEmailThreats());
         $writer->writeCollectionOfObjectValues('emailThreatSubmissionPolicies', $this->getEmailThreatSubmissionPolicies());
         $writer->writeCollectionOfObjectValues('fileThreats', $this->getFileThreats());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('urlThreats', $this->getUrlThreats());
     }
 

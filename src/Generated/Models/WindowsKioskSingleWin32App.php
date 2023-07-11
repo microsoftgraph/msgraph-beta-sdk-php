@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The app base class used to identify the application info for the kiosk configuration
+*/
 class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskSingleWin32App and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskSingleWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('win32App', $this->getWin32App());
     }
 

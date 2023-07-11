@@ -83,9 +83,22 @@ class ActivityStatistics extends Entity implements Parsable
             'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(AnalyticsActivityType::class)),
             'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
             'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
             'timeZoneUsed' => fn(ParseNode $n) => $o->setTimeZoneUsed($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,6 +134,7 @@ class ActivityStatistics extends Entity implements Parsable
         $writer->writeEnumValue('activity', $this->getActivity());
         $writer->writeDateIntervalValue('duration', $this->getDuration());
         $writer->writeDateValue('endDate', $this->getEndDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeStringValue('timeZoneUsed', $this->getTimeZoneUsed());
     }
@@ -147,6 +161,14 @@ class ActivityStatistics extends Entity implements Parsable
     */
     public function setEndDate(?Date $value): void {
         $this->getBackingStore()->set('endDate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ReferenceDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new referenceDefinition and sets the default values.
     */
     public function __construct() {
@@ -135,6 +140,7 @@ class ReferenceDefinition extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('code', $this->getCode());
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceType', $this->getReferenceType());
         $writer->writeIntegerValue('sortIndex', $this->getSortIndex());
     }

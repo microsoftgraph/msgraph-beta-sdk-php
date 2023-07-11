@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExternalPartnerSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcExternalPartnerSetting and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcExternalPartnerSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -108,6 +113,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('enableConnection', $this->getEnableConnection());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('partnerId', $this->getPartnerId());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('statusDetails', $this->getStatusDetails());

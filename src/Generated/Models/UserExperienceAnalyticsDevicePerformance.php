@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device boot performance details.
+*/
 class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDevicePerformance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -316,6 +324,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeFloatValue('modelStartupPerformanceScore', $this->getModelStartupPerformanceScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('operatingSystemVersion', $this->getOperatingSystemVersion());
         $writer->writeIntegerValue('responsiveDesktopTimeInMs', $this->getResponsiveDesktopTimeInMs());
         $writer->writeIntegerValue('restartCount', $this->getRestartCount());

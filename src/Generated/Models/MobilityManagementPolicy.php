@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobilityManagementPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobilityManagementPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mobilityManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -154,6 +159,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('includedGroups', $this->getIncludedGroups());
         $writer->writeBooleanValue('isValid', $this->getIsValid());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('termsOfUseUrl', $this->getTermsOfUseUrl());
     }
 

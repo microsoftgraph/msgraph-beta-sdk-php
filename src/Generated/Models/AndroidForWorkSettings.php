@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Settings for Android For Work.
+*/
 class AndroidForWorkSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkSettings and sets the default values.
+     * Instantiates a new androidForWorkSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,6 +78,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
             'lastAppSyncDateTime' => fn(ParseNode $n) => $o->setLastAppSyncDateTime($n->getDateTimeValue()),
             'lastAppSyncStatus' => fn(ParseNode $n) => $o->setLastAppSyncStatus($n->getEnumValue(AndroidForWorkSyncStatus::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ownerOrganizationName' => fn(ParseNode $n) => $o->setOwnerOrganizationName($n->getStringValue()),
             'ownerUserPrincipalName' => fn(ParseNode $n) => $o->setOwnerUserPrincipalName($n->getStringValue()),
             'targetGroupIds' => function (ParseNode $n) {
@@ -122,6 +126,18 @@ class AndroidForWorkSettings extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -174,6 +190,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
         $writer->writeDateTimeValue('lastAppSyncDateTime', $this->getLastAppSyncDateTime());
         $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
         $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->getTargetGroupIds());
@@ -225,6 +242,14 @@ class AndroidForWorkSettings extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

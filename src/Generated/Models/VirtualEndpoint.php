@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEndpoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -282,6 +287,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->getExternalPartnerSettings());
         $writer->writeCollectionOfObjectValues('galleryImages', $this->getGalleryImages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());

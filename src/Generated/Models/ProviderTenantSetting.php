@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProviderTenantSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ProviderTenantSetting and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new providerTenantSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -109,6 +114,7 @@ class ProviderTenantSetting extends Entity implements Parsable
         $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('provider', $this->getProvider());
         $writer->writeStringValue('vendor', $this->getVendor());
     }

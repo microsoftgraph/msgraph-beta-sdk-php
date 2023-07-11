@@ -15,6 +15,11 @@ use Psr\Http\Message\StreamInterface;
 class IosLobAppProvisioningConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new iosLobAppProvisioningConfiguration and sets the default values.
     */
     public function __construct() {
@@ -240,6 +245,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('payload', $this->getPayload());
         $writer->writeStringValue('payloadFileName', $this->getPayloadFileName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());

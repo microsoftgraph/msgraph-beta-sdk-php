@@ -113,6 +113,7 @@ class DeviceHealthStatus extends Entity implements Parsable
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'primaryDiskType' => fn(ParseNode $n) => $o->setPrimaryDiskType($n->getStringValue()),
             'restartCount' => fn(ParseNode $n) => $o->setRestartCount($n->getIntegerValue()),
@@ -145,6 +146,18 @@ class DeviceHealthStatus extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -245,6 +258,7 @@ class DeviceHealthStatus extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('healthStatus', $this->getHealthStatus());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('primaryDiskType', $this->getPrimaryDiskType());
         $writer->writeIntegerValue('restartCount', $this->getRestartCount());
@@ -316,6 +330,14 @@ class DeviceHealthStatus extends Entity implements Parsable
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

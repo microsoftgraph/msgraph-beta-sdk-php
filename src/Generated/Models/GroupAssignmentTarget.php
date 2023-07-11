@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base type for assignment targets.
+*/
 class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new GroupAssignmentTarget and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,6 +70,7 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

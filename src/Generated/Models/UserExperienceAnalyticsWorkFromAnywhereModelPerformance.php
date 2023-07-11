@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics work from anywhere model performance.
+*/
 class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -164,6 +172,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeIntegerValue('modelDeviceCount', $this->getModelDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('windowsScore', $this->getWindowsScore());
         $writer->writeFloatValue('workFromAnywhereScore', $this->getWorkFromAnywhereScore());
     }

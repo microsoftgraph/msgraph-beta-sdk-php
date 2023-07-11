@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonAward extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonAward and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new personAward and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,6 +129,7 @@ class PersonAward extends ItemFacet implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('issuedDate', $this->getIssuedDate());
         $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }

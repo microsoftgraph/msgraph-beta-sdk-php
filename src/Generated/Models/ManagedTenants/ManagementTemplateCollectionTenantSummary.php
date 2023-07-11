@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateCollectionTenantSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementTemplateCollectionTenantSummary and sets the default values.
+     * Instantiates a new managementTemplateCollectionTenantSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -132,6 +132,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'managementTemplateCollectionDisplayName' => fn(ParseNode $n) => $o->setManagementTemplateCollectionDisplayName($n->getStringValue()),
             'managementTemplateCollectionId' => fn(ParseNode $n) => $o->setManagementTemplateCollectionId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'regressedStepsCount' => fn(ParseNode $n) => $o->setRegressedStepsCount($n->getIntegerValue()),
             'regressedUsersCount' => fn(ParseNode $n) => $o->setRegressedUsersCount($n->getIntegerValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
@@ -236,6 +237,18 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the regressedStepsCount property value. The regressedStepsCount property
      * @return int|null
     */
@@ -304,6 +317,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeStringValue('managementTemplateCollectionDisplayName', $this->getManagementTemplateCollectionDisplayName());
         $writer->writeStringValue('managementTemplateCollectionId', $this->getManagementTemplateCollectionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('regressedStepsCount', $this->getRegressedStepsCount());
         $writer->writeIntegerValue('regressedUsersCount', $this->getRegressedUsersCount());
         $writer->writeStringValue('tenantId', $this->getTenantId());
@@ -428,6 +442,14 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
     */
     public function setManagementTemplateCollectionId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

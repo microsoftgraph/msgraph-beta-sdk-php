@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegistryValueEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new RegistryValueEvidence and sets the default values.
+     * Instantiates a new registryValueEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,6 +32,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'mdeDeviceId' => fn(ParseNode $n) => $o->setMdeDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'registryHive' => fn(ParseNode $n) => $o->setRegistryHive($n->getStringValue()),
             'registryKey' => fn(ParseNode $n) => $o->setRegistryKey($n->getStringValue()),
             'registryValue' => fn(ParseNode $n) => $o->setRegistryValue($n->getStringValue()),
@@ -50,6 +51,18 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mdeDeviceId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -119,6 +132,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('mdeDeviceId', $this->getMdeDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('registryHive', $this->getRegistryHive());
         $writer->writeStringValue('registryKey', $this->getRegistryKey());
         $writer->writeStringValue('registryValue', $this->getRegistryValue());
@@ -132,6 +146,14 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     */
     public function setMdeDeviceId(?string $value): void {
         $this->getBackingStore()->set('mdeDeviceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

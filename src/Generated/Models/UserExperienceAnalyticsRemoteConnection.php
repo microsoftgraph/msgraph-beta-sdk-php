@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
@@ -222,6 +227,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('remoteSignInTime', $this->getRemoteSignInTime());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeStringValue('virtualNetwork', $this->getVirtualNetwork());

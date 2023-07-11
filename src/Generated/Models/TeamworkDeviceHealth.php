@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceHealth extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamworkDeviceHealth and sets the default values.
     */
     public function __construct() {
@@ -165,6 +170,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('loginStatus', $this->getLoginStatus());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('peripheralsHealth', $this->getPeripheralsHealth());
         $writer->writeObjectValue('softwareUpdateHealth', $this->getSoftwareUpdateHealth());
     }

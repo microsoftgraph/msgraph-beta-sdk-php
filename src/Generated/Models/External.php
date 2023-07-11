@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class External extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new External and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new external and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +62,7 @@ class External extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

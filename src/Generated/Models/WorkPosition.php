@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkPosition extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new WorkPosition and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new workPosition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +128,7 @@ class WorkPosition extends ItemFacet implements Parsable
         $writer->writeObjectValue('detail', $this->getDetail());
         $writer->writeBooleanValue('isCurrent', $this->getIsCurrent());
         $writer->writeObjectValue('manager', $this->getManager());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

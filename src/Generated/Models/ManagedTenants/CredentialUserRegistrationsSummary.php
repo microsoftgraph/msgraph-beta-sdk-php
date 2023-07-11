@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationsSummary and sets the default values.
+     * Instantiates a new credentialUserRegistrationsSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,6 +38,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
             'mfaConditionalAccessPolicyState' => fn(ParseNode $n) => $o->setMfaConditionalAccessPolicyState($n->getStringValue()),
             'mfaExcludedUserCount' => fn(ParseNode $n) => $o->setMfaExcludedUserCount($n->getIntegerValue()),
             'mfaRegisteredUserCount' => fn(ParseNode $n) => $o->setMfaRegisteredUserCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'securityDefaultsEnabled' => fn(ParseNode $n) => $o->setSecurityDefaultsEnabled($n->getBooleanValue()),
             'ssprEnabledUserCount' => fn(ParseNode $n) => $o->setSsprEnabledUserCount($n->getIntegerValue()),
             'ssprRegisteredUserCount' => fn(ParseNode $n) => $o->setSsprRegisteredUserCount($n->getIntegerValue()),
@@ -106,6 +107,18 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaRegisteredUserCount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -203,6 +216,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
         $writer->writeStringValue('mfaConditionalAccessPolicyState', $this->getMfaConditionalAccessPolicyState());
         $writer->writeIntegerValue('mfaExcludedUserCount', $this->getMfaExcludedUserCount());
         $writer->writeIntegerValue('mfaRegisteredUserCount', $this->getMfaRegisteredUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('securityDefaultsEnabled', $this->getSecurityDefaultsEnabled());
         $writer->writeIntegerValue('ssprEnabledUserCount', $this->getSsprEnabledUserCount());
         $writer->writeIntegerValue('ssprRegisteredUserCount', $this->getSsprRegisteredUserCount());
@@ -250,6 +264,14 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     */
     public function setMfaRegisteredUserCount(?int $value): void {
         $this->getBackingStore()->set('mfaRegisteredUserCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

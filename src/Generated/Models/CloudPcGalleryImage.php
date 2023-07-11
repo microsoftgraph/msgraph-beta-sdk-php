@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcGalleryImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcGalleryImage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -200,6 +205,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('endDate', $this->getEndDate());
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('offer', $this->getOffer());
         $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
         $writer->writeStringValue('publisher', $this->getPublisher());

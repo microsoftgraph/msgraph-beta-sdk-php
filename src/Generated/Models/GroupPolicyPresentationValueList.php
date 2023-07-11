@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents a collection of name/value pairs of a list box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueList and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationValueList and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +64,7 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('values', $this->getValues());
     }
 

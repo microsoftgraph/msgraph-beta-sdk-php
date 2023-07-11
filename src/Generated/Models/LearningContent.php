@@ -150,6 +150,7 @@ class LearningContent extends Entity implements Parsable
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'numberOfPages' => fn(ParseNode $n) => $o->setNumberOfPages($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'skillTags' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -249,6 +250,18 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the skillTags property value. The skills tags associated with the learning content. Optional.
      * @return array<string>|null
     */
@@ -318,6 +331,7 @@ class LearningContent extends Entity implements Parsable
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeIntegerValue('numberOfPages', $this->getNumberOfPages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('skillTags', $this->getSkillTags());
         $writer->writeStringValue('sourceName', $this->getSourceName());
         $writer->writeStringValue('thumbnailWebUrl', $this->getThumbnailWebUrl());
@@ -434,6 +448,14 @@ class LearningContent extends Entity implements Parsable
     */
     public function setNumberOfPages(?int $value): void {
         $this->getBackingStore()->set('numberOfPages', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

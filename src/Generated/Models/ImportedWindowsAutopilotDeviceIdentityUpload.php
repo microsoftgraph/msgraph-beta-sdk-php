@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Import windows autopilot devices using upload.
+*/
 class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ImportedWindowsAutopilotDeviceIdentityUpload and sets the default values.
+     * Instantiates a new importedWindowsAutopilotDeviceIdentityUpload and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -61,8 +64,21 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTimeUtc' => fn(ParseNode $n) => $o->setCreatedDateTimeUtc($n->getDateTimeValue()),
             'deviceIdentities' => fn(ParseNode $n) => $o->setDeviceIdentities($n->getCollectionOfObjectValues([ImportedWindowsAutopilotDeviceIdentity::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ImportedWindowsAutopilotDeviceIdentityUploadStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,6 +101,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTimeUtc', $this->getCreatedDateTimeUtc());
         $writer->writeCollectionOfObjectValues('deviceIdentities', $this->getDeviceIdentities());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -102,6 +119,14 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
     */
     public function setDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('deviceIdentities', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

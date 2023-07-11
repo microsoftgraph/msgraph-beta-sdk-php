@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base class to detect a Win32 App
+*/
 class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppPowerShellScriptDetection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppPowerShellScriptDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -81,6 +89,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());
         $writer->writeStringValue('scriptContent', $this->getScriptContent());
     }

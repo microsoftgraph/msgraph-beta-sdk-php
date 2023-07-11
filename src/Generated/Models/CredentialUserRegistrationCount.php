@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CredentialUserRegistrationCount extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationCount and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new credentialUserRegistrationCount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
         $writer->writeCollectionOfObjectValues('userRegistrationCounts', $this->getUserRegistrationCounts());
     }

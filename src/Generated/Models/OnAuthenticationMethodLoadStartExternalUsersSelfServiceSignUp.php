@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp extends OnAuthenticationMethodLoadStartHandler implements Parsable 
 {
     /**
-     * Instantiates a new OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp extends OnAu
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

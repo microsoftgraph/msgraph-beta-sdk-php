@@ -47,9 +47,22 @@ class SynchronizationSchema extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'directories' => fn(ParseNode $n) => $o->setDirectories($n->getCollectionOfObjectValues([DirectoryDefinition::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'synchronizationRules' => fn(ParseNode $n) => $o->setSynchronizationRules($n->getCollectionOfObjectValues([SynchronizationRule::class, 'createFromDiscriminatorValue'])),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,6 +98,7 @@ class SynchronizationSchema extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('directories', $this->getDirectories());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('synchronizationRules', $this->getSynchronizationRules());
         $writer->writeStringValue('version', $this->getVersion());
     }
@@ -95,6 +109,14 @@ class SynchronizationSchema extends Entity implements Parsable
     */
     public function setDirectories(?array $value): void {
         $this->getBackingStore()->set('directories', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

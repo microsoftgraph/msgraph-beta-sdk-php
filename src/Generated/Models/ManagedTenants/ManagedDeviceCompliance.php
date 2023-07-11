@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCompliance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceCompliance and sets the default values.
+     * Instantiates a new managedDeviceCompliance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -66,6 +66,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getStringValue()),
@@ -159,6 +160,18 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the osDescription property value. The description of the operating system for the managed device. Optional. Read-only.
      * @return string|null
     */
@@ -233,6 +246,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('ownerType', $this->getOwnerType());
@@ -310,6 +324,14 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains application performance by application version details.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -152,6 +160,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
         $writer->writeIntegerValue('deviceCountWithCrashes', $this->getDeviceCountWithCrashes());
         $writer->writeBooleanValue('isLatestUsedVersion', $this->getIsLatestUsedVersion());
         $writer->writeBooleanValue('isMostUsedVersion', $this->getIsMostUsedVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

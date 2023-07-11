@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserActivity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userActivity and sets the default values.
     */
     public function __construct() {
@@ -237,6 +242,7 @@ class UserActivity extends Entity implements Parsable
         $writer->writeStringValue('fallbackUrl', $this->getFallbackUrl());
         $writer->writeCollectionOfObjectValues('historyItems', $this->getHistoryItems());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('userTimezone', $this->getUserTimezone());
         $writer->writeObjectValue('visualElements', $this->getVisualElements());

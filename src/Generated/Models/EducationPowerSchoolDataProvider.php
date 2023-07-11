@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new EducationPowerSchoolDataProvider and sets the default values.
+     * Instantiates a new educationPowerSchoolDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -98,6 +98,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             'clientSecret' => fn(ParseNode $n) => $o->setClientSecret($n->getStringValue()),
             'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
             'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'schoolsIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -108,6 +109,18 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             },
             'schoolYear' => fn(ParseNode $n) => $o->setSchoolYear($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -147,6 +160,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
         $writer->writeStringValue('clientSecret', $this->getClientSecret());
         $writer->writeStringValue('connectionUrl', $this->getConnectionUrl());
         $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->getSchoolsIds());
         $writer->writeStringValue('schoolYear', $this->getSchoolYear());
     }
@@ -189,6 +203,14 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
         $this->getBackingStore()->set('customizations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

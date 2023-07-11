@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ItemPublication extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ItemPublication and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new itemPublication and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -122,6 +127,7 @@ class ItemPublication extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('publishedDate', $this->getPublishedDate());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());

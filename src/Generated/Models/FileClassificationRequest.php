@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class FileClassificationRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FileClassificationRequest and sets the default values.
+     * Instantiates a new fileClassificationRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +34,7 @@ class FileClassificationRequest extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'file' => fn(ParseNode $n) => $o->setFile($n->getBinaryContent()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sensitiveTypeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -58,6 +59,18 @@ class FileClassificationRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
      * @return array<string>|null
     */
@@ -78,6 +91,7 @@ class FileClassificationRequest extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('file', $this->getFile());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->getSensitiveTypeIds());
     }
 
@@ -87,6 +101,14 @@ class FileClassificationRequest extends Entity implements Parsable
     */
     public function setFile(?StreamInterface $value): void {
         $this->getBackingStore()->set('file', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateInventory extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsDriverUpdateInventory and sets the default values.
     */
     public function __construct() {
@@ -168,6 +173,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
         $writer->writeStringValue('driverClass', $this->getDriverClass());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
         $writer->writeStringValue('version', $this->getVersion());
     }

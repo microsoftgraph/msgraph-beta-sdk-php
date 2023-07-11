@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health capacity entity contains count of devices broken down into 3 categories - devices with capacity > 80%, devices with capacity 50-80% and devices with capacity < 50 %.This API provides the count of devices in these 3 categories..
+*/
 class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthCapacityDetails and sets the default values.
     */
@@ -111,6 +119,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
         $writer->writeIntegerValue('batteryCapacityGood', $this->getBatteryCapacityGood());
         $writer->writeIntegerValue('batteryCapacityPoor', $this->getBatteryCapacityPoor());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

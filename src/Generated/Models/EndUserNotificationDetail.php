@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EndUserNotificationDetail extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new endUserNotificationDetail and sets the default values.
     */
     public function __construct() {
@@ -122,6 +127,7 @@ class EndUserNotificationDetail extends Entity implements Parsable
         $writer->writeBooleanValue('isDefaultLangauge', $this->getIsDefaultLangauge());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('locale', $this->getLocale());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('sentFrom', $this->getSentFrom());
         $writer->writeStringValue('subject', $this->getSubject());
     }

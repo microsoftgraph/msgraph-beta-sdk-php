@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new EducationOneRosterApiDataProvider and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationOneRosterApiDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -141,6 +146,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
         $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeStringValue('connectionUrl', $this->getConnectionUrl());
         $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('providerName', $this->getProviderName());
         $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->getSchoolsIds());
         $writer->writeCollectionOfPrimitiveValues('termIds', $this->getTermIds());

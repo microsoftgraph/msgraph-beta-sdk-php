@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The Group Policy Object file uploaded by admin.
+*/
 class GroupPolicyObjectFile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyObjectFile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyObjectFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -133,6 +141,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('groupPolicyObjectId', $this->getGroupPolicyObjectId());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ouDistinguishedName', $this->getOuDistinguishedName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }

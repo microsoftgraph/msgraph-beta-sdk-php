@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Directory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Directory and sets the default values.
+     * Instantiates a new directory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -137,6 +137,7 @@ class Directory extends Entity implements Parsable
             'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
@@ -171,6 +172,18 @@ class Directory extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundSharedUserProfiles'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -258,6 +271,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('federationConfigurations', $this->getFederationConfigurations());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->getInboundSharedUserProfiles());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->getOnPremisesSynchronization());
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
@@ -335,6 +349,14 @@ class Directory extends Entity implements Parsable
     */
     public function setInboundSharedUserProfiles(?array $value): void {
         $this->getBackingStore()->set('inboundSharedUserProfiles', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -18,7 +18,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new TunnelConfiguration and sets the default values.
+     * Instantiates a new tunnelConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -88,7 +88,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the preSharedKey property value. The preSharedKey property
+     * Gets the preSharedKey property value. A key to establish secure connection between the link and VPN tunnel on the edge.
      * @return string|null
     */
     public function getPreSharedKey(): ?string {
@@ -134,7 +134,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the preSharedKey property value. The preSharedKey property
+     * Sets the preSharedKey property value. A key to establish secure connection between the link and VPN tunnel on the edge.
      * @param string|null $value Value to set for the preSharedKey property.
     */
     public function setPreSharedKey(?string $value): void {

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Parsable 
 {
     /**
-     * Instantiates a new DlpEvaluationWindowsDevicesInput and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new dlpEvaluationWindowsDevicesInput and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('contentProperties', $this->getContentProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('sharedBy', $this->getSharedBy());
     }
 

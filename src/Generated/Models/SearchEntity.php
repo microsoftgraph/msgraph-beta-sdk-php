@@ -13,7 +13,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SearchEntity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SearchEntity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new searchEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -91,6 +96,7 @@ class SearchEntity extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('acronyms', $this->getAcronyms());
         $writer->writeCollectionOfObjectValues('bookmarks', $this->getBookmarks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('qnas', $this->getQnas());
     }
 

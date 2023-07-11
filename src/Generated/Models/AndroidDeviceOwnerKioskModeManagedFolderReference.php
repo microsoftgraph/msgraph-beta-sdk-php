@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an item on the Android Device Owner Managed Home Screen (application, weblink or folder
+*/
 class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerKioskModeManagedFolderReference and sets the default values.
+     * Instantiates a new androidDeviceOwnerKioskModeManagedFolderReference and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +37,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
         return array_merge(parent::getFieldDeserializers(), [
             'folderIdentifier' => fn(ParseNode $n) => $o->setFolderIdentifier($n->getStringValue()),
             'folderName' => fn(ParseNode $n) => $o->setFolderName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +66,18 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +85,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
         parent::serialize($writer);
         $writer->writeStringValue('folderIdentifier', $this->getFolderIdentifier());
         $writer->writeStringValue('folderName', $this->getFolderName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +102,14 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     */
     public function setFolderName(?string $value): void {
         $this->getBackingStore()->set('folderName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

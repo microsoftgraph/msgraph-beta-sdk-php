@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TeamsApp extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamsApp and sets the default values.
     */
     public function __construct() {
@@ -99,6 +104,7 @@ class TeamsApp extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('distributionMethod', $this->getDistributionMethod());
         $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class YearTimePeriodDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new yearTimePeriodDefinition and sets the default values.
     */
     public function __construct() {
@@ -96,6 +101,7 @@ class YearTimePeriodDefinition extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('endDate', $this->getEndDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeObjectValue('year', $this->getYear());
     }

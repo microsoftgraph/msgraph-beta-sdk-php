@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Synchronization extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new synchronization and sets the default values.
     */
     public function __construct() {
@@ -87,6 +92,7 @@ class Synchronization extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('secrets', $this->getSecrets());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }

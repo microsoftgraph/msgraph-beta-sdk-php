@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * Instantiates a new MeetingActivityStatistics and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new meetingActivityStatistics and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,6 +129,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
         $writer->writeDateIntervalValue('conflicting', $this->getConflicting());
         $writer->writeDateIntervalValue('long', $this->getLong());
         $writer->writeDateIntervalValue('multitasking', $this->getMultitasking());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateIntervalValue('organized', $this->getOrganized());
         $writer->writeDateIntervalValue('recurring', $this->getRecurring());
     }

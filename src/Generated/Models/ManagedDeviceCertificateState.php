@@ -319,6 +319,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
             'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
             'devicePlatform' => fn(ParseNode $n) => $o->setDevicePlatform($n->getEnumValue(DevicePlatformType::class)),
             'lastCertificateStateChangeDateTime' => fn(ParseNode $n) => $o->setLastCertificateStateChangeDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
         ]);
     }
@@ -333,6 +334,18 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCertificateStateChangeDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -376,6 +389,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeEnumValue('devicePlatform', $this->getDevicePlatform());
         $writer->writeDateTimeValue('lastCertificateStateChangeDateTime', $this->getLastCertificateStateChangeDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
     }
 
@@ -561,6 +575,14 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     */
     public function setLastCertificateStateChangeDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCertificateStateChangeDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

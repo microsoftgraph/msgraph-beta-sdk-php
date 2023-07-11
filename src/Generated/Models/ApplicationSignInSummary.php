@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationSignInSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new applicationSignInSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,6 +99,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successfulSignInCount', $this->getSuccessfulSignInCount());
         $writer->writeFloatValue('successPercentage', $this->getSuccessPercentage());
     }

@@ -85,6 +85,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
             'failureReason' => fn(ParseNode $n) => $o->setFailureReason($n->getStringValue()),
             'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(FeatureType::class)),
             'isSuccess' => fn(ParseNode $n) => $o->setIsSuccess($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
@@ -100,6 +101,18 @@ class UserCredentialUsageDetails extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isSuccess'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -137,6 +150,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
         $writer->writeStringValue('failureReason', $this->getFailureReason());
         $writer->writeEnumValue('feature', $this->getFeature());
         $writer->writeBooleanValue('isSuccess', $this->getIsSuccess());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -179,6 +193,14 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     */
     public function setIsSuccess(?bool $value): void {
         $this->getBackingStore()->set('isSuccess', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

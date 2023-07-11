@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCompliancePolicySettingStateSummary and sets the default values.
+     * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +76,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
             'intuneSettingId' => fn(ParseNode $n) => $o->setIntuneSettingId($n->getStringValue()),
             'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
             'notApplicableDeviceCount' => fn(ParseNode $n) => $o->setNotApplicableDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pendingDeviceCount' => fn(ParseNode $n) => $o->setPendingDeviceCount($n->getIntegerValue()),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getStringValue()),
             'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
@@ -131,6 +132,18 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableDeviceCount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -218,6 +231,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
         $writer->writeStringValue('intuneSettingId', $this->getIntuneSettingId());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
         $writer->writeIntegerValue('notApplicableDeviceCount', $this->getNotApplicableDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pendingDeviceCount', $this->getPendingDeviceCount());
         $writer->writeStringValue('policyType', $this->getPolicyType());
         $writer->writeStringValue('settingName', $this->getSettingName());
@@ -280,6 +294,14 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
     */
     public function setNotApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

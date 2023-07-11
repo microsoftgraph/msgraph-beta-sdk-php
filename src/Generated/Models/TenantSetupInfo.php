@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantSetupInfo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantSetupInfo and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new tenantSetupInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -130,6 +135,7 @@ class TenantSetupInfo extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('defaultRolesSettings', $this->getDefaultRolesSettings());
         $writer->writeBooleanValue('firstTimeSetup', $this->getFirstTimeSetup());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('relevantRolesSettings', $this->getRelevantRolesSettings());
         $writer->writeEnumValue('setupStatus', $this->getSetupStatus());
         $writer->writeBooleanValue('skipSetup', $this->getSkipSetup());

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A ConfigManager defined collection of devices or users.
+*/
 class ConfigManagerCollection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConfigManagerCollection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new configManagerCollection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,6 +133,7 @@ class ConfigManagerCollection extends Entity implements Parsable
         $writer->writeStringValue('hierarchyIdentifier', $this->getHierarchyIdentifier());
         $writer->writeStringValue('hierarchyName', $this->getHierarchyName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

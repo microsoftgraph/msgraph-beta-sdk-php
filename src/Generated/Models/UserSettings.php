@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSettings extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userSettings and sets the default values.
     */
     public function __construct() {
@@ -122,6 +127,7 @@ class UserSettings extends Entity implements Parsable
         $writer->writeBooleanValue('contributionToContentDiscoveryAsOrganizationDisabled', $this->getContributionToContentDiscoveryAsOrganizationDisabled());
         $writer->writeBooleanValue('contributionToContentDiscoveryDisabled', $this->getContributionToContentDiscoveryDisabled());
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('regionalAndLanguageSettings', $this->getRegionalAndLanguageSettings());
         $writer->writeObjectValue('shiftPreferences', $this->getShiftPreferences());
     }

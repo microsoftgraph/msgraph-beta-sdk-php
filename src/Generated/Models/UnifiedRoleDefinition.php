@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UnifiedRoleDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new unifiedRoleDefinition and sets the default values.
     */
     public function __construct() {
@@ -204,6 +209,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
         $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isPrivileged', $this->getIsPrivileged());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->getResourceScopes());
         $writer->writeCollectionOfObjectValues('rolePermissions', $this->getRolePermissions());
         $writer->writeStringValue('templateId', $this->getTemplateId());

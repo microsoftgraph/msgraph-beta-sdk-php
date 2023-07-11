@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an iOS Web Content Filter setting base type. An empty and abstract base. Caller should use one of derived types for configurations.
+*/
 class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * Instantiates a new IosWebContentFilterSpecificWebsitesAccess and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosWebContentFilterSpecificWebsitesAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +80,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('specificWebsitesOnly', $this->getSpecificWebsitesOnly());
         $writer->writeCollectionOfObjectValues('websiteList', $this->getWebsiteList());
     }

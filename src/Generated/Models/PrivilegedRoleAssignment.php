@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleAssignment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedRoleAssignment and sets the default values.
     */
     public function __construct() {
@@ -121,6 +126,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeBooleanValue('isElevated', $this->getIsElevated());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resultMessage', $this->getResultMessage());
         $writer->writeStringValue('roleId', $this->getRoleId());
         $writer->writeObjectValue('roleInfo', $this->getRoleInfo());

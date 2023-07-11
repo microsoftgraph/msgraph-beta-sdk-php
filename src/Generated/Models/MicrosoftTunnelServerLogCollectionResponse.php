@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that stores the server log collection status.
+*/
 class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelServerLogCollectionResponse and sets the default values.
+     * Instantiates a new microsoftTunnelServerLogCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,12 +61,25 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
         return array_merge(parent::getFieldDeserializers(), [
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'expiryDateTime' => fn(ParseNode $n) => $o->setExpiryDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
             'serverId' => fn(ParseNode $n) => $o->setServerId($n->getStringValue()),
             'sizeInBytes' => fn(ParseNode $n) => $o->setSizeInBytes($n->getIntegerValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MicrosoftTunnelLogCollectionStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -134,6 +150,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
         parent::serialize($writer);
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeDateTimeValue('expiryDateTime', $this->getExpiryDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeStringValue('serverId', $this->getServerId());
         $writer->writeIntegerValue('sizeInBytes', $this->getSizeInBytes());
@@ -155,6 +172,14 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     */
     public function setExpiryDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expiryDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

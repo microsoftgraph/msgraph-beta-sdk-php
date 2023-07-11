@@ -128,6 +128,7 @@ class SharepointSettings extends Entity implements Parsable
             'isSitesStorageLimitAutomatic' => fn(ParseNode $n) => $o->setIsSitesStorageLimitAutomatic($n->getBooleanValue()),
             'isSyncButtonHiddenOnPersonalSite' => fn(ParseNode $n) => $o->setIsSyncButtonHiddenOnPersonalSite($n->getBooleanValue()),
             'isUnmanagedSyncAppForTenantRestricted' => fn(ParseNode $n) => $o->setIsUnmanagedSyncAppForTenantRestricted($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'personalSiteDefaultStorageLimitInMB' => fn(ParseNode $n) => $o->setPersonalSiteDefaultStorageLimitInMB($n->getIntegerValue()),
             'sharingAllowedDomainList' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -358,6 +359,18 @@ class SharepointSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the personalSiteDefaultStorageLimitInMB property value. The default OneDrive storage limit for all new and existing users who are assigned a qualifying license. Measured in megabytes (MB).
      * @return int|null
     */
@@ -484,6 +497,7 @@ class SharepointSettings extends Entity implements Parsable
         $writer->writeBooleanValue('isSitesStorageLimitAutomatic', $this->getIsSitesStorageLimitAutomatic());
         $writer->writeBooleanValue('isSyncButtonHiddenOnPersonalSite', $this->getIsSyncButtonHiddenOnPersonalSite());
         $writer->writeBooleanValue('isUnmanagedSyncAppForTenantRestricted', $this->getIsUnmanagedSyncAppForTenantRestricted());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('personalSiteDefaultStorageLimitInMB', $this->getPersonalSiteDefaultStorageLimitInMB());
         $writer->writeCollectionOfPrimitiveValues('sharingAllowedDomainList', $this->getSharingAllowedDomainList());
         $writer->writeCollectionOfPrimitiveValues('sharingBlockedDomainList', $this->getSharingBlockedDomainList());
@@ -660,6 +674,14 @@ class SharepointSettings extends Entity implements Parsable
     */
     public function setIsUnmanagedSyncAppForTenantRestricted(?bool $value): void {
         $this->getBackingStore()->set('isUnmanagedSyncAppForTenantRestricted', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

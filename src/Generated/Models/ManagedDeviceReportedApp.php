@@ -21,7 +21,7 @@ class ManagedDeviceReportedApp implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ManagedDeviceReportedApp and sets the default values.
+     * Instantiates a new managedDeviceReportedApp and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

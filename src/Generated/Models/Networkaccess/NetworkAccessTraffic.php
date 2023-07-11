@@ -19,7 +19,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new NetworkAccessTraffic and sets the default values.
+     * Instantiates a new networkAccessTraffic and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -49,7 +49,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the agentVersion property value. The agentVersion property
+     * Gets the agentVersion property value. Represents the version of the Global Secure Access client agent software. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getAgentVersion(): ?string {
@@ -69,7 +69,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the connectionId property value. The connectionId property
+     * Gets the connectionId property value. Represents a unique identifier assigned to a connection. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getConnectionId(): ?string {
@@ -81,7 +81,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Represents the date and time when a network access traffic log entry was created. Supports $filter (eq) and $orderby.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -93,7 +93,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the destinationFQDN property value. The destinationFQDN property
+     * Gets the destinationFQDN property value. Represents the Fully Qualified Domain Name (FQDN) of the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDestinationFQDN(): ?string {
@@ -105,7 +105,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the destinationIp property value. The destinationIp property
+     * Gets the destinationIp property value. Represents the IP address of the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDestinationIp(): ?string {
@@ -117,7 +117,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the destinationPort property value. The destinationPort property
+     * Gets the destinationPort property value. Represents the network port number on the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @return int|null
     */
     public function getDestinationPort(): ?int {
@@ -129,7 +129,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the deviceCategory property value. The deviceCategory property
+     * Gets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return DeviceCategory|null
     */
     public function getDeviceCategory(): ?DeviceCategory {
@@ -141,7 +141,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. Represents a unique identifier assigned to a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -153,7 +153,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the deviceOperatingSystem property value. The deviceOperatingSystem property
+     * Gets the deviceOperatingSystem property value. Represents the operating system installed on a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDeviceOperatingSystem(): ?string {
@@ -165,7 +165,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the deviceOperatingSystemVersion property value. The deviceOperatingSystemVersion property
+     * Gets the deviceOperatingSystemVersion property value. Represents the version or release number of the operating system installed on a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDeviceOperatingSystemVersion(): ?string {
@@ -213,7 +213,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the headers property value. The headers property
+     * Gets the headers property value. Represents the headers included in a network request or response. Supports $filter (eq) and $orderby.
      * @return Headers|null
     */
     public function getHeaders(): ?Headers {
@@ -225,7 +225,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the networkProtocol property value. The networkProtocol property
+     * Gets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return NetworkingProtocol|null
     */
     public function getNetworkProtocol(): ?NetworkingProtocol {
@@ -249,7 +249,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the policyId property value. The policyId property
+     * Gets the policyId property value. Represents a unique identifier assigned to a policy. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getPolicyId(): ?string {
@@ -261,7 +261,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the policyRuleId property value. The policyRuleId property
+     * Gets the policyRuleId property value. Represents a unique identifier assigned to a policy rule. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getPolicyRuleId(): ?string {
@@ -273,7 +273,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the receivedBytes property value. The receivedBytes property
+     * Gets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @return int|null
     */
     public function getReceivedBytes(): ?int {
@@ -285,7 +285,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the sentBytes property value. The sentBytes property
+     * Gets the sentBytes property value. Represents the total number of bytes sent in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @return int|null
     */
     public function getSentBytes(): ?int {
@@ -297,7 +297,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the sessionId property value. The sessionId property
+     * Gets the sessionId property value. Represents a unique identifier assigned to a session or connection within a network infrastructure. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getSessionId(): ?string {
@@ -309,7 +309,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the sourceIp property value. The sourceIp property
+     * Gets the sourceIp property value. Represents the source IP address in a network communication. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getSourceIp(): ?string {
@@ -321,7 +321,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the sourcePort property value. The sourcePort property
+     * Gets the sourcePort property value. Represents the network port number on the source host or device in a network communication. Supports $filter (eq) and $orderby.
      * @return int|null
     */
     public function getSourcePort(): ?int {
@@ -333,7 +333,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Represents a unique identifier assigned to a tenant within a network infrastructure. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -357,7 +357,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the transactionId property value. The transactionId property
+     * Gets the transactionId property value. Represents a unique identifier assigned to a specific transaction or operation. Key. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getTransactionId(): ?string {
@@ -369,7 +369,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the transportProtocol property value. The transportProtocol property
+     * Gets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return NetworkingProtocol|null
     */
     public function getTransportProtocol(): ?NetworkingProtocol {
@@ -381,7 +381,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. Represents a unique identifier assigned to a user. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -393,7 +393,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. Represents the user principal name (UPN) associated with a user. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -447,7 +447,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the agentVersion property value. The agentVersion property
+     * Sets the agentVersion property value. Represents the version of the Global Secure Access client agent software. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the agentVersion property.
     */
     public function setAgentVersion(?string $value): void {
@@ -463,7 +463,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the connectionId property value. The connectionId property
+     * Sets the connectionId property value. Represents a unique identifier assigned to a connection. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the connectionId property.
     */
     public function setConnectionId(?string $value): void {
@@ -471,7 +471,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Represents the date and time when a network access traffic log entry was created. Supports $filter (eq) and $orderby.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -479,7 +479,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the destinationFQDN property value. The destinationFQDN property
+     * Sets the destinationFQDN property value. Represents the Fully Qualified Domain Name (FQDN) of the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the destinationFQDN property.
     */
     public function setDestinationFQDN(?string $value): void {
@@ -487,7 +487,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the destinationIp property value. The destinationIp property
+     * Sets the destinationIp property value. Represents the IP address of the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the destinationIp property.
     */
     public function setDestinationIp(?string $value): void {
@@ -495,7 +495,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the destinationPort property value. The destinationPort property
+     * Sets the destinationPort property value. Represents the network port number on the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the destinationPort property.
     */
     public function setDestinationPort(?int $value): void {
@@ -503,7 +503,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the deviceCategory property value. The deviceCategory property
+     * Sets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param DeviceCategory|null $value Value to set for the deviceCategory property.
     */
     public function setDeviceCategory(?DeviceCategory $value): void {
@@ -511,7 +511,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. Represents a unique identifier assigned to a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -519,7 +519,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the deviceOperatingSystem property value. The deviceOperatingSystem property
+     * Sets the deviceOperatingSystem property value. Represents the operating system installed on a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the deviceOperatingSystem property.
     */
     public function setDeviceOperatingSystem(?string $value): void {
@@ -527,7 +527,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the deviceOperatingSystemVersion property value. The deviceOperatingSystemVersion property
+     * Sets the deviceOperatingSystemVersion property value. Represents the version or release number of the operating system installed on a device within a network infrastructure. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the deviceOperatingSystemVersion property.
     */
     public function setDeviceOperatingSystemVersion(?string $value): void {
@@ -535,7 +535,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the headers property value. The headers property
+     * Sets the headers property value. Represents the headers included in a network request or response. Supports $filter (eq) and $orderby.
      * @param Headers|null $value Value to set for the headers property.
     */
     public function setHeaders(?Headers $value): void {
@@ -543,7 +543,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the networkProtocol property value. The networkProtocol property
+     * Sets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param NetworkingProtocol|null $value Value to set for the networkProtocol property.
     */
     public function setNetworkProtocol(?NetworkingProtocol $value): void {
@@ -559,7 +559,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the policyId property value. The policyId property
+     * Sets the policyId property value. Represents a unique identifier assigned to a policy. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
@@ -567,7 +567,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the policyRuleId property value. The policyRuleId property
+     * Sets the policyRuleId property value. Represents a unique identifier assigned to a policy rule. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyRuleId property.
     */
     public function setPolicyRuleId(?string $value): void {
@@ -575,7 +575,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the receivedBytes property value. The receivedBytes property
+     * Sets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the receivedBytes property.
     */
     public function setReceivedBytes(?int $value): void {
@@ -583,7 +583,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the sentBytes property value. The sentBytes property
+     * Sets the sentBytes property value. Represents the total number of bytes sent in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the sentBytes property.
     */
     public function setSentBytes(?int $value): void {
@@ -591,7 +591,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the sessionId property value. The sessionId property
+     * Sets the sessionId property value. Represents a unique identifier assigned to a session or connection within a network infrastructure. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the sessionId property.
     */
     public function setSessionId(?string $value): void {
@@ -599,7 +599,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the sourceIp property value. The sourceIp property
+     * Sets the sourceIp property value. Represents the source IP address in a network communication. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the sourceIp property.
     */
     public function setSourceIp(?string $value): void {
@@ -607,7 +607,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the sourcePort property value. The sourcePort property
+     * Sets the sourcePort property value. Represents the network port number on the source host or device in a network communication. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the sourcePort property.
     */
     public function setSourcePort(?int $value): void {
@@ -615,7 +615,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Represents a unique identifier assigned to a tenant within a network infrastructure. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -631,7 +631,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the transactionId property value. The transactionId property
+     * Sets the transactionId property value. Represents a unique identifier assigned to a specific transaction or operation. Key. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the transactionId property.
     */
     public function setTransactionId(?string $value): void {
@@ -639,7 +639,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the transportProtocol property value. The transportProtocol property
+     * Sets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param NetworkingProtocol|null $value Value to set for the transportProtocol property.
     */
     public function setTransportProtocol(?NetworkingProtocol $value): void {
@@ -647,7 +647,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. Represents a unique identifier assigned to a user. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -655,7 +655,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. Represents the user principal name (UPN) associated with a user. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

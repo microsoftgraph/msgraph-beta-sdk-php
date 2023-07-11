@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EntitlementManagement extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EntitlementManagement and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new entitlementManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -261,6 +266,7 @@ class EntitlementManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
         $writer->writeCollectionOfObjectValues('accessPackages', $this->getAccessPackages());
         $writer->writeCollectionOfObjectValues('connectedOrganizations', $this->getConnectedOrganizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('subjects', $this->getSubjects());
     }

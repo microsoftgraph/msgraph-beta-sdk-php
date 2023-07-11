@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAppPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceAppPerformance and sets the default values.
+     * Instantiates a new deviceAppPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -141,6 +141,7 @@ class DeviceAppPerformance extends Entity implements Parsable
             'isLatestUsedVersion' => fn(ParseNode $n) => $o->setIsLatestUsedVersion($n->getIntegerValue()),
             'isMostUsedVersion' => fn(ParseNode $n) => $o->setIsMostUsedVersion($n->getIntegerValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'totalAppCrashCount' => fn(ParseNode $n) => $o->setTotalAppCrashCount($n->getIntegerValue()),
@@ -194,6 +195,18 @@ class DeviceAppPerformance extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -262,6 +275,7 @@ class DeviceAppPerformance extends Entity implements Parsable
         $writer->writeIntegerValue('isLatestUsedVersion', $this->getIsLatestUsedVersion());
         $writer->writeIntegerValue('isMostUsedVersion', $this->getIsMostUsedVersion());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('totalAppCrashCount', $this->getTotalAppCrashCount());
@@ -362,6 +376,14 @@ class DeviceAppPerformance extends Entity implements Parsable
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProcessEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new ProcessEvidence and sets the default values.
+     * Instantiates a new processEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,6 +47,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
             'detectionStatus' => fn(ParseNode $n) => $o->setDetectionStatus($n->getEnumValue(DetectionStatus::class)),
             'imageFile' => fn(ParseNode $n) => $o->setImageFile($n->getObjectValue([FileDetails::class, 'createFromDiscriminatorValue'])),
             'mdeDeviceId' => fn(ParseNode $n) => $o->setMdeDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentProcessCreationDateTime' => fn(ParseNode $n) => $o->setParentProcessCreationDateTime($n->getDateTimeValue()),
             'parentProcessId' => fn(ParseNode $n) => $o->setParentProcessId($n->getIntegerValue()),
             'parentProcessImageFile' => fn(ParseNode $n) => $o->setParentProcessImageFile($n->getObjectValue([FileDetails::class, 'createFromDiscriminatorValue'])),
@@ -79,6 +80,18 @@ class ProcessEvidence extends AlertEvidence implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mdeDeviceId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -174,6 +187,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
         $writer->writeEnumValue('detectionStatus', $this->getDetectionStatus());
         $writer->writeObjectValue('imageFile', $this->getImageFile());
         $writer->writeStringValue('mdeDeviceId', $this->getMdeDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('parentProcessCreationDateTime', $this->getParentProcessCreationDateTime());
         $writer->writeIntegerValue('parentProcessId', $this->getParentProcessId());
         $writer->writeObjectValue('parentProcessImageFile', $this->getParentProcessImageFile());
@@ -205,6 +219,14 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     */
     public function setMdeDeviceId(?string $value): void {
         $this->getBackingStore()->set('mdeDeviceId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

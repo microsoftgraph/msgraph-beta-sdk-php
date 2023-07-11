@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
+*/
 class RemoteAssistancePartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteAssistancePartner and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new remoteAssistancePartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -108,6 +116,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('onboardingRequestExpiryDateTime', $this->getOnboardingRequestExpiryDateTime());
         $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
         $writer->writeStringValue('onboardingUrl', $this->getOnboardingUrl());

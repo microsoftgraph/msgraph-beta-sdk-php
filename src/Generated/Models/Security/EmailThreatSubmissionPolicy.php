@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailThreatSubmissionPolicy extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new emailThreatSubmissionPolicy and sets the default values.
     */
     public function __construct() {
@@ -223,6 +228,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('isReportToCustomizedEmailAddressEnabled', $this->getIsReportToCustomizedEmailAddressEnabled());
         $writer->writeBooleanValue('isReportToMicrosoftEnabled', $this->getIsReportToMicrosoftEnabled());
         $writer->writeBooleanValue('isReviewEmailNotificationEnabled', $this->getIsReviewEmailNotificationEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles.
+*/
 class RoleAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RoleAssignment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new roleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -146,6 +154,7 @@ class RoleAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->getResourceScopes());
         $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
         $writer->writeCollectionOfPrimitiveValues('scopeMembers', $this->getScopeMembers());

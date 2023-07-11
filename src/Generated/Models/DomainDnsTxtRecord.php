@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DomainDnsTxtRecord extends DomainDnsRecord implements Parsable 
 {
     /**
-     * Instantiates a new DomainDnsTxtRecord and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new domainDnsTxtRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +58,7 @@ class DomainDnsTxtRecord extends DomainDnsRecord implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
     }
 

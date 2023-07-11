@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionDeviceRegistration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsInformationProtectionDeviceRegistration and sets the default values.
     */
     public function __construct() {
@@ -127,6 +132,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
         $writer->writeStringValue('deviceRegistrationId', $this->getDeviceRegistrationId());
         $writer->writeStringValue('deviceType', $this->getDeviceType());
         $writer->writeDateTimeValue('lastCheckInDateTime', $this->getLastCheckInDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userId', $this->getUserId());
     }
 

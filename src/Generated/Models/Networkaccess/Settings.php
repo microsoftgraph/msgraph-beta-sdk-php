@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Settings extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new settings and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class Settings extends Entity implements Parsable
         $writer->writeObjectValue('crossTenantAccess', $this->getCrossTenantAccess());
         $writer->writeObjectValue('enrichedAuditLogs', $this->getEnrichedAuditLogs());
         $writer->writeObjectValue('forwardingOptions', $this->getForwardingOptions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

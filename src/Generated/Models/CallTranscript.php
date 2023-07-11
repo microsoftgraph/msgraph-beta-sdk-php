@@ -11,6 +11,11 @@ use Psr\Http\Message\StreamInterface;
 class CallTranscript extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new callTranscript and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class CallTranscript extends Entity implements Parsable
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeBinaryContent('metadataContent', $this->getMetadataContent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

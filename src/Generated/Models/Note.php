@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Note extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new Note and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new note and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -160,6 +165,7 @@ class Note extends OutlookItem implements Parsable
         $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
         $writer->writeStringValue('subject', $this->getSubject());
     }

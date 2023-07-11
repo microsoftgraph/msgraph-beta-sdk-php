@@ -90,6 +90,7 @@ class AuditEvent extends Entity implements Parsable
             'initiatedByUpn' => fn(ParseNode $n) => $o->setInitiatedByUpn($n->getStringValue()),
             'initiatedByUserId' => fn(ParseNode $n) => $o->setInitiatedByUserId($n->getStringValue()),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requestBody' => fn(ParseNode $n) => $o->setRequestBody($n->getStringValue()),
             'requestUrl' => fn(ParseNode $n) => $o->setRequestUrl($n->getStringValue()),
             'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getStringValue()),
@@ -158,6 +159,18 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the requestBody property value. The raw HTTP request body. Some sensitive information may be removed.
      * @return string|null
     */
@@ -220,6 +233,7 @@ class AuditEvent extends Entity implements Parsable
         $writer->writeStringValue('initiatedByUpn', $this->getInitiatedByUpn());
         $writer->writeStringValue('initiatedByUserId', $this->getInitiatedByUserId());
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('requestBody', $this->getRequestBody());
         $writer->writeStringValue('requestUrl', $this->getRequestUrl());
         $writer->writeStringValue('tenantIds', $this->getTenantIds());
@@ -296,6 +310,14 @@ class AuditEvent extends Entity implements Parsable
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

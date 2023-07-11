@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Violation of restricted apps configuration profile per device per user
+*/
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RestrictedAppsViolation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new restrictedAppsViolation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -164,6 +172,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
         $writer->writeStringValue('deviceConfigurationName', $this->getDeviceConfigurationName());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeCollectionOfObjectValues('restrictedApps', $this->getRestrictedApps());
         $writer->writeEnumValue('restrictedAppsState', $this->getRestrictedAppsState());

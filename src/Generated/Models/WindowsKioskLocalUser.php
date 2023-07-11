@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user base class used to identify the account info for the kiosk configuration
+*/
 class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskLocalUser and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskLocalUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userName', $this->getUserName());
     }
 

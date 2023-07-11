@@ -49,6 +49,7 @@ class CompanySubscription extends Entity implements Parsable
             'isTrial' => fn(ParseNode $n) => $o->setIsTrial($n->getBooleanValue()),
             'nextLifecycleDateTime' => fn(ParseNode $n) => $o->setNextLifecycleDateTime($n->getDateTimeValue()),
             'ocpSubscriptionId' => fn(ParseNode $n) => $o->setOcpSubscriptionId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'serviceStatus' => fn(ParseNode $n) => $o->setServiceStatus($n->getCollectionOfObjectValues([ServicePlanInfo::class, 'createFromDiscriminatorValue'])),
             'skuId' => fn(ParseNode $n) => $o->setSkuId($n->getStringValue()),
             'skuPartNumber' => fn(ParseNode $n) => $o->setSkuPartNumber($n->getStringValue()),
@@ -91,6 +92,18 @@ class CompanySubscription extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ocpSubscriptionId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -165,6 +178,7 @@ class CompanySubscription extends Entity implements Parsable
         $writer->writeBooleanValue('isTrial', $this->getIsTrial());
         $writer->writeDateTimeValue('nextLifecycleDateTime', $this->getNextLifecycleDateTime());
         $writer->writeStringValue('ocpSubscriptionId', $this->getOcpSubscriptionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('serviceStatus', $this->getServiceStatus());
         $writer->writeStringValue('skuId', $this->getSkuId());
         $writer->writeStringValue('skuPartNumber', $this->getSkuPartNumber());
@@ -202,6 +216,14 @@ class CompanySubscription extends Entity implements Parsable
     */
     public function setOcpSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('ocpSubscriptionId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

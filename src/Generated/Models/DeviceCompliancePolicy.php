@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceCompliancePolicy extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceCompliancePolicy and sets the default values.
     */
     public function __construct() {
@@ -259,6 +264,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
         $writer->writeObjectValue('deviceStatusOverview', $this->getDeviceStatusOverview());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfObjectValues('scheduledActionsForRule', $this->getScheduledActionsForRule());
         $writer->writeCollectionOfObjectValues('userStatuses', $this->getUserStatuses());

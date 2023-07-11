@@ -12,7 +12,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Bookmark extends SearchAnswer implements Parsable 
 {
     /**
-     * Instantiates a new Bookmark and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new bookmark and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -233,6 +238,7 @@ class Bookmark extends SearchAnswer implements Parsable
         $writer->writeBooleanValue('isSuggested', $this->getIsSuggested());
         $writer->writeObjectValue('keywords', $this->getKeywords());
         $writer->writeCollectionOfPrimitiveValues('languageTags', $this->getLanguageTags());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfEnumValues('platforms', $this->getPlatforms());
         $writer->writeCollectionOfPrimitiveValues('powerAppIds', $this->getPowerAppIds());
         $writer->writeEnumValue('state', $this->getState());

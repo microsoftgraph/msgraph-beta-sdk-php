@@ -35,6 +35,7 @@ class WorkbookTableSort extends Entity implements Parsable
             'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfObjectValues([WorkbookSortField::class, 'createFromDiscriminatorValue'])),
             'matchCase' => fn(ParseNode $n) => $o->setMatchCase($n->getBooleanValue()),
             'method' => fn(ParseNode $n) => $o->setMethod($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -77,6 +78,18 @@ class WorkbookTableSort extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -85,6 +98,7 @@ class WorkbookTableSort extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('fields', $this->getFields());
         $writer->writeBooleanValue('matchCase', $this->getMatchCase());
         $writer->writeStringValue('method', $this->getMethod());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -109,6 +123,14 @@ class WorkbookTableSort extends Entity implements Parsable
     */
     public function setMethod(?string $value): void {
         $this->getBackingStore()->set('method', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

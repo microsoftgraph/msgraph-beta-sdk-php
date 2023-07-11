@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AnalyzedMessageEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new AnalyzedMessageEvidence and sets the default values.
+     * Instantiates a new analyzedMessageEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -88,6 +88,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
             'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'networkMessageId' => fn(ParseNode $n) => $o->setNetworkMessageId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'p1Sender' => fn(ParseNode $n) => $o->setP1Sender($n->getObjectValue([EmailSender::class, 'createFromDiscriminatorValue'])),
             'p2Sender' => fn(ParseNode $n) => $o->setP2Sender($n->getObjectValue([EmailSender::class, 'createFromDiscriminatorValue'])),
             'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
@@ -157,6 +158,18 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkMessageId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -310,6 +323,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
         $writer->writeStringValue('internetMessageId', $this->getInternetMessageId());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('networkMessageId', $this->getNetworkMessageId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('p1Sender', $this->getP1Sender());
         $writer->writeObjectValue('p2Sender', $this->getP2Sender());
         $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
@@ -377,6 +391,14 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     */
     public function setNetworkMessageId(?string $value): void {
         $this->getBackingStore()->set('networkMessageId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

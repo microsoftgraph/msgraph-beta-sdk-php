@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The entity represents a string value for a drop-down list, combo box, or text box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueText and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationValueText and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +61,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('value', $this->getValue());
     }
 

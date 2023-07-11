@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsProtectionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsProtectionState and sets the default values.
+     * Instantiates a new windowsProtectionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,6 +111,7 @@ class WindowsProtectionState extends Entity implements Parsable
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
             'networkInspectionSystemEnabled' => fn(ParseNode $n) => $o->setNetworkInspectionSystemEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'quickScanOverdue' => fn(ParseNode $n) => $o->setQuickScanOverdue($n->getBooleanValue()),
             'realTimeProtectionEnabled' => fn(ParseNode $n) => $o->setRealTimeProtectionEnabled($n->getBooleanValue()),
             'rebootRequired' => fn(ParseNode $n) => $o->setRebootRequired($n->getBooleanValue()),
@@ -278,6 +279,18 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the quickScanOverdue property value. A flag indicating weather a quick scan is overdue. Optional. Read-only.
      * @return bool|null
     */
@@ -385,6 +398,7 @@ class WindowsProtectionState extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
         $writer->writeBooleanValue('networkInspectionSystemEnabled', $this->getNetworkInspectionSystemEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('quickScanOverdue', $this->getQuickScanOverdue());
         $writer->writeBooleanValue('realTimeProtectionEnabled', $this->getRealTimeProtectionEnabled());
         $writer->writeBooleanValue('rebootRequired', $this->getRebootRequired());
@@ -536,6 +550,14 @@ class WindowsProtectionState extends Entity implements Parsable
     */
     public function setNetworkInspectionSystemEnabled(?bool $value): void {
         $this->getBackingStore()->set('networkInspectionSystemEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

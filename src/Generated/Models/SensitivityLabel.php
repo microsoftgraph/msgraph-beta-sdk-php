@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SensitivityLabel extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new sensitivityLabel and sets the default values.
     */
     public function __construct() {
@@ -226,6 +231,7 @@ class SensitivityLabel extends Entity implements Parsable
         $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->getIsEndpointProtectionEnabled());
         $writer->writeCollectionOfObjectValues('labelActions', $this->getLabelActions());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('priority', $this->getPriority());
         $writer->writeCollectionOfObjectValues('sublabels', $this->getSublabels());
         $writer->writeStringValue('toolTip', $this->getToolTip());

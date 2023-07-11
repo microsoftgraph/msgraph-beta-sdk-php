@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
+*/
 class MacOsVppApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOsVppApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOsVppApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -207,6 +215,7 @@ class MacOsVppApp extends MobileApp implements Parsable
         $writer->writeCollectionOfObjectValues('assignedLicenses', $this->getAssignedLicenses());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeObjectValue('licensingType', $this->getLicensingType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
         $writer->writeCollectionOfObjectValues('revokeLicenseActionResults', $this->getRevokeLicenseActionResults());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedApproval extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedApproval and sets the default values.
     */
     public function __construct() {
@@ -190,6 +195,7 @@ class PrivilegedApproval extends Entity implements Parsable
         $writer->writeStringValue('approvalType', $this->getApprovalType());
         $writer->writeStringValue('approverReason', $this->getApproverReason());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('request', $this->getRequest());
         $writer->writeStringValue('requestorReason', $this->getRequestorReason());
         $writer->writeStringValue('roleId', $this->getRoleId());

@@ -11,6 +11,11 @@ use Psr\Http\Message\StreamInterface;
 class ServiceAnnouncementAttachment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new serviceAnnouncementAttachment and sets the default values.
     */
     public function __construct() {
@@ -111,6 +116,7 @@ class ServiceAnnouncementAttachment extends Entity implements Parsable
         $writer->writeStringValue('contentType', $this->getContentType());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('size', $this->getSize());
     }
 

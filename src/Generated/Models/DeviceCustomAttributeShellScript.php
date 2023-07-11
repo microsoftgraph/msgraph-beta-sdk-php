@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Represents a custom attribute script for macOS.
+*/
 class DeviceCustomAttributeShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -263,6 +271,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());
         $writer->writeObjectValue('runSummary', $this->getRunSummary());

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Connectivity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new connectivity and sets the default values.
     */
     public function __construct() {
@@ -27,7 +32,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the branches property value. The branches property
+     * Gets the branches property value. Branch represent locations for connectivity.
      * @return array<BranchSite>|null
     */
     public function getBranches(): ?array {
@@ -58,10 +63,11 @@ class Connectivity extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('branches', $this->getBranches());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
-     * Sets the branches property value. The branches property
+     * Sets the branches property value. Branch represent locations for connectivity.
      * @param array<BranchSite>|null $value Value to set for the branches property.
     */
     public function setBranches(?array $value): void {

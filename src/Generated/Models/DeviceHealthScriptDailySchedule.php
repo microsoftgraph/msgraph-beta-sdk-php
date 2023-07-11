@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device health script daily schedule.
+*/
 class DeviceHealthScriptDailySchedule extends DeviceHealthScriptTimeSchedule implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptDailySchedule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceHealthScriptDailySchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +49,7 @@ class DeviceHealthScriptDailySchedule extends DeviceHealthScriptTimeSchedule imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

@@ -65,6 +65,7 @@ class Printer extends PrinterBase implements Parsable
             'hasPhysicalDevice' => fn(ParseNode $n) => $o->setHasPhysicalDevice($n->getBooleanValue()),
             'isShared' => fn(ParseNode $n) => $o->setIsShared($n->getBooleanValue()),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'registeredDateTime' => fn(ParseNode $n) => $o->setRegisteredDateTime($n->getDateTimeValue()),
             'share' => fn(ParseNode $n) => $o->setShare($n->getObjectValue([PrinterShare::class, 'createFromDiscriminatorValue'])),
             'shares' => fn(ParseNode $n) => $o->setShares($n->getCollectionOfObjectValues([PrinterShare::class, 'createFromDiscriminatorValue'])),
@@ -106,6 +107,18 @@ class Printer extends PrinterBase implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -171,6 +184,7 @@ class Printer extends PrinterBase implements Parsable
         $writer->writeBooleanValue('hasPhysicalDevice', $this->getHasPhysicalDevice());
         $writer->writeBooleanValue('isShared', $this->getIsShared());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('registeredDateTime', $this->getRegisteredDateTime());
         $writer->writeObjectValue('share', $this->getShare());
         $writer->writeCollectionOfObjectValues('shares', $this->getShares());
@@ -215,6 +229,14 @@ class Printer extends PrinterBase implements Parsable
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

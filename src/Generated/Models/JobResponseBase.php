@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JobResponseBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new JobResponseBase and sets the default values.
+     * Instantiates a new jobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,12 +80,25 @@ class JobResponseBase extends Entity implements Parsable
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([ClassificationError::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -157,6 +170,7 @@ class JobResponseBase extends Entity implements Parsable
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeObjectValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeStringValue('tenantId', $this->getTenantId());
@@ -186,6 +200,14 @@ class JobResponseBase extends Entity implements Parsable
     */
     public function setError(?ClassificationError $value): void {
         $this->getBackingStore()->set('error', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

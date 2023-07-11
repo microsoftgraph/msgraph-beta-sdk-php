@@ -98,6 +98,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'isServiceDefault' => fn(ParseNode $n) => $o->setIsServiceDefault($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -127,6 +128,18 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the tenantRestrictions property value. Defines the default tenant restrictions configuration for your organization users accessing an external organization on your network or devices.
      * @return CrossTenantAccessPolicyTenantRestrictions|null
     */
@@ -151,6 +164,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeBooleanValue('isServiceDefault', $this->getIsServiceDefault());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('tenantRestrictions', $this->getTenantRestrictions());
     }
 
@@ -208,6 +222,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public function setIsServiceDefault(?bool $value): void {
         $this->getBackingStore()->set('isServiceDefault', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

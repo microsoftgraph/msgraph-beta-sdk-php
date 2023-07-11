@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SecureScore extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SecureScore and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new secureScore and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -194,6 +199,7 @@ class SecureScore extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('enabledServices', $this->getEnabledServices());
         $writer->writeIntegerValue('licensedUserCount', $this->getLicensedUserCount());
         $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
     }
 

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AppLogCollectionRequest extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new appLogCollectionRequest and sets the default values.
     */
     public function __construct() {
@@ -109,6 +114,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
         $writer->writeCollectionOfPrimitiveValues('customLogFolders', $this->getCustomLogFolders());
         $writer->writeStringValue('errorMessage', $this->getErrorMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 

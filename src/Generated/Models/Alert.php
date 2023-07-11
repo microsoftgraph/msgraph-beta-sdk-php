@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Alert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Alert and sets the default values.
+     * Instantiates a new alert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -267,6 +267,7 @@ class Alert extends Entity implements Parsable
             'malwareStates' => fn(ParseNode $n) => $o->setMalwareStates($n->getCollectionOfObjectValues([MalwareState::class, 'createFromDiscriminatorValue'])),
             'messageSecurityStates' => fn(ParseNode $n) => $o->setMessageSecurityStates($n->getCollectionOfObjectValues([MessageSecurityState::class, 'createFromDiscriminatorValue'])),
             'networkConnections' => fn(ParseNode $n) => $o->setNetworkConnections($n->getCollectionOfObjectValues([NetworkConnection::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'processes' => fn(ParseNode $n) => $o->setProcesses($n->getCollectionOfObjectValues([Process::class, 'createFromDiscriminatorValue'])),
             'recommendedActions' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -439,6 +440,18 @@ class Alert extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkConnections'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -660,6 +673,7 @@ class Alert extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('malwareStates', $this->getMalwareStates());
         $writer->writeCollectionOfObjectValues('messageSecurityStates', $this->getMessageSecurityStates());
         $writer->writeCollectionOfObjectValues('networkConnections', $this->getNetworkConnections());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('processes', $this->getProcesses());
         $writer->writeCollectionOfPrimitiveValues('recommendedActions', $this->getRecommendedActions());
         $writer->writeCollectionOfObjectValues('registryKeyStates', $this->getRegistryKeyStates());
@@ -874,6 +888,14 @@ class Alert extends Entity implements Parsable
     */
     public function setNetworkConnections(?array $value): void {
         $this->getBackingStore()->set('networkConnections', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

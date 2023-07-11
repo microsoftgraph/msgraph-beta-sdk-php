@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
     */
     public function __construct() {
@@ -71,6 +76,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
         parent::serialize($writer);
         $writer->writeStringValue('azureAdDeviceId', $this->getAzureAdDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

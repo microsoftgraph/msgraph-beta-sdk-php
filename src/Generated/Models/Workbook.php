@@ -62,6 +62,7 @@ class Workbook extends Entity implements Parsable
             'comments' => fn(ParseNode $n) => $o->setComments($n->getCollectionOfObjectValues([WorkbookComment::class, 'createFromDiscriminatorValue'])),
             'functions' => fn(ParseNode $n) => $o->setFunctions($n->getObjectValue([WorkbookFunctions::class, 'createFromDiscriminatorValue'])),
             'names' => fn(ParseNode $n) => $o->setNames($n->getCollectionOfObjectValues([WorkbookNamedItem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([WorkbookOperation::class, 'createFromDiscriminatorValue'])),
             'tables' => fn(ParseNode $n) => $o->setTables($n->getCollectionOfObjectValues([WorkbookTable::class, 'createFromDiscriminatorValue'])),
             'worksheets' => fn(ParseNode $n) => $o->setWorksheets($n->getCollectionOfObjectValues([WorkbookWorksheet::class, 'createFromDiscriminatorValue'])),
@@ -92,6 +93,18 @@ class Workbook extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'names'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -146,6 +159,7 @@ class Workbook extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('comments', $this->getComments());
         $writer->writeObjectValue('functions', $this->getFunctions());
         $writer->writeCollectionOfObjectValues('names', $this->getNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('tables', $this->getTables());
         $writer->writeCollectionOfObjectValues('worksheets', $this->getWorksheets());
@@ -181,6 +195,14 @@ class Workbook extends Entity implements Parsable
     */
     public function setNames(?array $value): void {
         $this->getBackingStore()->set('names', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessReview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AccessReview and sets the default values.
+     * Instantiates a new accessReview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -115,6 +115,7 @@ class AccessReview extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'instances' => fn(ParseNode $n) => $o->setInstances($n->getCollectionOfObjectValues([AccessReview::class, 'createFromDiscriminatorValue'])),
             'myDecisions' => fn(ParseNode $n) => $o->setMyDecisions($n->getCollectionOfObjectValues([AccessReviewDecision::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reviewedEntity' => fn(ParseNode $n) => $o->setReviewedEntity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'reviewers' => fn(ParseNode $n) => $o->setReviewers($n->getCollectionOfObjectValues([AccessReviewReviewer::class, 'createFromDiscriminatorValue'])),
             'reviewerType' => fn(ParseNode $n) => $o->setReviewerType($n->getStringValue()),
@@ -150,6 +151,18 @@ class AccessReview extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'myDecisions'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -240,6 +253,7 @@ class AccessReview extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
         $writer->writeCollectionOfObjectValues('myDecisions', $this->getMyDecisions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reviewedEntity', $this->getReviewedEntity());
         $writer->writeCollectionOfObjectValues('reviewers', $this->getReviewers());
         $writer->writeStringValue('reviewerType', $this->getReviewerType());
@@ -310,6 +324,14 @@ class AccessReview extends Entity implements Parsable
     */
     public function setMyDecisions(?array $value): void {
         $this->getBackingStore()->set('myDecisions', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebAccount extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new WebAccount and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new webAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -120,6 +125,7 @@ class WebAccount extends ItemFacet implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('service', $this->getService());
         $writer->writeStringValue('statusMessage', $this->getStatusMessage());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());

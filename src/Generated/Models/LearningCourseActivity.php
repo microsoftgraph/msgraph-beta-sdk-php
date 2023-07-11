@@ -82,6 +82,7 @@ class LearningCourseActivity extends Entity implements Parsable
             'learnerUserId' => fn(ParseNode $n) => $o->setLearnerUserId($n->getStringValue()),
             'learningContentId' => fn(ParseNode $n) => $o->setLearningContentId($n->getStringValue()),
             'learningProviderId' => fn(ParseNode $n) => $o->setLearningProviderId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CourseStatus::class)),
         ]);
     }
@@ -123,6 +124,18 @@ class LearningCourseActivity extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the status property value. The status of the course activity. Possible values are: notStarted, inProgress, completed. Required.
      * @return CourseStatus|null
     */
@@ -146,6 +159,7 @@ class LearningCourseActivity extends Entity implements Parsable
         $writer->writeStringValue('learnerUserId', $this->getLearnerUserId());
         $writer->writeStringValue('learningContentId', $this->getLearningContentId());
         $writer->writeStringValue('learningProviderId', $this->getLearningProviderId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -195,6 +209,14 @@ class LearningCourseActivity extends Entity implements Parsable
     */
     public function setLearningProviderId(?string $value): void {
         $this->getBackingStore()->set('learningProviderId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

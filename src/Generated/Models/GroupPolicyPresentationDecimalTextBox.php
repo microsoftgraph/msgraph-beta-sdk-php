@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an ADMX decimalTextBox element and an ADMX decimal element.
+*/
 class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationDecimalTextBox and sets the default values.
+     * Instantiates a new groupPolicyPresentationDecimalTextBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();

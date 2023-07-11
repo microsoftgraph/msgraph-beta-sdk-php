@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new unifiedRoleManagementAlertConfiguration and sets the default values.
     */
     public function __construct() {
@@ -121,6 +126,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
         $writer->writeObjectValue('alertDefinition', $this->getAlertDefinition());
         $writer->writeStringValue('alertDefinitionId', $this->getAlertDefinitionId());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scopeId', $this->getScopeId());
         $writer->writeStringValue('scopeType', $this->getScopeType());
     }

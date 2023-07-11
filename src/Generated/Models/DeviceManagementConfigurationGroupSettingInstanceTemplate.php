@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Setting Instance Template
+*/
 class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingInstanceTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationGroupSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('groupSettingValueTemplate', $this->getGroupSettingValueTemplate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

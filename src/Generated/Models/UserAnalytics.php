@@ -47,8 +47,21 @@ class UserAnalytics extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'activityStatistics' => fn(ParseNode $n) => $o->setActivityStatistics($n->getCollectionOfObjectValues([ActivityStatistics::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -70,6 +83,7 @@ class UserAnalytics extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('activityStatistics', $this->getActivityStatistics());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('settings', $this->getSettings());
     }
 
@@ -79,6 +93,14 @@ class UserAnalytics extends Entity implements Parsable
     */
     public function setActivityStatistics(?array $value): void {
         $this->getBackingStore()->set('activityStatistics', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

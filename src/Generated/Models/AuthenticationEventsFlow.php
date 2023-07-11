@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventsFlow extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuthenticationEventsFlow and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new authenticationEventsFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -102,6 +107,7 @@ class AuthenticationEventsFlow extends Entity implements Parsable
         $writer->writeObjectValue('conditions', $this->getConditions());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('priority', $this->getPriority());
     }
 

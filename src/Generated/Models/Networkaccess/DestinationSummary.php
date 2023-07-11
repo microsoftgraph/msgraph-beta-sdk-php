@@ -56,7 +56,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. Count of the aggregation.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -68,7 +68,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destination property value. The destination property
+     * Gets the destination property value. Destination FQDN or IP address.
      * @return string|null
     */
     public function getDestination(): ?string {
@@ -132,7 +132,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. Count of the aggregation.
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
@@ -140,7 +140,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destination property value. The destination property
+     * Sets the destination property value. Destination FQDN or IP address.
      * @param string|null $value Value to set for the destination property.
     */
     public function setDestination(?string $value): void {

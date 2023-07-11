@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device action result
+*/
 class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new DeleteUserFromSharedAppleDeviceActionResult and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deleteUserFromSharedAppleDeviceActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +61,7 @@ class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionResult imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 

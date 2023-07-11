@@ -77,10 +77,11 @@ class VerticalSectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property verticalSection in sites
+     * Create a verticalSection object in a given sitePage.  A sitePage can only have one vertical section. If a vertical section already exists, this method returns a `409 Conflict` response code.
      * @param VerticalSection $body The request body
      * @param VerticalSectionRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/sitepage-post-verticalsection?view=graph-rest-1.0 Find more info here
     */
     public function patch(VerticalSection $body, ?VerticalSectionRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -134,7 +135,7 @@ class VerticalSectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property verticalSection in sites
+     * Create a verticalSection object in a given sitePage.  A sitePage can only have one vertical section. If a vertical section already exists, this method returns a `409 Conflict` response code.
      * @param VerticalSection $body The request body
      * @param VerticalSectionRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

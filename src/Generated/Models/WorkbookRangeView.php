@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkbookRangeView extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WorkbookRangeView and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new workbookRangeView and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -206,6 +211,7 @@ class WorkbookRangeView extends Entity implements Parsable
         $writer->writeObjectValue('formulasR1C1', $this->getFormulasR1C1());
         $writer->writeIntegerValue('index', $this->getIndex());
         $writer->writeObjectValue('numberFormat', $this->getNumberFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rowCount', $this->getRowCount());
         $writer->writeCollectionOfObjectValues('rows', $this->getRows());
         $writer->writeObjectValue('text', $this->getText());

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OutlookTask extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new OutlookTask and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new outlookTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -291,6 +296,7 @@ class OutlookTask extends OutlookItem implements Parsable
         $writer->writeEnumValue('importance', $this->getImportance());
         $writer->writeBooleanValue('isReminderOn', $this->getIsReminderOn());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
         $writer->writeObjectValue('recurrence', $this->getRecurrence());

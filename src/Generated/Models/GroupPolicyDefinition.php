@@ -120,6 +120,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
             'minDeviceCspVersion' => fn(ParseNode $n) => $o->setMinDeviceCspVersion($n->getStringValue()),
             'minUserCspVersion' => fn(ParseNode $n) => $o->setMinUserCspVersion($n->getStringValue()),
             'nextVersionDefinition' => fn(ParseNode $n) => $o->setNextVersionDefinition($n->getObjectValue([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)),
             'presentations' => fn(ParseNode $n) => $o->setPresentations($n->getCollectionOfObjectValues([GroupPolicyPresentation::class, 'createFromDiscriminatorValue'])),
             'previousVersionDefinition' => fn(ParseNode $n) => $o->setPreviousVersionDefinition($n->getObjectValue([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
@@ -198,6 +199,18 @@ class GroupPolicyDefinition extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'nextVersionDefinition'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -280,6 +293,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
         $writer->writeStringValue('minDeviceCspVersion', $this->getMinDeviceCspVersion());
         $writer->writeStringValue('minUserCspVersion', $this->getMinUserCspVersion());
         $writer->writeObjectValue('nextVersionDefinition', $this->getNextVersionDefinition());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeCollectionOfObjectValues('presentations', $this->getPresentations());
         $writer->writeObjectValue('previousVersionDefinition', $this->getPreviousVersionDefinition());
@@ -381,6 +395,14 @@ class GroupPolicyDefinition extends Entity implements Parsable
     */
     public function setNextVersionDefinition(?GroupPolicyDefinition $value): void {
         $this->getBackingStore()->set('nextVersionDefinition', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

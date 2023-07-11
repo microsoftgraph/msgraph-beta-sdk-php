@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuthenticationStrengthRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuthenticationStrengthRoot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new authenticationStrengthRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,6 +109,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
         $writer->writeCollectionOfEnumValues('authenticationCombinations', $this->getAuthenticationCombinations());
         $writer->writeCollectionOfObjectValues('authenticationMethodModes', $this->getAuthenticationMethodModes());
         $writer->writeCollectionOfEnumValues('combinations', $this->getCombinations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
     }
 

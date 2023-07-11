@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantTag extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantTag and sets the default values.
+     * Instantiates a new tenantTag and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -101,6 +101,7 @@ class TenantTag extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenants' => fn(ParseNode $n) => $o->setTenants($n->getCollectionOfObjectValues([TenantInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -130,6 +131,18 @@ class TenantTag extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the tenants property value. The collection of managed tenants associated with the tenant tag. Optional.
      * @return array<TenantInfo>|null
     */
@@ -156,6 +169,7 @@ class TenantTag extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('tenants', $this->getTenants());
     }
 
@@ -213,6 +227,14 @@ class TenantTag extends Entity implements Parsable
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

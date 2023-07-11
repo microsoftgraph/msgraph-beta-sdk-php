@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365ActiveUserCounts extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Office365ActiveUserCounts and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new office365ActiveUserCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -172,6 +177,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('exchange', $this->getExchange());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('office365', $this->getOffice365());
         $writer->writeIntegerValue('oneDrive', $this->getOneDrive());
         $writer->writeDateValue('reportDate', $this->getReportDate());

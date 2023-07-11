@@ -63,9 +63,22 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'deviceRunStates' => fn(ParseNode $n) => $o->setDeviceRunStates($n->getCollectionOfObjectValues([DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'])),
             'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'successDeviceCount' => fn(ParseNode $n) => $o->setSuccessDeviceCount($n->getIntegerValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -100,6 +113,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
         $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successDeviceCount', $this->getSuccessDeviceCount());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -118,6 +132,14 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

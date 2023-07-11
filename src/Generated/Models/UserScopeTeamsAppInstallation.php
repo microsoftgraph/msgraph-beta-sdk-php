@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Parsable 
 {
     /**
-     * Instantiates a new UserScopeTeamsAppInstallation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userScopeTeamsAppInstallation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('chat', $this->getChat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

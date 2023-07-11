@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchUploadAgent extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new exactMatchUploadAgent and sets the default values.
     */
     public function __construct() {
@@ -69,6 +74,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

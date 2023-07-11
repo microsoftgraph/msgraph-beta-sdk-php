@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuthenticationStrengthPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuthenticationStrengthPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new authenticationStrengthPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -156,6 +161,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeEnumValue('requirementsSatisfied', $this->getRequirementsSatisfied());
     }

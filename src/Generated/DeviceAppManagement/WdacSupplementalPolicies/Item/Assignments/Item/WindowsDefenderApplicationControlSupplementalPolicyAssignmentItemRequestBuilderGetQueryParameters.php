@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+ * The associated group assignments for the Windows Defender Application Control Supplemental Policy.
 */
 class WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilderGetQueryParameters 
 {

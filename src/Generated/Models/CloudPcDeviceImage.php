@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcDeviceImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcDeviceImage and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcDeviceImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -175,6 +180,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeEnumValue('osStatus', $this->getOsStatus());

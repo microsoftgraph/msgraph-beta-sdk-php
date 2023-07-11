@@ -228,6 +228,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
             'landingPageCustomizedImage' => fn(ParseNode $n) => $o->setLandingPageCustomizedImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lightBackgroundLogo' => fn(ParseNode $n) => $o->setLightBackgroundLogo($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onlineSupportSiteName' => fn(ParseNode $n) => $o->setOnlineSupportSiteName($n->getStringValue()),
             'onlineSupportSiteUrl' => fn(ParseNode $n) => $o->setOnlineSupportSiteUrl($n->getStringValue()),
             'privacyUrl' => fn(ParseNode $n) => $o->setPrivacyUrl($n->getStringValue()),
@@ -322,6 +323,18 @@ class IntuneBrandingProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lightBackgroundLogo'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -520,6 +533,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
         $writer->writeObjectValue('landingPageCustomizedImage', $this->getLandingPageCustomizedImage());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('lightBackgroundLogo', $this->getLightBackgroundLogo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onlineSupportSiteName', $this->getOnlineSupportSiteName());
         $writer->writeStringValue('onlineSupportSiteUrl', $this->getOnlineSupportSiteUrl());
         $writer->writeStringValue('privacyUrl', $this->getPrivacyUrl());
@@ -694,6 +708,14 @@ class IntuneBrandingProfile extends Entity implements Parsable
     */
     public function setLightBackgroundLogo(?MimeContent $value): void {
         $this->getBackingStore()->set('lightBackgroundLogo', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

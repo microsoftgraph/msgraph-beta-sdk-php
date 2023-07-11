@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantGroup and sets the default values.
+     * Instantiates a new tenantGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -61,6 +61,7 @@ class TenantGroup extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'managementActions' => fn(ParseNode $n) => $o->setManagementActions($n->getCollectionOfObjectValues([ManagementActionInfo::class, 'createFromDiscriminatorValue'])),
             'managementIntents' => fn(ParseNode $n) => $o->setManagementIntents($n->getCollectionOfObjectValues([ManagementIntentInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -101,6 +102,18 @@ class TenantGroup extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the tenantIds property value. The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
      * @return array<string>|null
     */
@@ -124,6 +137,7 @@ class TenantGroup extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('managementActions', $this->getManagementActions());
         $writer->writeCollectionOfObjectValues('managementIntents', $this->getManagementIntents());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('tenantIds', $this->getTenantIds());
     }
 
@@ -157,6 +171,14 @@ class TenantGroup extends Entity implements Parsable
     */
     public function setManagementIntents(?array $value): void {
         $this->getBackingStore()->set('managementIntents', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

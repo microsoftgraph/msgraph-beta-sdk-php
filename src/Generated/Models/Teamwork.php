@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Teamwork extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Teamwork and sets the default values.
+     * Instantiates a new teamwork and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -77,10 +77,23 @@ class Teamwork extends Entity implements Parsable
             'deletedChats' => fn(ParseNode $n) => $o->setDeletedChats($n->getCollectionOfObjectValues([DeletedChat::class, 'createFromDiscriminatorValue'])),
             'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
             'teamTemplates' => fn(ParseNode $n) => $o->setTeamTemplates($n->getCollectionOfObjectValues([TeamTemplate::class, 'createFromDiscriminatorValue'])),
             'workforceIntegrations' => fn(ParseNode $n) => $o->setWorkforceIntegrations($n->getCollectionOfObjectValues([WorkforceIntegration::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -132,6 +145,7 @@ class Teamwork extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deletedChats', $this->getDeletedChats());
         $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
         $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
         $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->getWorkforceIntegrations());
@@ -159,6 +173,14 @@ class Teamwork extends Entity implements Parsable
     */
     public function setDevices(?array $value): void {
         $this->getBackingStore()->set('devices', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

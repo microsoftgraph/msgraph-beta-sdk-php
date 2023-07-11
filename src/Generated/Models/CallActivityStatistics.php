@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CallActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * Instantiates a new CallActivityStatistics and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new callActivityStatistics and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class CallActivityStatistics extends ActivityStatistics implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateIntervalValue('afterHours', $this->getAfterHours());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

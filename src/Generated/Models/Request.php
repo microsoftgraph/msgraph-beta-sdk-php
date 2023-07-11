@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Request extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new request and sets the default values.
     */
     public function __construct() {
@@ -136,6 +141,7 @@ class Request extends Entity implements Parsable
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('customData', $this->getCustomData());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('status', $this->getStatus());
     }
 

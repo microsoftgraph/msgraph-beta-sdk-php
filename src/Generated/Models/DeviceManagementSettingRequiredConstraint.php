@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base entity for a constraint
+*/
 class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingRequiredConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingRequiredConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +36,7 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'notConfiguredValue' => fn(ParseNode $n) => $o->setNotConfiguredValue($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +53,25 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('notConfiguredValue', $this->getNotConfiguredValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -63,6 +80,14 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
     */
     public function setNotConfiguredValue(?string $value): void {
         $this->getBackingStore()->set('notConfiguredValue', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

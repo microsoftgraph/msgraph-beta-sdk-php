@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInstanceDecisionItemAzureRoleResource extends AccessReviewInstanceDecisionItemResource implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewInstanceDecisionItemAzureRoleResource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new accessReviewInstanceDecisionItemAzureRoleResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class AccessReviewInstanceDecisionItemAzureRoleResource extends AccessReviewInst
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('scope', $this->getScope());
     }
 

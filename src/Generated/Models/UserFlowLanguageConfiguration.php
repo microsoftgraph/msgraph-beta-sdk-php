@@ -61,6 +61,7 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
             'defaultPages' => fn(ParseNode $n) => $o->setDefaultPages($n->getCollectionOfObjectValues([UserFlowLanguagePage::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'overridesPages' => fn(ParseNode $n) => $o->setOverridesPages($n->getCollectionOfObjectValues([UserFlowLanguagePage::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -75,6 +76,18 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -100,6 +113,7 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('defaultPages', $this->getDefaultPages());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('overridesPages', $this->getOverridesPages());
     }
 
@@ -125,6 +139,14 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ClientCertificateAuthentication extends ApiAuthenticationConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new ClientCertificateAuthentication and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new clientCertificateAuthentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class ClientCertificateAuthentication extends ApiAuthenticationConfigurationBase
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('certificateList', $this->getCertificateList());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

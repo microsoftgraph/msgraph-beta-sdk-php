@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookFormatProtection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WorkbookFormatProtection and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new workbookFormatProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('formulaHidden', $this->getFormulaHidden());
         $writer->writeBooleanValue('locked', $this->getLocked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

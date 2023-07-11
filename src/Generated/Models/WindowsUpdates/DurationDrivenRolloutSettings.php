@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DurationDrivenRolloutSettings extends GradualRolloutSettings implements Parsable 
 {
     /**
-     * Instantiates a new DurationDrivenRolloutSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new durationDrivenRolloutSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class DurationDrivenRolloutSettings extends GradualRolloutSettings implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateIntervalValue('durationUntilDeploymentEnd', $this->getDurationUntilDeploymentEnd());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

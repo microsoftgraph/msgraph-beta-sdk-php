@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementTroubleshootingEvent extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
@@ -125,6 +130,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('eventName', $this->getEventName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('troubleshootingErrorDetails', $this->getTroubleshootingErrorDetails());
     }
 

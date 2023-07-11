@@ -49,6 +49,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ComplianceStatus::class)),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -65,6 +66,18 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,6 +124,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('userName', $this->getUserName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
@@ -130,6 +144,14 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceLocalCredential extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceLocalCredential and sets the default values.
     */
     public function __construct() {
@@ -96,6 +101,7 @@ class DeviceLocalCredential extends Entity implements Parsable
         $writer->writeStringValue('accountName', $this->getAccountName());
         $writer->writeStringValue('accountSid', $this->getAccountSid());
         $writer->writeDateTimeValue('backupDateTime', $this->getBackupDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('passwordBase64', $this->getPasswordBase64());
     }
 

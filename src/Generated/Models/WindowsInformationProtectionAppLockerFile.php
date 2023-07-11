@@ -13,6 +13,11 @@ use Psr\Http\Message\StreamInterface;
 class WindowsInformationProtectionAppLockerFile extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsInformationProtectionAppLockerFile and sets the default values.
     */
     public function __construct() {
@@ -99,6 +104,7 @@ class WindowsInformationProtectionAppLockerFile extends Entity implements Parsab
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBinaryContent('file', $this->getFile());
         $writer->writeStringValue('fileHash', $this->getFileHash());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('version', $this->getVersion());
     }
 

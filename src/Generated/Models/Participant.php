@@ -38,6 +38,7 @@ class Participant extends Entity implements Parsable
             'isMuted' => fn(ParseNode $n) => $o->setIsMuted($n->getBooleanValue()),
             'mediaStreams' => fn(ParseNode $n) => $o->setMediaStreams($n->getCollectionOfObjectValues([MediaStream::class, 'createFromDiscriminatorValue'])),
             'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'preferredDisplayName' => fn(ParseNode $n) => $o->setPreferredDisplayName($n->getStringValue()),
             'recordingInfo' => fn(ParseNode $n) => $o->setRecordingInfo($n->getObjectValue([RecordingInfo::class, 'createFromDiscriminatorValue'])),
             'removedState' => fn(ParseNode $n) => $o->setRemovedState($n->getObjectValue([RemovedState::class, 'createFromDiscriminatorValue'])),
@@ -121,6 +122,18 @@ class Participant extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the preferredDisplayName property value. The preferredDisplayName property
      * @return string|null
     */
@@ -192,6 +205,7 @@ class Participant extends Entity implements Parsable
         $writer->writeBooleanValue('isMuted', $this->getIsMuted());
         $writer->writeCollectionOfObjectValues('mediaStreams', $this->getMediaStreams());
         $writer->writeStringValue('metadata', $this->getMetadata());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('preferredDisplayName', $this->getPreferredDisplayName());
         $writer->writeObjectValue('recordingInfo', $this->getRecordingInfo());
         $writer->writeObjectValue('removedState', $this->getRemovedState());
@@ -245,6 +259,14 @@ class Participant extends Entity implements Parsable
     */
     public function setMetadata(?string $value): void {
         $this->getBackingStore()->set('metadata', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

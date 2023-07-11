@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get connectivity from networkAccess
+ * Connectivity represents all the connectivity components in Global Secure Access.
 */
 class ConnectivityRequestBuilderGetQueryParameters 
 {

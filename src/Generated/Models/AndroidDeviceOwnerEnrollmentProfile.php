@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
@@ -338,6 +343,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $writer->writeIntegerValue('enrollmentTokenUsageCount', $this->getEnrollmentTokenUsageCount());
         $writer->writeBooleanValue('isTeamsDeviceProfile', $this->getIsTeamsDeviceProfile());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
         $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());

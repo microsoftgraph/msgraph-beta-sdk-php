@@ -91,6 +91,7 @@ class Channel extends Entity implements Parsable
             'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
             'moderationSettings' => fn(ParseNode $n) => $o->setModerationSettings($n->getObjectValue([ChannelModerationSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sharedWithTeams' => fn(ParseNode $n) => $o->setSharedWithTeams($n->getCollectionOfObjectValues([SharedWithChannelTeamInfo::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([ChannelSummary::class, 'createFromDiscriminatorValue'])),
             'tabs' => fn(ParseNode $n) => $o->setTabs($n->getCollectionOfObjectValues([TeamsTab::class, 'createFromDiscriminatorValue'])),
@@ -176,6 +177,18 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the sharedWithTeams property value. A collection of teams with which a channel is shared.
      * @return array<SharedWithChannelTeamInfo>|null
     */
@@ -255,6 +268,7 @@ class Channel extends Entity implements Parsable
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
         $writer->writeObjectValue('moderationSettings', $this->getModerationSettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('sharedWithTeams', $this->getSharedWithTeams());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfObjectValues('tabs', $this->getTabs());
@@ -340,6 +354,14 @@ class Channel extends Entity implements Parsable
     */
     public function setModerationSettings(?ChannelModerationSettings $value): void {
         $this->getBackingStore()->set('moderationSettings', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

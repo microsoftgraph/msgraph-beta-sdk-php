@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics resource performance entity.
+*/
 class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsResourcePerformance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsResourcePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -219,6 +227,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
         $writer->writeIntegerValue('deviceResourcePerformanceScore', $this->getDeviceResourcePerformanceScore());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('ramSpikeTimePercentage', $this->getRamSpikeTimePercentage());
         $writer->writeFloatValue('ramSpikeTimePercentageThreshold', $this->getRamSpikeTimePercentageThreshold());
         $writer->writeIntegerValue('ramSpikeTimeScore', $this->getRamSpikeTimeScore());

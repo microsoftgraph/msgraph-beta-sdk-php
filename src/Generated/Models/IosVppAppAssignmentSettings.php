@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Abstract class to contain properties used to assign a mobile app to a group.
+*/
 class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new IosVppAppAssignmentSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosVppAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -120,6 +128,7 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isRemovable', $this->getIsRemovable());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('preventAutoAppUpdate', $this->getPreventAutoAppUpdate());
         $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
         $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenant extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedTenant and sets the default values.
+     * Instantiates a new managedTenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -217,6 +217,7 @@ class ManagedTenant extends Entity implements Parsable
             'managementTemplateStepTenantSummaries' => fn(ParseNode $n) => $o->setManagementTemplateStepTenantSummaries($n->getCollectionOfObjectValues([ManagementTemplateStepTenantSummary::class, 'createFromDiscriminatorValue'])),
             'managementTemplateStepVersions' => fn(ParseNode $n) => $o->setManagementTemplateStepVersions($n->getCollectionOfObjectValues([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
             'myRoles' => fn(ParseNode $n) => $o->setMyRoles($n->getCollectionOfObjectValues([MyRole::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantGroups' => fn(ParseNode $n) => $o->setTenantGroups($n->getCollectionOfObjectValues([TenantGroup::class, 'createFromDiscriminatorValue'])),
             'tenants' => fn(ParseNode $n) => $o->setTenants($n->getCollectionOfObjectValues([Tenant::class, 'createFromDiscriminatorValue'])),
             'tenantsCustomizedInformation' => fn(ParseNode $n) => $o->setTenantsCustomizedInformation($n->getCollectionOfObjectValues([TenantCustomizedInformation::class, 'createFromDiscriminatorValue'])),
@@ -494,6 +495,18 @@ class ManagedTenant extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the tenantGroups property value. The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
      * @return array<TenantGroup>|null
     */
@@ -627,6 +640,7 @@ class ManagedTenant extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('managementTemplateStepTenantSummaries', $this->getManagementTemplateStepTenantSummaries());
         $writer->writeCollectionOfObjectValues('managementTemplateStepVersions', $this->getManagementTemplateStepVersions());
         $writer->writeCollectionOfObjectValues('myRoles', $this->getMyRoles());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('tenantGroups', $this->getTenantGroups());
         $writer->writeCollectionOfObjectValues('tenants', $this->getTenants());
         $writer->writeCollectionOfObjectValues('tenantsCustomizedInformation', $this->getTenantsCustomizedInformation());
@@ -874,6 +888,14 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function setMyRoles(?array $value): void {
         $this->getBackingStore()->set('myRoles', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

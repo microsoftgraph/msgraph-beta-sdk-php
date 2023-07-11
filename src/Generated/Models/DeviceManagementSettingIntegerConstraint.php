@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base entity for a constraint
+*/
 class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingIntegerConstraint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementSettingIntegerConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +77,7 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumValue', $this->getMaximumValue());
         $writer->writeIntegerValue('minimumValue', $this->getMinimumValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

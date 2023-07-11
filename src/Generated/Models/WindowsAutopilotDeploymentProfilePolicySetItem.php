@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for windows autopilot deployment profile PolicySetItem.
+*/
 class WindowsAutopilotDeploymentProfilePolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAutopilotDeploymentProfilePolicySetItem and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsAutopilotDeploymentProfilePolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +49,7 @@ class WindowsAutopilotDeploymentProfilePolicySetItem extends PolicySetItem imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

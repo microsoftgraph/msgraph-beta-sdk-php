@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * IPv6 Range definition.
+*/
 class IPv6Range extends IpRange implements Parsable 
 {
     /**
-     * Instantiates a new IPv6Range and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iPv6Range and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +76,7 @@ class IPv6Range extends IpRange implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('lowerAddress', $this->getLowerAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('upperAddress', $this->getUpperAddress());
     }
 

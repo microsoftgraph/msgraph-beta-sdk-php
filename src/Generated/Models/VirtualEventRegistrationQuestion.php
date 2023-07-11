@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventRegistrationQuestion extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new virtualEventRegistrationQuestion and sets the default values.
     */
     public function __construct() {
@@ -106,6 +111,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
         $writer->writeEnumValue('answerInputType', $this->getAnswerInputType());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isRequired', $this->getIsRequired());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

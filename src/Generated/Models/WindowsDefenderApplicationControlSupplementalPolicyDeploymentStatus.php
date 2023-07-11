@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus and sets the default values.
     */
     public function __construct() {
@@ -178,6 +183,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeObjectValue('policy', $this->getPolicy());

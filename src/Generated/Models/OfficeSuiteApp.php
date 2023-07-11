@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Contains properties and inherited properties for the Office365 Suite App.
+*/
 class OfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new OfficeSuiteApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new officeSuiteApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -227,6 +235,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
         $writer->writeObjectValue('excludedApps', $this->getExcludedApps());
         $writer->writeEnumValue('installProgressDisplayLevel', $this->getInstallProgressDisplayLevel());
         $writer->writeCollectionOfPrimitiveValues('localesToInstall', $this->getLocalesToInstall());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('officeConfigurationXml', $this->getOfficeConfigurationXml());
         $writer->writeEnumValue('officePlatformArchitecture', $this->getOfficePlatformArchitecture());
         $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->getOfficeSuiteAppDefaultFileFormat());

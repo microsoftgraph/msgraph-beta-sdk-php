@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PrivilegedRole extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedRole and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class PrivilegedRole extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('summary', $this->getSummary());
     }

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Data sharing consent information.
+*/
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DataSharingConsent and sets the default values.
+     * Instantiates a new dataSharingConsent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,6 +39,7 @@ class DataSharingConsent extends Entity implements Parsable
             'granted' => fn(ParseNode $n) => $o->setGranted($n->getBooleanValue()),
             'grantedByUpn' => fn(ParseNode $n) => $o->setGrantedByUpn($n->getStringValue()),
             'grantedByUserId' => fn(ParseNode $n) => $o->setGrantedByUserId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'serviceDisplayName' => fn(ParseNode $n) => $o->setServiceDisplayName($n->getStringValue()),
             'termsUrl' => fn(ParseNode $n) => $o->setTermsUrl($n->getStringValue()),
         ]);
@@ -90,6 +94,18 @@ class DataSharingConsent extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the serviceDisplayName property value. The display name of the service work flow
      * @return string|null
     */
@@ -123,6 +139,7 @@ class DataSharingConsent extends Entity implements Parsable
         $writer->writeBooleanValue('granted', $this->getGranted());
         $writer->writeStringValue('grantedByUpn', $this->getGrantedByUpn());
         $writer->writeStringValue('grantedByUserId', $this->getGrantedByUserId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serviceDisplayName', $this->getServiceDisplayName());
         $writer->writeStringValue('termsUrl', $this->getTermsUrl());
     }
@@ -157,6 +174,14 @@ class DataSharingConsent extends Entity implements Parsable
     */
     public function setGrantedByUserId(?string $value): void {
         $this->getBackingStore()->set('grantedByUserId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The endpoint privilege management elevation result entity representing a single elevation action on a client device.
+*/
 class PrivilegeManagementElevation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegeManagementElevation and sets the default values.
+     * Instantiates a new privilegeManagementElevation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -116,6 +119,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
             'hash' => fn(ParseNode $n) => $o->setHash($n->getStringValue()),
             'internalName' => fn(ParseNode $n) => $o->setInternalName($n->getStringValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'result' => fn(ParseNode $n) => $o->setResult($n->getIntegerValue()),
             'upn' => fn(ParseNode $n) => $o->setUpn($n->getStringValue()),
@@ -196,6 +200,18 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the productName property value. The product name of the application. This value is set by the creator of the application. Example: `Visual Studio`
      * @return string|null
     */
@@ -261,6 +277,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
         $writer->writeStringValue('hash', $this->getHash());
         $writer->writeStringValue('internalName', $this->getInternalName());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeIntegerValue('result', $this->getResult());
         $writer->writeStringValue('upn', $this->getUpn());
@@ -361,6 +378,14 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

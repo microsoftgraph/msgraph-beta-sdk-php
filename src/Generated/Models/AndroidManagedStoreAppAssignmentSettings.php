@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Abstract class to contain properties used to assign a mobile app to a group.
+*/
 class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppAssignmentSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidManagedStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +87,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('androidManagedStoreAppTrackIds', $this->getAndroidManagedStoreAppTrackIds());
         $writer->writeEnumValue('autoUpdateMode', $this->getAutoUpdateMode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

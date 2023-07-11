@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Apple VPN configuration profile.
+*/
 class AppleVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AppleVpnConfiguration and sets the default values.
+     * Instantiates a new appleVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

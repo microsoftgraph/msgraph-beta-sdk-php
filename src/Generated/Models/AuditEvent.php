@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A class containing the properties for Audit Event.
+*/
 class AuditEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuditEvent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new auditEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -197,6 +205,7 @@ class AuditEvent extends Entity implements Parsable
         $writer->writeStringValue('componentName', $this->getComponentName());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('resources', $this->getResources());
     }
 

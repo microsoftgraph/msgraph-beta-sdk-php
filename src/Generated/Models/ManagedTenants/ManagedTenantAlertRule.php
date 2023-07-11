@@ -131,6 +131,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'lastRunDateTime' => fn(ParseNode $n) => $o->setLastRunDateTime($n->getDateTimeValue()),
             'notificationFinalDestinations' => fn(ParseNode $n) => $o->setNotificationFinalDestinations($n->getEnumValue(NotificationDestination::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ruleDefinition' => fn(ParseNode $n) => $o->setRuleDefinition($n->getObjectValue([ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'])),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfObjectValues([NotificationTarget::class, 'createFromDiscriminatorValue'])),
@@ -184,6 +185,18 @@ class ManagedTenantAlertRule extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationFinalDestinations'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -255,6 +268,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeDateTimeValue('lastRunDateTime', $this->getLastRunDateTime());
         $writer->writeEnumValue('notificationFinalDestinations', $this->getNotificationFinalDestinations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('ruleDefinition', $this->getRuleDefinition());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeCollectionOfObjectValues('targets', $this->getTargets());
@@ -347,6 +361,14 @@ class ManagedTenantAlertRule extends Entity implements Parsable
     */
     public function setNotificationFinalDestinations(?NotificationDestination $value): void {
         $this->getBackingStore()->set('notificationFinalDestinations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -21,7 +21,7 @@ class PurchaseInvoice implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new PurchaseInvoice and sets the default values.
+     * Instantiates a new purchaseInvoice and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

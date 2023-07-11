@@ -197,6 +197,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'productKey' => fn(ParseNode $n) => $o->setProductKey($n->getStringValue()),
             'purchaseOrderIdentifier' => fn(ParseNode $n) => $o->setPurchaseOrderIdentifier($n->getStringValue()),
             'remediationState' => fn(ParseNode $n) => $o->setRemediationState($n->getEnumValue(WindowsAutopilotDeviceRemediationState::class)),
@@ -279,6 +280,18 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -413,6 +426,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productKey', $this->getProductKey());
         $writer->writeStringValue('purchaseOrderIdentifier', $this->getPurchaseOrderIdentifier());
         $writer->writeEnumValue('remediationState', $this->getRemediationState());
@@ -566,6 +580,14 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

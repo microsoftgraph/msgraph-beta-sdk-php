@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Local Action Configuration
+*/
 class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceComplianceLocalActionBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceComplianceLocalActionBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,6 +70,7 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('gracePeriodInMinutes', $this->getGracePeriodInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

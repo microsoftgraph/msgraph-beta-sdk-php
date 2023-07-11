@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PersonName extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonName and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new personName and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -192,6 +197,7 @@ class PersonName extends ItemFacet implements Parsable
         $writer->writeStringValue('maiden', $this->getMaiden());
         $writer->writeStringValue('middle', $this->getMiddle());
         $writer->writeStringValue('nickname', $this->getNickname());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('pronunciation', $this->getPronunciation());
         $writer->writeStringValue('suffix', $this->getSuffix());
         $writer->writeStringValue('title', $this->getTitle());

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows Phone 8.1+ SCEP certificate profile
+*/
 class WindowsPhone81SCEPCertificateProfile extends WindowsPhone81CertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81SCEPCertificateProfile and sets the default values.
+     * Instantiates a new windowsPhone81SCEPCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

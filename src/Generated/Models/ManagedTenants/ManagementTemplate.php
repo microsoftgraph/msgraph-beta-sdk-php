@@ -105,6 +105,7 @@ class ManagementTemplate extends Entity implements Parsable
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'managementTemplateCollections' => fn(ParseNode $n) => $o->setManagementTemplateCollections($n->getCollectionOfObjectValues([ManagementTemplateCollection::class, 'createFromDiscriminatorValue'])),
             'managementTemplateSteps' => fn(ParseNode $n) => $o->setManagementTemplateSteps($n->getCollectionOfObjectValues([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([TemplateParameter::class, 'createFromDiscriminatorValue'])),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
             'provider' => fn(ParseNode $n) => $o->setProvider($n->getEnumValue(ManagementProvider::class)),
@@ -178,6 +179,18 @@ class ManagementTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateSteps'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -272,6 +285,7 @@ class ManagementTemplate extends Entity implements Parsable
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeCollectionOfObjectValues('managementTemplateCollections', $this->getManagementTemplateCollections());
         $writer->writeCollectionOfObjectValues('managementTemplateSteps', $this->getManagementTemplateSteps());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('parameters', $this->getParameters());
         $writer->writeIntegerValue('priority', $this->getPriority());
         $writer->writeEnumValue('provider', $this->getProvider());
@@ -358,6 +372,14 @@ class ManagementTemplate extends Entity implements Parsable
     */
     public function setManagementTemplateSteps(?array $value): void {
         $this->getBackingStore()->set('managementTemplateSteps', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

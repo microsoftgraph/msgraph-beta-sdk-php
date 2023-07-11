@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectGroup extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new ProtectGroup and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new protectGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('allowEmailFromGuestUsers', $this->getAllowEmailFromGuestUsers());
         $writer->writeBooleanValue('allowGuestUsers', $this->getAllowGuestUsers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('privacy', $this->getPrivacy());
     }
 

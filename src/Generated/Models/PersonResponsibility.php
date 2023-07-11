@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PersonResponsibility extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonResponsibility and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new personResponsibility and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -119,6 +124,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
         $writer->writeCollectionOfPrimitiveValues('collaborationTags', $this->getCollaborationTags());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AttackSimulationRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AttackSimulationRoot and sets the default values.
+     * Instantiates a new attackSimulationRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,6 +49,7 @@ class AttackSimulationRoot extends Entity implements Parsable
             'endUserNotifications' => fn(ParseNode $n) => $o->setEndUserNotifications($n->getCollectionOfObjectValues([EndUserNotification::class, 'createFromDiscriminatorValue'])),
             'landingPages' => fn(ParseNode $n) => $o->setLandingPages($n->getCollectionOfObjectValues([LandingPage::class, 'createFromDiscriminatorValue'])),
             'loginPages' => fn(ParseNode $n) => $o->setLoginPages($n->getCollectionOfObjectValues([LoginPage::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([AttackSimulationOperation::class, 'createFromDiscriminatorValue'])),
             'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([Payload::class, 'createFromDiscriminatorValue'])),
             'simulationAutomations' => fn(ParseNode $n) => $o->setSimulationAutomations($n->getCollectionOfObjectValues([SimulationAutomation::class, 'createFromDiscriminatorValue'])),
@@ -83,6 +84,18 @@ class AttackSimulationRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'loginPages'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -164,6 +177,7 @@ class AttackSimulationRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('endUserNotifications', $this->getEndUserNotifications());
         $writer->writeCollectionOfObjectValues('landingPages', $this->getLandingPages());
         $writer->writeCollectionOfObjectValues('loginPages', $this->getLoginPages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());
@@ -193,6 +207,14 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function setLoginPages(?array $value): void {
         $this->getBackingStore()->set('loginPages', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

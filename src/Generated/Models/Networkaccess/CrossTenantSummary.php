@@ -48,7 +48,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authTransactionCount property value. The authTransactionCount property
+     * Gets the authTransactionCount property value. Total numbers of authentication sessions in the time frame between startDateTime and endDateTime.
      * @return int|null
     */
     public function getAuthTransactionCount(): ?int {
@@ -68,7 +68,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceCount property value. The deviceCount property
+     * Gets the deviceCount property value. Count of unique devices that performed cross-tenant access, in the time frame between startDateTime and endDateTime.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -96,7 +96,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the newTenantCount property value. The newTenantCount property
+     * Gets the newTenantCount property value. Count of unique tenants that were accessed in the time frame between endDateTime to discoveryPivotDateTime, but haven't been accessed in the time frame between discoveryPivotDateTime to startDateTime.
      * @return int|null
     */
     public function getNewTenantCount(): ?int {
@@ -120,7 +120,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantCount property value. The tenantCount property
+     * Gets the tenantCount property value. Count of unique tenants that were accessed, that are different from the device's home tenant, in the time frame between startDateTime and endDateTime.
      * @return int|null
     */
     public function getTenantCount(): ?int {
@@ -132,7 +132,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. Count of unique users that performed cross-tenant access, in the time frame between startDateTime and endDateTime.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -166,7 +166,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authTransactionCount property value. The authTransactionCount property
+     * Sets the authTransactionCount property value. Total numbers of authentication sessions in the time frame between startDateTime and endDateTime.
      * @param int|null $value Value to set for the authTransactionCount property.
     */
     public function setAuthTransactionCount(?int $value): void {
@@ -182,7 +182,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceCount property value. The deviceCount property
+     * Sets the deviceCount property value. Count of unique devices that performed cross-tenant access, in the time frame between startDateTime and endDateTime.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -190,7 +190,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the newTenantCount property value. The newTenantCount property
+     * Sets the newTenantCount property value. Count of unique tenants that were accessed in the time frame between endDateTime to discoveryPivotDateTime, but haven't been accessed in the time frame between discoveryPivotDateTime to startDateTime.
      * @param int|null $value Value to set for the newTenantCount property.
     */
     public function setNewTenantCount(?int $value): void {
@@ -206,7 +206,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantCount property value. The tenantCount property
+     * Sets the tenantCount property value. Count of unique tenants that were accessed, that are different from the device's home tenant, in the time frame between startDateTime and endDateTime.
      * @param int|null $value Value to set for the tenantCount property.
     */
     public function setTenantCount(?int $value): void {
@@ -214,7 +214,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. Count of unique users that performed cross-tenant access, in the time frame between startDateTime and endDateTime.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

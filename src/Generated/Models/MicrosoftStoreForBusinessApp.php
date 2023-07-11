@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
+*/
 class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftStoreForBusinessApp and sets the default values.
+     * Instantiates a new microsoftStoreForBusinessApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -50,6 +53,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
             'containedApps' => fn(ParseNode $n) => $o->setContainedApps($n->getCollectionOfObjectValues([MobileContainedApp::class, 'createFromDiscriminatorValue'])),
             'licenseType' => fn(ParseNode $n) => $o->setLicenseType($n->getEnumValue(MicrosoftStoreForBusinessLicenseType::class)),
             'licensingType' => fn(ParseNode $n) => $o->setLicensingType($n->getObjectValue([VppLicensingType::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'packageIdentityName' => fn(ParseNode $n) => $o->setPackageIdentityName($n->getStringValue()),
             'productKey' => fn(ParseNode $n) => $o->setProductKey($n->getStringValue()),
             'totalLicenseCount' => fn(ParseNode $n) => $o->setTotalLicenseCount($n->getIntegerValue()),
@@ -79,6 +83,18 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licensingType'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -138,6 +154,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
         $writer->writeCollectionOfObjectValues('containedApps', $this->getContainedApps());
         $writer->writeEnumValue('licenseType', $this->getLicenseType());
         $writer->writeObjectValue('licensingType', $this->getLicensingType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageIdentityName', $this->getPackageIdentityName());
         $writer->writeStringValue('productKey', $this->getProductKey());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
@@ -166,6 +183,14 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
     */
     public function setLicensingType(?VppLicensingType $value): void {
         $this->getBackingStore()->set('licensingType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

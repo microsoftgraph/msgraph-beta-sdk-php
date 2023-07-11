@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for Payload Compatible Assignment Filter.
+*/
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
 {
     /**
-     * Instantiates a new PayloadCompatibleAssignmentFilter and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new payloadCompatibleAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('payloadType', $this->getPayloadType());
     }
 

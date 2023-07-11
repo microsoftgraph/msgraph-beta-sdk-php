@@ -87,6 +87,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
             'lastStateUpdateDateTime' => fn(ParseNode $n) => $o->setLastStateUpdateDateTime($n->getDateTimeValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
             'managedDevice' => fn(ParseNode $n) => $o->setManagedDevice($n->getObjectValue([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'postRemediationDetectionScriptError' => fn(ParseNode $n) => $o->setPostRemediationDetectionScriptError($n->getStringValue()),
             'postRemediationDetectionScriptOutput' => fn(ParseNode $n) => $o->setPostRemediationDetectionScriptOutput($n->getStringValue()),
             'preRemediationDetectionScriptError' => fn(ParseNode $n) => $o->setPreRemediationDetectionScriptError($n->getStringValue()),
@@ -130,6 +131,18 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevice'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -216,6 +229,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
         $writer->writeDateTimeValue('lastStateUpdateDateTime', $this->getLastStateUpdateDateTime());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeObjectValue('managedDevice', $this->getManagedDevice());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('postRemediationDetectionScriptError', $this->getPostRemediationDetectionScriptError());
         $writer->writeStringValue('postRemediationDetectionScriptOutput', $this->getPostRemediationDetectionScriptOutput());
         $writer->writeStringValue('preRemediationDetectionScriptError', $this->getPreRemediationDetectionScriptError());
@@ -270,6 +284,14 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     */
     public function setManagedDevice(?ManagedDevice $value): void {
         $this->getBackingStore()->set('managedDevice', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

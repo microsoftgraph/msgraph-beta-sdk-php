@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessPolicyCoverage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ConditionalAccessPolicyCoverage and sets the default values.
+     * Instantiates a new conditionalAccessPolicyCoverage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,6 +47,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'conditionalAccessPolicyState' => fn(ParseNode $n) => $o->setConditionalAccessPolicyState($n->getStringValue()),
             'latestPolicyModifiedDateTime' => fn(ParseNode $n) => $o->setLatestPolicyModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'requiresDeviceCompliance' => fn(ParseNode $n) => $o->setRequiresDeviceCompliance($n->getBooleanValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
         ]);
@@ -62,6 +63,18 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'latestPolicyModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,6 +109,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('conditionalAccessPolicyState', $this->getConditionalAccessPolicyState());
         $writer->writeDateTimeValue('latestPolicyModifiedDateTime', $this->getLatestPolicyModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('requiresDeviceCompliance', $this->getRequiresDeviceCompliance());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
     }
@@ -114,6 +128,14 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
     */
     public function setLatestPolicyModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('latestPolicyModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

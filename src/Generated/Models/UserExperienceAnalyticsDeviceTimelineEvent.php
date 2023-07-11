@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device event entity contains NRT device event details.
+*/
 class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceTimelineEvent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsDeviceTimelineEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,6 +133,7 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
         $writer->writeEnumValue('eventLevel', $this->getEventLevel());
         $writer->writeStringValue('eventName', $this->getEventName());
         $writer->writeStringValue('eventSource', $this->getEventSource());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

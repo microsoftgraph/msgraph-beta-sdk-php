@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SubjectRightsRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SubjectRightsRequest and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new subjectRightsRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -446,6 +451,7 @@ class SubjectRightsRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('mailboxlocations', $this->getMailboxlocations());
         $writer->writeCollectionOfObjectValues('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('pauseAfterEstimate', $this->getPauseAfterEstimate());
         $writer->writeCollectionOfPrimitiveValues('regulations', $this->getRegulations());
         $writer->writeObjectValue('sitelocations', $this->getSitelocations());

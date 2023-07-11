@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAssignmentRequestWorkflowExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * Instantiates a new AccessPackageAssignmentRequestWorkflowExtension and sets the default values.
+     * Instantiates a new accessPackageAssignmentRequestWorkflowExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,6 +74,7 @@ class AccessPackageAssignmentRequestWorkflowExtension extends CustomCalloutExten
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -102,6 +103,18 @@ class AccessPackageAssignmentRequestWorkflowExtension extends CustomCalloutExten
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class AccessPackageAssignmentRequestWorkflowExtension extends CustomCalloutExten
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -152,6 +166,14 @@ class AccessPackageAssignmentRequestWorkflowExtension extends CustomCalloutExten
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

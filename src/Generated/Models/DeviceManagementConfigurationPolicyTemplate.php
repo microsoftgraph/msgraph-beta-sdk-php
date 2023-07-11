@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device Management Configuration Policy Template
+*/
 class DeviceManagementConfigurationPolicyTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationPolicyTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationPolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -205,6 +213,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('displayVersion', $this->getDisplayVersion());
         $writer->writeEnumValue('lifecycleState', $this->getLifecycleState());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platforms', $this->getPlatforms());
         $writer->writeCollectionOfObjectValues('settingTemplates', $this->getSettingTemplates());
         $writer->writeEnumValue('technologies', $this->getTechnologies());

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TermsAndConditions extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new termsAndConditions and sets the default values.
     */
     public function __construct() {
@@ -239,6 +244,7 @@ class TermsAndConditions extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeStringValue('title', $this->getTitle());
         $writer->writeIntegerValue('version', $this->getVersion());

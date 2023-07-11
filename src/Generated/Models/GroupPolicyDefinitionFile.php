@@ -8,8 +8,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents an ADMX (Administrative Template) XML file. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
+*/
 class GroupPolicyDefinitionFile extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new groupPolicyDefinitionFile and sets the default values.
     */
@@ -196,6 +204,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfPrimitiveValues('languageCodes', $this->getLanguageCodes());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeStringValue('revision', $this->getRevision());
         $writer->writeStringValue('targetNamespace', $this->getTargetNamespace());

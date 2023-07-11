@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementActionTenantDeploymentStatus and sets the default values.
+     * Instantiates a new managementActionTenantDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,10 +33,23 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'statuses' => fn(ParseNode $n) => $o->setStatuses($n->getCollectionOfObjectValues([ManagementActionDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'tenantGroupId' => fn(ParseNode $n) => $o->setTenantGroupId($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,9 +96,18 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('statuses', $this->getStatuses());
         $writer->writeStringValue('tenantGroupId', $this->getTenantGroupId());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

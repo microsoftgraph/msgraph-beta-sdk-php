@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MarkContent extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new MarkContent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new markContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -91,6 +96,7 @@ class MarkContent extends LabelActionBase implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('fontColor', $this->getFontColor());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
     }
 

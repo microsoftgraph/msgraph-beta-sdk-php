@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoleManagementAlert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RoleManagementAlert and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new roleManagementAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,6 +109,7 @@ class RoleManagementAlert extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('alertConfigurations', $this->getAlertConfigurations());
         $writer->writeCollectionOfObjectValues('alertDefinitions', $this->getAlertDefinitions());
         $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
     }
 

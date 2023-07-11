@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SourceCollection extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new sourceCollection and sets the default values.
     */
     public function __construct() {
@@ -232,6 +237,7 @@ class SourceCollection extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('noncustodialSources', $this->getNoncustodialSources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

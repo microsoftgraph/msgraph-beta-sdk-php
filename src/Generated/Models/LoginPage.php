@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LoginPage extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new loginPage and sets the default values.
     */
     public function __construct() {
@@ -179,6 +184,7 @@ class LoginPage extends Entity implements Parsable
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeEnumValue('status', $this->getStatus());
     }

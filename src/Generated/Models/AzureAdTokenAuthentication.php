@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AzureAdTokenAuthentication and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new azureAdTokenAuthentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceId', $this->getResourceId());
     }
 

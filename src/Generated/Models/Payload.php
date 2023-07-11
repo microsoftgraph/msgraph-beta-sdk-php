@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Payload extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new payload and sets the default values.
     */
     public function __construct() {
@@ -351,6 +356,7 @@ class Payload extends Entity implements Parsable
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('payloadTags', $this->getPayloadTags());
         $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeFloatValue('predictedCompromiseRate', $this->getPredictedCompromiseRate());

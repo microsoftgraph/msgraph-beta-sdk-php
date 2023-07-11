@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new CloudApplicationEvidence and sets the default values.
+     * Instantiates a new cloudApplicationEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +59,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'instanceId' => fn(ParseNode $n) => $o->setInstanceId($n->getIntegerValue()),
             'instanceName' => fn(ParseNode $n) => $o->setInstanceName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'saasAppId' => fn(ParseNode $n) => $o->setSaasAppId($n->getIntegerValue()),
         ]);
     }
@@ -88,6 +89,18 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the saasAppId property value. The identifier of the SaaS application.
      * @return int|null
     */
@@ -109,6 +122,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('instanceId', $this->getInstanceId());
         $writer->writeStringValue('instanceName', $this->getInstanceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('saasAppId', $this->getSaasAppId());
     }
 
@@ -142,6 +156,14 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     */
     public function setInstanceName(?string $value): void {
         $this->getBackingStore()->set('instanceName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

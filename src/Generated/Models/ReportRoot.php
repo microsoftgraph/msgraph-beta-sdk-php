@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ReportRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ReportRoot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new reportRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,7 +99,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
+     * Gets the dailyPrintUsageByPrinter property value. Retrieve a list of daily print usage summaries, grouped by printer.
      * @return array<PrintUsageByPrinter>|null
     */
     public function getDailyPrintUsageByPrinter(): ?array {
@@ -108,7 +113,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
+     * Gets the dailyPrintUsageByUser property value. Retrieve a list of daily print usage summaries, grouped by user.
      * @return array<PrintUsageByUser>|null
     */
     public function getDailyPrintUsageByUser(): ?array {
@@ -171,12 +176,13 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([SecurityReportsRoot::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalSignInActivities' => fn(ParseNode $n) => $o->setServicePrincipalSignInActivities($n->getCollectionOfObjectValues([ServicePrincipalSignInActivity::class, 'createFromDiscriminatorValue'])),
+            'sla' => fn(ParseNode $n) => $o->setSla($n->getObjectValue([ServiceLevelAgreementRoot::class, 'createFromDiscriminatorValue'])),
             'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
+     * Gets the monthlyPrintUsageByPrinter property value. Retrieve a list of monthly print usage summaries, grouped by printer.
      * @return array<PrintUsageByPrinter>|null
     */
     public function getMonthlyPrintUsageByPrinter(): ?array {
@@ -190,7 +196,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
+     * Gets the monthlyPrintUsageByUser property value. Retrieve a list of monthly print usage summaries, grouped by user.
      * @return array<PrintUsageByUser>|null
     */
     public function getMonthlyPrintUsageByUser(): ?array {
@@ -258,6 +264,18 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the sla property value. A placeholder to allow for the desired URL path for SLA.
+     * @return ServiceLevelAgreementRoot|null
+    */
+    public function getSla(): ?ServiceLevelAgreementRoot {
+        $val = $this->getBackingStore()->get('sla');
+        if (is_null($val) || $val instanceof ServiceLevelAgreementRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sla'");
+    }
+
+    /**
      * Gets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
      * @return array<UserCredentialUsageDetails>|null
     */
@@ -290,8 +308,10 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->getMonthlyPrintUsageSummariesByUser());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('security', $this->getSecurity());
         $writer->writeCollectionOfObjectValues('servicePrincipalSignInActivities', $this->getServicePrincipalSignInActivities());
+        $writer->writeObjectValue('sla', $this->getSla());
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->getUserCredentialUsageDetails());
     }
 
@@ -336,7 +356,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
+     * Sets the dailyPrintUsageByPrinter property value. Retrieve a list of daily print usage summaries, grouped by printer.
      * @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageByPrinter property.
     */
     public function setDailyPrintUsageByPrinter(?array $value): void {
@@ -344,7 +364,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
+     * Sets the dailyPrintUsageByUser property value. Retrieve a list of daily print usage summaries, grouped by user.
      * @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageByUser property.
     */
     public function setDailyPrintUsageByUser(?array $value): void {
@@ -368,7 +388,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
+     * Sets the monthlyPrintUsageByPrinter property value. Retrieve a list of monthly print usage summaries, grouped by printer.
      * @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageByPrinter property.
     */
     public function setMonthlyPrintUsageByPrinter(?array $value): void {
@@ -376,7 +396,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
+     * Sets the monthlyPrintUsageByUser property value. Retrieve a list of monthly print usage summaries, grouped by user.
      * @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageByUser property.
     */
     public function setMonthlyPrintUsageByUser(?array $value): void {
@@ -413,6 +433,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setServicePrincipalSignInActivities(?array $value): void {
         $this->getBackingStore()->set('servicePrincipalSignInActivities', $value);
+    }
+
+    /**
+     * Sets the sla property value. A placeholder to allow for the desired URL path for SLA.
+     * @param ServiceLevelAgreementRoot|null $value Value to set for the sla property.
+    */
+    public function setSla(?ServiceLevelAgreementRoot $value): void {
+        $this->getBackingStore()->set('sla', $value);
     }
 
     /**

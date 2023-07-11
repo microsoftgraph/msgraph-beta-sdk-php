@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppCredentialSignInActivity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AppCredentialSignInActivity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new appCredentialSignInActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -192,6 +197,7 @@ class AppCredentialSignInActivity extends Entity implements Parsable
         $writer->writeStringValue('keyId', $this->getKeyId());
         $writer->writeEnumValue('keyType', $this->getKeyType());
         $writer->writeEnumValue('keyUsage', $this->getKeyUsage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeStringValue('servicePrincipalObjectId', $this->getServicePrincipalObjectId());
         $writer->writeObjectValue('signInActivity', $this->getSignInActivity());

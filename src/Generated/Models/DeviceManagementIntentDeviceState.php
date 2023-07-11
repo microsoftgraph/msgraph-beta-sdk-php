@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentDeviceState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementIntentDeviceState and sets the default values.
     */
     public function __construct() {
@@ -125,6 +130,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('userName', $this->getUserName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());

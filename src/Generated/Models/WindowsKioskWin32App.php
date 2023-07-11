@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base class for a type of apps
+*/
 class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskWin32App and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsKioskWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,6 +119,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
         $writer->writeIntegerValue('edgeKioskIdleTimeoutMinutes', $this->getEdgeKioskIdleTimeoutMinutes());
         $writer->writeEnumValue('edgeKioskType', $this->getEdgeKioskType());
         $writer->writeBooleanValue('edgeNoFirstRun', $this->getEdgeNoFirstRun());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

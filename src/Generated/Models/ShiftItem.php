@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ShiftItem extends ScheduleEntity implements Parsable 
 {
     /**
-     * Instantiates a new ShiftItem and sets the default values.
+     * Instantiates a new shiftItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +68,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
             'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfObjectValues([ShiftActivity::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -84,6 +85,18 @@ class ShiftItem extends ScheduleEntity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -92,6 +105,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
         $writer->writeCollectionOfObjectValues('activities', $this->getActivities());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -116,6 +130,14 @@ class ShiftItem extends ScheduleEntity implements Parsable
     */
     public function setNotes(?string $value): void {
         $this->getBackingStore()->set('notes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

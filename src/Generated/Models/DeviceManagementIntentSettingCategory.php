@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity representing an intent setting category
+*/
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +64,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
     }
 

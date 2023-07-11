@@ -6,8 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the deployment summary of a WindowsDefenderApplicationControl supplemental policy.
+*/
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary and sets the default values.
     */
@@ -68,6 +76,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
         parent::serialize($writer);
         $writer->writeIntegerValue('deployedDeviceCount', $this->getDeployedDeviceCount());
         $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

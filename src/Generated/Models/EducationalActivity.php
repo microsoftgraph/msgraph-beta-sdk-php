@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationalActivity extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new EducationalActivity and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationalActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,6 +115,7 @@ class EducationalActivity extends ItemFacet implements Parsable
         $writer->writeDateValue('completionMonthYear', $this->getCompletionMonthYear());
         $writer->writeDateValue('endMonthYear', $this->getEndMonthYear());
         $writer->writeObjectValue('institution', $this->getInstitution());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('program', $this->getProgram());
         $writer->writeDateValue('startMonthYear', $this->getStartMonthYear());
     }

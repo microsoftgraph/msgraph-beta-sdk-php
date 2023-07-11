@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServiceHostedMediaConfig extends MediaConfig implements Parsable 
 {
     /**
-     * Instantiates a new ServiceHostedMediaConfig and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new serviceHostedMediaConfig and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +62,7 @@ class ServiceHostedMediaConfig extends MediaConfig implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('preFetchMedia', $this->getPreFetchMedia());
     }
 

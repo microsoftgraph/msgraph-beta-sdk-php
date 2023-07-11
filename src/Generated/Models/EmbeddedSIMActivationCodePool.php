@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A pool represents a group of embedded SIM activation codes.
+*/
 class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EmbeddedSIMActivationCodePool and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new embeddedSIMActivationCodePool and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -146,6 +154,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceStates', $this->getDeviceStates());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

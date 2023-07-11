@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DomainDnsCnameRecord extends DomainDnsRecord implements Parsable 
 {
     /**
-     * Instantiates a new DomainDnsCnameRecord and sets the default values.
+     * Instantiates a new domainDnsCnameRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +44,20 @@ class DomainDnsCnameRecord extends DomainDnsRecord implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'canonicalName' => fn(ParseNode $n) => $o->setCanonicalName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -54,6 +67,7 @@ class DomainDnsCnameRecord extends DomainDnsRecord implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('canonicalName', $this->getCanonicalName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -62,6 +76,14 @@ class DomainDnsCnameRecord extends DomainDnsRecord implements Parsable
     */
     public function setCanonicalName(?string $value): void {
         $this->getBackingStore()->set('canonicalName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

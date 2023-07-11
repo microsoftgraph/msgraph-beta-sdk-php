@@ -173,10 +173,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Singleton entity that acts as a container for all device management functionality.
+*/
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagement and sets the default values.
+     * Instantiates a new deviceManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1116,6 +1119,7 @@ class DeviceManagement extends Entity implements Parsable
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([Monitoring::class, 'createFromDiscriminatorValue'])),
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
@@ -1623,6 +1627,18 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationMessageTemplates'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -2912,6 +2928,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
@@ -3735,6 +3752,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setNotificationMessageTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationMessageTemplates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

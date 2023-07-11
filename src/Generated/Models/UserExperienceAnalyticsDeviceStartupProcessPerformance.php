@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup process performance.
+*/
 class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +49,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'medianImpactInMs' => fn(ParseNode $n) => $o->setMedianImpactInMs($n->getIntegerValue()),
             'medianImpactInMs2' => fn(ParseNode $n) => $o->setMedianImpactInMs2($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
@@ -76,6 +80,18 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'medianImpactInMs2'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -147,6 +163,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeIntegerValue('medianImpactInMs', $this->getMedianImpactInMs());
         $writer->writeIntegerValue('medianImpactInMs2', $this->getMedianImpactInMs2());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('processName', $this->getProcessName());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeStringValue('publisher', $this->getPublisher());
@@ -176,6 +193,14 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public function setMedianImpactInMs2(?int $value): void {
         $this->getBackingStore()->set('medianImpactInMs2', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

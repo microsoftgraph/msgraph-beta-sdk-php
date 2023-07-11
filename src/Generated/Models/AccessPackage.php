@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessPackage extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessPackage and sets the default values.
     */
     public function __construct() {
@@ -262,6 +267,7 @@ class AccessPackage extends Entity implements Parsable
         $writer->writeBooleanValue('isRoleScopesVisible', $this->getIsRoleScopesVisible());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

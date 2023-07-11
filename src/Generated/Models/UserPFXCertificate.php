@@ -14,6 +14,11 @@ use Psr\Http\Message\StreamInterface;
 class UserPFXCertificate extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userPFXCertificate and sets the default values.
     */
     public function __construct() {
@@ -208,6 +213,7 @@ class UserPFXCertificate extends Entity implements Parsable
         $writer->writeEnumValue('intendedPurpose', $this->getIntendedPurpose());
         $writer->writeStringValue('keyName', $this->getKeyName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('paddingScheme', $this->getPaddingScheme());
         $writer->writeStringValue('providerName', $this->getProviderName());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());

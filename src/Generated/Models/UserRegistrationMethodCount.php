@@ -18,7 +18,7 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new UserRegistrationMethodCount and sets the default values.
+     * Instantiates a new userRegistrationMethodCount and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -48,7 +48,7 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the authenticationMethod property value. Name of authentication method.
+     * Gets the authenticationMethod property value. Name of the authentication method.
      * @return string|null
     */
     public function getAuthenticationMethod(): ?string {
@@ -124,7 +124,7 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the authenticationMethod property value. Name of authentication method.
+     * Sets the authenticationMethod property value. Name of the authentication method.
      * @param string|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?string $value): void {

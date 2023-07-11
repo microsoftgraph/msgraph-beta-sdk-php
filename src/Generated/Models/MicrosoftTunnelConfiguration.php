@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents a collection of Microsoft Tunnel settings
+*/
 class MicrosoftTunnelConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftTunnelConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -311,6 +319,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
         $writer->writeIntegerValue('listenPort', $this->getListenPort());
         $writer->writeStringValue('network', $this->getNetwork());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfPrimitiveValues('routeExcludes', $this->getRouteExcludes());
         $writer->writeCollectionOfPrimitiveValues('routeIncludes', $this->getRouteIncludes());

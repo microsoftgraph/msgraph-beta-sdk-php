@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an iOS Web Content Filter setting base type. An empty and abstract base. Caller should use one of derived types for configurations.
+*/
 class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * Instantiates a new IosWebContentFilterAutoFilter and sets the default values.
+     * Instantiates a new iosWebContentFilterAutoFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -77,7 +80,20 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
                 /** @var array<string>|null $val */
                 $this->setBlockedUrls($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -88,6 +104,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('allowedUrls', $this->getAllowedUrls());
         $writer->writeCollectionOfPrimitiveValues('blockedUrls', $this->getBlockedUrls());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -104,6 +121,14 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
     */
     public function setBlockedUrls(?array $value): void {
         $this->getBackingStore()->set('blockedUrls', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

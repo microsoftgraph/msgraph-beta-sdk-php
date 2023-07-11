@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementIntent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementIntent and sets the default values.
+     * Instantiates a new managementIntent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -48,6 +48,7 @@ class ManagementIntent extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isGlobal' => fn(ParseNode $n) => $o->setIsGlobal($n->getBooleanValue()),
             'managementTemplates' => fn(ParseNode $n) => $o->setManagementTemplates($n->getCollectionOfObjectValues([ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -78,6 +79,18 @@ class ManagementIntent extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -86,6 +99,7 @@ class ManagementIntent extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isGlobal', $this->getIsGlobal());
         $writer->writeCollectionOfObjectValues('managementTemplates', $this->getManagementTemplates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -110,6 +124,14 @@ class ManagementIntent extends Entity implements Parsable
     */
     public function setManagementTemplates(?array $value): void {
         $this->getBackingStore()->set('managementTemplates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

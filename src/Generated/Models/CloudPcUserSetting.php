@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcUserSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcUserSetting and sets the default values.
+     * Instantiates a new cloudPcUserSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +76,7 @@ class CloudPcUserSetting extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restorePointSetting' => fn(ParseNode $n) => $o->setRestorePointSetting($n->getObjectValue([CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'])),
             'selfServiceEnabled' => fn(ParseNode $n) => $o->setSelfServiceEnabled($n->getBooleanValue()),
         ]);
@@ -103,6 +104,18 @@ class CloudPcUserSetting extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminEnabled'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -140,6 +153,7 @@ class CloudPcUserSetting extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('restorePointSetting', $this->getRestorePointSetting());
         $writer->writeBooleanValue('selfServiceEnabled', $this->getSelfServiceEnabled());
     }
@@ -182,6 +196,14 @@ class CloudPcUserSetting extends Entity implements Parsable
     */
     public function setLocalAdminEnabled(?bool $value): void {
         $this->getBackingStore()->set('localAdminEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

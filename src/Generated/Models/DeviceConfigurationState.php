@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceConfigurationState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceConfigurationState and sets the default values.
     */
     public function __construct() {
@@ -151,6 +156,7 @@ class DeviceConfigurationState extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeIntegerValue('settingCount', $this->getSettingCount());
         $writer->writeCollectionOfObjectValues('settingStates', $this->getSettingStates());

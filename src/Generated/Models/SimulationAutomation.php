@@ -89,6 +89,7 @@ class SimulationAutomation extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastRunDateTime' => fn(ParseNode $n) => $o->setLastRunDateTime($n->getDateTimeValue()),
             'nextRunDateTime' => fn(ParseNode $n) => $o->setNextRunDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([SimulationAutomationRun::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SimulationAutomationStatus::class)),
         ]);
@@ -143,6 +144,18 @@ class SimulationAutomation extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the runs property value. A collection of simulation automation runs.
      * @return array<SimulationAutomationRun>|null
     */
@@ -182,6 +195,7 @@ class SimulationAutomation extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeDateTimeValue('lastRunDateTime', $this->getLastRunDateTime());
         $writer->writeDateTimeValue('nextRunDateTime', $this->getNextRunDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -248,6 +262,14 @@ class SimulationAutomation extends Entity implements Parsable
     */
     public function setNextRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('nextRunDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

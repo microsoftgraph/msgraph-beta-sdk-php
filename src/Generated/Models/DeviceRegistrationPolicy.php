@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceRegistrationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceRegistrationPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceRegistrationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -137,6 +142,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('localAdminPassword', $this->getLocalAdminPassword());
         $writer->writeEnumValue('multiFactorAuthConfiguration', $this->getMultiFactorAuthConfiguration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('userDeviceQuota', $this->getUserDeviceQuota());
     }
 

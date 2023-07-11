@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new mobileAppProvisioningConfigGroupAssignment and sets the default values.
     */
     public function __construct() {
@@ -56,6 +61,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 

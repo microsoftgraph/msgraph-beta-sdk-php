@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessPackageResource extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessPackageResource and sets the default values.
     */
     public function __construct() {
@@ -226,6 +231,7 @@ class AccessPackageResource extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isPendingOnboarding', $this->getIsPendingOnboarding());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
         $writer->writeStringValue('resourceType', $this->getResourceType());

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementTemplate extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementTemplate and sets the default values.
     */
     public function __construct() {
@@ -220,6 +225,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
         $writer->writeIntegerValue('intentCount', $this->getIntentCount());
         $writer->writeBooleanValue('isDeprecated', $this->getIsDeprecated());
         $writer->writeCollectionOfObjectValues('migratableTo', $this->getMigratableTo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeDateTimeValue('publishedDateTime', $this->getPublishedDateTime());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());

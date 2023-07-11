@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\AppsAndServices;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get appsAndServices from admin
+ * Read the properties and relationships of a adminAppsAndServices object.
 */
 class AppsAndServicesRequestBuilderGetQueryParameters 
 {

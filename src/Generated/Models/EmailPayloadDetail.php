@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailPayloadDetail extends PayloadDetail implements Parsable 
 {
     /**
-     * Instantiates a new EmailPayloadDetail and sets the default values.
+     * Instantiates a new emailPayloadDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,6 +35,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
             'fromEmail' => fn(ParseNode $n) => $o->setFromEmail($n->getStringValue()),
             'fromName' => fn(ParseNode $n) => $o->setFromName($n->getStringValue()),
             'isExternalSender' => fn(ParseNode $n) => $o->setIsExternalSender($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
@@ -76,6 +77,18 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the subject property value. The subject of the email address sent to the user.
      * @return string|null
     */
@@ -96,6 +109,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
         $writer->writeStringValue('fromEmail', $this->getFromEmail());
         $writer->writeStringValue('fromName', $this->getFromName());
         $writer->writeBooleanValue('isExternalSender', $this->getIsExternalSender());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('subject', $this->getSubject());
     }
 
@@ -121,6 +135,14 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
     */
     public function setIsExternalSender(?bool $value): void {
         $this->getBackingStore()->set('isExternalSender', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

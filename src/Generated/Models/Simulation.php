@@ -183,6 +183,7 @@ class Simulation extends Entity implements Parsable
             'launchDateTime' => fn(ParseNode $n) => $o->setLaunchDateTime($n->getDateTimeValue()),
             'loginPage' => fn(ParseNode $n) => $o->setLoginPage($n->getObjectValue([LoginPage::class, 'createFromDiscriminatorValue'])),
             'oAuthConsentAppDetail' => fn(ParseNode $n) => $o->setOAuthConsentAppDetail($n->getObjectValue([OAuthConsentAppDetail::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([Payload::class, 'createFromDiscriminatorValue'])),
             'payloadDeliveryPlatform' => fn(ParseNode $n) => $o->setPayloadDeliveryPlatform($n->getEnumValue(PayloadDeliveryPlatform::class)),
             'report' => fn(ParseNode $n) => $o->setReport($n->getObjectValue([SimulationReport::class, 'createFromDiscriminatorValue'])),
@@ -288,6 +289,18 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the payload property value. The payload associated with a simulation during its creation.
      * @return Payload|null
     */
@@ -372,6 +385,7 @@ class Simulation extends Entity implements Parsable
         $writer->writeDateTimeValue('launchDateTime', $this->getLaunchDateTime());
         $writer->writeObjectValue('loginPage', $this->getLoginPage());
         $writer->writeObjectValue('oAuthConsentAppDetail', $this->getOAuthConsentAppDetail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeEnumValue('payloadDeliveryPlatform', $this->getPayloadDeliveryPlatform());
         $writer->writeObjectValue('report', $this->getReport());
@@ -529,6 +543,14 @@ class Simulation extends Entity implements Parsable
     */
     public function setOAuthConsentAppDetail(?OAuthConsentAppDetail $value): void {
         $this->getBackingStore()->set('oAuthConsentAppDetail', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -18,7 +18,7 @@ class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new AppsAndServicesSettings and sets the default values.
+     * Instantiates a new appsAndServicesSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -69,7 +69,7 @@ class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the isAppAndServicesTrialEnabled property value. The isAppAndServicesTrialEnabled property
+     * Gets the isAppAndServicesTrialEnabled property value. Controls whether users can start trial subscriptions for apps and services in your organization.
      * @return bool|null
     */
     public function getIsAppAndServicesTrialEnabled(): ?bool {
@@ -81,7 +81,7 @@ class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the isOfficeStoreEnabled property value. The isOfficeStoreEnabled property
+     * Gets the isOfficeStoreEnabled property value. Controls whether users can access the Microsoft Store.
      * @return bool|null
     */
     public function getIsOfficeStoreEnabled(): ?bool {
@@ -132,7 +132,7 @@ class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the isAppAndServicesTrialEnabled property value. The isAppAndServicesTrialEnabled property
+     * Sets the isAppAndServicesTrialEnabled property value. Controls whether users can start trial subscriptions for apps and services in your organization.
      * @param bool|null $value Value to set for the isAppAndServicesTrialEnabled property.
     */
     public function setIsAppAndServicesTrialEnabled(?bool $value): void {
@@ -140,7 +140,7 @@ class AppsAndServicesSettings implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the isOfficeStoreEnabled property value. The isOfficeStoreEnabled property
+     * Sets the isOfficeStoreEnabled property value. Controls whether users can access the Microsoft Store.
      * @param bool|null $value Value to set for the isOfficeStoreEnabled property.
     */
     public function setIsOfficeStoreEnabled(?bool $value): void {

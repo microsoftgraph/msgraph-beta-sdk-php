@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningAssignment extends LearningCourseActivity implements Parsable 
 {
     /**
-     * Instantiates a new LearningAssignment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new learningAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,6 +116,7 @@ class LearningAssignment extends LearningCourseActivity implements Parsable
         $writer->writeEnumValue('assignmentType', $this->getAssignmentType());
         $writer->writeObjectValue('dueDateTime', $this->getDueDateTime());
         $writer->writeObjectValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new macOSSoftwareUpdateAccountSummary and sets the default values.
     */
     public function __construct() {
@@ -196,6 +201,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('failedUpdateCount', $this->getFailedUpdateCount());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeIntegerValue('successfulUpdateCount', $this->getSuccessfulUpdateCount());
         $writer->writeIntegerValue('totalUpdateCount', $this->getTotalUpdateCount());

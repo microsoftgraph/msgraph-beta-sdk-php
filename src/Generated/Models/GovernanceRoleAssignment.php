@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceRoleAssignment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new governanceRoleAssignment and sets the default values.
     */
     public function __construct() {
@@ -229,6 +234,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
         $writer->writeObjectValue('linkedEligibleRoleAssignment', $this->getLinkedEligibleRoleAssignment());
         $writer->writeStringValue('linkedEligibleRoleAssignmentId', $this->getLinkedEligibleRoleAssignmentId());
         $writer->writeStringValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());

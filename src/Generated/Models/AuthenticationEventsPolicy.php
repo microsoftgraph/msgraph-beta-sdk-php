@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuthenticationEventsPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuthenticationEventsPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new authenticationEventsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +61,7 @@ class AuthenticationEventsPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onSignupStart', $this->getOnSignupStart());
     }
 

@@ -48,8 +48,21 @@ class MicrosoftTrainingAssignmentMapping extends TrainingSetting implements Pars
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getCollectionOfEnumValues(TrainingAssignedTo::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'training' => fn(ParseNode $n) => $o->setTraining($n->getObjectValue([Training::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -71,6 +84,7 @@ class MicrosoftTrainingAssignmentMapping extends TrainingSetting implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfEnumValues('assignedTo', $this->getAssignedTo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('training', $this->getTraining());
     }
 
@@ -80,6 +94,14 @@ class MicrosoftTrainingAssignmentMapping extends TrainingSetting implements Pars
     */
     public function setAssignedTo(?array $value): void {
         $this->getBackingStore()->set('assignedTo', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

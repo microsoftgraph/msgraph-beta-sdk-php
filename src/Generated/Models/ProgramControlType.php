@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramControlType extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new programControlType and sets the default values.
     */
     public function __construct() {
@@ -68,6 +73,7 @@ class ProgramControlType extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('controlTypeGroupId', $this->getControlTypeGroupId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

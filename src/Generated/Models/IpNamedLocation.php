@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IpNamedLocation extends NamedLocation implements Parsable 
 {
     /**
-     * Instantiates a new IpNamedLocation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ipNamedLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,6 +76,7 @@ class IpNamedLocation extends NamedLocation implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('ipRanges', $this->getIpRanges());
         $writer->writeBooleanValue('isTrusted', $this->getIsTrusted());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

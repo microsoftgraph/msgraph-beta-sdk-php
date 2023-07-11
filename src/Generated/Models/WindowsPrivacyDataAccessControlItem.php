@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsPrivacyDataAccessControlItem and sets the default values.
     */
     public function __construct() {
@@ -99,6 +104,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appPackageFamilyName', $this->getAppPackageFamilyName());
         $writer->writeEnumValue('dataCategory', $this->getDataCategory());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventRegistrant extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new virtualEventRegistrant and sets the default values.
     */
     public function __construct() {
@@ -152,6 +157,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('firstName', $this->getFirstName());
         $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
         $writer->writeCollectionOfObjectValues('registrationQuestionAnswers', $this->getRegistrationQuestionAnswers());
         $writer->writeEnumValue('status', $this->getStatus());

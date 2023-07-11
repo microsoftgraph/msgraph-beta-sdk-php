@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * By providing the configurations in this profile you can instruct the iOS device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
+*/
 class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosVpnConfiguration and sets the default values.
+     * Instantiates a new iosVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -63,6 +63,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'contributingPolicies' => fn(ParseNode $n) => $o->setContributingPolicies($n->getCollectionOfObjectValues([SecurityBaselineContributingPolicy::class, 'createFromDiscriminatorValue'])),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'settingCategoryId' => fn(ParseNode $n) => $o->setSettingCategoryId($n->getStringValue()),
             'settingCategoryName' => fn(ParseNode $n) => $o->setSettingCategoryName($n->getStringValue()),
             'settingId' => fn(ParseNode $n) => $o->setSettingId($n->getStringValue()),
@@ -70,6 +71,18 @@ class SecurityBaselineSettingState extends Entity implements Parsable
             'sourcePolicies' => fn(ParseNode $n) => $o->setSourcePolicies($n->getCollectionOfObjectValues([SettingSource::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -154,6 +167,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('contributingPolicies', $this->getContributingPolicies());
         $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('settingCategoryId', $this->getSettingCategoryId());
         $writer->writeStringValue('settingCategoryName', $this->getSettingCategoryName());
         $writer->writeStringValue('settingId', $this->getSettingId());
@@ -176,6 +190,14 @@ class SecurityBaselineSettingState extends Entity implements Parsable
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

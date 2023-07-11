@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ItemPatent extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ItemPatent and sets the default values.
+     * Instantiates a new itemPatent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +63,7 @@ class ItemPatent extends ItemFacet implements Parsable
             'issuedDate' => fn(ParseNode $n) => $o->setIssuedDate($n->getDateValue()),
             'issuingAuthority' => fn(ParseNode $n) => $o->setIssuingAuthority($n->getStringValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
@@ -116,6 +117,18 @@ class ItemPatent extends ItemFacet implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the webUrl property value. URL referencing the patent or filing.
      * @return string|null
     */
@@ -139,6 +152,7 @@ class ItemPatent extends ItemFacet implements Parsable
         $writer->writeDateValue('issuedDate', $this->getIssuedDate());
         $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
         $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
@@ -188,6 +202,14 @@ class ItemPatent extends ItemFacet implements Parsable
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

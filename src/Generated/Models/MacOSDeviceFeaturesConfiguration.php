@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS device features configuration profile.
+*/
 class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new MacOSDeviceFeaturesConfiguration and sets the default values.
+     * Instantiates a new macOSDeviceFeaturesConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

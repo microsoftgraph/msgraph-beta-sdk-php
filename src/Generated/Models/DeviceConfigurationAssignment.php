@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationAssignment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceConfigurationAssignment and sets the default values.
     */
     public function __construct() {
@@ -96,6 +101,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('intent', $this->getIntent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeObjectValue('target', $this->getTarget());
     }

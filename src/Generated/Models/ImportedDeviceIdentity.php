@@ -85,6 +85,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
             'importedDeviceIdentityType' => fn(ParseNode $n) => $o->setImportedDeviceIdentityType($n->getEnumValue(ImportedDeviceIdentityType::class)),
             'lastContactedDateTime' => fn(ParseNode $n) => $o->setLastContactedDateTime($n->getDateTimeValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(Platform::class)),
         ]);
     }
@@ -138,6 +139,18 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the platform property value. The platform property
      * @return Platform|null
     */
@@ -162,6 +175,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
         $writer->writeEnumValue('importedDeviceIdentityType', $this->getImportedDeviceIdentityType());
         $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platform', $this->getPlatform());
     }
 
@@ -219,6 +233,14 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

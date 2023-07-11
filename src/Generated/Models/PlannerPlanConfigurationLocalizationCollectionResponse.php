@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerPlanConfigurationLocalizationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new PlannerPlanConfigurationLocalizationCollectionResponse and sets the default values.
+     * Instantiates a new plannerPlanConfigurationLocalizationCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

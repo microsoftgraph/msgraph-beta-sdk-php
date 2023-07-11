@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Abstract class to contain properties used to assign a mobile app to a group.
+*/
 class MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new MacOsLobAppAssignmentSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macOsLobAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +45,7 @@ class MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Gets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
+     * Gets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
@@ -54,11 +62,12 @@ class MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
     }
 
     /**
-     * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
+     * Sets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.
      * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {

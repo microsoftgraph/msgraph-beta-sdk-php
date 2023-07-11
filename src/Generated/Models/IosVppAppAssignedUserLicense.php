@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * iOS Volume Purchase Program user license assignment. This class does not support Create, Delete, or Update.
+*/
 class IosVppAppAssignedUserLicense extends IosVppAppAssignedLicense implements Parsable 
 {
     /**
-     * Instantiates a new IosVppAppAssignedUserLicense and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosVppAppAssignedUserLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,6 +48,7 @@ class IosVppAppAssignedUserLicense extends IosVppAppAssignedLicense implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RetentionLabel extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new retentionLabel and sets the default values.
     */
     public function __construct() {
@@ -281,6 +286,7 @@ class RetentionLabel extends Entity implements Parsable
         $writer->writeStringValue('labelToBeApplied', $this->getLabelToBeApplied());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('retentionDuration', $this->getRetentionDuration());
         $writer->writeObjectValue('retentionEventType', $this->getRetentionEventType());
         $writer->writeEnumValue('retentionTrigger', $this->getRetentionTrigger());

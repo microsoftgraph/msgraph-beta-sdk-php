@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServicePrincipalSignInActivity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new servicePrincipalSignInActivity and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
         $writer->writeObjectValue('delegatedClientSignInActivity', $this->getDelegatedClientSignInActivity());
         $writer->writeObjectValue('delegatedResourceSignInActivity', $this->getDelegatedResourceSignInActivity());
         $writer->writeObjectValue('lastSignInActivity', $this->getLastSignInActivity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

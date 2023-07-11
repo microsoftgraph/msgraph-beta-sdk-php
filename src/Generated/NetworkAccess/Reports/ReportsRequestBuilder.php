@@ -56,7 +56,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from networkAccess
+     * Represents the status of the Global Secure Access services for the tenant.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -163,7 +163,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from networkAccess
+     * Represents the status of the Global Secure Access services for the tenant.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

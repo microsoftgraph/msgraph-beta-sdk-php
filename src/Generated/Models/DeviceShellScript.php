@@ -10,10 +10,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically.
+*/
 class DeviceShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceShellScript and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -277,6 +285,7 @@ class DeviceShellScript extends Entity implements Parsable
         $writer->writeDateIntervalValue('executionFrequency', $this->getExecutionFrequency());
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('retryCount', $this->getRetryCount());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());

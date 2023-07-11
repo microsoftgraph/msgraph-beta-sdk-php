@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GovernanceRoleSetting extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new governanceRoleSetting and sets the default values.
     */
     public function __construct() {
@@ -198,6 +203,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeStringValue('lastUpdatedBy', $this->getLastUpdatedBy());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());

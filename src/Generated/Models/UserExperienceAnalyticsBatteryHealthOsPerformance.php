@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthOsPerformance and sets the default values.
     */
     public function __construct() {
@@ -125,6 +130,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
         $writer->writeIntegerValue('averageBatteryAgeInDays', $this->getAverageBatteryAgeInDays());
         $writer->writeIntegerValue('averageEstimatedRuntimeInMinutes', $this->getAverageEstimatedRuntimeInMinutes());
         $writer->writeIntegerValue('averageMaxCapacityPercentage', $this->getAverageMaxCapacityPercentage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
     }

@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicyLink extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new policyLink and sets the default values.
     */
     public function __construct() {
@@ -70,7 +75,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -87,6 +92,7 @@ class PolicyLink extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('version', $this->getVersion());
@@ -109,7 +115,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

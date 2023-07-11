@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationSignInDetailedSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new applicationSignInDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -109,6 +114,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
         $writer->writeDateTimeValue('aggregatedEventDateTime', $this->getAggregatedEventDateTime());
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('signInCount', $this->getSignInCount());
         $writer->writeObjectValue('status', $this->getStatus());
     }

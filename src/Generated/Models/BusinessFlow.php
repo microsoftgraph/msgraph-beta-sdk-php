@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessFlow extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new businessFlow and sets the default values.
     */
     public function __construct() {
@@ -161,6 +166,7 @@ class BusinessFlow extends Entity implements Parsable
         $writer->writeStringValue('deDuplicationId', $this->getDeDuplicationId());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeStringValue('policyTemplateId', $this->getPolicyTemplateId());
         $writer->writeStringValue('recordVersion', $this->getRecordVersion());

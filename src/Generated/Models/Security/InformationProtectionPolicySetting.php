@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtectionPolicySetting extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new informationProtectionPolicySetting and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
         $writer->writeBooleanValue('isDowngradeJustificationRequired', $this->getIsDowngradeJustificationRequired());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
         $writer->writeStringValue('moreInfoUrl', $this->getMoreInfoUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

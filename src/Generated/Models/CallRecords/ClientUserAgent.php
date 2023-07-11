@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClientUserAgent extends UserAgent implements Parsable 
 {
     /**
-     * Instantiates a new ClientUserAgent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new clientUserAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +100,7 @@ class ClientUserAgent extends UserAgent implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('azureADAppId', $this->getAzureADAppId());
         $writer->writeStringValue('communicationServiceId', $this->getCommunicationServiceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeEnumValue('productFamily', $this->getProductFamily());
     }

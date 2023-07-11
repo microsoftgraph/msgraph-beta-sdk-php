@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This is the base class for Setup Configuration. Setup configurations are platform specific and individual per-platform setup configurations inherit from here.
+*/
 class DeviceSetupConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceSetupConfiguration and sets the default values.
+     * Instantiates a new deviceSetupConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +75,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
@@ -86,6 +90,18 @@ class DeviceSetupConfiguration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -110,6 +126,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('version', $this->getVersion());
     }
 
@@ -143,6 +160,14 @@ class DeviceSetupConfiguration extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceHealthScriptDeviceStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptDeviceStateCollectionResponse and sets the default values.
+     * Instantiates a new deviceHealthScriptDeviceStateCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

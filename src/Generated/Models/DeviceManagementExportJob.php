@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementExportJob extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementExportJob and sets the default values.
     */
     public function __construct() {
@@ -188,6 +193,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeEnumValue('format', $this->getFormat());
         $writer->writeEnumValue('localizationType', $this->getLocalizationType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('reportName', $this->getReportName());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new StrongAuthenticationPhoneAppDetail and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new strongAuthenticationPhoneAppDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -248,6 +253,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
         $writer->writeStringValue('oathSecretKey', $this->getOathSecretKey());
         $writer->writeObjectValue('oathTokenMetadata', $this->getOathTokenMetadata());
         $writer->writeIntegerValue('oathTokenTimeDriftInSeconds', $this->getOathTokenTimeDriftInSeconds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phoneAppVersion', $this->getPhoneAppVersion());
         $writer->writeStringValue('tenantDeviceId', $this->getTenantDeviceId());
         $writer->writeIntegerValue('tokenGenerationIntervalInSeconds', $this->getTokenGenerationIntervalInSeconds());

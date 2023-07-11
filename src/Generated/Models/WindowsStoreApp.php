@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Windows Store apps.
+*/
 class WindowsStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsStoreApp and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class WindowsStoreApp extends MobileApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

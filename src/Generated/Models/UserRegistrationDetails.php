@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserRegistrationDetails extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userRegistrationDetails and sets the default values.
     */
     public function __construct() {
@@ -79,7 +84,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAdmin property value. Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
+     * Gets the isAdmin property value. Indicates whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
      * @return bool|null
     */
     public function getIsAdmin(): ?bool {
@@ -91,7 +96,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMfaCapable property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
+     * Gets the isMfaCapable property value. Indicates whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsMfaCapable(): ?bool {
@@ -103,7 +108,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMfaRegistered property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq).
+     * Gets the isMfaRegistered property value. Indicates whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsMfaRegistered(): ?bool {
@@ -115,7 +120,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPasswordlessCapable property value. Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
+     * Gets the isPasswordlessCapable property value. Indicates whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsPasswordlessCapable(): ?bool {
@@ -127,7 +132,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSsprCapable property value. Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
+     * Gets the isSsprCapable property value. Indicates whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsSsprCapable(): ?bool {
@@ -139,7 +144,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSsprEnabled property value. Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
+     * Gets the isSsprEnabled property value. Indicates whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsSsprEnabled(): ?bool {
@@ -151,7 +156,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSsprRegistered property value. Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
+     * Gets the isSsprRegistered property value. Indicates whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsSsprRegistered(): ?bool {
@@ -279,6 +284,7 @@ class UserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isSystemPreferredAuthenticationMethodEnabled', $this->getIsSystemPreferredAuthenticationMethodEnabled());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->getMethodsRegistered());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('systemPreferredAuthenticationMethods', $this->getSystemPreferredAuthenticationMethods());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeEnumValue('userPreferredMethodForSecondaryAuthentication', $this->getUserPreferredMethodForSecondaryAuthentication());
@@ -295,7 +301,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAdmin property value. Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
+     * Sets the isAdmin property value. Indicates whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
      * @param bool|null $value Value to set for the isAdmin property.
     */
     public function setIsAdmin(?bool $value): void {
@@ -303,7 +309,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMfaCapable property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
+     * Sets the isMfaCapable property value. Indicates whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
      * @param bool|null $value Value to set for the isMfaCapable property.
     */
     public function setIsMfaCapable(?bool $value): void {
@@ -311,7 +317,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMfaRegistered property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq).
+     * Sets the isMfaRegistered property value. Indicates whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy. Supports $filter (eq).
      * @param bool|null $value Value to set for the isMfaRegistered property.
     */
     public function setIsMfaRegistered(?bool $value): void {
@@ -319,7 +325,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPasswordlessCapable property value. Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
+     * Sets the isPasswordlessCapable property value. Indicates whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
      * @param bool|null $value Value to set for the isPasswordlessCapable property.
     */
     public function setIsPasswordlessCapable(?bool $value): void {
@@ -327,7 +333,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSsprCapable property value. Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
+     * Sets the isSsprCapable property value. Indicates whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
      * @param bool|null $value Value to set for the isSsprCapable property.
     */
     public function setIsSsprCapable(?bool $value): void {
@@ -335,7 +341,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSsprEnabled property value. Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
+     * Sets the isSsprEnabled property value. Indicates whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
      * @param bool|null $value Value to set for the isSsprEnabled property.
     */
     public function setIsSsprEnabled(?bool $value): void {
@@ -343,7 +349,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSsprRegistered property value. Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
+     * Sets the isSsprRegistered property value. Indicates whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
      * @param bool|null $value Value to set for the isSsprRegistered property.
     */
     public function setIsSsprRegistered(?bool $value): void {

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementAppHealthState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsManagementAppHealthState and sets the default values.
     */
     public function __construct() {
@@ -114,6 +119,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
         $writer->writeEnumValue('healthState', $this->getHealthState());
         $writer->writeStringValue('installedVersion', $this->getInstalledVersion());
         $writer->writeDateTimeValue('lastCheckInDateTime', $this->getLastCheckInDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

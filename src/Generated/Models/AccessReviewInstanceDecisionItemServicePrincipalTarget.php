@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessReviewInstanceDecisionItemTarget implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewInstanceDecisionItemServicePrincipalTarget and sets the default values.
+     * Instantiates a new accessReviewInstanceDecisionItemServicePrincipalTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,9 +45,22 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'servicePrincipalDisplayName' => fn(ParseNode $n) => $o->setServicePrincipalDisplayName($n->getStringValue()),
             'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +94,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('servicePrincipalDisplayName', $this->getServicePrincipalDisplayName());
         $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
     }
@@ -91,6 +105,14 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

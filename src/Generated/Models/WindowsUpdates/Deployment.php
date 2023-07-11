@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Deployment extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deployment and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class Deployment extends Entity implements Parsable
         $writer->writeObjectValue('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('state', $this->getState());
     }

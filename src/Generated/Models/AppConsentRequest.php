@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AppConsentRequest extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new appConsentRequest and sets the default values.
     */
     public function __construct() {
@@ -113,6 +118,7 @@ class AppConsentRequest extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeStringValue('consentType', $this->getConsentType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('pendingScopes', $this->getPendingScopes());
         $writer->writeCollectionOfObjectValues('userConsentRequests', $this->getUserConsentRequests());
     }

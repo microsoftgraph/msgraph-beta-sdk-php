@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamsAppDefinition and sets the default values.
     */
     public function __construct() {
@@ -232,6 +237,7 @@ class TeamsAppDefinition extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('outlineIcon', $this->getOutlineIcon());
         $writer->writeEnumValue('publishingState', $this->getPublishingState());
         $writer->writeStringValue('shortdescription', $this->getShortdescription());

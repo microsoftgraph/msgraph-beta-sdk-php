@@ -18,7 +18,7 @@ class TenantReference implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new TenantReference and sets the default values.
+     * Instantiates a new tenantReference and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

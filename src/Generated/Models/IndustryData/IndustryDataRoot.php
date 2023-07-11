@@ -12,7 +12,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IndustryDataRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new IndustryDataRoot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new industryDataRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -165,6 +170,7 @@ class IndustryDataRoot extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('dataConnectors', $this->getDataConnectors());
         $writer->writeCollectionOfObjectValues('inboundFlows', $this->getInboundFlows());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('referenceDefinitions', $this->getReferenceDefinitions());
         $writer->writeCollectionOfObjectValues('roleGroups', $this->getRoleGroups());

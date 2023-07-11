@@ -101,6 +101,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enrolledDeviceCount' => fn(ParseNode $n) => $o->setEnrolledDeviceCount($n->getIntegerValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
             'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
             'tokenExpirationDateTime' => fn(ParseNode $n) => $o->setTokenExpirationDateTime($n->getDateTimeValue()),
@@ -118,6 +119,18 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -180,6 +193,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
         $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
         $writer->writeDateTimeValue('tokenExpirationDateTime', $this->getTokenExpirationDateTime());
@@ -232,6 +246,14 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

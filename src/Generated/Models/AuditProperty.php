@@ -21,7 +21,7 @@ class AuditProperty implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new AuditProperty and sets the default values.
+     * Instantiates a new auditProperty and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

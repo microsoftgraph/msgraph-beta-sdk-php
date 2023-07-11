@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FileSecurityProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new fileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -303,6 +308,7 @@ class FileSecurityProfile extends Entity implements Parsable
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
         $writer->writeCollectionOfObjectValues('malwareStates', $this->getMalwareStates());
         $writer->writeCollectionOfPrimitiveValues('names', $this->getNames());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('riskScore', $this->getRiskScore());
         $writer->writeIntegerValue('size', $this->getSize());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());

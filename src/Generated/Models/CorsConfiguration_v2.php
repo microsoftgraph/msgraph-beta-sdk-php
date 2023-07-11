@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CorsConfiguration_v2 extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new corsConfiguration_v2 and sets the default values.
     */
     public function __construct() {
@@ -137,6 +142,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('allowedMethods', $this->getAllowedMethods());
         $writer->writeCollectionOfPrimitiveValues('allowedOrigins', $this->getAllowedOrigins());
         $writer->writeIntegerValue('maxAgeInSeconds', $this->getMaxAgeInSeconds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resource', $this->getResource());
     }
 

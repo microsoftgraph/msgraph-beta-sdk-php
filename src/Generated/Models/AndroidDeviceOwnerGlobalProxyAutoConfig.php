@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Android Device Owner Global Proxy.
+*/
 class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerGlobalProxyAutoConfig and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidDeviceOwnerGlobalProxyAutoConfig and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('proxyAutoConfigURL', $this->getProxyAutoConfigURL());
     }
 

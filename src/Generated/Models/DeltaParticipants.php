@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeltaParticipants extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeltaParticipants and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deltaParticipants and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class DeltaParticipants extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
         $writer->writeIntegerValue('sequenceNumber', $this->getSequenceNumber());
     }

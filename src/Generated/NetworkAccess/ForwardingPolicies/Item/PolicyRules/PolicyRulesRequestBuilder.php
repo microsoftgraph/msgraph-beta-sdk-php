@@ -53,7 +53,7 @@ class PolicyRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policyRules from networkAccess
+     * Represents the definition of the policy ruleset that makes up the core definition of a policy.
      * @param PolicyRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class PolicyRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policyRules from networkAccess
+     * Represents the definition of the policy ruleset that makes up the core definition of a policy.
      * @param PolicyRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

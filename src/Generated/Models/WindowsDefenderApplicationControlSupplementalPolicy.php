@@ -12,6 +12,11 @@ use Psr\Http\Message\StreamInterface;
 class WindowsDefenderApplicationControlSupplementalPolicy extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicy and sets the default values.
     */
     public function __construct() {
@@ -28,7 +33,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the assignments property value. The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+     * Gets the assignments property value. The associated group assignments for the Windows Defender Application Control Supplemental Policy.
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -42,7 +47,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
+     * Gets the content property value. Indicates the content of the Windows Defender Application Control Supplemental Policy in byte array format.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -54,7 +59,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the contentFileName property value. The WindowsDefenderApplicationControl supplemental policy content's file name.
+     * Gets the contentFileName property value. Indicates the file name associated with the content of the Windows Defender Application Control Supplemental Policy.
      * @return string|null
     */
     public function getContentFileName(): ?string {
@@ -66,7 +71,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the creationDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
+     * Gets the creationDateTime property value. Indicates the created date and time when the Windows Defender Application Control Supplemental Policy was uploaded.
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
@@ -90,7 +95,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the description property value. The description of WindowsDefenderApplicationControl supplemental policy.
+     * Gets the description property value. The description of the Windows Defender Application Control Supplemental Policy.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -116,7 +121,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the displayName property value. The display name of WindowsDefenderApplicationControl supplemental policy.
+     * Gets the displayName property value. The display name of the Windows Defender Application Control Supplemental Policy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -156,7 +161,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
+     * Gets the lastModifiedDateTime property value. Indicates the last modified date and time of the Windows Defender Application Control Supplemental Policy.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -168,7 +173,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the roleScopeTagIds property value. List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
+     * Gets the roleScopeTagIds property value. List of Scope Tags for the Windows Defender Application Control Supplemental Policy entity.
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -182,7 +187,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Gets the version property value. The WindowsDefenderApplicationControl supplemental policy's version.
+     * Gets the version property value. Indicates the Windows Defender Application Control Supplemental Policy's version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -208,12 +213,13 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
         $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
-     * Sets the assignments property value. The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+     * Sets the assignments property value. The associated group assignments for the Windows Defender Application Control Supplemental Policy.
      * @param array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -221,7 +227,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
+     * Sets the content property value. Indicates the content of the Windows Defender Application Control Supplemental Policy in byte array format.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
@@ -229,7 +235,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the contentFileName property value. The WindowsDefenderApplicationControl supplemental policy content's file name.
+     * Sets the contentFileName property value. Indicates the file name associated with the content of the Windows Defender Application Control Supplemental Policy.
      * @param string|null $value Value to set for the contentFileName property.
     */
     public function setContentFileName(?string $value): void {
@@ -237,7 +243,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the creationDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
+     * Sets the creationDateTime property value. Indicates the created date and time when the Windows Defender Application Control Supplemental Policy was uploaded.
      * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
@@ -253,7 +259,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the description property value. The description of WindowsDefenderApplicationControl supplemental policy.
+     * Sets the description property value. The description of the Windows Defender Application Control Supplemental Policy.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -269,7 +275,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the displayName property value. The display name of WindowsDefenderApplicationControl supplemental policy.
+     * Sets the displayName property value. The display name of the Windows Defender Application Control Supplemental Policy.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -277,7 +283,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
+     * Sets the lastModifiedDateTime property value. Indicates the last modified date and time of the Windows Defender Application Control Supplemental Policy.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -285,7 +291,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the roleScopeTagIds property value. List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
+     * Sets the roleScopeTagIds property value. List of Scope Tags for the Windows Defender Application Control Supplemental Policy entity.
      * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
@@ -293,7 +299,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     }
 
     /**
-     * Sets the version property value. The WindowsDefenderApplicationControl supplemental policy's version.
+     * Sets the version property value. Indicates the Windows Defender Application Control Supplemental Policy's version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

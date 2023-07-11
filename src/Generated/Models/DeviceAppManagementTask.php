@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAppManagementTask extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceAppManagementTask and sets the default values.
     */
     public function __construct() {
@@ -191,6 +196,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('status', $this->getStatus());
     }

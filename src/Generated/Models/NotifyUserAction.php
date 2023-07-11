@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NotifyUserAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * Instantiates a new NotifyUserAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new notifyUserAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -105,6 +110,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->getActionLastModifiedDateTime());
         $writer->writeStringValue('emailText', $this->getEmailText());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('policyTip', $this->getPolicyTip());
         $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementSettingDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementSettingDefinition and sets the default values.
     */
     public function __construct() {
@@ -218,6 +223,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
         $writer->writeStringValue('headerTitle', $this->getHeaderTitle());
         $writer->writeBooleanValue('isTopLevel', $this->getIsTopLevel());
         $writer->writeCollectionOfPrimitiveValues('keywords', $this->getKeywords());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('placeholderText', $this->getPlaceholderText());
         $writer->writeEnumValue('valueType', $this->getValueType());
     }

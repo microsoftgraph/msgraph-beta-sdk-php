@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Autopilot flow event.
+*/
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
+     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -269,6 +272,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
             'enrollmentType' => fn(ParseNode $n) => $o->setEnrollmentType($n->getEnumValue(WindowsAutopilotEnrollmentType::class)),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'policyStatusDetails' => fn(ParseNode $n) => $o->setPolicyStatusDetails($n->getCollectionOfObjectValues([DeviceManagementAutopilotPolicyStatusDetail::class, 'createFromDiscriminatorValue'])),
             'targetedAppCount' => fn(ParseNode $n) => $o->setTargetedAppCount($n->getIntegerValue()),
@@ -290,6 +294,18 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -415,6 +431,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
         $writer->writeEnumValue('enrollmentType', $this->getEnrollmentType());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('policyStatusDetails', $this->getPolicyStatusDetails());
         $writer->writeIntegerValue('targetedAppCount', $this->getTargetedAppCount());
@@ -575,6 +592,14 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

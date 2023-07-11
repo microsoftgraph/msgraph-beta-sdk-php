@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SignIn extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SignIn and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new signIn and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -954,6 +959,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
         $writer->writeCollectionOfObjectValues('networkLocationDetails', $this->getNetworkLocationDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originalRequestId', $this->getOriginalRequestId());
         $writer->writeObjectValue('privateLinkDetails', $this->getPrivateLinkDetails());
         $writer->writeIntegerValue('processingTimeInMilliseconds', $this->getProcessingTimeInMilliseconds());

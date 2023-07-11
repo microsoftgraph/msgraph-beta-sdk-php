@@ -8,8 +8,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device protection status entity.
+*/
 class WindowsProtectionState extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new windowsProtectionState and sets the default values.
     */
@@ -331,6 +339,7 @@ class WindowsProtectionState extends Entity implements Parsable
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
         $writer->writeBooleanValue('malwareProtectionEnabled', $this->getMalwareProtectionEnabled());
         $writer->writeBooleanValue('networkInspectionSystemEnabled', $this->getNetworkInspectionSystemEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('productStatus', $this->getProductStatus());
         $writer->writeBooleanValue('quickScanOverdue', $this->getQuickScanOverdue());
         $writer->writeBooleanValue('realTimeProtectionEnabled', $this->getRealTimeProtectionEnabled());

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The identifier for a mobile app.
+*/
 class MacAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * Instantiates a new MacAppIdentifier and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new macAppIdentifier and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class MacAppIdentifier extends MobileAppIdentifier implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('bundleId', $this->getBundleId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

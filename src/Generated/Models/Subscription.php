@@ -130,6 +130,7 @@ class Subscription extends Entity implements Parsable
             'notificationQueryOptions' => fn(ParseNode $n) => $o->setNotificationQueryOptions($n->getStringValue()),
             'notificationUrl' => fn(ParseNode $n) => $o->setNotificationUrl($n->getStringValue()),
             'notificationUrlAppId' => fn(ParseNode $n) => $o->setNotificationUrlAppId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getStringValue()),
         ]);
     }
@@ -219,6 +220,18 @@ class Subscription extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the resource property value. Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource.
      * @return string|null
     */
@@ -250,6 +263,7 @@ class Subscription extends Entity implements Parsable
         $writer->writeStringValue('notificationQueryOptions', $this->getNotificationQueryOptions());
         $writer->writeStringValue('notificationUrl', $this->getNotificationUrl());
         $writer->writeStringValue('notificationUrlAppId', $this->getNotificationUrlAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resource', $this->getResource());
     }
 
@@ -363,6 +377,14 @@ class Subscription extends Entity implements Parsable
     */
     public function setNotificationUrlAppId(?string $value): void {
         $this->getBackingStore()->set('notificationUrlAppId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

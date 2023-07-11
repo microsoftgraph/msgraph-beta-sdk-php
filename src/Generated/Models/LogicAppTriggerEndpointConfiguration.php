@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new LogicAppTriggerEndpointConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new logicAppTriggerEndpointConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,6 +99,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('logicAppWorkflowName', $this->getLogicAppWorkflowName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceGroupName', $this->getResourceGroupName());
         $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
         $writer->writeStringValue('url', $this->getUrl());

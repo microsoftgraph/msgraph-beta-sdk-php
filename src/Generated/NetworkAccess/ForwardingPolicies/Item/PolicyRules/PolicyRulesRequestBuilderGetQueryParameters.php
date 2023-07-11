@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\P
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get policyRules from networkAccess
+ * Represents the definition of the policy ruleset that makes up the core definition of a policy.
 */
 class PolicyRulesRequestBuilderGetQueryParameters 
 {

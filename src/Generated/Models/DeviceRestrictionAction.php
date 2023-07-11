@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceRestrictionAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * Instantiates a new DeviceRestrictionAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceRestrictionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +88,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('restrictionAction', $this->getRestrictionAction());
         $writer->writeCollectionOfEnumValues('triggers', $this->getTriggers());
     }

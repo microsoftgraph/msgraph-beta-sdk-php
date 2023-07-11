@@ -104,6 +104,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
             'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'templateStep' => fn(ParseNode $n) => $o->setTemplateStep($n->getObjectValue([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
             'versionInformation' => fn(ParseNode $n) => $o->setVersionInformation($n->getStringValue()),
@@ -144,6 +145,18 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -196,6 +209,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('templateStep', $this->getTemplateStep());
         $writer->writeIntegerValue('version', $this->getVersion());
         $writer->writeStringValue('versionInformation', $this->getVersionInformation());
@@ -263,6 +277,14 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -50,9 +50,10 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get conditionalAccess from networkAccess
+     * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConditionalAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property conditionalAccess in networkAccess
+     * Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessSettings $body The request body
      * @param ConditionalAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ConditionalAccessSettings $body, ?ConditionalAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get conditionalAccess from networkAccess
+     * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property conditionalAccess in networkAccess
+     * Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessSettings $body The request body
      * @param ConditionalAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

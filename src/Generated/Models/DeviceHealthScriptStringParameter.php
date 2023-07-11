@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base properties of the script parameter.
+*/
 class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptStringParameter and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceHealthScriptStringParameter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter impl
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('defaultValue', $this->getDefaultValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

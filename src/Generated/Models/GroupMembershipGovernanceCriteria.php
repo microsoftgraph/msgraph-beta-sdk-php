@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Parsable 
 {
     /**
-     * Instantiates a new GroupMembershipGovernanceCriteria and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupMembershipGovernanceCriteria and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

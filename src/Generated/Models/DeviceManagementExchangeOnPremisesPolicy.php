@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
+*/
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementExchangeOnPremisesPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementExchangeOnPremisesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -116,6 +124,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
         $writer->writeEnumValue('defaultAccessLevel', $this->getDefaultAccessLevel());
         $writer->writeCollectionOfObjectValues('knownDeviceClasses', $this->getKnownDeviceClasses());
         $writer->writeBinaryContent('notificationContent', $this->getNotificationContent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

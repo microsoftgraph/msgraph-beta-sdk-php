@@ -104,6 +104,7 @@ class PolicySetItem extends Entity implements Parsable
             },
             'itemType' => fn(ParseNode $n) => $o->setItemType($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(PolicySetStatus::class)),
         ]);
@@ -148,6 +149,18 @@ class PolicySetItem extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the payloadId property value. PayloadId of the PolicySetItem.
      * @return string|null
     */
@@ -183,6 +196,7 @@ class PolicySetItem extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->getGuidedDeploymentTags());
         $writer->writeStringValue('itemType', $this->getItemType());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('payloadId', $this->getPayloadId());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -233,6 +247,14 @@ class PolicySetItem extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

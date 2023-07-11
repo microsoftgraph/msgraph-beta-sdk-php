@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Tenant extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Tenant and sets the default values.
+     * Instantiates a new tenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -73,6 +73,7 @@ class Tenant extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'tenantStatusInformation' => fn(ParseNode $n) => $o->setTenantStatusInformation($n->getObjectValue([TenantStatusInformation::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -88,6 +89,18 @@ class Tenant extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -124,6 +137,7 @@ class Tenant extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('tenantStatusInformation', $this->getTenantStatusInformation());
     }
@@ -158,6 +172,14 @@ class Tenant extends Entity implements Parsable
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

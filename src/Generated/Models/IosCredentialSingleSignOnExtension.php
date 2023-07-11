@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Credential-type Single Sign-On extension profile for iOS devices.
+*/
 class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new IosCredentialSingleSignOnExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosCredentialSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -121,6 +129,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
         $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
         $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
         $writer->writeStringValue('extensionIdentifier', $this->getExtensionIdentifier());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('realm', $this->getRealm());
         $writer->writeStringValue('teamIdentifier', $this->getTeamIdentifier());
     }

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new advancedThreatProtectionOnboardingDeviceSettingState and sets the default values.
     */
     public function __construct() {
@@ -204,6 +209,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implem
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeStringValue('setting', $this->getSetting());
         $writer->writeStringValue('settingName', $this->getSettingName());

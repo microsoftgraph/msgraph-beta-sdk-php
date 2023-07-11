@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PublishedResource extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new publishedResource and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class PublishedResource extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('publishingType', $this->getPublishingType());
         $writer->writeStringValue('resourceName', $this->getResourceName());
     }

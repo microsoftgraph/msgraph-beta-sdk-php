@@ -166,6 +166,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
             'detectionModelId' => fn(ParseNode $n) => $o->setDetectionModelId($n->getStringValue()),
             'deviceImpactedCount' => fn(ParseNode $n) => $o->setDeviceImpactedCount($n->getIntegerValue()),
             'issueId' => fn(ParseNode $n) => $o->setIssueId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsAnomalySeverity::class)),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(UserExperienceAnalyticsAnomalyState::class)),
         ]);
@@ -181,6 +182,18 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'issueId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -224,6 +237,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
         $writer->writeStringValue('detectionModelId', $this->getDetectionModelId());
         $writer->writeIntegerValue('deviceImpactedCount', $this->getDeviceImpactedCount());
         $writer->writeStringValue('issueId', $this->getIssueId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeEnumValue('state', $this->getState());
     }
@@ -314,6 +328,14 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
     */
     public function setIssueId(?string $value): void {
         $this->getBackingStore()->set('issueId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

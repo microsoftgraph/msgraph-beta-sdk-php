@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation state of a mobile app for a device. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class MobileAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppInstallStatus and sets the default values.
+     * Instantiates a new mobileAppInstallStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -101,6 +104,7 @@ class MobileAppInstallStatus extends Entity implements Parsable
             'installStateDetail' => fn(ParseNode $n) => $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
             'mobileAppInstallStatusValue' => fn(ParseNode $n) => $o->setMobileAppInstallStatusValue($n->getEnumValue(ResultantAppState::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
@@ -154,6 +158,18 @@ class MobileAppInstallStatus extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppInstallStatusValue'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -219,6 +235,7 @@ class MobileAppInstallStatus extends Entity implements Parsable
         $writer->writeEnumValue('installStateDetail', $this->getInstallStateDetail());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeEnumValue('mobileAppInstallStatusValue', $this->getMobileAppInstallStatusValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('userName', $this->getUserName());
@@ -295,6 +312,14 @@ class MobileAppInstallStatus extends Entity implements Parsable
     */
     public function setMobileAppInstallStatusValue(?ResultantAppState $value): void {
         $this->getBackingStore()->set('mobileAppInstallStatusValue', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

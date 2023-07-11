@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device scope entity contains device scope configuration values use to apply filtering on the endpoint analytics reports.
+*/
 class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new userExperienceAnalyticsDeviceScope and sets the default values.
     */
@@ -189,6 +197,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operator', $this->getOperator());
         $writer->writeStringValue('ownerId', $this->getOwnerId());
         $writer->writeEnumValue('parameter', $this->getParameter());

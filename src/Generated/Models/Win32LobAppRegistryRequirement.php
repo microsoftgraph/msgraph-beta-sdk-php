@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base class to detect a Win32 App
+*/
 class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppRegistryRequirement and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppRegistryRequirement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -96,6 +104,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
         $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
         $writer->writeEnumValue('detectionType', $this->getDetectionType());
         $writer->writeStringValue('keyPath', $this->getKeyPath());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('valueName', $this->getValueName());
     }
 

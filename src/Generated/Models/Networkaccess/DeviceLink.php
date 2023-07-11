@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceLink extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceLink and sets the default values.
     */
     public function __construct() {
@@ -27,7 +32,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the bandwidthCapacityInMbps property value. The bandwidthCapacityInMbps property
+     * Gets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @return BandwidthCapacityInMbps|null
     */
     public function getBandwidthCapacityInMbps(): ?BandwidthCapacityInMbps {
@@ -81,7 +86,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the ipAddress property value. The ipAddress property
+     * Gets the ipAddress property value. Specifies the client IPv4 of the link
      * @return string|null
     */
     public function getIpAddress(): ?string {
@@ -93,7 +98,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. last modified time.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -105,7 +110,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -152,12 +157,13 @@ class DeviceLink extends Entity implements Parsable
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('redundancyConfiguration', $this->getRedundancyConfiguration());
         $writer->writeObjectValue('tunnelConfiguration', $this->getTunnelConfiguration());
     }
 
     /**
-     * Sets the bandwidthCapacityInMbps property value. The bandwidthCapacityInMbps property
+     * Sets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @param BandwidthCapacityInMbps|null $value Value to set for the bandwidthCapacityInMbps property.
     */
     public function setBandwidthCapacityInMbps(?BandwidthCapacityInMbps $value): void {
@@ -181,7 +187,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipAddress property value. The ipAddress property
+     * Sets the ipAddress property value. Specifies the client IPv4 of the link
      * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
@@ -189,7 +195,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. last modified time.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -197,7 +203,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

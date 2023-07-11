@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows Feature Update Profile
+*/
 class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsFeatureUpdateProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsFeatureUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -191,6 +199,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
         $writer->writeDateTimeValue('endOfSupportDate', $this->getEndOfSupportDate());
         $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeObjectValue('rolloutSettings', $this->getRolloutSettings());
     }

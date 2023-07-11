@@ -98,6 +98,7 @@ class TenantDetailedInformation extends Entity implements Parsable
             'defaultDomainName' => fn(ParseNode $n) => $o->setDefaultDomainName($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'industryName' => fn(ParseNode $n) => $o->setIndustryName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
             'segmentName' => fn(ParseNode $n) => $o->setSegmentName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
@@ -115,6 +116,18 @@ class TenantDetailedInformation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'industryName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -177,6 +190,7 @@ class TenantDetailedInformation extends Entity implements Parsable
         $writer->writeStringValue('defaultDomainName', $this->getDefaultDomainName());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('industryName', $this->getIndustryName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('region', $this->getRegion());
         $writer->writeStringValue('segmentName', $this->getSegmentName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
@@ -229,6 +243,14 @@ class TenantDetailedInformation extends Entity implements Parsable
     */
     public function setIndustryName(?string $value): void {
         $this->getBackingStore()->set('industryName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
