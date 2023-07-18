@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningSelfInitiatedCourse extends LearningCourseActivity implements Parsable 
 {
     /**
-     * Instantiates a new LearningSelfInitiatedCourse and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new learningSelfInitiatedCourse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class LearningSelfInitiatedCourse extends LearningCourseActivity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
     }
 

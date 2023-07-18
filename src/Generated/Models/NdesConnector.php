@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity which represents an OnPrem Ndes connector.
+*/
 class NdesConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new NdesConnector and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ndesConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -147,6 +155,7 @@ class NdesConnector extends Entity implements Parsable
         $writer->writeDateTimeValue('enrolledDateTime', $this->getEnrolledDateTime());
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
         $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('state', $this->getState());
     }

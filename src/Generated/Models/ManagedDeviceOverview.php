@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Summary data for managed devices
+*/
 class ManagedDeviceOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceOverview and sets the default values.
+     * Instantiates a new managedDeviceOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -87,6 +90,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'managedDeviceModelsAndManufacturers' => fn(ParseNode $n) => $o->setManagedDeviceModelsAndManufacturers($n->getObjectValue([ManagedDeviceModelsAndManufacturers::class, 'createFromDiscriminatorValue'])),
             'mdmEnrolledCount' => fn(ParseNode $n) => $o->setMdmEnrolledCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -127,6 +131,18 @@ class ManagedDeviceOverview extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -139,6 +155,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('managedDeviceModelsAndManufacturers', $this->getManagedDeviceModelsAndManufacturers());
         $writer->writeIntegerValue('mdmEnrolledCount', $this->getMdmEnrolledCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -195,6 +212,14 @@ class ManagedDeviceOverview extends Entity implements Parsable
     */
     public function setMdmEnrolledCount(?int $value): void {
         $this->getBackingStore()->set('mdmEnrolledCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddContentFooterAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new AddContentFooterAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new addContentFooterAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -137,6 +142,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
         $writer->writeStringValue('fontName', $this->getFontName());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
         $writer->writeIntegerValue('margin', $this->getMargin());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
         $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }

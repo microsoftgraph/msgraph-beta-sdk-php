@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUsageSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUsageSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new credentialUsageSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +100,7 @@ class CredentialUsageSummary extends Entity implements Parsable
         $writer->writeEnumValue('authMethod', $this->getAuthMethod());
         $writer->writeIntegerValue('failureActivityCount', $this->getFailureActivityCount());
         $writer->writeEnumValue('feature', $this->getFeature());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successfulActivityCount', $this->getSuccessfulActivityCount());
     }
 

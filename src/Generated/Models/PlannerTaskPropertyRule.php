@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable 
 {
     /**
-     * Instantiates a new PlannerTaskPropertyRule and sets the default values.
+     * Instantiates a new plannerTaskPropertyRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -154,6 +154,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
                 /** @var array<string>|null $val */
                 $this->setNotes($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'order' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -232,6 +233,18 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -344,6 +357,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
         $writer->writeCollectionOfPrimitiveValues('dueDate', $this->getDueDate());
         $writer->writeCollectionOfPrimitiveValues('move', $this->getMove());
         $writer->writeCollectionOfPrimitiveValues('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('order', $this->getOrder());
         $writer->writeCollectionOfPrimitiveValues('percentComplete', $this->getPercentComplete());
         $writer->writeCollectionOfPrimitiveValues('previewType', $this->getPreviewType());
@@ -415,6 +429,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     */
     public function setNotes(?array $value): void {
         $this->getBackingStore()->set('notes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

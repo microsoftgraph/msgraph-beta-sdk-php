@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InboundFlow extends IndustryDataActivity implements Parsable 
 {
     /**
-     * Instantiates a new InboundFlow and sets the default values.
+     * Instantiates a new inboundFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -92,8 +92,21 @@ class InboundFlow extends IndustryDataActivity implements Parsable
             'dataDomain' => fn(ParseNode $n) => $o->setDataDomain($n->getEnumValue(InboundDomain::class)),
             'effectiveDateTime' => fn(ParseNode $n) => $o->setEffectiveDateTime($n->getDateTimeValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'year' => fn(ParseNode $n) => $o->setYear($n->getObjectValue([YearTimePeriodDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -118,6 +131,7 @@ class InboundFlow extends IndustryDataActivity implements Parsable
         $writer->writeEnumValue('dataDomain', $this->getDataDomain());
         $writer->writeDateTimeValue('effectiveDateTime', $this->getEffectiveDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('year', $this->getYear());
     }
 
@@ -151,6 +165,14 @@ class InboundFlow extends IndustryDataActivity implements Parsable
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

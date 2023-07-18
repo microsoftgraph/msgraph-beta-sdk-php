@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android For Work certificate profile base.
+*/
 class AndroidForWorkCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkCertificateProfileBase and sets the default values.
+     * Instantiates a new androidForWorkCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

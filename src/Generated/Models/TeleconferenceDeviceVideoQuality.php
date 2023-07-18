@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality implements Parsable 
 {
     /**
-     * Instantiates a new TeleconferenceDeviceVideoQuality and sets the default values.
+     * Instantiates a new teleconferenceDeviceVideoQuality and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -91,7 +91,20 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
             'averageInboundFrameRate' => fn(ParseNode $n) => $o->setAverageInboundFrameRate($n->getFloatValue()),
             'averageOutboundBitRate' => fn(ParseNode $n) => $o->setAverageOutboundBitRate($n->getFloatValue()),
             'averageOutboundFrameRate' => fn(ParseNode $n) => $o->setAverageOutboundFrameRate($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,6 +117,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
         $writer->writeFloatValue('averageInboundFrameRate', $this->getAverageInboundFrameRate());
         $writer->writeFloatValue('averageOutboundBitRate', $this->getAverageOutboundBitRate());
         $writer->writeFloatValue('averageOutboundFrameRate', $this->getAverageOutboundFrameRate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -136,6 +150,14 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
     */
     public function setAverageOutboundFrameRate(?float $value): void {
         $this->getBackingStore()->set('averageOutboundFrameRate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

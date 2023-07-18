@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ParticipantEndpoint extends Endpoint implements Parsable 
 {
     /**
-     * Instantiates a new ParticipantEndpoint and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new participantEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -126,6 +131,7 @@ class ParticipantEndpoint extends Endpoint implements Parsable
         $writer->writeObjectValue('feedback', $this->getFeedback());
         $writer->writeObjectValue('identity', $this->getIdentity());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

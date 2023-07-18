@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementCachedReportConfiguration and sets the default values.
     */
     public function __construct() {
@@ -171,6 +176,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeDateTimeValue('lastRefreshDateTime', $this->getLastRefreshDateTime());
         $writer->writeStringValue('metadata', $this->getMetadata());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
         $writer->writeStringValue('reportName', $this->getReportName());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());

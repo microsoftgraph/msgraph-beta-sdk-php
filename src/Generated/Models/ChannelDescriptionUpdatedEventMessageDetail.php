@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChannelDescriptionUpdatedEventMessageDetail extends EventMessageDetail implements Parsable 
 {
     /**
-     * Instantiates a new ChannelDescriptionUpdatedEventMessageDetail and sets the default values.
+     * Instantiates a new channelDescriptionUpdatedEventMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +59,7 @@ class ChannelDescriptionUpdatedEventMessageDetail extends EventMessageDetail imp
             'channelDescription' => fn(ParseNode $n) => $o->setChannelDescription($n->getStringValue()),
             'channelId' => fn(ParseNode $n) => $o->setChannelId($n->getStringValue()),
             'initiator' => fn(ParseNode $n) => $o->setInitiator($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -75,6 +76,18 @@ class ChannelDescriptionUpdatedEventMessageDetail extends EventMessageDetail imp
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -83,6 +96,7 @@ class ChannelDescriptionUpdatedEventMessageDetail extends EventMessageDetail imp
         $writer->writeStringValue('channelDescription', $this->getChannelDescription());
         $writer->writeStringValue('channelId', $this->getChannelId());
         $writer->writeObjectValue('initiator', $this->getInitiator());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +121,14 @@ class ChannelDescriptionUpdatedEventMessageDetail extends EventMessageDetail imp
     */
     public function setInitiator(?IdentitySet $value): void {
         $this->getBackingStore()->set('initiator', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

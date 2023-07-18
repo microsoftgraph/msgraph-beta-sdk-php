@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnPremisesAgentGroup extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new onPremisesAgentGroup and sets the default values.
     */
     public function __construct() {
@@ -113,6 +118,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('agents', $this->getAgents());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
         $writer->writeEnumValue('publishingType', $this->getPublishingType());
     }

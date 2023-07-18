@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Autopilot flow event.
+*/
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -415,6 +423,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
         $writer->writeEnumValue('enrollmentType', $this->getEnrollmentType());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('policyStatusDetails', $this->getPolicyStatusDetails());
         $writer->writeIntegerValue('targetedAppCount', $this->getTargetedAppCount());

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new androidForWorkEnrollmentProfile and sets the default values.
     */
     public function __construct() {
@@ -180,6 +185,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
         $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
         $writer->writeDateTimeValue('tokenExpirationDateTime', $this->getTokenExpirationDateTime());

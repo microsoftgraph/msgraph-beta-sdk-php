@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementAction and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managementAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,6 +130,7 @@ class ManagementAction extends Entity implements Parsable
         $writer->writeEnumValue('category', $this->getCategory());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceTemplateId', $this->getReferenceTemplateId());
         $writer->writeIntegerValue('referenceTemplateVersion', $this->getReferenceTemplateVersion());
         $writer->writeCollectionOfObjectValues('workloadActions', $this->getWorkloadActions());

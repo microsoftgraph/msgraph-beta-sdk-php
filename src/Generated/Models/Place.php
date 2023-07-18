@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Place extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Place and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new place and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,6 +109,7 @@ class Place extends Entity implements Parsable
         $writer->writeObjectValue('address', $this->getAddress());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('geoCoordinates', $this->getGeoCoordinates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phone', $this->getPhone());
     }
 

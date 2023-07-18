@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCompliance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceCompliance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedDeviceCompliance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -233,6 +238,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('ownerType', $this->getOwnerType());

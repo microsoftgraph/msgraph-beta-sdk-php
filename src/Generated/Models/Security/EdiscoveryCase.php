@@ -12,7 +12,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryCase extends EscapedCase implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryCase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryCase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -207,6 +212,7 @@ class EdiscoveryCase extends EscapedCase implements Parsable
         $writer->writeStringValue('externalId', $this->getExternalId());
         $writer->writeCollectionOfObjectValues('legalHolds', $this->getLegalHolds());
         $writer->writeCollectionOfObjectValues('noncustodialDataSources', $this->getNoncustodialDataSources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('reviewSets', $this->getReviewSets());
         $writer->writeCollectionOfObjectValues('searches', $this->getSearches());

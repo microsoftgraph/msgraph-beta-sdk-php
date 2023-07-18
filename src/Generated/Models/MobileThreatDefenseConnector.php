@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity which represents a connection to Mobile Threat Defense partner.
+*/
 class MobileThreatDefenseConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileThreatDefenseConnector and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -287,6 +295,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
         $writer->writeBooleanValue('macDeviceBlockedOnMissingPartnerData', $this->getMacDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('macEnabled', $this->getMacEnabled());
         $writer->writeBooleanValue('microsoftDefenderForEndpointAttachEnabled', $this->getMicrosoftDefenderForEndpointAttachEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
         $writer->writeIntegerValue('partnerUnresponsivenessThresholdInDays', $this->getPartnerUnresponsivenessThresholdInDays());
         $writer->writeBooleanValue('partnerUnsupportedOsVersionBlocked', $this->getPartnerUnsupportedOsVersionBlocked());

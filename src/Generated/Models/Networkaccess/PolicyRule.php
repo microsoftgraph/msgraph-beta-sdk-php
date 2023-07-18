@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicyRule extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new policyRule and sets the default values.
     */
     public function __construct() {
@@ -46,7 +51,7 @@ class PolicyRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -64,10 +69,11 @@ class PolicyRule extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

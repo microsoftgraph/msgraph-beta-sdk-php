@@ -83,12 +83,25 @@ class BusinessFlow extends Entity implements Parsable
             'deDuplicationId' => fn(ParseNode $n) => $o->setDeDuplicationId($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([GovernancePolicy::class, 'createFromDiscriminatorValue'])),
             'policyTemplateId' => fn(ParseNode $n) => $o->setPolicyTemplateId($n->getStringValue()),
             'recordVersion' => fn(ParseNode $n) => $o->setRecordVersion($n->getStringValue()),
             'schemaId' => fn(ParseNode $n) => $o->setSchemaId($n->getStringValue()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([BusinessFlowSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -161,6 +174,7 @@ class BusinessFlow extends Entity implements Parsable
         $writer->writeStringValue('deDuplicationId', $this->getDeDuplicationId());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeStringValue('policyTemplateId', $this->getPolicyTemplateId());
         $writer->writeStringValue('recordVersion', $this->getRecordVersion());
@@ -198,6 +212,14 @@ class BusinessFlow extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ImpactedResource extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new impactedResource and sets the default values.
     */
     public function __construct() {
@@ -232,6 +237,7 @@ class ImpactedResource extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeStringValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeStringValue('portalUrl', $this->getPortalUrl());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrintUsageByUser extends PrintUsage implements Parsable 
 {
     /**
-     * Instantiates a new PrintUsageByUser and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new printUsageByUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +58,7 @@ class PrintUsageByUser extends PrintUsage implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 

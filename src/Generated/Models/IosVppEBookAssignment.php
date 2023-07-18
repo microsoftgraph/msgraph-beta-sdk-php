@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an iOS VPP EBook to a group.
+*/
 class IosVppEBookAssignment extends ManagedEBookAssignment implements Parsable 
 {
     /**
-     * Instantiates a new IosVppEBookAssignment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosVppEBookAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,6 +48,7 @@ class IosVppEBookAssignment extends ManagedEBookAssignment implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

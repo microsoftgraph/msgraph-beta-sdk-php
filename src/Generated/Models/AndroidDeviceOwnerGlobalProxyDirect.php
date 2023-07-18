@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android Device Owner Global Proxy Direct.
+*/
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerGlobalProxyDirect and sets the default values.
+     * Instantiates a new androidDeviceOwnerGlobalProxyDirect and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,6 +59,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
                 $this->setExcludedHosts($val);
             },
             'host' => fn(ParseNode $n) => $o->setHost($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
         ]);
     }
@@ -70,6 +74,18 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'host'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -92,6 +108,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('excludedHosts', $this->getExcludedHosts());
         $writer->writeStringValue('host', $this->getHost());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('port', $this->getPort());
     }
 
@@ -109,6 +126,14 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
     */
     public function setHost(?string $value): void {
         $this->getBackingStore()->set('host', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

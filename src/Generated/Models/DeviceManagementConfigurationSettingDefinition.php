@@ -142,6 +142,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
             },
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'occurrence' => fn(ParseNode $n) => $o->setOccurrence($n->getObjectValue([DeviceManagementConfigurationSettingOccurrence::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'offsetUri' => fn(ParseNode $n) => $o->setOffsetUri($n->getStringValue()),
             'referredSettingInformationList' => fn(ParseNode $n) => $o->setReferredSettingInformationList($n->getCollectionOfObjectValues([DeviceManagementConfigurationReferredSettingInformation::class, 'createFromDiscriminatorValue'])),
             'rootDefinitionId' => fn(ParseNode $n) => $o->setRootDefinitionId($n->getStringValue()),
@@ -214,6 +215,18 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'occurrence'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -319,6 +332,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
         $writer->writeCollectionOfPrimitiveValues('keywords', $this->getKeywords());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('occurrence', $this->getOccurrence());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('offsetUri', $this->getOffsetUri());
         $writer->writeCollectionOfObjectValues('referredSettingInformationList', $this->getReferredSettingInformationList());
         $writer->writeStringValue('rootDefinitionId', $this->getRootDefinitionId());
@@ -414,6 +428,14 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     */
     public function setOccurrence(?DeviceManagementConfigurationSettingOccurrence $value): void {
         $this->getBackingStore()->set('occurrence', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

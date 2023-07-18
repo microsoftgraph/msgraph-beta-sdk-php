@@ -13,7 +13,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * Instantiates a new CustomTaskExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new customTaskExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -115,6 +120,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

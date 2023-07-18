@@ -76,6 +76,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
             'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
             'modelAppHealthScore' => fn(ParseNode $n) => $o->setModelAppHealthScore($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -116,6 +117,18 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -127,6 +140,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
         $writer->writeFloatValue('modelAppHealthScore', $this->getModelAppHealthScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -175,6 +189,14 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     */
     public function setModelAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('modelAppHealthScore', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

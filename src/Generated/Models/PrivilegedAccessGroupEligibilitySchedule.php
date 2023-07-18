@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedAccessGroupEligibilitySchedule and sets the default values.
     */
     public function __construct() {
@@ -123,6 +128,7 @@ class PrivilegedAccessGroupEligibilitySchedule extends PrivilegedAccessSchedule 
         $writer->writeObjectValue('group', $this->getGroup());
         $writer->writeStringValue('groupId', $this->getGroupId());
         $writer->writeEnumValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalId', $this->getPrincipalId());
     }

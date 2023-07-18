@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationError extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new educationSynchronizationError and sets the default values.
     */
     public function __construct() {
@@ -123,6 +128,7 @@ class EducationSynchronizationError extends Entity implements Parsable
         $writer->writeStringValue('errorCode', $this->getErrorCode());
         $writer->writeStringValue('errorMessage', $this->getErrorMessage());
         $writer->writeStringValue('joiningValue', $this->getJoiningValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('recordedDateTime', $this->getRecordedDateTime());
         $writer->writeStringValue('reportableIdentifier', $this->getReportableIdentifier());
     }

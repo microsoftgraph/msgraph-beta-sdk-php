@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class LearningProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new LearningProvider and sets the default values.
+     * Instantiates a new learningProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,6 +51,7 @@ class LearningProvider extends Entity implements Parsable
             'loginWebUrl' => fn(ParseNode $n) => $o->setLoginWebUrl($n->getStringValue()),
             'longLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForDarkTheme($n->getStringValue()),
             'longLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForLightTheme($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'squareLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForDarkTheme($n->getStringValue()),
             'squareLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForLightTheme($n->getStringValue()),
         ]);
@@ -133,6 +134,18 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @return string|null
     */
@@ -169,6 +182,7 @@ class LearningProvider extends Entity implements Parsable
         $writer->writeStringValue('loginWebUrl', $this->getLoginWebUrl());
         $writer->writeStringValue('longLogoWebUrlForDarkTheme', $this->getLongLogoWebUrlForDarkTheme());
         $writer->writeStringValue('longLogoWebUrlForLightTheme', $this->getLongLogoWebUrlForLightTheme());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('squareLogoWebUrlForDarkTheme', $this->getSquareLogoWebUrlForDarkTheme());
         $writer->writeStringValue('squareLogoWebUrlForLightTheme', $this->getSquareLogoWebUrlForLightTheme());
     }
@@ -227,6 +241,14 @@ class LearningProvider extends Entity implements Parsable
     */
     public function setLongLogoWebUrlForLightTheme(?string $value): void {
         $this->getBackingStore()->set('longLogoWebUrlForLightTheme', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

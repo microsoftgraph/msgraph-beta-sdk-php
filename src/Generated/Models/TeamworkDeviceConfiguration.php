@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamworkDeviceConfiguration and sets the default values.
     */
     public function __construct() {
@@ -205,6 +210,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('microphoneConfiguration', $this->getMicrophoneConfiguration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('softwareVersions', $this->getSoftwareVersions());
         $writer->writeObjectValue('speakerConfiguration', $this->getSpeakerConfiguration());
         $writer->writeObjectValue('systemConfiguration', $this->getSystemConfiguration());

@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Assigned Access profile for Windows.
+*/
 class WindowsAssignedAccessProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAssignedAccessProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsAssignedAccessProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -149,6 +157,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('appUserModelIds', $this->getAppUserModelIds());
         $writer->writeCollectionOfPrimitiveValues('desktopAppPaths', $this->getDesktopAppPaths());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('profileName', $this->getProfileName());
         $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
         $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());

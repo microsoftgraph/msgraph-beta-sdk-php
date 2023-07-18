@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health runtime history entity contains the trend of runtime of a device over a period of 30 days
+*/
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,8 +60,21 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
         return array_merge(parent::getFieldDeserializers(), [
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runtimeDateTime' => fn(ParseNode $n) => $o->setRuntimeDateTime($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +97,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
         parent::serialize($writer);
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('runtimeDateTime', $this->getRuntimeDateTime());
     }
 
@@ -98,6 +115,14 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

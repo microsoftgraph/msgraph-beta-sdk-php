@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementAutopilotPolicyStatusDetail and sets the default values.
     */
     public function __construct() {
@@ -126,6 +131,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('errorCode', $this->getErrorCode());
         $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeBooleanValue('trackedOnEnrollmentStatus', $this->getTrackedOnEnrollmentStatus());
     }

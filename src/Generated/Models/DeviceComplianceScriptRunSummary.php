@@ -7,8 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the run summary of a device management script.
+*/
 class DeviceComplianceScriptRunSummary extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new deviceComplianceScriptRunSummary and sets the default values.
     */
@@ -111,6 +119,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
         $writer->writeIntegerValue('issueDetectedDeviceCount', $this->getIssueDetectedDeviceCount());
         $writer->writeDateTimeValue('lastScriptRunDateTime', $this->getLastScriptRunDateTime());
         $writer->writeIntegerValue('noIssueDetectedDeviceCount', $this->getNoIssueDetectedDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

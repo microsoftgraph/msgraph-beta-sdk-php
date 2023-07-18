@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TodoTask extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new todoTask and sets the default values.
     */
     public function __construct() {
@@ -336,6 +341,7 @@ class TodoTask extends Entity implements Parsable
         $writer->writeBooleanValue('isReminderOn', $this->getIsReminderOn());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('linkedResources', $this->getLinkedResources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('recurrence', $this->getRecurrence());
         $writer->writeObjectValue('reminderDateTime', $this->getReminderDateTime());
         $writer->writeObjectValue('startDateTime', $this->getStartDateTime());

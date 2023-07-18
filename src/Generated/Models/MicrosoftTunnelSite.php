@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents a Microsoft Tunnel site
+*/
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelSite and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -214,6 +222,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         $writer->writeStringValue('internalNetworkProbeUrl', $this->getInternalNetworkProbeUrl());
         $writer->writeObjectValue('microsoftTunnelConfiguration', $this->getMicrosoftTunnelConfiguration());
         $writer->writeCollectionOfObjectValues('microsoftTunnelServers', $this->getMicrosoftTunnelServers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publicAddress', $this->getPublicAddress());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeBooleanValue('upgradeAutomatically', $this->getUpgradeAutomatically());

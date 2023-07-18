@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateCollectionTenantSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementTemplateCollectionTenantSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managementTemplateCollectionTenantSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -304,6 +309,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeStringValue('managementTemplateCollectionDisplayName', $this->getManagementTemplateCollectionDisplayName());
         $writer->writeStringValue('managementTemplateCollectionId', $this->getManagementTemplateCollectionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('regressedStepsCount', $this->getRegressedStepsCount());
         $writer->writeIntegerValue('regressedUsersCount', $this->getRegressedUsersCount());
         $writer->writeStringValue('tenantId', $this->getTenantId());

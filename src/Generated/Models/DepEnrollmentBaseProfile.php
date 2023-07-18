@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The DepEnrollmentBaseProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
+*/
 class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable 
 {
     /**
-     * Instantiates a new DepEnrollmentBaseProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new depEnrollmentBaseProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -352,6 +360,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
         $writer->writeBooleanValue('locationDisabled', $this->getLocationDisabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('privacyPaneDisabled', $this->getPrivacyPaneDisabled());
         $writer->writeBooleanValue('profileRemovalDisabled', $this->getProfileRemovalDisabled());
         $writer->writeBooleanValue('restoreBlocked', $this->getRestoreBlocked());

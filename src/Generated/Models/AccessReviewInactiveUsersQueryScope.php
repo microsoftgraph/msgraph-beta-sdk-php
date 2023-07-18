@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewInactiveUsersQueryScope and sets the default values.
+     * Instantiates a new accessReviewInactiveUsersQueryScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +34,7 @@ class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope impleme
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'inactiveDuration' => fn(ParseNode $n) => $o->setInactiveDuration($n->getDateIntervalValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -50,12 +51,25 @@ class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope impleme
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateIntervalValue('inactiveDuration', $this->getInactiveDuration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -64,6 +78,14 @@ class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope impleme
     */
     public function setInactiveDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('inactiveDuration', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

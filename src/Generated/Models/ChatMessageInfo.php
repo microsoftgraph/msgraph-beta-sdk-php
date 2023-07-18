@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChatMessageInfo extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new chatMessageInfo and sets the default values.
     */
     public function __construct() {
@@ -125,6 +130,7 @@ class ChatMessageInfo extends Entity implements Parsable
         $writer->writeObjectValue('from', $this->getFrom());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeEnumValue('messageType', $this->getMessageType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

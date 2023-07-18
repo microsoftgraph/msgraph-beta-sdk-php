@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an un-typed status report about organizations app protection and configuration.
+*/
 class ManagedAppStatusRaw extends ManagedAppStatus implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppStatusRaw and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedAppStatusRaw and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class ManagedAppStatusRaw extends ManagedAppStatus implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('content', $this->getContent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

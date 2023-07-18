@@ -63,6 +63,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EmbeddedSIMDeviceStateValue::class)),
             'stateDetails' => fn(ParseNode $n) => $o->setStateDetails($n->getStringValue()),
             'universalIntegratedCircuitCardIdentifier' => fn(ParseNode $n) => $o->setUniversalIntegratedCircuitCardIdentifier($n->getStringValue()),
@@ -92,6 +93,18 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -152,6 +165,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('stateDetails', $this->getStateDetails());
         $writer->writeStringValue('universalIntegratedCircuitCardIdentifier', $this->getUniversalIntegratedCircuitCardIdentifier());
@@ -188,6 +202,14 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

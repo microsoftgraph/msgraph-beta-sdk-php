@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new AddWatermarkAction and sets the default values.
+     * Instantiates a new addWatermarkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,6 +36,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
             'fontName' => fn(ParseNode $n) => $o->setFontName($n->getStringValue()),
             'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
             'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(WatermarkLayout::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
             'uiElementName' => fn(ParseNode $n) => $o->setUiElementName($n->getStringValue()),
         ]);
@@ -90,6 +91,18 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the text property value. The contents of the watermark itself.
      * @return string|null
     */
@@ -123,6 +136,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
         $writer->writeStringValue('fontName', $this->getFontName());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
         $writer->writeEnumValue('layout', $this->getLayout());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
         $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }
@@ -157,6 +171,14 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     */
     public function setLayout(?WatermarkLayout $value): void {
         $this->getBackingStore()->set('layout', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

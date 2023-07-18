@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ActivityStatistics extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new activityStatistics and sets the default values.
     */
     public function __construct() {
@@ -121,6 +126,7 @@ class ActivityStatistics extends Entity implements Parsable
         $writer->writeEnumValue('activity', $this->getActivity());
         $writer->writeDateIntervalValue('duration', $this->getDuration());
         $writer->writeDateValue('endDate', $this->getEndDate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeStringValue('timeZoneUsed', $this->getTimeZoneUsed());
     }

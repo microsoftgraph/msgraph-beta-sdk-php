@@ -10,7 +10,12 @@ use Psr\Http\Message\StreamInterface;
 class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
 {
     /**
-     * Instantiates a new OnenoteResource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onenoteResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,6 +75,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeStringValue('contentUrl', $this->getContentUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

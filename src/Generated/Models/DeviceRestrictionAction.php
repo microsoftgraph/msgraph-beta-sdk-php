@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceRestrictionAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * Instantiates a new DeviceRestrictionAction and sets the default values.
+     * Instantiates a new deviceRestrictionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictionAction' => fn(ParseNode $n) => $o->setRestrictionAction($n->getEnumValue(RestrictionAction::class)),
             'triggers' => fn(ParseNode $n) => $o->setTriggers($n->getCollectionOfEnumValues(RestrictionTrigger::class)),
         ]);
@@ -48,6 +49,18 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'message'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,6 +96,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('restrictionAction', $this->getRestrictionAction());
         $writer->writeCollectionOfEnumValues('triggers', $this->getTriggers());
     }
@@ -93,6 +107,14 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserSecurityProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -189,6 +194,7 @@ class UserSecurityProfile extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('riskScore', $this->getRiskScore());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());

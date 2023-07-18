@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Training extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new training and sets the default values.
     */
     public function __construct() {
@@ -254,6 +259,7 @@ class Training extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('languageDetails', $this->getLanguageDetails());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('source', $this->getSource());
         $writer->writeCollectionOfPrimitiveValues('supportedLocales', $this->getSupportedLocales());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());

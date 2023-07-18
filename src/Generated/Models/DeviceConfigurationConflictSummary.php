@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Conflict summary for a set of device configuration policies.
+*/
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceConfigurationConflictSummary and sets the default values.
+     * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,7 +85,20 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
                 $this->setContributingSettings($val);
             },
             'deviceCheckinsImpacted' => fn(ParseNode $n) => $o->setDeviceCheckinsImpacted($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,6 +110,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('conflictingDeviceConfigurations', $this->getConflictingDeviceConfigurations());
         $writer->writeCollectionOfPrimitiveValues('contributingSettings', $this->getContributingSettings());
         $writer->writeIntegerValue('deviceCheckinsImpacted', $this->getDeviceCheckinsImpacted());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -118,6 +135,14 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     */
     public function setDeviceCheckinsImpacted(?int $value): void {
         $this->getBackingStore()->set('deviceCheckinsImpacted', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

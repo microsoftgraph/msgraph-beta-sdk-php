@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * iOS SCEP certificate profile.
+*/
 class IosScepCertificateProfile extends IosCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new IosScepCertificateProfile and sets the default values.
+     * Instantiates a new iosScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

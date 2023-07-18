@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new EmailThreatSubmission and sets the default values.
+     * Instantiates a new emailThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +55,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'attackSimulationInfo' => fn(ParseNode $n) => $o->setAttackSimulationInfo($n->getObjectValue([AttackSimulationInfo::class, 'createFromDiscriminatorValue'])),
             'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'originalCategory' => fn(ParseNode $n) => $o->setOriginalCategory($n->getEnumValue(SubmissionCategory::class)),
             'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
             'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
@@ -75,6 +76,18 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'internetMessageId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -169,6 +182,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('attackSimulationInfo', $this->getAttackSimulationInfo());
         $writer->writeStringValue('internetMessageId', $this->getInternetMessageId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('originalCategory', $this->getOriginalCategory());
         $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
         $writer->writeStringValue('recipientEmailAddress', $this->getRecipientEmailAddress());
@@ -192,6 +206,14 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     */
     public function setInternetMessageId(?string $value): void {
         $this->getBackingStore()->set('internetMessageId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

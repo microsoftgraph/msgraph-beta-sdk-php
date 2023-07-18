@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FilterOperatorSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FilterOperatorSchema and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new filterOperatorSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,6 +89,7 @@ class FilterOperatorSchema extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('arity', $this->getArity());
         $writer->writeEnumValue('multivaluedComparisonType', $this->getMultivaluedComparisonType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfEnumValues('supportedAttributeTypes', $this->getSupportedAttributeTypes());
     }
 

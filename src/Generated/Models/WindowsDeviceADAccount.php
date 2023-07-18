@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDeviceADAccount extends WindowsDeviceAccount implements Parsable 
 {
     /**
-     * Instantiates a new WindowsDeviceADAccount and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsDeviceADAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class WindowsDeviceADAccount extends WindowsDeviceAccount implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('domainName', $this->getDomainName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userName', $this->getUserName());
     }
 

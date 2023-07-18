@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCertificateState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedDeviceCertificateState and sets the default values.
     */
     public function __construct() {
@@ -376,6 +381,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeEnumValue('devicePlatform', $this->getDevicePlatform());
         $writer->writeDateTimeValue('lastCertificateStateChangeDateTime', $this->getLastCertificateStateChangeDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
     }
 

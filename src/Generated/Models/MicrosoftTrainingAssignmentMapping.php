@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MicrosoftTrainingAssignmentMapping extends TrainingSetting implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new microsoftTrainingAssignmentMapping and sets the default values.
     */
     public function __construct() {
@@ -71,6 +76,7 @@ class MicrosoftTrainingAssignmentMapping extends TrainingSetting implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfEnumValues('assignedTo', $this->getAssignedTo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('training', $this->getTraining());
     }
 

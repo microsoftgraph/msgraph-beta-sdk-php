@@ -62,6 +62,7 @@ class TodoTaskList extends Entity implements Parsable
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'isOwner' => fn(ParseNode $n) => $o->setIsOwner($n->getBooleanValue()),
             'isShared' => fn(ParseNode $n) => $o->setIsShared($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([TodoTask::class, 'createFromDiscriminatorValue'])),
             'wellknownListName' => fn(ParseNode $n) => $o->setWellknownListName($n->getEnumValue(WellknownListName::class)),
         ]);
@@ -89,6 +90,18 @@ class TodoTaskList extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isShared'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -127,6 +140,7 @@ class TodoTaskList extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
         $writer->writeBooleanValue('isOwner', $this->getIsOwner());
         $writer->writeBooleanValue('isShared', $this->getIsShared());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
         $writer->writeEnumValue('wellknownListName', $this->getWellknownListName());
     }
@@ -161,6 +175,14 @@ class TodoTaskList extends Entity implements Parsable
     */
     public function setIsShared(?bool $value): void {
         $this->getBackingStore()->set('isShared', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

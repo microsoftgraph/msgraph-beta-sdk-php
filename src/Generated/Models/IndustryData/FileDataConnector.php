@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileDataConnector extends IndustryDataConnector implements Parsable 
 {
     /**
-     * Instantiates a new FileDataConnector and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new fileDataConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -48,6 +53,7 @@ class FileDataConnector extends IndustryDataConnector implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

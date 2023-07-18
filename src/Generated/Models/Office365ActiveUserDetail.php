@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Office365ActiveUserDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Office365ActiveUserDetail and sets the default values.
+     * Instantiates a new office365ActiveUserDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -114,6 +114,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
             'hasTeamsLicense' => fn(ParseNode $n) => $o->setHasTeamsLicense($n->getBooleanValue()),
             'hasYammerLicense' => fn(ParseNode $n) => $o->setHasYammerLicense($n->getBooleanValue()),
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'oneDriveLastActivityDate' => fn(ParseNode $n) => $o->setOneDriveLastActivityDate($n->getDateValue()),
             'oneDriveLicenseAssignDate' => fn(ParseNode $n) => $o->setOneDriveLicenseAssignDate($n->getDateValue()),
             'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
@@ -211,6 +212,18 @@ class Office365ActiveUserDetail extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeleted'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -375,6 +388,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
         $writer->writeBooleanValue('hasTeamsLicense', $this->getHasTeamsLicense());
         $writer->writeBooleanValue('hasYammerLicense', $this->getHasYammerLicense());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('oneDriveLastActivityDate', $this->getOneDriveLastActivityDate());
         $writer->writeDateValue('oneDriveLicenseAssignDate', $this->getOneDriveLicenseAssignDate());
         $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
@@ -483,6 +497,14 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     */
     public function setIsDeleted(?bool $value): void {
         $this->getBackingStore()->set('isDeleted', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

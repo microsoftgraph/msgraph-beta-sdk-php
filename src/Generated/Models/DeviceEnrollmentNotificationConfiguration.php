@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enrollment Notification Configuration which is used to send notification
+*/
 class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentNotificationConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceEnrollmentNotificationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -133,6 +141,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
         $writer->writeStringValue('defaultLocale', $this->getDefaultLocale());
         $writer->writeStringValue('notificationMessageTemplateId', $this->getNotificationMessageTemplateId());
         $writer->writeCollectionOfPrimitiveValues('notificationTemplates', $this->getNotificationTemplates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platformType', $this->getPlatformType());
         $writer->writeEnumValue('templateType', $this->getTemplateType());
     }

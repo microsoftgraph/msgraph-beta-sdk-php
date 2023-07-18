@@ -131,6 +131,7 @@ class ManagedEBook extends Entity implements Parsable
             'installSummary' => fn(ParseNode $n) => $o->setInstallSummary($n->getObjectValue([EBookInstallSummary::class, 'createFromDiscriminatorValue'])),
             'largeCover' => fn(ParseNode $n) => $o->setLargeCover($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'privacyInformationUrl' => fn(ParseNode $n) => $o->setPrivacyInformationUrl($n->getStringValue()),
             'publishedDateTime' => fn(ParseNode $n) => $o->setPublishedDateTime($n->getDateTimeValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
@@ -184,6 +185,18 @@ class ManagedEBook extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -252,6 +265,7 @@ class ManagedEBook extends Entity implements Parsable
         $writer->writeObjectValue('installSummary', $this->getInstallSummary());
         $writer->writeObjectValue('largeCover', $this->getLargeCover());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('privacyInformationUrl', $this->getPrivacyInformationUrl());
         $writer->writeDateTimeValue('publishedDateTime', $this->getPublishedDateTime());
         $writer->writeStringValue('publisher', $this->getPublisher());
@@ -336,6 +350,14 @@ class ManagedEBook extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

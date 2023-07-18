@@ -6,8 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents user state summary for an intent
+*/
 class DeviceManagementIntentUserStateSummary extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new deviceManagementIntentUserStateSummary and sets the default values.
     */
@@ -109,6 +117,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
         $writer->writeIntegerValue('errorCount', $this->getErrorCount());
         $writer->writeIntegerValue('failedCount', $this->getFailedCount());
         $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successCount', $this->getSuccessCount());
     }
 

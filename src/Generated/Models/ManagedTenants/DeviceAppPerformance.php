@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAppPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceAppPerformance and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceAppPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -262,6 +267,7 @@ class DeviceAppPerformance extends Entity implements Parsable
         $writer->writeIntegerValue('isLatestUsedVersion', $this->getIsLatestUsedVersion());
         $writer->writeIntegerValue('isMostUsedVersion', $this->getIsMostUsedVersion());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('totalAppCrashCount', $this->getTotalAppCrashCount());

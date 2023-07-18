@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\TenantStatus;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tenantStatus from networkAccess
+ * Retrieve the onboarding status of a specific tenant.
 */
 class TenantStatusRequestBuilderGetQueryParameters 
 {

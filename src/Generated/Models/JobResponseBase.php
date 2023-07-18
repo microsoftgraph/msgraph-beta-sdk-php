@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JobResponseBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new JobResponseBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new jobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -157,6 +162,7 @@ class JobResponseBase extends Entity implements Parsable
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeObjectValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeStringValue('tenantId', $this->getTenantId());

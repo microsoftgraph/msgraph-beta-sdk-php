@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IpSegmentConfiguration extends SegmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IpSegmentConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ipSegmentConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class IpSegmentConfiguration extends SegmentConfiguration implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('applicationSegments', $this->getApplicationSegments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

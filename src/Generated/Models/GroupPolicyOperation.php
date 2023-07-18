@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyOperation extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new groupPolicyOperation and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operationStatus', $this->getOperationStatus());
         $writer->writeEnumValue('operationType', $this->getOperationType());
         $writer->writeStringValue('statusDetails', $this->getStatusDetails());

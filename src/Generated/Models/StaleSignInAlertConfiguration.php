@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StaleSignInAlertConfiguration extends UnifiedRoleManagementAlertConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new StaleSignInAlertConfiguration and sets the default values.
+     * Instantiates a new staleSignInAlertConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

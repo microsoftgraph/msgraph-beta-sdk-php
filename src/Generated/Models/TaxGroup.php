@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaxGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TaxGroup and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new taxGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -96,6 +101,7 @@ class TaxGroup extends Entity implements Parsable
         $writer->writeStringValue('code', $this->getCode());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('taxType', $this->getTaxType());
     }
 

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Desktop App for Windows information protection
+*/
 class WindowsInformationProtectionDesktopApp extends WindowsInformationProtectionApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsInformationProtectionDesktopApp and sets the default values.
+     * Instantiates a new windowsInformationProtectionDesktopApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -71,7 +74,20 @@ class WindowsInformationProtectionDesktopApp extends WindowsInformationProtectio
             'binaryName' => fn(ParseNode $n) => $o->setBinaryName($n->getStringValue()),
             'binaryVersionHigh' => fn(ParseNode $n) => $o->setBinaryVersionHigh($n->getStringValue()),
             'binaryVersionLow' => fn(ParseNode $n) => $o->setBinaryVersionLow($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,6 +99,7 @@ class WindowsInformationProtectionDesktopApp extends WindowsInformationProtectio
         $writer->writeStringValue('binaryName', $this->getBinaryName());
         $writer->writeStringValue('binaryVersionHigh', $this->getBinaryVersionHigh());
         $writer->writeStringValue('binaryVersionLow', $this->getBinaryVersionLow());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +124,14 @@ class WindowsInformationProtectionDesktopApp extends WindowsInformationProtectio
     */
     public function setBinaryVersionLow(?string $value): void {
         $this->getBackingStore()->set('binaryVersionLow', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

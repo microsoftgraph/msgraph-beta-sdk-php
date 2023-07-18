@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RecommendLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new RecommendLabelAction and sets the default values.
+     * Instantiates a new recommendLabelAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,6 +62,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
             'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfObjectValues([InformationProtectionAction::class, 'createFromDiscriminatorValue'])),
             'actionSource' => fn(ParseNode $n) => $o->setActionSource($n->getEnumValue(ActionSource::class)),
             'label' => fn(ParseNode $n) => $o->setLabel($n->getObjectValue([LabelDetails::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'responsibleSensitiveTypeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -83,6 +84,18 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,6 +121,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
         $writer->writeCollectionOfObjectValues('actions', $this->getActions());
         $writer->writeEnumValue('actionSource', $this->getActionSource());
         $writer->writeObjectValue('label', $this->getLabel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->getResponsibleSensitiveTypeIds());
     }
 
@@ -133,6 +147,14 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     */
     public function setLabel(?LabelDetails $value): void {
         $this->getBackingStore()->set('label', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

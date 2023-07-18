@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for DeviceManagementConfiguration PolicySetItem.
+*/
 class DeviceManagementConfigurationPolicyPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationPolicyPolicySetItem and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationPolicyPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +49,7 @@ class DeviceManagementConfigurationPolicyPolicySetItem extends PolicySetItem imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
 }

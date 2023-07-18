@@ -140,6 +140,7 @@ class PrintJob extends Entity implements Parsable
             'documents' => fn(ParseNode $n) => $o->setDocuments($n->getCollectionOfObjectValues([PrintDocument::class, 'createFromDiscriminatorValue'])),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
             'isFetchable' => fn(ParseNode $n) => $o->setIsFetchable($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'redirectedFrom' => fn(ParseNode $n) => $o->setRedirectedFrom($n->getStringValue()),
             'redirectedTo' => fn(ParseNode $n) => $o->setRedirectedTo($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([PrintJobStatus::class, 'createFromDiscriminatorValue'])),
@@ -157,6 +158,18 @@ class PrintJob extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isFetchable'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -224,6 +237,7 @@ class PrintJob extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('documents', $this->getDocuments());
         $writer->writeIntegerValue('errorCode', $this->getErrorCode());
         $writer->writeBooleanValue('isFetchable', $this->getIsFetchable());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('redirectedFrom', $this->getRedirectedFrom());
         $writer->writeStringValue('redirectedTo', $this->getRedirectedTo());
         $writer->writeObjectValue('status', $this->getStatus());
@@ -300,6 +314,14 @@ class PrintJob extends Entity implements Parsable
     */
     public function setIsFetchable(?bool $value): void {
         $this->getBackingStore()->set('isFetchable', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

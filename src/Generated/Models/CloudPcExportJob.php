@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcExportJob and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcExportJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -160,6 +165,7 @@ class CloudPcExportJob extends Entity implements Parsable
         $writer->writeStringValue('exportUrl', $this->getExportUrl());
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeStringValue('format', $this->getFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('reportName', $this->getReportName());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());

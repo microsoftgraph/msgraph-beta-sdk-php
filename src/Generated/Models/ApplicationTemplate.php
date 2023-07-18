@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApplicationTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new applicationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -204,6 +209,7 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
         $writer->writeObjectValue('informationalUrls', $this->getInformationalUrls());
         $writer->writeStringValue('logoUrl', $this->getLogoUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeObjectValue('supportedClaimConfiguration', $this->getSupportedClaimConfiguration());
         $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->getSupportedProvisioningTypes());

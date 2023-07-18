@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamDescriptionUpdatedEventMessageDetail extends EventMessageDetail implements Parsable 
 {
     /**
-     * Instantiates a new TeamDescriptionUpdatedEventMessageDetail and sets the default values.
+     * Instantiates a new teamDescriptionUpdatedEventMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class TeamDescriptionUpdatedEventMessageDetail extends EventMessageDetail implem
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'initiator' => fn(ParseNode $n) => $o->setInitiator($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'teamDescription' => fn(ParseNode $n) => $o->setTeamDescription($n->getStringValue()),
             'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
         ]);
@@ -48,6 +49,18 @@ class TeamDescriptionUpdatedEventMessageDetail extends EventMessageDetail implem
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'initiator'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +94,7 @@ class TeamDescriptionUpdatedEventMessageDetail extends EventMessageDetail implem
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('initiator', $this->getInitiator());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('teamDescription', $this->getTeamDescription());
         $writer->writeStringValue('teamId', $this->getTeamId());
     }
@@ -91,6 +105,14 @@ class TeamDescriptionUpdatedEventMessageDetail extends EventMessageDetail implem
     */
     public function setInitiator(?IdentitySet $value): void {
         $this->getBackingStore()->set('initiator', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

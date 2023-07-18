@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Allows IT admins to set a predefined default search engine for MDM-Controlled devices.
+*/
 class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable 
 {
     /**
-     * Instantiates a new EdgeSearchEngine and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new edgeSearchEngine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('edgeSearchEngineType', $this->getEdgeSearchEngineType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

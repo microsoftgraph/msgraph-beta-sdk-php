@@ -65,6 +65,7 @@ class Agreement extends Entity implements Parsable
             'files' => fn(ParseNode $n) => $o->setFiles($n->getCollectionOfObjectValues([AgreementFileLocalization::class, 'createFromDiscriminatorValue'])),
             'isPerDeviceAcceptanceRequired' => fn(ParseNode $n) => $o->setIsPerDeviceAcceptanceRequired($n->getBooleanValue()),
             'isViewingBeforeAcceptanceRequired' => fn(ParseNode $n) => $o->setIsViewingBeforeAcceptanceRequired($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'termsExpiration' => fn(ParseNode $n) => $o->setTermsExpiration($n->getObjectValue([TermsExpiration::class, 'createFromDiscriminatorValue'])),
             'userReacceptRequiredFrequency' => fn(ParseNode $n) => $o->setUserReacceptRequiredFrequency($n->getDateIntervalValue()),
         ]);
@@ -121,6 +122,18 @@ class Agreement extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).
      * @return TermsExpiration|null
     */
@@ -156,6 +169,7 @@ class Agreement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('files', $this->getFiles());
         $writer->writeBooleanValue('isPerDeviceAcceptanceRequired', $this->getIsPerDeviceAcceptanceRequired());
         $writer->writeBooleanValue('isViewingBeforeAcceptanceRequired', $this->getIsViewingBeforeAcceptanceRequired());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('termsExpiration', $this->getTermsExpiration());
         $writer->writeDateIntervalValue('userReacceptRequiredFrequency', $this->getUserReacceptRequiredFrequency());
     }
@@ -206,6 +220,14 @@ class Agreement extends Entity implements Parsable
     */
     public function setIsViewingBeforeAcceptanceRequired(?bool $value): void {
         $this->getBackingStore()->set('isViewingBeforeAcceptanceRequired', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

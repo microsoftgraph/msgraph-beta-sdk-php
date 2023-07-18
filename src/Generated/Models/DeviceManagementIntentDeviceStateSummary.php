@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents device state summary for an intent
+*/
 class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsable 
 {
     /**
@@ -72,6 +75,7 @@ class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsabl
             'failedCount' => fn(ParseNode $n) => $o->setFailedCount($n->getIntegerValue()),
             'notApplicableCount' => fn(ParseNode $n) => $o->setNotApplicableCount($n->getIntegerValue()),
             'notApplicablePlatformCount' => fn(ParseNode $n) => $o->setNotApplicablePlatformCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'successCount' => fn(ParseNode $n) => $o->setSuccessCount($n->getIntegerValue()),
         ]);
     }
@@ -101,6 +105,18 @@ class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsabl
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the successCount property value. Number of succeeded devices
      * @return int|null
     */
@@ -123,6 +139,7 @@ class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsabl
         $writer->writeIntegerValue('failedCount', $this->getFailedCount());
         $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
         $writer->writeIntegerValue('notApplicablePlatformCount', $this->getNotApplicablePlatformCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successCount', $this->getSuccessCount());
     }
 
@@ -164,6 +181,14 @@ class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsabl
     */
     public function setNotApplicablePlatformCount(?int $value): void {
         $this->getBackingStore()->set('notApplicablePlatformCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

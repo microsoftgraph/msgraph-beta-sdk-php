@@ -8,8 +8,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
+*/
 class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new managedAppPolicyDeploymentSummary and sets the default values.
     */
@@ -113,6 +121,7 @@ class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('configurationDeploymentSummaryPerApp', $this->getConfigurationDeploymentSummaryPerApp());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastRefreshTime', $this->getLastRefreshTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('version', $this->getVersion());
     }
 

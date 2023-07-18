@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementTemplateStepVersion extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managementTemplateStepVersion and sets the default values.
     */
     public function __construct() {
@@ -196,6 +201,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('templateStep', $this->getTemplateStep());
         $writer->writeIntegerValue('version', $this->getVersion());
         $writer->writeStringValue('versionInformation', $this->getVersionInformation());

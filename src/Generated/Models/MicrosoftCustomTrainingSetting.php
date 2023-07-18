@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MicrosoftCustomTrainingSetting extends TrainingSetting implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftCustomTrainingSetting and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftCustomTrainingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,6 +90,7 @@ class MicrosoftCustomTrainingSetting extends TrainingSetting implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('completionDateTime', $this->getCompletionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('trainingAssignmentMappings', $this->getTrainingAssignmentMappings());
         $writer->writeEnumValue('trainingCompletionDuration', $this->getTrainingCompletionDuration());
     }

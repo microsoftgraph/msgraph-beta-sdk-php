@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessReviewInstanceDecisionItem extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessReviewInstanceDecisionItem and sets the default values.
     */
     public function __construct() {
@@ -273,6 +278,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('insights', $this->getInsights());
         $writer->writeObjectValue('instance', $this->getInstance());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalLink', $this->getPrincipalLink());
         $writer->writeObjectValue('principalResourceMembership', $this->getPrincipalResourceMembership());

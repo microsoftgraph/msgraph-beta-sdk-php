@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Command extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new command and sets the default values.
     */
     public function __construct() {
@@ -159,6 +164,7 @@ class Command extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appServiceName', $this->getAppServiceName());
         $writer->writeStringValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('packageFamilyName', $this->getPackageFamilyName());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeStringValue('permissionTicket', $this->getPermissionTicket());

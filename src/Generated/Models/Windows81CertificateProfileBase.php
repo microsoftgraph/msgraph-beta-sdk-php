@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device Configuration.
+*/
 class Windows81CertificateProfileBase extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows81CertificateProfileBase and sets the default values.
+     * Instantiates a new windows81CertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

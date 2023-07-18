@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * KioskModeApp v4 for Win32 app support
+*/
 class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskWin32App and sets the default values.
+     * Instantiates a new windowsKioskWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -97,7 +100,20 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
             'edgeKioskIdleTimeoutMinutes' => fn(ParseNode $n) => $o->setEdgeKioskIdleTimeoutMinutes($n->getIntegerValue()),
             'edgeKioskType' => fn(ParseNode $n) => $o->setEdgeKioskType($n->getEnumValue(WindowsEdgeKioskType::class)),
             'edgeNoFirstRun' => fn(ParseNode $n) => $o->setEdgeNoFirstRun($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,6 +127,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
         $writer->writeIntegerValue('edgeKioskIdleTimeoutMinutes', $this->getEdgeKioskIdleTimeoutMinutes());
         $writer->writeEnumValue('edgeKioskType', $this->getEdgeKioskType());
         $writer->writeBooleanValue('edgeNoFirstRun', $this->getEdgeNoFirstRun());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -151,6 +168,14 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     */
     public function setEdgeNoFirstRun(?bool $value): void {
         $this->getBackingStore()->set('edgeNoFirstRun', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

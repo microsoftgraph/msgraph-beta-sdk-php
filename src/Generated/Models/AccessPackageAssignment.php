@@ -183,6 +183,7 @@ class AccessPackageAssignment extends Entity implements Parsable
             'customExtensionCalloutInstances' => fn(ParseNode $n) => $o->setCustomExtensionCalloutInstances($n->getCollectionOfObjectValues([CustomExtensionCalloutInstance::class, 'createFromDiscriminatorValue'])),
             'expiredDateTime' => fn(ParseNode $n) => $o->setExpiredDateTime($n->getDateTimeValue()),
             'isExtended' => fn(ParseNode $n) => $o->setIsExtended($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
             'targetId' => fn(ParseNode $n) => $o->setTargetId($n->getStringValue()),
@@ -199,6 +200,18 @@ class AccessPackageAssignment extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isExtended'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -255,6 +268,7 @@ class AccessPackageAssignment extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customExtensionCalloutInstances', $this->getCustomExtensionCalloutInstances());
         $writer->writeDateTimeValue('expiredDateTime', $this->getExpiredDateTime());
         $writer->writeBooleanValue('isExtended', $this->getIsExtended());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('schedule', $this->getSchedule());
         $writer->writeObjectValue('target', $this->getTarget());
         $writer->writeStringValue('targetId', $this->getTargetId());
@@ -354,6 +368,14 @@ class AccessPackageAssignment extends Entity implements Parsable
     */
     public function setIsExtended(?bool $value): void {
         $this->getBackingStore()->set('isExtended', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

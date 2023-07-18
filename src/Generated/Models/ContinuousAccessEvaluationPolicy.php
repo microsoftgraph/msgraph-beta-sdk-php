@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ContinuousAccessEvaluationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ContinuousAccessEvaluationPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new continuousAccessEvaluationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -142,6 +147,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('groups', $this->getGroups());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('migrate', $this->getMigrate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('users', $this->getUsers());
     }
 

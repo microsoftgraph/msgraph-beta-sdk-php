@@ -14,6 +14,11 @@ use Psr\Http\Message\StreamInterface;
 class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
@@ -74,6 +79,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('exampleJson', $this->getExampleJson());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('schemaItems', $this->getSchemaItems());
     }
 

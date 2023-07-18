@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtectionLabel extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new informationProtectionLabel and sets the default values.
     */
     public function __construct() {
@@ -135,6 +140,7 @@ class InformationProtectionLabel extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBooleanValue('isActive', $this->getIsActive());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
         $writer->writeIntegerValue('sensitivity', $this->getSensitivity());
         $writer->writeStringValue('tooltip', $this->getTooltip());

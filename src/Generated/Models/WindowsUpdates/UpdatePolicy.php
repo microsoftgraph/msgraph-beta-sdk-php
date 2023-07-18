@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UpdatePolicy extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new updatePolicy and sets the default values.
     */
     public function __construct() {
@@ -117,6 +122,7 @@ class UpdatePolicy extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('complianceChanges', $this->getComplianceChanges());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('deploymentSettings', $this->getDeploymentSettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

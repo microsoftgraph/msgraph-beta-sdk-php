@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements Parsable 
 {
     /**
-     * Instantiates a new EducationAssignmentPointsGrade and sets the default values.
+     * Instantiates a new educationAssignmentPointsGrade and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,8 +32,21 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'points' => fn(ParseNode $n) => $o->setPoints($n->getFloatValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -54,7 +67,16 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('points', $this->getPoints());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

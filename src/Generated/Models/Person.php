@@ -102,6 +102,7 @@ class Person extends Entity implements Parsable
             'givenName' => fn(ParseNode $n) => $o->setGivenName($n->getStringValue()),
             'isFavorite' => fn(ParseNode $n) => $o->setIsFavorite($n->getBooleanValue()),
             'mailboxType' => fn(ParseNode $n) => $o->setMailboxType($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'officeLocation' => fn(ParseNode $n) => $o->setOfficeLocation($n->getStringValue()),
             'personNotes' => fn(ParseNode $n) => $o->setPersonNotes($n->getStringValue()),
             'personType' => fn(ParseNode $n) => $o->setPersonType($n->getStringValue()),
@@ -151,6 +152,18 @@ class Person extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxType'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -319,6 +332,7 @@ class Person extends Entity implements Parsable
         $writer->writeStringValue('givenName', $this->getGivenName());
         $writer->writeBooleanValue('isFavorite', $this->getIsFavorite());
         $writer->writeStringValue('mailboxType', $this->getMailboxType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('officeLocation', $this->getOfficeLocation());
         $writer->writeStringValue('personNotes', $this->getPersonNotes());
         $writer->writeStringValue('personType', $this->getPersonType());
@@ -395,6 +409,14 @@ class Person extends Entity implements Parsable
     */
     public function setMailboxType(?string $value): void {
         $this->getBackingStore()->set('mailboxType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

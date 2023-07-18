@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HorizontalSection extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new horizontalSection and sets the default values.
     */
     public function __construct() {
@@ -85,6 +90,7 @@ class HorizontalSection extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('columns', $this->getColumns());
         $writer->writeEnumValue('emphasis', $this->getEmphasis());
         $writer->writeEnumValue('layout', $this->getLayout());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

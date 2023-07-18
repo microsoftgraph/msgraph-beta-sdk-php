@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Monitoring extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new monitoring and sets the default values.
     */
     public function __construct() {
@@ -74,6 +79,7 @@ class Monitoring extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('alertRecords', $this->getAlertRecords());
         $writer->writeCollectionOfObjectValues('alertRules', $this->getAlertRules());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

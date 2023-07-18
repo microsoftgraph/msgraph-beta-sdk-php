@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TiIndicator extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TiIndicator and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new tiIndicator and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -882,6 +887,7 @@ class TiIndicator extends Entity implements Parsable
         $writer->writeStringValue('networkSourceIPv4', $this->getNetworkSourceIPv4());
         $writer->writeStringValue('networkSourceIPv6', $this->getNetworkSourceIPv6());
         $writer->writeIntegerValue('networkSourcePort', $this->getNetworkSourcePort());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passiveOnly', $this->getPassiveOnly());
         $writer->writeIntegerValue('severity', $this->getSeverity());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());

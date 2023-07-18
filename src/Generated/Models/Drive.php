@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Drive extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new Drive and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new drive and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -214,6 +219,7 @@ class Drive extends BaseItem implements Parsable
         $writer->writeObjectValue('list', $this->getList());
         $writer->writeCollectionOfObjectValues('following', $this->getFollowing());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('owner', $this->getOwner());
         $writer->writeObjectValue('quota', $this->getQuota());
         $writer->writeObjectValue('root', $this->getRoot());

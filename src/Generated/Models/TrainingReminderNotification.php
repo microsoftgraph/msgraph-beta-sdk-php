@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrainingReminderNotification extends BaseEndUserNotification implements Parsable 
 {
     /**
-     * Instantiates a new TrainingReminderNotification and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new trainingReminderNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class TrainingReminderNotification extends BaseEndUserNotification implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('deliveryFrequency', $this->getDeliveryFrequency());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

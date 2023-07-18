@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class ObliterationBehavior extends Enum {
-    public const ESCAPED_DEFAULT = 'default';
+    public const DEFAULT = 'default';
     public const DO_NOT_OBLITERATE = 'doNotObliterate';
     public const OBLITERATE_WITH_WARNING = 'obliterateWithWarning';
     public const ALWAYS = 'always';

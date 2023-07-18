@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NotifyUserAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * Instantiates a new NotifyUserAction and sets the default values.
+     * Instantiates a new notifyUserAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +59,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'actionLastModifiedDateTime' => fn(ParseNode $n) => $o->setActionLastModifiedDateTime($n->getDateTimeValue()),
             'emailText' => fn(ParseNode $n) => $o->setEmailText($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
             'recipients' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -69,6 +70,18 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
                 $this->setRecipients($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -105,6 +118,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->getActionLastModifiedDateTime());
         $writer->writeStringValue('emailText', $this->getEmailText());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('policyTip', $this->getPolicyTip());
         $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }
@@ -123,6 +137,14 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     */
     public function setEmailText(?string $value): void {
         $this->getBackingStore()->set('emailText', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

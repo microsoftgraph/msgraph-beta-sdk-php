@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingGroupDefinition and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationSettingGroupDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -103,6 +108,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
         $writer->writeCollectionOfPrimitiveValues('childIds', $this->getChildIds());
         $writer->writeCollectionOfObjectValues('dependedOnBy', $this->getDependedOnBy());
         $writer->writeCollectionOfObjectValues('dependentOn', $this->getDependentOn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new EmailUrlThreatSubmission and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new emailUrlThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('messageUrl', $this->getMessageUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

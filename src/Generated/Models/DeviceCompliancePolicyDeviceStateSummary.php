@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCompliancePolicyDeviceStateSummary and sets the default values.
+     * Instantiates a new deviceCompliancePolicyDeviceStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,6 +86,7 @@ class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsabl
             'inGracePeriodCount' => fn(ParseNode $n) => $o->setInGracePeriodCount($n->getIntegerValue()),
             'nonCompliantDeviceCount' => fn(ParseNode $n) => $o->setNonCompliantDeviceCount($n->getIntegerValue()),
             'notApplicableDeviceCount' => fn(ParseNode $n) => $o->setNotApplicableDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'remediatedDeviceCount' => fn(ParseNode $n) => $o->setRemediatedDeviceCount($n->getIntegerValue()),
             'unknownDeviceCount' => fn(ParseNode $n) => $o->setUnknownDeviceCount($n->getIntegerValue()),
         ]);
@@ -128,6 +129,18 @@ class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsabl
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the remediatedDeviceCount property value. Number of remediated devices
      * @return int|null
     */
@@ -164,6 +177,7 @@ class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsabl
         $writer->writeIntegerValue('inGracePeriodCount', $this->getInGracePeriodCount());
         $writer->writeIntegerValue('nonCompliantDeviceCount', $this->getNonCompliantDeviceCount());
         $writer->writeIntegerValue('notApplicableDeviceCount', $this->getNotApplicableDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('remediatedDeviceCount', $this->getRemediatedDeviceCount());
         $writer->writeIntegerValue('unknownDeviceCount', $this->getUnknownDeviceCount());
     }
@@ -222,6 +236,14 @@ class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsabl
     */
     public function setNotApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableDeviceCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

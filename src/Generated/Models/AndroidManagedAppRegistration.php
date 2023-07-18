@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents the synchronization details of an android app, with management capabilities, for a specific user.
+*/
 class AndroidManagedAppRegistration extends ManagedAppRegistration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedAppRegistration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidManagedAppRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('patchVersion', $this->getPatchVersion());
     }
 

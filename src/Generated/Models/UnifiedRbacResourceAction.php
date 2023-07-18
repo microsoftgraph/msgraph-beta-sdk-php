@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRbacResourceAction extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new unifiedRbacResourceAction and sets the default values.
     */
     public function __construct() {
@@ -164,6 +169,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
         $writer->writeBooleanValue('isAuthenticationContextSettable', $this->getIsAuthenticationContextSettable());
         $writer->writeBooleanValue('isPrivileged', $this->getIsPrivileged());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('resourceScope', $this->getResourceScope());
         $writer->writeStringValue('resourceScopeId', $this->getResourceScopeId());
     }

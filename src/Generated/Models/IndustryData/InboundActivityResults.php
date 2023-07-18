@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class InboundActivityResults extends IndustryDataActivityStatistics implements Parsable 
 {
     /**
-     * Instantiates a new InboundActivityResults and sets the default values.
+     * Instantiates a new inboundActivityResults and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,6 +49,7 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
             'groups' => fn(ParseNode $n) => $o->setGroups($n->getObjectValue([IndustryDataRunEntityCountMetric::class, 'createFromDiscriminatorValue'])),
             'matchedPeopleByRole' => fn(ParseNode $n) => $o->setMatchedPeopleByRole($n->getCollectionOfObjectValues([IndustryDataRunRoleCountMetric::class, 'createFromDiscriminatorValue'])),
             'memberships' => fn(ParseNode $n) => $o->setMemberships($n->getObjectValue([IndustryDataRunEntityCountMetric::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizations' => fn(ParseNode $n) => $o->setOrganizations($n->getObjectValue([IndustryDataRunEntityCountMetric::class, 'createFromDiscriminatorValue'])),
             'people' => fn(ParseNode $n) => $o->setPeople($n->getObjectValue([IndustryDataRunEntityCountMetric::class, 'createFromDiscriminatorValue'])),
             'unmatchedPeopleByRole' => fn(ParseNode $n) => $o->setUnmatchedPeopleByRole($n->getCollectionOfObjectValues([IndustryDataRunRoleCountMetric::class, 'createFromDiscriminatorValue'])),
@@ -92,6 +93,18 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'memberships'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -150,6 +163,7 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -182,6 +196,14 @@ class InboundActivityResults extends IndustryDataActivityStatistics implements P
     */
     public function setMemberships(?IndustryDataRunEntityCountMetric $value): void {
         $this->getBackingStore()->set('memberships', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

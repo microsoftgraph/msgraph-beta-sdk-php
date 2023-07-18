@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesPublishingProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onPremisesPublishingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -162,6 +167,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
         $writer->writeObjectValue('hybridAgentUpdaterConfiguration', $this->getHybridAgentUpdaterConfiguration());
         $writer->writeBooleanValue('isDefaultAccessEnabled', $this->getIsDefaultAccessEnabled());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
     }
 

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health model performance entity contains battery related information for all unique device models in their organization.
+*/
 class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,6 +89,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'modelBatteryHealthScore' => fn(ParseNode $n) => $o->setModelBatteryHealthScore($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -126,6 +130,18 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -138,6 +154,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeIntegerValue('modelBatteryHealthScore', $this->getModelBatteryHealthScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -194,6 +211,14 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     */
     public function setModelBatteryHealthScore(?int $value): void {
         $this->getBackingStore()->set('modelBatteryHealthScore', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

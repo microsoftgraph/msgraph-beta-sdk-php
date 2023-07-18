@@ -69,6 +69,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
             'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
             'notApplicableCount' => fn(ParseNode $n) => $o->setNotApplicableCount($n->getIntegerValue()),
             'notSecureCount' => fn(ParseNode $n) => $o->setNotSecureCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'secureCount' => fn(ParseNode $n) => $o->setSecureCount($n->getIntegerValue()),
             'unknownCount' => fn(ParseNode $n) => $o->setUnknownCount($n->getIntegerValue()),
         ]);
@@ -96,6 +97,18 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notSecureCount'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -132,6 +145,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
         $writer->writeIntegerValue('errorCount', $this->getErrorCount());
         $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
         $writer->writeIntegerValue('notSecureCount', $this->getNotSecureCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('secureCount', $this->getSecureCount());
         $writer->writeIntegerValue('unknownCount', $this->getUnknownCount());
     }
@@ -166,6 +180,14 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     */
     public function setNotSecureCount(?int $value): void {
         $this->getBackingStore()->set('notSecureCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

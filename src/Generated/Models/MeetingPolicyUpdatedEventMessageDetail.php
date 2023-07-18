@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail implements Parsable 
 {
     /**
-     * Instantiates a new MeetingPolicyUpdatedEventMessageDetail and sets the default values.
+     * Instantiates a new meetingPolicyUpdatedEventMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,6 +35,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail implemen
             'initiator' => fn(ParseNode $n) => $o->setInitiator($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'meetingChatEnabled' => fn(ParseNode $n) => $o->setMeetingChatEnabled($n->getBooleanValue()),
             'meetingChatId' => fn(ParseNode $n) => $o->setMeetingChatId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -75,6 +76,18 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail implemen
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -83,6 +96,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail implemen
         $writer->writeObjectValue('initiator', $this->getInitiator());
         $writer->writeBooleanValue('meetingChatEnabled', $this->getMeetingChatEnabled());
         $writer->writeStringValue('meetingChatId', $this->getMeetingChatId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -107,6 +121,14 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail implemen
     */
     public function setMeetingChatId(?string $value): void {
         $this->getBackingStore()->set('meetingChatId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

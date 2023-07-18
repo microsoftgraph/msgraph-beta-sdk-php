@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Azure AD-type Single Sign-On extension profile for iOS devices.
+*/
 class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new IosAzureAdSingleSignOnExtension and sets the default values.
+     * Instantiates a new iosAzureAdSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,7 +86,20 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
             },
             'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
             'enableSharedDeviceMode' => fn(ParseNode $n) => $o->setEnableSharedDeviceMode($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +111,7 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
         $writer->writeCollectionOfPrimitiveValues('bundleIdAccessControlList', $this->getBundleIdAccessControlList());
         $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
         $writer->writeBooleanValue('enableSharedDeviceMode', $this->getEnableSharedDeviceMode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -119,6 +136,14 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
     */
     public function setEnableSharedDeviceMode(?bool $value): void {
         $this->getBackingStore()->set('enableSharedDeviceMode', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

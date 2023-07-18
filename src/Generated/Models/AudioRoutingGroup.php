@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AudioRoutingGroup extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new audioRoutingGroup and sets the default values.
     */
     public function __construct() {
@@ -98,6 +103,7 @@ class AudioRoutingGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('receivers', $this->getReceivers());
         $writer->writeEnumValue('routingMode', $this->getRoutingMode());
         $writer->writeCollectionOfPrimitiveValues('sources', $this->getSources());

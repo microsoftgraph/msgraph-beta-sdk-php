@@ -69,7 +69,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.Not implemented yet
+     * Gets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
      * @return CrossTenantAccessPolicyTargetConfigurationAccessType|null
     */
     public function getMode(): ?CrossTenantAccessPolicyTargetConfigurationAccessType {
@@ -93,7 +93,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rule property value. Defines the rule to filter the devices. An example would be device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation' Not implemented yet
+     * Gets the rule property value. Defines the rule to filter the devices. For example, device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation'.
      * @return string|null
     */
     public function getRule(): ?string {
@@ -132,7 +132,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.Not implemented yet
+     * Sets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
      * @param CrossTenantAccessPolicyTargetConfigurationAccessType|null $value Value to set for the mode property.
     */
     public function setMode(?CrossTenantAccessPolicyTargetConfigurationAccessType $value): void {
@@ -148,7 +148,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the rule property value. Defines the rule to filter the devices. An example would be device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation' Not implemented yet
+     * Sets the rule property value. Defines the rule to filter the devices. For example, device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation'.
      * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {

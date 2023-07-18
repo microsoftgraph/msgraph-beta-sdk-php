@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
+     * Instantiates a new approvalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,8 +75,21 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
             'businessFlows' => fn(ParseNode $n) => $o->setBusinessFlows($n->getCollectionOfObjectValues([BusinessFlow::class, 'createFromDiscriminatorValue'])),
             'businessFlowsWithRequestsAwaitingMyDecision' => fn(ParseNode $n) => $o->setBusinessFlowsWithRequestsAwaitingMyDecision($n->getCollectionOfObjectValues([BusinessFlow::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyTemplates' => fn(ParseNode $n) => $o->setPolicyTemplates($n->getCollectionOfObjectValues([GovernancePolicyTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,6 +115,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('businessFlows', $this->getBusinessFlows());
         $writer->writeCollectionOfObjectValues('businessFlowsWithRequestsAwaitingMyDecision', $this->getBusinessFlowsWithRequestsAwaitingMyDecision());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policyTemplates', $this->getPolicyTemplates());
     }
 
@@ -127,6 +141,14 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelServer extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new microsoftTunnelServer and sets the default values.
     */
     public function __construct() {
@@ -112,6 +117,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
         $writer->writeStringValue('agentImageDigest', $this->getAgentImageDigest());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serverImageDigest', $this->getServerImageDigest());
         $writer->writeEnumValue('tunnelServerHealthStatus', $this->getTunnelServerHealthStatus());
     }

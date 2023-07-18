@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant.
+*/
 class OnPremisesConditionalAccessSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesConditionalAccessSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onPremisesConditionalAccessSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -114,6 +122,7 @@ class OnPremisesConditionalAccessSettings extends Entity implements Parsable
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeCollectionOfPrimitiveValues('excludedGroups', $this->getExcludedGroups());
         $writer->writeCollectionOfPrimitiveValues('includedGroups', $this->getIncludedGroups());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('overrideDefaultRule', $this->getOverrideDefaultRule());
     }
 

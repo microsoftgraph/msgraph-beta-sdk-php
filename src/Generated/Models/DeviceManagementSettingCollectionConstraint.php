@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint that enforces the maximum number of elements a collection
+*/
 class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingCollectionConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingCollectionConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +37,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
         return array_merge(parent::getFieldDeserializers(), [
             'maximumLength' => fn(ParseNode $n) => $o->setMaximumLength($n->getIntegerValue()),
             'minimumLength' => fn(ParseNode $n) => $o->setMinimumLength($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +66,18 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +85,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumLength', $this->getMaximumLength());
         $writer->writeIntegerValue('minimumLength', $this->getMinimumLength());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +102,14 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
     */
     public function setMinimumLength(?int $value): void {
         $this->getBackingStore()->set('minimumLength', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

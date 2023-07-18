@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateActiveHoursInstall and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsUpdateActiveHoursInstall and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,6 +75,7 @@ class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType i
         parent::serialize($writer);
         $writer->writeTimeValue('activeHoursEnd', $this->getActiveHoursEnd());
         $writer->writeTimeValue('activeHoursStart', $this->getActiveHoursStart());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -13,7 +13,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class LegalHold extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new LegalHold and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new legalHold and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -237,6 +242,7 @@ class LegalHold extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('siteSources', $this->getSiteSources());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeCollectionOfObjectValues('unifiedGroupSources', $this->getUnifiedGroupSources());

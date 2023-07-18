@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify an AzureAD group for the kiosk configuration
+*/
 class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskAzureADGroup and sets the default values.
+     * Instantiates a new windowsKioskAzureADGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +49,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -62,6 +66,18 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +85,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -85,6 +102,14 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

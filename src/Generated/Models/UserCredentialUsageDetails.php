@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserCredentialUsageDetails extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userCredentialUsageDetails and sets the default values.
     */
     public function __construct() {
@@ -137,6 +142,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
         $writer->writeStringValue('failureReason', $this->getFailureReason());
         $writer->writeEnumValue('feature', $this->getFeature());
         $writer->writeBooleanValue('isSuccess', $this->getIsSuccess());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }

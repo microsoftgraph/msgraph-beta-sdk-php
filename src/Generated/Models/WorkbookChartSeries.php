@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkbookChartSeries extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new workbookChartSeries and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class WorkbookChartSeries extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('format', $this->getFormat());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('points', $this->getPoints());
     }
 

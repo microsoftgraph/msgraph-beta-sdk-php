@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedAppleDeviceIdentity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new importedAppleDeviceIdentity and sets the default values.
     */
     public function __construct() {
@@ -201,6 +206,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeBooleanValue('isSupervised', $this->getIsSupervised());
         $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeDateTimeValue('requestedEnrollmentProfileAssignmentDateTime', $this->getRequestedEnrollmentProfileAssignmentDateTime());
         $writer->writeStringValue('requestedEnrollmentProfileId', $this->getRequestedEnrollmentProfileId());

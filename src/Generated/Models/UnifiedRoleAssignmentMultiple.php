@@ -145,6 +145,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
             },
             'directoryScopes' => fn(ParseNode $n) => $o->setDirectoryScopes($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'principalIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -157,6 +158,18 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
             'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -224,6 +237,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('directoryScopeIds', $this->getDirectoryScopeIds());
         $writer->writeCollectionOfObjectValues('directoryScopes', $this->getDirectoryScopes());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('principalIds', $this->getPrincipalIds());
         $writer->writeCollectionOfObjectValues('principals', $this->getPrincipals());
         $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
@@ -284,6 +298,14 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

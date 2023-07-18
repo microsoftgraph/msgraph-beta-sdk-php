@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApplyLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new ApplyLabelAction and sets the default values.
+     * Instantiates a new applyLabelAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -61,6 +61,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfObjectValues([InformationProtectionAction::class, 'createFromDiscriminatorValue'])),
             'actionSource' => fn(ParseNode $n) => $o->setActionSource($n->getEnumValue(ActionSource::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'responsibleSensitiveTypeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -71,6 +72,18 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
             },
             'sensitivityLabelId' => fn(ParseNode $n) => $o->setSensitivityLabelId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -107,6 +120,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('actions', $this->getActions());
         $writer->writeEnumValue('actionSource', $this->getActionSource());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->getResponsibleSensitiveTypeIds());
         $writer->writeStringValue('sensitivityLabelId', $this->getSensitivityLabelId());
     }
@@ -125,6 +139,14 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     */
     public function setActionSource(?ActionSource $value): void {
         $this->getBackingStore()->set('actionSource', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

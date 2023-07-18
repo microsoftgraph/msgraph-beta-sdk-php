@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationTeamsAppResource extends EducationResource implements Parsable 
 {
     /**
-     * Instantiates a new EducationTeamsAppResource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationTeamsAppResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +100,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appIconWebUrl', $this->getAppIconWebUrl());
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('teamsEmbeddedContentUrl', $this->getTeamsEmbeddedContentUrl());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }

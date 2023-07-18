@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationProfileStatus extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new educationSynchronizationProfileStatus and sets the default values.
     */
     public function __construct() {
@@ -109,6 +114,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
         $writer->writeIntegerValue('errorCount', $this->getErrorCount());
         $writer->writeDateTimeValue('lastActivityDateTime', $this->getLastActivityDateTime());
         $writer->writeDateTimeValue('lastSynchronizationDateTime', $this->getLastSynchronizationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('statusMessage', $this->getStatusMessage());
     }

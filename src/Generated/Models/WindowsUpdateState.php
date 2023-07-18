@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateState and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windowsUpdateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -163,6 +168,7 @@ class WindowsUpdateState extends Entity implements Parsable
         $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
         $writer->writeDateTimeValue('lastScanDateTime', $this->getLastScanDateTime());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('qualityUpdateVersion', $this->getQualityUpdateVersion());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('userId', $this->getUserId());

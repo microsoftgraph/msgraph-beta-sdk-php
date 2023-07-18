@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Local Action Lock Device with Passcode Configuration
+*/
 class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDeviceComplianceLocalActionBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceComplianceLocalActionLockDeviceWithPasscode and sets the default values.
+     * Instantiates a new androidDeviceComplianceLocalActionLockDeviceWithPasscode and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,9 +35,22 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'passcode' => fn(ParseNode $n) => $o->setPasscode($n->getStringValue()),
             'passcodeSignInFailureCountBeforeWipe' => fn(ParseNode $n) => $o->setPasscodeSignInFailureCountBeforeWipe($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -67,7 +83,16 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('passcodeSignInFailureCountBeforeWipe', $this->getPasscodeSignInFailureCountBeforeWipe());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

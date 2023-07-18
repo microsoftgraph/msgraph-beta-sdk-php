@@ -19,7 +19,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new CloudPcAuditResource and sets the default values.
+     * Instantiates a new cloudPcAuditResource and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenant extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedTenant and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedTenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -627,6 +632,7 @@ class ManagedTenant extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('managementTemplateStepTenantSummaries', $this->getManagementTemplateStepTenantSummaries());
         $writer->writeCollectionOfObjectValues('managementTemplateStepVersions', $this->getManagementTemplateStepVersions());
         $writer->writeCollectionOfObjectValues('myRoles', $this->getMyRoles());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('tenantGroups', $this->getTenantGroups());
         $writer->writeCollectionOfObjectValues('tenants', $this->getTenants());
         $writer->writeCollectionOfObjectValues('tenantsCustomizedInformation', $this->getTenantsCustomizedInformation());

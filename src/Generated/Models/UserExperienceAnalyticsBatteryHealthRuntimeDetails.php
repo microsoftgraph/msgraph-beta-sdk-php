@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health runtime entity contains count of devices broken down into 3 categories - devices with runtime > 5 hours, devices with runtime 3-5 hours and devices with runtime < 3 hours.This API provides the count of devices in these 3 categories.
+*/
 class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthRuntimeDetails and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsBatteryHealthRuntimeDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,6 +119,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
         $writer->writeIntegerValue('batteryRuntimeGood', $this->getBatteryRuntimeGood());
         $writer->writeIntegerValue('batteryRuntimePoor', $this->getBatteryRuntimePoor());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

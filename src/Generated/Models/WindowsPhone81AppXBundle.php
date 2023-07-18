@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Windows Phone 8.1 AppX Bundle Line Of Business apps. Inherits from graph.windowsPhone81AppX (which is also to be deprecated at the same time). Will be deprecated in February 2023.
+*/
 class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81AppXBundle and sets the default values.
+     * Instantiates a new windowsPhone81AppXBundle and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -54,6 +54,7 @@ class Permission extends Entity implements Parsable
             'inheritedFrom' => fn(ParseNode $n) => $o->setInheritedFrom($n->getObjectValue([ItemReference::class, 'createFromDiscriminatorValue'])),
             'invitation' => fn(ParseNode $n) => $o->setInvitation($n->getObjectValue([SharingInvitation::class, 'createFromDiscriminatorValue'])),
             'link' => fn(ParseNode $n) => $o->setLink($n->getObjectValue([SharingLink::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roles' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -167,6 +168,18 @@ class Permission extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the roles property value. The type of permission, for example, read. See below for the full list of roles. Read-only.
      * @return array<string>|null
     */
@@ -207,6 +220,7 @@ class Permission extends Entity implements Parsable
         $writer->writeObjectValue('inheritedFrom', $this->getInheritedFrom());
         $writer->writeObjectValue('invitation', $this->getInvitation());
         $writer->writeObjectValue('link', $this->getLink());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roles', $this->getRoles());
         $writer->writeStringValue('shareId', $this->getShareId());
     }
@@ -281,6 +295,14 @@ class Permission extends Entity implements Parsable
     */
     public function setLink(?SharingLink $value): void {
         $this->getBackingStore()->set('link', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

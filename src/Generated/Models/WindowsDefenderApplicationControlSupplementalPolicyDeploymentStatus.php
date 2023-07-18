@@ -75,6 +75,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([WindowsDefenderApplicationControlSupplementalPolicy::class, 'createFromDiscriminatorValue'])),
@@ -94,6 +95,18 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -178,6 +191,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeObjectValue('policy', $this->getPolicy());
@@ -216,6 +230,14 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows10 Network Boundary Configuration
+*/
 class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10NetworkBoundaryConfiguration and sets the default values.
+     * Instantiates a new windows10NetworkBoundaryConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

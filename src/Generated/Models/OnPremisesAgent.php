@@ -61,6 +61,7 @@ class OnPremisesAgent extends Entity implements Parsable
             'agentGroups' => fn(ParseNode $n) => $o->setAgentGroups($n->getCollectionOfObjectValues([OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'])),
             'externalIp' => fn(ParseNode $n) => $o->setExternalIp($n->getStringValue()),
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AgentStatus::class)),
             'supportedPublishingTypes' => fn(ParseNode $n) => $o->setSupportedPublishingTypes($n->getCollectionOfEnumValues(OnPremisesPublishingType::class)),
         ]);
@@ -76,6 +77,18 @@ class OnPremisesAgent extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'machineName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,6 +126,7 @@ class OnPremisesAgent extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
         $writer->writeStringValue('externalIp', $this->getExternalIp());
         $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeCollectionOfEnumValues('supportedPublishingTypes', $this->getSupportedPublishingTypes());
     }
@@ -139,6 +153,14 @@ class OnPremisesAgent extends Entity implements Parsable
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

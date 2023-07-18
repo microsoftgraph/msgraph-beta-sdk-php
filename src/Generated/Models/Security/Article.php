@@ -64,6 +64,7 @@ class Article extends Entity implements Parsable
             'indicators' => fn(ParseNode $n) => $o->setIndicators($n->getCollectionOfObjectValues([ArticleIndicator::class, 'createFromDiscriminatorValue'])),
             'isFeatured' => fn(ParseNode $n) => $o->setIsFeatured($n->getBooleanValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
             'tags' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -128,6 +129,18 @@ class Article extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the summary property value. The summary property
      * @return FormattedContent|null
     */
@@ -177,6 +190,7 @@ class Article extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('indicators', $this->getIndicators());
         $writer->writeBooleanValue('isFeatured', $this->getIsFeatured());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
         $writer->writeStringValue('title', $this->getTitle());
@@ -228,6 +242,14 @@ class Article extends Entity implements Parsable
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

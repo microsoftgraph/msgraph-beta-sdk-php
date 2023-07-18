@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedDeviceIdentity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new importedDeviceIdentity and sets the default values.
     */
     public function __construct() {
@@ -162,6 +167,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
         $writer->writeEnumValue('importedDeviceIdentityType', $this->getImportedDeviceIdentityType());
         $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('platform', $this->getPlatform());
     }
 

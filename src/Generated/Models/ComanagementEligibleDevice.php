@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Co-Management eligibility state
+*/
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ComanagementEligibleDevice and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new comanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -296,6 +304,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('mdmStatus', $this->getMdmStatus());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osDescription', $this->getOsDescription());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeEnumValue('ownerType', $this->getOwnerType());

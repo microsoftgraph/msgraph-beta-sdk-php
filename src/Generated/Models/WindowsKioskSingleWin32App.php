@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify the single app configuration for the kiosk win32 configuration
+*/
 class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskSingleWin32App and sets the default values.
+     * Instantiates a new windowsKioskSingleWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,8 +35,21 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'win32App' => fn(ParseNode $n) => $o->setWin32App($n->getObjectValue([WindowsKioskWin32App::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -54,7 +70,16 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('win32App', $this->getWin32App());
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

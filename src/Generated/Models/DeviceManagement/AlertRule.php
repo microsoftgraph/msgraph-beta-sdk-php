@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AlertRule extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new alertRule and sets the default values.
     */
     public function __construct() {
@@ -154,6 +159,7 @@ class AlertRule extends Entity implements Parsable
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeBooleanValue('isSystemRule', $this->getIsSystemRule());
         $writer->writeCollectionOfObjectValues('notificationChannels', $this->getNotificationChannels());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeObjectValue('threshold', $this->getThreshold());
     }

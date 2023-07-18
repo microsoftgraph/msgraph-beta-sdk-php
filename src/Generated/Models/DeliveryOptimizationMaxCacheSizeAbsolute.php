@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Delivery Optimization max cache size absolute type.
+*/
 class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCacheSize implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationMaxCacheSizeAbsolute and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deliveryOptimizationMaxCacheSizeAbsolute and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('maximumCacheSizeInGigabytes', $this->getMaximumCacheSizeInGigabytes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

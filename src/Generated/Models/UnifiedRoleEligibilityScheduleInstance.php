@@ -46,6 +46,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
         return array_merge(parent::getFieldDeserializers(), [
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'memberType' => fn(ParseNode $n) => $o->setMemberType($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleEligibilityScheduleId' => fn(ParseNode $n) => $o->setRoleEligibilityScheduleId($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ]);
@@ -61,6 +62,18 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'memberType'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +108,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
         parent::serialize($writer);
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeStringValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('roleEligibilityScheduleId', $this->getRoleEligibilityScheduleId());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
     }
@@ -113,6 +127,14 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     */
     public function setMemberType(?string $value): void {
         $this->getBackingStore()->set('memberType', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

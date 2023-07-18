@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class DeviceManagementConfigurationControlType extends Enum {
-    public const ESCAPED_DEFAULT = 'default';
+    public const DEFAULT = 'default';
     public const DROPDOWN = 'dropdown';
     public const SMALL_TEXT_BOX = 'smallTextBox';
     public const LARGE_TEXT_BOX = 'largeTextBox';

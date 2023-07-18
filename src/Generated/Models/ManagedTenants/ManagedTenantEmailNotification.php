@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenantEmailNotification extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new managedTenantEmailNotification and sets the default values.
     */
     public function __construct() {
@@ -156,6 +161,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
         $writer->writeStringValue('emailBody', $this->getEmailBody());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('subject', $this->getSubject());
     }
 

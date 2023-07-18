@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HostSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new HostSecurityProfile and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new hostSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -309,6 +314,7 @@ class HostSecurityProfile extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('logonUsers', $this->getLogonUsers());
         $writer->writeStringValue('netBiosName', $this->getNetBiosName());
         $writer->writeCollectionOfObjectValues('networkInterfaces', $this->getNetworkInterfaces());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('os', $this->getOs());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('parentHost', $this->getParentHost());

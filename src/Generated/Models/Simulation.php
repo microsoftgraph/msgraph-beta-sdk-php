@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Simulation extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new simulation and sets the default values.
     */
     public function __construct() {
@@ -372,6 +377,7 @@ class Simulation extends Entity implements Parsable
         $writer->writeDateTimeValue('launchDateTime', $this->getLaunchDateTime());
         $writer->writeObjectValue('loginPage', $this->getLoginPage());
         $writer->writeObjectValue('oAuthConsentAppDetail', $this->getOAuthConsentAppDetail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeEnumValue('payloadDeliveryPlatform', $this->getPayloadDeliveryPlatform());
         $writer->writeObjectValue('report', $this->getReport());

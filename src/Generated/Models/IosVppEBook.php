@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A class containing the properties for iOS Vpp eBook.
+*/
 class IosVppEBook extends ManagedEBook implements Parsable 
 {
     /**
-     * Instantiates a new IosVppEBook and sets the default values.
+     * Instantiates a new iosVppEBook and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +58,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
                 $this->setGenres($val);
             },
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -95,6 +99,18 @@ class IosVppEBook extends ManagedEBook implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -180,6 +196,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
         $writer->writeStringValue('appleId', $this->getAppleId());
         $writer->writeCollectionOfPrimitiveValues('genres', $this->getGenres());
         $writer->writeStringValue('language', $this->getLanguage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeStringValue('seller', $this->getSeller());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
@@ -210,6 +227,14 @@ class IosVppEBook extends ManagedEBook implements Parsable
     */
     public function setLanguage(?string $value): void {
         $this->getBackingStore()->set('language', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeploymentAudience extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deploymentAudience and sets the default values.
     */
     public function __construct() {
@@ -90,6 +95,7 @@ class DeploymentAudience extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('applicableContent', $this->getApplicableContent());
         $writer->writeCollectionOfObjectValues('exclusions', $this->getExclusions());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

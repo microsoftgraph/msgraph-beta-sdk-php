@@ -138,6 +138,7 @@ class FilePlanDescriptor extends Entity implements Parsable
             'departmentTemplate' => fn(ParseNode $n) => $o->setDepartmentTemplate($n->getObjectValue([DepartmentTemplate::class, 'createFromDiscriminatorValue'])),
             'filePlanReference' => fn(ParseNode $n) => $o->setFilePlanReference($n->getObjectValue([FilePlanReference::class, 'createFromDiscriminatorValue'])),
             'filePlanReferenceTemplate' => fn(ParseNode $n) => $o->setFilePlanReferenceTemplate($n->getObjectValue([FilePlanReferenceTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -166,6 +167,18 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -181,6 +194,7 @@ class FilePlanDescriptor extends Entity implements Parsable
         $writer->writeObjectValue('departmentTemplate', $this->getDepartmentTemplate());
         $writer->writeObjectValue('filePlanReference', $this->getFilePlanReference());
         $writer->writeObjectValue('filePlanReferenceTemplate', $this->getFilePlanReferenceTemplate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -261,6 +275,14 @@ class FilePlanDescriptor extends Entity implements Parsable
     */
     public function setFilePlanReferenceTemplate(?FilePlanReferenceTemplate $value): void {
         $this->getBackingStore()->set('filePlanReferenceTemplate', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

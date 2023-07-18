@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the run summary of a device management script.
+*/
 class DeviceManagementScriptRunSummary extends Entity implements Parsable 
 {
     /**
@@ -57,9 +60,22 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
             'errorUserCount' => fn(ParseNode $n) => $o->setErrorUserCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'successDeviceCount' => fn(ParseNode $n) => $o->setSuccessDeviceCount($n->getIntegerValue()),
             'successUserCount' => fn(ParseNode $n) => $o->setSuccessUserCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,6 +110,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
         $writer->writeIntegerValue('errorUserCount', $this->getErrorUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successDeviceCount', $this->getSuccessDeviceCount());
         $writer->writeIntegerValue('successUserCount', $this->getSuccessUserCount());
     }
@@ -112,6 +129,14 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
     */
     public function setErrorUserCount(?int $value): void {
         $this->getBackingStore()->set('errorUserCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

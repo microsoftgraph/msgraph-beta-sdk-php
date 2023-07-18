@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EscapedCase extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new EscapedCase and sets the default values.
     */
     public function __construct() {
@@ -290,6 +295,7 @@ class EscapedCase extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('legalHolds', $this->getLegalHolds());
         $writer->writeCollectionOfObjectValues('noncustodialDataSources', $this->getNoncustodialDataSources());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('reviewSets', $this->getReviewSets());
         $writer->writeObjectValue('settings', $this->getSettings());

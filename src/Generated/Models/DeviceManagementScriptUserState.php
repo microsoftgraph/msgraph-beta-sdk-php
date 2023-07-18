@@ -13,6 +13,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementScriptUserState extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementScriptUserState and sets the default values.
     */
     public function __construct() {
@@ -100,6 +105,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
         $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('successDeviceCount', $this->getSuccessDeviceCount());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }

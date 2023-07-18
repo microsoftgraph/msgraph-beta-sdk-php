@@ -10,10 +10,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically.
+*/
 class DeviceShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceShellScript and sets the default values.
+     * Instantiates a new deviceShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -133,6 +136,7 @@ class DeviceShellScript extends Entity implements Parsable
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
             'groupAssignments' => fn(ParseNode $n) => $o->setGroupAssignments($n->getCollectionOfObjectValues([DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'retryCount' => fn(ParseNode $n) => $o->setRetryCount($n->getIntegerValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -185,6 +189,18 @@ class DeviceShellScript extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -277,6 +293,7 @@ class DeviceShellScript extends Entity implements Parsable
         $writer->writeDateIntervalValue('executionFrequency', $this->getExecutionFrequency());
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('retryCount', $this->getRetryCount());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());
@@ -363,6 +380,14 @@ class DeviceShellScript extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

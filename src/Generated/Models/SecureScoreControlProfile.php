@@ -131,6 +131,7 @@ class SecureScoreControlProfile extends Entity implements Parsable
             'implementationCost' => fn(ParseNode $n) => $o->setImplementationCost($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'remediation' => fn(ParseNode $n) => $o->setRemediation($n->getStringValue()),
             'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
@@ -184,6 +185,18 @@ class SecureScoreControlProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'maxScore'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -312,6 +325,7 @@ class SecureScoreControlProfile extends Entity implements Parsable
         $writer->writeStringValue('implementationCost', $this->getImplementationCost());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeStringValue('remediation', $this->getRemediation());
         $writer->writeStringValue('remediationImpact', $this->getRemediationImpact());
@@ -401,6 +415,14 @@ class SecureScoreControlProfile extends Entity implements Parsable
     */
     public function setMaxScore(?float $value): void {
         $this->getBackingStore()->set('maxScore', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

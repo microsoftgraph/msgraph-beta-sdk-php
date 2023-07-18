@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The entity represents an ADMX (Administrative Template) XML file uploaded by Administrator. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
+*/
 class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +66,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
             'defaultLanguageCode' => fn(ParseNode $n) => $o->setDefaultLanguageCode($n->getStringValue()),
             'groupPolicyOperations' => fn(ParseNode $n) => $o->setGroupPolicyOperations($n->getCollectionOfObjectValues([GroupPolicyOperation::class, 'createFromDiscriminatorValue'])),
             'groupPolicyUploadedLanguageFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(GroupPolicyUploadedDefinitionFileStatus::class)),
             'uploadDateTime' => fn(ParseNode $n) => $o->setUploadDateTime($n->getDateTimeValue()),
         ]);
@@ -94,6 +98,18 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyUploadedLanguageFiles'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -130,6 +146,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
         $writer->writeStringValue('defaultLanguageCode', $this->getDefaultLanguageCode());
         $writer->writeCollectionOfObjectValues('groupPolicyOperations', $this->getGroupPolicyOperations());
         $writer->writeCollectionOfObjectValues('groupPolicyUploadedLanguageFiles', $this->getGroupPolicyUploadedLanguageFiles());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeDateTimeValue('uploadDateTime', $this->getUploadDateTime());
     }
@@ -164,6 +181,14 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     */
     public function setGroupPolicyUploadedLanguageFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyUploadedLanguageFiles', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

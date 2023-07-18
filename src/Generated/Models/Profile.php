@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Profile extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new profile and sets the default values.
     */
     public function __construct() {
@@ -337,6 +342,7 @@ class Profile extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('languages', $this->getLanguages());
         $writer->writeCollectionOfObjectValues('names', $this->getNames());
         $writer->writeCollectionOfObjectValues('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('patents', $this->getPatents());
         $writer->writeCollectionOfObjectValues('phones', $this->getPhones());
         $writer->writeCollectionOfObjectValues('positions', $this->getPositions());

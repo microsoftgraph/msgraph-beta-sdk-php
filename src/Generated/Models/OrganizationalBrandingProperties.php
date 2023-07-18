@@ -315,6 +315,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
             'headerLogoRelativeUrl' => fn(ParseNode $n) => $o->setHeaderLogoRelativeUrl($n->getStringValue()),
             'loginPageLayoutConfiguration' => fn(ParseNode $n) => $o->setLoginPageLayoutConfiguration($n->getObjectValue([LoginPageLayoutConfiguration::class, 'createFromDiscriminatorValue'])),
             'loginPageTextVisibilitySettings' => fn(ParseNode $n) => $o->setLoginPageTextVisibilitySettings($n->getObjectValue([LoginPageTextVisibilitySettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'signInPageText' => fn(ParseNode $n) => $o->setSignInPageText($n->getStringValue()),
             'squareLogo' => fn(ParseNode $n) => $o->setSquareLogo($n->getBinaryContent()),
             'squareLogoDark' => fn(ParseNode $n) => $o->setSquareLogoDark($n->getBinaryContent()),
@@ -382,6 +383,18 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'loginPageTextVisibilitySettings'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -487,6 +500,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
         $writer->writeStringValue('headerLogoRelativeUrl', $this->getHeaderLogoRelativeUrl());
         $writer->writeObjectValue('loginPageLayoutConfiguration', $this->getLoginPageLayoutConfiguration());
         $writer->writeObjectValue('loginPageTextVisibilitySettings', $this->getLoginPageTextVisibilitySettings());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('signInPageText', $this->getSignInPageText());
         $writer->writeBinaryContent('squareLogo', $this->getSquareLogo());
         $writer->writeBinaryContent('squareLogoDark', $this->getSquareLogoDark());
@@ -693,6 +707,14 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function setLoginPageTextVisibilitySettings(?LoginPageTextVisibilitySettings $value): void {
         $this->getBackingStore()->set('loginPageTextVisibilitySettings', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

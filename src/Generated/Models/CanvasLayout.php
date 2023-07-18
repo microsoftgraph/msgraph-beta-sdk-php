@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CanvasLayout extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new canvasLayout and sets the default values.
     */
     public function __construct() {
@@ -70,6 +75,7 @@ class CanvasLayout extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('horizontalSections', $this->getHorizontalSections());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('verticalSection', $this->getVerticalSection());
     }
 

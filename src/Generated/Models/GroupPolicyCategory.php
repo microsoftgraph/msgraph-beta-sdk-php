@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The category entity stores the category of a group policy definition
+*/
 class GroupPolicyCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyCategory and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -157,6 +165,7 @@ class GroupPolicyCategory extends Entity implements Parsable
         $writer->writeEnumValue('ingestionSource', $this->getIngestionSource());
         $writer->writeBooleanValue('isRoot', $this->getIsRoot());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
     }
 

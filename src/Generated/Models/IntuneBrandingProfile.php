@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IntuneBrandingProfile extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new intuneBrandingProfile and sets the default values.
     */
     public function __construct() {
@@ -520,6 +525,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
         $writer->writeObjectValue('landingPageCustomizedImage', $this->getLandingPageCustomizedImage());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('lightBackgroundLogo', $this->getLightBackgroundLogo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onlineSupportSiteName', $this->getOnlineSupportSiteName());
         $writer->writeStringValue('onlineSupportSiteUrl', $this->getOnlineSupportSiteUrl());
         $writer->writeStringValue('privacyUrl', $this->getPrivacyUrl());

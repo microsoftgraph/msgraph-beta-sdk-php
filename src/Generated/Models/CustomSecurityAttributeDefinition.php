@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomSecurityAttributeDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new customSecurityAttributeDefinition and sets the default values.
     */
     public function __construct() {
@@ -166,6 +171,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
         $writer->writeBooleanValue('isCollection', $this->getIsCollection());
         $writer->writeBooleanValue('isSearchable', $this->getIsSearchable());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeStringValue('type', $this->getType());
         $writer->writeBooleanValue('usePreDefinedValuesOnly', $this->getUsePreDefinedValuesOnly());

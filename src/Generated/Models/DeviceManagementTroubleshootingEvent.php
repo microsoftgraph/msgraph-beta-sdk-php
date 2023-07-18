@@ -99,8 +99,21 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'eventName' => fn(ParseNode $n) => $o->setEventName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'troubleshootingErrorDetails' => fn(ParseNode $n) => $o->setTroubleshootingErrorDetails($n->getObjectValue([DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -125,6 +138,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('eventName', $this->getEventName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('troubleshootingErrorDetails', $this->getTroubleshootingErrorDetails());
     }
 
@@ -158,6 +172,14 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
     */
     public function setEventName(?string $value): void {
         $this->getBackingStore()->set('eventName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

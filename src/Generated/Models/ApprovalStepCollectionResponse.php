@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApprovalStepCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ApprovalStepCollectionResponse and sets the default values.
+     * Instantiates a new approvalStepCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

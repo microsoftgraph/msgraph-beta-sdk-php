@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Encryption report per device
+*/
 class ManagedDeviceEncryptionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceEncryptionState and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managedDeviceEncryptionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -193,6 +201,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
         $writer->writeEnumValue('encryptionReadinessState', $this->getEncryptionReadinessState());
         $writer->writeEnumValue('encryptionState', $this->getEncryptionState());
         $writer->writeEnumValue('fileVaultStates', $this->getFileVaultStates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('policyDetails', $this->getPolicyDetails());
         $writer->writeStringValue('tpmSpecificationVersion', $this->getTpmSpecificationVersion());

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationSchool extends EducationOrganization implements Parsable 
 {
     /**
-     * Instantiates a new EducationSchool and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new educationSchool and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -237,6 +242,7 @@ class EducationSchool extends EducationOrganization implements Parsable
         $writer->writeStringValue('fax', $this->getFax());
         $writer->writeStringValue('highestGrade', $this->getHighestGrade());
         $writer->writeStringValue('lowestGrade', $this->getLowestGrade());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phone', $this->getPhone());
         $writer->writeStringValue('principalEmail', $this->getPrincipalEmail());
         $writer->writeStringValue('principalName', $this->getPrincipalName());

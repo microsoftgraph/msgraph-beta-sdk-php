@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Credential-type Single Sign-On extension profile for macOS devices.
+*/
 class MacOSCredentialSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new MacOSCredentialSingleSignOnExtension and sets the default values.
+     * Instantiates a new macOSCredentialSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,9 +86,22 @@ class MacOSCredentialSingleSignOnExtension extends MacOSSingleSignOnExtension im
                 $this->setDomains($val);
             },
             'extensionIdentifier' => fn(ParseNode $n) => $o->setExtensionIdentifier($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,6 +137,7 @@ class MacOSCredentialSingleSignOnExtension extends MacOSSingleSignOnExtension im
         $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
         $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
         $writer->writeStringValue('extensionIdentifier', $this->getExtensionIdentifier());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('realm', $this->getRealm());
         $writer->writeStringValue('teamIdentifier', $this->getTeamIdentifier());
     }
@@ -147,6 +164,14 @@ class MacOSCredentialSingleSignOnExtension extends MacOSSingleSignOnExtension im
     */
     public function setExtensionIdentifier(?string $value): void {
         $this->getBackingStore()->set('extensionIdentifier', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

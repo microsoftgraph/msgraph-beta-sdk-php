@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows Driver Update Profile
+*/
 class WindowsDriverUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsDriverUpdateProfile and sets the default values.
+     * Instantiates a new windowsDriverUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -144,6 +147,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
             'inventorySyncStatus' => fn(ParseNode $n) => $o->setInventorySyncStatus($n->getObjectValue([WindowsDriverUpdateProfileInventorySyncStatus::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'newUpdates' => fn(ParseNode $n) => $o->setNewUpdates($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -192,6 +196,18 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the roleScopeTagIds property value. List of Scope Tags for this Driver Update entity.
      * @return array<string>|null
     */
@@ -222,6 +238,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
         $writer->writeObjectValue('inventorySyncStatus', $this->getInventorySyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeIntegerValue('newUpdates', $this->getNewUpdates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
@@ -311,6 +328,14 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     */
     public function setNewUpdates(?int $value): void {
         $this->getBackingStore()->set('newUpdates', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

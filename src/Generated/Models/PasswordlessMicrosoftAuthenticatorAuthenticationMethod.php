@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
     /**
-     * Instantiates a new PasswordlessMicrosoftAuthenticatorAuthenticationMethod and sets the default values.
+     * Instantiates a new passwordlessMicrosoftAuthenticatorAuthenticationMethod and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OauthApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * Instantiates a new OauthApplicationEvidence and sets the default values.
+     * Instantiates a new oauthApplicationEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +58,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'objectId' => fn(ParseNode $n) => $o->setObjectId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
         ]);
     }
@@ -72,6 +73,18 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'objectId'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,6 +108,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('objectId', $this->getObjectId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publisher', $this->getPublisher());
     }
 
@@ -120,6 +134,14 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     */
     public function setObjectId(?string $value): void {
         $this->getBackingStore()->set('objectId', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

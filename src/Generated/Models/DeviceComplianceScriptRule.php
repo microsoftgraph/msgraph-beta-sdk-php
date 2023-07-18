@@ -18,7 +18,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new DeviceComplianceScriptRule and sets the default values.
+     * Instantiates a new deviceComplianceScriptRule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

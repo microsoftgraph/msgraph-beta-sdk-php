@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PrivilegedAccessGroup extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedAccessGroup and sets the default values.
     */
     public function __construct() {
@@ -153,6 +158,7 @@ class PrivilegedAccessGroup extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('eligibilityScheduleInstances', $this->getEligibilityScheduleInstances());
         $writer->writeCollectionOfObjectValues('eligibilityScheduleRequests', $this->getEligibilityScheduleRequests());
         $writer->writeCollectionOfObjectValues('eligibilitySchedules', $this->getEligibilitySchedules());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

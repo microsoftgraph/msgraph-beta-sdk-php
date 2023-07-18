@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The endpoint privilege management elevation result entity representing a single elevation action on a client device.
+*/
 class PrivilegeManagementElevation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegeManagementElevation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new privilegeManagementElevation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -261,6 +269,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
         $writer->writeStringValue('hash', $this->getHash());
         $writer->writeStringValue('internalName', $this->getInternalName());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeIntegerValue('result', $this->getResult());
         $writer->writeStringValue('upn', $this->getUpn());

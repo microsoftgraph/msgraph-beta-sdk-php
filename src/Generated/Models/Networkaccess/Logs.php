@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Logs extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Logs and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new logs and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +43,7 @@ class Logs extends Entity implements Parsable
     }
 
     /**
-     * Gets the traffic property value. The traffic property
+     * Gets the traffic property value. Represents a collection of log entries in the network access traffic log.
      * @return array<NetworkAccessTraffic>|null
     */
     public function getTraffic(): ?array {
@@ -57,11 +62,12 @@ class Logs extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('traffic', $this->getTraffic());
     }
 
     /**
-     * Sets the traffic property value. The traffic property
+     * Sets the traffic property value. Represents a collection of log entries in the network access traffic log.
      * @param array<NetworkAccessTraffic>|null $value Value to set for the traffic property.
     */
     public function setTraffic(?array $value): void {

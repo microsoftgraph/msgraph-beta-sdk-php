@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleSummary extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedRoleSummary and sets the default values.
     */
     public function __construct() {
@@ -108,6 +113,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
         $writer->writeIntegerValue('elevatedCount', $this->getElevatedCount());
         $writer->writeIntegerValue('managedCount', $this->getManagedCount());
         $writer->writeBooleanValue('mfaEnabled', $this->getMfaEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeIntegerValue('usersCount', $this->getUsersCount());
     }

@@ -12,6 +12,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new userExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
     */
     public function __construct() {
@@ -168,6 +173,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
         $writer->writeStringValue('managedBy', $this->getManagedBy());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serialNumber', $this->getSerialNumber());
     }
 

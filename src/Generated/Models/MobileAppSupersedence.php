@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes a supersedence relationship between two mobile apps.
+*/
 class MobileAppSupersedence extends MobileAppRelationship implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppSupersedence and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new mobileAppSupersedence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,6 +88,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
         $writer->writeEnumValue('supersedenceType', $this->getSupersedenceType());
         $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());

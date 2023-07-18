@@ -87,6 +87,7 @@ class IntelligenceProfile extends Entity implements Parsable
             'firstActiveDateTime' => fn(ParseNode $n) => $o->setFirstActiveDateTime($n->getDateTimeValue()),
             'indicators' => fn(ParseNode $n) => $o->setIndicators($n->getCollectionOfObjectValues([IntelligenceProfileIndicator::class, 'createFromDiscriminatorValue'])),
             'kind' => fn(ParseNode $n) => $o->setKind($n->getEnumValue(IntelligenceProfileKind::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
             'targets' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -137,6 +138,18 @@ class IntelligenceProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kind'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -201,6 +214,7 @@ class IntelligenceProfile extends Entity implements Parsable
         $writer->writeDateTimeValue('firstActiveDateTime', $this->getFirstActiveDateTime());
         $writer->writeCollectionOfObjectValues('indicators', $this->getIndicators());
         $writer->writeEnumValue('kind', $this->getKind());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfPrimitiveValues('targets', $this->getTargets());
         $writer->writeStringValue('title', $this->getTitle());
@@ -253,6 +267,14 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function setKind(?IntelligenceProfileKind $value): void {
         $this->getBackingStore()->set('kind', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

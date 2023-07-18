@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RegionalAndLanguageSettings extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new regionalAndLanguageSettings and sets the default values.
     */
     public function __construct() {
@@ -139,6 +144,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
         $writer->writeObjectValue('defaultRegionalFormat', $this->getDefaultRegionalFormat());
         $writer->writeObjectValue('defaultSpeechInputLanguage', $this->getDefaultSpeechInputLanguage());
         $writer->writeObjectValue('defaultTranslationLanguage', $this->getDefaultTranslationLanguage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('regionalFormatOverrides', $this->getRegionalFormatOverrides());
         $writer->writeObjectValue('translationPreferences', $this->getTranslationPreferences());
     }

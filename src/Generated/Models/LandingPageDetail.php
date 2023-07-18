@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LandingPageDetail extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new landingPageDetail and sets the default values.
     */
     public function __construct() {
@@ -82,6 +87,7 @@ class LandingPageDetail extends Entity implements Parsable
         $writer->writeStringValue('content', $this->getContent());
         $writer->writeBooleanValue('isDefaultLangauge', $this->getIsDefaultLangauge());
         $writer->writeStringValue('language', $this->getLanguage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

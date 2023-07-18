@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Mention extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new mention and sets the default values.
     */
     public function __construct() {
@@ -152,6 +157,7 @@ class Mention extends Entity implements Parsable
         $writer->writeStringValue('deepLink', $this->getDeepLink());
         $writer->writeObjectValue('mentioned', $this->getMentioned());
         $writer->writeStringValue('mentionText', $this->getMentionText());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('serverCreatedDateTime', $this->getServerCreatedDateTime());
     }
 

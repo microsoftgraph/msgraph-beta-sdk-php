@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health device app impact entity contains battery usage related information at an app level for a given device.
+*/
 class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceAppImpact and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceAppImpact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -97,6 +100,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
             'batteryUsagePercentage' => fn(ParseNode $n) => $o->setBatteryUsagePercentage($n->getFloatValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'isForegroundApp' => fn(ParseNode $n) => $o->setIsForegroundApp($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -113,6 +117,18 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -124,6 +140,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
         $writer->writeFloatValue('batteryUsagePercentage', $this->getBatteryUsagePercentage());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeBooleanValue('isForegroundApp', $this->getIsForegroundApp());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -172,6 +189,14 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     */
     public function setIsForegroundApp(?bool $value): void {
         $this->getBackingStore()->set('isForegroundApp', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcUserSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcUserSetting and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcUserSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,6 +81,7 @@ class CloudPcUserSetting extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
+            'resetEnabled' => fn(ParseNode $n) => $o->setResetEnabled($n->getBooleanValue()),
             'restorePointSetting' => fn(ParseNode $n) => $o->setRestorePointSetting($n->getObjectValue([CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'])),
             'selfServiceEnabled' => fn(ParseNode $n) => $o->setSelfServiceEnabled($n->getBooleanValue()),
         ]);
@@ -103,6 +109,18 @@ class CloudPcUserSetting extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminEnabled'");
+    }
+
+    /**
+     * Gets the resetEnabled property value. The resetEnabled property
+     * @return bool|null
+    */
+    public function getResetEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('resetEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resetEnabled'");
     }
 
     /**
@@ -140,6 +158,8 @@ class CloudPcUserSetting extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('resetEnabled', $this->getResetEnabled());
         $writer->writeObjectValue('restorePointSetting', $this->getRestorePointSetting());
         $writer->writeBooleanValue('selfServiceEnabled', $this->getSelfServiceEnabled());
     }
@@ -182,6 +202,14 @@ class CloudPcUserSetting extends Entity implements Parsable
     */
     public function setLocalAdminEnabled(?bool $value): void {
         $this->getBackingStore()->set('localAdminEnabled', $value);
+    }
+
+    /**
+     * Sets the resetEnabled property value. The resetEnabled property
+     * @param bool|null $value Value to set for the resetEnabled property.
+    */
+    public function setResetEnabled(?bool $value): void {
+        $this->getBackingStore()->set('resetEnabled', $value);
     }
 
     /**

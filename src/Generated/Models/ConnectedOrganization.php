@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ConnectedOrganization extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new connectedOrganization and sets the default values.
     */
     public function __construct() {
@@ -187,6 +192,7 @@ class ConnectedOrganization extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('internalSponsors', $this->getInternalSponsors());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
     }
 

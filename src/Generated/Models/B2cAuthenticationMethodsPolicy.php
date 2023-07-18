@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class B2cAuthenticationMethodsPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new B2cAuthenticationMethodsPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new b2cAuthenticationMethodsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +87,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('isEmailPasswordAuthenticationEnabled', $this->getIsEmailPasswordAuthenticationEnabled());
         $writer->writeBooleanValue('isPhoneOneTimePasswordAuthenticationEnabled', $this->getIsPhoneOneTimePasswordAuthenticationEnabled());
         $writer->writeBooleanValue('isUserNameAuthenticationEnabled', $this->getIsUserNameAuthenticationEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

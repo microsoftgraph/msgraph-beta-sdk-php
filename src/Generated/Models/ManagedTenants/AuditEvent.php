@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuditEvent extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new auditEvent and sets the default values.
     */
     public function __construct() {
@@ -220,6 +225,7 @@ class AuditEvent extends Entity implements Parsable
         $writer->writeStringValue('initiatedByUpn', $this->getInitiatedByUpn());
         $writer->writeStringValue('initiatedByUserId', $this->getInitiatedByUserId());
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('requestBody', $this->getRequestBody());
         $writer->writeStringValue('requestUrl', $this->getRequestUrl());
         $writer->writeStringValue('tenantIds', $this->getTenantIds());

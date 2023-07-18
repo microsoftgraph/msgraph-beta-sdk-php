@@ -51,6 +51,7 @@ class WorkbookTable extends Entity implements Parsable
             'highlightLastColumn' => fn(ParseNode $n) => $o->setHighlightLastColumn($n->getBooleanValue()),
             'legacyId' => fn(ParseNode $n) => $o->setLegacyId($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rows' => fn(ParseNode $n) => $o->setRows($n->getCollectionOfObjectValues([WorkbookTableRow::class, 'createFromDiscriminatorValue'])),
             'showBandedColumns' => fn(ParseNode $n) => $o->setShowBandedColumns($n->getBooleanValue()),
             'showBandedRows' => fn(ParseNode $n) => $o->setShowBandedRows($n->getBooleanValue()),
@@ -109,6 +110,18 @@ class WorkbookTable extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -232,6 +245,7 @@ class WorkbookTable extends Entity implements Parsable
         $writer->writeBooleanValue('highlightLastColumn', $this->getHighlightLastColumn());
         $writer->writeStringValue('legacyId', $this->getLegacyId());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('rows', $this->getRows());
         $writer->writeBooleanValue('showBandedColumns', $this->getShowBandedColumns());
         $writer->writeBooleanValue('showBandedRows', $this->getShowBandedRows());
@@ -281,6 +295,14 @@ class WorkbookTable extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

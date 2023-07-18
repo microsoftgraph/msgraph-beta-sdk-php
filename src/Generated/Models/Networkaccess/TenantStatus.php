@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantStatus extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new tenantStatus and sets the default values.
     */
     public function __construct() {
@@ -38,7 +43,7 @@ class TenantStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the onboardingErrorMessage property value. The onboardingErrorMessage property
+     * Gets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
      * @return string|null
     */
     public function getOnboardingErrorMessage(): ?string {
@@ -67,12 +72,13 @@ class TenantStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onboardingErrorMessage', $this->getOnboardingErrorMessage());
         $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
     }
 
     /**
-     * Sets the onboardingErrorMessage property value. The onboardingErrorMessage property
+     * Sets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
      * @param string|null $value Value to set for the onboardingErrorMessage property.
     */
     public function setOnboardingErrorMessage(?string $value): void {

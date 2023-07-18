@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementActionTenantDeploymentStatus and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new managementActionTenantDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +88,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('statuses', $this->getStatuses());
         $writer->writeStringValue('tenantGroupId', $this->getTenantGroupId());
         $writer->writeStringValue('tenantId', $this->getTenantId());

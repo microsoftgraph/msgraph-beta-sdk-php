@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessPackageAssignmentResourceRole extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessPackageAssignmentResourceRole and sets the default values.
     */
     public function __construct() {
@@ -138,6 +143,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
         $writer->writeObjectValue('accessPackageResourceRole', $this->getAccessPackageResourceRole());
         $writer->writeObjectValue('accessPackageResourceScope', $this->getAccessPackageResourceScope());
         $writer->writeObjectValue('accessPackageSubject', $this->getAccessPackageSubject());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
         $writer->writeStringValue('status', $this->getStatus());

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Custom group id type
+*/
 class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationGroupIdCustom and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deliveryOptimizationGroupIdCustom and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +63,7 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupIdCustom', $this->getGroupIdCustom());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CartToClassAssociation extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new cartToClassAssociation and sets the default values.
     */
     public function __construct() {
@@ -160,6 +165,7 @@ class CartToClassAssociation extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('deviceCartIds', $this->getDeviceCartIds());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('version', $this->getVersion());
     }
 

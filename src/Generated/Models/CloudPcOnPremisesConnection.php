@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOnPremisesConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcOnPremisesConnection and sets the default values.
+     * Instantiates a new cloudPcOnPremisesConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -100,6 +100,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'healthCheckStatusDetails' => fn(ParseNode $n) => $o->setHealthCheckStatusDetails($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'])),
             'inUse' => fn(ParseNode $n) => $o->setInUse($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
             'resourceGroupId' => fn(ParseNode $n) => $o->setResourceGroupId($n->getStringValue()),
             'subnetId' => fn(ParseNode $n) => $o->setSubnetId($n->getStringValue()),
@@ -157,6 +158,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedBy'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -270,6 +283,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeObjectValue('healthCheckStatusDetails', $this->getHealthCheckStatusDetails());
         $writer->writeBooleanValue('inUse', $this->getInUse());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
         $writer->writeStringValue('resourceGroupId', $this->getResourceGroupId());
         $writer->writeStringValue('subnetId', $this->getSubnetId());
@@ -350,6 +364,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function setManagedBy(?CloudPcManagementService $value): void {
         $this->getBackingStore()->set('managedBy', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

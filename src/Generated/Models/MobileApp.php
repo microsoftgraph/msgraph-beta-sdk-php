@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobileApp extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new mobileApp and sets the default values.
     */
     public function __construct() {
@@ -404,6 +409,7 @@ class MobileApp extends Entity implements Parsable
         $writer->writeObjectValue('largeIcon', $this->getLargeIcon());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeStringValue('privacyInformationUrl', $this->getPrivacyInformationUrl());
         $writer->writeStringValue('publisher', $this->getPublisher());

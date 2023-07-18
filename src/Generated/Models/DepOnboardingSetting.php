@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DepOnboardingSetting extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new depOnboardingSetting and sets the default values.
     */
     public function __construct() {
@@ -276,6 +281,7 @@ class DepOnboardingSetting extends Entity implements Parsable
         $writer->writeDateTimeValue('lastSuccessfulSyncDateTime', $this->getLastSuccessfulSyncDateTime());
         $writer->writeIntegerValue('lastSyncErrorCode', $this->getLastSyncErrorCode());
         $writer->writeDateTimeValue('lastSyncTriggeredDateTime', $this->getLastSyncTriggeredDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeBooleanValue('shareTokenWithSchoolDataSyncService', $this->getShareTokenWithSchoolDataSyncService());
         $writer->writeIntegerValue('syncedDeviceCount', $this->getSyncedDeviceCount());

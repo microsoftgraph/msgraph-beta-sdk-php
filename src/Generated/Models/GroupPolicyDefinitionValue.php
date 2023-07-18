@@ -14,6 +14,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GroupPolicyDefinitionValue extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new groupPolicyDefinitionValue and sets the default values.
     */
     public function __construct() {
@@ -130,6 +135,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
         $writer->writeObjectValue('definition', $this->getDefinition());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('presentationValues', $this->getPresentationValues());
     }
 

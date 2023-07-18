@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The user experience analytics overview entity contains the overall score and the scores and insights of every metric of all categories.
+*/
 class UserExperienceAnalyticsOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsOverview and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +65,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('insights', $this->getInsights());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

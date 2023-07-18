@@ -72,6 +72,7 @@ class TeamsAsyncOperation extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([OperationError::class, 'createFromDiscriminatorValue'])),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getEnumValue(TeamsAsyncOperationType::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(TeamsAsyncOperationStatus::class)),
             'targetResourceId' => fn(ParseNode $n) => $o->setTargetResourceId($n->getStringValue()),
@@ -89,6 +90,18 @@ class TeamsAsyncOperation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -149,6 +162,7 @@ class TeamsAsyncOperation extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('error', $this->getError());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operationType', $this->getOperationType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('targetResourceId', $this->getTargetResourceId());
@@ -185,6 +199,14 @@ class TeamsAsyncOperation extends Entity implements Parsable
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

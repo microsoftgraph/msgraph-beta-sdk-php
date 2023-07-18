@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity which represents a connection to device management partner.
+*/
 class DeviceManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementPartner and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -165,6 +173,7 @@ class DeviceManagementPartner extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupsRequiringPartnerEnrollment', $this->getGroupsRequiringPartnerEnrollment());
         $writer->writeBooleanValue('isConfigured', $this->getIsConfigured());
         $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->getLastHeartbeatDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('partnerAppType', $this->getPartnerAppType());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
         $writer->writeStringValue('singleTenantAppId', $this->getSingleTenantAppId());

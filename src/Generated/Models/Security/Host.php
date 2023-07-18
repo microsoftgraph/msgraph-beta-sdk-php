@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Host extends Artifact implements Parsable 
 {
     /**
-     * Instantiates a new Host and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new host and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -184,6 +189,7 @@ class Host extends Artifact implements Parsable
         $writer->writeCollectionOfObjectValues('cookies', $this->getCookies());
         $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('passiveDns', $this->getPassiveDns());
         $writer->writeCollectionOfObjectValues('passiveDnsReverse', $this->getPassiveDnsReverse());
         $writer->writeObjectValue('reputation', $this->getReputation());

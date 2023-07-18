@@ -18,7 +18,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ClassificationResult and sets the default values.
+     * Instantiates a new classificationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -9,10 +9,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Compliance scripts (detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceComplianceScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceComplianceScript and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceComplianceScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -244,6 +252,7 @@ class DeviceComplianceScript extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());

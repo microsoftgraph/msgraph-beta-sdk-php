@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerPlanConfiguration extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new plannerPlanConfiguration and sets the default values.
     */
     public function __construct() {
@@ -144,6 +149,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('localizations', $this->getLocalizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

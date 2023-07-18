@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemFacet extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new itemFacet and sets the default values.
     */
     public function __construct() {
@@ -178,6 +183,7 @@ class ItemFacet extends Entity implements Parsable
         $writer->writeBooleanValue('isSearchable', $this->getIsSearchable());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('source', $this->getSource());
     }
 

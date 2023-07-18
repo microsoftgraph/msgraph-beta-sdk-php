@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains registry properties to detect a Win32 App
+*/
 class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppRegistryDetection and sets the default values.
+     * Instantiates a new win32LobAppRegistryDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +75,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
             'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)),
             'detectionValue' => fn(ParseNode $n) => $o->setDetectionValue($n->getStringValue()),
             'keyPath' => fn(ParseNode $n) => $o->setKeyPath($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)),
             'valueName' => fn(ParseNode $n) => $o->setValueName($n->getStringValue()),
         ]);
@@ -87,6 +91,18 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyPath'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,6 +139,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
         $writer->writeEnumValue('detectionType', $this->getDetectionType());
         $writer->writeStringValue('detectionValue', $this->getDetectionValue());
         $writer->writeStringValue('keyPath', $this->getKeyPath());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operator', $this->getOperator());
         $writer->writeStringValue('valueName', $this->getValueName());
     }
@@ -157,6 +174,14 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     */
     public function setKeyPath(?string $value): void {
         $this->getBackingStore()->set('keyPath', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RecommendationBase extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new recommendationBase and sets the default values.
     */
     public function __construct() {
@@ -330,6 +335,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());

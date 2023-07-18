@@ -184,6 +184,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pageCount' => fn(ParseNode $n) => $o->setPageCount($n->getIntegerValue()),
             'printerId' => fn(ParseNode $n) => $o->setPrinterId($n->getStringValue()),
+            'printerName' => fn(ParseNode $n) => $o->setPrinterName($n->getStringValue()),
             'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)),
             'simplexPageCount' => fn(ParseNode $n) => $o->setSimplexPageCount($n->getIntegerValue()),
         ];
@@ -238,6 +239,18 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the printerName property value. The printer name that the job was queued for. Read-only.
+     * @return string|null
+    */
+    public function getPrinterName(): ?string {
+        $val = $this->getBackingStore()->get('printerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerName'");
+    }
+
+    /**
      * Gets the processingState property value. The processingState property
      * @return PrintJobProcessingState|null
     */
@@ -279,6 +292,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pageCount', $this->getPageCount());
         $writer->writeStringValue('printerId', $this->getPrinterId());
+        $writer->writeStringValue('printerName', $this->getPrinterName());
         $writer->writeEnumValue('processingState', $this->getProcessingState());
         $writer->writeIntegerValue('simplexPageCount', $this->getSimplexPageCount());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -402,6 +416,14 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPrinterId(?string $value): void {
         $this->getBackingStore()->set('printerId', $value);
+    }
+
+    /**
+     * Sets the printerName property value. The printer name that the job was queued for. Read-only.
+     * @param string|null $value Value to set for the printerName property.
+    */
+    public function setPrinterName(?string $value): void {
+        $this->getBackingStore()->set('printerName', $value);
     }
 
     /**

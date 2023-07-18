@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobilityManagementPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobilityManagementPolicy and sets the default values.
+     * Instantiates a new mobilityManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -99,6 +99,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'includedGroups' => fn(ParseNode $n) => $o->setIncludedGroups($n->getCollectionOfObjectValues([Group::class, 'createFromDiscriminatorValue'])),
             'isValid' => fn(ParseNode $n) => $o->setIsValid($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'termsOfUseUrl' => fn(ParseNode $n) => $o->setTermsOfUseUrl($n->getStringValue()),
         ]);
     }
@@ -130,6 +131,18 @@ class MobilityManagementPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the termsOfUseUrl property value. Terms of Use URL of the mobility management application.
      * @return string|null
     */
@@ -154,6 +167,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('includedGroups', $this->getIncludedGroups());
         $writer->writeBooleanValue('isValid', $this->getIsValid());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('termsOfUseUrl', $this->getTermsOfUseUrl());
     }
 
@@ -211,6 +225,14 @@ class MobilityManagementPolicy extends Entity implements Parsable
     */
     public function setIsValid(?bool $value): void {
         $this->getBackingStore()->set('isValid', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookRange extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WorkbookRange and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new workbookRange and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -312,6 +317,7 @@ class WorkbookRange extends Entity implements Parsable
         $writer->writeObjectValue('formulasR1C1', $this->getFormulasR1C1());
         $writer->writeBooleanValue('hidden', $this->getHidden());
         $writer->writeObjectValue('numberFormat', $this->getNumberFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rowCount', $this->getRowCount());
         $writer->writeBooleanValue('rowHidden', $this->getRowHidden());
         $writer->writeIntegerValue('rowIndex', $this->getRowIndex());

@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * RotateBitLockerKeys device action result
+*/
 class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new RotateBitLockerKeysDeviceActionResult and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new rotateBitLockerKeysDeviceActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +62,7 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

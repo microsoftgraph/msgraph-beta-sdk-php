@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows X Trusted Root Certificate configuration profile
+*/
 class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XTrustedRootCertificate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new windows10XTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +91,7 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
         parent::serialize($writer);
         $writer->writeStringValue('certFileName', $this->getCertFileName());
         $writer->writeEnumValue('destinationStore', $this->getDestinationStore());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 

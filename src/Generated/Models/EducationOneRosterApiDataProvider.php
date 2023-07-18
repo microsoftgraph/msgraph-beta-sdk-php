@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new EducationOneRosterApiDataProvider and sets the default values.
+     * Instantiates a new educationOneRosterApiDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +72,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
             'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([EducationSynchronizationConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
             'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'providerName' => fn(ParseNode $n) => $o->setProviderName($n->getStringValue()),
             'schoolsIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -90,6 +91,18 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
                 $this->setTermIds($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -141,6 +154,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
         $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeStringValue('connectionUrl', $this->getConnectionUrl());
         $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('providerName', $this->getProviderName());
         $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->getSchoolsIds());
         $writer->writeCollectionOfPrimitiveValues('termIds', $this->getTermIds());
@@ -168,6 +182,14 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
         $this->getBackingStore()->set('customizations', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

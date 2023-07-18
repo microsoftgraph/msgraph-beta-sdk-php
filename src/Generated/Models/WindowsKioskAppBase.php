@@ -21,7 +21,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new WindowsKioskAppBase and sets the default values.
+     * Instantiates a new windowsKioskAppBase and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -6,8 +6,8 @@ use Microsoft\Kiota\Abstractions\Enum;
 
 class DeviceComplianceScriptRulOperator extends Enum {
     public const NONE = 'none';
-    public const ESCAPED_AND = 'and';
-    public const ESCAPED_OR = 'or';
+    public const AND = 'and';
+    public const OR = 'or';
     public const IS_EQUALS = 'isEquals';
     public const NOT_EQUALS = 'notEquals';
     public const GREATER_THAN = 'greaterThan';

@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents an ADMX (Administrative Template) XML file. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
+*/
 class GroupPolicyDefinitionFile extends Entity implements Parsable 
 {
     /**
@@ -91,6 +94,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
                 $this->setLanguageCodes($val);
             },
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)),
             'revision' => fn(ParseNode $n) => $o->setRevision($n->getStringValue()),
             'targetNamespace' => fn(ParseNode $n) => $o->setTargetNamespace($n->getStringValue()),
@@ -134,6 +138,18 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -196,6 +212,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
         $writer->writeStringValue('fileName', $this->getFileName());
         $writer->writeCollectionOfPrimitiveValues('languageCodes', $this->getLanguageCodes());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeStringValue('revision', $this->getRevision());
         $writer->writeStringValue('targetNamespace', $this->getTargetNamespace());
@@ -248,6 +265,14 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

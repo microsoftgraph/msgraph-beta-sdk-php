@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The Group Policy migration report.
+*/
 class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyMigrationReport and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new groupPolicyMigrationReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -258,6 +266,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupPolicySettingMappings', $this->getGroupPolicySettingMappings());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeEnumValue('migrationReadiness', $this->getMigrationReadiness());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ouDistinguishedName', $this->getOuDistinguishedName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeIntegerValue('supportedSettingsCount', $this->getSupportedSettingsCount());

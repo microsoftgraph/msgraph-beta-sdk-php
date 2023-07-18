@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable 
 {
     /**
-     * Instantiates a new PlannerExternalTaskSource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new plannerExternalTaskSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -148,6 +153,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
         $writer->writeStringValue('externalContextId', $this->getExternalContextId());
         $writer->writeStringValue('externalObjectId', $this->getExternalObjectId());
         $writer->writeStringValue('externalObjectVersion', $this->getExternalObjectVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 

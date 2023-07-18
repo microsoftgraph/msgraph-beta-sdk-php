@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Kerberos-type Single Sign-On extension profile for iOS devices.
+*/
 class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new IosKerberosSingleSignOnExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosKerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -377,6 +385,7 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension implemen
         $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
         $writer->writeBooleanValue('isDefaultRealm', $this->getIsDefaultRealm());
         $writer->writeBooleanValue('managedAppsInBundleIdACLIncluded', $this->getManagedAppsInBundleIdACLIncluded());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('passwordBlockModification', $this->getPasswordBlockModification());
         $writer->writeStringValue('passwordChangeUrl', $this->getPasswordChangeUrl());
         $writer->writeBooleanValue('passwordEnableLocalSync', $this->getPasswordEnableLocalSync());

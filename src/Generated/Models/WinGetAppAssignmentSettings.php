@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign a WinGet app to a group.
+*/
 class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new WinGetAppAssignmentSettings and sets the default values.
+     * Instantiates a new winGetAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,6 +37,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
         return array_merge(parent::getFieldDeserializers(), [
             'installTimeSettings' => fn(ParseNode $n) => $o->setInstallTimeSettings($n->getObjectValue([WinGetAppInstallTimeSettings::class, 'createFromDiscriminatorValue'])),
             'notifications' => fn(ParseNode $n) => $o->setNotifications($n->getEnumValue(WinGetAppNotification::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restartSettings' => fn(ParseNode $n) => $o->setRestartSettings($n->getObjectValue([WinGetAppRestartSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -63,6 +67,18 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the restartSettings property value. The reboot settings to apply for this app assignment.
      * @return WinGetAppRestartSettings|null
     */
@@ -82,6 +98,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
         parent::serialize($writer);
         $writer->writeObjectValue('installTimeSettings', $this->getInstallTimeSettings());
         $writer->writeEnumValue('notifications', $this->getNotifications());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('restartSettings', $this->getRestartSettings());
     }
 
@@ -99,6 +116,14 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
     */
     public function setNotifications(?WinGetAppNotification $value): void {
         $this->getBackingStore()->set('notifications', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

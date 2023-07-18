@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new customAccessPackageWorkflowExtension and sets the default values.
     */
     public function __construct() {
@@ -70,6 +75,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

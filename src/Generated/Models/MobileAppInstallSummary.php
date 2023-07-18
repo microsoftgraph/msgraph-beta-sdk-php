@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation summary of a mobile app. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class MobileAppInstallSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppInstallSummary and sets the default values.
+     * Instantiates a new mobileAppInstallSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +66,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
             'notApplicableUserCount' => fn(ParseNode $n) => $o->setNotApplicableUserCount($n->getIntegerValue()),
             'notInstalledDeviceCount' => fn(ParseNode $n) => $o->setNotInstalledDeviceCount($n->getIntegerValue()),
             'notInstalledUserCount' => fn(ParseNode $n) => $o->setNotInstalledUserCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'pendingInstallDeviceCount' => fn(ParseNode $n) => $o->setPendingInstallDeviceCount($n->getIntegerValue()),
             'pendingInstallUserCount' => fn(ParseNode $n) => $o->setPendingInstallUserCount($n->getIntegerValue()),
         ]);
@@ -141,6 +145,18 @@ class MobileAppInstallSummary extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the pendingInstallDeviceCount property value. Number of Devices that have been notified to install this app.
      * @return int|null
     */
@@ -178,6 +194,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
         $writer->writeIntegerValue('notApplicableUserCount', $this->getNotApplicableUserCount());
         $writer->writeIntegerValue('notInstalledDeviceCount', $this->getNotInstalledDeviceCount());
         $writer->writeIntegerValue('notInstalledUserCount', $this->getNotInstalledUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pendingInstallDeviceCount', $this->getPendingInstallDeviceCount());
         $writer->writeIntegerValue('pendingInstallUserCount', $this->getPendingInstallUserCount());
     }
@@ -244,6 +261,14 @@ class MobileAppInstallSummary extends Entity implements Parsable
     */
     public function setNotInstalledUserCount(?int $value): void {
         $this->getBackingStore()->set('notInstalledUserCount', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

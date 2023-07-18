@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEndpoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -120,7 +120,9 @@ class VirtualEndpoint extends Entity implements Parsable
             'crossCloudGovernmentOrganizationMapping' => fn(ParseNode $n) => $o->setCrossCloudGovernmentOrganizationMapping($n->getObjectValue([CloudPcCrossCloudGovernmentOrganizationMapping::class, 'createFromDiscriminatorValue'])),
             'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
             'externalPartnerSettings' => fn(ParseNode $n) => $o->setExternalPartnerSettings($n->getCollectionOfObjectValues([CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'])),
+            'frontLineServicePlans' => fn(ParseNode $n) => $o->setFrontLineServicePlans($n->getCollectionOfObjectValues([CloudPcFrontLineServicePlan::class, 'createFromDiscriminatorValue'])),
             'galleryImages' => fn(ParseNode $n) => $o->setGalleryImages($n->getCollectionOfObjectValues([CloudPcGalleryImage::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
             'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
@@ -131,6 +133,20 @@ class VirtualEndpoint extends Entity implements Parsable
             'supportedRegions' => fn(ParseNode $n) => $o->setSupportedRegions($n->getCollectionOfObjectValues([CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'])),
             'userSettings' => fn(ParseNode $n) => $o->setUserSettings($n->getCollectionOfObjectValues([CloudPcUserSetting::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the frontLineServicePlans property value. The frontLineServicePlans property
+     * @return array<CloudPcFrontLineServicePlan>|null
+    */
+    public function getFrontLineServicePlans(): ?array {
+        $val = $this->getBackingStore()->get('frontLineServicePlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcFrontLineServicePlan::class);
+            /** @var array<CloudPcFrontLineServicePlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frontLineServicePlans'");
     }
 
     /**
@@ -145,6 +161,18 @@ class VirtualEndpoint extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'galleryImages'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -281,7 +309,9 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeObjectValue('crossCloudGovernmentOrganizationMapping', $this->getCrossCloudGovernmentOrganizationMapping());
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->getExternalPartnerSettings());
+        $writer->writeCollectionOfObjectValues('frontLineServicePlans', $this->getFrontLineServicePlans());
         $writer->writeCollectionOfObjectValues('galleryImages', $this->getGalleryImages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());
@@ -342,11 +372,27 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Sets the frontLineServicePlans property value. The frontLineServicePlans property
+     * @param array<CloudPcFrontLineServicePlan>|null $value Value to set for the frontLineServicePlans property.
+    */
+    public function setFrontLineServicePlans(?array $value): void {
+        $this->getBackingStore()->set('frontLineServicePlans', $value);
+    }
+
+    /**
      * Sets the galleryImages property value. The gallery image resource on Cloud PC.
      * @param array<CloudPcGalleryImage>|null $value Value to set for the galleryImages property.
     */
     public function setGalleryImages(?array $value): void {
         $this->getBackingStore()->set('galleryImages', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

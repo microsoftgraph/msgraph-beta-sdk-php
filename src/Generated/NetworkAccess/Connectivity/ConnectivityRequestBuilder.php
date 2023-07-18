@@ -58,7 +58,7 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivity from networkAccess
+     * Connectivity represents all the connectivity components in Global Secure Access.
      * @param ConnectivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivity from networkAccess
+     * Connectivity represents all the connectivity components in Global Secure Access.
      * @param ConnectivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

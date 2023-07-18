@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PrivilegedRoleSettings extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new privilegedRoleSettings and sets the default values.
     */
     public function __construct() {
@@ -190,6 +195,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
         $writer->writeBooleanValue('mfaOnElevation', $this->getMfaOnElevation());
         $writer->writeDateIntervalValue('minElevationDuration', $this->getMinElevationDuration());
         $writer->writeBooleanValue('notificationToUserOnElevation', $this->getNotificationToUserOnElevation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('ticketingInfoOnElevation', $this->getTicketingInfoOnElevation());
     }
 

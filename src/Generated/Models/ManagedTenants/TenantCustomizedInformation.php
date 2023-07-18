@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantCustomizedInformation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantCustomizedInformation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new tenantCustomizedInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -98,6 +103,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('contacts', $this->getContacts());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('website', $this->getWebsite());
     }

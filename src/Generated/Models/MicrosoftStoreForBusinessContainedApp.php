@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class that represents a contained app of a MicrosoftStoreForBusinessApp.
+*/
 class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftStoreForBusinessContainedApp and sets the default values.
+     * Instantiates a new microsoftStoreForBusinessContainedApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

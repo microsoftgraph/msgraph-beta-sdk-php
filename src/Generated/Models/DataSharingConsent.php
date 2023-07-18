@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Data sharing consent information.
+*/
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DataSharingConsent and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new dataSharingConsent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,6 +131,7 @@ class DataSharingConsent extends Entity implements Parsable
         $writer->writeBooleanValue('granted', $this->getGranted());
         $writer->writeStringValue('grantedByUpn', $this->getGrantedByUpn());
         $writer->writeStringValue('grantedByUserId', $this->getGrantedByUserId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serviceDisplayName', $this->getServiceDisplayName());
         $writer->writeStringValue('termsUrl', $this->getTermsUrl());
     }

@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GovernanceResource extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GovernanceResource and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new governanceResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -195,6 +200,7 @@ class GovernanceResource extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
         $writer->writeDateTimeValue('registeredDateTime', $this->getRegisteredDateTime());
         $writer->writeStringValue('registeredRoot', $this->getRegisteredRoot());

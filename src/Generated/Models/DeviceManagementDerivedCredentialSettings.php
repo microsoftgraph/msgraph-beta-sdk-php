@@ -6,8 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that describes tenant level settings for derived credentials
+*/
 class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new deviceManagementDerivedCredentialSettings and sets the default values.
     */
@@ -109,6 +117,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
         $writer->writeStringValue('helpUrl', $this->getHelpUrl());
         $writer->writeEnumValue('issuer', $this->getIssuer());
         $writer->writeEnumValue('notificationType', $this->getNotificationType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
     }
 

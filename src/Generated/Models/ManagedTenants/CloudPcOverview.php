@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOverview extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new cloudPcOverview and sets the default values.
     */
     public function __construct() {
@@ -316,6 +321,7 @@ class CloudPcOverview extends Entity implements Parsable
         $writer->writeIntegerValue('numberOfCloudPcStatusProvisioning', $this->getNumberOfCloudPcStatusProvisioning());
         $writer->writeIntegerValue('numberOfCloudPcStatusUnknown', $this->getNumberOfCloudPcStatusUnknown());
         $writer->writeIntegerValue('numberOfCloudPcStatusUpgrading', $this->getNumberOfCloudPcStatusUpgrading());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeIntegerValue('totalBusinessLicenses', $this->getTotalBusinessLicenses());

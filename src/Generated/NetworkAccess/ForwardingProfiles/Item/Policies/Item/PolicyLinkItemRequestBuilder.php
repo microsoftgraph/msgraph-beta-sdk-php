@@ -58,7 +58,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policies from networkAccess
+     * Traffic forwarding policies associated with this profile.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policies from networkAccess
+     * Traffic forwarding policies associated with this profile.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

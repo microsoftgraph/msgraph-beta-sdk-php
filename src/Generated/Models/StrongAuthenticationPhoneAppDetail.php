@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new StrongAuthenticationPhoneAppDetail and sets the default values.
+     * Instantiates a new strongAuthenticationPhoneAppDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -116,6 +116,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
             'oathSecretKey' => fn(ParseNode $n) => $o->setOathSecretKey($n->getStringValue()),
             'oathTokenMetadata' => fn(ParseNode $n) => $o->setOathTokenMetadata($n->getObjectValue([OathTokenMetadata::class, 'createFromDiscriminatorValue'])),
             'oathTokenTimeDriftInSeconds' => fn(ParseNode $n) => $o->setOathTokenTimeDriftInSeconds($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'phoneAppVersion' => fn(ParseNode $n) => $o->setPhoneAppVersion($n->getStringValue()),
             'tenantDeviceId' => fn(ParseNode $n) => $o->setTenantDeviceId($n->getStringValue()),
             'tokenGenerationIntervalInSeconds' => fn(ParseNode $n) => $o->setTokenGenerationIntervalInSeconds($n->getIntegerValue()),
@@ -195,6 +196,18 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the phoneAppVersion property value. The phoneAppVersion property
      * @return string|null
     */
@@ -248,6 +261,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
         $writer->writeStringValue('oathSecretKey', $this->getOathSecretKey());
         $writer->writeObjectValue('oathTokenMetadata', $this->getOathTokenMetadata());
         $writer->writeIntegerValue('oathTokenTimeDriftInSeconds', $this->getOathTokenTimeDriftInSeconds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('phoneAppVersion', $this->getPhoneAppVersion());
         $writer->writeStringValue('tenantDeviceId', $this->getTenantDeviceId());
         $writer->writeIntegerValue('tokenGenerationIntervalInSeconds', $this->getTokenGenerationIntervalInSeconds());
@@ -347,6 +361,14 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
     */
     public function setOathTokenTimeDriftInSeconds(?int $value): void {
         $this->getBackingStore()->set('oathTokenTimeDriftInSeconds', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

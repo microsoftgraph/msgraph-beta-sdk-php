@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationDetails and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new credentialUserRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -139,6 +144,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isMfaRegistered', $this->getIsMfaRegistered());
         $writer->writeBooleanValue('isRegistered', $this->getIsRegistered());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }

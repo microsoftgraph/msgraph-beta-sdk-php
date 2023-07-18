@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements Parsable 
 {
     /**
-     * Instantiates a new OnenoteEntitySchemaObjectModel and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onenoteEntitySchemaObjectModel and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +72,7 @@ class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements P
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

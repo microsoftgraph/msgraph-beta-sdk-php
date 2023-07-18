@@ -140,6 +140,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'remoteSignInTime' => fn(ParseNode $n) => $o->setRemoteSignInTime($n->getFloatValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'virtualNetwork' => fn(ParseNode $n) => $o->setVirtualNetwork($n->getStringValue()),
@@ -168,6 +169,18 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -222,6 +235,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('remoteSignInTime', $this->getRemoteSignInTime());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeStringValue('virtualNetwork', $this->getVirtualNetwork());
@@ -305,6 +319,14 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

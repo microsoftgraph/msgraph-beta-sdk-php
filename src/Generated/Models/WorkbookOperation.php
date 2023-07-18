@@ -44,9 +44,22 @@ class WorkbookOperation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([WorkbookOperationError::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceLocation' => fn(ParseNode $n) => $o->setResourceLocation($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(WorkbookOperationStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -80,6 +93,7 @@ class WorkbookOperation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceLocation', $this->getResourceLocation());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -90,6 +104,14 @@ class WorkbookOperation extends Entity implements Parsable
     */
     public function setError(?WorkbookOperationError $value): void {
         $this->getBackingStore()->set('error', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

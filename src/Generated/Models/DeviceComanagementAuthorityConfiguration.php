@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows 10 Co-Management Authority Page Configuration
+*/
 class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceComanagementAuthorityConfiguration and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceComanagementAuthorityConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +91,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
         $writer->writeStringValue('configurationManagerAgentCommandLineArgument', $this->getConfigurationManagerAgentCommandLineArgument());
         $writer->writeBooleanValue('installConfigurationManagerAgent', $this->getInstallConfigurationManagerAgent());
         $writer->writeIntegerValue('managedDeviceAuthority', $this->getManagedDeviceAuthority());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantSetupInfo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantSetupInfo and sets the default values.
+     * Instantiates a new tenantSetupInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +46,7 @@ class TenantSetupInfo extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'defaultRolesSettings' => fn(ParseNode $n) => $o->setDefaultRolesSettings($n->getObjectValue([PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'])),
             'firstTimeSetup' => fn(ParseNode $n) => $o->setFirstTimeSetup($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'relevantRolesSettings' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -70,6 +71,18 @@ class TenantSetupInfo extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'firstTimeSetup'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -130,6 +143,7 @@ class TenantSetupInfo extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('defaultRolesSettings', $this->getDefaultRolesSettings());
         $writer->writeBooleanValue('firstTimeSetup', $this->getFirstTimeSetup());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('relevantRolesSettings', $this->getRelevantRolesSettings());
         $writer->writeEnumValue('setupStatus', $this->getSetupStatus());
         $writer->writeBooleanValue('skipSetup', $this->getSkipSetup());
@@ -150,6 +164,14 @@ class TenantSetupInfo extends Entity implements Parsable
     */
     public function setFirstTimeSetup(?bool $value): void {
         $this->getBackingStore()->set('firstTimeSetup', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

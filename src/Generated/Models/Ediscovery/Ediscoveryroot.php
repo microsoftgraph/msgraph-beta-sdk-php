@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Ediscoveryroot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Ediscoveryroot and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new ediscoveryroot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class Ediscoveryroot extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('cases', $this->getCases());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class UserExperienceAnalyticsAnomalyState extends Enum {
-    public const ESCAPED_NEW = 'new';
+    public const NEW = 'new';
     public const ACTIVE = 'active';
     public const DISABLED = 'disabled';
     public const REMOVED = 'removed';

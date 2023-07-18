@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that stores the server log collection status.
+*/
 class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelServerLogCollectionResponse and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftTunnelServerLogCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -134,6 +142,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
         parent::serialize($writer);
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeDateTimeValue('expiryDateTime', $this->getExpiryDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeStringValue('serverId', $this->getServerId());
         $writer->writeIntegerValue('sizeInBytes', $this->getSizeInBytes());

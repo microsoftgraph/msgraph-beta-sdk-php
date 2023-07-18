@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VirtualEventPresenter extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new virtualEventPresenter and sets the default values.
     */
     public function __construct() {
@@ -81,6 +86,7 @@ class VirtualEventPresenter extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('identity', $this->getIdentity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('presenterDetails', $this->getPresenterDetails());
     }
 

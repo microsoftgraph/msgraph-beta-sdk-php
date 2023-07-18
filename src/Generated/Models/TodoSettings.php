@@ -18,7 +18,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new TodoSettings and sets the default values.
+     * Instantiates a new todoSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -70,7 +70,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalJoinEnabled property value. The isExternalJoinEnabled property
+     * Gets the isExternalJoinEnabled property value. Controls whether users can join lists from users external to your organization.
      * @return bool|null
     */
     public function getIsExternalJoinEnabled(): ?bool {
@@ -82,7 +82,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalShareEnabled property value. The isExternalShareEnabled property
+     * Gets the isExternalShareEnabled property value. Controls whether users can share lists with external users.
      * @return bool|null
     */
     public function getIsExternalShareEnabled(): ?bool {
@@ -94,7 +94,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isPushNotificationEnabled property value. The isPushNotificationEnabled property
+     * Gets the isPushNotificationEnabled property value. Controls whether push notifications are enabled for your users.
      * @return bool|null
     */
     public function getIsPushNotificationEnabled(): ?bool {
@@ -146,7 +146,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalJoinEnabled property value. The isExternalJoinEnabled property
+     * Sets the isExternalJoinEnabled property value. Controls whether users can join lists from users external to your organization.
      * @param bool|null $value Value to set for the isExternalJoinEnabled property.
     */
     public function setIsExternalJoinEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalShareEnabled property value. The isExternalShareEnabled property
+     * Sets the isExternalShareEnabled property value. Controls whether users can share lists with external users.
      * @param bool|null $value Value to set for the isExternalShareEnabled property.
     */
     public function setIsExternalShareEnabled(?bool $value): void {
@@ -162,7 +162,7 @@ class TodoSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isPushNotificationEnabled property value. The isPushNotificationEnabled property
+     * Sets the isPushNotificationEnabled property value. Controls whether push notifications are enabled for your users.
      * @param bool|null $value Value to set for the isPushNotificationEnabled property.
     */
     public function setIsPushNotificationEnabled(?bool $value): void {

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationUserStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceConfigurationUserStateSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceConfigurationUserStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -136,6 +141,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
         $writer->writeIntegerValue('errorUserCount', $this->getErrorUserCount());
         $writer->writeIntegerValue('nonCompliantUserCount', $this->getNonCompliantUserCount());
         $writer->writeIntegerValue('notApplicableUserCount', $this->getNotApplicableUserCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('remediatedUserCount', $this->getRemediatedUserCount());
         $writer->writeIntegerValue('unknownUserCount', $this->getUnknownUserCount());
     }

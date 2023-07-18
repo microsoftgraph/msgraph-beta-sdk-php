@@ -10,6 +10,11 @@ use Psr\Http\Message\StreamInterface;
 class CertificateAuthorityAsEntity extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new certificateAuthorityAsEntity and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
         $writer->writeBooleanValue('isRootAuthority', $this->getIsRootAuthority());
         $writer->writeStringValue('issuer', $this->getIssuer());
         $writer->writeStringValue('issuerSubjectKeyIdentifier', $this->getIssuerSubjectKeyIdentifier());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

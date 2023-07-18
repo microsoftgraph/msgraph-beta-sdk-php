@@ -19,7 +19,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new OutboundSharedUserProfile and sets the default values.
+     * Instantiates a new outboundSharedUserProfile and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

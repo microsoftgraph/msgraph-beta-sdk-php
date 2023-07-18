@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentApprovalRule extends ComplianceChangeRule implements Parsable 
 {
     /**
-     * Instantiates a new ContentApprovalRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new contentApprovalRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,6 +75,7 @@ class ContentApprovalRule extends ComplianceChangeRule implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('contentFilter', $this->getContentFilter());
         $writer->writeDateIntervalValue('durationBeforeDeploymentStart', $this->getDurationBeforeDeploymentStart());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

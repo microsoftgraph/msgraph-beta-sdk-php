@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The Zebra FOTA deployment entity that describes settings, deployment device groups required to create a FOTA deployment, and deployment status.
+*/
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ZebraFotaDeployment and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new zebraFotaDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -135,6 +143,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
         $writer->writeObjectValue('deploymentStatus', $this->getDeploymentStatus());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 

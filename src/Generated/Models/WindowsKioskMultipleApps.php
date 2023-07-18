@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The class used to identify the MultiMode app configuration for the kiosk configuration
+*/
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskMultipleApps and sets the default values.
+     * Instantiates a new windowsKioskMultipleApps and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,9 +78,22 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
             'allowAccessToDownloadsFolder' => fn(ParseNode $n) => $o->setAllowAccessToDownloadsFolder($n->getBooleanValue()),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([WindowsKioskAppBase::class, 'createFromDiscriminatorValue'])),
             'disallowDesktopApps' => fn(ParseNode $n) => $o->setDisallowDesktopApps($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
             'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,6 +129,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
         $writer->writeBooleanValue('allowAccessToDownloadsFolder', $this->getAllowAccessToDownloadsFolder());
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
         $writer->writeBooleanValue('disallowDesktopApps', $this->getDisallowDesktopApps());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
         $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
     }
@@ -139,6 +156,14 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
     */
     public function setDisallowDesktopApps(?bool $value): void {
         $this->getBackingStore()->set('disallowDesktopApps', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

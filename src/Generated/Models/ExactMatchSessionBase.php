@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable 
 {
     /**
-     * Instantiates a new ExactMatchSessionBase and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new exactMatchSessionBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -154,6 +159,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('dataStoreId', $this->getDataStoreId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('processingCompletionDateTime', $this->getProcessingCompletionDateTime());
         $writer->writeIntegerValue('remainingBlockCount', $this->getRemainingBlockCount());
         $writer->writeIntegerValue('remainingJobCount', $this->getRemainingJobCount());

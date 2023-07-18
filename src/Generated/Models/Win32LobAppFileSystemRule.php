@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A complex type to store file or folder rule data for a Win32 LOB app.
+*/
 class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppFileSystemRule and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new win32LobAppFileSystemRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -122,6 +130,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
         $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
         $writer->writeStringValue('comparisonValue', $this->getComparisonValue());
         $writer->writeStringValue('fileOrFolderName', $this->getFileOrFolderName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('operationType', $this->getOperationType());
         $writer->writeEnumValue('operator', $this->getOperator());
         $writer->writeStringValue('path', $this->getPath());

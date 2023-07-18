@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CompanySubscription extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new companySubscription and sets the default values.
     */
     public function __construct() {
@@ -24,6 +29,18 @@ class CompanySubscription extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CompanySubscription {
         return new CompanySubscription();
+    }
+
+    /**
+     * Gets the commerceSubscriptionId property value. The commerceSubscriptionId property
+     * @return string|null
+    */
+    public function getCommerceSubscriptionId(): ?string {
+        $val = $this->getBackingStore()->get('commerceSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'commerceSubscriptionId'");
     }
 
     /**
@@ -45,10 +62,14 @@ class CompanySubscription extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'commerceSubscriptionId' => fn(ParseNode $n) => $o->setCommerceSubscriptionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'isTrial' => fn(ParseNode $n) => $o->setIsTrial($n->getBooleanValue()),
             'nextLifecycleDateTime' => fn(ParseNode $n) => $o->setNextLifecycleDateTime($n->getDateTimeValue()),
             'ocpSubscriptionId' => fn(ParseNode $n) => $o->setOcpSubscriptionId($n->getStringValue()),
+            'ownerId' => fn(ParseNode $n) => $o->setOwnerId($n->getStringValue()),
+            'ownerTenantId' => fn(ParseNode $n) => $o->setOwnerTenantId($n->getStringValue()),
+            'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getStringValue()),
             'serviceStatus' => fn(ParseNode $n) => $o->setServiceStatus($n->getCollectionOfObjectValues([ServicePlanInfo::class, 'createFromDiscriminatorValue'])),
             'skuId' => fn(ParseNode $n) => $o->setSkuId($n->getStringValue()),
             'skuPartNumber' => fn(ParseNode $n) => $o->setSkuPartNumber($n->getStringValue()),
@@ -91,6 +112,42 @@ class CompanySubscription extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ocpSubscriptionId'");
+    }
+
+    /**
+     * Gets the ownerId property value. The ownerId property
+     * @return string|null
+    */
+    public function getOwnerId(): ?string {
+        $val = $this->getBackingStore()->get('ownerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerId'");
+    }
+
+    /**
+     * Gets the ownerTenantId property value. The ownerTenantId property
+     * @return string|null
+    */
+    public function getOwnerTenantId(): ?string {
+        $val = $this->getBackingStore()->get('ownerTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerTenantId'");
+    }
+
+    /**
+     * Gets the ownerType property value. The ownerType property
+     * @return string|null
+    */
+    public function getOwnerType(): ?string {
+        $val = $this->getBackingStore()->get('ownerType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerType'");
     }
 
     /**
@@ -161,15 +218,28 @@ class CompanySubscription extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('commerceSubscriptionId', $this->getCommerceSubscriptionId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeBooleanValue('isTrial', $this->getIsTrial());
         $writer->writeDateTimeValue('nextLifecycleDateTime', $this->getNextLifecycleDateTime());
         $writer->writeStringValue('ocpSubscriptionId', $this->getOcpSubscriptionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('ownerId', $this->getOwnerId());
+        $writer->writeStringValue('ownerTenantId', $this->getOwnerTenantId());
+        $writer->writeStringValue('ownerType', $this->getOwnerType());
         $writer->writeCollectionOfObjectValues('serviceStatus', $this->getServiceStatus());
         $writer->writeStringValue('skuId', $this->getSkuId());
         $writer->writeStringValue('skuPartNumber', $this->getSkuPartNumber());
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeIntegerValue('totalLicenses', $this->getTotalLicenses());
+    }
+
+    /**
+     * Sets the commerceSubscriptionId property value. The commerceSubscriptionId property
+     * @param string|null $value Value to set for the commerceSubscriptionId property.
+    */
+    public function setCommerceSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('commerceSubscriptionId', $value);
     }
 
     /**
@@ -202,6 +272,30 @@ class CompanySubscription extends Entity implements Parsable
     */
     public function setOcpSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('ocpSubscriptionId', $value);
+    }
+
+    /**
+     * Sets the ownerId property value. The ownerId property
+     * @param string|null $value Value to set for the ownerId property.
+    */
+    public function setOwnerId(?string $value): void {
+        $this->getBackingStore()->set('ownerId', $value);
+    }
+
+    /**
+     * Sets the ownerTenantId property value. The ownerTenantId property
+     * @param string|null $value Value to set for the ownerTenantId property.
+    */
+    public function setOwnerTenantId(?string $value): void {
+        $this->getBackingStore()->set('ownerTenantId', $value);
+    }
+
+    /**
+     * Sets the ownerType property value. The ownerType property
+     * @param string|null $value Value to set for the ownerType property.
+    */
+    public function setOwnerType(?string $value): void {
+        $this->getBackingStore()->set('ownerType', $value);
     }
 
     /**

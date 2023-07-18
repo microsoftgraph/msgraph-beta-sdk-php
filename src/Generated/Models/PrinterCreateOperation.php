@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrinterCreateOperation extends PrintOperation implements Parsable 
 {
     /**
-     * Instantiates a new PrinterCreateOperation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new printerCreateOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +73,7 @@ class PrinterCreateOperation extends PrintOperation implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('certificate', $this->getCertificate());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('printer', $this->getPrinter());
     }
 

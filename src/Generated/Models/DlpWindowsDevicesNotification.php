@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpWindowsDevicesNotification extends DlpNotification implements Parsable 
 {
     /**
-     * Instantiates a new DlpWindowsDevicesNotification and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new dlpWindowsDevicesNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -69,6 +74,7 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('contentName', $this->getContentName());
         $writer->writeStringValue('lastModfiedBy', $this->getLastModfiedBy());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

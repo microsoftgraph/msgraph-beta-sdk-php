@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents the health thresholds of a health metric
+*/
 class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelHealthThreshold and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new microsoftTunnelHealthThreshold and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,6 +103,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
         $writer->writeIntegerValue('defaultHealthyThreshold', $this->getDefaultHealthyThreshold());
         $writer->writeIntegerValue('defaultUnhealthyThreshold', $this->getDefaultUnhealthyThreshold());
         $writer->writeIntegerValue('healthyThreshold', $this->getHealthyThreshold());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('unhealthyThreshold', $this->getUnhealthyThreshold());
     }
 

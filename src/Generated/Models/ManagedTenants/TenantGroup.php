@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantGroup and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new tenantGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,6 +129,7 @@ class TenantGroup extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('managementActions', $this->getManagementActions());
         $writer->writeCollectionOfObjectValues('managementIntents', $this->getManagementIntents());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('tenantIds', $this->getTenantIds());
     }
 

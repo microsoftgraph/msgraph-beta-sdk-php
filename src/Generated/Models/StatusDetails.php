@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StatusDetails extends StatusBase implements Parsable 
 {
     /**
-     * Instantiates a new StatusDetails and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new statusDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -109,6 +114,7 @@ class StatusDetails extends StatusBase implements Parsable
         $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
         $writer->writeEnumValue('errorCategory', $this->getErrorCategory());
         $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('reason', $this->getReason());
         $writer->writeStringValue('recommendedAction', $this->getRecommendedAction());
     }

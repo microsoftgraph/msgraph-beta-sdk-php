@@ -82,7 +82,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the origin property value. The origin property
+     * Gets the origin property value. Represents the origin or source from which the request is being made.
      * @return string|null
     */
     public function getOrigin(): ?string {
@@ -94,7 +94,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the referrer property value. The referrer property
+     * Gets the referrer property value. Represents the referring URL or the URL of the web page that the current request originates from.
      * @return string|null
     */
     public function getReferrer(): ?string {
@@ -106,7 +106,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the xForwardedFor property value. The xForwardedFor property
+     * Gets the xForwardedFor property value. Represents the information about the client original IP address when the request passes through one or more proxy servers or load balancers.
      * @return string|null
     */
     public function getXForwardedFor(): ?string {
@@ -154,7 +154,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the origin property value. The origin property
+     * Sets the origin property value. Represents the origin or source from which the request is being made.
      * @param string|null $value Value to set for the origin property.
     */
     public function setOrigin(?string $value): void {
@@ -162,7 +162,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the referrer property value. The referrer property
+     * Sets the referrer property value. Represents the referring URL or the URL of the web page that the current request originates from.
      * @param string|null $value Value to set for the referrer property.
     */
     public function setReferrer(?string $value): void {
@@ -170,7 +170,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the xForwardedFor property value. The xForwardedFor property
+     * Sets the xForwardedFor property value. Represents the information about the client original IP address when the request passes through one or more proxy servers or load balancers.
      * @param string|null $value Value to set for the xForwardedFor property.
     */
     public function setXForwardedFor(?string $value): void {

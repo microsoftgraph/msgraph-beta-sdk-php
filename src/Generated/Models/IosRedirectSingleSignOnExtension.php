@@ -7,10 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Redirect-type Single Sign-On extension profile for iOS devices.
+*/
 class IosRedirectSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new IosRedirectSingleSignOnExtension and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new iosRedirectSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -107,6 +115,7 @@ class IosRedirectSingleSignOnExtension extends IosSingleSignOnExtension implemen
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
         $writer->writeStringValue('extensionIdentifier', $this->getExtensionIdentifier());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('teamIdentifier', $this->getTeamIdentifier());
         $writer->writeCollectionOfPrimitiveValues('urlPrefixes', $this->getUrlPrefixes());
     }

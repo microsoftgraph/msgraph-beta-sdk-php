@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerPlanConfigurationLocalization extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new plannerPlanConfigurationLocalization and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('planTitle', $this->getPlanTitle());
     }
 

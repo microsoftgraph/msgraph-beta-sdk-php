@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServiceProvisioningResourceError extends ServiceProvisioningError implements Parsable 
 {
     /**
-     * Instantiates a new ServiceProvisioningResourceError and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new serviceProvisioningResourceError and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,6 +63,7 @@ class ServiceProvisioningResourceError extends ServiceProvisioningError implemen
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

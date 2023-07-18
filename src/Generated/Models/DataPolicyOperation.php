@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DataPolicyOperation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DataPolicyOperation and sets the default values.
+     * Instantiates a new dataPolicyOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,12 +45,25 @@ class DataPolicyOperation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'progress' => fn(ParseNode $n) => $o->setProgress($n->getFloatValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DataPolicyOperationStatus::class)),
             'storageLocation' => fn(ParseNode $n) => $o->setStorageLocation($n->getStringValue()),
             'submittedDateTime' => fn(ParseNode $n) => $o->setSubmittedDateTime($n->getDateTimeValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,6 +133,7 @@ class DataPolicyOperation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('progress', $this->getProgress());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('storageLocation', $this->getStorageLocation());
@@ -133,6 +147,14 @@ class DataPolicyOperation extends Entity implements Parsable
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

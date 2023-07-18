@@ -47,6 +47,7 @@ class EndUserNotificationDetail extends Entity implements Parsable
             'isDefaultLangauge' => fn(ParseNode $n) => $o->setIsDefaultLangauge($n->getBooleanValue()),
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sentFrom' => fn(ParseNode $n) => $o->setSentFrom($n->getObjectValue([EmailIdentity::class, 'createFromDiscriminatorValue'])),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
@@ -89,6 +90,18 @@ class EndUserNotificationDetail extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the sentFrom property value. The sentFrom property
      * @return EmailIdentity|null
     */
@@ -122,6 +135,7 @@ class EndUserNotificationDetail extends Entity implements Parsable
         $writer->writeBooleanValue('isDefaultLangauge', $this->getIsDefaultLangauge());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('locale', $this->getLocale());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('sentFrom', $this->getSentFrom());
         $writer->writeStringValue('subject', $this->getSubject());
     }
@@ -156,6 +170,14 @@ class EndUserNotificationDetail extends Entity implements Parsable
     */
     public function setLocale(?string $value): void {
         $this->getBackingStore()->set('locale', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

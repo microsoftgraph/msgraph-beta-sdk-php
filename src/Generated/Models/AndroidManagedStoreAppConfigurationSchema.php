@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Schema describing an Android application's custom configurations.
+*/
 class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -87,6 +95,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
         parent::serialize($writer);
         $writer->writeBinaryContent('exampleJson', $this->getExampleJson());
         $writer->writeCollectionOfObjectValues('nestedSchemaItems', $this->getNestedSchemaItems());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('schemaItems', $this->getSchemaItems());
     }
 

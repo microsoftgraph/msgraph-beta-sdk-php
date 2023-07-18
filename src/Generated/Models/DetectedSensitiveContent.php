@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
     /**
-     * Instantiates a new DetectedSensitiveContent and sets the default values.
+     * Instantiates a new detectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +68,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
             'classificationAttributes' => fn(ParseNode $n) => $o->setClassificationAttributes($n->getCollectionOfObjectValues([ClassificationAttribute::class, 'createFromDiscriminatorValue'])),
             'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
             'matches' => fn(ParseNode $n) => $o->setMatches($n->getCollectionOfObjectValues([SensitiveContentLocation::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveTypeScope::class)),
             'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
         ]);
@@ -85,6 +86,18 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'matches'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,6 +133,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
         $writer->writeCollectionOfObjectValues('classificationAttributes', $this->getClassificationAttributes());
         $writer->writeEnumValue('classificationMethod', $this->getClassificationMethod());
         $writer->writeCollectionOfObjectValues('matches', $this->getMatches());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('scope', $this->getScope());
         $writer->writeEnumValue('sensitiveTypeSource', $this->getSensitiveTypeSource());
     }
@@ -146,6 +160,14 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     */
     public function setMatches(?array $value): void {
         $this->getBackingStore()->set('matches', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminWindows extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdminWindows and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new adminWindows and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +58,7 @@ class AdminWindows extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('updates', $this->getUpdates());
     }
 

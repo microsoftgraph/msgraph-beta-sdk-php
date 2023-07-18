@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationSynchronizationProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EducationSynchronizationProfile and sets the default values.
+     * Instantiates a new educationSynchronizationProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -90,6 +90,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
             'handleSpecialCharacterConstraint' => fn(ParseNode $n) => $o->setHandleSpecialCharacterConstraint($n->getBooleanValue()),
             'identitySynchronizationConfiguration' => fn(ParseNode $n) => $o->setIdentitySynchronizationConfiguration($n->getObjectValue([EducationIdentitySynchronizationConfiguration::class, 'createFromDiscriminatorValue'])),
             'licensesToAssign' => fn(ParseNode $n) => $o->setLicensesToAssign($n->getCollectionOfObjectValues([EducationSynchronizationLicenseAssignment::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'profileStatus' => fn(ParseNode $n) => $o->setProfileStatus($n->getObjectValue([EducationSynchronizationProfileStatus::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)),
         ]);
@@ -134,6 +135,18 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the profileStatus property value. The synchronization status.
      * @return EducationSynchronizationProfileStatus|null
     */
@@ -170,6 +183,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
         $writer->writeBooleanValue('handleSpecialCharacterConstraint', $this->getHandleSpecialCharacterConstraint());
         $writer->writeObjectValue('identitySynchronizationConfiguration', $this->getIdentitySynchronizationConfiguration());
         $writer->writeCollectionOfObjectValues('licensesToAssign', $this->getLicensesToAssign());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('profileStatus', $this->getProfileStatus());
         $writer->writeEnumValue('state', $this->getState());
     }
@@ -228,6 +242,14 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     */
     public function setLicensesToAssign(?array $value): void {
         $this->getBackingStore()->set('licensesToAssign', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

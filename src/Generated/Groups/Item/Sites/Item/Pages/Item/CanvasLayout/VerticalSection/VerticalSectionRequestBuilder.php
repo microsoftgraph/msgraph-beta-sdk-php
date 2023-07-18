@@ -58,10 +58,9 @@ class VerticalSectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a verticalSection object.
+     * Vertical section on the SharePoint page.
      * @param VerticalSectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/verticalsection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?VerticalSectionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -113,7 +112,7 @@ class VerticalSectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a verticalSection object.
+     * Vertical section on the SharePoint page.
      * @param VerticalSectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

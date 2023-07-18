@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InvokeUserFlowListener extends AuthenticationListener implements Parsable 
 {
     /**
-     * Instantiates a new InvokeUserFlowListener and sets the default values.
+     * Instantiates a new invokeUserFlowListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsUpdateCatalogItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateCatalogItemCollectionResponse and sets the default values.
+     * Instantiates a new windowsUpdateCatalogItemCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

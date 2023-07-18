@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SearchEntity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SearchEntity and sets the default values.
+     * Instantiates a new searchEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,8 +65,21 @@ class SearchEntity extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'acronyms' => fn(ParseNode $n) => $o->setAcronyms($n->getCollectionOfObjectValues([Acronym::class, 'createFromDiscriminatorValue'])),
             'bookmarks' => fn(ParseNode $n) => $o->setBookmarks($n->getCollectionOfObjectValues([Bookmark::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'qnas' => fn(ParseNode $n) => $o->setQnas($n->getCollectionOfObjectValues([Qna::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -91,6 +104,7 @@ class SearchEntity extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('acronyms', $this->getAcronyms());
         $writer->writeCollectionOfObjectValues('bookmarks', $this->getBookmarks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('qnas', $this->getQnas());
     }
 
@@ -108,6 +122,14 @@ class SearchEntity extends Entity implements Parsable
     */
     public function setBookmarks(?array $value): void {
         $this->getBackingStore()->set('bookmarks', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

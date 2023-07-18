@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnUserCreateStartListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * Instantiates a new OnUserCreateStartListener and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new onUserCreateStartListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,7 @@ class OnUserCreateStartListener extends AuthenticationEventListener implements P
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('handler', $this->getHandler());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

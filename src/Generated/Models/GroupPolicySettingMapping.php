@@ -84,6 +84,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
             'mdmMinimumOSVersion' => fn(ParseNode $n) => $o->setMdmMinimumOSVersion($n->getIntegerValue()),
             'mdmSettingUri' => fn(ParseNode $n) => $o->setMdmSettingUri($n->getStringValue()),
             'mdmSupportedState' => fn(ParseNode $n) => $o->setMdmSupportedState($n->getEnumValue(MdmSupportedState::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentId' => fn(ParseNode $n) => $o->setParentId($n->getStringValue()),
             'settingCategory' => fn(ParseNode $n) => $o->setSettingCategory($n->getStringValue()),
             'settingDisplayName' => fn(ParseNode $n) => $o->setSettingDisplayName($n->getStringValue()),
@@ -182,6 +183,18 @@ class GroupPolicySettingMapping extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmSupportedState'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -331,6 +344,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
         $writer->writeIntegerValue('mdmMinimumOSVersion', $this->getMdmMinimumOSVersion());
         $writer->writeStringValue('mdmSettingUri', $this->getMdmSettingUri());
         $writer->writeEnumValue('mdmSupportedState', $this->getMdmSupportedState());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('parentId', $this->getParentId());
         $writer->writeStringValue('settingCategory', $this->getSettingCategory());
         $writer->writeStringValue('settingDisplayName', $this->getSettingDisplayName());
@@ -414,6 +428,14 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     */
     public function setMdmSupportedState(?MdmSupportedState $value): void {
         $this->getBackingStore()->set('mdmSupportedState', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

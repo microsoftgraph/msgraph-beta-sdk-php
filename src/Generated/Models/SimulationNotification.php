@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SimulationNotification extends BaseEndUserNotification implements Parsable 
 {
     /**
-     * Instantiates a new SimulationNotification and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new simulationNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +59,7 @@ class SimulationNotification extends BaseEndUserNotification implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('targettedUserType', $this->getTargettedUserType());
     }
 

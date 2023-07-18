@@ -8,8 +8,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enterprise settings for an Android managed store account.
+*/
 class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Parsable 
 {
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
     /**
      * Instantiates a new androidManagedStoreAccountEnterpriseSettings and sets the default values.
     */
@@ -227,6 +235,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
         $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('managedGooglePlayInitialScopeTagIds', $this->getManagedGooglePlayInitialScopeTagIds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
         $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->getTargetGroupIds());

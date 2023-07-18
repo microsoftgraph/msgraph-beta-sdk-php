@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows X WifiXml configuration profile
+*/
 class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XWifiConfiguration and sets the default values.
+     * Instantiates a new windows10XWifiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,7 +75,20 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
             'authenticationCertificateId' => fn(ParseNode $n) => $o->setAuthenticationCertificateId($n->getStringValue()),
             'customXml' => fn(ParseNode $n) => $o->setCustomXml($n->getBinaryContent()),
             'customXmlFileName' => fn(ParseNode $n) => $o->setCustomXmlFileName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,6 +100,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
         $writer->writeStringValue('authenticationCertificateId', $this->getAuthenticationCertificateId());
         $writer->writeBinaryContent('customXml', $this->getCustomXml());
         $writer->writeStringValue('customXmlFileName', $this->getCustomXmlFileName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -108,6 +125,14 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     */
     public function setCustomXmlFileName(?string $value): void {
         $this->getBackingStore()->set('customXmlFileName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RelyingPartyDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RelyingPartyDetailedSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new relyingPartyDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -198,6 +203,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
         $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
         $writer->writeEnumValue('migrationStatus', $this->getMigrationStatus());
         $writer->writeCollectionOfObjectValues('migrationValidationDetails', $this->getMigrationValidationDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('relyingPartyId', $this->getRelyingPartyId());
         $writer->writeStringValue('relyingPartyName', $this->getRelyingPartyName());
         $writer->writeCollectionOfPrimitiveValues('replyUrls', $this->getReplyUrls());

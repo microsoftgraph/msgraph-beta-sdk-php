@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TextClassificationRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TextClassificationRequest and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new textClassificationRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -131,6 +136,7 @@ class TextClassificationRequest extends Entity implements Parsable
         $writer->writeObjectValue('contentMetaData', $this->getContentMetaData());
         $writer->writeStringValue('fileExtension', $this->getFileExtension());
         $writer->writeEnumValue('matchTolerancesToInclude', $this->getMatchTolerancesToInclude());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('scopesToRun', $this->getScopesToRun());
         $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->getSensitiveTypeIds());
         $writer->writeStringValue('text', $this->getText());

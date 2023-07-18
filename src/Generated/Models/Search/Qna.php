@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Qna extends SearchAnswer implements Parsable 
 {
     /**
-     * Instantiates a new Qna and sets the default values.
+     * Instantiates a new qna and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -78,6 +78,7 @@ class Qna extends SearchAnswer implements Parsable
                 /** @var array<string>|null $val */
                 $this->setLanguageTags($val);
             },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AnswerState::class)),
             'targetedVariations' => fn(ParseNode $n) => $o->setTargetedVariations($n->getCollectionOfObjectValues([AnswerVariant::class, 'createFromDiscriminatorValue'])),
@@ -137,6 +138,18 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the platforms property value. List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
      * @return array<DevicePlatformType>|null
     */
@@ -188,6 +201,7 @@ class Qna extends SearchAnswer implements Parsable
         $writer->writeBooleanValue('isSuggested', $this->getIsSuggested());
         $writer->writeObjectValue('keywords', $this->getKeywords());
         $writer->writeCollectionOfPrimitiveValues('languageTags', $this->getLanguageTags());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfEnumValues('platforms', $this->getPlatforms());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeCollectionOfObjectValues('targetedVariations', $this->getTargetedVariations());
@@ -239,6 +253,14 @@ class Qna extends SearchAnswer implements Parsable
     */
     public function setLanguageTags(?array $value): void {
         $this->getBackingStore()->set('languageTags', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

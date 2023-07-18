@@ -96,6 +96,7 @@ class File extends Entity implements Parsable
             'extractedTextContent' => fn(ParseNode $n) => $o->setExtractedTextContent($n->getBinaryContent()),
             'mediaType' => fn(ParseNode $n) => $o->setMediaType($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'otherProperties' => fn(ParseNode $n) => $o->setOtherProperties($n->getObjectValue([StringValueDictionary::class, 'createFromDiscriminatorValue'])),
             'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(FileProcessingStatus::class)),
             'senderOrAuthors' => function (ParseNode $n) {
@@ -134,6 +135,18 @@ class File extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -222,6 +235,7 @@ class File extends Entity implements Parsable
         $writer->writeBinaryContent('extractedTextContent', $this->getExtractedTextContent());
         $writer->writeStringValue('mediaType', $this->getMediaType());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('otherProperties', $this->getOtherProperties());
         $writer->writeEnumValue('processingStatus', $this->getProcessingStatus());
         $writer->writeCollectionOfPrimitiveValues('senderOrAuthors', $this->getSenderOrAuthors());
@@ -276,6 +290,14 @@ class File extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -71,8 +71,21 @@ class DeviceLocalCredential extends Entity implements Parsable
             'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
             'accountSid' => fn(ParseNode $n) => $o->setAccountSid($n->getStringValue()),
             'backupDateTime' => fn(ParseNode $n) => $o->setBackupDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'passwordBase64' => fn(ParseNode $n) => $o->setPasswordBase64($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,6 +109,7 @@ class DeviceLocalCredential extends Entity implements Parsable
         $writer->writeStringValue('accountName', $this->getAccountName());
         $writer->writeStringValue('accountSid', $this->getAccountSid());
         $writer->writeDateTimeValue('backupDateTime', $this->getBackupDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('passwordBase64', $this->getPasswordBase64());
     }
 
@@ -121,6 +135,14 @@ class DeviceLocalCredential extends Entity implements Parsable
     */
     public function setBackupDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('backupDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

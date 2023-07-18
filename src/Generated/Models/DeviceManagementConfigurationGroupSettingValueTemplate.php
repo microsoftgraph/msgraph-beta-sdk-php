@@ -22,7 +22,7 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingValueTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationGroupSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

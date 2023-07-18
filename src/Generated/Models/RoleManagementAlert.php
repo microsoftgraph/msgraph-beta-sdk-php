@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoleManagementAlert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RoleManagementAlert and sets the default values.
+     * Instantiates a new roleManagementAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -77,8 +77,21 @@ class RoleManagementAlert extends Entity implements Parsable
             'alertConfigurations' => fn(ParseNode $n) => $o->setAlertConfigurations($n->getCollectionOfObjectValues([UnifiedRoleManagementAlertConfiguration::class, 'createFromDiscriminatorValue'])),
             'alertDefinitions' => fn(ParseNode $n) => $o->setAlertDefinitions($n->getCollectionOfObjectValues([UnifiedRoleManagementAlertDefinition::class, 'createFromDiscriminatorValue'])),
             'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([UnifiedRoleManagementAlert::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([LongRunningOperation::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,6 +117,7 @@ class RoleManagementAlert extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('alertConfigurations', $this->getAlertConfigurations());
         $writer->writeCollectionOfObjectValues('alertDefinitions', $this->getAlertDefinitions());
         $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
     }
 
@@ -129,6 +143,14 @@ class RoleManagementAlert extends Entity implements Parsable
     */
     public function setAlerts(?array $value): void {
         $this->getBackingStore()->set('alerts', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

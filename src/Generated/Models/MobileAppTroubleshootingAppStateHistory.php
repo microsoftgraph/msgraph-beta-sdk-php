@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * History Item contained in the Mobile App Troubleshooting Event.
+*/
 class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppTroubleshootingAppStateHistory and sets the default values.
+     * Instantiates a new mobileAppTroubleshootingAppStateHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,8 +60,21 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
         return array_merge(parent::getFieldDeserializers(), [
             'actionType' => fn(ParseNode $n) => $o->setActionType($n->getEnumValue(MobileAppActionType::class)),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runState' => fn(ParseNode $n) => $o->setRunState($n->getEnumValue(RunState::class)),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -81,6 +97,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
         parent::serialize($writer);
         $writer->writeEnumValue('actionType', $this->getActionType());
         $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('runState', $this->getRunState());
     }
 
@@ -98,6 +115,14 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

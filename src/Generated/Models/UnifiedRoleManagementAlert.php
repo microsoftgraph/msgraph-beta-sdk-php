@@ -63,7 +63,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertIncidents property value. Represents the incidents of this alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Gets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
      * @return array<UnifiedRoleManagementAlertIncident>|null
     */
     public function getAlertIncidents(): ?array {
@@ -91,6 +91,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastScannedDateTime' => fn(ParseNode $n) => $o->setLastScannedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scopeId' => fn(ParseNode $n) => $o->setScopeId($n->getStringValue()),
             'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getStringValue()),
         ]);
@@ -145,6 +146,18 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the scopeId property value. The identifier of the scope where the alert is related. / is the only supported one for the tenant. Supports $filter (eq, ne).
      * @return string|null
     */
@@ -182,6 +195,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
         $writer->writeBooleanValue('isActive', $this->getIsActive());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeDateTimeValue('lastScannedDateTime', $this->getLastScannedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('scopeId', $this->getScopeId());
         $writer->writeStringValue('scopeType', $this->getScopeType());
     }
@@ -211,7 +225,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertIncidents property value. Represents the incidents of this alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Sets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
      * @param array<UnifiedRoleManagementAlertIncident>|null $value Value to set for the alertIncidents property.
     */
     public function setAlertIncidents(?array $value): void {
@@ -248,6 +262,14 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     */
     public function setLastScannedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastScannedDateTime', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

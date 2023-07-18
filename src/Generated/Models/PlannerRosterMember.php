@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerRosterMember extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new plannerRosterMember and sets the default values.
     */
     public function __construct() {
@@ -89,6 +94,7 @@ class PlannerRosterMember extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('roles', $this->getRoles());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('userId', $this->getUserId());

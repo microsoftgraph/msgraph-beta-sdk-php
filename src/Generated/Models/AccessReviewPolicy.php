@@ -58,6 +58,7 @@ class AccessReviewPolicy extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isGroupOwnerManagementEnabled' => fn(ParseNode $n) => $o->setIsGroupOwnerManagementEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ]);
     }
 
@@ -74,6 +75,18 @@ class AccessReviewPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -82,6 +95,7 @@ class AccessReviewPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isGroupOwnerManagementEnabled', $this->getIsGroupOwnerManagementEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**
@@ -106,6 +120,14 @@ class AccessReviewPolicy extends Entity implements Parsable
     */
     public function setIsGroupOwnerManagementEnabled(?bool $value): void {
         $this->getBackingStore()->set('isGroupOwnerManagementEnabled', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

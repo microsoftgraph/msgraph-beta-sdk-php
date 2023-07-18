@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AttendanceRecord extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new attendanceRecord and sets the default values.
     */
     public function __construct() {
@@ -124,6 +129,7 @@ class AttendanceRecord extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('attendanceIntervals', $this->getAttendanceIntervals());
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
         $writer->writeObjectValue('identity', $this->getIdentity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('registrantId', $this->getRegistrantId());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeIntegerValue('totalAttendanceInSeconds', $this->getTotalAttendanceInSeconds());

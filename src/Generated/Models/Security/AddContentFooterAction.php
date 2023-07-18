@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddContentFooterAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new AddContentFooterAction and sets the default values.
+     * Instantiates a new addContentFooterAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,6 +49,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
             'fontName' => fn(ParseNode $n) => $o->setFontName($n->getStringValue()),
             'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
             'margin' => fn(ParseNode $n) => $o->setMargin($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
             'uiElementName' => fn(ParseNode $n) => $o->setUiElementName($n->getStringValue()),
         ]);
@@ -103,6 +104,18 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the text property value. The contents of the footer itself.
      * @return string|null
     */
@@ -137,6 +150,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
         $writer->writeStringValue('fontName', $this->getFontName());
         $writer->writeIntegerValue('fontSize', $this->getFontSize());
         $writer->writeIntegerValue('margin', $this->getMargin());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('text', $this->getText());
         $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }
@@ -179,6 +193,14 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     */
     public function setMargin(?int $value): void {
         $this->getBackingStore()->set('margin', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

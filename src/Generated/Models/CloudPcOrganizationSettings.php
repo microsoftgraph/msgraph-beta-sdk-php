@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcOrganizationSettings and sets the default values.
+     * Instantiates a new cloudPcOrganizationSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,10 +57,23 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'enableMEMAutoEnroll' => fn(ParseNode $n) => $o->setEnableMEMAutoEnroll($n->getBooleanValue()),
             'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -107,6 +120,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('enableMEMAutoEnroll', $this->getEnableMEMAutoEnroll());
         $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
@@ -126,6 +140,14 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function setEnableSingleSignOn(?bool $value): void {
         $this->getBackingStore()->set('enableSingleSignOn', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

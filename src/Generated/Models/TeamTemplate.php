@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TeamTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TeamTemplate and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new teamTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +62,7 @@ class TeamTemplate extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
     }
 
     /**

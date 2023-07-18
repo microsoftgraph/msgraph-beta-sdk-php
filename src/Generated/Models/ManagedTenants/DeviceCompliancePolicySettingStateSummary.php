@@ -11,7 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCompliancePolicySettingStateSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -218,6 +223,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
         $writer->writeStringValue('intuneSettingId', $this->getIntuneSettingId());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
         $writer->writeIntegerValue('notApplicableDeviceCount', $this->getNotApplicableDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('pendingDeviceCount', $this->getPendingDeviceCount());
         $writer->writeStringValue('policyType', $this->getPolicyType());
         $writer->writeStringValue('settingName', $this->getSettingName());

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for Payload Compatible Assignment Filter.
+*/
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
 {
     /**
-     * Instantiates a new PayloadCompatibleAssignmentFilter and sets the default values.
+     * Instantiates a new payloadCompatibleAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

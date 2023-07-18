@@ -85,6 +85,7 @@ class SensitivityLabel extends Entity implements Parsable
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
             'isAppliable' => fn(ParseNode $n) => $o->setIsAppliable($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
             'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getIntegerValue()),
             'tooltip' => fn(ParseNode $n) => $o->setTooltip($n->getStringValue()),
@@ -140,6 +141,18 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the parent property value. The parent label associated with a child label. Null if the label has no parent.
      * @return SensitivityLabel|null
     */
@@ -188,6 +201,7 @@ class SensitivityLabel extends Entity implements Parsable
         $writer->writeBooleanValue('isActive', $this->getIsActive());
         $writer->writeBooleanValue('isAppliable', $this->getIsAppliable());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('parent', $this->getParent());
         $writer->writeIntegerValue('sensitivity', $this->getSensitivity());
         $writer->writeStringValue('tooltip', $this->getTooltip());
@@ -247,6 +261,14 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

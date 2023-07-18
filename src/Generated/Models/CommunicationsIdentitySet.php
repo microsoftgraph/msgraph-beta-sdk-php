@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsIdentitySet extends IdentitySet implements Parsable 
 {
     /**
-     * Instantiates a new CommunicationsIdentitySet and sets the default values.
+     * Instantiates a new communicationsIdentitySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -98,6 +98,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
             'encrypted' => fn(ParseNode $n) => $o->setEncrypted($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'endpointType' => fn(ParseNode $n) => $o->setEndpointType($n->getEnumValue(EndpointType::class)),
             'guest' => fn(ParseNode $n) => $o->setGuest($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremises' => fn(ParseNode $n) => $o->setOnPremises($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -113,6 +114,18 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'guest'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -151,6 +164,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
         $writer->writeObjectValue('encrypted', $this->getEncrypted());
         $writer->writeEnumValue('endpointType', $this->getEndpointType());
         $writer->writeObjectValue('guest', $this->getGuest());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('onPremises', $this->getOnPremises());
         $writer->writeObjectValue('phone', $this->getPhone());
     }
@@ -201,6 +215,14 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     */
     public function setGuest(?Identity $value): void {
         $this->getBackingStore()->set('guest', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

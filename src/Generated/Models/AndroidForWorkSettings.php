@@ -8,10 +8,18 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Settings for Android For Work.
+*/
 class AndroidForWorkSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkSettings and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new androidForWorkSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -174,6 +182,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
         $writer->writeDateTimeValue('lastAppSyncDateTime', $this->getLastAppSyncDateTime());
         $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
         $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->getTargetGroupIds());

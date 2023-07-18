@@ -49,6 +49,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
             'extensionType' => fn(ParseNode $n) => $o->setExtensionType($n->getStringValue()),
             'namespaceUrl' => fn(ParseNode $n) => $o->setNamespaceUrl($n->getStringValue()),
             'nodeName' => fn(ParseNode $n) => $o->setNodeName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'settingScope' => fn(ParseNode $n) => $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)),
         ]);
     }
@@ -78,6 +79,18 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the settingScope property value. Scope of the group policy setting.
      * @return GroupPolicySettingScope|null
     */
@@ -98,6 +111,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
         $writer->writeStringValue('extensionType', $this->getExtensionType());
         $writer->writeStringValue('namespaceUrl', $this->getNamespaceUrl());
         $writer->writeStringValue('nodeName', $this->getNodeName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('settingScope', $this->getSettingScope());
     }
 
@@ -123,6 +137,14 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     */
     public function setNodeName(?string $value): void {
         $this->getBackingStore()->set('nodeName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

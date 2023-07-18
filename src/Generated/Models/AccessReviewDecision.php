@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewDecision extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessReviewDecision and sets the default values.
     */
     public function __construct() {
@@ -164,6 +169,7 @@ class AccessReviewDecision extends Entity implements Parsable
         $writer->writeDateTimeValue('appliedDateTime', $this->getAppliedDateTime());
         $writer->writeStringValue('applyResult', $this->getApplyResult());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reviewedBy', $this->getReviewedBy());
         $writer->writeDateTimeValue('reviewedDateTime', $this->getReviewedDateTime());
         $writer->writeStringValue('reviewResult', $this->getReviewResult());

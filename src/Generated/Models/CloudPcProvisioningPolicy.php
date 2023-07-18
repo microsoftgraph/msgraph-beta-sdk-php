@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcProvisioningPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcProvisioningPolicy and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcProvisioningPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -308,6 +313,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());

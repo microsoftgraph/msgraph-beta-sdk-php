@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains file or folder path to detect a Win32 App
+*/
 class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppFileSystemRequirement and sets the default values.
+     * Instantiates a new win32LobAppFileSystemRequirement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,6 +62,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
             'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
             'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppFileSystemDetectionType::class)),
             'fileOrFolderName' => fn(ParseNode $n) => $o->setFileOrFolderName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'path' => fn(ParseNode $n) => $o->setPath($n->getStringValue()),
         ]);
     }
@@ -73,6 +77,18 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileOrFolderName'");
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,6 +112,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
         $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
         $writer->writeEnumValue('detectionType', $this->getDetectionType());
         $writer->writeStringValue('fileOrFolderName', $this->getFileOrFolderName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('path', $this->getPath());
     }
 
@@ -121,6 +138,14 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     */
     public function setFileOrFolderName(?string $value): void {
         $this->getBackingStore()->set('fileOrFolderName', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

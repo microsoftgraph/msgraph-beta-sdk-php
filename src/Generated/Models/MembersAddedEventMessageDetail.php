@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MembersAddedEventMessageDetail extends EventMessageDetail implements Parsable 
 {
     /**
-     * Instantiates a new MembersAddedEventMessageDetail and sets the default values.
+     * Instantiates a new membersAddedEventMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,6 +36,7 @@ class MembersAddedEventMessageDetail extends EventMessageDetail implements Parsa
         return array_merge(parent::getFieldDeserializers(), [
             'initiator' => fn(ParseNode $n) => $o->setInitiator($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([TeamworkUserIdentity::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'visibleHistoryStartDateTime' => fn(ParseNode $n) => $o->setVisibleHistoryStartDateTime($n->getDateTimeValue()),
         ]);
     }
@@ -67,6 +68,18 @@ class MembersAddedEventMessageDetail extends EventMessageDetail implements Parsa
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation members.
      * @return DateTime|null
     */
@@ -86,6 +99,7 @@ class MembersAddedEventMessageDetail extends EventMessageDetail implements Parsa
         parent::serialize($writer);
         $writer->writeObjectValue('initiator', $this->getInitiator());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('visibleHistoryStartDateTime', $this->getVisibleHistoryStartDateTime());
     }
 
@@ -103,6 +117,14 @@ class MembersAddedEventMessageDetail extends EventMessageDetail implements Parsa
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

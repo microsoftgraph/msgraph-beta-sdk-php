@@ -46,9 +46,22 @@ class HostReputation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(HostReputationClassification::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rules' => fn(ParseNode $n) => $o->setRules($n->getCollectionOfObjectValues([HostReputationRule::class, 'createFromDiscriminatorValue'])),
             'score' => fn(ParseNode $n) => $o->setScore($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,6 +97,7 @@ class HostReputation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('classification', $this->getClassification());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('rules', $this->getRules());
         $writer->writeIntegerValue('score', $this->getScore());
     }
@@ -94,6 +108,14 @@ class HostReputation extends Entity implements Parsable
     */
     public function setClassification(?HostReputationClassification $value): void {
         $this->getBackingStore()->set('classification', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

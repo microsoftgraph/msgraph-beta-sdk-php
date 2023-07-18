@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UsageRight extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new usageRight and sets the default values.
     */
     public function __construct() {
@@ -80,6 +85,7 @@ class UsageRight extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('catalogId', $this->getCatalogId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('serviceIdentifier', $this->getServiceIdentifier());
         $writer->writeEnumValue('state', $this->getState());
     }

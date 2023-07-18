@@ -6,10 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device scores entity consolidates the various Endpoint Analytics scores.
+*/
 class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceScores and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new userExperienceAnalyticsDeviceScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -164,6 +172,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeFloatValue('startupPerformanceScore', $this->getStartupPerformanceScore());
         $writer->writeFloatValue('workFromAnywhereScore', $this->getWorkFromAnywhereScore());
     }

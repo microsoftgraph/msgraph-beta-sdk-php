@@ -11,6 +11,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessReviewHistoryDefinition extends Entity implements Parsable 
 {
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessReviewHistoryDefinition and sets the default values.
     */
     public function __construct() {
@@ -211,6 +216,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
         $writer->writeStringValue('downloadUri', $this->getDownloadUri());
         $writer->writeDateTimeValue('fulfilledDateTime', $this->getFulfilledDateTime());
         $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('reviewHistoryPeriodEndDateTime', $this->getReviewHistoryPeriodEndDateTime());
         $writer->writeDateTimeValue('reviewHistoryPeriodStartDateTime', $this->getReviewHistoryPeriodStartDateTime());
         $writer->writeObjectValue('scheduleSettings', $this->getScheduleSettings());

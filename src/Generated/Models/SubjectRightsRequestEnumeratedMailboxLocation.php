@@ -10,7 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequestMailboxLocation implements Parsable 
 {
     /**
-     * Instantiates a new SubjectRightsRequestEnumeratedMailboxLocation and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    public ?string $odataType = null;
+    
+    /**
+     * Instantiates a new subjectRightsRequestEnumeratedMailboxLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,6 +69,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('upns', $this->getUpns());
     }
 
