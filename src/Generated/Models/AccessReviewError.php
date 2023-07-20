@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewError extends GenericError implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewError and sets the default values.
+     * Instantiates a new accessReviewError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

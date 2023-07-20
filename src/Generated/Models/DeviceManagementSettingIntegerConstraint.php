@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint enforcing the permitted value range for an integer setting
+*/
 class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingIntegerConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingIntegerConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

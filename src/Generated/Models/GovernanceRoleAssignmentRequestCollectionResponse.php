@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GovernanceRoleAssignmentRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new GovernanceRoleAssignmentRequestCollectionResponse and sets the default values.
+     * Instantiates a new governanceRoleAssignmentRequestCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

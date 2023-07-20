@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpSubnet extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new IpSubnet and sets the default values.
+     * Instantiates a new ipSubnet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +37,7 @@ class IpSubnet extends RuleDestination implements Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. Defines the IP address of the subset used in a destination for a rule.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -58,7 +58,7 @@ class IpSubnet extends RuleDestination implements Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. Defines the IP address of the subset used in a destination for a rule.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

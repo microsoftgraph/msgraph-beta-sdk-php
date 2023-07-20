@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ConditionalAcces
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get conditionalAccess from networkAccess
+ * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
 */
 class ConditionalAccessRequestBuilderGetQueryParameters 
 {

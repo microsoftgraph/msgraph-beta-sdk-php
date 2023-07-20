@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used when assigning a Windows Universal AppX mobile app to a group.
+*/
 class WindowsUniversalAppXAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUniversalAppXAppAssignmentSettings and sets the default values.
+     * Instantiates a new windowsUniversalAppXAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

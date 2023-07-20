@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Policy for Windows information protection to configure detailed management settings
+*/
 class WindowsInformationProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new WindowsInformationProtection and sets the default values.
+     * Instantiates a new windowsInformationProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

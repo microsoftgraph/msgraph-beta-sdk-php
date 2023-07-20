@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Store App for Windows information protection
+*/
 class WindowsInformationProtectionStoreApp extends WindowsInformationProtectionApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsInformationProtectionStoreApp and sets the default values.
+     * Instantiates a new windowsInformationProtectionStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

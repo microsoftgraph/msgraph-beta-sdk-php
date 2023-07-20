@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify a visitor kiosk account
+*/
 class WindowsKioskVisitor extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskVisitor and sets the default values.
+     * Instantiates a new windowsKioskVisitor and sets the default values.
     */
     public function __construct() {
         parent::__construct();

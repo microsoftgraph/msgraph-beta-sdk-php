@@ -82,7 +82,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get settings from networkAccess
+     * Global Secure Access settings.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -136,7 +136,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get settings from networkAccess
+     * Global Secure Access settings.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

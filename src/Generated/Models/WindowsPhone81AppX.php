@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for Windows Phone 8.1 AppX Line Of Business apps. Inherits from graph.mobileLobApp. Will be deprecated in February 2023.
+*/
 class WindowsPhone81AppX extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81AppX and sets the default values.
+     * Instantiates a new windowsPhone81AppX and sets the default values.
     */
     public function __construct() {
         parent::__construct();

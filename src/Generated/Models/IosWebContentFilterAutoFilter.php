@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an iOS Web Content Filter setting type, which enables iOS automatic filter feature and allows for additional URL access control. When constructed with no property values, the iOS device will enable the automatic filter regardless.
+*/
 class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * Instantiates a new IosWebContentFilterAutoFilter and sets the default values.
+     * Instantiates a new iosWebContentFilterAutoFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

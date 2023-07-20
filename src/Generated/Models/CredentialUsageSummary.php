@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUsageSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUsageSummary and sets the default values.
+     * Instantiates a new credentialUsageSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

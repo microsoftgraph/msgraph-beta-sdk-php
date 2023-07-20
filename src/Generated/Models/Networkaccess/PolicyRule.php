@@ -46,7 +46,7 @@ class PolicyRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -67,7 +67,7 @@ class PolicyRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

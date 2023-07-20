@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an assignment to all managed devices in the tenant.
+*/
 class AllDevicesAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new AllDevicesAssignmentTarget and sets the default values.
+     * Instantiates a new allDevicesAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

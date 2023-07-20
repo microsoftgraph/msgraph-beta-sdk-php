@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UrlThreatSubmissionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new UrlThreatSubmissionCollectionResponse and sets the default values.
+     * Instantiates a new urlThreatSubmissionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

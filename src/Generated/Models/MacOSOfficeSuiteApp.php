@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for the MacOS Office Suite App.
+*/
 class MacOSOfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSOfficeSuiteApp and sets the default values.
+     * Instantiates a new macOSOfficeSuiteApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

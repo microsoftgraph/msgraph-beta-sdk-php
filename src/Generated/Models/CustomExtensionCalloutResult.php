@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult implements Parsable 
 {
     /**
-     * Instantiates a new CustomExtensionCalloutResult and sets the default values.
+     * Instantiates a new customExtensionCalloutResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

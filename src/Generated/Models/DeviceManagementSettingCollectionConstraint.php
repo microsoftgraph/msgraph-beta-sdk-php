@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint that enforces the maximum number of elements a collection
+*/
 class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingCollectionConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingCollectionConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A setting instance representing a complex value for an abstract setting
+*/
 class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementAbstractComplexSettingInstance and sets the default values.
+     * Instantiates a new deviceManagementAbstractComplexSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

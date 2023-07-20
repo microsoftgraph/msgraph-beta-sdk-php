@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify the single app configuration for the kiosk win32 configuration
+*/
 class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskSingleWin32App and sets the default values.
+     * Instantiates a new windowsKioskSingleWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * VPN Proxy Server.
+*/
 class Windows10VpnProxyServer extends VpnProxyServer implements Parsable 
 {
     /**
-     * Instantiates a new Windows10VpnProxyServer and sets the default values.
+     * Instantiates a new windows10VpnProxyServer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

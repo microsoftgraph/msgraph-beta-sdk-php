@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Integer Setting Value Template
+*/
 class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationIntegerSettingValueTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationIntegerSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

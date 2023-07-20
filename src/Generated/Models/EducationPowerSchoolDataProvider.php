@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new EducationPowerSchoolDataProvider and sets the default values.
+     * Instantiates a new educationPowerSchoolDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Applicability for a setting that can be targeted on managed Applications by Intune
+*/
 class DeviceManagementConfigurationApplicationSettingApplicability extends DeviceManagementConfigurationSettingApplicability implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationApplicationSettingApplicability and sets the default values.
+     * Instantiates a new deviceManagementConfigurationApplicationSettingApplicability and sets the default values.
     */
     public function __construct() {
         parent::__construct();

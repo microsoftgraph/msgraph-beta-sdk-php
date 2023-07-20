@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A security configuration task.
+*/
 class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * Instantiates a new SecurityConfigurationTask and sets the default values.
+     * Instantiates a new securityConfigurationTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

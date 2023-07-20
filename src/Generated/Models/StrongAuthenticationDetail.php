@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class StrongAuthenticationDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new StrongAuthenticationDetail and sets the default values.
+     * Instantiates a new strongAuthenticationDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();

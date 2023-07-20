@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
+*/
 class WindowsAutopilotSettings extends Entity implements Parsable 
 {
     /**

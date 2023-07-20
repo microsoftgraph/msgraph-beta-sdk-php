@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Simple setting collection instance
+*/
 class DeviceManagementConfigurationSimpleSettingCollectionInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationSimpleSettingCollectionInstance and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSimpleSettingCollectionInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

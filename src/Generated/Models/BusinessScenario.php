@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BusinessScenario extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new BusinessScenario and sets the default values.
+     * Instantiates a new businessScenario and sets the default values.
     */
     public function __construct() {
         parent::__construct();

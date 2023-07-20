@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Health scripts (remediation + detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceHealthScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScript and sets the default values.
+     * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

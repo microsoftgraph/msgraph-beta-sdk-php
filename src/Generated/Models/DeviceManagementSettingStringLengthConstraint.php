@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint enforcing a given string length range
+*/
 class DeviceManagementSettingStringLengthConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingStringLengthConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingStringLengthConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

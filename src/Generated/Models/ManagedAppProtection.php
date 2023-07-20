@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Policy used to configure detailed management settings for a specified set of apps
+*/
 class ManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppProtection and sets the default values.
+     * Instantiates a new managedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

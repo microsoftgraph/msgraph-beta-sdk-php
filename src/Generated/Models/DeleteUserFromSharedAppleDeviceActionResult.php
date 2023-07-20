@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Delete user from shared apple device action result
+*/
 class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new DeleteUserFromSharedAppleDeviceActionResult and sets the default values.
+     * Instantiates a new deleteUserFromSharedAppleDeviceActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

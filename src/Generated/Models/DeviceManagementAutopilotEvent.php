@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Autopilot flow event.
+*/
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
+     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

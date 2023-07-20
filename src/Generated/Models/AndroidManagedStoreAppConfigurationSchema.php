@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Schema describing an Android application's custom configurations.
+*/
 class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
+     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerRelationshipBasedUserType extends PlannerTaskConfigurationRoleBase implements Parsable 
 {
     /**
-     * Instantiates a new PlannerRelationshipBasedUserType and sets the default values.
+     * Instantiates a new plannerRelationshipBasedUserType and sets the default values.
     */
     public function __construct() {
         parent::__construct();

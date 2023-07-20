@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomExtensionHandlerCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new CustomExtensionHandlerCollectionResponse and sets the default values.
+     * Instantiates a new customExtensionHandlerCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

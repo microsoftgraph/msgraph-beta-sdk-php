@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Experimental profile to increase the rate of device check-ins per day of iOS/macOS devices. This profile type is deprecated.
+*/
 class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AppleExpeditedCheckinConfigurationBase and sets the default values.
+     * Instantiates a new appleExpeditedCheckinConfigurationBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

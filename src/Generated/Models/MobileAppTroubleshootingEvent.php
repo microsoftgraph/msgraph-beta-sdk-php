@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Event representing a users device application install status.
+*/
 class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppTroubleshootingEvent and sets the default values.
+     * Instantiates a new mobileAppTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

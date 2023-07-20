@@ -40,9 +40,10 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property webParts for sites
+     * Delete a webPart object.
      * @param WebPartItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/webpart-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WebPartItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,10 +59,9 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a webPart object.
+     * Collection of webparts on the SharePoint page.
      * @param WebPartItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/webpart-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebPartItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -96,7 +96,7 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property webParts for sites
+     * Delete a webPart object.
      * @param WebPartItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a webPart object.
+     * Collection of webparts on the SharePoint page.
      * @param WebPartItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

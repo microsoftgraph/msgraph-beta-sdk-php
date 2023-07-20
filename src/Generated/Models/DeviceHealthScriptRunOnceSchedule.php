@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
+/**
+ * Device health script run once schedule.
+*/
 class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptRunOnceSchedule and sets the default values.
+     * Instantiates a new deviceHealthScriptRunOnceSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

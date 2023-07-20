@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
+*/
 class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppConfiguration and sets the default values.
+     * Instantiates a new androidManagedStoreAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -58,10 +58,9 @@ class HorizontalSectionColumnItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a horizontalSectionColumn object.
+     * The set of vertical columns in this section.
      * @param HorizontalSectionColumnItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/horizontalsectioncolumn-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?HorizontalSectionColumnItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -113,7 +112,7 @@ class HorizontalSectionColumnItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a horizontalSectionColumn object.
+     * The set of vertical columns in this section.
      * @param HorizontalSectionColumnItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

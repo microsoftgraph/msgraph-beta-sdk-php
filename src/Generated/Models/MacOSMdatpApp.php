@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for the macOS Microsoft Defender Advanced Threat Protection (MDATP) App. This is deprecated for MacOSMicrosoftDefenderApp in 2305 (May 2023).
+*/
 class MacOSMdatpApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSMdatpApp and sets the default values.
+     * Instantiates a new macOSMdatpApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

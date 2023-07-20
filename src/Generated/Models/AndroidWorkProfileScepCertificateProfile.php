@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android Work Profile SCEP certificate profile
+*/
 class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidWorkProfileScepCertificateProfile and sets the default values.
+     * Instantiates a new androidWorkProfileScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

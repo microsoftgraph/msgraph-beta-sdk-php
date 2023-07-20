@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserExperienceAnalyticsBatteryHealthModelPerformanceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformanceCollectionResponse and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthModelPerformanceCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

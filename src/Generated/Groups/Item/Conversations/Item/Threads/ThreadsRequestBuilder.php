@@ -72,10 +72,11 @@ class ThreadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to threads for groups
+     * Create a new thread in the specified conversation. A thread and post are created as specified. Use reply thread to further postto that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
      * @param ConversationThread $body The request body
      * @param ThreadsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/conversation-post-threads?view=graph-rest-1.0 Find more info here
     */
     public function post(ConversationThread $body, ?ThreadsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -112,7 +113,7 @@ class ThreadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to threads for groups
+     * Create a new thread in the specified conversation. A thread and post are created as specified. Use reply thread to further postto that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
      * @param ConversationThread $body The request body
      * @param ThreadsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

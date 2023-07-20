@@ -19,7 +19,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new UserRegistrationFeatureSummary and sets the default values.
+     * Instantiates a new userRegistrationFeatureSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -84,7 +84,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the totalUserCount property value. Total number of users accounts, excluding those that are blocked
+     * Gets the totalUserCount property value. Total number of users accounts, excluding those that are blocked.
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
@@ -96,7 +96,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userRegistrationFeatureCounts property value. Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication.
+     * Gets the userRegistrationFeatureCounts property value. Number of users registered or capable for multi-factor authentication, self-service password reset, and passwordless authentication.
      * @return array<UserRegistrationFeatureCount>|null
     */
     public function getUserRegistrationFeatureCounts(): ?array {
@@ -110,7 +110,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userRoles property value. User role type. Possible values are: all, privilegedAdmin, admin, user.
+     * Gets the userRoles property value. The role type of the user. Possible values are: all, privilegedAdmin, admin, user, unknownFutureValue.
      * @return IncludedUserRoles|null
     */
     public function getUserRoles(): ?IncludedUserRoles {
@@ -122,7 +122,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userTypes property value. User type. Possible values are: all, member, guest.
+     * Gets the userTypes property value. User type. Possible values are: all, member, guest, unknownFutureValue.
      * @return IncludedUserTypes|null
     */
     public function getUserTypes(): ?IncludedUserTypes {
@@ -148,7 +148,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -156,7 +156,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,14 +164,14 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the totalUserCount property value. Total number of users accounts, excluding those that are blocked
+     * Sets the totalUserCount property value. Total number of users accounts, excluding those that are blocked.
      * @param int|null $value Value to set for the totalUserCount property.
     */
     public function setTotalUserCount(?int $value): void {
@@ -179,7 +179,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userRegistrationFeatureCounts property value. Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication.
+     * Sets the userRegistrationFeatureCounts property value. Number of users registered or capable for multi-factor authentication, self-service password reset, and passwordless authentication.
      * @param array<UserRegistrationFeatureCount>|null $value Value to set for the userRegistrationFeatureCounts property.
     */
     public function setUserRegistrationFeatureCounts(?array $value): void {
@@ -187,7 +187,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userRoles property value. User role type. Possible values are: all, privilegedAdmin, admin, user.
+     * Sets the userRoles property value. The role type of the user. Possible values are: all, privilegedAdmin, admin, user, unknownFutureValue.
      * @param IncludedUserRoles|null $value Value to set for the userRoles property.
     */
     public function setUserRoles(?IncludedUserRoles $value): void {
@@ -195,7 +195,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userTypes property value. User type. Possible values are: all, member, guest.
+     * Sets the userTypes property value. User type. Possible values are: all, member, guest, unknownFutureValue.
      * @param IncludedUserTypes|null $value Value to set for the userTypes property.
     */
     public function setUserTypes(?IncludedUserTypes $value): void {
