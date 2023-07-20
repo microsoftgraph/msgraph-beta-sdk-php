@@ -66,7 +66,7 @@ class CanvasLayoutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
+     * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
      * @param CanvasLayoutRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class CanvasLayoutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
+     * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
      * @param CanvasLayoutRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

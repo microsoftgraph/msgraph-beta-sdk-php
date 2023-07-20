@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupWritebackConfiguration extends WritebackConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new GroupWritebackConfiguration and sets the default values.
+     * Instantiates a new groupWritebackConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

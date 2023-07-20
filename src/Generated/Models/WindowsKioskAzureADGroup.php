@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify an AzureAD group for the kiosk configuration
+*/
 class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskAzureADGroup and sets the default values.
+     * Instantiates a new windowsKioskAzureADGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

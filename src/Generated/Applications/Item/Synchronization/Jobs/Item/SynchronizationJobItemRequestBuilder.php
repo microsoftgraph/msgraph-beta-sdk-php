@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\BulkUpload\BulkUploadRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Pause\PauseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ProvisionOnDemand\ProvisionOnDemandRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Restart\RestartRequestBuilder;
@@ -23,6 +24,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the bulkUpload property of the microsoft.graph.synchronizationJob entity.
+    */
+    public function bulkUpload(): BulkUploadRequestBuilder {
+        return new BulkUploadRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the pause method.
     */

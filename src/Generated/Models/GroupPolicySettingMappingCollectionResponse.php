@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GroupPolicySettingMappingCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicySettingMappingCollectionResponse and sets the default values.
+     * Instantiates a new groupPolicySettingMappingCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

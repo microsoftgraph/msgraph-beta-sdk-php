@@ -50,9 +50,10 @@ class ForwardingOptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingOptions from networkAccess
+     * Retrieve the forwarding options for the tenant, with a specific focus on the 'skipDnsLookupState' flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
      * @param ForwardingOptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingoptions-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ForwardingOptionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class ForwardingOptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingOptions in networkAccess
+     * the forwarding options for the tenant, with a specific focus on the skipDnsLookupState flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
      * @param ForwardingOptions $body The request body
      * @param ForwardingOptionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingoptions-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ForwardingOptions $body, ?ForwardingOptionsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class ForwardingOptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingOptions from networkAccess
+     * Retrieve the forwarding options for the tenant, with a specific focus on the 'skipDnsLookupState' flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
      * @param ForwardingOptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class ForwardingOptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingOptions in networkAccess
+     * the forwarding options for the tenant, with a specific focus on the skipDnsLookupState flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
      * @param ForwardingOptions $body The request body
      * @param ForwardingOptionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A key-value pair with a string key and a string value.
+*/
 class KeyStringValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * Instantiates a new KeyStringValuePair and sets the default values.
+     * Instantiates a new keyStringValuePair and sets the default values.
     */
     public function __construct() {
         parent::__construct();

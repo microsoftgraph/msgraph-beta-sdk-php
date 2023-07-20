@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android Device Owner PKCS certificate profile
+*/
 class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerPkcsCertificateProfile and sets the default values.
+     * Instantiates a new androidDeviceOwnerPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

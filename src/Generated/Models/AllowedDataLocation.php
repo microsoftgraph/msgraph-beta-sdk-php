@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllowedDataLocation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AllowedDataLocation and sets the default values.
+     * Instantiates a new allowedDataLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

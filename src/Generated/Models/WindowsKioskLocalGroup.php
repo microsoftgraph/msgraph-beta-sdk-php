@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify a local group for the kiosk configuration
+*/
 class WindowsKioskLocalGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskLocalGroup and sets the default values.
+     * Instantiates a new windowsKioskLocalGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

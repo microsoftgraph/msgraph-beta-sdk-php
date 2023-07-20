@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminForms extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdminForms and sets the default values.
+     * Instantiates a new adminForms and sets the default values.
     */
     public function __construct() {
         parent::__construct();

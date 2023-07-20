@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementScriptAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementScriptAssignmentCollectionResponse and sets the default values.
+     * Instantiates a new deviceManagementScriptAssignmentCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

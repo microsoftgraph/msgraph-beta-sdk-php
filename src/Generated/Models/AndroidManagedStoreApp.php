@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for Android Managed Store Apps.
+*/
 class AndroidManagedStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreApp and sets the default values.
+     * Instantiates a new androidManagedStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This task derived type represents a list of unmanaged devices discovered in the network.
+*/
 class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * Instantiates a new UnmanagedDeviceDiscoveryTask and sets the default values.
+     * Instantiates a new unmanagedDeviceDiscoveryTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

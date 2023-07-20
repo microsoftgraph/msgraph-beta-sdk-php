@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The entity represents an unsigned long value of a long decimal text box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueLongDecimal extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueLongDecimal and sets the default values.
+     * Instantiates a new groupPolicyPresentationValueLongDecimal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

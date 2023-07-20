@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Properties of the  String script parameter.
+*/
 class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptStringParameter and sets the default values.
+     * Instantiates a new deviceHealthScriptStringParameter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

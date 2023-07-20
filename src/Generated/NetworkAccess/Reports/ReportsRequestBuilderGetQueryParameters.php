@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get reports from networkAccess
+ * Represents the status of the Global Secure Access services for the tenant.
 */
 class ReportsRequestBuilderGetQueryParameters 
 {

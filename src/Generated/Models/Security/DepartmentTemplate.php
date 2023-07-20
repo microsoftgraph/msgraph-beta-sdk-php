@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DepartmentTemplate extends FilePlanDescriptorTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DepartmentTemplate and sets the default values.
+     * Instantiates a new departmentTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

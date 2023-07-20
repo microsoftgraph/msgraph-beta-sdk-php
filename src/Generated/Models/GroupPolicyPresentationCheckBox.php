@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an ADMX checkBox element and an ADMX boolean element.
+*/
 class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationCheckBox and sets the default values.
+     * Instantiates a new groupPolicyPresentationCheckBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();

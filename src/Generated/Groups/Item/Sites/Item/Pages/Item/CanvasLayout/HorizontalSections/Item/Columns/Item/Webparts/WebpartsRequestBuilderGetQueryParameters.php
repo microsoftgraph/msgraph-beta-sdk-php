@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the webPart resources from a sitePage. Sort by the order in which they appear on the page.
+ * The collection of WebParts in this column.
 */
 class WebpartsRequestBuilderGetQueryParameters 
 {

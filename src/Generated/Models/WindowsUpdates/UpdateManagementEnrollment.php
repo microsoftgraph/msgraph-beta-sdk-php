@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Parsable 
 {
     /**
-     * Instantiates a new UpdateManagementEnrollment and sets the default values.
+     * Instantiates a new updateManagementEnrollment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

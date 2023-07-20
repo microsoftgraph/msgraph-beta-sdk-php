@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The class used to identify an Azure Directory group for the kiosk configuration
+*/
 class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskActiveDirectoryGroup and sets the default values.
+     * Instantiates a new windowsKioskActiveDirectoryGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

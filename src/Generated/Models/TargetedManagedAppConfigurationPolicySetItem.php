@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for Targeted managed app configuration PolicySetItem.
+*/
 class TargetedManagedAppConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new TargetedManagedAppConfigurationPolicySetItem and sets the default values.
+     * Instantiates a new targetedManagedAppConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

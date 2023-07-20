@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Drive extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new Drive and sets the default values.
+     * Instantiates a new drive and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +67,18 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+     * @return EscapedList|null
+    */
+    public function getEscapedList(): ?EscapedList {
+        $val = $this->getBackingStore()->get('escapedList');
+        if (is_null($val) || $val instanceof EscapedList) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedList'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -76,7 +88,7 @@ class Drive extends BaseItem implements Parsable
             'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfObjectValues([ItemActivityOLD::class, 'createFromDiscriminatorValue'])),
             'bundles' => fn(ParseNode $n) => $o->setBundles($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
             'driveType' => fn(ParseNode $n) => $o->setDriveType($n->getStringValue()),
-            'list' => fn(ParseNode $n) => $o->setList($n->getObjectValue([EscapedList::class, 'createFromDiscriminatorValue'])),
+            'list' => fn(ParseNode $n) => $o->setEscapedList($n->getObjectValue([EscapedList::class, 'createFromDiscriminatorValue'])),
             'following' => fn(ParseNode $n) => $o->setFollowing($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
@@ -114,18 +126,6 @@ class Drive extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'items'");
-    }
-
-    /**
-     * Gets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
-     * @return EscapedList|null
-    */
-    public function getList(): ?EscapedList {
-        $val = $this->getBackingStore()->get('escapedList');
-        if (is_null($val) || $val instanceof EscapedList) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedList'");
     }
 
     /**
@@ -211,7 +211,7 @@ class Drive extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('activities', $this->getActivities());
         $writer->writeCollectionOfObjectValues('bundles', $this->getBundles());
         $writer->writeStringValue('driveType', $this->getDriveType());
-        $writer->writeObjectValue('list', $this->getList());
+        $writer->writeObjectValue('list', $this->getEscapedList());
         $writer->writeCollectionOfObjectValues('following', $this->getFollowing());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeObjectValue('owner', $this->getOwner());
@@ -247,6 +247,14 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
+     * Sets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+     * @param EscapedList|null $value Value to set for the list property.
+    */
+    public function setEscapedList(?EscapedList $value): void {
+        $this->getBackingStore()->set('escapedList', $value);
+    }
+
+    /**
      * Sets the following property value. The list of items the user is following. Only in OneDrive for Business.
      * @param array<DriveItem>|null $value Value to set for the following property.
     */
@@ -260,14 +268,6 @@ class Drive extends BaseItem implements Parsable
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
-    }
-
-    /**
-     * Sets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
-     * @param EscapedList|null $value Value to set for the EscapedList property.
-    */
-    public function setList(?EscapedList $value): void {
-        $this->getBackingStore()->set('escapedList', $value);
     }
 
     /**

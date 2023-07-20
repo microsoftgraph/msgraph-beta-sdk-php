@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes a supersedence relationship between two mobile apps.
+*/
 class MobileAppSupersedence extends MobileAppRelationship implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppSupersedence and sets the default values.
+     * Instantiates a new mobileAppSupersedence and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity representing an intent setting category
+*/
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
+     * Instantiates a new deviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

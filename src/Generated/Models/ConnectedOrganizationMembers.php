@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConnectedOrganizationMembers extends UserSet implements Parsable 
 {
     /**
-     * Instantiates a new ConnectedOrganizationMembers and sets the default values.
+     * Instantiates a new connectedOrganizationMembers and sets the default values.
     */
     public function __construct() {
         parent::__construct();

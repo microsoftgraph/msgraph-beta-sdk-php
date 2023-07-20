@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enterprise settings for an Android managed store account.
+*/
 class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Parsable 
 {
     /**

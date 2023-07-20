@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an Mac VPP mobile app to a group.
+*/
 class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new MacOsVppAppAssignmentSettings and sets the default values.
+     * Instantiates a new macOsVppAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

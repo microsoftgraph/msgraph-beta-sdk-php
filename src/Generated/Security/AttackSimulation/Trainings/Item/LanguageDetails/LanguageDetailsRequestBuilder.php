@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TrainingLanguageDetail;
 use Microsoft\Graph\Beta\Generated\Models\TrainingLanguageDetailCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Item\TrainingLanguageDetailItemRequestBuilder;
@@ -70,6 +71,25 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
+     * Create new navigation property to languageDetails for security
+     * @param TrainingLanguageDetail $body The request body
+     * @param LanguageDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(TrainingLanguageDetail $body, ?LanguageDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [TrainingLanguageDetail::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
      * Get languageDetails from security
      * @param LanguageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -87,6 +107,26 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        return $requestInfo;
+    }
+
+    /**
+     * Create new navigation property to languageDetails for security
+     * @param TrainingLanguageDetail $body The request body
+     * @param LanguageDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(TrainingLanguageDetail $body, ?LanguageDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

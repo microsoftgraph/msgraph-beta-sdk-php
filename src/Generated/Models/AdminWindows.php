@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminWindows extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdminWindows and sets the default values.
+     * Instantiates a new adminWindows and sets the default values.
     */
     public function __construct() {
         parent::__construct();

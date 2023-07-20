@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Show the home button; clicking the home button loads the Start page - this is also the default value.
+*/
 class EdgeHomeButtonLoadsStartPage extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new EdgeHomeButtonLoadsStartPage and sets the default values.
+     * Instantiates a new edgeHomeButtonLoadsStartPage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

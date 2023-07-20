@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerSharedWithContainer extends PlannerPlanContainer implements Parsable 
 {
     /**
-     * Instantiates a new PlannerSharedWithContainer and sets the default values.
+     * Instantiates a new plannerSharedWithContainer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

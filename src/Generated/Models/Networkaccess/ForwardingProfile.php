@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingProfile extends Profile implements Parsable 
 {
     /**
-     * Instantiates a new ForwardingProfile and sets the default values.
+     * Instantiates a new forwardingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Gets the associations property value. The associations property
+     * Gets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
      * @return array<Association>|null
     */
     public function getAssociations(): ?array {
@@ -54,7 +54,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. Profile priority.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -89,7 +89,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Sets the associations property value. The associations property
+     * Sets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
      * @param array<Association>|null $value Value to set for the associations property.
     */
     public function setAssociations(?array $value): void {
@@ -97,7 +97,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. Profile priority.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

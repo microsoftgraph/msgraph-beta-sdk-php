@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSSoftwareUpdateStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new MacOSSoftwareUpdateStateSummaryCollectionResponse and sets the default values.
+     * Instantiates a new macOSSoftwareUpdateStateSummaryCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

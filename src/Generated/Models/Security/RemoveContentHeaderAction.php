@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RemoveContentHeaderAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new RemoveContentHeaderAction and sets the default values.
+     * Instantiates a new removeContentHeaderAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * String Setting Value Template
+*/
 class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationStringSettingValueTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationStringSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

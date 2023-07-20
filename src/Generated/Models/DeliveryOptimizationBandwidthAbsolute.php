@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Bandwidth limits in kilobytes per second.
+*/
 class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationBandwidthAbsolute and sets the default values.
+     * Instantiates a new deliveryOptimizationBandwidthAbsolute and sets the default values.
     */
     public function __construct() {
         parent::__construct();

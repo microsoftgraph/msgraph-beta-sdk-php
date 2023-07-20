@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomAccessPackageWorkflowExtensionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new CustomAccessPackageWorkflowExtensionCollectionResponse and sets the default values.
+     * Instantiates a new customAccessPackageWorkflowExtensionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

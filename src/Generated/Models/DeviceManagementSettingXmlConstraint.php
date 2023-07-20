@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint enforcing the setting is well formed XML
+*/
 class DeviceManagementSettingXmlConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingXmlConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingXmlConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

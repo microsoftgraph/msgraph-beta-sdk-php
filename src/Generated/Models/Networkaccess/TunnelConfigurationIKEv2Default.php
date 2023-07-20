@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TunnelConfigurationIKEv2Default extends TunnelConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new TunnelConfigurationIKEv2Default and sets the default values.
+     * Instantiates a new tunnelConfigurationIKEv2Default and sets the default values.
     */
     public function __construct() {
         parent::__construct();

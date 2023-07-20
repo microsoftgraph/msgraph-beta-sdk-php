@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpRange extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new IpRange and sets the default values.
+     * Instantiates a new ipRange and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class IpRange extends RuleDestination implements Parsable
     }
 
     /**
-     * Gets the beginAddress property value. The beginAddress property
+     * Gets the beginAddress property value. Specifies the starting IP address of the IP range.
      * @return string|null
     */
     public function getBeginAddress(): ?string {
@@ -38,7 +38,7 @@ class IpRange extends RuleDestination implements Parsable
     }
 
     /**
-     * Gets the endAddress property value. The endAddress property
+     * Gets the endAddress property value. Specifies the ending IP address of the IP range.
      * @return string|null
     */
     public function getEndAddress(): ?string {
@@ -72,7 +72,7 @@ class IpRange extends RuleDestination implements Parsable
     }
 
     /**
-     * Sets the beginAddress property value. The beginAddress property
+     * Sets the beginAddress property value. Specifies the starting IP address of the IP range.
      * @param string|null $value Value to set for the beginAddress property.
     */
     public function setBeginAddress(?string $value): void {
@@ -80,7 +80,7 @@ class IpRange extends RuleDestination implements Parsable
     }
 
     /**
-     * Sets the endAddress property value. The endAddress property
+     * Sets the endAddress property value. Specifies the ending IP address of the IP range.
      * @param string|null $value Value to set for the endAddress property.
     */
     public function setEndAddress(?string $value): void {

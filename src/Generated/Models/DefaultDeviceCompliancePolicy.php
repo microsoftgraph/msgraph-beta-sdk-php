@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Default device compliance policy rules that are enforced account wide.
+*/
 class DefaultDeviceCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new DefaultDeviceCompliancePolicy and sets the default values.
+     * Instantiates a new defaultDeviceCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

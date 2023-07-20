@@ -53,9 +53,10 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get traffic from networkAccess
+     * Get a list of log events for traffic routed through the Global Secure Access services.
      * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-logs-list-traffic?view=graph-rest-1.0 Find more info here
     */
     public function get(?TrafficRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get traffic from networkAccess
+     * Get a list of log events for traffic routed through the Global Secure Access services.
      * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

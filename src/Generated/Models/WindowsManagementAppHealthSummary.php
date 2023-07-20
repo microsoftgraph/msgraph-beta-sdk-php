@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the health summary of the Windows management app.
+*/
 class WindowsManagementAppHealthSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsManagementAppHealthSummary and sets the default values.
+     * Instantiates a new windowsManagementAppHealthSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

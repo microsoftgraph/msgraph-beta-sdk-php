@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationRedirectSettingDefinition and sets the default values.
+     * Instantiates a new deviceManagementConfigurationRedirectSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

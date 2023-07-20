@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
+*/
 class DeviceManagementScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

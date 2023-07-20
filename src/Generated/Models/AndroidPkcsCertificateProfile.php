@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android PKCS certificate profile
+*/
 class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidPkcsCertificateProfile and sets the default values.
+     * Instantiates a new androidPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

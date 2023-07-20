@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Bookmark extends SearchAnswer implements Parsable 
 {
     /**
-     * Instantiates a new Bookmark and sets the default values.
+     * Instantiates a new bookmark and sets the default values.
     */
     public function __construct() {
         parent::__construct();

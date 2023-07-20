@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The class used to identify the MultiMode app configuration for the kiosk configuration
+*/
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskMultipleApps and sets the default values.
+     * Instantiates a new windowsKioskMultipleApps and sets the default values.
     */
     public function __construct() {
         parent::__construct();

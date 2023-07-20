@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows 8.1 Phone and Mobile PFX Import certificate profile
+*/
 class WindowsPhone81ImportedPFXCertificateProfile extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new WindowsPhone81ImportedPFXCertificateProfile and sets the default values.
+     * Instantiates a new windowsPhone81ImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

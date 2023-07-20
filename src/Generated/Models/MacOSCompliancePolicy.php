@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This class contains compliance settings for Mac OS.
+*/
 class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new MacOSCompliancePolicy and sets the default values.
+     * Instantiates a new macOSCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

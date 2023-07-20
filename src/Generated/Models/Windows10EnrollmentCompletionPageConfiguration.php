@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows 10 Enrollment Status Page Configuration
+*/
 class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10EnrollmentCompletionPageConfiguration and sets the default values.
+     * Instantiates a new windows10EnrollmentCompletionPageConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

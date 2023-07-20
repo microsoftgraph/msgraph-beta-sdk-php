@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateCollectionTenantSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementTemplateCollectionTenantSummary and sets the default values.
+     * Instantiates a new managementTemplateCollectionTenantSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

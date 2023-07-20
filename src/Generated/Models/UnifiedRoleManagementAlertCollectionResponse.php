@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UnifiedRoleManagementAlertCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new UnifiedRoleManagementAlertCollectionResponse and sets the default values.
+     * Instantiates a new unifiedRoleManagementAlertCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

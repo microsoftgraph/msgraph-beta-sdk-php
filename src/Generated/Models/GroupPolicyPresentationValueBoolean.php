@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The entity represents a Boolean value of a checkbox presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueBoolean and sets the default values.
+     * Instantiates a new groupPolicyPresentationValueBoolean and sets the default values.
     */
     public function __construct() {
         parent::__construct();

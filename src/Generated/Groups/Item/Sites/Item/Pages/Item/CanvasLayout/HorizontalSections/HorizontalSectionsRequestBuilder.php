@@ -53,10 +53,9 @@ class HorizontalSectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the horizontalSection objects and their properties. Sort by `id` in ascending order.
+     * Collection of horizontal sections on the SharePoint page.
      * @param HorizontalSectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/horizontalsection-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?HorizontalSectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +90,7 @@ class HorizontalSectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the horizontalSection objects and their properties. Sort by `id` in ascending order.
+     * Collection of horizontal sections on the SharePoint page.
      * @param HorizontalSectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new HttpRequestEndpoint and sets the default values.
+     * Instantiates a new httpRequestEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

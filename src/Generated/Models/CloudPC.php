@@ -39,6 +39,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectionSettings property value. The connectionSettings property
+     * @return CloudPcConnectionSettings|null
+    */
+    public function getConnectionSettings(): ?CloudPcConnectionSettings {
+        $val = $this->getBackingStore()->get('connectionSettings');
+        if (is_null($val) || $val instanceof CloudPcConnectionSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionSettings'");
+    }
+
+    /**
      * Gets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
      * @return CloudPcConnectivityResult|null
     */
@@ -82,6 +94,7 @@ class CloudPC extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aadDeviceId' => fn(ParseNode $n) => $o->setAadDeviceId($n->getStringValue()),
+            'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([CloudPcConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectivityResult' => fn(ParseNode $n) => $o->setConnectivityResult($n->getObjectValue([CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'])),
             'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -370,6 +383,7 @@ class CloudPC extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('aadDeviceId', $this->getAadDeviceId());
+        $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeObjectValue('connectivityResult', $this->getConnectivityResult());
         $writer->writeEnumValue('diskEncryptionState', $this->getDiskEncryptionState());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -402,6 +416,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setAadDeviceId(?string $value): void {
         $this->getBackingStore()->set('aadDeviceId', $value);
+    }
+
+    /**
+     * Sets the connectionSettings property value. The connectionSettings property
+     * @param CloudPcConnectionSettings|null $value Value to set for the connectionSettings property.
+    */
+    public function setConnectionSettings(?CloudPcConnectionSettings $value): void {
+        $this->getBackingStore()->set('connectionSettings', $value);
     }
 
     /**

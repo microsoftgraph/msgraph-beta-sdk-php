@@ -70,7 +70,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -109,7 +109,7 @@ class PolicyLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HostSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new HostSecurityProfile and sets the default values.
+     * Instantiates a new hostSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

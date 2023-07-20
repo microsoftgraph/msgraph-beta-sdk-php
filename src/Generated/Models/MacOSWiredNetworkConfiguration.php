@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS wired network configuration profile.
+*/
 class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSWiredNetworkConfiguration and sets the default values.
+     * Instantiates a new macOSWiredNetworkConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

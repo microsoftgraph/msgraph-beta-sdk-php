@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * An abstract base class containing properties for all mobile line of business apps.
+*/
 class MobileLobApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MobileLobApp and sets the default values.
+     * Instantiates a new mobileLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

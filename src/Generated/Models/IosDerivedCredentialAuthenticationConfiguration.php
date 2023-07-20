@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * iOS Derived Credential profile.
+*/
 class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosDerivedCredentialAuthenticationConfiguration and sets the default values.
+     * Instantiates a new iosDerivedCredentialAuthenticationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

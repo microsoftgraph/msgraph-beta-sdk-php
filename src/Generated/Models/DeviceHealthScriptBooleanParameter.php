@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Properties of the  Booolean script parameter.
+*/
 class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptBooleanParameter and sets the default values.
+     * Instantiates a new deviceHealthScriptBooleanParameter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

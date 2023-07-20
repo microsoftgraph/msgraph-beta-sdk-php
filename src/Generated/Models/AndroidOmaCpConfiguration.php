@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * By providing a configuration in this profile you can configure Android devices that support OMA-CP.
+*/
 class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidOmaCpConfiguration and sets the default values.
+     * Instantiates a new androidOmaCpConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrintUsageByPrinter extends PrintUsage implements Parsable 
 {
     /**
-     * Instantiates a new PrintUsageByPrinter and sets the default values.
+     * Instantiates a new printUsageByPrinter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,6 +32,7 @@ class PrintUsageByPrinter extends PrintUsage implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'printerId' => fn(ParseNode $n) => $o->setPrinterId($n->getStringValue()),
+            'printerName' => fn(ParseNode $n) => $o->setPrinterName($n->getStringValue()),
         ]);
     }
 
@@ -48,12 +49,25 @@ class PrintUsageByPrinter extends PrintUsage implements Parsable
     }
 
     /**
+     * Gets the printerName property value. The name of the printer represented by these statistics.
+     * @return string|null
+    */
+    public function getPrinterName(): ?string {
+        $val = $this->getBackingStore()->get('printerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerName'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('printerId', $this->getPrinterId());
+        $writer->writeStringValue('printerName', $this->getPrinterName());
     }
 
     /**
@@ -62,6 +76,14 @@ class PrintUsageByPrinter extends PrintUsage implements Parsable
     */
     public function setPrinterId(?string $value): void {
         $this->getBackingStore()->set('printerId', $value);
+    }
+
+    /**
+     * Sets the printerName property value. The name of the printer represented by these statistics.
+     * @param string|null $value Value to set for the printerName property.
+    */
+    public function setPrinterName(?string $value): void {
+        $this->getBackingStore()->set('printerName', $value);
     }
 
 }

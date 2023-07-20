@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Parsable 
 {
     /**
-     * Instantiates a new DlpEvaluationWindowsDevicesInput and sets the default values.
+     * Instantiates a new dlpEvaluationWindowsDevicesInput and sets the default values.
     */
     public function __construct() {
         parent::__construct();

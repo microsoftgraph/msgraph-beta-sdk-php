@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This class contains compliance settings for Windows 10 Mobile.
+*/
 class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new Windows10MobileCompliancePolicy and sets the default values.
+     * Instantiates a new windows10MobileCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

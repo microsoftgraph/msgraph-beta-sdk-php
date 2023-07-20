@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing configurations in this profile you can instruct the Nine Work email client on Android Work Profile devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
+*/
 class AndroidWorkProfileNineWorkEasConfiguration extends AndroidWorkProfileEasEmailProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidWorkProfileNineWorkEasConfiguration and sets the default values.
+     * Instantiates a new androidWorkProfileNineWorkEasConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

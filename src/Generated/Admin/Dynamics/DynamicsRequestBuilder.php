@@ -50,9 +50,10 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dynamics from admin
+     * Read the properties and relationships of a adminDynamics object.
      * @param DynamicsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/admindynamics-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DynamicsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dynamics in admin
+     * Update the properties of a adminDynamics object.
      * @param AdminDynamics $body The request body
      * @param DynamicsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/admindynamics-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AdminDynamics $body, ?DynamicsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dynamics from admin
+     * Read the properties and relationships of a adminDynamics object.
      * @param DynamicsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dynamics in admin
+     * Update the properties of a adminDynamics object.
      * @param AdminDynamics $body The request body
      * @param DynamicsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

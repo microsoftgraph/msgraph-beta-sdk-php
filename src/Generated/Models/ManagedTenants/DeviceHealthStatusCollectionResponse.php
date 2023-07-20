@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceHealthStatusCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthStatusCollectionResponse and sets the default values.
+     * Instantiates a new deviceHealthStatusCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

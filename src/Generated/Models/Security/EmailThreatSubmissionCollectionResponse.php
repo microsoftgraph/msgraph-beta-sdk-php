@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EmailThreatSubmissionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new EmailThreatSubmissionCollectionResponse and sets the default values.
+     * Instantiates a new emailThreatSubmissionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

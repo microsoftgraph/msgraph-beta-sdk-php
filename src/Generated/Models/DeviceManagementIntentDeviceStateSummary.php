@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents device state summary for an intent
+*/
 class DeviceManagementIntentDeviceStateSummary extends Entity implements Parsable 
 {
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ProjectParticipation extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ProjectParticipation and sets the default values.
+     * Instantiates a new projectParticipation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

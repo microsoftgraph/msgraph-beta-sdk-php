@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * MacOS Wi-Fi WPA-Enterprise/WPA2-Enterprise configuration profile.
+*/
 class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSEnterpriseWiFiConfiguration and sets the default values.
+     * Instantiates a new macOSEnterpriseWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

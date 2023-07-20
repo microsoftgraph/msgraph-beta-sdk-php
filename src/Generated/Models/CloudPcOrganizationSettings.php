@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcOrganizationSettings and sets the default values.
+     * Instantiates a new cloudPcOrganizationSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

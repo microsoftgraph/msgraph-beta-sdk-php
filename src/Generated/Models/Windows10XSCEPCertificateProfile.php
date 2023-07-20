@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows X SCEP Certificate configuration profile
+*/
 class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XSCEPCertificateProfile and sets the default values.
+     * Instantiates a new windows10XSCEPCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

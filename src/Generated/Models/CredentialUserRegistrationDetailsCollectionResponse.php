@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CredentialUserRegistrationDetailsCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationDetailsCollectionResponse and sets the default values.
+     * Instantiates a new credentialUserRegistrationDetailsCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

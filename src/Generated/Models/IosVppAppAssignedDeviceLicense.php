@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
+*/
 class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements Parsable 
 {
     /**
-     * Instantiates a new IosVppAppAssignedDeviceLicense and sets the default values.
+     * Instantiates a new iosVppAppAssignedDeviceLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();

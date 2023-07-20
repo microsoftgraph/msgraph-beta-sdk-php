@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This class contains compliance settings for IOS.
+*/
 class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new IosCompliancePolicy and sets the default values.
+     * Instantiates a new iosCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

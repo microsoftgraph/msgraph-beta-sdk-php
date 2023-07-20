@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The security baseline template of the account
+*/
 class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsable 
 {
     /**
-     * Instantiates a new SecurityBaselineTemplate and sets the default values.
+     * Instantiates a new securityBaselineTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

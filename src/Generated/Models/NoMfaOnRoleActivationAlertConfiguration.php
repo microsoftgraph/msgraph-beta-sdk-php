@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoMfaOnRoleActivationAlertConfiguration extends UnifiedRoleManagementAlertConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new NoMfaOnRoleActivationAlertConfiguration and sets the default values.
+     * Instantiates a new noMfaOnRoleActivationAlertConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

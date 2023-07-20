@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Tr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of direct and transitive unifiedRoleAssignment objects for a specific principal. For example, if a user is assigned an Azure AD role through group membership, the role assignment is transitive, and this request will list the group's ID as the **principalId**. Results can also be filtered by the **roleDefinitionId** and **directoryScopeId**. Supported only for directory (Azure AD) provider. For more information, see Use Azure AD groups to manage role assignments.
+ * Get transitiveRoleAssignments from roleManagement
 */
 class TransitiveRoleAssignmentsRequestBuilderGetQueryParameters 
 {

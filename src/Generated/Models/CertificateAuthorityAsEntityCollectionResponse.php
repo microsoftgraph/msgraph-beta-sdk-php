@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CertificateAuthorityAsEntityCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new CertificateAuthorityAsEntityCollectionResponse and sets the default values.
+     * Instantiates a new certificateAuthorityAsEntityCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Show the home button; clicking the home button loads the New tab page.
+*/
 class EdgeHomeButtonOpensNewTab extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new EdgeHomeButtonOpensNewTab and sets the default values.
+     * Instantiates a new edgeHomeButtonOpensNewTab and sets the default values.
     */
     public function __construct() {
         parent::__construct();

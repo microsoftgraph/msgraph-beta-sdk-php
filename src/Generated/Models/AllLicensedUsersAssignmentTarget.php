@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an assignment to all licensed users in the tenant.
+*/
 class AllLicensedUsersAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new AllLicensedUsersAssignmentTarget and sets the default values.
+     * Instantiates a new allLicensedUsersAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IndustryDataConnectorCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new IndustryDataConnectorCollectionResponse and sets the default values.
+     * Instantiates a new industryDataConnectorCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

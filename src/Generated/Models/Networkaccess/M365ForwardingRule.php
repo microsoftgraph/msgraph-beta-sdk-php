@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class M365ForwardingRule extends ForwardingRule implements Parsable 
 {
     /**
-     * Instantiates a new M365ForwardingRule and sets the default values.
+     * Instantiates a new m365ForwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,7 +59,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @return array<string>|null
     */
     public function getPorts(): ?array {
@@ -104,7 +104,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @param array<string>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {

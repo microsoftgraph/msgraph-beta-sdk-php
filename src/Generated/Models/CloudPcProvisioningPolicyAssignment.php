@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcProvisioningPolicyAssignment and sets the default values.
+     * Instantiates a new cloudPcProvisioningPolicyAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureDataLakeConnector extends FileDataConnector implements Parsable 
 {
     /**
-     * Instantiates a new AzureDataLakeConnector and sets the default values.
+     * Instantiates a new azureDataLakeConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

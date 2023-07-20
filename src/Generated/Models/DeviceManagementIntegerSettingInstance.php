@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A setting instance representing an integer value
+*/
 class DeviceManagementIntegerSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementIntegerSettingInstance and sets the default values.
+     * Instantiates a new deviceManagementIntegerSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

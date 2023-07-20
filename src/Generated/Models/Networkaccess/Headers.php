@@ -82,7 +82,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the origin property value. The origin property
+     * Gets the origin property value. Represents the origin or source from which the request is being made.
      * @return string|null
     */
     public function getOrigin(): ?string {
@@ -94,7 +94,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the referrer property value. The referrer property
+     * Gets the referrer property value. Represents the referring URL or the URL of the web page that the current request originates from.
      * @return string|null
     */
     public function getReferrer(): ?string {
@@ -106,7 +106,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the xForwardedFor property value. The xForwardedFor property
+     * Gets the xForwardedFor property value. Represents the information about the client original IP address when the request passes through one or more proxy servers or load balancers.
      * @return string|null
     */
     public function getXForwardedFor(): ?string {
@@ -131,7 +131,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,14 +147,14 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the origin property value. The origin property
+     * Sets the origin property value. Represents the origin or source from which the request is being made.
      * @param string|null $value Value to set for the origin property.
     */
     public function setOrigin(?string $value): void {
@@ -162,7 +162,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the referrer property value. The referrer property
+     * Sets the referrer property value. Represents the referring URL or the URL of the web page that the current request originates from.
      * @param string|null $value Value to set for the referrer property.
     */
     public function setReferrer(?string $value): void {
@@ -170,7 +170,7 @@ class Headers implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the xForwardedFor property value. The xForwardedFor property
+     * Sets the xForwardedFor property value. Represents the information about the client original IP address when the request passes through one or more proxy servers or load balancers.
      * @param string|null $value Value to set for the xForwardedFor property.
     */
     public function setXForwardedFor(?string $value): void {

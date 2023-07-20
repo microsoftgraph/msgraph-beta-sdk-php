@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents a Chromebook tenant settings
+*/
 class ChromeOSOnboardingSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ChromeOSOnboardingSettings and sets the default values.
+     * Instantiates a new chromeOSOnboardingSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

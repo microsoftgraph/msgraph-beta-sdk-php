@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Local Action Configuration
+*/
 class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceComplianceLocalActionBase and sets the default values.
+     * Instantiates a new androidDeviceComplianceLocalActionBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

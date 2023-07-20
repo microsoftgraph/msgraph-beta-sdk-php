@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy.
+*/
 class ManagedApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new ManagedApp and sets the default values.
+     * Instantiates a new managedApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

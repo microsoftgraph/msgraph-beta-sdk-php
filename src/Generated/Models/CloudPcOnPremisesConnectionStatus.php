@@ -10,5 +10,6 @@ class CloudPcOnPremisesConnectionStatus extends Enum {
     public const PASSED = 'passed';
     public const FAILED = 'failed';
     public const WARNING = 'warning';
+    public const INFORMATIONAL = 'informational';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

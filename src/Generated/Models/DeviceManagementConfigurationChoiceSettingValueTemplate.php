@@ -21,7 +21,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationChoiceSettingValueTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationChoiceSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -148,7 +148,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -156,7 +156,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -172,7 +172,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

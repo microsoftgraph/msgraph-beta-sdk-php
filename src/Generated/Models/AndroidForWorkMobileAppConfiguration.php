@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties, inherited properties and actions for AFW mobile app configurations.
+*/
 class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkMobileAppConfiguration and sets the default values.
+     * Instantiates a new androidForWorkMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

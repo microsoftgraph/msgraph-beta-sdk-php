@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows 10 Desktop and Mobile PKCS certificate profile
+*/
 class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10PkcsCertificateProfile and sets the default values.
+     * Instantiates a new windows10PkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

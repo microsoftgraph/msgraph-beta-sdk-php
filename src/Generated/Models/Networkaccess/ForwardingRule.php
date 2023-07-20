@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingRule extends PolicyRule implements Parsable 
 {
     /**
-     * Instantiates a new ForwardingRule and sets the default values.
+     * Instantiates a new forwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,7 +47,7 @@ class ForwardingRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Gets the destinations property value. The destinations property
+     * Gets the destinations property value. Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.
      * @return array<RuleDestination>|null
     */
     public function getDestinations(): ?array {
@@ -105,7 +105,7 @@ class ForwardingRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Sets the destinations property value. The destinations property
+     * Sets the destinations property value. Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.
      * @param array<RuleDestination>|null $value Value to set for the destinations property.
     */
     public function setDestinations(?array $value): void {

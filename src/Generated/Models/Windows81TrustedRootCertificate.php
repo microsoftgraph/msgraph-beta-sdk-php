@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows 8.1 Trusted Certificate configuration profile
+*/
 class Windows81TrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**

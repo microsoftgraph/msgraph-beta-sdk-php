@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The security baseline per category compliance state summary for the security baseline of the account.
+*/
 class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary implements Parsable 
 {
     /**
-     * Instantiates a new SecurityBaselineCategoryStateSummary and sets the default values.
+     * Instantiates a new securityBaselineCategoryStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

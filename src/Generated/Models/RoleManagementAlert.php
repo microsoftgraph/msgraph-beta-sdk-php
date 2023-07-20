@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoleManagementAlert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RoleManagementAlert and sets the default values.
+     * Instantiates a new roleManagementAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();

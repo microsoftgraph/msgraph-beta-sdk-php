@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsable 
 {
     /**
-     * Instantiates a new ExternalMeetingRegistrant and sets the default values.
+     * Instantiates a new externalMeetingRegistrant and sets the default values.
     */
     public function __construct() {
         parent::__construct();

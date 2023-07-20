@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Todo;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get todo from admin
+ * Read the properties and relationships of a adminTodo object.
 */
 class TodoRequestBuilderGetQueryParameters 
 {

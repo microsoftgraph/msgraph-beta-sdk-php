@@ -104,7 +104,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Gets the pronouns property value. The pronouns property
      * @return PronounsSettings|null
     */
     public function getPronouns(): ?PronounsSettings {
@@ -170,7 +170,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Sets the pronouns property value. The pronouns property
      * @param PronounsSettings|null $value Value to set for the pronouns property.
     */
     public function setPronouns(?PronounsSettings $value): void {

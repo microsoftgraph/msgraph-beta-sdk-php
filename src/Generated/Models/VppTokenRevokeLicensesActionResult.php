@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The status of the revoke licenses action performed on the Apple Volume Purchase Program token.
+*/
 class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements Parsable 
 {
     /**
-     * Instantiates a new VppTokenRevokeLicensesActionResult and sets the default values.
+     * Instantiates a new vppTokenRevokeLicensesActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

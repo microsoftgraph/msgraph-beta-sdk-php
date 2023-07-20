@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an iOS LOB mobile app to a group.
+*/
 class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new IosLobAppAssignmentSettings and sets the default values.
+     * Instantiates a new iosLobAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

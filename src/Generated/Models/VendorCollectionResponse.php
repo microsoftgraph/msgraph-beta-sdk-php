@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VendorCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new VendorCollectionResponse and sets the default values.
+     * Instantiates a new vendorCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Constraint that enforces an AbstractComplex type has or is set to a particular value
+*/
 class DeviceManagementSettingAbstractImplementationConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingAbstractImplementationConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingAbstractImplementationConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

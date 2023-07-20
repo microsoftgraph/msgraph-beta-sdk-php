@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents a collection of name/value pairs of a list box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueList and sets the default values.
+     * Instantiates a new groupPolicyPresentationValueList and sets the default values.
     */
     public function __construct() {
         parent::__construct();

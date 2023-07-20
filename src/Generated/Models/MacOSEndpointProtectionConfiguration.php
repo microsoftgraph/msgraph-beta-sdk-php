@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * MacOS endpoint protection configuration profile.
+*/
 class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSEndpointProtectionConfiguration and sets the default values.
+     * Instantiates a new macOSEndpointProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

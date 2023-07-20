@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class CloudPcRegionGroup extends Enum {
-    public const ESCAPED_DEFAULT = 'default';
+    public const DEFAULT = 'default';
     public const AUSTRALIA = 'australia';
     public const CANADA = 'canada';
     public const US_CENTRAL = 'usCentral';

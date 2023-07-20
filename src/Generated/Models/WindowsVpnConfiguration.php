@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows VPN configuration profile.
+*/
 class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsVpnConfiguration and sets the default values.
+     * Instantiates a new windowsVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

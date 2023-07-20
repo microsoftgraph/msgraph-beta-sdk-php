@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemPhone extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new ItemPhone and sets the default values.
+     * Instantiates a new itemPhone and sets the default values.
     */
     public function __construct() {
         parent::__construct();

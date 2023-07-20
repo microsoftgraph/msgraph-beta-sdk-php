@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ActivityStatisticsCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ActivityStatisticsCollectionResponse and sets the default values.
+     * Instantiates a new activityStatisticsCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

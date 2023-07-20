@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuditUserIdentity extends UserIdentity implements Parsable 
 {
     /**
-     * Instantiates a new AuditUserIdentity and sets the default values.
+     * Instantiates a new auditUserIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * An abstract base class for all macOS-specific single sign-on extension types.
+*/
 class MacOSSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new MacOSSingleSignOnExtension and sets the default values.
+     * Instantiates a new macOSSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

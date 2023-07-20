@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * Instantiates a new ServicePrincipalCreationPolicy and sets the default values.
+     * Instantiates a new servicePrincipalCreationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

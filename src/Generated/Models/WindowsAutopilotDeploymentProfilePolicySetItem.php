@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for windows autopilot deployment profile PolicySetItem.
+*/
 class WindowsAutopilotDeploymentProfilePolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAutopilotDeploymentProfilePolicySetItem and sets the default values.
+     * Instantiates a new windowsAutopilotDeploymentProfilePolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

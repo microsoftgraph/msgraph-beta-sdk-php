@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonAnnualEvent extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonAnnualEvent and sets the default values.
+     * Instantiates a new personAnnualEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

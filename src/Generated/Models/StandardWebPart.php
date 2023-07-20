@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StandardWebPart extends WebPart implements Parsable 
 {
     /**
-     * Instantiates a new StandardWebPart and sets the default values.
+     * Instantiates a new standardWebPart and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -50,7 +50,7 @@ class StandardWebPart extends WebPart implements Parsable
     }
 
     /**
-     * Gets the webPartType property value. A Guid which indicates the type of the webParts
+     * Gets the webPartType property value. A Guid that indicates the webPart type.
      * @return string|null
     */
     public function getWebPartType(): ?string {
@@ -80,7 +80,7 @@ class StandardWebPart extends WebPart implements Parsable
     }
 
     /**
-     * Sets the webPartType property value. A Guid which indicates the type of the webParts
+     * Sets the webPartType property value. A Guid that indicates the webPart type.
      * @param string|null $value Value to set for the webPartType property.
     */
     public function setWebPartType(?string $value): void {

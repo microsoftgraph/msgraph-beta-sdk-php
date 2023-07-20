@@ -32,7 +32,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from networkAccess
+     * Policy.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from networkAccess
+     * Policy.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -50,7 +50,7 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get traffic from networkAccess
+     * Represents a collection of log entries in the network access traffic log.
      * @param NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get traffic from networkAccess
+     * Represents a collection of log entries in the network access traffic log.
      * @param NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

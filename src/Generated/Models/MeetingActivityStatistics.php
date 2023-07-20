@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * Instantiates a new MeetingActivityStatistics and sets the default values.
+     * Instantiates a new meetingActivityStatistics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

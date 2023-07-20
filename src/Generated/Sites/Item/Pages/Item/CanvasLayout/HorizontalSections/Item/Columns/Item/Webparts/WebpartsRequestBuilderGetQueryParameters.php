@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Hori
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the webPart resources from a sitePage. Sort by the order in which they appear on the page.
+ * The collection of WebParts in this column.
 */
 class WebpartsRequestBuilderGetQueryParameters 
 {

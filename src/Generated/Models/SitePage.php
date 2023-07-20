@@ -27,7 +27,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the canvasLayout property value. Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
+     * Gets the canvasLayout property value. Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
      * @return CanvasLayout|null
     */
     public function getCanvasLayout(): ?CanvasLayout {
@@ -39,7 +39,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the contentType property value. Inherited from baseItem.
+     * Gets the contentType property value. The contentType property
      * @return ContentTypeInfo|null
     */
     public function getContentType(): ?ContentTypeInfo {
@@ -73,7 +73,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
+     * Gets the pageLayout property value. The pageLayout property
      * @return PageLayoutType|null
     */
     public function getPageLayout(): ?PageLayoutType {
@@ -97,7 +97,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the publishingState property value. The publishing status and the MM.mm version of the page.
+     * Gets the publishingState property value. The publishingState property
      * @return PublicationFacet|null
     */
     public function getPublishingState(): ?PublicationFacet {
@@ -157,7 +157,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the title property value. Title of the sitePage.
+     * Gets the title property value. The title property
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -181,7 +181,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the webParts property value. Collection of webparts on the SharePoint page
+     * Gets the webParts property value. Collection of webparts on the SharePoint page.
      * @return array<WebPart>|null
     */
     public function getWebParts(): ?array {
@@ -215,7 +215,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the canvasLayout property value. Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
+     * Sets the canvasLayout property value. Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
      * @param CanvasLayout|null $value Value to set for the canvasLayout property.
     */
     public function setCanvasLayout(?CanvasLayout $value): void {
@@ -223,7 +223,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the contentType property value. Inherited from baseItem.
+     * Sets the contentType property value. The contentType property
      * @param ContentTypeInfo|null $value Value to set for the contentType property.
     */
     public function setContentType(?ContentTypeInfo $value): void {
@@ -231,7 +231,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
+     * Sets the pageLayout property value. The pageLayout property
      * @param PageLayoutType|null $value Value to set for the pageLayout property.
     */
     public function setPageLayout(?PageLayoutType $value): void {
@@ -247,7 +247,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the publishingState property value. The publishing status and the MM.mm version of the page.
+     * Sets the publishingState property value. The publishingState property
      * @param PublicationFacet|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?PublicationFacet $value): void {
@@ -287,7 +287,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the title property value. Title of the sitePage.
+     * Sets the title property value. The title property
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
@@ -303,7 +303,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the webParts property value. Collection of webparts on the SharePoint page
+     * Sets the webParts property value. Collection of webparts on the SharePoint page.
      * @param array<WebPart>|null $value Value to set for the webParts property.
     */
     public function setWebParts(?array $value): void {

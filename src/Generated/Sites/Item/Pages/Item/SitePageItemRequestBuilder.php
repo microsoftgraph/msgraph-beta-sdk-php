@@ -98,10 +98,10 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the metadata for a [sitePage][] in the site pages [list][] in a [site][].
+     * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
      * @param SitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/sitepage-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/basesitepage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SitePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -117,11 +117,10 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sitePage object.
+     * Update the navigation property pages in sites
      * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/sitepage-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SitePage $body, ?SitePageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -154,7 +153,7 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the metadata for a [sitePage][] in the site pages [list][] in a [site][].
+     * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
      * @param SitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -175,7 +174,7 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sitePage object.
+     * Update the navigation property pages in sites
      * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

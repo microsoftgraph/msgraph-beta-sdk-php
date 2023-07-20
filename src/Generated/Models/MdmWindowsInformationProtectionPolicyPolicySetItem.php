@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for mdm windows information protection policy PolicySetItem.
+*/
 class MdmWindowsInformationProtectionPolicyPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new MdmWindowsInformationProtectionPolicyPolicySetItem and sets the default values.
+     * Instantiates a new mdmWindowsInformationProtectionPolicyPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A complex type to store registry rule data for a Win32 LOB app.
+*/
 class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppRegistryRule and sets the default values.
+     * Instantiates a new win32LobAppRegistryRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * RotateBitLockerKeys device action result
+*/
 class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new RotateBitLockerKeysDeviceActionResult and sets the default values.
+     * Instantiates a new rotateBitLockerKeysDeviceActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The entity represents a string value of a multi-line text box presentation on a policy definition.
+*/
 class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationValueMultiText and sets the default values.
+     * Instantiates a new groupPolicyPresentationValueMultiText and sets the default values.
     */
     public function __construct() {
         parent::__construct();

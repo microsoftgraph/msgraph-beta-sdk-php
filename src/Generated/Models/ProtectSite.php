@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectSite extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new ProtectSite and sets the default values.
+     * Instantiates a new protectSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();

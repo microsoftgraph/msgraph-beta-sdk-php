@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileDataConnector extends IndustryDataConnector implements Parsable 
 {
     /**
-     * Instantiates a new FileDataConnector and sets the default values.
+     * Instantiates a new fileDataConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

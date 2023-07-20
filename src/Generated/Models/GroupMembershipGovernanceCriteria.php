@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Parsable 
 {
     /**
-     * Instantiates a new GroupMembershipGovernanceCriteria and sets the default values.
+     * Instantiates a new groupMembershipGovernanceCriteria and sets the default values.
     */
     public function __construct() {
         parent::__construct();

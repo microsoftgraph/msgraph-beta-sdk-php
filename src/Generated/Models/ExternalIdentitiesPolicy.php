@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalIdentitiesPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * Instantiates a new ExternalIdentitiesPolicy and sets the default values.
+     * Instantiates a new externalIdentitiesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

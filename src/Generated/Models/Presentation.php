@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Presentation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Presentation and sets the default values.
+     * Instantiates a new presentation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

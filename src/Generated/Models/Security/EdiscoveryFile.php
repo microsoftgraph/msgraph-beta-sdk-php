@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryFile extends File implements Parsable 
 {
     /**
-     * Instantiates a new EdiscoveryFile and sets the default values.
+     * Instantiates a new ediscoveryFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

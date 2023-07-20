@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermark extends MarkContent implements Parsable 
 {
     /**
-     * Instantiates a new AddWatermark and sets the default values.
+     * Instantiates a new addWatermark and sets the default values.
     */
     public function __construct() {
         parent::__construct();

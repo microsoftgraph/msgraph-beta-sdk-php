@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JustifyAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new JustifyAction and sets the default values.
+     * Instantiates a new justifyAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for iOS Volume-Purchased Program (VPP) Apps.
+*/
 class IosVppApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new IosVppApp and sets the default values.
+     * Instantiates a new iosVppApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

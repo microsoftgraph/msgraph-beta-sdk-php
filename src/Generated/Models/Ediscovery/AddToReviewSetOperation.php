@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddToReviewSetOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new AddToReviewSetOperation and sets the default values.
+     * Instantiates a new addToReviewSetOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

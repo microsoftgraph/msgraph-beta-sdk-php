@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Mac OS certificate profile.
+*/
 class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**

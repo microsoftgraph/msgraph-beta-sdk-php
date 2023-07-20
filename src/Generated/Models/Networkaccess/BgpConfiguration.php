@@ -18,7 +18,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new BgpConfiguration and sets the default values.
+     * Instantiates a new bgpConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -48,7 +48,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the asn property value. The asn property
+     * Gets the asn property value. Specifies the ASN of the BGP.
      * @return int|null
     */
     public function getAsn(): ?int {
@@ -95,7 +95,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the localIpAddress property value. The localIpAddress property
+     * Gets the localIpAddress property value. Specifies the BGP IP address of peer (Microsoft, in this case).
      * @return string|null
     */
     public function getLocalIpAddress(): ?string {
@@ -119,7 +119,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the peerIpAddress property value. The peerIpAddress property
+     * Gets the peerIpAddress property value. Specifies the BGP IP address of customer's on-premise VPN router configuration.
      * @return string|null
     */
     public function getPeerIpAddress(): ?string {
@@ -145,14 +145,14 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the asn property value. The asn property
+     * Sets the asn property value. Specifies the ASN of the BGP.
      * @param int|null $value Value to set for the asn property.
     */
     public function setAsn(?int $value): void {
@@ -161,7 +161,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the localIpAddress property value. The localIpAddress property
+     * Sets the localIpAddress property value. Specifies the BGP IP address of peer (Microsoft, in this case).
      * @param string|null $value Value to set for the localIpAddress property.
     */
     public function setLocalIpAddress(?string $value): void {
@@ -185,14 +185,14 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the peerIpAddress property value. The peerIpAddress property
+     * Sets the peerIpAddress property value. Specifies the BGP IP address of customer's on-premise VPN router configuration.
      * @param string|null $value Value to set for the peerIpAddress property.
     */
     public function setPeerIpAddress(?string $value): void {

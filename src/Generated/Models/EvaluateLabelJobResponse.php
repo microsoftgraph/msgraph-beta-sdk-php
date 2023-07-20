@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EvaluateLabelJobResponse extends JobResponseBase implements Parsable 
 {
     /**
-     * Instantiates a new EvaluateLabelJobResponse and sets the default values.
+     * Instantiates a new evaluateLabelJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

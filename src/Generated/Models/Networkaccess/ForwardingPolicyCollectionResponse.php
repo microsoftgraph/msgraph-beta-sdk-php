@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ForwardingPolicyCollectionResponse and sets the default values.
+     * Instantiates a new forwardingPolicyCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

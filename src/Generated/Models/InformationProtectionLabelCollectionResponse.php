@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class InformationProtectionLabelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new InformationProtectionLabelCollectionResponse and sets the default values.
+     * Instantiates a new informationProtectionLabelCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

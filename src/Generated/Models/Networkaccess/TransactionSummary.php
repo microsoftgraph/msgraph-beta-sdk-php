@@ -56,7 +56,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the blockedCount property value. The blockedCount property
+     * Gets the blockedCount property value. Count of transactions that were blocked.
      * @return int|null
     */
     public function getBlockedCount(): ?int {
@@ -94,7 +94,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalCount property value. The totalCount property
+     * Gets the totalCount property value. Count of transactions.
      * @return int|null
     */
     public function getTotalCount(): ?int {
@@ -131,7 +131,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,14 +139,14 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the blockedCount property value. The blockedCount property
+     * Sets the blockedCount property value. Count of transactions that were blocked.
      * @param int|null $value Value to set for the blockedCount property.
     */
     public function setBlockedCount(?int $value): void {
@@ -155,14 +155,14 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the totalCount property value. The totalCount property
+     * Sets the totalCount property value. Count of transactions.
      * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {

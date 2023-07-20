@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptWithUserDefinedRights extends EncryptContent implements Parsable 
 {
     /**
-     * Instantiates a new EncryptWithUserDefinedRights and sets the default values.
+     * Instantiates a new encryptWithUserDefinedRights and sets the default values.
     */
     public function __construct() {
         parent::__construct();

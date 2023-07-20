@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a customer of the business.
+*/
 class BookingCustomer extends BookingPerson implements Parsable 
 {
     /**
-     * Instantiates a new BookingCustomer and sets the default values.
+     * Instantiates a new bookingCustomer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

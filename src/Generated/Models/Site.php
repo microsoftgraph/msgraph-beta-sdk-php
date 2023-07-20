@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Site extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new Site and sets the default values.
+     * Instantiates a new site and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -229,7 +229,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the pages property value. The collection of pages in the SitePages list in this site.
+     * Gets the pages property value. The collection of pages in the baseSitePages list in this site.
      * @return array<SitePage>|null
     */
     public function getPages(): ?array {
@@ -464,7 +464,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the pages property value. The collection of pages in the SitePages list in this site.
+     * Sets the pages property value. The collection of pages in the baseSitePages list in this site.
      * @param array<SitePage>|null $value Value to set for the pages property.
     */
     public function setPages(?array $value): void {

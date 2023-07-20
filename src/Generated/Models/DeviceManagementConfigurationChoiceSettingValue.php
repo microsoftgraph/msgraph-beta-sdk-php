@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Setting value
+*/
 class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationChoiceSettingValue and sets the default values.
+     * Instantiates a new deviceManagementConfigurationChoiceSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

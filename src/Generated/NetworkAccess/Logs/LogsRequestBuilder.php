@@ -58,7 +58,7 @@ class LogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get logs from networkAccess
+     * Represnts network connections that are routed through Global Secure Access.
      * @param LogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class LogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get logs from networkAccess
+     * Represnts network connections that are routed through Global Secure Access.
      * @param LogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

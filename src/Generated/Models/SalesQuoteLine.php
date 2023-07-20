@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SalesQuoteLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new SalesQuoteLine and sets the default values.
+     * Instantiates a new salesQuoteLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

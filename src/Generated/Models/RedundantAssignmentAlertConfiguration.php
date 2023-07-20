@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RedundantAssignmentAlertConfiguration extends UnifiedRoleManagementAlertConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new RedundantAssignmentAlertConfiguration and sets the default values.
+     * Instantiates a new redundantAssignmentAlertConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

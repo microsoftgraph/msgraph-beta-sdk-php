@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MessageRecipient extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MessageRecipient and sets the default values.
+     * Instantiates a new messageRecipient and sets the default values.
     */
     public function __construct() {
         parent::__construct();

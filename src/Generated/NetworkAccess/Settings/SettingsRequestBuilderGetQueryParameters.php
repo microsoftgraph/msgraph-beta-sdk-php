@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get settings from networkAccess
+ * Global Secure Access settings.
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

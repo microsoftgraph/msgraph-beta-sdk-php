@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAppPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceAppPerformance and sets the default values.
+     * Instantiates a new deviceAppPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

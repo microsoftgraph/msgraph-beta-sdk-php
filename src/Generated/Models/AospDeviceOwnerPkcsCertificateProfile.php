@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * AOSP Device Owner PKCS certificate profile
+*/
 class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AospDeviceOwnerPkcsCertificateProfile and sets the default values.
+     * Instantiates a new aospDeviceOwnerPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

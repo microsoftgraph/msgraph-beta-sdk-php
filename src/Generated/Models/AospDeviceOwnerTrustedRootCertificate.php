@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * AOSP Device Owner Trusted Root Certificate configuration profile
+*/
 class AospDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**

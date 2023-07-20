@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The importedAppleDeviceIdentityResult resource represents the result of attempting to import Apple devices identities.
+*/
 class ImportedAppleDeviceIdentityResult extends ImportedAppleDeviceIdentity implements Parsable 
 {
     /**
-     * Instantiates a new ImportedAppleDeviceIdentityResult and sets the default values.
+     * Instantiates a new importedAppleDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

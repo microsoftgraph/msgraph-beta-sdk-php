@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Assigned Access profile for Windows.
+*/
 class WindowsAssignedAccessProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAssignedAccessProfile and sets the default values.
+     * Instantiates a new windowsAssignedAccessProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

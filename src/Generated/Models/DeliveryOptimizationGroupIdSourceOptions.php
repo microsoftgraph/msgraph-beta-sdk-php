@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Group id options type
+*/
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationGroupIdSourceOptions and sets the default values.
+     * Instantiates a new deliveryOptimizationGroupIdSourceOptions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

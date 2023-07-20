@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * Instantiates a new QualityUpdateCatalogEntry and sets the default values.
+     * Instantiates a new qualityUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();

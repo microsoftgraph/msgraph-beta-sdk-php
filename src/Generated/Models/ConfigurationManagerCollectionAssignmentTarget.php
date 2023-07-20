@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an assignment to a Configuration Manager Collection.
+*/
 class ConfigurationManagerCollectionAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new ConfigurationManagerCollectionAssignmentTarget and sets the default values.
+     * Instantiates a new configurationManagerCollectionAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * By providing the configurations in this profile you can instruct the Android device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
+*/
 class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidEnterpriseWiFiConfiguration and sets the default values.
+     * Instantiates a new androidEnterpriseWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -53,7 +53,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingPolicies from networkAccess
+     * Retrieve information about a specific forwarding policy.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingPolicies from networkAccess
+     * Retrieve information about a specific forwarding policy.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

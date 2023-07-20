@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Enrollment Configuration that restricts the types of devices a user can enroll for a single platform
+*/
 class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentPlatformRestrictionConfiguration and sets the default values.
+     * Instantiates a new deviceEnrollmentPlatformRestrictionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

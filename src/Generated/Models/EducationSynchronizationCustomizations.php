@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationCustomizations extends EducationSynchronizationCustomizationsBase implements Parsable 
 {
     /**
-     * Instantiates a new EducationSynchronizationCustomizations and sets the default values.
+     * Instantiates a new educationSynchronizationCustomizations and sets the default values.
     */
     public function __construct() {
         parent::__construct();

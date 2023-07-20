@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PersonResponsibility extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new PersonResponsibility and sets the default values.
+     * Instantiates a new personResponsibility and sets the default values.
     */
     public function __construct() {
         parent::__construct();

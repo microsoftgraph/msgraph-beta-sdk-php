@@ -58,9 +58,10 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingprofile-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ForwardingProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +77,11 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingProfiles in networkAccess
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingprofile-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ForwardingProfile $body, ?ForwardingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -112,7 +114,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +135,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingProfiles in networkAccess
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

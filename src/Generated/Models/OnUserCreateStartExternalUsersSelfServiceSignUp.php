@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnUserCreateStartExternalUsersSelfServiceSignUp extends OnUserCreateStartHandler implements Parsable 
 {
     /**
-     * Instantiates a new OnUserCreateStartExternalUsersSelfServiceSignUp and sets the default values.
+     * Instantiates a new onUserCreateStartExternalUsersSelfServiceSignUp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

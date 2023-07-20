@@ -66,9 +66,10 @@ class ForwardingPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingPolicies from networkAccess
+     * Retrieve information about a specific forwarding policy.
      * @param ForwardingPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-forwardingpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ForwardingPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class ForwardingPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingPolicies from networkAccess
+     * Retrieve information about a specific forwarding policy.
      * @param ForwardingPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerExternalBucketSource extends PlannerBucketCreation implements Parsable 
 {
     /**
-     * Instantiates a new PlannerExternalBucketSource and sets the default values.
+     * Instantiates a new plannerExternalBucketSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

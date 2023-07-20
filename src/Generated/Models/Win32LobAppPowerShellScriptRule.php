@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A complex type to store the PowerShell script rule data for a Win32 LOB app.
+*/
 class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppPowerShellScriptRule and sets the default values.
+     * Instantiates a new win32LobAppPowerShellScriptRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

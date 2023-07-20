@@ -56,6 +56,18 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Gets the use property value. The use property
+     * @return string|null
+    */
+    public function getEscapedUse(): ?string {
+        $val = $this->getBackingStore()->get('escapedUse');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
+    }
+
+    /**
      * Gets the exp property value. The exp property
      * @return int|null
     */
@@ -74,7 +86,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'use' => fn(ParseNode $n) => $o->setUse($n->getStringValue()),
+            'use' => fn(ParseNode $n) => $o->setEscapedUse($n->getStringValue()),
             'exp' => fn(ParseNode $n) => $o->setExp($n->getIntegerValue()),
             'k' => fn(ParseNode $n) => $o->setK($n->getStringValue()),
             'nbf' => fn(ParseNode $n) => $o->setNbf($n->getIntegerValue()),
@@ -106,23 +118,11 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the use property value. The use property
-     * @return string|null
-    */
-    public function getUse(): ?string {
-        $val = $this->getBackingStore()->get('escapedUse');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('use', $this->getUse());
+        $writer->writeStringValue('use', $this->getEscapedUse());
         $writer->writeIntegerValue('exp', $this->getExp());
         $writer->writeStringValue('k', $this->getK());
         $writer->writeIntegerValue('nbf', $this->getNbf());
@@ -131,7 +131,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,10 +139,18 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the use property value. The use property
+     * @param string|null $value Value to set for the use property.
+    */
+    public function setEscapedUse(?string $value): void {
+        $this->getBackingStore()->set('escapedUse', $value);
     }
 
     /**
@@ -167,14 +175,6 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     */
     public function setNbf(?int $value): void {
         $this->getBackingStore()->set('nbf', $value);
-    }
-
-    /**
-     * Sets the use property value. The use property
-     * @param string|null $value Value to set for the EscapedUse property.
-    */
-    public function setUse(?string $value): void {
-        $this->getBackingStore()->set('escapedUse', $value);
     }
 
 }

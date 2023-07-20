@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Zebra FOTA connector entity that represents the tenant's authorization status for Intune to call Zebra Update Services.
+*/
 class ZebraFotaConnector extends Entity implements Parsable 
 {
     /**

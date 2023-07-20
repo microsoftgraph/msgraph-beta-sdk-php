@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
+*/
 class MacOsVppApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOsVppApp and sets the default values.
+     * Instantiates a new macOsVppApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

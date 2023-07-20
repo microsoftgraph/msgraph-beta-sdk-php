@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\WebPa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a webPart object.
+ * Collection of webparts on the SharePoint page.
 */
 class WebPartsRequestBuilderGetQueryParameters 
 {

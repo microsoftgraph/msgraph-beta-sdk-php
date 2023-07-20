@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for iOS lob app provisioning configuration PolicySetItem.
+*/
 class IosLobAppProvisioningConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new IosLobAppProvisioningConfigurationPolicySetItem and sets the default values.
+     * Instantiates a new iosLobAppProvisioningConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

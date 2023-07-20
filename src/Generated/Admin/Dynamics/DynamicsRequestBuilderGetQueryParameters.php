@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Dynamics;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dynamics from admin
+ * Read the properties and relationships of a adminDynamics object.
 */
 class DynamicsRequestBuilderGetQueryParameters 
 {

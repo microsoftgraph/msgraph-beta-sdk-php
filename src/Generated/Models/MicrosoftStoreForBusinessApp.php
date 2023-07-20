@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
+*/
 class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftStoreForBusinessApp and sets the default values.
+     * Instantiates a new microsoftStoreForBusinessApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

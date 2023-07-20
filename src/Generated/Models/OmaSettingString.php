@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * OMA Settings String definition.
+*/
 class OmaSettingString extends OmaSetting implements Parsable 
 {
     /**
-     * Instantiates a new OmaSettingString and sets the default values.
+     * Instantiates a new omaSettingString and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FederatedTokenValidationPolicy extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new FederatedTokenValidationPolicy and sets the default values.
+     * Instantiates a new federatedTokenValidationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

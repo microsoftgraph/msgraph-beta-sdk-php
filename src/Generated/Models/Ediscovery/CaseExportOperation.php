@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CaseExportOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new CaseExportOperation and sets the default values.
+     * Instantiates a new caseExportOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

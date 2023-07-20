@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Constraint that enforces the setting value is from a permitted set of strings
+*/
 class DeviceManagementEnumConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementEnumConstraint and sets the default values.
+     * Instantiates a new deviceManagementEnumConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

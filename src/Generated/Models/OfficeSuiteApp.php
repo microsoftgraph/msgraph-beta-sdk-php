@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Contains properties and inherited properties for the Office365 Suite App.
+*/
 class OfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new OfficeSuiteApp and sets the default values.
+     * Instantiates a new officeSuiteApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

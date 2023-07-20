@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new CustomAction and sets the default values.
+     * Instantiates a new customAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

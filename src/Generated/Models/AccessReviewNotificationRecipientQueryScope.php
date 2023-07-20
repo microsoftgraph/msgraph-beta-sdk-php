@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificationRecipientScope implements Parsable 
 {
     /**
-     * Instantiates a new AccessReviewNotificationRecipientQueryScope and sets the default values.
+     * Instantiates a new accessReviewNotificationRecipientQueryScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -39,7 +39,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Gets the query property value. This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     * Gets the query property value. Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
      * @return string|null
     */
     public function getQuery(): ?string {
@@ -51,7 +51,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Gets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+     * Gets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
      * @return string|null
     */
     public function getQueryRoot(): ?string {
@@ -86,7 +86,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Sets the query property value. This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     * Sets the query property value. Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
      * @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value): void {
@@ -94,7 +94,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
 
     /**
-     * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+     * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
      * @param string|null $value Value to set for the queryRoot property.
     */
     public function setQueryRoot(?string $value): void {

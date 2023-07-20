@@ -138,7 +138,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

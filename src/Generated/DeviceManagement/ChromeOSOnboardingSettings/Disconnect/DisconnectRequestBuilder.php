@@ -43,7 +43,7 @@ class DisconnectRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, 'ChromeOSOnboardingStatus', $errorMappings);
+            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, ChromeOSOnboardingStatus::class, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

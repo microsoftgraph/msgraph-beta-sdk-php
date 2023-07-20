@@ -8,5 +8,5 @@ class ActionSource extends Enum {
     public const MANUAL = 'manual';
     public const AUTOMATIC = 'automatic';
     public const RECOMMENDED = 'recommended';
-    public const ESCAPED_DEFAULT = 'default';
+    public const DEFAULT = 'default';
 }

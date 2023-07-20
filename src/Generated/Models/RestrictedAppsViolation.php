@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Violation of restricted apps configuration profile per device per user
+*/
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RestrictedAppsViolation and sets the default values.
+     * Instantiates a new restrictedAppsViolation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

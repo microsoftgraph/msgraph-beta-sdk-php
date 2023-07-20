@@ -105,6 +105,18 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
+     * @return string|null
+    */
+    public function getEscapedUse(): ?string {
+        $val = $this->getBackingStore()->get('escapedUse');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
+    }
+
+    /**
      * Gets the exp property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
      * @return int|null
     */
@@ -127,7 +139,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
             'dp' => fn(ParseNode $n) => $o->setDp($n->getStringValue()),
             'dq' => fn(ParseNode $n) => $o->setDq($n->getStringValue()),
             'e' => fn(ParseNode $n) => $o->setE($n->getStringValue()),
-            'use' => fn(ParseNode $n) => $o->setUse($n->getStringValue()),
+            'use' => fn(ParseNode $n) => $o->setEscapedUse($n->getStringValue()),
             'exp' => fn(ParseNode $n) => $o->setExp($n->getIntegerValue()),
             'k' => fn(ParseNode $n) => $o->setK($n->getStringValue()),
             'kid' => fn(ParseNode $n) => $o->setKid($n->getStringValue()),
@@ -259,18 +271,6 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
-     * @return string|null
-    */
-    public function getUse(): ?string {
-        $val = $this->getBackingStore()->get('escapedUse');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
-    }
-
-    /**
      * Gets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
      * @return array<string>|null
     */
@@ -305,7 +305,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('dp', $this->getDp());
         $writer->writeStringValue('dq', $this->getDq());
         $writer->writeStringValue('e', $this->getE());
-        $writer->writeStringValue('use', $this->getUse());
+        $writer->writeStringValue('use', $this->getEscapedUse());
         $writer->writeIntegerValue('exp', $this->getExp());
         $writer->writeStringValue('k', $this->getK());
         $writer->writeStringValue('kid', $this->getKid());
@@ -323,7 +323,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -331,7 +331,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -367,6 +367,14 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setE(?string $value): void {
         $this->getBackingStore()->set('e', $value);
+    }
+
+    /**
+     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
+     * @param string|null $value Value to set for the use property.
+    */
+    public function setEscapedUse(?string $value): void {
+        $this->getBackingStore()->set('escapedUse', $value);
     }
 
     /**
@@ -419,7 +427,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -447,14 +455,6 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setQi(?string $value): void {
         $this->getBackingStore()->set('qi', $value);
-    }
-
-    /**
-     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
-     * @param string|null $value Value to set for the EscapedUse property.
-    */
-    public function setUse(?string $value): void {
-        $this->getBackingStore()->set('escapedUse', $value);
     }
 
     /**

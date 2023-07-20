@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents the health thresholds of a health metric
+*/
 class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelHealthThreshold and sets the default values.
+     * Instantiates a new microsoftTunnelHealthThreshold and sets the default values.
     */
     public function __construct() {
         parent::__construct();

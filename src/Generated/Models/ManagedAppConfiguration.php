@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped
+*/
 class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppConfiguration and sets the default values.
+     * Instantiates a new managedAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

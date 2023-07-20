@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessScenarioTask extends PlannerTask implements Parsable 
 {
     /**
-     * Instantiates a new BusinessScenarioTask and sets the default values.
+     * Instantiates a new businessScenarioTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

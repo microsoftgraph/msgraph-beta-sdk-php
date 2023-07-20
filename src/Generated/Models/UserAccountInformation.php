@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAccountInformation extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new UserAccountInformation and sets the default values.
+     * Instantiates a new userAccountInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

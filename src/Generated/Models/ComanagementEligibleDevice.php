@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Co-Management eligibility state
+*/
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ComanagementEligibleDevice and sets the default values.
+     * Instantiates a new comanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

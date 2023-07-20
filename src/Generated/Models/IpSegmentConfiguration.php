@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IpSegmentConfiguration extends SegmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IpSegmentConfiguration and sets the default values.
+     * Instantiates a new ipSegmentConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

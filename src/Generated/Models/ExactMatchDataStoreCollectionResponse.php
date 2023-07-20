@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ExactMatchDataStoreCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ExactMatchDataStoreCollectionResponse and sets the default values.
+     * Instantiates a new exactMatchDataStoreCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

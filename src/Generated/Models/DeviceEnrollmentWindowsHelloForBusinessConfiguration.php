@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later.
+*/
 class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentWindowsHelloForBusinessConfiguration and sets the default values.
+     * Instantiates a new deviceEnrollmentWindowsHelloForBusinessConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

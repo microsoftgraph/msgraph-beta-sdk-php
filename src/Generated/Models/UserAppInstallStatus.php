@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties for the installation status for a user. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class UserAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserAppInstallStatus and sets the default values.
+     * Instantiates a new userAppInstallStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
