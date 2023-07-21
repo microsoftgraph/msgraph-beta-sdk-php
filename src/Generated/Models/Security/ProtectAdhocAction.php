@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectAdhocAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new ProtectAdhocAction and sets the default values.
+     * Instantiates a new protectAdhocAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * OMA Settings Floating Point definition.
+*/
 class OmaSettingFloatingPoint extends OmaSetting implements Parsable 
 {
     /**
-     * Instantiates a new OmaSettingFloatingPoint and sets the default values.
+     * Instantiates a new omaSettingFloatingPoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

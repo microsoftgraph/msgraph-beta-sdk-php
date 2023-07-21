@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * History Item contained in the Mobile App Troubleshooting Event.
+*/
 class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppTroubleshootingAppTargetHistory and sets the default values.
+     * Instantiates a new mobileAppTroubleshootingAppTargetHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

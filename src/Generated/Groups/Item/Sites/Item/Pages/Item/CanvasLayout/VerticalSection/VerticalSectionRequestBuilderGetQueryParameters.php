@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a verticalSection object.
+ * Vertical section on the SharePoint page.
 */
 class VerticalSectionRequestBuilderGetQueryParameters 
 {

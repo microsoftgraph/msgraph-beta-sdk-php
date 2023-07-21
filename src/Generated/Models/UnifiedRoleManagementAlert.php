@@ -63,7 +63,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertIncidents property value. Represents the incidents of this alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Gets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
      * @return array<UnifiedRoleManagementAlertIncident>|null
     */
     public function getAlertIncidents(): ?array {
@@ -211,7 +211,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertIncidents property value. Represents the incidents of this alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Sets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
      * @param array<UnifiedRoleManagementAlertIncident>|null $value Value to set for the alertIncidents property.
     */
     public function setAlertIncidents(?array $value): void {

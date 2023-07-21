@@ -34,7 +34,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -60,7 +60,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Policy name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -72,7 +72,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyRules property value. The policyRules property
+     * Gets the policyRules property value. Represents the definition of the policy ruleset that makes up the core definition of a policy.
      * @return array<PolicyRule>|null
     */
     public function getPolicyRules(): ?array {
@@ -86,7 +86,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -110,7 +110,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -118,7 +118,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Policy name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -126,7 +126,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyRules property value. The policyRules property
+     * Sets the policyRules property value. Represents the definition of the policy ruleset that makes up the core definition of a policy.
      * @param array<PolicyRule>|null $value Value to set for the policyRules property.
     */
     public function setPolicyRules(?array $value): void {
@@ -134,7 +134,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

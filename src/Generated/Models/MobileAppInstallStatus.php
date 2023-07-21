@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation state of a mobile app for a device. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class MobileAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppInstallStatus and sets the default values.
+     * Instantiates a new mobileAppInstallStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();

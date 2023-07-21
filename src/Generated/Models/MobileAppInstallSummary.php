@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the installation summary of a mobile app. This will be deprecated starting May, 2023 (Intune Release 2305).
+*/
 class MobileAppInstallSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppInstallSummary and sets the default values.
+     * Instantiates a new mobileAppInstallSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

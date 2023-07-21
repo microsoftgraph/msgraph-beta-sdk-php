@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the horizontalSectionColumn objects and their properties. Sort by `id` in ascending order.
+ * The set of vertical columns in this section.
 */
 class ColumnsRequestBuilderGetQueryParameters 
 {

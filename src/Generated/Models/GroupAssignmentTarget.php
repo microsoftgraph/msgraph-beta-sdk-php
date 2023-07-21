@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an assignment to a group.
+*/
 class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new GroupAssignmentTarget and sets the default values.
+     * Instantiates a new groupAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

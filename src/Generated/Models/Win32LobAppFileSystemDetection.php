@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains file or folder path to detect a Win32 App
+*/
 class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppFileSystemDetection and sets the default values.
+     * Instantiates a new win32LobAppFileSystemDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -148,6 +148,7 @@ use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\M
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\ServicePrincipalSignInActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\Sla\SlaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -347,6 +348,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function servicePrincipalSignInActivities(): ServicePrincipalSignInActivitiesRequestBuilder {
         return new ServicePrincipalSignInActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sla property of the microsoft.graph.reportRoot entity.
+    */
+    public function sla(): SlaRequestBuilder {
+        return new SlaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

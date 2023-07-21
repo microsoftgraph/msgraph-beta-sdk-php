@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Graph properties for Device Firmware Configuration Interface 
+*/
 class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10DeviceFirmwareConfigurationInterface and sets the default values.
+     * Instantiates a new windows10DeviceFirmwareConfigurationInterface and sets the default values.
     */
     public function __construct() {
         parent::__construct();

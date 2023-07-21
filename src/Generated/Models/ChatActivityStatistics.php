@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChatActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * Instantiates a new ChatActivityStatistics and sets the default values.
+     * Instantiates a new chatActivityStatistics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
+*/
 class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable 
 {
     /**

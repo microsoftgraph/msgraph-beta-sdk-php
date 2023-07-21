@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enrollment Notification Configuration which is used to send notification
+*/
 class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new DeviceEnrollmentNotificationConfiguration and sets the default values.
+     * Instantiates a new deviceEnrollmentNotificationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

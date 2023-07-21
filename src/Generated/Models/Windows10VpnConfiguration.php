@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * By providing the configurations in this profile you can instruct the Windows 10 device (desktop or mobile) to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
+*/
 class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows10VpnConfiguration and sets the default values.
+     * Instantiates a new windows10VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

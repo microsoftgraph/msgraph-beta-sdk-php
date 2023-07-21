@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DirectoryRoleAccessReviewPolicy and sets the default values.
+     * Instantiates a new directoryRoleAccessReviewPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

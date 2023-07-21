@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Constraint indicating that this value is a secret and will be encrypted.
+*/
 class DeviceManagementIntentSettingSecretConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementIntentSettingSecretConstraint and sets the default values.
+     * Instantiates a new deviceManagementIntentSettingSecretConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

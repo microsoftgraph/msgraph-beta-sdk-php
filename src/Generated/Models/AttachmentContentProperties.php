@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttachmentContentProperties extends ContentProperties implements Parsable 
 {
     /**
-     * Instantiates a new AttachmentContentProperties and sets the default values.
+     * Instantiates a new attachmentContentProperties and sets the default values.
     */
     public function __construct() {
         parent::__construct();

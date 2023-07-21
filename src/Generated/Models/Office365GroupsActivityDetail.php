@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Office365GroupsActivityDetail and sets the default values.
+     * Instantiates a new office365GroupsActivityDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();

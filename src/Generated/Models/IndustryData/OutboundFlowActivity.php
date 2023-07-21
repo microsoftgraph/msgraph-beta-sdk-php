@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutboundFlowActivity extends IndustryDataRunActivity implements Parsable 
 {
     /**
-     * Instantiates a new OutboundFlowActivity and sets the default values.
+     * Instantiates a new outboundFlowActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

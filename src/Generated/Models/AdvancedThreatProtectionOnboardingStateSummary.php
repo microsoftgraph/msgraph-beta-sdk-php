@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Windows defender advanced threat protection onboarding state summary across the account.
+*/
 class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummary and sets the default values.
+     * Instantiates a new advancedThreatProtectionOnboardingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

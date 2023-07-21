@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * App id for the ServiceNow client app.
+*/
 class ServiceNowOauthSecretAuthentication extends ServiceNowAuthenticationMethod implements Parsable 
 {
     /**
-     * Instantiates a new ServiceNowOauthSecretAuthentication and sets the default values.
+     * Instantiates a new serviceNowOauthSecretAuthentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();

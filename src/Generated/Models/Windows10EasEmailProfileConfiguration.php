@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing configurations in this profile you can instruct the native email client (Outlook) on Windows 10 devices to communicate with an Exchange server and get email, contacts, calendar, and tasks. Furthermore, you can also specify how much email to sync and how often the device should sync.
+*/
 class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10EasEmailProfileConfiguration and sets the default values.
+     * Instantiates a new windows10EasEmailProfileConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

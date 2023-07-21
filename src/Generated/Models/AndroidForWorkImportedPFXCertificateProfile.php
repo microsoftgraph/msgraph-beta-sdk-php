@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android For Work PFX Import certificate profile
+*/
 class AndroidForWorkImportedPFXCertificateProfile extends AndroidCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkImportedPFXCertificateProfile and sets the default values.
+     * Instantiates a new androidForWorkImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

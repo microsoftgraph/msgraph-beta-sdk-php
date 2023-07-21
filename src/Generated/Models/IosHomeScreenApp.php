@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an icon for an app on the Home Screen
+*/
 class IosHomeScreenApp extends IosHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new IosHomeScreenApp and sets the default values.
+     * Instantiates a new iosHomeScreenApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

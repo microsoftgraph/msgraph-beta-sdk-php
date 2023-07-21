@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable 
 {
     /**
-     * Instantiates a new PlannerTaskPropertyRule and sets the default values.
+     * Instantiates a new plannerTaskPropertyRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

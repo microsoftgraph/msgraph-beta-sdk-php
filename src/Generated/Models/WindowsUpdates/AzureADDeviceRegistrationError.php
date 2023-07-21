@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureADDeviceRegistrationError extends UpdatableAssetError implements Parsable 
 {
     /**
-     * Instantiates a new AzureADDeviceRegistrationError and sets the default values.
+     * Instantiates a new azureADDeviceRegistrationError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

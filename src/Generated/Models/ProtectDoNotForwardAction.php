@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectDoNotForwardAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new ProtectDoNotForwardAction and sets the default values.
+     * Instantiates a new protectDoNotForwardAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

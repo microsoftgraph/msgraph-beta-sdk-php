@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an Win32 LOB mobile app to a group.
+*/
 class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppAssignmentSettings and sets the default values.
+     * Instantiates a new win32LobAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

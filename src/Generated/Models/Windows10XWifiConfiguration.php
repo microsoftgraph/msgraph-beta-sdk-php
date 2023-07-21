@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows X WifiXml configuration profile
+*/
 class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new Windows10XWifiConfiguration and sets the default values.
+     * Instantiates a new windows10XWifiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

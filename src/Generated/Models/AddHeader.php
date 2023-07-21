@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddHeader extends MarkContent implements Parsable 
 {
     /**
-     * Instantiates a new AddHeader and sets the default values.
+     * Instantiates a new addHeader and sets the default values.
     */
     public function __construct() {
         parent::__construct();

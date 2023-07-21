@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that describes tenant level settings for derived credentials
+*/
 class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
 {
     /**

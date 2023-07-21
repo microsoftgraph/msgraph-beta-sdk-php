@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Android Device Owner Global Proxy Direct.
+*/
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerGlobalProxyDirect and sets the default values.
+     * Instantiates a new androidDeviceOwnerGlobalProxyDirect and sets the default values.
     */
     public function __construct() {
         parent::__construct();

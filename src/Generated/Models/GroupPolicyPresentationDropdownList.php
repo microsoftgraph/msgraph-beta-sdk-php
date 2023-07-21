@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an ADMX dropdownList element and an ADMX enum element.
+*/
 class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationDropdownList and sets the default values.
+     * Instantiates a new groupPolicyPresentationDropdownList and sets the default values.
     */
     public function __construct() {
         parent::__construct();

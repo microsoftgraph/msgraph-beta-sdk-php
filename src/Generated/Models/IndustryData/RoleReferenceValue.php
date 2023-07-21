@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleReferenceValue extends ReferenceValue implements Parsable 
 {
     /**
-     * Instantiates a new RoleReferenceValue and sets the default values.
+     * Instantiates a new roleReferenceValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

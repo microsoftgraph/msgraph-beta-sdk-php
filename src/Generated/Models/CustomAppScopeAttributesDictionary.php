@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAppScopeAttributesDictionary extends Dictionary implements Parsable 
 {
     /**
-     * Instantiates a new CustomAppScopeAttributesDictionary and sets the default values.
+     * Instantiates a new customAppScopeAttributesDictionary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

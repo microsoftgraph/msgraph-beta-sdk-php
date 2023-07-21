@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnAttributeCollectionListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * Instantiates a new OnAttributeCollectionListener and sets the default values.
+     * Instantiates a new onAttributeCollectionListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Hide the home button.
+*/
 class EdgeHomeButtonHidden extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new EdgeHomeButtonHidden and sets the default values.
+     * Instantiates a new edgeHomeButtonHidden and sets the default values.
     */
     public function __construct() {
         parent::__construct();

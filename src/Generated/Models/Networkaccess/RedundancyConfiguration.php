@@ -93,7 +93,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the zoneLocalIpAddress property value. The zoneLocalIpAddress property
+     * Gets the zoneLocalIpAddress property value. Indicate the specific IP address used for establishing the Border Gateway Protocol (BGP) connection with Microsoft's network.
      * @return string|null
     */
     public function getZoneLocalIpAddress(): ?string {
@@ -117,7 +117,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -125,7 +125,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -133,7 +133,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -148,7 +148,7 @@ class RedundancyConfiguration implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the zoneLocalIpAddress property value. The zoneLocalIpAddress property
+     * Sets the zoneLocalIpAddress property value. Indicate the specific IP address used for establishing the Border Gateway Protocol (BGP) connection with Microsoft's network.
      * @param string|null $value Value to set for the zoneLocalIpAddress property.
     */
     public function setZoneLocalIpAddress(?string $value): void {

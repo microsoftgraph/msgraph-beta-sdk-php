@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties and inherited properties for the macOS Microsoft Defender App.
+*/
 class MacOSMicrosoftDefenderApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSMicrosoftDefenderApp and sets the default values.
+     * Instantiates a new macOSMicrosoftDefenderApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
