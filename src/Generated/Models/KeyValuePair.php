@@ -69,7 +69,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. Name for this key-value pair
+     * Gets the name property value. Name for this key-value pair. For more information about possible names for each resource type that uses this configuration, see keyValuePair names and values.
      * @return string|null
     */
     public function getName(): ?string {
@@ -93,7 +93,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Value for this key-value pair
+     * Gets the value property value. Value for this key-value pair. For more information about possible values for each resource type that uses this configuration, see keyValuePair names and values.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -117,7 +117,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -125,14 +125,14 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the name property value. Name for this key-value pair
+     * Sets the name property value. Name for this key-value pair. For more information about possible names for each resource type that uses this configuration, see keyValuePair names and values.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -141,14 +141,14 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the value property value. Value for this key-value pair
+     * Sets the value property value. Value for this key-value pair. For more information about possible values for each resource type that uses this configuration, see keyValuePair names and values.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

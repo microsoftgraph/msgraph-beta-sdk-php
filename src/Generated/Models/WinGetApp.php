@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A MobileApp that is based on a referenced application in a WinGet repository.
+*/
 class WinGetApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new WinGetApp and sets the default values.
+     * Instantiates a new winGetApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

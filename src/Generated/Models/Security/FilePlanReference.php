@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilePlanReference extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new FilePlanReference and sets the default values.
+     * Instantiates a new filePlanReference and sets the default values.
     */
     public function __construct() {
         parent::__construct();

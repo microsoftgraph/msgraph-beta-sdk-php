@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RetentionDurationForever extends RetentionDuration implements Parsable 
 {
     /**
-     * Instantiates a new RetentionDurationForever and sets the default values.
+     * Instantiates a new retentionDurationForever and sets the default values.
     */
     public function __construct() {
         parent::__construct();

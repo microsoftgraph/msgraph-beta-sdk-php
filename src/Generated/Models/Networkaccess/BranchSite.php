@@ -28,7 +28,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the bandwidthCapacity property value. The bandwidthCapacity property
+     * Gets the bandwidthCapacity property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @return int|null
     */
     public function getBandwidthCapacity(): ?int {
@@ -40,7 +40,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivityState property value. The connectivityState property
+     * Gets the connectivityState property value. Determines the branch site status. The possible values are: pending, connected, inactive, error.
      * @return ConnectivityState|null
     */
     public function getConnectivityState(): ?ConnectivityState {
@@ -52,7 +52,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the country property value. The country property
+     * Gets the country property value. The branch site is created in the specified country.
      * @return string|null
     */
     public function getCountry(): ?string {
@@ -64,7 +64,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceLinks property value. The deviceLinks property
+     * Gets the deviceLinks property value. Each unique CPE device associated with a branch is specified. Supports $expand.
      * @return array<DeviceLink>|null
     */
     public function getDeviceLinks(): ?array {
@@ -97,7 +97,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingProfiles property value. The forwardingProfiles property
+     * Gets the forwardingProfiles property value. Each forwarding profile associated with a branch site is specified. Supports $expand.
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
@@ -111,7 +111,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. last modified time.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -123,7 +123,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -147,7 +147,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The branch version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -176,7 +176,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the bandwidthCapacity property value. The bandwidthCapacity property
+     * Sets the bandwidthCapacity property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
      * @param int|null $value Value to set for the bandwidthCapacity property.
     */
     public function setBandwidthCapacity(?int $value): void {
@@ -184,7 +184,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectivityState property value. The connectivityState property
+     * Sets the connectivityState property value. Determines the branch site status. The possible values are: pending, connected, inactive, error.
      * @param ConnectivityState|null $value Value to set for the connectivityState property.
     */
     public function setConnectivityState(?ConnectivityState $value): void {
@@ -192,7 +192,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the country property value. The country property
+     * Sets the country property value. The branch site is created in the specified country.
      * @param string|null $value Value to set for the country property.
     */
     public function setCountry(?string $value): void {
@@ -200,7 +200,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceLinks property value. The deviceLinks property
+     * Sets the deviceLinks property value. Each unique CPE device associated with a branch is specified. Supports $expand.
      * @param array<DeviceLink>|null $value Value to set for the deviceLinks property.
     */
     public function setDeviceLinks(?array $value): void {
@@ -208,7 +208,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingProfiles property value. The forwardingProfiles property
+     * Sets the forwardingProfiles property value. Each forwarding profile associated with a branch site is specified. Supports $expand.
      * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
     */
     public function setForwardingProfiles(?array $value): void {
@@ -216,7 +216,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. last modified time.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -224,7 +224,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -240,7 +240,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The branch version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

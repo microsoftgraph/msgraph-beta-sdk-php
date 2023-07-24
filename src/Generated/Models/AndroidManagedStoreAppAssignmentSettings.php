@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties used to assign an Android Managed Store mobile app to a group.
+*/
 class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new AndroidManagedStoreAppAssignmentSettings and sets the default values.
+     * Instantiates a new androidManagedStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

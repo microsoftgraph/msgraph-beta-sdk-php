@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * iOS PKCS certificate profile.
+*/
 class IosPkcsCertificateProfile extends IosCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new IosPkcsCertificateProfile and sets the default values.
+     * Instantiates a new iosPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

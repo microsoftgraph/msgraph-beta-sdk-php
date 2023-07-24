@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessScenarioGroupTarget extends BusinessScenarioTaskTargetBase implements Parsable 
 {
     /**
-     * Instantiates a new BusinessScenarioGroupTarget and sets the default values.
+     * Instantiates a new businessScenarioGroupTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

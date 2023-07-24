@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new EmailThreatSubmission and sets the default values.
+     * Instantiates a new emailThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();

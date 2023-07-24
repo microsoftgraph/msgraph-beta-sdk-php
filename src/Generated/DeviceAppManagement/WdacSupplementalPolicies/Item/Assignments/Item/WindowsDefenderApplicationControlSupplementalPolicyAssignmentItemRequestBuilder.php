@@ -50,7 +50,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBu
     }
 
     /**
-     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+     * The associated group assignments for the Windows Defender Application Control Supplemental Policy.
      * @param WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBu
     }
 
     /**
-     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+     * The associated group assignments for the Windows Defender Application Control Supplemental Policy.
      * @param WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an item that can be added to Android Device Owner folder (application or weblink)
+*/
 class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerKioskModeFolderItem and sets the default values.
+     * Instantiates a new androidDeviceOwnerKioskModeFolderItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

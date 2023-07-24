@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing configurations in this profile you can instruct the native email client on iOS devices to communicate with an Exchange server and get email, contacts, calendar, reminders, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
+*/
 class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new IosEasEmailProfileConfiguration and sets the default values.
+     * Instantiates a new iosEasEmailProfileConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains registry properties to detect a Win32 App
+*/
 class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new Win32LobAppRegistryDetection and sets the default values.
+     * Instantiates a new win32LobAppRegistryDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

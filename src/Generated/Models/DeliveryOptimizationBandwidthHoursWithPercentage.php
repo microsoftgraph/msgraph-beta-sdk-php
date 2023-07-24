@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Bandwidth limit as a percentage with business hours.
+*/
 class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new DeliveryOptimizationBandwidthHoursWithPercentage and sets the default values.
+     * Instantiates a new deliveryOptimizationBandwidthHoursWithPercentage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

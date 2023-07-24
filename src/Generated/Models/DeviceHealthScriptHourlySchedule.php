@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Type of Device health script hourly schedule.
+*/
 class DeviceHealthScriptHourlySchedule extends DeviceHealthScriptRunSchedule implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScriptHourlySchedule and sets the default values.
+     * Instantiates a new deviceHealthScriptHourlySchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

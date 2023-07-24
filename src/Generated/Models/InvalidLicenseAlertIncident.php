@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InvalidLicenseAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new InvalidLicenseAlertIncident and sets the default values.
+     * Instantiates a new invalidLicenseAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();

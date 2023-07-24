@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Revoke Apple Vpp licenses action result
+*/
 class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * Instantiates a new RevokeAppleVppLicensesActionResult and sets the default values.
+     * Instantiates a new revokeAppleVppLicensesActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddFooter extends MarkContent implements Parsable 
 {
     /**
-     * Instantiates a new AddFooter and sets the default values.
+     * Instantiates a new addFooter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

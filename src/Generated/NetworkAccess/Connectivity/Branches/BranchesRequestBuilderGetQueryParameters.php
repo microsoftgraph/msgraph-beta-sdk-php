@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get branches from networkAccess
+ * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
 */
 class BranchesRequestBuilderGetQueryParameters 
 {

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a Kerberos-type Single Sign-On extension profile.
+*/
 class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new KerberosSingleSignOnExtension and sets the default values.
+     * Instantiates a new kerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

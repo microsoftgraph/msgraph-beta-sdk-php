@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This entity provides descriptions of the declared methods, properties and relationships exposed by the Wifi CSP.
+*/
 class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsWifiEnterpriseEAPConfiguration and sets the default values.
+     * Instantiates a new windowsWifiEnterpriseEAPConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

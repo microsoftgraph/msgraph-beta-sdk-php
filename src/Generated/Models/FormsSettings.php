@@ -18,7 +18,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new FormsSettings and sets the default values.
+     * Instantiates a new formsSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -74,7 +74,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isBingImageSearchEnabled property value. The isBingImageSearchEnabled property
+     * Gets the isBingImageSearchEnabled property value. Controls whether users can add images from Bing to forms.
      * @return bool|null
     */
     public function getIsBingImageSearchEnabled(): ?bool {
@@ -86,7 +86,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalSendFormEnabled property value. The isExternalSendFormEnabled property
+     * Gets the isExternalSendFormEnabled property value. Controls whether users can send a link to a form to an external user.
      * @return bool|null
     */
     public function getIsExternalSendFormEnabled(): ?bool {
@@ -98,7 +98,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalShareCollaborationEnabled property value. The isExternalShareCollaborationEnabled property
+     * Gets the isExternalShareCollaborationEnabled property value. Controls whether users can collaborate on a form layout and structure with an external user.
      * @return bool|null
     */
     public function getIsExternalShareCollaborationEnabled(): ?bool {
@@ -110,7 +110,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalShareResultEnabled property value. The isExternalShareResultEnabled property
+     * Gets the isExternalShareResultEnabled property value. Controls whether users can share form results with external users.
      * @return bool|null
     */
     public function getIsExternalShareResultEnabled(): ?bool {
@@ -122,7 +122,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isExternalShareTemplateEnabled property value. The isExternalShareTemplateEnabled property
+     * Gets the isExternalShareTemplateEnabled property value. Controls whether users can share form templates with external users.
      * @return bool|null
     */
     public function getIsExternalShareTemplateEnabled(): ?bool {
@@ -134,7 +134,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isInOrgFormsPhishingScanEnabled property value. The isInOrgFormsPhishingScanEnabled property
+     * Gets the isInOrgFormsPhishingScanEnabled property value. Controls whether phishing protection is run on forms created by users, blocking the creation of forms if common phishing questions are detected.
      * @return bool|null
     */
     public function getIsInOrgFormsPhishingScanEnabled(): ?bool {
@@ -146,7 +146,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isRecordIdentityByDefaultEnabled property value. The isRecordIdentityByDefaultEnabled property
+     * Gets the isRecordIdentityByDefaultEnabled property value. Controls whether the names of users who fill out forms are recorded.
      * @return bool|null
     */
     public function getIsRecordIdentityByDefaultEnabled(): ?bool {
@@ -187,7 +187,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the additionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -195,14 +195,14 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the backingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the isBingImageSearchEnabled property value. The isBingImageSearchEnabled property
+     * Sets the isBingImageSearchEnabled property value. Controls whether users can add images from Bing to forms.
      * @param bool|null $value Value to set for the isBingImageSearchEnabled property.
     */
     public function setIsBingImageSearchEnabled(?bool $value): void {
@@ -210,7 +210,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalSendFormEnabled property value. The isExternalSendFormEnabled property
+     * Sets the isExternalSendFormEnabled property value. Controls whether users can send a link to a form to an external user.
      * @param bool|null $value Value to set for the isExternalSendFormEnabled property.
     */
     public function setIsExternalSendFormEnabled(?bool $value): void {
@@ -218,7 +218,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalShareCollaborationEnabled property value. The isExternalShareCollaborationEnabled property
+     * Sets the isExternalShareCollaborationEnabled property value. Controls whether users can collaborate on a form layout and structure with an external user.
      * @param bool|null $value Value to set for the isExternalShareCollaborationEnabled property.
     */
     public function setIsExternalShareCollaborationEnabled(?bool $value): void {
@@ -226,7 +226,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalShareResultEnabled property value. The isExternalShareResultEnabled property
+     * Sets the isExternalShareResultEnabled property value. Controls whether users can share form results with external users.
      * @param bool|null $value Value to set for the isExternalShareResultEnabled property.
     */
     public function setIsExternalShareResultEnabled(?bool $value): void {
@@ -234,7 +234,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isExternalShareTemplateEnabled property value. The isExternalShareTemplateEnabled property
+     * Sets the isExternalShareTemplateEnabled property value. Controls whether users can share form templates with external users.
      * @param bool|null $value Value to set for the isExternalShareTemplateEnabled property.
     */
     public function setIsExternalShareTemplateEnabled(?bool $value): void {
@@ -242,7 +242,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isInOrgFormsPhishingScanEnabled property value. The isInOrgFormsPhishingScanEnabled property
+     * Sets the isInOrgFormsPhishingScanEnabled property value. Controls whether phishing protection is run on forms created by users, blocking the creation of forms if common phishing questions are detected.
      * @param bool|null $value Value to set for the isInOrgFormsPhishingScanEnabled property.
     */
     public function setIsInOrgFormsPhishingScanEnabled(?bool $value): void {
@@ -250,7 +250,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isRecordIdentityByDefaultEnabled property value. The isRecordIdentityByDefaultEnabled property
+     * Sets the isRecordIdentityByDefaultEnabled property value. Controls whether the names of users who fill out forms are recorded.
      * @param bool|null $value Value to set for the isRecordIdentityByDefaultEnabled property.
     */
     public function setIsRecordIdentityByDefaultEnabled(?bool $value): void {
@@ -259,7 +259,7 @@ class FormsSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

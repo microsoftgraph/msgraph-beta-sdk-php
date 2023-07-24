@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes a dependency type between two mobile apps.
+*/
 class MobileAppDependency extends MobileAppRelationship implements Parsable 
 {
     /**
-     * Instantiates a new MobileAppDependency and sets the default values.
+     * Instantiates a new mobileAppDependency and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentApprovalRule extends ComplianceChangeRule implements Parsable 
 {
     /**
-     * Instantiates a new ContentApprovalRule and sets the default values.
+     * Instantiates a new contentApprovalRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

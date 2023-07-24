@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApplicationSignInDetailedSummary and sets the default values.
+     * Instantiates a new applicationSignInDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

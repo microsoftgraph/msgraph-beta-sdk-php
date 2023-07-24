@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get forwardingProfiles from networkAccess
+ * Each forwarding profile associated with a branch site is specified. Supports $expand.
 */
 class ForwardingProfileItemRequestBuilderGetQueryParameters 
 {

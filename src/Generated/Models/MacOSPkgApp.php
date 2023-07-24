@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Contains properties and inherited properties for the MacOSPkgApp.
+*/
 class MacOSPkgApp extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new MacOSPkgApp and sets the default values.
+     * Instantiates a new macOSPkgApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Allows IT admins to set a predefined default search engine for MDM-Controlled devices.
+*/
 class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable 
 {
     /**
-     * Instantiates a new EdgeSearchEngine and sets the default values.
+     * Instantiates a new edgeSearchEngine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

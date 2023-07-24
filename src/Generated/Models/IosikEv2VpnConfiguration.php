@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * By providing the configurations in this profile you can instruct the iOS device to connect to desired IKEv2 VPN endpoint.
+*/
 class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new IosikEv2VpnConfiguration and sets the default values.
+     * Instantiates a new iosikEv2VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

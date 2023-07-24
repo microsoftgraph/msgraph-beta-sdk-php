@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEndpoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -120,6 +120,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'crossCloudGovernmentOrganizationMapping' => fn(ParseNode $n) => $o->setCrossCloudGovernmentOrganizationMapping($n->getObjectValue([CloudPcCrossCloudGovernmentOrganizationMapping::class, 'createFromDiscriminatorValue'])),
             'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
             'externalPartnerSettings' => fn(ParseNode $n) => $o->setExternalPartnerSettings($n->getCollectionOfObjectValues([CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'])),
+            'frontLineServicePlans' => fn(ParseNode $n) => $o->setFrontLineServicePlans($n->getCollectionOfObjectValues([CloudPcFrontLineServicePlan::class, 'createFromDiscriminatorValue'])),
             'galleryImages' => fn(ParseNode $n) => $o->setGalleryImages($n->getCollectionOfObjectValues([CloudPcGalleryImage::class, 'createFromDiscriminatorValue'])),
             'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
             'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
@@ -131,6 +132,20 @@ class VirtualEndpoint extends Entity implements Parsable
             'supportedRegions' => fn(ParseNode $n) => $o->setSupportedRegions($n->getCollectionOfObjectValues([CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'])),
             'userSettings' => fn(ParseNode $n) => $o->setUserSettings($n->getCollectionOfObjectValues([CloudPcUserSetting::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the frontLineServicePlans property value. The frontLineServicePlans property
+     * @return array<CloudPcFrontLineServicePlan>|null
+    */
+    public function getFrontLineServicePlans(): ?array {
+        $val = $this->getBackingStore()->get('frontLineServicePlans');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcFrontLineServicePlan::class);
+            /** @var array<CloudPcFrontLineServicePlan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frontLineServicePlans'");
     }
 
     /**
@@ -281,6 +296,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeObjectValue('crossCloudGovernmentOrganizationMapping', $this->getCrossCloudGovernmentOrganizationMapping());
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->getExternalPartnerSettings());
+        $writer->writeCollectionOfObjectValues('frontLineServicePlans', $this->getFrontLineServicePlans());
         $writer->writeCollectionOfObjectValues('galleryImages', $this->getGalleryImages());
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
@@ -339,6 +355,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setExternalPartnerSettings(?array $value): void {
         $this->getBackingStore()->set('externalPartnerSettings', $value);
+    }
+
+    /**
+     * Sets the frontLineServicePlans property value. The frontLineServicePlans property
+     * @param array<CloudPcFrontLineServicePlan>|null $value Value to set for the frontLineServicePlans property.
+    */
+    public function setFrontLineServicePlans(?array $value): void {
+        $this->getBackingStore()->set('frontLineServicePlans', $value);
     }
 
     /**

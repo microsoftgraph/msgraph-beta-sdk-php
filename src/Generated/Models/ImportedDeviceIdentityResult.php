@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The importedDeviceIdentityResult resource represents the result of attempting to import a device identity.
+*/
 class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Parsable 
 {
     /**
-     * Instantiates a new ImportedDeviceIdentityResult and sets the default values.
+     * Instantiates a new importedDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

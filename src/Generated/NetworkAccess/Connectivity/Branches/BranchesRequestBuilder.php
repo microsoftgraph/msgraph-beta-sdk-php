@@ -53,9 +53,10 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get branches from networkAccess
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-connectivity-list-branches?view=graph-rest-1.0 Find more info here
     */
     public function get(?BranchesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to branches for networkAccess
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/networkaccess-connectivity-post-branches?view=graph-rest-1.0 Find more info here
     */
     public function post(BranchSite $body, ?BranchesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get branches from networkAccess
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to branches for networkAccess
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

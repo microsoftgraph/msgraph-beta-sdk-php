@@ -35,7 +35,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -63,7 +63,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Profile last modified time.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -75,7 +75,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Profile name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -87,7 +87,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the policies property value. The policies property
+     * Gets the policies property value. Traffic forwarding policies associated with this profile.
      * @return array<PolicyLink>|null
     */
     public function getPolicies(): ?array {
@@ -113,7 +113,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Profile version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -139,7 +139,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -147,7 +147,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Profile last modified time.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -155,7 +155,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Profile name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -163,7 +163,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the policies property value. The policies property
+     * Sets the policies property value. Traffic forwarding policies associated with this profile.
      * @param array<PolicyLink>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {
@@ -179,7 +179,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Profile version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

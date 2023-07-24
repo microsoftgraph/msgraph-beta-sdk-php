@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Device Compilance Policy Setting State summary across the account.
+*/
 class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCompliancePolicySettingStateSummary and sets the default values.
+     * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

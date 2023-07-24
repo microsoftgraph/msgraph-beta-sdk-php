@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Android Trusted Root Certificate configuration profile
+*/
 class AndroidTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**

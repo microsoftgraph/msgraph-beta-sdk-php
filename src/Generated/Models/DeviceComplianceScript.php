@@ -9,10 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Compliance scripts (detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceComplianceScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceComplianceScript and sets the default values.
+     * Instantiates a new deviceComplianceScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

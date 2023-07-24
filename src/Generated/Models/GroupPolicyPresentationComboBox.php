@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an ADMX comboBox element and an ADMX text element.
+*/
 class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyPresentationComboBox and sets the default values.
+     * Instantiates a new groupPolicyPresentationComboBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();

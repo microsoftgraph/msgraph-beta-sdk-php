@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows 8.1+ Wi-Fi import configuration. By configuring this profile you can instruct Windows 8.1 (and later) devices to connect to desired Wi-Fi endpoint. Connect a Windows 8.1 device to the desired Wi-Fi network and extract the XML from that device to later embed into this Wi-Fi profile.
+*/
 class Windows81WifiImportConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new Windows81WifiImportConfiguration and sets the default values.
+     * Instantiates a new windows81WifiImportConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

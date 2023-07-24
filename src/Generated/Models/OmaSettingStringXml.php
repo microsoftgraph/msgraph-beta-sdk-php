@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * OMA Settings StringXML definition.
+*/
 class OmaSettingStringXml extends OmaSetting implements Parsable 
 {
     /**
-     * Instantiates a new OmaSettingStringXml and sets the default values.
+     * Instantiates a new omaSettingStringXml and sets the default values.
     */
     public function __construct() {
         parent::__construct();

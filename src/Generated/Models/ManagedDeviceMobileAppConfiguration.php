@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * An abstract class for Mobile app configuration for enrolled devices.
+*/
 class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedDeviceMobileAppConfiguration and sets the default values.
+     * Instantiates a new managedDeviceMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

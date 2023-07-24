@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary.
+*/
 class ManagedDeviceMobileAppConfigurationUserSummary extends Entity implements Parsable 
 {
     /**

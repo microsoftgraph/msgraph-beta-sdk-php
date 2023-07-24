@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The identifier for a Mac app.
+*/
 class MacAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * Instantiates a new MacAppIdentifier and sets the default values.
+     * Instantiates a new macAppIdentifier and sets the default values.
     */
     public function __construct() {
         parent::__construct();

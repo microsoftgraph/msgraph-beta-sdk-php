@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get traffic from networkAccess
+ * Get a list of log events for traffic routed through the Global Secure Access services.
 */
 class TrafficRequestBuilderGetQueryParameters 
 {

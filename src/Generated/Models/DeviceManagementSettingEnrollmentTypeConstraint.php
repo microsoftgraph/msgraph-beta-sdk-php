@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Constraint that enforces the enrollment types applied to a setting
+*/
 class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingEnrollmentTypeConstraint and sets the default values.
+     * Instantiates a new deviceManagementSettingEnrollmentTypeConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

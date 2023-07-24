@@ -26,12 +26,25 @@ class SynchronizationJob extends Entity implements Parsable
     }
 
     /**
+     * Gets the bulkUpload property value. The bulk upload operation for the job.
+     * @return BulkUpload|null
+    */
+    public function getBulkUpload(): ?BulkUpload {
+        $val = $this->getBackingStore()->get('bulkUpload');
+        if (is_null($val) || $val instanceof BulkUpload) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bulkUpload'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'bulkUpload' => fn(ParseNode $n) => $o->setBulkUpload($n->getObjectValue([BulkUpload::class, 'createFromDiscriminatorValue'])),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([SynchronizationSchedule::class, 'createFromDiscriminatorValue'])),
             'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([SynchronizationSchema::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SynchronizationStatus::class, 'createFromDiscriminatorValue'])),
@@ -108,11 +121,20 @@ class SynchronizationJob extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('bulkUpload', $this->getBulkUpload());
         $writer->writeObjectValue('schedule', $this->getSchedule());
         $writer->writeObjectValue('schema', $this->getSchema());
         $writer->writeObjectValue('status', $this->getStatus());
         $writer->writeCollectionOfObjectValues('synchronizationJobSettings', $this->getSynchronizationJobSettings());
         $writer->writeStringValue('templateId', $this->getTemplateId());
+    }
+
+    /**
+     * Sets the bulkUpload property value. The bulk upload operation for the job.
+     * @param BulkUpload|null $value Value to set for the bulkUpload property.
+    */
+    public function setBulkUpload(?BulkUpload $value): void {
+        $this->getBackingStore()->set('bulkUpload', $value);
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implements Parsable 
 {
     /**
-     * Instantiates a new DeviceComplianceScriptRuleError and sets the default values.
+     * Instantiates a new deviceComplianceScriptRuleError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign an iOS Store mobile app to a group.
+*/
 class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new IosStoreAppAssignmentSettings and sets the default values.
+     * Instantiates a new iosStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

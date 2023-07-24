@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateState and sets the default values.
+     * Instantiates a new windowsUpdateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssociatedBranch extends Association implements Parsable 
 {
     /**
-     * Instantiates a new AssociatedBranch and sets the default values.
+     * Instantiates a new associatedBranch and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class AssociatedBranch extends Association implements Parsable
     }
 
     /**
-     * Gets the branchId property value. The branchId property
+     * Gets the branchId property value. Identifier for the branch.
      * @return string|null
     */
     public function getBranchId(): ?string {
@@ -58,7 +58,7 @@ class AssociatedBranch extends Association implements Parsable
     }
 
     /**
-     * Sets the branchId property value. The branchId property
+     * Sets the branchId property value. Identifier for the branch.
      * @param string|null $value Value to set for the branchId property.
     */
     public function setBranchId(?string $value): void {
