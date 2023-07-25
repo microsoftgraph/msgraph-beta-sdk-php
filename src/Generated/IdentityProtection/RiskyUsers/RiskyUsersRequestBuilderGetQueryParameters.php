@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a collection of **riskyUser** objects.
+ * Retrieve the properties and relationships of a **riskyUser** object.
 */
 class RiskyUsersRequestBuilderGetQueryParameters 
 {

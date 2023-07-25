@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PeopleAdminSettings;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PeopleRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
+    */
+    public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
+        return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the pronouns property of the microsoft.graph.peopleAdminSettings entity.
     */

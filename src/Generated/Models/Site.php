@@ -151,7 +151,7 @@ class Site extends BaseItem implements Parsable
             'lists' => fn(ParseNode $n) => $o->setLists($n->getCollectionOfObjectValues([EscapedList::class, 'createFromDiscriminatorValue'])),
             'onenote' => fn(ParseNode $n) => $o->setOnenote($n->getObjectValue([Onenote::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
-            'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([SitePage::class, 'createFromDiscriminatorValue'])),
+            'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([BaseSitePage::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SiteSettings::class, 'createFromDiscriminatorValue'])),
@@ -230,13 +230,13 @@ class Site extends BaseItem implements Parsable
 
     /**
      * Gets the pages property value. The collection of pages in the baseSitePages list in this site.
-     * @return array<SitePage>|null
+     * @return array<BaseSitePage>|null
     */
     public function getPages(): ?array {
         $val = $this->getBackingStore()->get('pages');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, SitePage::class);
-            /** @var array<SitePage>|null $val */
+            TypeUtils::validateCollectionValues($val, BaseSitePage::class);
+            /** @var array<BaseSitePage>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'pages'");
@@ -465,7 +465,7 @@ class Site extends BaseItem implements Parsable
 
     /**
      * Sets the pages property value. The collection of pages in the baseSitePages list in this site.
-     * @param array<SitePage>|null $value Value to set for the pages property.
+     * @param array<BaseSitePage>|null $value Value to set for the pages property.
     */
     public function setPages(?array $value): void {
         $this->getBackingStore()->set('pages', $value);

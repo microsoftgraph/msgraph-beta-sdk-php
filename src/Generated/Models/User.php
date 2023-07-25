@@ -2012,7 +2012,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the sponsors property value. The sponsors property
+     * Gets the sponsors property value. The users and groups that are responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getSponsors(): ?array {
@@ -3423,7 +3423,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the sponsors property value. The sponsors property
+     * Sets the sponsors property value. The users and groups that are responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the sponsors property.
     */
     public function setSponsors(?array $value): void {
