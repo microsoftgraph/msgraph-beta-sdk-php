@@ -7,14 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class SitePage extends BaseItem implements Parsable 
+class SitePage extends BaseSitePage implements Parsable 
 {
     /**
      * Instantiates a new sitePage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sitePage');
     }
 
     /**
@@ -39,18 +38,6 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the contentType property value. The contentType property
-     * @return ContentTypeInfo|null
-    */
-    public function getContentType(): ?ContentTypeInfo {
-        $val = $this->getBackingStore()->get('contentType');
-        if (is_null($val) || $val instanceof ContentTypeInfo) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentType'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -58,30 +45,14 @@ class SitePage extends BaseItem implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'canvasLayout' => fn(ParseNode $n) => $o->setCanvasLayout($n->getObjectValue([CanvasLayout::class, 'createFromDiscriminatorValue'])),
-            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getObjectValue([ContentTypeInfo::class, 'createFromDiscriminatorValue'])),
-            'pageLayout' => fn(ParseNode $n) => $o->setPageLayout($n->getEnumValue(PageLayoutType::class)),
             'promotionKind' => fn(ParseNode $n) => $o->setPromotionKind($n->getEnumValue(PagePromotionType::class)),
-            'publishingState' => fn(ParseNode $n) => $o->setPublishingState($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
             'reactions' => fn(ParseNode $n) => $o->setReactions($n->getObjectValue([ReactionsFacet::class, 'createFromDiscriminatorValue'])),
             'showComments' => fn(ParseNode $n) => $o->setShowComments($n->getBooleanValue()),
             'showRecommendedPages' => fn(ParseNode $n) => $o->setShowRecommendedPages($n->getBooleanValue()),
             'thumbnailWebUrl' => fn(ParseNode $n) => $o->setThumbnailWebUrl($n->getStringValue()),
-            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
             'titleArea' => fn(ParseNode $n) => $o->setTitleArea($n->getObjectValue([TitleArea::class, 'createFromDiscriminatorValue'])),
             'webParts' => fn(ParseNode $n) => $o->setWebParts($n->getCollectionOfObjectValues([WebPart::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the pageLayout property value. The pageLayout property
-     * @return PageLayoutType|null
-    */
-    public function getPageLayout(): ?PageLayoutType {
-        $val = $this->getBackingStore()->get('pageLayout');
-        if (is_null($val) || $val instanceof PageLayoutType) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'pageLayout'");
     }
 
     /**
@@ -94,18 +65,6 @@ class SitePage extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'promotionKind'");
-    }
-
-    /**
-     * Gets the publishingState property value. The publishingState property
-     * @return PublicationFacet|null
-    */
-    public function getPublishingState(): ?PublicationFacet {
-        $val = $this->getBackingStore()->get('publishingState');
-        if (is_null($val) || $val instanceof PublicationFacet) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingState'");
     }
 
     /**
@@ -157,18 +116,6 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
-     * @return string|null
-    */
-    public function getTitle(): ?string {
-        $val = $this->getBackingStore()->get('title');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
-    }
-
-    /**
      * Gets the titleArea property value. Title area on the SharePoint page.
      * @return TitleArea|null
     */
@@ -201,15 +148,11 @@ class SitePage extends BaseItem implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('canvasLayout', $this->getCanvasLayout());
-        $writer->writeObjectValue('contentType', $this->getContentType());
-        $writer->writeEnumValue('pageLayout', $this->getPageLayout());
         $writer->writeEnumValue('promotionKind', $this->getPromotionKind());
-        $writer->writeObjectValue('publishingState', $this->getPublishingState());
         $writer->writeObjectValue('reactions', $this->getReactions());
         $writer->writeBooleanValue('showComments', $this->getShowComments());
         $writer->writeBooleanValue('showRecommendedPages', $this->getShowRecommendedPages());
         $writer->writeStringValue('thumbnailWebUrl', $this->getThumbnailWebUrl());
-        $writer->writeStringValue('title', $this->getTitle());
         $writer->writeObjectValue('titleArea', $this->getTitleArea());
         $writer->writeCollectionOfObjectValues('webParts', $this->getWebParts());
     }
@@ -223,35 +166,11 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the contentType property value. The contentType property
-     * @param ContentTypeInfo|null $value Value to set for the contentType property.
-    */
-    public function setContentType(?ContentTypeInfo $value): void {
-        $this->getBackingStore()->set('contentType', $value);
-    }
-
-    /**
-     * Sets the pageLayout property value. The pageLayout property
-     * @param PageLayoutType|null $value Value to set for the pageLayout property.
-    */
-    public function setPageLayout(?PageLayoutType $value): void {
-        $this->getBackingStore()->set('pageLayout', $value);
-    }
-
-    /**
      * Sets the promotionKind property value. Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
      * @param PagePromotionType|null $value Value to set for the promotionKind property.
     */
     public function setPromotionKind(?PagePromotionType $value): void {
         $this->getBackingStore()->set('promotionKind', $value);
-    }
-
-    /**
-     * Sets the publishingState property value. The publishingState property
-     * @param PublicationFacet|null $value Value to set for the publishingState property.
-    */
-    public function setPublishingState(?PublicationFacet $value): void {
-        $this->getBackingStore()->set('publishingState', $value);
     }
 
     /**
@@ -284,14 +203,6 @@ class SitePage extends BaseItem implements Parsable
     */
     public function setThumbnailWebUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailWebUrl', $value);
-    }
-
-    /**
-     * Sets the title property value. The title property
-     * @param string|null $value Value to set for the title property.
-    */
-    public function setTitle(?string $value): void {
-        $this->getBackingStore()->set('title', $value);
     }
 
     /**

@@ -86,11 +86,11 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an industryDataConnector object.
+     * Update the properties of an azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-industrydataconnector-update?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-azuredatalakeconnector-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(IndustryDataConnector $body, ?IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -144,7 +144,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an industryDataConnector object.
+     * Update the properties of an azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

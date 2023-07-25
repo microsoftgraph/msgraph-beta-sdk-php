@@ -26,6 +26,18 @@ class StandardWebPart extends WebPart implements Parsable
     }
 
     /**
+     * Gets the containerTextWebPartId property value. The instance identifier of the container text webPart. It only works for inline standard webPart in rich text webParts.
+     * @return string|null
+    */
+    public function getContainerTextWebPartId(): ?string {
+        $val = $this->getBackingStore()->get('containerTextWebPartId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'containerTextWebPartId'");
+    }
+
+    /**
      * Gets the data property value. Data of the webPart.
      * @return WebPartData|null
     */
@@ -44,6 +56,7 @@ class StandardWebPart extends WebPart implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'containerTextWebPartId' => fn(ParseNode $n) => $o->setContainerTextWebPartId($n->getStringValue()),
             'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([WebPartData::class, 'createFromDiscriminatorValue'])),
             'webPartType' => fn(ParseNode $n) => $o->setWebPartType($n->getStringValue()),
         ]);
@@ -67,8 +80,17 @@ class StandardWebPart extends WebPart implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('containerTextWebPartId', $this->getContainerTextWebPartId());
         $writer->writeObjectValue('data', $this->getData());
         $writer->writeStringValue('webPartType', $this->getWebPartType());
+    }
+
+    /**
+     * Sets the containerTextWebPartId property value. The instance identifier of the container text webPart. It only works for inline standard webPart in rich text webParts.
+     * @param string|null $value Value to set for the containerTextWebPartId property.
+    */
+    public function setContainerTextWebPartId(?string $value): void {
+        $this->getBackingStore()->set('containerTextWebPartId', $value);
     }
 
     /**

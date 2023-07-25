@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Builds and executes requests for operations under /groups/{group-id}/sites/{site-id}/pages/{sitePage-id}/lastModifiedByUser/mailboxSettings
+ * Builds and executes requests for operations under /groups/{group-id}/sites/{site-id}/pages/{baseSitePage-id}/lastModifiedByUser/mailboxSettings
 */
 class MailboxSettingsRequestBuilder extends BaseRequestBuilder 
 {
@@ -23,7 +23,7 @@ class MailboxSettingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/pages/{sitePage%2Did}/lastModifiedByUser/mailboxSettings{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/pages/{baseSitePage%2Did}/lastModifiedByUser/mailboxSettings{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

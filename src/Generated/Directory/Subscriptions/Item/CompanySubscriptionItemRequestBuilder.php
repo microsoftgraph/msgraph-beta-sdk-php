@@ -50,9 +50,10 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subscriptions from directory
+     * Get a specific commercial subscription that an organization has acquired.
      * @param CompanySubscriptionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/companysubscription-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CompanySubscriptionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subscriptions from directory
+     * Get a specific commercial subscription that an organization has acquired.
      * @param CompanySubscriptionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

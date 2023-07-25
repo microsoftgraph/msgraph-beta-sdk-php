@@ -6,10 +6,10 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\SitePageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\BaseSitePageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
+use Microsoft\Graph\Beta\Generated\Models\BaseSitePageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SitePage;
-use Microsoft\Graph\Beta\Generated\Models\SitePageCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,13 +29,13 @@ class PagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the pages property of the microsoft.graph.site entity.
-     * @param string $sitePageId Unique identifier of the item
-     * @return SitePageItemRequestBuilder
+     * @param string $baseSitePageId Unique identifier of the item
+     * @return BaseSitePageItemRequestBuilder
     */
-    public function bySitePageId(string $sitePageId): SitePageItemRequestBuilder {
+    public function byBaseSitePageId(string $baseSitePageId): BaseSitePageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sitePage%2Did'] = $sitePageId;
-        return new SitePageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['baseSitePage%2Did'] = $baseSitePageId;
+        return new BaseSitePageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -65,7 +65,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [SitePageCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [BaseSitePageCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -73,19 +73,19 @@ class PagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new [sitePage][] in the site pages [list][] in a [site][].
-     * @param SitePage $body The request body
+     * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/sitepage-create?view=graph-rest-1.0 Find more info here
     */
-    public function post(SitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(BaseSitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [SitePage::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [BaseSitePage::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -114,11 +114,11 @@ class PagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new [sitePage][] in the site pages [list][] in a [site][].
-     * @param SitePage $body The request body
+     * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(BaseSitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

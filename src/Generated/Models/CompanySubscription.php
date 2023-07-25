@@ -27,7 +27,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the commerceSubscriptionId property value. The commerceSubscriptionId property
+     * Gets the commerceSubscriptionId property value. The ID of this subscription in the commerce system. Alternate key.
      * @return string|null
     */
     public function getCommerceSubscriptionId(): ?string {
@@ -39,7 +39,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when this subscription was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -74,7 +74,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the isTrial property value. The isTrial property
+     * Gets the isTrial property value. Whether the subscription is a free trial or purchased.
      * @return bool|null
     */
     public function getIsTrial(): ?bool {
@@ -86,7 +86,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the nextLifecycleDateTime property value. The nextLifecycleDateTime property
+     * Gets the nextLifecycleDateTime property value. The date and time when the subscription will move to the next state (as defined by the status property) if not renewed by the tenant. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getNextLifecycleDateTime(): ?DateTime {
@@ -110,7 +110,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerId property value. The ownerId property
+     * Gets the ownerId property value. The object ID of the account admin.
      * @return string|null
     */
     public function getOwnerId(): ?string {
@@ -122,7 +122,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerTenantId property value. The ownerTenantId property
+     * Gets the ownerTenantId property value. The unique identifier for the Microsoft partner tenant that created the subscription on a customer tenant.
      * @return string|null
     */
     public function getOwnerTenantId(): ?string {
@@ -134,7 +134,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerType property value. The ownerType property
+     * Gets the ownerType property value. Indicates the entity that ownerId belongs to, for example, 'User'.
      * @return string|null
     */
     public function getOwnerType(): ?string {
@@ -146,7 +146,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the serviceStatus property value. The serviceStatus property
+     * Gets the serviceStatus property value. The provisioning status of each service that's included in this subscription.
      * @return array<ServicePlanInfo>|null
     */
     public function getServiceStatus(): ?array {
@@ -160,7 +160,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuId property value. The skuId property
+     * Gets the skuId property value. The object ID of the SKU associated with this subscription.
      * @return string|null
     */
     public function getSkuId(): ?string {
@@ -172,7 +172,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuPartNumber property value. The skuPartNumber property
+     * Gets the skuPartNumber property value. The SKU associated with this subscription.
      * @return string|null
     */
     public function getSkuPartNumber(): ?string {
@@ -184,7 +184,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of this subscription. Possible values are: Enabled, Expired, Suspended, Warning, LockedOut.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -196,7 +196,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalLicenses property value. The totalLicenses property
+     * Gets the totalLicenses property value. The number of seats included in this subscription.
      * @return int|null
     */
     public function getTotalLicenses(): ?int {
@@ -229,7 +229,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the commerceSubscriptionId property value. The commerceSubscriptionId property
+     * Sets the commerceSubscriptionId property value. The ID of this subscription in the commerce system. Alternate key.
      * @param string|null $value Value to set for the commerceSubscriptionId property.
     */
     public function setCommerceSubscriptionId(?string $value): void {
@@ -237,7 +237,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when this subscription was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -245,7 +245,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the isTrial property value. The isTrial property
+     * Sets the isTrial property value. Whether the subscription is a free trial or purchased.
      * @param bool|null $value Value to set for the isTrial property.
     */
     public function setIsTrial(?bool $value): void {
@@ -253,7 +253,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the nextLifecycleDateTime property value. The nextLifecycleDateTime property
+     * Sets the nextLifecycleDateTime property value. The date and time when the subscription will move to the next state (as defined by the status property) if not renewed by the tenant. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the nextLifecycleDateTime property.
     */
     public function setNextLifecycleDateTime(?DateTime $value): void {
@@ -269,7 +269,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownerId property value. The ownerId property
+     * Sets the ownerId property value. The object ID of the account admin.
      * @param string|null $value Value to set for the ownerId property.
     */
     public function setOwnerId(?string $value): void {
@@ -277,7 +277,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownerTenantId property value. The ownerTenantId property
+     * Sets the ownerTenantId property value. The unique identifier for the Microsoft partner tenant that created the subscription on a customer tenant.
      * @param string|null $value Value to set for the ownerTenantId property.
     */
     public function setOwnerTenantId(?string $value): void {
@@ -285,7 +285,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownerType property value. The ownerType property
+     * Sets the ownerType property value. Indicates the entity that ownerId belongs to, for example, 'User'.
      * @param string|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?string $value): void {
@@ -293,7 +293,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the serviceStatus property value. The serviceStatus property
+     * Sets the serviceStatus property value. The provisioning status of each service that's included in this subscription.
      * @param array<ServicePlanInfo>|null $value Value to set for the serviceStatus property.
     */
     public function setServiceStatus(?array $value): void {
@@ -301,7 +301,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuId property value. The skuId property
+     * Sets the skuId property value. The object ID of the SKU associated with this subscription.
      * @param string|null $value Value to set for the skuId property.
     */
     public function setSkuId(?string $value): void {
@@ -309,7 +309,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuPartNumber property value. The skuPartNumber property
+     * Sets the skuPartNumber property value. The SKU associated with this subscription.
      * @param string|null $value Value to set for the skuPartNumber property.
     */
     public function setSkuPartNumber(?string $value): void {
@@ -317,7 +317,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of this subscription. Possible values are: Enabled, Expired, Suspended, Warning, LockedOut.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
@@ -325,7 +325,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalLicenses property value. The totalLicenses property
+     * Sets the totalLicenses property value. The number of seats included in this subscription.
      * @param int|null $value Value to set for the totalLicenses property.
     */
     public function setTotalLicenses(?int $value): void {

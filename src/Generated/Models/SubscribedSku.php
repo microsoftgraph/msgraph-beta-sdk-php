@@ -26,7 +26,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Gets the accountId property value. The accountId property
+     * Gets the accountId property value. The unique ID of the account this SKU belongs to.
      * @return string|null
     */
     public function getAccountId(): ?string {
@@ -38,7 +38,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Gets the accountName property value. The accountName property
+     * Gets the accountName property value. The name of the account this SKU belongs to.
      * @return string|null
     */
     public function getAccountName(): ?string {
@@ -50,7 +50,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliesTo property value. For example, 'User' or 'Company'.
+     * Gets the appliesTo property value. The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: User, Company.
      * @return string|null
     */
     public function getAppliesTo(): ?string {
@@ -62,7 +62,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Gets the capabilityStatus property value. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.
+     * Gets the capabilityStatus property value. Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer cancelled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.
      * @return string|null
     */
     public function getCapabilityStatus(): ?string {
@@ -151,7 +151,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuPartNumber property value. The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
+     * Gets the skuPartNumber property value. The SKU part number; for example, AAD_PREMIUM or RMSBASIC. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
      * @return string|null
     */
     public function getSkuPartNumber(): ?string {
@@ -195,7 +195,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Sets the accountId property value. The accountId property
+     * Sets the accountId property value. The unique ID of the account this SKU belongs to.
      * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
@@ -203,7 +203,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Sets the accountName property value. The accountName property
+     * Sets the accountName property value. The name of the account this SKU belongs to.
      * @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value): void {
@@ -211,7 +211,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliesTo property value. For example, 'User' or 'Company'.
+     * Sets the appliesTo property value. The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: User, Company.
      * @param string|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?string $value): void {
@@ -219,7 +219,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Sets the capabilityStatus property value. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.
+     * Sets the capabilityStatus property value. Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer cancelled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.
      * @param string|null $value Value to set for the capabilityStatus property.
     */
     public function setCapabilityStatus(?string $value): void {
@@ -259,7 +259,7 @@ class SubscribedSku extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuPartNumber property value. The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
+     * Sets the skuPartNumber property value. The SKU part number; for example, AAD_PREMIUM or RMSBASIC. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
      * @param string|null $value Value to set for the skuPartNumber property.
     */
     public function setSkuPartNumber(?string $value): void {

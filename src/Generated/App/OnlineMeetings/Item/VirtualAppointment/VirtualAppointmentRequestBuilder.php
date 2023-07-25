@@ -70,11 +70,11 @@ class VirtualAppointmentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a virtualAppointment object.
+     * Create a new virtualAppointment object.
      * @param VirtualAppointment $body The request body
      * @param VirtualAppointmentRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualappointment-update?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/virtualappointment-put?view=graph-rest-1.0 Find more info here
     */
     public function patch(VirtualAppointment $body, ?VirtualAppointmentRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -128,7 +128,7 @@ class VirtualAppointmentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a virtualAppointment object.
+     * Create a new virtualAppointment object.
      * @param VirtualAppointment $body The request body
      * @param VirtualAppointmentRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
