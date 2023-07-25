@@ -26,6 +26,7 @@ class BaseItem extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.baseSitePage': return new BaseSitePage();
                 case '#microsoft.graph.drive': return new Drive();
                 case '#microsoft.graph.driveItem': return new DriveItem();
                 case '#microsoft.graph.list': return new EscapedList();

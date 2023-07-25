@@ -67,10 +67,10 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundfileflow-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -123,7 +123,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

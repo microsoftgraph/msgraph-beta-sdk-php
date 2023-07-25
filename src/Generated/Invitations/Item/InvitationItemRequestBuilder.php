@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Invitations\Item\InvitedUser\InvitedUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Invitations\Item\InvitedUserSponsors\InvitedUserSponsorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Invitation;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -23,6 +24,13 @@ class InvitationItemRequestBuilder extends BaseRequestBuilder
     */
     public function invitedUser(): InvitedUserRequestBuilder {
         return new InvitedUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the invitedUserSponsors property of the microsoft.graph.invitation entity.
+    */
+    public function invitedUserSponsors(): InvitedUserSponsorsRequestBuilder {
+        return new InvitedUserSponsorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
