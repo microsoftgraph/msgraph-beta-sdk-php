@@ -56,7 +56,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
      * Get the list of sourceCollections from a case object.
      * @param SourceCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-1.0 Find more info here
     */
     public function get(?SourceCollectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
      * @param SourceCollection $body The request body
      * @param SourceCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-1.0 Find more info here
     */
     public function post(SourceCollection $body, ?SourceCollectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

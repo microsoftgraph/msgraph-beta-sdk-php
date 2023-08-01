@@ -56,7 +56,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of workPosition objects from a user's profile.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-positions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-positions?view=graph-rest-1.0 Find more info here
     */
     public function get(?PositionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-positions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-positions?view=graph-rest-1.0 Find more info here
     */
     public function post(WorkPosition $body, ?PositionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

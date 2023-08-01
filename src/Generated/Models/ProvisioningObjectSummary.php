@@ -39,7 +39,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the activityDateTime property value. Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, gt, lt) and orderby.
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -51,7 +51,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the changeId property value. Unique ID of this change in this cycle.
+     * Gets the changeId property value. Unique ID of this change in this cycle. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getChangeId(): ?string {
@@ -63,7 +63,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the cycleId property value. Unique ID per job iteration.
+     * Gets the cycleId property value. Unique ID per job iteration. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getCycleId(): ?string {
@@ -75,7 +75,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the durationInMilliseconds property value. Indicates how long this provisioning action took to finish. Measured in milliseconds.
+     * Gets the durationInMilliseconds property value. Indicates how long this provisioning action took to finish. Measured in milliseconds. Supports $filter (eq, gt, lt).
      * @return int|null
     */
     public function getDurationInMilliseconds(): ?int {
@@ -115,7 +115,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the initiatedBy property value. Details of who initiated this provisioning.
+     * Gets the initiatedBy property value. Details of who initiated this provisioning. Supports $filter (eq, contains).
      * @return Initiator|null
     */
     public function getInitiatedBy(): ?Initiator {
@@ -127,7 +127,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the jobId property value. The unique ID for the whole provisioning job.
+     * Gets the jobId property value. The unique ID for the whole provisioning job. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getJobId(): ?string {
@@ -153,7 +153,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.
+     * Gets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. Supports $filter (eq, contains).
      * @return ProvisioningAction|null
     */
     public function getProvisioningAction(): ?ProvisioningAction {
@@ -165,7 +165,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningStatusInfo property value. Details of provisioning status.
+     * Gets the provisioningStatusInfo property value. Details of provisioning status. Supports $filter (eq, contains) for status.
      * @return ProvisioningStatusInfo|null
     */
     public function getProvisioningStatusInfo(): ?ProvisioningStatusInfo {
@@ -191,7 +191,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the servicePrincipal property value. Represents the service principal used for provisioning.
+     * Gets the servicePrincipal property value. Represents the service principal used for provisioning. Supports $filter (eq) for id and name.
      * @return ProvisioningServicePrincipal|null
     */
     public function getServicePrincipal(): ?ProvisioningServicePrincipal {
@@ -203,7 +203,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceIdentity property value. Details of source object being provisioned.
+     * Gets the sourceIdentity property value. Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @return ProvisionedIdentity|null
     */
     public function getSourceIdentity(): ?ProvisionedIdentity {
@@ -215,7 +215,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceSystem property value. Details of source system of the object being provisioned.
+     * Gets the sourceSystem property value. Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @return ProvisioningSystem|null
     */
     public function getSourceSystem(): ?ProvisioningSystem {
@@ -239,7 +239,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetIdentity property value. Details of target object being provisioned.
+     * Gets the targetIdentity property value. Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @return ProvisionedIdentity|null
     */
     public function getTargetIdentity(): ?ProvisionedIdentity {
@@ -251,7 +251,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetSystem property value. Details of target system of the object being provisioned.
+     * Gets the targetSystem property value. Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @return ProvisioningSystem|null
     */
     public function getTargetSystem(): ?ProvisioningSystem {
@@ -263,7 +263,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. Unique Azure AD tenant ID.
+     * Gets the tenantId property value. Unique Azure AD tenant ID. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -309,7 +309,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the activityDateTime property value. Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, gt, lt) and orderby.
      * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
@@ -317,7 +317,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the changeId property value. Unique ID of this change in this cycle.
+     * Sets the changeId property value. Unique ID of this change in this cycle. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the changeId property.
     */
     public function setChangeId(?string $value): void {
@@ -325,7 +325,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the cycleId property value. Unique ID per job iteration.
+     * Sets the cycleId property value. Unique ID per job iteration. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the cycleId property.
     */
     public function setCycleId(?string $value): void {
@@ -333,7 +333,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the durationInMilliseconds property value. Indicates how long this provisioning action took to finish. Measured in milliseconds.
+     * Sets the durationInMilliseconds property value. Indicates how long this provisioning action took to finish. Measured in milliseconds. Supports $filter (eq, gt, lt).
      * @param int|null $value Value to set for the durationInMilliseconds property.
     */
     public function setDurationInMilliseconds(?int $value): void {
@@ -341,7 +341,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the initiatedBy property value. Details of who initiated this provisioning.
+     * Sets the initiatedBy property value. Details of who initiated this provisioning. Supports $filter (eq, contains).
      * @param Initiator|null $value Value to set for the initiatedBy property.
     */
     public function setInitiatedBy(?Initiator $value): void {
@@ -349,7 +349,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the jobId property value. The unique ID for the whole provisioning job.
+     * Sets the jobId property value. The unique ID for the whole provisioning job. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the jobId property.
     */
     public function setJobId(?string $value): void {
@@ -365,7 +365,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.
+     * Sets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. Supports $filter (eq, contains).
      * @param ProvisioningAction|null $value Value to set for the provisioningAction property.
     */
     public function setProvisioningAction(?ProvisioningAction $value): void {
@@ -373,7 +373,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningStatusInfo property value. Details of provisioning status.
+     * Sets the provisioningStatusInfo property value. Details of provisioning status. Supports $filter (eq, contains) for status.
      * @param ProvisioningStatusInfo|null $value Value to set for the provisioningStatusInfo property.
     */
     public function setProvisioningStatusInfo(?ProvisioningStatusInfo $value): void {
@@ -389,7 +389,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the servicePrincipal property value. Represents the service principal used for provisioning.
+     * Sets the servicePrincipal property value. Represents the service principal used for provisioning. Supports $filter (eq) for id and name.
      * @param ProvisioningServicePrincipal|null $value Value to set for the servicePrincipal property.
     */
     public function setServicePrincipal(?ProvisioningServicePrincipal $value): void {
@@ -397,7 +397,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceIdentity property value. Details of source object being provisioned.
+     * Sets the sourceIdentity property value. Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @param ProvisionedIdentity|null $value Value to set for the sourceIdentity property.
     */
     public function setSourceIdentity(?ProvisionedIdentity $value): void {
@@ -405,7 +405,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceSystem property value. Details of source system of the object being provisioned.
+     * Sets the sourceSystem property value. Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @param ProvisioningSystem|null $value Value to set for the sourceSystem property.
     */
     public function setSourceSystem(?ProvisioningSystem $value): void {
@@ -421,7 +421,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetIdentity property value. Details of target object being provisioned.
+     * Sets the targetIdentity property value. Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @param ProvisionedIdentity|null $value Value to set for the targetIdentity property.
     */
     public function setTargetIdentity(?ProvisionedIdentity $value): void {
@@ -429,7 +429,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetSystem property value. Details of target system of the object being provisioned.
+     * Sets the targetSystem property value. Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @param ProvisioningSystem|null $value Value to set for the targetSystem property.
     */
     public function setTargetSystem(?ProvisioningSystem $value): void {
@@ -437,7 +437,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. Unique Azure AD tenant ID.
+     * Sets the tenantId property value. Unique Azure AD tenant ID. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

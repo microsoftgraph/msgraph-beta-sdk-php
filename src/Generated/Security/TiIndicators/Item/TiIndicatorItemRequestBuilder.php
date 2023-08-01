@@ -35,7 +35,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
      * Delete a tiIndicator object.
      * @param TiIndicatorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/tiindicator-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/tiindicator-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TiIndicatorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a tiIndicator object.
      * @param TiIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/tiindicator-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/tiindicator-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TiIndicatorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
      * @param TiIndicator $body The request body
      * @param TiIndicatorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/tiindicator-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TiIndicator $body, ?TiIndicatorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

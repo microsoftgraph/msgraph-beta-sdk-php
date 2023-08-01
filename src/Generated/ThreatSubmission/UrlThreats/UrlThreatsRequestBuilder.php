@@ -56,7 +56,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
      * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-urlthreatsubmission-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?UrlThreatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-urlthreatsubmission-post-urlthreats?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-post-urlthreats?view=graph-rest-1.0 Find more info here
     */
     public function post(UrlThreatSubmission $body, ?UrlThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

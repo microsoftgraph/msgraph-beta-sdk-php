@@ -53,7 +53,7 @@ class ConfigurationRequestBuilder extends BaseRequestBuilder
      * Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
      * @param ConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamworkdeviceconfiguration-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamworkdeviceconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

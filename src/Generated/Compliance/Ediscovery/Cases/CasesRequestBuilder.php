@@ -56,7 +56,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of case objects.
      * @param CasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?CasesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
      * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-1.0 Find more info here
     */
     public function post(EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -38,7 +38,7 @@ class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
      * Delete a servicePrincipal object.
      * @param ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -57,7 +57,7 @@ class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a servicePrincipal object.
      * @param ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,7 +77,7 @@ class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ServicePrincipal $body, ?ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

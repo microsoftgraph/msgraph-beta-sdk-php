@@ -29,7 +29,7 @@ class ZebraFotaConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentAuthorizationUrl property value. Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
+     * Gets the enrollmentAuthorizationUrl property value. Complete account enrollment authorization URL. This corresponds to verificationuricomplete in the Zebra API documentations.
      * @return string|null
     */
     public function getEnrollmentAuthorizationUrl(): ?string {
@@ -117,7 +117,7 @@ class ZebraFotaConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentAuthorizationUrl property value. Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
+     * Sets the enrollmentAuthorizationUrl property value. Complete account enrollment authorization URL. This corresponds to verificationuricomplete in the Zebra API documentations.
      * @param string|null $value Value to set for the enrollmentAuthorizationUrl property.
     */
     public function setEnrollmentAuthorizationUrl(?string $value): void {

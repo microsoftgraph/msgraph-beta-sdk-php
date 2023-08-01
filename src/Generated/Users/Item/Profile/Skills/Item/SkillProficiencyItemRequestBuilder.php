@@ -35,7 +35,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
      * Delete a skillProficiency object from a user's profile.
      * @param SkillProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/skillproficiency-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/skillproficiency-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SkillProficiencyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
      * @param SkillProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/skillproficiency-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/skillproficiency-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SkillProficiencyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
      * @param SkillProficiency $body The request body
      * @param SkillProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/skillproficiency-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/skillproficiency-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SkillProficiency $body, ?SkillProficiencyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

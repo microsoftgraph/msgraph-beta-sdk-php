@@ -56,7 +56,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
      * Get a list of the tenantTag objects and their properties.
      * @param TenantTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-tenanttags?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenanttags?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantTagsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
      * @param TenantTag $body The request body
      * @param TenantTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-post-tenanttags?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-post-tenanttags?view=graph-rest-1.0 Find more info here
     */
     public function post(TenantTag $body, ?TenantTagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

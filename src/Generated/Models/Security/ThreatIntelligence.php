@@ -65,13 +65,17 @@ class ThreatIntelligence extends Entity implements Parsable
             'articles' => fn(ParseNode $n) => $o->setArticles($n->getCollectionOfObjectValues([Article::class, 'createFromDiscriminatorValue'])),
             'hostComponents' => fn(ParseNode $n) => $o->setHostComponents($n->getCollectionOfObjectValues([HostComponent::class, 'createFromDiscriminatorValue'])),
             'hostCookies' => fn(ParseNode $n) => $o->setHostCookies($n->getCollectionOfObjectValues([HostCookie::class, 'createFromDiscriminatorValue'])),
+            'hostPairs' => fn(ParseNode $n) => $o->setHostPairs($n->getCollectionOfObjectValues([HostPair::class, 'createFromDiscriminatorValue'])),
             'hosts' => fn(ParseNode $n) => $o->setHosts($n->getCollectionOfObjectValues([Host::class, 'createFromDiscriminatorValue'])),
+            'hostSslCertificates' => fn(ParseNode $n) => $o->setHostSslCertificates($n->getCollectionOfObjectValues([HostSslCertificate::class, 'createFromDiscriminatorValue'])),
             'hostTrackers' => fn(ParseNode $n) => $o->setHostTrackers($n->getCollectionOfObjectValues([HostTracker::class, 'createFromDiscriminatorValue'])),
             'intelligenceProfileIndicators' => fn(ParseNode $n) => $o->setIntelligenceProfileIndicators($n->getCollectionOfObjectValues([IntelligenceProfileIndicator::class, 'createFromDiscriminatorValue'])),
             'intelProfiles' => fn(ParseNode $n) => $o->setIntelProfiles($n->getCollectionOfObjectValues([IntelligenceProfile::class, 'createFromDiscriminatorValue'])),
             'passiveDnsRecords' => fn(ParseNode $n) => $o->setPassiveDnsRecords($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
+            'sslCertificates' => fn(ParseNode $n) => $o->setSslCertificates($n->getCollectionOfObjectValues([SslCertificate::class, 'createFromDiscriminatorValue'])),
             'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'vulnerabilities' => fn(ParseNode $n) => $o->setVulnerabilities($n->getCollectionOfObjectValues([Vulnerability::class, 'createFromDiscriminatorValue'])),
+            'whoisRecords' => fn(ParseNode $n) => $o->setWhoisRecords($n->getCollectionOfObjectValues([WhoisRecord::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -104,6 +108,20 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the hostPairs property value. The hostPairs property
+     * @return array<HostPair>|null
+    */
+    public function getHostPairs(): ?array {
+        $val = $this->getBackingStore()->get('hostPairs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostPair::class);
+            /** @var array<HostPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostPairs'");
+    }
+
+    /**
      * Gets the hosts property value. Refers to microsoft.graph.security.host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @return array<Host>|null
     */
@@ -115,6 +133,20 @@ class ThreatIntelligence extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hosts'");
+    }
+
+    /**
+     * Gets the hostSslCertificates property value. The hostSslCertificates property
+     * @return array<HostSslCertificate>|null
+    */
+    public function getHostSslCertificates(): ?array {
+        $val = $this->getBackingStore()->get('hostSslCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostSslCertificate::class);
+            /** @var array<HostSslCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostSslCertificates'");
     }
 
     /**
@@ -174,6 +206,20 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the sslCertificates property value. The sslCertificates property
+     * @return array<SslCertificate>|null
+    */
+    public function getSslCertificates(): ?array {
+        $val = $this->getBackingStore()->get('sslCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SslCertificate::class);
+            /** @var array<SslCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sslCertificates'");
+    }
+
+    /**
      * Gets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
      * @return array<Subdomain>|null
     */
@@ -202,6 +248,20 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the whoisRecords property value. The whoisRecords property
+     * @return array<WhoisRecord>|null
+    */
+    public function getWhoisRecords(): ?array {
+        $val = $this->getBackingStore()->get('whoisRecords');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WhoisRecord::class);
+            /** @var array<WhoisRecord>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'whoisRecords'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -211,13 +271,17 @@ class ThreatIntelligence extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('articles', $this->getArticles());
         $writer->writeCollectionOfObjectValues('hostComponents', $this->getHostComponents());
         $writer->writeCollectionOfObjectValues('hostCookies', $this->getHostCookies());
+        $writer->writeCollectionOfObjectValues('hostPairs', $this->getHostPairs());
         $writer->writeCollectionOfObjectValues('hosts', $this->getHosts());
+        $writer->writeCollectionOfObjectValues('hostSslCertificates', $this->getHostSslCertificates());
         $writer->writeCollectionOfObjectValues('hostTrackers', $this->getHostTrackers());
         $writer->writeCollectionOfObjectValues('intelligenceProfileIndicators', $this->getIntelligenceProfileIndicators());
         $writer->writeCollectionOfObjectValues('intelProfiles', $this->getIntelProfiles());
         $writer->writeCollectionOfObjectValues('passiveDnsRecords', $this->getPassiveDnsRecords());
+        $writer->writeCollectionOfObjectValues('sslCertificates', $this->getSslCertificates());
         $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('vulnerabilities', $this->getVulnerabilities());
+        $writer->writeCollectionOfObjectValues('whoisRecords', $this->getWhoisRecords());
     }
 
     /**
@@ -253,11 +317,27 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Sets the hostPairs property value. The hostPairs property
+     * @param array<HostPair>|null $value Value to set for the hostPairs property.
+    */
+    public function setHostPairs(?array $value): void {
+        $this->getBackingStore()->set('hostPairs', $value);
+    }
+
+    /**
      * Sets the hosts property value. Refers to microsoft.graph.security.host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @param array<Host>|null $value Value to set for the hosts property.
     */
     public function setHosts(?array $value): void {
         $this->getBackingStore()->set('hosts', $value);
+    }
+
+    /**
+     * Sets the hostSslCertificates property value. The hostSslCertificates property
+     * @param array<HostSslCertificate>|null $value Value to set for the hostSslCertificates property.
+    */
+    public function setHostSslCertificates(?array $value): void {
+        $this->getBackingStore()->set('hostSslCertificates', $value);
     }
 
     /**
@@ -293,6 +373,14 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Sets the sslCertificates property value. The sslCertificates property
+     * @param array<SslCertificate>|null $value Value to set for the sslCertificates property.
+    */
+    public function setSslCertificates(?array $value): void {
+        $this->getBackingStore()->set('sslCertificates', $value);
+    }
+
+    /**
      * Sets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
      * @param array<Subdomain>|null $value Value to set for the subdomains property.
     */
@@ -306,6 +394,14 @@ class ThreatIntelligence extends Entity implements Parsable
     */
     public function setVulnerabilities(?array $value): void {
         $this->getBackingStore()->set('vulnerabilities', $value);
+    }
+
+    /**
+     * Sets the whoisRecords property value. The whoisRecords property
+     * @param array<WhoisRecord>|null $value Value to set for the whoisRecords property.
+    */
+    public function setWhoisRecords(?array $value): void {
+        $this->getBackingStore()->set('whoisRecords', $value);
     }
 
 }

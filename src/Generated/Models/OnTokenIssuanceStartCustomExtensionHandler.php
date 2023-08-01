@@ -26,6 +26,18 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
     }
 
     /**
+     * Gets the configuration property value. The configuration property
+     * @return CustomExtensionOverwriteConfiguration|null
+    */
+    public function getConfiguration(): ?CustomExtensionOverwriteConfiguration {
+        $val = $this->getBackingStore()->get('configuration');
+        if (is_null($val) || $val instanceof CustomExtensionOverwriteConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configuration'");
+    }
+
+    /**
      * Gets the customExtension property value. The customExtension property
      * @return OnTokenIssuanceStartCustomExtension|null
     */
@@ -44,6 +56,7 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([CustomExtensionOverwriteConfiguration::class, 'createFromDiscriminatorValue'])),
             'customExtension' => fn(ParseNode $n) => $o->setCustomExtension($n->getObjectValue([OnTokenIssuanceStartCustomExtension::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -54,7 +67,16 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('configuration', $this->getConfiguration());
         $writer->writeObjectValue('customExtension', $this->getCustomExtension());
+    }
+
+    /**
+     * Sets the configuration property value. The configuration property
+     * @param CustomExtensionOverwriteConfiguration|null $value Value to set for the configuration property.
+    */
+    public function setConfiguration(?CustomExtensionOverwriteConfiguration $value): void {
+        $this->getBackingStore()->set('configuration', $value);
     }
 
     /**

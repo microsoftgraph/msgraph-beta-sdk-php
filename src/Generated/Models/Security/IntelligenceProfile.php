@@ -42,7 +42,7 @@ class IntelligenceProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * Gets the countriesOrRegionsOfOrigin property value. The country/region of origin for the given actor or threat associated with this intelligenceProfile.
      * @return array<IntelligenceProfileCountryOrRegionOfOrigin>|null
     */
     public function getCountriesOrRegionsOfOrigin(): ?array {
@@ -216,7 +216,7 @@ class IntelligenceProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * Sets the countriesOrRegionsOfOrigin property value. The country/region of origin for the given actor or threat associated with this intelligenceProfile.
      * @param array<IntelligenceProfileCountryOrRegionOfOrigin>|null $value Value to set for the countriesOrRegionsOfOrigin property.
     */
     public function setCountriesOrRegionsOfOrigin(?array $value): void {

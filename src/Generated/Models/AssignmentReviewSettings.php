@@ -176,7 +176,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the reviewerType property value. Who should be asked to do the review, either Self or Reviewers.
+     * Gets the reviewerType property value. Who should be asked to do the review, either Self, Reviewers or Manager.
      * @return string|null
     */
     public function getReviewerType(): ?string {
@@ -298,7 +298,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the reviewerType property value. Who should be asked to do the review, either Self or Reviewers.
+     * Sets the reviewerType property value. Who should be asked to do the review, either Self, Reviewers or Manager.
      * @param string|null $value Value to set for the reviewerType property.
     */
     public function setReviewerType(?string $value): void {

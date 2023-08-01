@@ -84,7 +84,7 @@ class ConditionalAccessPlatforms implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux.
      * @return array<ConditionalAccessDevicePlatform>|null
     */
     public function getIncludePlatforms(): ?array {
@@ -145,7 +145,7 @@ class ConditionalAccessPlatforms implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux.
      * @param array<ConditionalAccessDevicePlatform>|null $value Value to set for the includePlatforms property.
     */
     public function setIncludePlatforms(?array $value): void {

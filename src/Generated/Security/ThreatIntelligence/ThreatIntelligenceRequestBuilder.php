@@ -11,13 +11,17 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ArticleIndicators
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\ArticlesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostComponents\HostComponentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostCookies\HostCookiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPairs\HostPairsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\HostsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostSslCertificates\HostSslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostTrackers\HostTrackersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelligenceProfileIndicators\IntelligenceProfileIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\IntelProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\PassiveDnsRecordsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\SslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Subdomains\SubdomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\VulnerabilitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecords\WhoisRecordsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -57,10 +61,24 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the hostPairs property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function hostPairs(): HostPairsRequestBuilder {
+        return new HostPairsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
     */
     public function hosts(): HostsRequestBuilder {
         return new HostsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hostSslCertificates property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function hostSslCertificates(): HostSslCertificatesRequestBuilder {
+        return new HostSslCertificatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -92,6 +110,13 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the sslCertificates property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function sslCertificates(): SslCertificatesRequestBuilder {
+        return new SslCertificatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the subdomains property of the microsoft.graph.security.threatIntelligence entity.
     */
     public function subdomains(): SubdomainsRequestBuilder {
@@ -103,6 +128,13 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     */
     public function vulnerabilities(): VulnerabilitiesRequestBuilder {
         return new VulnerabilitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the whoisRecords property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function whoisRecords(): WhoisRecordsRequestBuilder {
+        return new WhoisRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -60,7 +60,7 @@ class BaseItemVersion extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Date and time the version was last modified. Read-only.
+     * Gets the lastModifiedDateTime property value. Date and time when the version was last modified. Read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -103,7 +103,7 @@ class BaseItemVersion extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Date and time the version was last modified. Read-only.
+     * Sets the lastModifiedDateTime property value. Date and time when the version was last modified. Read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

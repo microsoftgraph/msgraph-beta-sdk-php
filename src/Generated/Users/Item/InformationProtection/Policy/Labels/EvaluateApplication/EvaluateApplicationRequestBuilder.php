@@ -35,7 +35,7 @@ class EvaluateApplicationRequestBuilder extends BaseRequestBuilder
      * @param EvaluateApplicationPostRequestBody $body The request body
      * @param EvaluateApplicationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/informationprotectionlabel-evaluateapplication?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-evaluateapplication?view=graph-rest-1.0 Find more info here
     */
     public function post(EvaluateApplicationPostRequestBody $body, ?EvaluateApplicationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

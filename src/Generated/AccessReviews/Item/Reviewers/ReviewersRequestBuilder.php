@@ -56,7 +56,7 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
      * In the Azure AD access reviews feature, retrieve the reviewers of an accessReview object.
      * @param ReviewersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/accessreview-listreviewers?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-listreviewers?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReviewersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewReviewer $body The request body
      * @param ReviewersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/accessreview-addreviewer?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-addreviewer?view=graph-rest-1.0 Find more info here
     */
     public function post(AccessReviewReviewer $body, ?ReviewersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

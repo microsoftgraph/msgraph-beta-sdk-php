@@ -51,7 +51,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
      * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistration-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RegistrationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -67,10 +67,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +90,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MeetingRegistration $body, ?RegistrationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -123,7 +123,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

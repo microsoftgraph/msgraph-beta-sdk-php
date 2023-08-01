@@ -56,7 +56,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
      * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-emailthreatsubmission-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-emailthreatsubmission-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?EmailThreatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
      * @param EmailThreatSubmission $body The request body
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-emailthreatsubmission-post-emailthreats?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-emailthreatsubmission-post-emailthreats?view=graph-rest-1.0 Find more info here
     */
     public function post(EmailThreatSubmission $body, ?EmailThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

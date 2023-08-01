@@ -43,7 +43,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
      * Delete a reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,7 +62,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReviewSetQueryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
      * @param ReviewSetQuery $body The request body
      * @param ReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ReviewSetQuery $body, ?ReviewSetQueryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

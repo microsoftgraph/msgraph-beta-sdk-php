@@ -34,7 +34,7 @@ class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder extends BaseReque
      * Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery.
      * @param MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-sourcecollection-estimatestatistics?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-estimatestatistics?view=graph-rest-1.0 Find more info here
     */
     public function post(?MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

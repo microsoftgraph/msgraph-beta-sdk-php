@@ -87,7 +87,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0 Find more info here
     */
     public function get(?OwnedObjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

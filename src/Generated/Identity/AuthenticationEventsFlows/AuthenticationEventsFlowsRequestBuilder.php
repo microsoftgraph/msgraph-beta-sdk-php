@@ -56,7 +56,7 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
      * Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
      * @param AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identitycontainer-list-authenticationeventsflows?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventsflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identitycontainer-post-authenticationeventsflows?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventsflows?view=graph-rest-1.0 Find more info here
     */
     public function post(AuthenticationEventsFlow $body, ?AuthenticationEventsFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

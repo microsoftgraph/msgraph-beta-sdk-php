@@ -69,7 +69,7 @@ class GovernanceRoleSettingItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a governanceRoleSetting.
      * @param GovernanceRoleSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/governancerolesetting-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/governancerolesetting-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?GovernanceRoleSettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +89,7 @@ class GovernanceRoleSettingItemRequestBuilder extends BaseRequestBuilder
      * @param GovernanceRoleSetting $body The request body
      * @param GovernanceRoleSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/governancerolesetting-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/governancerolesetting-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(GovernanceRoleSetting $body, ?GovernanceRoleSettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

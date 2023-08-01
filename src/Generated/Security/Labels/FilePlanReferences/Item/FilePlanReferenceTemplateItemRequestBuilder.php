@@ -35,7 +35,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
      * Delete a filePlanReferenceTemplate object.
      * @param FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0 Find more info here
     */
     public function delete(?FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a filePlanReferenceTemplate object.
      * @param FilePlanReferenceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?FilePlanReferenceTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

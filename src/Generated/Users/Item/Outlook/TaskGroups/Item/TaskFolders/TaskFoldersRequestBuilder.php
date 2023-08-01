@@ -56,7 +56,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
      * Get Outlook task folders in a specific outlookTaskGroup.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlooktaskgroup-list-taskfolders?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-list-taskfolders?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskFoldersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlooktaskgroup-post-taskfolders?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-post-taskfolders?view=graph-rest-1.0 Find more info here
     */
     public function post(OutlookTaskFolder $body, ?TaskFoldersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

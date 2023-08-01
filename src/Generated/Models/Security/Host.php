@@ -36,6 +36,20 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Gets the childHostPairs property value. The childHostPairs property
+     * @return array<HostPair>|null
+    */
+    public function getChildHostPairs(): ?array {
+        $val = $this->getBackingStore()->get('childHostPairs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostPair::class);
+            /** @var array<HostPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childHostPairs'");
+    }
+
+    /**
      * Gets the components property value. The hostComponents that are associated with this host.
      * @return array<HostComponent>|null
     */
@@ -70,15 +84,20 @@ class Host extends Artifact implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'childHostPairs' => fn(ParseNode $n) => $o->setChildHostPairs($n->getCollectionOfObjectValues([HostPair::class, 'createFromDiscriminatorValue'])),
             'components' => fn(ParseNode $n) => $o->setComponents($n->getCollectionOfObjectValues([HostComponent::class, 'createFromDiscriminatorValue'])),
             'cookies' => fn(ParseNode $n) => $o->setCookies($n->getCollectionOfObjectValues([HostCookie::class, 'createFromDiscriminatorValue'])),
             'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
+            'hostPairs' => fn(ParseNode $n) => $o->setHostPairs($n->getCollectionOfObjectValues([HostPair::class, 'createFromDiscriminatorValue'])),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            'parentHostPairs' => fn(ParseNode $n) => $o->setParentHostPairs($n->getCollectionOfObjectValues([HostPair::class, 'createFromDiscriminatorValue'])),
             'passiveDns' => fn(ParseNode $n) => $o->setPassiveDns($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'passiveDnsReverse' => fn(ParseNode $n) => $o->setPassiveDnsReverse($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'reputation' => fn(ParseNode $n) => $o->setReputation($n->getObjectValue([HostReputation::class, 'createFromDiscriminatorValue'])),
+            'sslCertificates' => fn(ParseNode $n) => $o->setSslCertificates($n->getCollectionOfObjectValues([HostSslCertificate::class, 'createFromDiscriminatorValue'])),
             'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'trackers' => fn(ParseNode $n) => $o->setTrackers($n->getCollectionOfObjectValues([HostTracker::class, 'createFromDiscriminatorValue'])),
+            'whois' => fn(ParseNode $n) => $o->setWhois($n->getObjectValue([WhoisRecord::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -95,6 +114,20 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Gets the hostPairs property value. The hostPairs property
+     * @return array<HostPair>|null
+    */
+    public function getHostPairs(): ?array {
+        $val = $this->getBackingStore()->get('hostPairs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostPair::class);
+            /** @var array<HostPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostPairs'");
+    }
+
+    /**
      * Gets the lastSeenDateTime property value. The most recent date and time when this host was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
@@ -104,6 +137,20 @@ class Host extends Artifact implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
+    }
+
+    /**
+     * Gets the parentHostPairs property value. The parentHostPairs property
+     * @return array<HostPair>|null
+    */
+    public function getParentHostPairs(): ?array {
+        $val = $this->getBackingStore()->get('parentHostPairs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostPair::class);
+            /** @var array<HostPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentHostPairs'");
     }
 
     /**
@@ -147,6 +194,20 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Gets the sslCertificates property value. The sslCertificates property
+     * @return array<HostSslCertificate>|null
+    */
+    public function getSslCertificates(): ?array {
+        $val = $this->getBackingStore()->get('sslCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostSslCertificate::class);
+            /** @var array<HostSslCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sslCertificates'");
+    }
+
+    /**
      * Gets the subdomains property value. The subdomains that are associated with this host.
      * @return array<Subdomain>|null
     */
@@ -175,20 +236,45 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Gets the whois property value. The whois property
+     * @return WhoisRecord|null
+    */
+    public function getWhois(): ?WhoisRecord {
+        $val = $this->getBackingStore()->get('whois');
+        if (is_null($val) || $val instanceof WhoisRecord) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'whois'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('childHostPairs', $this->getChildHostPairs());
         $writer->writeCollectionOfObjectValues('components', $this->getComponents());
         $writer->writeCollectionOfObjectValues('cookies', $this->getCookies());
         $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
+        $writer->writeCollectionOfObjectValues('hostPairs', $this->getHostPairs());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeCollectionOfObjectValues('parentHostPairs', $this->getParentHostPairs());
         $writer->writeCollectionOfObjectValues('passiveDns', $this->getPassiveDns());
         $writer->writeCollectionOfObjectValues('passiveDnsReverse', $this->getPassiveDnsReverse());
         $writer->writeObjectValue('reputation', $this->getReputation());
+        $writer->writeCollectionOfObjectValues('sslCertificates', $this->getSslCertificates());
         $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('trackers', $this->getTrackers());
+        $writer->writeObjectValue('whois', $this->getWhois());
+    }
+
+    /**
+     * Sets the childHostPairs property value. The childHostPairs property
+     * @param array<HostPair>|null $value Value to set for the childHostPairs property.
+    */
+    public function setChildHostPairs(?array $value): void {
+        $this->getBackingStore()->set('childHostPairs', $value);
     }
 
     /**
@@ -216,11 +302,27 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Sets the hostPairs property value. The hostPairs property
+     * @param array<HostPair>|null $value Value to set for the hostPairs property.
+    */
+    public function setHostPairs(?array $value): void {
+        $this->getBackingStore()->set('hostPairs', $value);
+    }
+
+    /**
      * Sets the lastSeenDateTime property value. The most recent date and time when this host was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
+    }
+
+    /**
+     * Sets the parentHostPairs property value. The parentHostPairs property
+     * @param array<HostPair>|null $value Value to set for the parentHostPairs property.
+    */
+    public function setParentHostPairs(?array $value): void {
+        $this->getBackingStore()->set('parentHostPairs', $value);
     }
 
     /**
@@ -248,6 +350,14 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Sets the sslCertificates property value. The sslCertificates property
+     * @param array<HostSslCertificate>|null $value Value to set for the sslCertificates property.
+    */
+    public function setSslCertificates(?array $value): void {
+        $this->getBackingStore()->set('sslCertificates', $value);
+    }
+
+    /**
      * Sets the subdomains property value. The subdomains that are associated with this host.
      * @param array<Subdomain>|null $value Value to set for the subdomains property.
     */
@@ -261,6 +371,14 @@ class Host extends Artifact implements Parsable
     */
     public function setTrackers(?array $value): void {
         $this->getBackingStore()->set('trackers', $value);
+    }
+
+    /**
+     * Sets the whois property value. The whois property
+     * @param WhoisRecord|null $value Value to set for the whois property.
+    */
+    public function setWhois(?WhoisRecord $value): void {
+        $this->getBackingStore()->set('whois', $value);
     }
 
 }

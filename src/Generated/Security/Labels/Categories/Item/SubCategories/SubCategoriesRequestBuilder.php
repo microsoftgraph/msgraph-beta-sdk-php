@@ -56,7 +56,7 @@ class SubCategoriesRequestBuilder extends BaseRequestBuilder
      * Get a list of subcategories subCategoryTemplate associated with a category template.
      * @param SubCategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-categorytemplate-list-subcategories?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-categorytemplate-list-subcategories?view=graph-rest-1.0 Find more info here
     */
     public function get(?SubCategoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class SubCategoriesRequestBuilder extends BaseRequestBuilder
      * @param SubCategoryTemplate $body The request body
      * @param SubCategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-categorytemplate-post-subcategories?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-categorytemplate-post-subcategories?view=graph-rest-1.0 Find more info here
     */
     public function post(SubCategoryTemplate $body, ?SubCategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

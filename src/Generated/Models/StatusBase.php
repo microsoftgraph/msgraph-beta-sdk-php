@@ -87,7 +87,7 @@ class StatusBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
+     * Gets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue. Supports $filter (eq, contains).
      * @return ProvisioningResult|null
     */
     public function getStatus(): ?ProvisioningResult {
@@ -133,7 +133,7 @@ class StatusBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
+     * Sets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue. Supports $filter (eq, contains).
      * @param ProvisioningResult|null $value Value to set for the status property.
     */
     public function setStatus(?ProvisioningResult $value): void {

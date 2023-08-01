@@ -27,7 +27,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the content property value. A field that represents the content of the transcript. Read-only.
+     * Gets the content property value. The content of the transcript. Read-only.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -64,7 +64,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the metadataContent property value. A field that represents the time-aligned metadata of the utterances in the transcript. Read-only.
+     * Gets the metadataContent property value. The time-aligned metadata of the utterances in the transcript. Read-only.
      * @return StreamInterface|null
     */
     public function getMetadataContent(): ?StreamInterface {
@@ -87,7 +87,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. A field that represents the content of the transcript. Read-only.
+     * Sets the content property value. The content of the transcript. Read-only.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
@@ -103,7 +103,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the metadataContent property value. A field that represents the time-aligned metadata of the utterances in the transcript. Read-only.
+     * Sets the metadataContent property value. The time-aligned metadata of the utterances in the transcript. Read-only.
      * @param StreamInterface|null $value Value to set for the metadataContent property.
     */
     public function setMetadataContent(?StreamInterface $value): void {

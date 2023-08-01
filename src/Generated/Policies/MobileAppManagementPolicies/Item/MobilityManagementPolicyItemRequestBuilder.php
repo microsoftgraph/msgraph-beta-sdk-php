@@ -43,7 +43,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
      * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/mobileappmanagementpolicies-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,7 +62,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/mobileappmanagementpolicies-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/mobileappmanagementpolicies-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

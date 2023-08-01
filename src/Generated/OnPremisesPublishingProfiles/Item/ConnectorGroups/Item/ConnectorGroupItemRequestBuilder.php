@@ -51,7 +51,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
      * Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
      * @param ConnectorGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ConnectorGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -70,7 +70,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties of a connectorGroup.
      * @param ConnectorGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectorGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +90,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ConnectorGroup $body, ?ConnectorGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

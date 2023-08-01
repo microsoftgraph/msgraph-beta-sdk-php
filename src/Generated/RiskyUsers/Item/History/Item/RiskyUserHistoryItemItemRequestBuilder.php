@@ -53,7 +53,7 @@ class RiskyUserHistoryItemItemRequestBuilder extends BaseRequestBuilder
      * Get a riskyUserHistoryItem object of a riskyUser.
      * @param RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

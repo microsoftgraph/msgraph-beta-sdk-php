@@ -33,10 +33,10 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A field that represents the content of the transcript. Read-only.
+     * The content of the transcript. Read-only.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0 Find more info here
     */
     public function get(?ContentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -52,7 +52,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A field that represents the content of the transcript. Read-only.
+     * The content of the transcript. Read-only.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -71,7 +71,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A field that represents the content of the transcript. Read-only.
+     * The content of the transcript. Read-only.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -88,7 +88,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A field that represents the content of the transcript. Read-only.
+     * The content of the transcript. Read-only.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

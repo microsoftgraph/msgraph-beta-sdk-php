@@ -39,7 +39,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the complianceSettings property value. The settings required for the connection to participate in eDiscovery, such as the display templates for eDiscovery results.
+     * Gets the complianceSettings property value. The complianceSettings property
      * @return ComplianceSettings|null
     */
     public function getComplianceSettings(): ?ComplianceSettings {
@@ -87,7 +87,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search and compliance.
+     * Gets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search.
      * @return ContentExperienceType|null
     */
     public function getEnabledContentExperiences(): ?ContentExperienceType {
@@ -268,7 +268,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the complianceSettings property value. The settings required for the connection to participate in eDiscovery, such as the display templates for eDiscovery results.
+     * Sets the complianceSettings property value. The complianceSettings property
      * @param ComplianceSettings|null $value Value to set for the complianceSettings property.
     */
     public function setComplianceSettings(?ComplianceSettings $value): void {
@@ -300,7 +300,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search and compliance.
+     * Sets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search.
      * @param ContentExperienceType|null $value Value to set for the enabledContentExperiences property.
     */
     public function setEnabledContentExperiences(?ContentExperienceType $value): void {

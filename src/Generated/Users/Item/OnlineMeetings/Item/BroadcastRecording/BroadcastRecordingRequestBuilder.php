@@ -35,7 +35,7 @@ class BroadcastRecordingRequestBuilder extends BaseRequestBuilder
      * Get broadcastRecording for the navigation property onlineMeetings from users
      * @param BroadcastRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BroadcastRecordingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -53,7 +53,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a adminForms object.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminforms-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminforms-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?FormsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminforms-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminforms-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AdminForms $body, ?FormsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

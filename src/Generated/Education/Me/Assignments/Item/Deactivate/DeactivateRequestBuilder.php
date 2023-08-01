@@ -32,10 +32,10 @@ class DeactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark an `assigned` educationAssignment as `inactive` to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.
+     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.
      * @param DeactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-1.0 Find more info here
     */
     public function post(?DeactivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -51,7 +51,7 @@ class DeactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark an `assigned` educationAssignment as `inactive` to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.
+     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.
      * @param DeactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

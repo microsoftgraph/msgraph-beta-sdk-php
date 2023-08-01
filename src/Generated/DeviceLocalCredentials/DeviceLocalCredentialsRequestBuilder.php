@@ -48,7 +48,7 @@ class DeviceLocalCredentialsRequestBuilder extends BaseRequestBuilder
      * Get a list of the deviceLocalCredentialInfo objects and their properties excluding the credentials. 
      * @param DeviceLocalCredentialsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/devicelocalcredentialinfo-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/devicelocalcredentialinfo-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLocalCredentialsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

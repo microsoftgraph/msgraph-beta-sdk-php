@@ -35,7 +35,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
      * @param UpdateSoftwarePostRequestBody $body The request body
      * @param UpdateSoftwareRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdateSoftwarePostRequestBody $body, ?UpdateSoftwareRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

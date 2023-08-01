@@ -53,10 +53,10 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a **decisions** relationship.  Instead, the caller must navigate the **instance** relationship to find an accessReview object for a current or past instance of the access review.
+     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-1.0 Find more info here
     */
     public function get(?DecisionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +91,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a **decisions** relationship.  Instead, the caller must navigate the **instance** relationship to find an accessReview object for a current or past instance of the access review.
+     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

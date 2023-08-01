@@ -93,7 +93,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
+     * Gets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of ParameterName:ParameterValue. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
      * @return string|null
     */
     public function getSetting(): ?string {
@@ -148,7 +148,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
+     * Sets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of ParameterName:ParameterValue. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
      * @param string|null $value Value to set for the setting property.
     */
     public function setSetting(?string $value): void {

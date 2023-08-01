@@ -53,7 +53,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of an alertRule object.
      * @param AlertRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/devicemanagement-alertrule-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/devicemanagement-alertrule-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlertRuleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
      * @param AlertRule $body The request body
      * @param AlertRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/devicemanagement-alertrule-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/devicemanagement-alertrule-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AlertRule $body, ?AlertRuleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

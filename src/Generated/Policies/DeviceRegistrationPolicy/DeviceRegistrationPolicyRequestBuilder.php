@@ -35,7 +35,7 @@ class DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
      * @param DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -55,7 +55,7 @@ class DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder
      * @param DeviceRegistrationPolicy $body The request body
      * @param DeviceRegistrationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(DeviceRegistrationPolicy $body, ?DeviceRegistrationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

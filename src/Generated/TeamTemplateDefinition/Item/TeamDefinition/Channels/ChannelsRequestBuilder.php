@@ -72,7 +72,7 @@ class ChannelsRequestBuilder extends BaseRequestBuilder
      * Retrieve the list of channels in this team.
      * @param ChannelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/channel-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/channel-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ChannelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -88,11 +88,11 @@ class ChannelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's `displayName` is 50 characters. This is the name that appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
+     * Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's displayName is 50 characters. This is the name that appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
      * @param Channel $body The request body
      * @param ChannelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/channel-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/channel-post?view=graph-rest-1.0 Find more info here
     */
     public function post(Channel $body, ?ChannelsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -129,7 +129,7 @@ class ChannelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's `displayName` is 50 characters. This is the name that appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
+     * Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's displayName is 50 characters. This is the name that appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
      * @param Channel $body The request body
      * @param ChannelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

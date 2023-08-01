@@ -61,7 +61,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a plannerPlanConfiguration object.
      * @param PlanConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlanConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +81,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerPlanConfiguration $body, ?PlanConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -32,11 +32,11 @@ class MarkAsJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the **Junk Email** folder, when **moveToJunk** is `true`.
+     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true.
      * @param MarkAsJunkPostRequestBody $body The request body
      * @param MarkAsJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/message-markasjunk?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/message-markasjunk?view=graph-rest-1.0 Find more info here
     */
     public function post(MarkAsJunkPostRequestBody $body, ?MarkAsJunkRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -52,7 +52,7 @@ class MarkAsJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the **Junk Email** folder, when **moveToJunk** is `true`.
+     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true.
      * @param MarkAsJunkPostRequestBody $body The request body
      * @param MarkAsJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

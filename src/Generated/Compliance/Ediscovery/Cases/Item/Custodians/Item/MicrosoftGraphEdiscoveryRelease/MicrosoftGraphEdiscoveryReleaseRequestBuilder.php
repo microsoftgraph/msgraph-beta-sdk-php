@@ -34,7 +34,7 @@ class MicrosoftGraphEdiscoveryReleaseRequestBuilder extends BaseRequestBuilder
      * Release a custodian from a case. For details, see Release a custodian from a case.
      * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-custodian-release?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-release?view=graph-rest-1.0 Find more info here
     */
     public function post(?MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

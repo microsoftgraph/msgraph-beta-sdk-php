@@ -56,7 +56,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of publishedResource objects.
      * @param PublishedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/publishedresource-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/publishedresource-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublishedResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
      * @param PublishedResource $body The request body
      * @param PublishedResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/publishedresource-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/publishedresource-post?view=graph-rest-1.0 Find more info here
     */
     public function post(PublishedResource $body, ?PublishedResourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

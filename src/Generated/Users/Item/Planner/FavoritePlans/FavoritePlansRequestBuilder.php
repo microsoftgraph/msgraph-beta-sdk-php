@@ -55,7 +55,7 @@ class FavoritePlansRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource.
      * @param FavoritePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/planneruser-list-favoriteplans?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/planneruser-list-favoriteplans?view=graph-rest-1.0 Find more info here
     */
     public function get(?FavoritePlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

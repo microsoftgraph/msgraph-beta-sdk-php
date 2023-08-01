@@ -35,7 +35,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
      * Delete a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-delete-citations?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-citations?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CitationTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CitationTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

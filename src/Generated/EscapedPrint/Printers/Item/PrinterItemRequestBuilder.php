@@ -99,7 +99,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
      * Delete (unregister) a printer.
      * @param PrinterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PrinterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -118,7 +118,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a printer object.
      * @param PrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/printer-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/printer-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrinterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -138,7 +138,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
      * @param Printer $body The request body
      * @param PrinterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/printer-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/printer-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Printer $body, ?PrinterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

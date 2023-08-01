@@ -88,7 +88,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
      * Get a list of sensitivityLabel objects associated with a user or organization.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0 Find more info here
     */
     public function get(?SensitivityLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -36,7 +36,7 @@ class RevokeGrantsRequestBuilder extends BaseRequestBuilder
      * @param RevokeGrantsPostRequestBody $body The request body
      * @param RevokeGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-1.0 Find more info here
     */
     public function post(RevokeGrantsPostRequestBody $body, ?RevokeGrantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

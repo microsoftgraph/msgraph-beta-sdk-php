@@ -56,7 +56,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
      * Get a list of the ediscoveryHoldPolicy objects and their properties.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-legalholds?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-legalholds?view=graph-rest-1.0 Find more info here
     */
     public function get(?LegalHoldsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
      * @param EdiscoveryHoldPolicy $body The request body
      * @param LegalHoldsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-legalholds?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-legalholds?view=graph-rest-1.0 Find more info here
     */
     public function post(EdiscoveryHoldPolicy $body, ?LegalHoldsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -56,7 +56,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
      * Get a list of bookmark objects and their properties.
      * @param BookmarksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-searchentity-list-bookmarks?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-searchentity-list-bookmarks?view=graph-rest-1.0 Find more info here
     */
     public function get(?BookmarksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
      * @param Bookmark $body The request body
      * @param BookmarksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-searchentity-post-bookmarks?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-searchentity-post-bookmarks?view=graph-rest-1.0 Find more info here
     */
     public function post(Bookmark $body, ?BookmarksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

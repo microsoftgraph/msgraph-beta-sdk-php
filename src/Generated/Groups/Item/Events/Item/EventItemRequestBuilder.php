@@ -131,7 +131,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
      * Delete an event object.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -150,7 +150,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
      * Get an event object.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0 Find more info here
     */
     public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -170,7 +170,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/group-update-event?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-update-event?view=graph-rest-1.0 Find more info here
     */
     public function patch(Event $body, ?EventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

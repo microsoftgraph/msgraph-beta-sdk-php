@@ -64,7 +64,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
      * Get a list of plannerPlan objects.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,11 +80,11 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new **plannerPlan**.
+     * Create a new plannerPlan.
      * @param PlannerPlan $body The request body
      * @param PlansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0 Find more info here
     */
     public function post(PlannerPlan $body, ?PlansRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -121,7 +121,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new **plannerPlan**.
+     * Create a new plannerPlan.
      * @param PlannerPlan $body The request body
      * @param PlansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

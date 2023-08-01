@@ -32,11 +32,11 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the **Inbox** folder, when **moveToInbox** is `true`.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-1.0 Find more info here
     */
     public function post(MarkAsNotJunkPostRequestBody $body, ?MarkAsNotJunkRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -52,7 +52,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the **Inbox** folder, when **moveToInbox** is `true`.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

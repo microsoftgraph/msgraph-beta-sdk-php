@@ -67,7 +67,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
      * Delete a timeCard instance in a schedule.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/timecard-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/timecard-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TimeCardItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -86,7 +86,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
      * Get the properties and relationships of a timeCard object by ID.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/timecard-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/timecard-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TimeCardItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -106,7 +106,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
      * @param TimeCard $body The request body
      * @param TimeCardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/timecard-replace?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/timecard-replace?view=graph-rest-1.0 Find more info here
     */
     public function patch(TimeCard $body, ?TimeCardItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

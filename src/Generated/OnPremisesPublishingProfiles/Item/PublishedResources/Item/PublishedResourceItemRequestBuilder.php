@@ -61,7 +61,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of publishedResource object.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/publishedresource-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/publishedresource-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublishedResourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +81,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/publishedresource-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/publishedresource-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PublishedResource $body, ?PublishedResourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
