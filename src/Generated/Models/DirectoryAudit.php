@@ -27,7 +27,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Supports $filter (eq, ge, le) and $orderby.
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities.
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
      * @return string|null
     */
     public function getActivityDisplayName(): ?string {
@@ -77,7 +77,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.
+     * Gets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. Supports $filter (eq).
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -123,7 +123,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.
+     * Gets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. Supports $filter (eq).
      * @return string|null
     */
     public function getLoggedByService(): ?string {
@@ -171,7 +171,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetResources property value. Information about the resource that changed due to the activity.
+     * Gets the targetResources property value. Information about the resource that changed due to the activity. Supports $filter (eq) for id and displayName; and $filter (startswith) for displayName.
      * @return array<TargetResource>|null
     */
     public function getTargetResources(): ?array {
@@ -217,7 +217,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Supports $filter (eq, ge, le) and $orderby.
      * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
@@ -225,7 +225,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities.
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
      * @param string|null $value Value to set for the activityDisplayName property.
     */
     public function setActivityDisplayName(?string $value): void {
@@ -249,7 +249,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.
+     * Sets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. Supports $filter (eq).
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -265,7 +265,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.
+     * Sets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. Supports $filter (eq).
      * @param string|null $value Value to set for the loggedByService property.
     */
     public function setLoggedByService(?string $value): void {
@@ -297,7 +297,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetResources property value. Information about the resource that changed due to the activity.
+     * Sets the targetResources property value. Information about the resource that changed due to the activity. Supports $filter (eq) for id and displayName; and $filter (startswith) for displayName.
      * @param array<TargetResource>|null $value Value to set for the targetResources property.
     */
     public function setTargetResources(?array $value): void {

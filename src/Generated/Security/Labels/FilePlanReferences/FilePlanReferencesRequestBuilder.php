@@ -56,7 +56,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
      * Get a list of the filePlanReferenceTemplate objects and their properties.
      * @param FilePlanReferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-list-fileplanreferences?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-list-fileplanreferences?view=graph-rest-1.0 Find more info here
     */
     public function get(?FilePlanReferencesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
      * @param FilePlanReferenceTemplate $body The request body
      * @param FilePlanReferencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-post-fileplanreferences?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-post-fileplanreferences?view=graph-rest-1.0 Find more info here
     */
     public function post(FilePlanReferenceTemplate $body, ?FilePlanReferencesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

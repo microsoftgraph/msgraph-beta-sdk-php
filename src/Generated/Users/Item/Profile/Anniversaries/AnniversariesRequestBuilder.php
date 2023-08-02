@@ -56,7 +56,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of personAnniversary objects for the given user from their profile.
      * @param AnniversariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-anniversaries?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-anniversaries?view=graph-rest-1.0 Find more info here
     */
     public function get(?AnniversariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
      * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-anniversaries?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-anniversaries?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonAnnualEvent $body, ?AnniversariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

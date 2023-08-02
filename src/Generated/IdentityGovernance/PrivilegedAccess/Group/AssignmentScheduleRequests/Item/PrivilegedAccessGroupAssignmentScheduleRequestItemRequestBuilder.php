@@ -93,7 +93,7 @@ class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder extends B
      * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
      * @param PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -43,7 +43,7 @@ class RootRequestBuilder extends BaseRequestBuilder
      * Retrieve the metadata for a driveItem in a drive by file system path or ID.
      * @param RootRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/driveitem-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/driveitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RootRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -35,7 +35,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
      * Delete an itemEmail object from a user's profile.
      * @param ItemEmailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/itememail-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/itememail-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ItemEmailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param ItemEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/itememail-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/itememail-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemEmailItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
      * @param ItemEmail $body The request body
      * @param ItemEmailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/itememail-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/itememail-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemEmail $body, ?ItemEmailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -55,7 +55,7 @@ class SubdomainsRequestBuilder extends BaseRequestBuilder
      * Get the list of subdomain resources associated with a host.
      * @param SubdomainsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-host-list-subdomains?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-host-list-subdomains?view=graph-rest-1.0 Find more info here
     */
     public function get(?SubdomainsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

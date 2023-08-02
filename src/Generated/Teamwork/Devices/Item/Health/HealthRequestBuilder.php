@@ -53,7 +53,7 @@ class HealthRequestBuilder extends BaseRequestBuilder
      * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
      * @param HealthRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?HealthRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

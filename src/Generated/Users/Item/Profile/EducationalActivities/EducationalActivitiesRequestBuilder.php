@@ -56,7 +56,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of educationalActivity objects from a user's profile.
      * @param EducationalActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-educationalactivities?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-educationalactivities?view=graph-rest-1.0 Find more info here
     */
     public function get(?EducationalActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
      * @param EducationalActivity $body The request body
      * @param EducationalActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-educationalactivities?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-educationalactivities?view=graph-rest-1.0 Find more info here
     */
     public function post(EducationalActivity $body, ?EducationalActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

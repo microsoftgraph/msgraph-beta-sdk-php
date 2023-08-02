@@ -56,7 +56,7 @@ class SecureScoresRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a secureScores object.
      * @param SecureScoresRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?SecureScoresRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

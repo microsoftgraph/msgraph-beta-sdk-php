@@ -85,10 +85,10 @@ class DirectorySettingTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available **directorySettingTemplates** objects.
+     * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available directorySettingTemplates objects.
      * @param DirectorySettingTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/directorysettingtemplate-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directorysettingtemplate-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?DirectorySettingTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -123,7 +123,7 @@ class DirectorySettingTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available **directorySettingTemplates** objects.
+     * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available directorySettingTemplates objects.
      * @param DirectorySettingTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

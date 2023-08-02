@@ -56,7 +56,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
      * List properties and relationships of the cloudPcOnPremisesConnection objects.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualendpoint-list-onpremisesconnections?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-onpremisesconnections?view=graph-rest-1.0 Find more info here
     */
     public function get(?OnPremisesConnectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
      * @param CloudPcOnPremisesConnection $body The request body
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualendpoint-post-onpremisesconnections?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-onpremisesconnections?view=graph-rest-1.0 Find more info here
     */
     public function post(CloudPcOnPremisesConnection $body, ?OnPremisesConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

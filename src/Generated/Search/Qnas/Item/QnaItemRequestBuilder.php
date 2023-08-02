@@ -35,7 +35,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
      * Delete a qna object.
      * @param QnaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-qna-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?QnaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a qna object.
      * @param QnaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-qna-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?QnaItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
      * @param Qna $body The request body
      * @param QnaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-qna-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-qna-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Qna $body, ?QnaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

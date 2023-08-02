@@ -56,7 +56,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of onPremisesAgentGroup objects.
      * @param AgentGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/onpremisesagentgroup-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?AgentGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
      * @param OnPremisesAgentGroup $body The request body
      * @param AgentGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/onpremisesagentgroup-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(OnPremisesAgentGroup $body, ?AgentGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

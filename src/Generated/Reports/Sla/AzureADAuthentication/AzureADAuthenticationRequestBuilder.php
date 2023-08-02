@@ -53,7 +53,7 @@ class AzureADAuthenticationRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of an azureADAuthentication object to find the level of Azure AD authentication availability for your tenant. The Azure AD Service Level Agreement (SLA) commits to at least 99.99% authentication availability, as described in Azure Active Directory SLA performance. This object provides you with your tenant’s actual performance against this commitment.
      * @param AzureADAuthenticationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/azureadauthentication-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/azureadauthentication-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AzureADAuthenticationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -53,7 +53,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
      * Get the activity status of a Microsoft Teams-enabled device. 
      * @param ActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ActivityRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

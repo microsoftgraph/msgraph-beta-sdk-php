@@ -34,7 +34,7 @@ class FindRoomListsRequestBuilder extends BaseRequestBuilder
      * Get the room lists defined in a tenant, as represented by their emailAddress objects. Tenants can organize meeting rooms into room lists. In this API, each meeting room and room list is represented by an emailAddress instance.You can get all the room lists in the tenant, get all the rooms in the tenant, or get all the rooms in a specific room list.
      * @param FindRoomListsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/user-findroomlists?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/user-findroomlists?view=graph-rest-1.0 Find more info here
     */
     public function get(?FindRoomListsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

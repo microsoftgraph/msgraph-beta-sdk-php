@@ -53,7 +53,7 @@ class TaskConfigurationRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a plannerTaskConfiguration object.
      * @param TaskConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannertaskconfiguration-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannertaskconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class TaskConfigurationRequestBuilder extends BaseRequestBuilder
      * @param PlannerTaskConfiguration $body The request body
      * @param TaskConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannertaskconfiguration-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannertaskconfiguration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerTaskConfiguration $body, ?TaskConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

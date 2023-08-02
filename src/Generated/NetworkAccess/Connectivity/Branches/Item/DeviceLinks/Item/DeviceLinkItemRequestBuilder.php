@@ -35,7 +35,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
      * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the device link associated with a specific branch.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/networkaccess-devicelink-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(DeviceLink $body, ?DeviceLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

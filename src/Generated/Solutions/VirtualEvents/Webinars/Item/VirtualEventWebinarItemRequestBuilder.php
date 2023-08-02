@@ -77,7 +77,7 @@ class VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a virtualEventWebinar object.
      * @param VirtualEventWebinarItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?VirtualEventWebinarItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

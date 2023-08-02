@@ -43,7 +43,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
      * In the Azure AD access reviews feature, delete a programControl object.  This unlinks an access review from a program.
      * @param ProgramControlItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProgramControlItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);

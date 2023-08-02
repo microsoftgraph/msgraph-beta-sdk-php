@@ -35,7 +35,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
      * Delete an educationalActivity object from a user's profile.
      * @param EducationalActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationalactivity-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationalactivity-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EducationalActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of an educationalActivity object from a users profile.
      * @param EducationalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationalactivity-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationalactivity-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EducationalActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
      * @param EducationalActivity $body The request body
      * @param EducationalActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationalactivity-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationalactivity-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EducationalActivity $body, ?EducationalActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

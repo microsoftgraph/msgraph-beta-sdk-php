@@ -36,7 +36,7 @@ class UploadPkcs12RequestBuilder extends BaseRequestBuilder
      * @param UploadPkcs12PostRequestBody $body The request body
      * @param UploadPkcs12RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-1.0 Find more info here
     */
     public function post(UploadPkcs12PostRequestBody $body, ?UploadPkcs12RequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

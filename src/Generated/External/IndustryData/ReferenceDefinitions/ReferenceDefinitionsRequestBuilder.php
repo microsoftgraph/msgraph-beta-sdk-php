@@ -56,7 +56,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
      * Get a list of the referenceDefinition objects and their properties.
      * @param ReferenceDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-referencedefinition-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-referencedefinition-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReferenceDefinitionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -31,11 +31,11 @@ class RenameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Rename a specific Cloud PC. Use this API to update the **displayName** for the Cloud PC entity.
+     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.
      * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-1.0 Find more info here
     */
     public function post(RenamePostRequestBody $body, ?RenameRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +51,7 @@ class RenameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Rename a specific Cloud PC. Use this API to update the **displayName** for the Cloud PC entity.
+     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.
      * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

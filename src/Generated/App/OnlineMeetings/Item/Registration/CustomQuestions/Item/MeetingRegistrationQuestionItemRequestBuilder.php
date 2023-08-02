@@ -35,7 +35,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
      * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistrationquestion-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
      * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistrationquestion-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistrationquestion-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

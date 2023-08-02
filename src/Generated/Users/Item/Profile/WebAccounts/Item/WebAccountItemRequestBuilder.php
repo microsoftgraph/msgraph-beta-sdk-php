@@ -35,7 +35,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
      * Delete a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/webaccount-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/webaccount-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WebAccountItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/webaccount-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/webaccount-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebAccountItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
      * @param WebAccount $body The request body
      * @param WebAccountItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/webaccount-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/webaccount-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(WebAccount $body, ?WebAccountItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

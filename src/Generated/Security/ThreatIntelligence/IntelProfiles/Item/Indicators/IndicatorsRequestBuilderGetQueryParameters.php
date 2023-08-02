@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfil
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the intelligenceProfileIndicator resources from the **indicators** navigation property of an intelligenceProfile.
+ * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
 */
 class IndicatorsRequestBuilderGetQueryParameters 
 {

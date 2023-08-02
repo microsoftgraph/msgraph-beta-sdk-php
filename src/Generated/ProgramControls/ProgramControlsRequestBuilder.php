@@ -56,7 +56,7 @@ class ProgramControlsRequestBuilder extends BaseRequestBuilder
      * In the Azure AD access reviews feature, list all the programControl objects, across all programs in the tenant.
      * @param ProgramControlsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/programcontrol-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/programcontrol-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProgramControlsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class ProgramControlsRequestBuilder extends BaseRequestBuilder
      * @param ProgramControl $body The request body
      * @param ProgramControlsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/programcontrol-create?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/programcontrol-create?view=graph-rest-1.0 Find more info here
     */
     public function post(ProgramControl $body, ?ProgramControlsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

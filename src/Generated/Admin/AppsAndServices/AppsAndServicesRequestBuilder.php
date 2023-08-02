@@ -53,7 +53,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a adminAppsAndServices object.
      * @param AppsAndServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminappsandservices-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminappsandservices-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AppsAndServicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
      * @param AdminAppsAndServices $body The request body
      * @param AppsAndServicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminappsandservices-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminappsandservices-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AdminAppsAndServices $body, ?AppsAndServicesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

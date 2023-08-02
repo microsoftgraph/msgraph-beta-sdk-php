@@ -56,7 +56,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-emails?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-emails?view=graph-rest-1.0 Find more info here
     */
     public function get(?EmailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
      * @param ItemEmail $body The request body
      * @param EmailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-emails?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-emails?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemEmail $body, ?EmailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -56,7 +56,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
      * Retrieves properties related to the user's accounts from the profile.
      * @param AccountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-accounts?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-accounts?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
      * @param UserAccountInformation $body The request body
      * @param AccountRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-accounts?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-accounts?view=graph-rest-1.0 Find more info here
     */
     public function post(UserAccountInformation $body, ?AccountRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

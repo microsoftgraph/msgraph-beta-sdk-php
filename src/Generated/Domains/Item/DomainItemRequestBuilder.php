@@ -99,7 +99,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * Deletes a domain from a tenant.
      * @param DomainItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DomainItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -118,7 +118,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of domain object.
      * @param DomainItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/domain-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DomainItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -138,7 +138,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * @param Domain $body The request body
      * @param DomainItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/domain-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Domain $body, ?DomainItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

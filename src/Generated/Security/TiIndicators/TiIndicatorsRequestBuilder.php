@@ -88,7 +88,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of tiIndicator objects.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/tiindicators-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?TiIndicatorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +108,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/tiindicators-post?view=graph-rest-1.0 Find more info here
     */
     public function post(TiIndicator $body, ?TiIndicatorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

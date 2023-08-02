@@ -64,7 +64,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
      * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
      * @param DeviceImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualendpoint-list-deviceimages?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-deviceimages?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceImagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,7 +84,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
      * @param CloudPcDeviceImage $body The request body
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualendpoint-post-deviceimages?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-deviceimages?view=graph-rest-1.0 Find more info here
     */
     public function post(CloudPcDeviceImage $body, ?DeviceImagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -56,7 +56,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of userflows.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?UserFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identityuserflow-post-userflows?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identityuserflow-post-userflows?view=graph-rest-1.0 Find more info here
     */
     public function post(IdentityUserFlow $body, ?UserFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

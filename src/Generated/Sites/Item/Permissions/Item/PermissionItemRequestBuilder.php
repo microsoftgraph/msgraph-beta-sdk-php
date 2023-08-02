@@ -69,7 +69,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a permission object on a site.
      * @param PermissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +89,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
      * @param Permission $body The request body
      * @param PermissionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0 Find more info here
     */
     public function patch(Permission $body, ?PermissionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

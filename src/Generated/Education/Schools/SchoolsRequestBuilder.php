@@ -64,7 +64,7 @@ class SchoolsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of all school objects.
      * @param SchoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationroot-list-schools?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationroot-list-schools?view=graph-rest-1.0 Find more info here
     */
     public function get(?SchoolsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,7 +84,7 @@ class SchoolsRequestBuilder extends BaseRequestBuilder
      * @param EducationSchool $body The request body
      * @param SchoolsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationroot-post-schools?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationroot-post-schools?view=graph-rest-1.0 Find more info here
     */
     public function post(EducationSchool $body, ?SchoolsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

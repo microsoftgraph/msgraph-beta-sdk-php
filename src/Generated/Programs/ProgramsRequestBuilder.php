@@ -56,7 +56,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
      * In the Azure AD access reviews feature, list all the program objects.
      * @param ProgramsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/program-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/program-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProgramsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
      * @param Program $body The request body
      * @param ProgramsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/program-create?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/program-create?view=graph-rest-1.0 Find more info here
     */
     public function post(Program $body, ?ProgramsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

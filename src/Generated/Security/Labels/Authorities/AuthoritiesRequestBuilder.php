@@ -56,7 +56,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
      * Get a list of the authorityTemplate objects and their properties.
      * @param AuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-list-authorities?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-list-authorities?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
      * @param AuthorityTemplate $body The request body
      * @param AuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-labelsroot-post-authorities?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-labelsroot-post-authorities?view=graph-rest-1.0 Find more info here
     */
     public function post(AuthorityTemplate $body, ?AuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

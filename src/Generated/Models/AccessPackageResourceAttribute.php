@@ -60,7 +60,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
+     * Gets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension2b676109c7c74ae2b41549205f1947edpersonalTitle.
      * @return string|null
     */
     public function getAttributeName(): ?string {
@@ -188,7 +188,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
+     * Sets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension2b676109c7c74ae2b41549205f1947edpersonalTitle.
      * @param string|null $value Value to set for the attributeName property.
     */
     public function setAttributeName(?string $value): void {

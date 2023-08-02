@@ -91,7 +91,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
      * Delete a sourceCollection object.
      * @param SourceCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SourceCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -129,7 +129,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
      * @param SourceCollection $body The request body
      * @param SourceCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SourceCollection $body, ?SourceCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

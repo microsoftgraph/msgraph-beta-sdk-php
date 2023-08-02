@@ -53,10 +53,10 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group `My Tasks`, and any other task groups that have been created in the mailbox.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
      * @param OutlookTaskGroup $body The request body
      * @param TaskGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlookuser-post-taskgroups?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/outlookuser-post-taskgroups?view=graph-rest-1.0 Find more info here
     */
     public function post(OutlookTaskGroup $body, ?TaskGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -92,7 +92,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group `My Tasks`, and any other task groups that have been created in the mailbox.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -56,7 +56,7 @@ class IntelligenceProfileCountryOrRegionOfOrigin implements AdditionalDataHolder
     }
 
     /**
-     * Gets the code property value. The code property
+     * Gets the code property value. A codified representation for this country/region of origin.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -81,7 +81,7 @@ class IntelligenceProfileCountryOrRegionOfOrigin implements AdditionalDataHolder
     }
 
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. A display label for this ountry/region of origin.
      * @return string|null
     */
     public function getLabel(): ?string {
@@ -132,7 +132,7 @@ class IntelligenceProfileCountryOrRegionOfOrigin implements AdditionalDataHolder
     }
 
     /**
-     * Sets the code property value. The code property
+     * Sets the code property value. A codified representation for this country/region of origin.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
@@ -140,7 +140,7 @@ class IntelligenceProfileCountryOrRegionOfOrigin implements AdditionalDataHolder
     }
 
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. A display label for this ountry/region of origin.
      * @param string|null $value Value to set for the label property.
     */
     public function setLabel(?string $value): void {

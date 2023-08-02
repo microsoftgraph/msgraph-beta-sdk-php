@@ -53,7 +53,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
      * @param ContinuousAccessEvaluationPolicy $body The request body
      * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

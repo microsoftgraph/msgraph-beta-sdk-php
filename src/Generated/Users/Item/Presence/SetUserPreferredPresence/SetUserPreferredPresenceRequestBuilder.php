@@ -35,7 +35,7 @@ class SetUserPreferredPresenceRequestBuilder extends BaseRequestBuilder
      * @param SetUserPreferredPresencePostRequestBody $body The request body
      * @param SetUserPreferredPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/presence-setuserpreferredpresence?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/presence-setuserpreferredpresence?view=graph-rest-1.0 Find more info here
     */
     public function post(SetUserPreferredPresencePostRequestBody $body, ?SetUserPreferredPresenceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

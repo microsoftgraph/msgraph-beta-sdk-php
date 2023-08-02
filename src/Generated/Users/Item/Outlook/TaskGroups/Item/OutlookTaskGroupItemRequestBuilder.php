@@ -61,7 +61,7 @@ class OutlookTaskGroupItemRequestBuilder extends BaseRequestBuilder
      * Get the properties and relationships of the specified Outlook task group.
      * @param OutlookTaskGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlooktaskgroup-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutlookTaskGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

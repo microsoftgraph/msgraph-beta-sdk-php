@@ -93,7 +93,7 @@ class RecommendationItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a recommendation object.
      * @param RecommendationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/recommendation-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/recommendation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RecommendationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

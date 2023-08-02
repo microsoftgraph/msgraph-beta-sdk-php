@@ -56,7 +56,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of device links associated with a specific branch.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLinksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function post(DeviceLink $body, ?DeviceLinksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
