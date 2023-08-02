@@ -56,7 +56,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
      * Get a list of deploymentAudience objects and their properties.
      * @param DeploymentAudiencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminwindowsupdates-list-deploymentaudiences?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deploymentaudiences?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeploymentAudiencesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
      * @param DeploymentAudience $body The request body
      * @param DeploymentAudiencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/adminwindowsupdates-post-deploymentaudiences?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deploymentaudiences?view=graph-rest-1.0 Find more info here
     */
     public function post(DeploymentAudience $body, ?DeploymentAudiencesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -56,7 +56,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of webAccounts objects from the user's profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-webaccounts?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-webaccounts?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebAccountsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
      * @param WebAccount $body The request body
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-webaccounts?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-webaccounts?view=graph-rest-1.0 Find more info here
     */
     public function post(WebAccount $body, ?WebAccountsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

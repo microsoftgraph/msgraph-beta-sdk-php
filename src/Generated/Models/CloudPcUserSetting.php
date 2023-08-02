@@ -107,7 +107,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the resetEnabled property value. The resetEnabled property
+     * Gets the resetEnabled property value. Indicates whether an end user is allowed to reset their Cloud PC. When true, the user is allowed to reset their Cloud PC. When false, end-user initiated reset is not allowed. The default value is false.
      * @return bool|null
     */
     public function getResetEnabled(): ?bool {
@@ -199,7 +199,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the resetEnabled property value. The resetEnabled property
+     * Sets the resetEnabled property value. Indicates whether an end user is allowed to reset their Cloud PC. When true, the user is allowed to reset their Cloud PC. When false, end-user initiated reset is not allowed. The default value is false.
      * @param bool|null $value Value to set for the resetEnabled property.
     */
     public function setResetEnabled(?bool $value): void {

@@ -122,7 +122,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourcePath property value. The Resource Path associated with the printer. This corresponds to the rp parameter of the ipps.tcp Bonjour record. For example: printers/Canon_MG5300_series, printers/Xerox_Phaser_7600, ipp/print, Epson_IPP_Printer.
+     * Gets the resourcePath property value. The Resource Path associated with the printer. This corresponds to the rp parameter of the ipps.tcp Bonjour record. For example: printers/CanonMG5300series, printers/XeroxPhaser7600, ipp/print, EpsonIPPPrinter.
      * @return string|null
     */
     public function getResourcePath(): ?string {
@@ -195,7 +195,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourcePath property value. The Resource Path associated with the printer. This corresponds to the rp parameter of the ipps.tcp Bonjour record. For example: printers/Canon_MG5300_series, printers/Xerox_Phaser_7600, ipp/print, Epson_IPP_Printer.
+     * Sets the resourcePath property value. The Resource Path associated with the printer. This corresponds to the rp parameter of the ipps.tcp Bonjour record. For example: printers/CanonMG5300series, printers/XeroxPhaser7600, ipp/print, EpsonIPPPrinter.
      * @param string|null $value Value to set for the resourcePath property.
     */
     public function setResourcePath(?string $value): void {

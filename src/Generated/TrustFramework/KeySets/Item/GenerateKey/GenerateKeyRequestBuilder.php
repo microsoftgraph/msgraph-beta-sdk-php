@@ -36,7 +36,7 @@ class GenerateKeyRequestBuilder extends BaseRequestBuilder
      * @param GenerateKeyPostRequestBody $body The request body
      * @param GenerateKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-1.0 Find more info here
     */
     public function post(GenerateKeyPostRequestBody $body, ?GenerateKeyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -57,7 +57,7 @@ class ComplianceSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eDiscoveryResultTemplates property value. Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. Maximum of two eDiscovery result templates per connection.
+     * Gets the eDiscoveryResultTemplates property value. The eDiscoveryResultTemplates property
      * @return array<DisplayTemplate>|null
     */
     public function getEDiscoveryResultTemplates(): ?array {
@@ -121,7 +121,7 @@ class ComplianceSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eDiscoveryResultTemplates property value. Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. Maximum of two eDiscovery result templates per connection.
+     * Sets the eDiscoveryResultTemplates property value. The eDiscoveryResultTemplates property
      * @param array<DisplayTemplate>|null $value Value to set for the eDiscoveryResultTemplates property.
     */
     public function setEDiscoveryResultTemplates(?array $value): void {

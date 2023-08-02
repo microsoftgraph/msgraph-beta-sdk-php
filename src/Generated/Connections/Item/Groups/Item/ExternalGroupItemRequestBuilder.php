@@ -43,7 +43,7 @@ class ExternalGroupItemRequestBuilder extends BaseRequestBuilder
      * Delete an externalGroup object.
      * @param ExternalGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ExternalGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);

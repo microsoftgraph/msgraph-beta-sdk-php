@@ -56,7 +56,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of personCertification objects from a user's profile.
      * @param CertificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-certifications?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-certifications?view=graph-rest-1.0 Find more info here
     */
     public function get(?CertificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
      * @param PersonCertification $body The request body
      * @param CertificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-certifications?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-certifications?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonCertification $body, ?CertificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -48,10 +48,10 @@ class CloudPcOnPremisesConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the **inUse** property.
+     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the inUse property.
      * @param CloudPcOnPremisesConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpconpremisesconnection-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CloudPcOnPremisesConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -70,7 +70,7 @@ class CloudPcOnPremisesConnectionItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of the cloudPcOnPremisesConnection object.
      * @param CloudPcOnPremisesConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpconpremisesconnection-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcOnPremisesConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +90,7 @@ class CloudPcOnPremisesConnectionItemRequestBuilder extends BaseRequestBuilder
      * @param CloudPcOnPremisesConnection $body The request body
      * @param CloudPcOnPremisesConnectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpconpremisesconnection-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CloudPcOnPremisesConnection $body, ?CloudPcOnPremisesConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -106,7 +106,7 @@ class CloudPcOnPremisesConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the **inUse** property.
+     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the inUse property.
      * @param CloudPcOnPremisesConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

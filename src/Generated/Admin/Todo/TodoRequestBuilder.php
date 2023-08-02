@@ -53,7 +53,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a adminTodo object.
      * @param TodoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/admintodo-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/admintodo-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TodoRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
      * @param AdminTodo $body The request body
      * @param TodoRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/admintodo-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/admintodo-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AdminTodo $body, ?TodoRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

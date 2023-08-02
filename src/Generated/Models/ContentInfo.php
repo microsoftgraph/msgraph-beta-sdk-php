@@ -96,7 +96,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
+     * Gets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIPLabelGUID_PropName.
      * @return array<KeyValuePair>|null
     */
     public function getMetadata(): ?array {
@@ -179,7 +179,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
+     * Sets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIPLabelGUID_PropName.
      * @param array<KeyValuePair>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {

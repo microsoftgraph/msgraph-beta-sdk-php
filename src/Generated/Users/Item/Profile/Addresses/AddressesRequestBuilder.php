@@ -53,10 +53,10 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the itemAddress resources from the **addresses** navigation property.
+     * Get the itemAddress resources from the addresses navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0 Find more info here
     */
     public function get(?AddressesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
      * @param ItemAddress $body The request body
      * @param AddressesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemAddress $body, ?AddressesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -92,7 +92,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the itemAddress resources from the **addresses** navigation property.
+     * Get the itemAddress resources from the addresses navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

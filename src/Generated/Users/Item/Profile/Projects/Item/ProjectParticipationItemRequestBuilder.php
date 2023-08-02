@@ -35,7 +35,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
      * Delete a projectParticipation object from a user's profile.
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/projectparticipation-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/projectparticipation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProjectParticipationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/projectparticipation-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/projectparticipation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProjectParticipationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/projectparticipation-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/projectparticipation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ProjectParticipation $body, ?ProjectParticipationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

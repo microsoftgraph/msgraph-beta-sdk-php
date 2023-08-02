@@ -35,7 +35,7 @@ class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder
      * Delete the specified audioRoutingGroup.
      * @param AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of an audioRoutingGroup object.
      * @param AudioRoutingGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AudioRoutingGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder
      * @param AudioRoutingGroup $body The request body
      * @param AudioRoutingGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AudioRoutingGroup $body, ?AudioRoutingGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

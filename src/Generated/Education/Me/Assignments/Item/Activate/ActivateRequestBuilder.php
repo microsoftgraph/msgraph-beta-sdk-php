@@ -32,10 +32,10 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate an `inactive` educationAssignment to signal that the assignment has further action items for teachers and students. This action can only be performed by a teacher on currently inactive assignments.
+     * Activate an inactive educationAssignment to signal that the assignment has further action items for teachers and students. This action can only be performed by a teacher on currently inactive assignments.
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/educationassignment-activate?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationassignment-activate?view=graph-rest-1.0 Find more info here
     */
     public function post(?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -51,7 +51,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate an `inactive` educationAssignment to signal that the assignment has further action items for teachers and students. This action can only be performed by a teacher on currently inactive assignments.
+     * Activate an inactive educationAssignment to signal that the assignment has further action items for teachers and students. This action can only be performed by a teacher on currently inactive assignments.
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

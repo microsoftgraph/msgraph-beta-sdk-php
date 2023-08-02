@@ -56,7 +56,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of itemPublication objects from a user's profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-publications?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-publications?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-publications?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-publications?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemPublication $body, ?PublicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

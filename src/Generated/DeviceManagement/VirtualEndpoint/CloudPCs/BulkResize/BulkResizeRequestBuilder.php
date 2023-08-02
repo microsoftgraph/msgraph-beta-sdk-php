@@ -31,11 +31,11 @@ class BulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices cannot be resized, those devices will indicate 'resize failed'. The remaining devices will be `provisioned` for the resize process.
+     * Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices cannot be resized, those devices will indicate 'resize failed'. The remaining devices will be provisioned for the resize process.
      * @param BulkResizePostRequestBody $body The request body
      * @param BulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-1.0 Find more info here
     */
     public function post(BulkResizePostRequestBody $body, ?BulkResizeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +51,7 @@ class BulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices cannot be resized, those devices will indicate 'resize failed'. The remaining devices will be `provisioned` for the resize process.
+     * Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices cannot be resized, those devices will indicate 'resize failed'. The remaining devices will be provisioned for the resize process.
      * @param BulkResizePostRequestBody $body The request body
      * @param BulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

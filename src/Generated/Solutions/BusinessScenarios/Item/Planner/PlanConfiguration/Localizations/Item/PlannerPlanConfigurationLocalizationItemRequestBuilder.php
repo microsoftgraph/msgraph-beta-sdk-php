@@ -35,7 +35,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
      * Delete a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
      * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerplanconfigurationlocalization-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerPlanConfigurationLocalization $body, ?PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

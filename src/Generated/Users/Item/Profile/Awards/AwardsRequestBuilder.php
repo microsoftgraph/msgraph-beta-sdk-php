@@ -56,7 +56,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of personAward objects from a user's profile.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-awards?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-list-awards?view=graph-rest-1.0 Find more info here
     */
     public function get(?AwardsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
      * @param PersonAward $body The request body
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-awards?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/profile-post-awards?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonAward $body, ?AwardsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

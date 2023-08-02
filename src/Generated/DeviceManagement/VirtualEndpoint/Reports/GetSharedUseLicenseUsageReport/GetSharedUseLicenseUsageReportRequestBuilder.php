@@ -32,11 +32,11 @@ class GetSharedUseLicenseUsageReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a usage report on shared-use licenses, such as **servicePlanId**, **licenseCount**, and **claimedLicenseCount**, for real-time, 7 days, or 28 days trend.
+     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/cloudpcreports-getshareduselicenseusagereport?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getshareduselicenseusagereport?view=graph-rest-1.0 Find more info here
     */
     public function post(GetSharedUseLicenseUsageReportPostRequestBody $body, ?GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -52,7 +52,7 @@ class GetSharedUseLicenseUsageReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a usage report on shared-use licenses, such as **servicePlanId**, **licenseCount**, and **claimedLicenseCount**, for real-time, 7 days, or 28 days trend.
+     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

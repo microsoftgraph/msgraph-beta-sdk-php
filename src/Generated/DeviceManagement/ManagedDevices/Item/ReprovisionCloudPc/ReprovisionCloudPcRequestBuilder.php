@@ -34,7 +34,7 @@ class ReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
      * Reprovision a Cloud PC with an Intune managed device ID.
      * @param ReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-1.0 Find more info here
     */
     public function post(?ReprovisionCloudPcRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

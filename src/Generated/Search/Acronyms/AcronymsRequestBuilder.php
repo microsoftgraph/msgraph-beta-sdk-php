@@ -56,7 +56,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
      * Get a list of the acronym objects and their properties.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-searchentity-list-acronyms?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-searchentity-list-acronyms?view=graph-rest-1.0 Find more info here
     */
     public function get(?AcronymsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
      * @param Acronym $body The request body
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-searchentity-post-acronyms?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-searchentity-post-acronyms?view=graph-rest-1.0 Find more info here
     */
     public function post(Acronym $body, ?AcronymsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

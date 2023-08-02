@@ -31,11 +31,11 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Initiate an export from a **reviewSet**.  For details, see Export documents from a review set in Advanced eDiscovery.
+     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.
      * @param ExportPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-1.0 Find more info here
     */
     public function post(ExportPostRequestBody $body, ?MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +51,7 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Initiate an export from a **reviewSet**.  For details, see Export documents from a review set in Advanced eDiscovery.
+     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.
      * @param ExportPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

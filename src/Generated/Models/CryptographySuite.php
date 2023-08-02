@@ -51,7 +51,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
+     * Gets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md596, sha196, sha256128, aes128Gcm, aes192Gcm, aes256Gcm.
      * @return AuthenticationTransformConstant|null
     */
     public function getAuthenticationTransformConstants(): ?AuthenticationTransformConstant {
@@ -124,7 +124,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
+     * Gets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getIntegrityCheckMethod(): ?VpnIntegrityAlgorithmType {
@@ -183,7 +183,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
+     * Sets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md596, sha196, sha256128, aes128Gcm, aes192Gcm, aes256Gcm.
      * @param AuthenticationTransformConstant|null $value Value to set for the authenticationTransformConstants property.
     */
     public function setAuthenticationTransformConstants(?AuthenticationTransformConstant $value): void {
@@ -223,7 +223,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
+     * Sets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @param VpnIntegrityAlgorithmType|null $value Value to set for the integrityCheckMethod property.
     */
     public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value): void {

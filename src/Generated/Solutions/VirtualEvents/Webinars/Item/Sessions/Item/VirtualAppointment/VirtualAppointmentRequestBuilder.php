@@ -35,7 +35,7 @@ class VirtualAppointmentRequestBuilder extends BaseRequestBuilder
      * Delete a virtualAppointment object.
      * @param VirtualAppointmentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualappointment-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualappointment-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?VirtualAppointmentRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class VirtualAppointmentRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a virtualAppointment object.
      * @param VirtualAppointmentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualappointment-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualappointment-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?VirtualAppointmentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class VirtualAppointmentRequestBuilder extends BaseRequestBuilder
      * @param VirtualAppointment $body The request body
      * @param VirtualAppointmentRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/virtualappointment-put?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualappointment-put?view=graph-rest-1.0 Find more info here
     */
     public function patch(VirtualAppointment $body, ?VirtualAppointmentRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -35,7 +35,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
      * Delete a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
      * @param YearTimePeriodDefinition $body The request body
      * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

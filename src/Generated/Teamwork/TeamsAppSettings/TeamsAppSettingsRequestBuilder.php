@@ -53,7 +53,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a teamsAppSettings object.
      * @param TeamsAppSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamsappsettings-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamsappsettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamsAppSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
      * @param TeamsAppSettings $body The request body
      * @param TeamsAppSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamsappsettings-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamsappsettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TeamsAppSettings $body, ?TeamsAppSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

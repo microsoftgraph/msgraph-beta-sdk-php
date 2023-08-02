@@ -69,7 +69,7 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
      * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
      * @param BaseSitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/basesitepage-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/basesitepage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BaseSitePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

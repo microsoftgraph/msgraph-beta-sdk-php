@@ -56,7 +56,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
      * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param CustomQuestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistration-list-customquestions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-list-customquestions?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomQuestionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
      * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistration-post-customquestions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-post-customquestions?view=graph-rest-1.0 Find more info here
     */
     public function post(MeetingRegistrationQuestion $body, ?CustomQuestionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

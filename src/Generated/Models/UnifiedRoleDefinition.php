@@ -26,7 +26,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedPrincipalTypes property value. The allowedPrincipalTypes property
+     * Gets the allowedPrincipalTypes property value. Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).
      * @return AllowedRolePrincipalTypes|null
     */
     public function getAllowedPrincipalTypes(): ?AllowedRolePrincipalTypes {
@@ -50,7 +50,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only).
+     * Gets the displayName property value. The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -104,7 +104,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isBuiltIn property value. Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq operator only).
+     * Gets the isBuiltIn property value. Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq).
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
@@ -140,7 +140,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceScopes property value. List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
+     * Gets the resourceScopes property value. List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment.
      * @return array<string>|null
     */
     public function getResourceScopes(): ?array {
@@ -180,7 +180,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. Indicates version of the unifiedRoleDefinition. Read-only when isBuiltIn is true.
+     * Gets the version property value. Indicates the version of the unifiedRoleDefinition object. Read-only when isBuiltIn is true.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -211,7 +211,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedPrincipalTypes property value. The allowedPrincipalTypes property
+     * Sets the allowedPrincipalTypes property value. Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).
      * @param AllowedRolePrincipalTypes|null $value Value to set for the allowedPrincipalTypes property.
     */
     public function setAllowedPrincipalTypes(?AllowedRolePrincipalTypes $value): void {
@@ -227,7 +227,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only).
+     * Sets the displayName property value. The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -243,7 +243,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isBuiltIn property value. Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq operator only).
+     * Sets the isBuiltIn property value. Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq).
      * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
@@ -267,7 +267,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceScopes property value. List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
+     * Sets the resourceScopes property value. List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment.
      * @param array<string>|null $value Value to set for the resourceScopes property.
     */
     public function setResourceScopes(?array $value): void {
@@ -291,7 +291,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. Indicates version of the unifiedRoleDefinition. Read-only when isBuiltIn is true.
+     * Sets the version property value. Indicates the version of the unifiedRoleDefinition object. Read-only when isBuiltIn is true.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

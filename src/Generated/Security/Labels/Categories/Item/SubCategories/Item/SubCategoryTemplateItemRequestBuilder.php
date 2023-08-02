@@ -35,7 +35,7 @@ class SubCategoryTemplateItemRequestBuilder extends BaseRequestBuilder
      * Delete a subCategoryTemplate object.
      * @param SubCategoryTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-categorytemplate-delete-subcategories?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-categorytemplate-delete-subcategories?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SubCategoryTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class SubCategoryTemplateItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a subCategoryTemplate object.
      * @param SubCategoryTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-subcategorytemplate-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-subcategorytemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SubCategoryTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

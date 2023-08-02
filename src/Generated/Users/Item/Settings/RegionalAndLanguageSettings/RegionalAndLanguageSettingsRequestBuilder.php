@@ -53,7 +53,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties of a user's regionalAndLanguageSettings.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
      * @param RegionalAndLanguageSettings $body The request body
      * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -53,7 +53,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties of an approvalStep object.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/approvalstep-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ApprovalStepItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +73,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/approvalstep-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/approvalstep-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ApprovalStep $body, ?ApprovalStepItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

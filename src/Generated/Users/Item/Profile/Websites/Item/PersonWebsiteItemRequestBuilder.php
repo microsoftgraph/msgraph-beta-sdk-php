@@ -35,7 +35,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
      * Deletes a personWebsite object from a user's profile.
      * @param PersonWebsiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personwebsite-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personwebsite-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonWebsiteItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a personWebsite object from a user's profile.
      * @param PersonWebsiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personwebsite-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personwebsite-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonWebsiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
      * @param PersonWebsite $body The request body
      * @param PersonWebsiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personwebsite-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personwebsite-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonWebsite $body, ?PersonWebsiteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

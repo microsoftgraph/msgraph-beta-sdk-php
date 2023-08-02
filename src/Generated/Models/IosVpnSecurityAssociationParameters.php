@@ -122,7 +122,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
+     * Gets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getSecurityIntegrityAlgorithm(): ?VpnIntegrityAlgorithmType {
@@ -195,7 +195,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
+     * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
     */
     public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value): void {

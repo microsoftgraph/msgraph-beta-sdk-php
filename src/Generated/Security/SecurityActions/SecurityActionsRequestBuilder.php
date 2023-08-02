@@ -56,7 +56,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of securityAction objects.
      * @param SecurityActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/securityactions-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/securityactions-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?SecurityActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
      * @param SecurityAction $body The request body
      * @param SecurityActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/securityactions-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/securityactions-post?view=graph-rest-1.0 Find more info here
     */
     public function post(SecurityAction $body, ?SecurityActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

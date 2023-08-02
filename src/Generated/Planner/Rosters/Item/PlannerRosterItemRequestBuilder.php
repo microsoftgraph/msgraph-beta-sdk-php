@@ -51,7 +51,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
      * Delete a plannerRoster object.
      * @param PlannerRosterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlannerRosterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -70,7 +70,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a plannerRoster object.
      * @param PlannerRosterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerRosterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

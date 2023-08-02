@@ -35,7 +35,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
      * Deletes a personInterest object from a user's profile.
      * @param PersonInterestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personinterest-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personinterest-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonInterestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
      * Retrieve the properties and relationships of a personInterest object in a user's profile.
      * @param PersonInterestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personinterest-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personinterest-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonInterestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
      * @param PersonInterest $body The request body
      * @param PersonInterestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personinterest-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personinterest-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonInterest $body, ?PersonInterestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

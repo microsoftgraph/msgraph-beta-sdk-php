@@ -35,7 +35,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
      * Delete a bookmark object.
      * @param BookmarkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-bookmark-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-bookmark-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BookmarkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a bookmark object.
      * @param BookmarkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-bookmark-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-bookmark-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BookmarkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
      * @param Bookmark $body The request body
      * @param BookmarkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/search-bookmark-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/search-bookmark-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Bookmark $body, ?BookmarkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

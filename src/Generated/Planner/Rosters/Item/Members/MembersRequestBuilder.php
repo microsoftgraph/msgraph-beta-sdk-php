@@ -56,7 +56,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
      * Get the list of plannerRosterMembers from a plannerRoster.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/plannerroster-post-members?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerroster-post-members?view=graph-rest-1.0 Find more info here
     */
     public function post(PlannerRosterMember $body, ?MembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

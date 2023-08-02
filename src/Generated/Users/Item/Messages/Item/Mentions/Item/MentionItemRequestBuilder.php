@@ -35,7 +35,7 @@ class MentionItemRequestBuilder extends BaseRequestBuilder
      * Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
      * @param MentionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/message-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MentionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);

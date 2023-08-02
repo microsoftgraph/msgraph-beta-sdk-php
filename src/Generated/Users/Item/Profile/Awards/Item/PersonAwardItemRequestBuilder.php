@@ -35,7 +35,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
      * Deletes a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personaward-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personaward-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonAwardItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,7 +54,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
      * Read the properties and relationships of a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personaward-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personaward-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonAwardItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
      * @param PersonAward $body The request body
      * @param PersonAwardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/personaward-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/personaward-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonAward $body, ?PersonAwardItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

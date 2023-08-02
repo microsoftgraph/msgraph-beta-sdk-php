@@ -32,11 +32,11 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Postpone action on an impactedResource object to a specified future date and time by marking its **status** as `postponed`. On the specified date and time, Azure AD will automatically mark the status of the **impactedResource** object to `active`.
+     * Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Azure AD will automatically mark the status of the impactedResource object to active.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-1.0 Find more info here
     */
     public function post(PostponePostRequestBody $body, ?PostponeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -52,7 +52,7 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Postpone action on an impactedResource object to a specified future date and time by marking its **status** as `postponed`. On the specified date and time, Azure AD will automatically mark the status of the **impactedResource** object to `active`.
+     * Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Azure AD will automatically mark the status of the impactedResource object to active.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
