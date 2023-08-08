@@ -10,4 +10,5 @@ class AlertRuleTemplate extends Enum {
     public const CLOUD_PC_ON_PREMISE_NETWORK_CONNECTION_CHECK_SCENARIO = 'cloudPcOnPremiseNetworkConnectionCheckScenario';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const CLOUD_PC_IN_GRACE_PERIOD_SCENARIO = 'cloudPcInGracePeriodScenario';
+    public const CLOUD_PC_FRONTLINE_INSUFFICIENT_LICENSES_SCENARIO = 'cloudPcFrontlineInsufficientLicensesScenario';
 }

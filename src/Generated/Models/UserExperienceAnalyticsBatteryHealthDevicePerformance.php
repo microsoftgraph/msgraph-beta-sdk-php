@@ -40,6 +40,18 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
+     * Gets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 1 to 2147483647
+     * @return int|null
+    */
+    public function getDeviceBatteryCount(): ?int {
+        $val = $this->getBackingStore()->get('deviceBatteryCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceBatteryCount'");
+    }
+
+    /**
      * Gets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
      * @return int|null
     */
@@ -95,15 +107,29 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'batteryAgeInDays' => fn(ParseNode $n) => $o->setBatteryAgeInDays($n->getIntegerValue()),
+            'deviceBatteryCount' => fn(ParseNode $n) => $o->setDeviceBatteryCount($n->getIntegerValue()),
             'deviceBatteryHealthScore' => fn(ParseNode $n) => $o->setDeviceBatteryHealthScore($n->getIntegerValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            'fullBatteryDrainCount' => fn(ParseNode $n) => $o->setFullBatteryDrainCount($n->getIntegerValue()),
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'maxCapacityPercentage' => fn(ParseNode $n) => $o->setMaxCapacityPercentage($n->getIntegerValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the fullBatteryDrainCount property value. Number of times the battery has been discharged an amount that equals 100% of its capacity, but not necessarily by discharging it from 100% to 0%. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getFullBatteryDrainCount(): ?int {
+        $val = $this->getBackingStore()->get('fullBatteryDrainCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fullBatteryDrainCount'");
     }
 
     /**
@@ -161,10 +187,12 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('batteryAgeInDays', $this->getBatteryAgeInDays());
+        $writer->writeIntegerValue('deviceBatteryCount', $this->getDeviceBatteryCount());
         $writer->writeIntegerValue('deviceBatteryHealthScore', $this->getDeviceBatteryHealthScore());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
+        $writer->writeIntegerValue('fullBatteryDrainCount', $this->getFullBatteryDrainCount());
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeIntegerValue('maxCapacityPercentage', $this->getMaxCapacityPercentage());
@@ -177,6 +205,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function setBatteryAgeInDays(?int $value): void {
         $this->getBackingStore()->set('batteryAgeInDays', $value);
+    }
+
+    /**
+     * Sets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 1 to 2147483647
+     * @param int|null $value Value to set for the deviceBatteryCount property.
+    */
+    public function setDeviceBatteryCount(?int $value): void {
+        $this->getBackingStore()->set('deviceBatteryCount', $value);
     }
 
     /**
@@ -209,6 +245,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
+    }
+
+    /**
+     * Sets the fullBatteryDrainCount property value. Number of times the battery has been discharged an amount that equals 100% of its capacity, but not necessarily by discharging it from 100% to 0%. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the fullBatteryDrainCount property.
+    */
+    public function setFullBatteryDrainCount(?int $value): void {
+        $this->getBackingStore()->set('fullBatteryDrainCount', $value);
     }
 
     /**

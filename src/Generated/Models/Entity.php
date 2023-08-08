@@ -1035,7 +1035,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.macOSGeneralDeviceConfiguration': return new MacOSGeneralDeviceConfiguration();
                 case '#microsoft.graph.macOSImportedPFXCertificateProfile': return new MacOSImportedPFXCertificateProfile();
                 case '#microsoft.graph.macOSLobApp': return new MacOSLobApp();
-                case '#microsoft.graph.macOSMdatpApp': return new MacOSMdatpApp();
                 case '#microsoft.graph.macOSMicrosoftDefenderApp': return new MacOSMicrosoftDefenderApp();
                 case '#microsoft.graph.macOSMicrosoftEdgeApp': return new MacOSMicrosoftEdgeApp();
                 case '#microsoft.graph.macOSOfficeSuiteApp': return new MacOSOfficeSuiteApp();
@@ -1050,6 +1049,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.macOSVpnConfiguration': return new MacOSVpnConfiguration();
                 case '#microsoft.graph.macOsVppApp': return new MacOsVppApp();
                 case '#microsoft.graph.macOsVppAppAssignedLicense': return new MacOsVppAppAssignedLicense();
+                case '#microsoft.graph.macOSWebClip': return new MacOSWebClip();
                 case '#microsoft.graph.macOSWiFiConfiguration': return new MacOSWiFiConfiguration();
                 case '#microsoft.graph.macOSWiredNetworkConfiguration': return new MacOSWiredNetworkConfiguration();
                 case '#microsoft.graph.mailAssessmentRequest': return new MailAssessmentRequest();
@@ -1172,6 +1172,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.mobileLobApp': return new MobileLobApp();
                 case '#microsoft.graph.mobileThreatDefenseConnector': return new MobileThreatDefenseConnector();
                 case '#microsoft.graph.mobilityManagementPolicy': return new MobilityManagementPolicy();
+                case '#microsoft.graph.multiTenantOrganization': return new MultiTenantOrganization();
+                case '#microsoft.graph.multiTenantOrganizationIdentitySyncPolicyTemplate': return new MultiTenantOrganizationIdentitySyncPolicyTemplate();
+                case '#microsoft.graph.multiTenantOrganizationJoinRequestRecord': return new MultiTenantOrganizationJoinRequestRecord();
+                case '#microsoft.graph.multiTenantOrganizationMember': return new MultiTenantOrganizationMember();
+                case '#microsoft.graph.multiTenantOrganizationPartnerConfigurationTemplate': return new MultiTenantOrganizationPartnerConfigurationTemplate();
                 case '#microsoft.graph.multiValueLegacyExtendedProperty': return new MultiValueLegacyExtendedProperty();
                 case '#microsoft.graph.muteParticipantOperation': return new MuteParticipantOperation();
                 case '#microsoft.graph.muteParticipantsOperation': return new MuteParticipantsOperation();
@@ -1303,6 +1308,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.policySet': return new PolicySet();
                 case '#microsoft.graph.policySetAssignment': return new PolicySetAssignment();
                 case '#microsoft.graph.policySetItem': return new PolicySetItem();
+                case '#microsoft.graph.policyTemplate': return new PolicyTemplate();
                 case '#microsoft.graph.post': return new Post();
                 case '#microsoft.graph.presence': return new Presence();
                 case '#microsoft.graph.presentation': return new Presentation();
@@ -1897,6 +1903,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.workbookChartTitleFormat': return new WorkbookChartTitleFormat();
                 case '#microsoft.graph.workbookComment': return new WorkbookComment();
                 case '#microsoft.graph.workbookCommentReply': return new WorkbookCommentReply();
+                case '#microsoft.graph.workbookDocumentTask': return new WorkbookDocumentTask();
+                case '#microsoft.graph.workbookDocumentTaskChange': return new WorkbookDocumentTaskChange();
                 case '#microsoft.graph.workbookFilter': return new WorkbookFilter();
                 case '#microsoft.graph.workbookFormatProtection': return new WorkbookFormatProtection();
                 case '#microsoft.graph.workbookFunctionResult': return new WorkbookFunctionResult();

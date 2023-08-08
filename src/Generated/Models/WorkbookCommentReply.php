@@ -57,7 +57,20 @@ class WorkbookCommentReply extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getStringValue()),
             'contentType' => fn(ParseNode $n) => $o->setContentType($n->getStringValue()),
+            'task' => fn(ParseNode $n) => $o->setTask($n->getObjectValue([WorkbookDocumentTask::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the task property value. The task property
+     * @return WorkbookDocumentTask|null
+    */
+    public function getTask(): ?WorkbookDocumentTask {
+        $val = $this->getBackingStore()->get('task');
+        if (is_null($val) || $val instanceof WorkbookDocumentTask) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'task'");
     }
 
     /**
@@ -68,6 +81,7 @@ class WorkbookCommentReply extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('content', $this->getContent());
         $writer->writeStringValue('contentType', $this->getContentType());
+        $writer->writeObjectValue('task', $this->getTask());
     }
 
     /**
@@ -84,6 +98,14 @@ class WorkbookCommentReply extends Entity implements Parsable
     */
     public function setContentType(?string $value): void {
         $this->getBackingStore()->set('contentType', $value);
+    }
+
+    /**
+     * Sets the task property value. The task property
+     * @param WorkbookDocumentTask|null $value Value to set for the task property.
+    */
+    public function setTask(?WorkbookDocumentTask $value): void {
+        $this->getBackingStore()->set('task', $value);
     }
 
 }

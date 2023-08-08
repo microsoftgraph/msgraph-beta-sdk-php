@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\It
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Range\RangeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\RangeWithAddress\RangeWithAddressRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tables\TablesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\UsedRange\UsedRangeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\UsedRangeWithValuesOnly\UsedRangeWithValuesOnlyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -67,6 +68,13 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     */
     public function tables(): TablesRequestBuilder {
         return new TablesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.workbookWorksheet entity.
+    */
+    public function tasks(): TasksRequestBuilder {
+        return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

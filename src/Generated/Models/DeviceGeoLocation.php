@@ -82,7 +82,6 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
             'heading' => fn(ParseNode $n) => $o->setHeading($n->getFloatValue()),
             'horizontalAccuracy' => fn(ParseNode $n) => $o->setHorizontalAccuracy($n->getFloatValue()),
             'lastCollectedDateTime' => fn(ParseNode $n) => $o->setLastCollectedDateTime($n->getDateTimeValue()),
-            'lastCollectedDateTimeUtc' => fn(ParseNode $n) => $o->setLastCollectedDateTimeUtc($n->getDateTimeValue()),
             'latitude' => fn(ParseNode $n) => $o->setLatitude($n->getFloatValue()),
             'longitude' => fn(ParseNode $n) => $o->setLongitude($n->getFloatValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -125,18 +124,6 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCollectedDateTime'");
-    }
-
-    /**
-     * Gets the lastCollectedDateTimeUtc property value. Time at which location was recorded, relative to UTC
-     * @return DateTime|null
-    */
-    public function getLastCollectedDateTimeUtc(): ?DateTime {
-        $val = $this->getBackingStore()->get('lastCollectedDateTimeUtc');
-        if (is_null($val) || $val instanceof DateTime) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCollectedDateTimeUtc'");
     }
 
     /**
@@ -208,7 +195,6 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeFloatValue('heading', $this->getHeading());
         $writer->writeFloatValue('horizontalAccuracy', $this->getHorizontalAccuracy());
         $writer->writeDateTimeValue('lastCollectedDateTime', $this->getLastCollectedDateTime());
-        $writer->writeDateTimeValue('lastCollectedDateTimeUtc', $this->getLastCollectedDateTimeUtc());
         $writer->writeFloatValue('latitude', $this->getLatitude());
         $writer->writeFloatValue('longitude', $this->getLongitude());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -263,14 +249,6 @@ class DeviceGeoLocation implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setLastCollectedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCollectedDateTime', $value);
-    }
-
-    /**
-     * Sets the lastCollectedDateTimeUtc property value. Time at which location was recorded, relative to UTC
-     * @param DateTime|null $value Value to set for the lastCollectedDateTimeUtc property.
-    */
-    public function setLastCollectedDateTimeUtc(?DateTime $value): void {
-        $this->getBackingStore()->set('lastCollectedDateTimeUtc', $value);
     }
 
     /**

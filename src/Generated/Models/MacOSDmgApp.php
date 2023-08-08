@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Contains properties and inherited properties for the MacOS DMG App.
+ * Contains properties and inherited properties for the MacOS DMG (Apple Disk Image) App.
 */
 class MacOSDmgApp extends MobileLobApp implements Parsable 
 {

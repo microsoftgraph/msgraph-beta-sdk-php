@@ -48,12 +48,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
         return array_merge(parent::getFieldDeserializers(), [
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'medianImpactInMs' => fn(ParseNode $n) => $o->setMedianImpactInMs($n->getIntegerValue()),
-            'medianImpactInMs2' => fn(ParseNode $n) => $o->setMedianImpactInMs2($n->getIntegerValue()),
             'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'totalImpactInMs' => fn(ParseNode $n) => $o->setTotalImpactInMs($n->getIntegerValue()),
-            'totalImpactInMs2' => fn(ParseNode $n) => $o->setTotalImpactInMs2($n->getIntegerValue()),
         ]);
     }
 
@@ -67,18 +65,6 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'medianImpactInMs'");
-    }
-
-    /**
-     * Gets the medianImpactInMs2 property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
-     * @return int|null
-    */
-    public function getMedianImpactInMs2(): ?int {
-        $val = $this->getBackingStore()->get('medianImpactInMs2');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'medianImpactInMs2'");
     }
 
     /**
@@ -130,18 +116,6 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the totalImpactInMs2 property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
-     * @return int|null
-    */
-    public function getTotalImpactInMs2(): ?int {
-        $val = $this->getBackingStore()->get('totalImpactInMs2');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalImpactInMs2'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -149,12 +123,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
         parent::serialize($writer);
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeIntegerValue('medianImpactInMs', $this->getMedianImpactInMs());
-        $writer->writeIntegerValue('medianImpactInMs2', $this->getMedianImpactInMs2());
         $writer->writeStringValue('processName', $this->getProcessName());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeIntegerValue('totalImpactInMs', $this->getTotalImpactInMs());
-        $writer->writeIntegerValue('totalImpactInMs2', $this->getTotalImpactInMs2());
     }
 
     /**
@@ -171,14 +143,6 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public function setMedianImpactInMs(?int $value): void {
         $this->getBackingStore()->set('medianImpactInMs', $value);
-    }
-
-    /**
-     * Sets the medianImpactInMs2 property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
-     * @param int|null $value Value to set for the medianImpactInMs2 property.
-    */
-    public function setMedianImpactInMs2(?int $value): void {
-        $this->getBackingStore()->set('medianImpactInMs2', $value);
     }
 
     /**
@@ -211,14 +175,6 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public function setTotalImpactInMs(?int $value): void {
         $this->getBackingStore()->set('totalImpactInMs', $value);
-    }
-
-    /**
-     * Sets the totalImpactInMs2 property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
-     * @param int|null $value Value to set for the totalImpactInMs2 property.
-    */
-    public function setTotalImpactInMs2(?int $value): void {
-        $this->getBackingStore()->set('totalImpactInMs2', $value);
     }
 
 }
