@@ -42,6 +42,20 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the androidDeviceOwnerDelegatedScopeAppSettings property value. Specifies the list of managed apps with app details and its associated delegated scope(s). This collection can contain a maximum of 500 elements.
+     * @return array<AndroidDeviceOwnerDelegatedScopeAppSetting>|null
+    */
+    public function getAndroidDeviceOwnerDelegatedScopeAppSettings(): ?array {
+        $val = $this->getBackingStore()->get('androidDeviceOwnerDelegatedScopeAppSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerDelegatedScopeAppSetting::class);
+            /** @var array<AndroidDeviceOwnerDelegatedScopeAppSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidDeviceOwnerDelegatedScopeAppSettings'");
+    }
+
+    /**
      * Gets the appsAllowInstallFromUnknownSources property value. Indicates whether or not the user is allowed to enable to unknown sources setting.
      * @return bool|null
     */
@@ -293,6 +307,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accountsBlockModification' => fn(ParseNode $n) => $o->setAccountsBlockModification($n->getBooleanValue()),
+            'androidDeviceOwnerDelegatedScopeAppSettings' => fn(ParseNode $n) => $o->setAndroidDeviceOwnerDelegatedScopeAppSettings($n->getCollectionOfObjectValues([AndroidDeviceOwnerDelegatedScopeAppSetting::class, 'createFromDiscriminatorValue'])),
             'appsAllowInstallFromUnknownSources' => fn(ParseNode $n) => $o->setAppsAllowInstallFromUnknownSources($n->getBooleanValue()),
             'appsAutoUpdatePolicy' => fn(ParseNode $n) => $o->setAppsAutoUpdatePolicy($n->getEnumValue(AndroidDeviceOwnerAppAutoUpdatePolicyType::class)),
             'appsDefaultPermissionPolicy' => fn(ParseNode $n) => $o->setAppsDefaultPermissionPolicy($n->getEnumValue(AndroidDeviceOwnerDefaultAppPermissionPolicyType::class)),
@@ -1848,6 +1863,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('accountsBlockModification', $this->getAccountsBlockModification());
+        $writer->writeCollectionOfObjectValues('androidDeviceOwnerDelegatedScopeAppSettings', $this->getAndroidDeviceOwnerDelegatedScopeAppSettings());
         $writer->writeBooleanValue('appsAllowInstallFromUnknownSources', $this->getAppsAllowInstallFromUnknownSources());
         $writer->writeEnumValue('appsAutoUpdatePolicy', $this->getAppsAutoUpdatePolicy());
         $writer->writeEnumValue('appsDefaultPermissionPolicy', $this->getAppsDefaultPermissionPolicy());
@@ -1991,6 +2007,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setAccountsBlockModification(?bool $value): void {
         $this->getBackingStore()->set('accountsBlockModification', $value);
+    }
+
+    /**
+     * Sets the androidDeviceOwnerDelegatedScopeAppSettings property value. Specifies the list of managed apps with app details and its associated delegated scope(s). This collection can contain a maximum of 500 elements.
+     * @param array<AndroidDeviceOwnerDelegatedScopeAppSetting>|null $value Value to set for the androidDeviceOwnerDelegatedScopeAppSettings property.
+    */
+    public function setAndroidDeviceOwnerDelegatedScopeAppSettings(?array $value): void {
+        $this->getBackingStore()->set('androidDeviceOwnerDelegatedScopeAppSettings', $value);
     }
 
     /**

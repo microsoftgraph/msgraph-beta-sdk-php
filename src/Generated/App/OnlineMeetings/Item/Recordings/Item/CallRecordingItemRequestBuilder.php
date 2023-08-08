@@ -58,9 +58,10 @@ class CallRecordingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get recordings from app
+     * Get a callRecording object associated with an onlineMeeting. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of text associated with the recording.
      * @param CallRecordingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/callrecording-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CallRecordingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class CallRecordingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get recordings from app
+     * Get a callRecording object associated with an onlineMeeting. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of text associated with the recording.
      * @param CallRecordingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -59,6 +59,7 @@ class WorkbookComment extends Entity implements Parsable
             'content' => fn(ParseNode $n) => $o->setContent($n->getStringValue()),
             'contentType' => fn(ParseNode $n) => $o->setContentType($n->getStringValue()),
             'replies' => fn(ParseNode $n) => $o->setReplies($n->getCollectionOfObjectValues([WorkbookCommentReply::class, 'createFromDiscriminatorValue'])),
+            'task' => fn(ParseNode $n) => $o->setTask($n->getObjectValue([WorkbookDocumentTask::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -77,6 +78,18 @@ class WorkbookComment extends Entity implements Parsable
     }
 
     /**
+     * Gets the task property value. The task property
+     * @return WorkbookDocumentTask|null
+    */
+    public function getTask(): ?WorkbookDocumentTask {
+        $val = $this->getBackingStore()->get('task');
+        if (is_null($val) || $val instanceof WorkbookDocumentTask) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'task'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -85,6 +98,7 @@ class WorkbookComment extends Entity implements Parsable
         $writer->writeStringValue('content', $this->getContent());
         $writer->writeStringValue('contentType', $this->getContentType());
         $writer->writeCollectionOfObjectValues('replies', $this->getReplies());
+        $writer->writeObjectValue('task', $this->getTask());
     }
 
     /**
@@ -109,6 +123,14 @@ class WorkbookComment extends Entity implements Parsable
     */
     public function setReplies(?array $value): void {
         $this->getBackingStore()->set('replies', $value);
+    }
+
+    /**
+     * Sets the task property value. The task property
+     * @param WorkbookDocumentTask|null $value Value to set for the task property.
+    */
+    public function setTask(?WorkbookDocumentTask $value): void {
+        $this->getBackingStore()->set('task', $value);
     }
 
 }

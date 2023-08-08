@@ -37,4 +37,7 @@ class RemoteAction extends Enum {
     public const INITIATE_ON_DEMAND_PROACTIVE_REMEDIATION = 'initiateOnDemandProactiveRemediation';
     public const ROTATE_LOCAL_ADMIN_PASSWORD = 'rotateLocalAdminPassword';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const LAUNCH_REMOTE_HELP = 'launchRemoteHelp';
+    public const REVOKE_APPLE_VPP_LICENSES = 'revokeAppleVppLicenses';
+    public const REMOVE_DEVICE_FIRMWARE_CONFIGURATION_INTERFACE_MANAGEMENT = 'removeDeviceFirmwareConfigurationInterfaceManagement';
 }

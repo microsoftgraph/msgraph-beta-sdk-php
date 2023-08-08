@@ -12,7 +12,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareSumm
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAllCertificatesReport\GetAllCertificatesReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppsInstallSummaryReport\GetAppsInstallSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppStatusOverviewReport\GetAppStatusOverviewReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAutopilotDeploymentStatus\GetAutopilotDeploymentStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAutopilotDeploymentDeviceInformation\GetAutopilotDeploymentDeviceInformationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCachedReport\GetCachedReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCertificatesReport\GetCertificatesReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePoliciesReportForDevice\GetCompliancePoliciesReportForDeviceRequestBuilder;
@@ -140,10 +140,10 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the getAutopilotDeploymentStatus method.
+     * Provides operations to call the getAutopilotDeploymentDeviceInformation method.
     */
-    public function getAutopilotDeploymentStatus(): GetAutopilotDeploymentStatusRequestBuilder {
-        return new GetAutopilotDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getAutopilotDeploymentDeviceInformation(): GetAutopilotDeploymentDeviceInformationRequestBuilder {
+        return new GetAutopilotDeploymentDeviceInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

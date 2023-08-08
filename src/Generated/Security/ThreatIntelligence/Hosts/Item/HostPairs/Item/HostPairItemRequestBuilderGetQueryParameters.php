@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get hostPairs from security
+ * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
 */
 class HostPairItemRequestBuilderGetQueryParameters 
 {

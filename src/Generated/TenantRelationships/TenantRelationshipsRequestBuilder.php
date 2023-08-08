@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationshi
 use Microsoft\Graph\Beta\Generated\TenantRelationships\FindTenantInformationByDomainNameWithDomainName\FindTenantInformationByDomainNameWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\FindTenantInformationByTenantIdWithTenantId\FindTenantInformationByTenantIdWithTenantIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\MultiTenantOrganization\MultiTenantOrganizationRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -41,6 +42,13 @@ class TenantRelationshipsRequestBuilder extends BaseRequestBuilder
     */
     public function managedTenants(): ManagedTenantsRequestBuilder {
         return new ManagedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.
+    */
+    public function multiTenantOrganization(): MultiTenantOrganizationRequestBuilder {
+        return new MultiTenantOrganizationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

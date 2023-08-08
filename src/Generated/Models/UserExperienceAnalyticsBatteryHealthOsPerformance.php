@@ -86,9 +86,75 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
             'averageBatteryAgeInDays' => fn(ParseNode $n) => $o->setAverageBatteryAgeInDays($n->getIntegerValue()),
             'averageEstimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setAverageEstimatedRuntimeInMinutes($n->getIntegerValue()),
             'averageMaxCapacityPercentage' => fn(ParseNode $n) => $o->setAverageMaxCapacityPercentage($n->getIntegerValue()),
+            'meanFullBatteryDrainCount' => fn(ParseNode $n) => $o->setMeanFullBatteryDrainCount($n->getIntegerValue()),
+            'medianEstimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setMedianEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            'medianFullBatteryDrainCount' => fn(ParseNode $n) => $o->setMedianFullBatteryDrainCount($n->getIntegerValue()),
+            'medianMaxCapacityPercentage' => fn(ParseNode $n) => $o->setMedianMaxCapacityPercentage($n->getIntegerValue()),
+            'osBatteryHealthScore' => fn(ParseNode $n) => $o->setOsBatteryHealthScore($n->getIntegerValue()),
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
+            'osHealthStatus' => fn(ParseNode $n) => $o->setOsHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the meanFullBatteryDrainCount property value. The mean of number of times the battery has been discharged an amount that equals 100% of its capacity for all devices running a particular operating system version in a tenant. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getMeanFullBatteryDrainCount(): ?int {
+        $val = $this->getBackingStore()->get('meanFullBatteryDrainCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meanFullBatteryDrainCount'");
+    }
+
+    /**
+     * Gets the medianEstimatedRuntimeInMinutes property value. The median of the estimated runtimes on full charge for all devices running a particular operating system version. Unit in minutes. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getMedianEstimatedRuntimeInMinutes(): ?int {
+        $val = $this->getBackingStore()->get('medianEstimatedRuntimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'medianEstimatedRuntimeInMinutes'");
+    }
+
+    /**
+     * Gets the medianFullBatteryDrainCount property value. The median of number of times the battery has been discharged an amount that equals 100% of its capacity for all devices running a particular operating system version in a tenant. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getMedianFullBatteryDrainCount(): ?int {
+        $val = $this->getBackingStore()->get('medianFullBatteryDrainCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'medianFullBatteryDrainCount'");
+    }
+
+    /**
+     * Gets the medianMaxCapacityPercentage property value. The median of the maximum capacity for all devices running a particular operating system version. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getMedianMaxCapacityPercentage(): ?int {
+        $val = $this->getBackingStore()->get('medianMaxCapacityPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'medianMaxCapacityPercentage'");
+    }
+
+    /**
+     * Gets the osBatteryHealthScore property value. A weighted average of battery health score across all devices running a particular operating system version. Values range from 0-100. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getOsBatteryHealthScore(): ?int {
+        $val = $this->getBackingStore()->get('osBatteryHealthScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osBatteryHealthScore'");
     }
 
     /**
@@ -101,6 +167,18 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osBuildNumber'");
+    }
+
+    /**
+     * Gets the osHealthStatus property value. The osHealthStatus property
+     * @return UserExperienceAnalyticsHealthState|null
+    */
+    public function getOsHealthStatus(): ?UserExperienceAnalyticsHealthState {
+        $val = $this->getBackingStore()->get('osHealthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osHealthStatus'");
     }
 
     /**
@@ -125,7 +203,13 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
         $writer->writeIntegerValue('averageBatteryAgeInDays', $this->getAverageBatteryAgeInDays());
         $writer->writeIntegerValue('averageEstimatedRuntimeInMinutes', $this->getAverageEstimatedRuntimeInMinutes());
         $writer->writeIntegerValue('averageMaxCapacityPercentage', $this->getAverageMaxCapacityPercentage());
+        $writer->writeIntegerValue('meanFullBatteryDrainCount', $this->getMeanFullBatteryDrainCount());
+        $writer->writeIntegerValue('medianEstimatedRuntimeInMinutes', $this->getMedianEstimatedRuntimeInMinutes());
+        $writer->writeIntegerValue('medianFullBatteryDrainCount', $this->getMedianFullBatteryDrainCount());
+        $writer->writeIntegerValue('medianMaxCapacityPercentage', $this->getMedianMaxCapacityPercentage());
+        $writer->writeIntegerValue('osBatteryHealthScore', $this->getOsBatteryHealthScore());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
+        $writer->writeEnumValue('osHealthStatus', $this->getOsHealthStatus());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
     }
 
@@ -162,11 +246,59 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
     }
 
     /**
+     * Sets the meanFullBatteryDrainCount property value. The mean of number of times the battery has been discharged an amount that equals 100% of its capacity for all devices running a particular operating system version in a tenant. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the meanFullBatteryDrainCount property.
+    */
+    public function setMeanFullBatteryDrainCount(?int $value): void {
+        $this->getBackingStore()->set('meanFullBatteryDrainCount', $value);
+    }
+
+    /**
+     * Sets the medianEstimatedRuntimeInMinutes property value. The median of the estimated runtimes on full charge for all devices running a particular operating system version. Unit in minutes. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the medianEstimatedRuntimeInMinutes property.
+    */
+    public function setMedianEstimatedRuntimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('medianEstimatedRuntimeInMinutes', $value);
+    }
+
+    /**
+     * Sets the medianFullBatteryDrainCount property value. The median of number of times the battery has been discharged an amount that equals 100% of its capacity for all devices running a particular operating system version in a tenant. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the medianFullBatteryDrainCount property.
+    */
+    public function setMedianFullBatteryDrainCount(?int $value): void {
+        $this->getBackingStore()->set('medianFullBatteryDrainCount', $value);
+    }
+
+    /**
+     * Sets the medianMaxCapacityPercentage property value. The median of the maximum capacity for all devices running a particular operating system version. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the medianMaxCapacityPercentage property.
+    */
+    public function setMedianMaxCapacityPercentage(?int $value): void {
+        $this->getBackingStore()->set('medianMaxCapacityPercentage', $value);
+    }
+
+    /**
+     * Sets the osBatteryHealthScore property value. A weighted average of battery health score across all devices running a particular operating system version. Values range from 0-100. Valid values 0 to 2147483647
+     * @param int|null $value Value to set for the osBatteryHealthScore property.
+    */
+    public function setOsBatteryHealthScore(?int $value): void {
+        $this->getBackingStore()->set('osBatteryHealthScore', $value);
+    }
+
+    /**
      * Sets the osBuildNumber property value. Build number of the operating system.
      * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
+    }
+
+    /**
+     * Sets the osHealthStatus property value. The osHealthStatus property
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the osHealthStatus property.
+    */
+    public function setOsHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('osHealthStatus', $value);
     }
 
     /**

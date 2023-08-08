@@ -333,6 +333,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the cloudRealtimeCommunicationInfo property value. The cloudRealtimeCommunicationInfo property
+     * @return CloudRealtimeCommunicationInfo|null
+    */
+    public function getCloudRealtimeCommunicationInfo(): ?CloudRealtimeCommunicationInfo {
+        $val = $this->getBackingStore()->get('cloudRealtimeCommunicationInfo');
+        if (is_null($val) || $val instanceof CloudRealtimeCommunicationInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudRealtimeCommunicationInfo'");
+    }
+
+    /**
      * Gets the companyName property value. The company name which the user is associated. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
@@ -763,6 +775,7 @@ class User extends DirectoryObject implements Parsable
             'chats' => fn(ParseNode $n) => $o->setChats($n->getCollectionOfObjectValues([Chat::class, 'createFromDiscriminatorValue'])),
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
+            'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
             'consentProvidedForMinor' => fn(ParseNode $n) => $o->setConsentProvidedForMinor($n->getStringValue()),
             'contactFolders' => fn(ParseNode $n) => $o->setContactFolders($n->getCollectionOfObjectValues([ContactFolder::class, 'createFromDiscriminatorValue'])),
@@ -861,6 +874,7 @@ class User extends DirectoryObject implements Parsable
             'onPremisesProvisioningErrors' => fn(ParseNode $n) => $o->setOnPremisesProvisioningErrors($n->getCollectionOfObjectValues([OnPremisesProvisioningError::class, 'createFromDiscriminatorValue'])),
             'onPremisesSamAccountName' => fn(ParseNode $n) => $o->setOnPremisesSamAccountName($n->getStringValue()),
             'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
+            'onPremisesSipInfo' => fn(ParseNode $n) => $o->setOnPremisesSipInfo($n->getObjectValue([OnPremisesSipInfo::class, 'createFromDiscriminatorValue'])),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'onPremisesUserPrincipalName' => fn(ParseNode $n) => $o->setOnPremisesUserPrincipalName($n->getStringValue()),
             'otherMails' => function (ParseNode $n) {
@@ -1548,6 +1562,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the onPremisesSipInfo property value. The onPremisesSipInfo property
+     * @return OnPremisesSipInfo|null
+    */
+    public function getOnPremisesSipInfo(): ?OnPremisesSipInfo {
+        $val = $this->getBackingStore()->get('onPremisesSipInfo');
+        if (is_null($val) || $val instanceof OnPremisesSipInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSipInfo'");
+    }
+
+    /**
      * Gets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Azure Active Directory (Azure AD). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      * @return bool|null
     */
@@ -2206,6 +2232,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('chats', $this->getChats());
         $writer->writeStringValue('city', $this->getCity());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
+        $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
         $writer->writeStringValue('companyName', $this->getCompanyName());
         $writer->writeStringValue('consentProvidedForMinor', $this->getConsentProvidedForMinor());
         $writer->writeCollectionOfObjectValues('contactFolders', $this->getContactFolders());
@@ -2283,6 +2310,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->getOnPremisesProvisioningErrors());
         $writer->writeStringValue('onPremisesSamAccountName', $this->getOnPremisesSamAccountName());
         $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
+        $writer->writeObjectValue('onPremisesSipInfo', $this->getOnPremisesSipInfo());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeStringValue('onPremisesUserPrincipalName', $this->getOnPremisesUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('otherMails', $this->getOtherMails());
@@ -2516,6 +2544,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCloudPCs(?array $value): void {
         $this->getBackingStore()->set('cloudPCs', $value);
+    }
+
+    /**
+     * Sets the cloudRealtimeCommunicationInfo property value. The cloudRealtimeCommunicationInfo property
+     * @param CloudRealtimeCommunicationInfo|null $value Value to set for the cloudRealtimeCommunicationInfo property.
+    */
+    public function setCloudRealtimeCommunicationInfo(?CloudRealtimeCommunicationInfo $value): void {
+        $this->getBackingStore()->set('cloudRealtimeCommunicationInfo', $value);
     }
 
     /**
@@ -3132,6 +3168,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
+    }
+
+    /**
+     * Sets the onPremisesSipInfo property value. The onPremisesSipInfo property
+     * @param OnPremisesSipInfo|null $value Value to set for the onPremisesSipInfo property.
+    */
+    public function setOnPremisesSipInfo(?OnPremisesSipInfo $value): void {
+        $this->getBackingStore()->set('onPremisesSipInfo', $value);
     }
 
     /**

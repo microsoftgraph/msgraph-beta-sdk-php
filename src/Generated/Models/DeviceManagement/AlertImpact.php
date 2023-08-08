@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\DeviceManagement;
 
+use Microsoft\Graph\Beta\Generated\Models\KeyValuePair;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -9,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -60,6 +62,20 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the alertImpactDetails property value. The detail information of the impact. For example, if the Frontline Cloud PCs near concurrency limit alert is triggered, the details contain the impacted Frontline license SKU name, such as Windows 365 Frontline 2 vCPU/8GB/128GB, and the corresponding impacted value.
+     * @return array<KeyValuePair>|null
+    */
+    public function getAlertImpactDetails(): ?array {
+        $val = $this->getBackingStore()->get('alertImpactDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertImpactDetails'");
+    }
+
+    /**
      * Gets the backingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -75,6 +91,7 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'aggregationType' => fn(ParseNode $n) => $o->setAggregationType($n->getEnumValue(AggregationType::class)),
+            'alertImpactDetails' => fn(ParseNode $n) => $o->setAlertImpactDetails($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ];
@@ -110,6 +127,7 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('aggregationType', $this->getAggregationType());
+        $writer->writeCollectionOfObjectValues('alertImpactDetails', $this->getAlertImpactDetails());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('value', $this->getValue());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -129,6 +147,14 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAggregationType(?AggregationType $value): void {
         $this->getBackingStore()->set('aggregationType', $value);
+    }
+
+    /**
+     * Sets the alertImpactDetails property value. The detail information of the impact. For example, if the Frontline Cloud PCs near concurrency limit alert is triggered, the details contain the impacted Frontline license SKU name, such as Windows 365 Frontline 2 vCPU/8GB/128GB, and the corresponding impacted value.
+     * @param array<KeyValuePair>|null $value Value to set for the alertImpactDetails property.
+    */
+    public function setAlertImpactDetails(?array $value): void {
+        $this->getBackingStore()->set('alertImpactDetails', $value);
     }
 
     /**

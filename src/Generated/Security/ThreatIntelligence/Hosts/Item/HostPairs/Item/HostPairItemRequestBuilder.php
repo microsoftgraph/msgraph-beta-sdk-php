@@ -32,7 +32,7 @@ class HostPairItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hostPairs from security
+     * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @param HostPairItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class HostPairItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hostPairs from security
+     * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @param HostPairItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

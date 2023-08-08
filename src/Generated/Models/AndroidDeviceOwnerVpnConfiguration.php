@@ -120,6 +120,14 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidDeviceOwnerCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
+            'proxyExclusionList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setProxyExclusionList($val);
+            },
             'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([VpnProxyServer::class, 'createFromDiscriminatorValue'])),
             'targetedMobileApps' => fn(ParseNode $n) => $o->setTargetedMobileApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
             'targetedPackageIds' => function (ParseNode $n) {
@@ -155,6 +163,20 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelSiteId'");
+    }
+
+    /**
+     * Gets the proxyExclusionList property value. List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as *.example.com.
+     * @return array<string>|null
+    */
+    public function getProxyExclusionList(): ?array {
+        $val = $this->getBackingStore()->get('proxyExclusionList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyExclusionList'");
     }
 
     /**
@@ -211,6 +233,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
         $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
         $writer->writeStringValue('microsoftTunnelSiteId', $this->getMicrosoftTunnelSiteId());
+        $writer->writeCollectionOfPrimitiveValues('proxyExclusionList', $this->getProxyExclusionList());
         $writer->writeObjectValue('proxyServer', $this->getProxyServer());
         $writer->writeCollectionOfObjectValues('targetedMobileApps', $this->getTargetedMobileApps());
         $writer->writeCollectionOfPrimitiveValues('targetedPackageIds', $this->getTargetedPackageIds());
@@ -278,6 +301,14 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     */
     public function setMicrosoftTunnelSiteId(?string $value): void {
         $this->getBackingStore()->set('microsoftTunnelSiteId', $value);
+    }
+
+    /**
+     * Sets the proxyExclusionList property value. List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as *.example.com.
+     * @param array<string>|null $value Value to set for the proxyExclusionList property.
+    */
+    public function setProxyExclusionList(?array $value): void {
+        $this->getBackingStore()->set('proxyExclusionList', $value);
     }
 
     /**

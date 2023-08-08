@@ -44,6 +44,18 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
+     * Gets the blockUnifiedPasswordForWorkProfile property value. Prevent using unified password for unlocking device and work profile.
+     * @return bool|null
+    */
+    public function getBlockUnifiedPasswordForWorkProfile(): ?bool {
+        $val = $this->getBackingStore()->get('blockUnifiedPasswordForWorkProfile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockUnifiedPasswordForWorkProfile'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -58,6 +70,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
                 /** @var array<string>|null $val */
                 $this->setAllowedGoogleAccountDomains($val);
             },
+            'blockUnifiedPasswordForWorkProfile' => fn(ParseNode $n) => $o->setBlockUnifiedPasswordForWorkProfile($n->getBooleanValue()),
             'passwordBlockFaceUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFaceUnlock($n->getBooleanValue()),
             'passwordBlockFingerprintUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFingerprintUnlock($n->getBooleanValue()),
             'passwordBlockIrisUnlock' => fn(ParseNode $n) => $o->setPasswordBlockIrisUnlock($n->getBooleanValue()),
@@ -653,6 +666,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('allowedGoogleAccountDomains', $this->getAllowedGoogleAccountDomains());
+        $writer->writeBooleanValue('blockUnifiedPasswordForWorkProfile', $this->getBlockUnifiedPasswordForWorkProfile());
         $writer->writeBooleanValue('passwordBlockFaceUnlock', $this->getPasswordBlockFaceUnlock());
         $writer->writeBooleanValue('passwordBlockFingerprintUnlock', $this->getPasswordBlockFingerprintUnlock());
         $writer->writeBooleanValue('passwordBlockIrisUnlock', $this->getPasswordBlockIrisUnlock());
@@ -706,6 +720,14 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     */
     public function setAllowedGoogleAccountDomains(?array $value): void {
         $this->getBackingStore()->set('allowedGoogleAccountDomains', $value);
+    }
+
+    /**
+     * Sets the blockUnifiedPasswordForWorkProfile property value. Prevent using unified password for unlocking device and work profile.
+     * @param bool|null $value Value to set for the blockUnifiedPasswordForWorkProfile property.
+    */
+    public function setBlockUnifiedPasswordForWorkProfile(?bool $value): void {
+        $this->getBackingStore()->set('blockUnifiedPasswordForWorkProfile', $value);
     }
 
     /**

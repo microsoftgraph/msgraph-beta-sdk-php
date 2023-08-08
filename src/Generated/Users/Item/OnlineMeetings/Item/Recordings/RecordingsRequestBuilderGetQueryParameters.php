@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Recordin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get recordings from users
+ * Get a callRecording object associated with an onlineMeeting. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of text associated with the recording.
 */
 class RecordingsRequestBuilderGetQueryParameters 
 {
