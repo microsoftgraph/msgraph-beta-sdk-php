@@ -36,7 +36,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the childHostPairs property value. The childHostPairs property
+     * Gets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @return array<HostPair>|null
     */
     public function getChildHostPairs(): ?array {
@@ -114,7 +114,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the hostPairs property value. The hostPairs property
+     * Gets the hostPairs property value. The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @return array<HostPair>|null
     */
     public function getHostPairs(): ?array {
@@ -140,7 +140,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the parentHostPairs property value. The parentHostPairs property
+     * Gets the parentHostPairs property value. The hostPairs that are associated with a host, where that host is the childHost and has an incoming pairing with a parentHost.
      * @return array<HostPair>|null
     */
     public function getParentHostPairs(): ?array {
@@ -270,7 +270,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the childHostPairs property value. The childHostPairs property
+     * Sets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @param array<HostPair>|null $value Value to set for the childHostPairs property.
     */
     public function setChildHostPairs(?array $value): void {
@@ -302,7 +302,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the hostPairs property value. The hostPairs property
+     * Sets the hostPairs property value. The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @param array<HostPair>|null $value Value to set for the hostPairs property.
     */
     public function setHostPairs(?array $value): void {
@@ -318,7 +318,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the parentHostPairs property value. The parentHostPairs property
+     * Sets the parentHostPairs property value. The hostPairs that are associated with a host, where that host is the childHost and has an incoming pairing with a parentHost.
      * @param array<HostPair>|null $value Value to set for the parentHostPairs property.
     */
     public function setParentHostPairs(?array $value): void {

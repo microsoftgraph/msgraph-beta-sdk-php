@@ -108,7 +108,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostPairs property value. The hostPairs property
+     * Gets the hostPairs property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
      * @return array<HostPair>|null
     */
     public function getHostPairs(): ?array {
@@ -317,7 +317,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostPairs property value. The hostPairs property
+     * Sets the hostPairs property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
      * @param array<HostPair>|null $value Value to set for the hostPairs property.
     */
     public function setHostPairs(?array $value): void {

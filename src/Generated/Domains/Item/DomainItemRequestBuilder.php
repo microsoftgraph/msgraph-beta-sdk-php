@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Domains\Item\DomainNameReferences\DomainNameR
 use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\FederationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\ForceDelete\ForceDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\Promote\PromoteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Domains\Item\PromoteToInitial\PromoteToInitialRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\ServiceConfigurationRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\SharedEmailDomainInvitationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\VerificationDnsRecordsRequestBuilder;
@@ -51,6 +52,13 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
     */
     public function promote(): PromoteRequestBuilder {
         return new PromoteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the promoteToInitial method.
+    */
+    public function promoteToInitial(): PromoteToInitialRequestBuilder {
+        return new PromoteToInitialRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

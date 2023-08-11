@@ -622,6 +622,7 @@ class ManagedDevice extends Entity implements Parsable
                 $this->setRoleScopeTagIds($val);
             },
             'securityBaselineStates' => fn(ParseNode $n) => $o->setSecurityBaselineStates($n->getCollectionOfObjectValues([SecurityBaselineState::class, 'createFromDiscriminatorValue'])),
+            'securityPatchLevel' => fn(ParseNode $n) => $o->setSecurityPatchLevel($n->getStringValue()),
             'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
             'skuFamily' => fn(ParseNode $n) => $o->setSkuFamily($n->getStringValue()),
             'skuNumber' => fn(ParseNode $n) => $o->setSkuNumber($n->getIntegerValue()),
@@ -1079,6 +1080,18 @@ class ManagedDevice extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'securityBaselineStates'");
+    }
+
+    /**
+     * Gets the securityPatchLevel property value. This indicates the security patch level of the operating system. These special updates contain important security fixes. For iOS/MacOS they are in (a) format. For android its in 2017-08-07 format. This property is read-only.
+     * @return string|null
+    */
+    public function getSecurityPatchLevel(): ?string {
+        $val = $this->getBackingStore()->get('securityPatchLevel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityPatchLevel'");
     }
 
     /**
@@ -1927,6 +1940,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setSecurityBaselineStates(?array $value): void {
         $this->getBackingStore()->set('securityBaselineStates', $value);
+    }
+
+    /**
+     * Sets the securityPatchLevel property value. This indicates the security patch level of the operating system. These special updates contain important security fixes. For iOS/MacOS they are in (a) format. For android its in 2017-08-07 format. This property is read-only.
+     * @param string|null $value Value to set for the securityPatchLevel property.
+    */
+    public function setSecurityPatchLevel(?string $value): void {
+        $this->getBackingStore()->set('securityPatchLevel', $value);
     }
 
     /**

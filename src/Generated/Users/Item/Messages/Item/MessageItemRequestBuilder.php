@@ -160,10 +160,10 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
+     * Delete eventMessage.
      * @param MessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -182,7 +182,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
      * The messages in a mailbox or folder. Read-only. Nullable.
      * @param MessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MessageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -218,7 +218,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
+     * Delete eventMessage.
      * @param MessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

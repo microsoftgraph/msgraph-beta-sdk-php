@@ -78,9 +78,22 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
         $o = $this;
         return  [
             'deviceRestartBehavior' => fn(ParseNode $n) => $o->setDeviceRestartBehavior($n->getEnumValue(Win32LobAppRestartBehavior::class)),
+            'maxRunTimeInMinutes' => fn(ParseNode $n) => $o->setMaxRunTimeInMinutes($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runAsAccount' => fn(ParseNode $n) => $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)),
         ];
+    }
+
+    /**
+     * Gets the maxRunTimeInMinutes property value. The number of minutes the system will wait for install program to finish. Default value is 60 minutes.
+     * @return int|null
+    */
+    public function getMaxRunTimeInMinutes(): ?int {
+        $val = $this->getBackingStore()->get('maxRunTimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxRunTimeInMinutes'");
     }
 
     /**
@@ -113,6 +126,7 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('deviceRestartBehavior', $this->getDeviceRestartBehavior());
+        $writer->writeIntegerValue('maxRunTimeInMinutes', $this->getMaxRunTimeInMinutes());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -140,6 +154,14 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
     */
     public function setDeviceRestartBehavior(?Win32LobAppRestartBehavior $value): void {
         $this->getBackingStore()->set('deviceRestartBehavior', $value);
+    }
+
+    /**
+     * Sets the maxRunTimeInMinutes property value. The number of minutes the system will wait for install program to finish. Default value is 60 minutes.
+     * @param int|null $value Value to set for the maxRunTimeInMinutes property.
+    */
+    public function setMaxRunTimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('maxRunTimeInMinutes', $value);
     }
 
     /**

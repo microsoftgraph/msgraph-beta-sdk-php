@@ -463,7 +463,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the recordings property value. The recordings property
+     * Gets the recordings property value. The recordings of an online meeting. Read-only.
      * @return array<CallRecording>|null
     */
     public function getRecordings(): ?array {
@@ -871,7 +871,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordings property value. The recordings property
+     * Sets the recordings property value. The recordings of an online meeting. Read-only.
      * @param array<CallRecording>|null $value Value to set for the recordings property.
     */
     public function setRecordings(?array $value): void {

@@ -39,6 +39,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
             'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([AndroidMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
+            'targetedPlatforms' => fn(ParseNode $n) => $o->setTargetedPlatforms($n->getEnumValue(AndroidTargetedPlatforms::class)),
             'versionCode' => fn(ParseNode $n) => $o->setVersionCode($n->getStringValue()),
             'versionName' => fn(ParseNode $n) => $o->setVersionName($n->getStringValue()),
         ]);
@@ -93,6 +94,18 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
     }
 
     /**
+     * Gets the targetedPlatforms property value. Specifies which platform(s) can be targeted for a given Android LOB application or Managed Android LOB application.
+     * @return AndroidTargetedPlatforms|null
+    */
+    public function getTargetedPlatforms(): ?AndroidTargetedPlatforms {
+        $val = $this->getBackingStore()->get('targetedPlatforms');
+        if (is_null($val) || $val instanceof AndroidTargetedPlatforms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedPlatforms'");
+    }
+
+    /**
      * Gets the versionCode property value. The version code of managed Android Line of Business (LoB) app.
      * @return string|null
     */
@@ -126,6 +139,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
         $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('packageId', $this->getPackageId());
+        $writer->writeEnumValue('targetedPlatforms', $this->getTargetedPlatforms());
         $writer->writeStringValue('versionCode', $this->getVersionCode());
         $writer->writeStringValue('versionName', $this->getVersionName());
     }
@@ -160,6 +174,14 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
     */
     public function setPackageId(?string $value): void {
         $this->getBackingStore()->set('packageId', $value);
+    }
+
+    /**
+     * Sets the targetedPlatforms property value. Specifies which platform(s) can be targeted for a given Android LOB application or Managed Android LOB application.
+     * @param AndroidTargetedPlatforms|null $value Value to set for the targetedPlatforms property.
+    */
+    public function setTargetedPlatforms(?AndroidTargetedPlatforms $value): void {
+        $this->getBackingStore()->set('targetedPlatforms', $value);
     }
 
     /**

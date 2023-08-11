@@ -53,7 +53,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hostPairs from security
+     * Read the properties and relationships of a hostPair object.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hostPairs from security
+     * Read the properties and relationships of a hostPair object.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

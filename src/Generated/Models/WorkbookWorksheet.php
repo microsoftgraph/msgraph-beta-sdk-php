@@ -53,6 +53,7 @@ class WorkbookWorksheet extends Entity implements Parsable
             'position' => fn(ParseNode $n) => $o->setPosition($n->getIntegerValue()),
             'protection' => fn(ParseNode $n) => $o->setProtection($n->getObjectValue([WorkbookWorksheetProtection::class, 'createFromDiscriminatorValue'])),
             'tables' => fn(ParseNode $n) => $o->setTables($n->getCollectionOfObjectValues([WorkbookTable::class, 'createFromDiscriminatorValue'])),
+            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([WorkbookDocumentTask::class, 'createFromDiscriminatorValue'])),
             'visibility' => fn(ParseNode $n) => $o->setVisibility($n->getStringValue()),
         ]);
     }
@@ -136,6 +137,20 @@ class WorkbookWorksheet extends Entity implements Parsable
     }
 
     /**
+     * Gets the tasks property value. The tasks property
+     * @return array<WorkbookDocumentTask>|null
+    */
+    public function getTasks(): ?array {
+        $val = $this->getBackingStore()->get('tasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WorkbookDocumentTask::class);
+            /** @var array<WorkbookDocumentTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
+    }
+
+    /**
      * Gets the visibility property value. The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.
      * @return string|null
     */
@@ -160,6 +175,7 @@ class WorkbookWorksheet extends Entity implements Parsable
         $writer->writeIntegerValue('position', $this->getPosition());
         $writer->writeObjectValue('protection', $this->getProtection());
         $writer->writeCollectionOfObjectValues('tables', $this->getTables());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
         $writer->writeStringValue('visibility', $this->getVisibility());
     }
 
@@ -217,6 +233,14 @@ class WorkbookWorksheet extends Entity implements Parsable
     */
     public function setTables(?array $value): void {
         $this->getBackingStore()->set('tables', $value);
+    }
+
+    /**
+     * Sets the tasks property value. The tasks property
+     * @param array<WorkbookDocumentTask>|null $value Value to set for the tasks property.
+    */
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
     /**

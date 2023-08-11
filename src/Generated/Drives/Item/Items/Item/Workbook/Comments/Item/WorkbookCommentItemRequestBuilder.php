@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comments\Item\Replies\RepliesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comments\Item\Task\TaskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookComment;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -23,6 +24,13 @@ class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder
     */
     public function replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the task property of the microsoft.graph.workbookComment entity.
+    */
+    public function task(): TaskRequestBuilder {
+        return new TaskRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

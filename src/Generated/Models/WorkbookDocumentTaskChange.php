@@ -1,0 +1,288 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class WorkbookDocumentTaskChange extends Entity implements Parsable 
+{
+    /**
+     * Instantiates a new workbookDocumentTaskChange and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return WorkbookDocumentTaskChange
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookDocumentTaskChange {
+        return new WorkbookDocumentTaskChange();
+    }
+
+    /**
+     * Gets the assignee property value. The assignee property
+     * @return WorkbookEmailIdentity|null
+    */
+    public function getAssignee(): ?WorkbookEmailIdentity {
+        $val = $this->getBackingStore()->get('assignee');
+        if (is_null($val) || $val instanceof WorkbookEmailIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignee'");
+    }
+
+    /**
+     * Gets the changedBy property value. The changedBy property
+     * @return WorkbookEmailIdentity|null
+    */
+    public function getChangedBy(): ?WorkbookEmailIdentity {
+        $val = $this->getBackingStore()->get('changedBy');
+        if (is_null($val) || $val instanceof WorkbookEmailIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'changedBy'");
+    }
+
+    /**
+     * Gets the commentId property value. The commentId property
+     * @return string|null
+    */
+    public function getCommentId(): ?string {
+        $val = $this->getBackingStore()->get('commentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'commentId'");
+    }
+
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
+    }
+
+    /**
+     * Gets the dueDateTime property value. The dueDateTime property
+     * @return DateTime|null
+    */
+    public function getDueDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('dueDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dueDateTime'");
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'assignee' => fn(ParseNode $n) => $o->setAssignee($n->getObjectValue([WorkbookEmailIdentity::class, 'createFromDiscriminatorValue'])),
+            'changedBy' => fn(ParseNode $n) => $o->setChangedBy($n->getObjectValue([WorkbookEmailIdentity::class, 'createFromDiscriminatorValue'])),
+            'commentId' => fn(ParseNode $n) => $o->setCommentId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
+            'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getIntegerValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'undoChangeId' => fn(ParseNode $n) => $o->setUndoChangeId($n->getStringValue()),
+        ]);
+    }
+
+    /**
+     * Gets the percentComplete property value. The percentComplete property
+     * @return int|null
+    */
+    public function getPercentComplete(): ?int {
+        $val = $this->getBackingStore()->get('percentComplete');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'percentComplete'");
+    }
+
+    /**
+     * Gets the priority property value. The priority property
+     * @return int|null
+    */
+    public function getPriority(): ?int {
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
+    }
+
+    /**
+     * Gets the startDateTime property value. The startDateTime property
+     * @return DateTime|null
+    */
+    public function getStartDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
+    }
+
+    /**
+     * Gets the title property value. The title property
+     * @return string|null
+    */
+    public function getTitle(): ?string {
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
+    }
+
+    /**
+     * Gets the type property value. The type property
+     * @return string|null
+    */
+    public function getType(): ?string {
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
+    }
+
+    /**
+     * Gets the undoChangeId property value. The undoChangeId property
+     * @return string|null
+    */
+    public function getUndoChangeId(): ?string {
+        $val = $this->getBackingStore()->get('undoChangeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'undoChangeId'");
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeObjectValue('assignee', $this->getAssignee());
+        $writer->writeObjectValue('changedBy', $this->getChangedBy());
+        $writer->writeStringValue('commentId', $this->getCommentId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeIntegerValue('percentComplete', $this->getPercentComplete());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('title', $this->getTitle());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('undoChangeId', $this->getUndoChangeId());
+    }
+
+    /**
+     * Sets the assignee property value. The assignee property
+     * @param WorkbookEmailIdentity|null $value Value to set for the assignee property.
+    */
+    public function setAssignee(?WorkbookEmailIdentity $value): void {
+        $this->getBackingStore()->set('assignee', $value);
+    }
+
+    /**
+     * Sets the changedBy property value. The changedBy property
+     * @param WorkbookEmailIdentity|null $value Value to set for the changedBy property.
+    */
+    public function setChangedBy(?WorkbookEmailIdentity $value): void {
+        $this->getBackingStore()->set('changedBy', $value);
+    }
+
+    /**
+     * Sets the commentId property value. The commentId property
+     * @param string|null $value Value to set for the commentId property.
+    */
+    public function setCommentId(?string $value): void {
+        $this->getBackingStore()->set('commentId', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the dueDateTime property value. The dueDateTime property
+     * @param DateTime|null $value Value to set for the dueDateTime property.
+    */
+    public function setDueDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('dueDateTime', $value);
+    }
+
+    /**
+     * Sets the percentComplete property value. The percentComplete property
+     * @param int|null $value Value to set for the percentComplete property.
+    */
+    public function setPercentComplete(?int $value): void {
+        $this->getBackingStore()->set('percentComplete', $value);
+    }
+
+    /**
+     * Sets the priority property value. The priority property
+     * @param int|null $value Value to set for the priority property.
+    */
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
+     * Sets the startDateTime property value. The startDateTime property
+     * @param DateTime|null $value Value to set for the startDateTime property.
+    */
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
+    }
+
+    /**
+     * Sets the title property value. The title property
+     * @param string|null $value Value to set for the title property.
+    */
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
+    }
+
+    /**
+     * Sets the type property value. The type property
+     * @param string|null $value Value to set for the type property.
+    */
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
+    }
+
+    /**
+     * Sets the undoChangeId property value. The undoChangeId property
+     * @param string|null $value Value to set for the undoChangeId property.
+    */
+    public function setUndoChangeId(?string $value): void {
+        $this->getBackingStore()->set('undoChangeId', $value);
+    }
+
+}

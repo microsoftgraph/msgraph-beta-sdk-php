@@ -32,7 +32,7 @@ class ParentHostRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get parentHost from security
+     * Host used to reach the childHost.
      * @param ParentHostRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class ParentHostRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get parentHost from security
+     * Host used to reach the childHost.
      * @param ParentHostRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
