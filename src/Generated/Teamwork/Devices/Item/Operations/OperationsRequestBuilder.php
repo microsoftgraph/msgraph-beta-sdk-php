@@ -29,7 +29,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
-     * @param string $teamworkDeviceOperationId Unique identifier of the item
+     * @param string $teamworkDeviceOperationId The unique identifier of teamworkDeviceOperation
      * @return TeamworkDeviceOperationItemRequestBuilder
     */
     public function byTeamworkDeviceOperationId(string $teamworkDeviceOperationId): TeamworkDeviceOperationItemRequestBuilder {

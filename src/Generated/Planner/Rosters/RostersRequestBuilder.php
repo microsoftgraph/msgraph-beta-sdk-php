@@ -29,7 +29,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the rosters property of the microsoft.graph.planner entity.
-     * @param string $plannerRosterId Unique identifier of the item
+     * @param string $plannerRosterId The unique identifier of plannerRoster
      * @return PlannerRosterItemRequestBuilder
     */
     public function byPlannerRosterId(string $plannerRosterId): PlannerRosterItemRequestBuilder {

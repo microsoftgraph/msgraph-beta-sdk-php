@@ -30,7 +30,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.workbookWorksheet entity.
-     * @param string $workbookDocumentTaskId Unique identifier of the item
+     * @param string $workbookDocumentTaskId The unique identifier of workbookDocumentTask
      * @return WorkbookDocumentTaskItemRequestBuilder
     */
     public function byWorkbookDocumentTaskId(string $workbookDocumentTaskId): WorkbookDocumentTaskItemRequestBuilder {

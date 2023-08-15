@@ -29,7 +29,7 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
-     * @param string $callTranscriptId Unique identifier of the item
+     * @param string $callTranscriptId The unique identifier of callTranscript
      * @return CallTranscriptItemRequestBuilder
     */
     public function byCallTranscriptId(string $callTranscriptId): CallTranscriptItemRequestBuilder {

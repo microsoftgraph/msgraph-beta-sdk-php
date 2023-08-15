@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PurgeDataOperation extends CaseOperation implements Parsable 
+class PurgeDataOperation extends \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation implements Parsable 
 {
     /**
      * Instantiates a new purgeDataOperation and sets the default values.

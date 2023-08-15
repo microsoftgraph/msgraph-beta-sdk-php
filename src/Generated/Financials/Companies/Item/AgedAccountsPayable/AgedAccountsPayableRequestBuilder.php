@@ -28,7 +28,7 @@ class AgedAccountsPayableRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
-     * @param string $agedAccountsPayableId Unique identifier of the item
+     * @param string $agedAccountsPayableId The unique identifier of agedAccountsPayable
      * @return AgedAccountsPayableItemRequestBuilder
     */
     public function byAgedAccountsPayableId(string $agedAccountsPayableId): AgedAccountsPayableItemRequestBuilder {

@@ -29,7 +29,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.
-     * @param string $forwardingProfileId Unique identifier of the item
+     * @param string $forwardingProfileId The unique identifier of forwardingProfile
      * @return ForwardingProfileItemRequestBuilder
     */
     public function byForwardingProfileId(string $forwardingProfileId): ForwardingProfileItemRequestBuilder {

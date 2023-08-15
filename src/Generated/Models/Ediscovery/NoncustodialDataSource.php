@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class NoncustodialDataSource extends DataSourceContainer implements Parsable 
+class NoncustodialDataSource extends \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSourceContainer implements Parsable 
 {
     /**
      * Instantiates a new noncustodialDataSource and sets the default values.
@@ -39,11 +39,11 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
 
     /**
      * Gets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
-     * @return DataSource|null
+     * @return \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource|null
     */
-    public function getDataSource(): ?DataSource {
+    public function getDataSource(): ?\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource {
         $val = $this->getBackingStore()->get('dataSource');
-        if (is_null($val) || $val instanceof DataSource) {
+        if (is_null($val) || $val instanceof \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSource'");
@@ -57,7 +57,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'applyHoldToSource' => fn(ParseNode $n) => $o->setApplyHoldToSource($n->getBooleanValue()),
-            'dataSource' => fn(ParseNode $n) => $o->setDataSource($n->getObjectValue([DataSource::class, 'createFromDiscriminatorValue'])),
+            'dataSource' => fn(ParseNode $n) => $o->setDataSource($n->getObjectValue([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -81,9 +81,9 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
 
     /**
      * Sets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
-     * @param DataSource|null $value Value to set for the dataSource property.
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource|null $value Value to set for the dataSource property.
     */
-    public function setDataSource(?DataSource $value): void {
+    public function setDataSource(?\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $value): void {
         $this->getBackingStore()->set('dataSource', $value);
     }
 

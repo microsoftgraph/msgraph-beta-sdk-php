@@ -29,7 +29,7 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
-     * @param string $unsupportedGroupPolicyExtensionId Unique identifier of the item
+     * @param string $unsupportedGroupPolicyExtensionId The unique identifier of unsupportedGroupPolicyExtension
      * @return UnsupportedGroupPolicyExtensionItemRequestBuilder
     */
     public function byUnsupportedGroupPolicyExtensionId(string $unsupportedGroupPolicyExtensionId): UnsupportedGroupPolicyExtensionItemRequestBuilder {

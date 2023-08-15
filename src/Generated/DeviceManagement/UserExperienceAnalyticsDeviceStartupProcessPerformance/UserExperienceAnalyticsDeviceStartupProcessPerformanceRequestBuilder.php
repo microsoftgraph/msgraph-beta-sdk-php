@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
     
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsDeviceStartupProcessPerformanceId Unique identifier of the item
+     * @param string $userExperienceAnalyticsDeviceStartupProcessPerformanceId The unique identifier of userExperienceAnalyticsDeviceStartupProcessPerformance
      * @return UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder
     */
     public function byUserExperienceAnalyticsDeviceStartupProcessPerformanceId(string $userExperienceAnalyticsDeviceStartupProcessPerformanceId): UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder {

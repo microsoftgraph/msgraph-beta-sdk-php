@@ -29,7 +29,7 @@ class ActivitystatisticsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of activityStatistics entities.
-     * @param string $activityStatisticsId Unique identifier of the item
+     * @param string $activityStatisticsId The unique identifier of activityStatistics
      * @return ActivityStatisticsItemRequestBuilder
     */
     public function byActivityStatisticsId(string $activityStatisticsId): ActivityStatisticsItemRequestBuilder {

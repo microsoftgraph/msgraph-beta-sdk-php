@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SiteSource extends DataSource implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource extends \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource implements Parsable 
 {
     /**
      * Instantiates a new siteSource and sets the default values.
@@ -20,10 +20,10 @@ class SiteSource extends DataSource implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return SiteSource
+     * @return \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SiteSource {
-        return new SiteSource();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource {
+        return new \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource();
     }
 
     /**

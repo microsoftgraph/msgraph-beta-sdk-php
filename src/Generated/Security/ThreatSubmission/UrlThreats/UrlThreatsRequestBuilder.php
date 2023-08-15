@@ -29,7 +29,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $urlThreatSubmissionId Unique identifier of the item
+     * @param string $urlThreatSubmissionId The unique identifier of urlThreatSubmission
      * @return UrlThreatSubmissionItemRequestBuilder
     */
     public function byUrlThreatSubmissionId(string $urlThreatSubmissionId): UrlThreatSubmissionItemRequestBuilder {

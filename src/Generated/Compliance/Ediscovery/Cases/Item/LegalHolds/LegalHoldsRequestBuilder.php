@@ -29,7 +29,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
-     * @param string $legalHoldId Unique identifier of the item
+     * @param string $legalHoldId The unique identifier of legalHold
      * @return LegalHoldItemRequestBuilder
     */
     public function byLegalHoldId(string $legalHoldId): LegalHoldItemRequestBuilder {

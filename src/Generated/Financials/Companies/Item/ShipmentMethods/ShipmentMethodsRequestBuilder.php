@@ -29,7 +29,7 @@ class ShipmentMethodsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.
-     * @param string $shipmentMethodId Unique identifier of the item
+     * @param string $shipmentMethodId The unique identifier of shipmentMethod
      * @return ShipmentMethodItemRequestBuilder
     */
     public function byShipmentMethodId(string $shipmentMethodId): ShipmentMethodItemRequestBuilder {

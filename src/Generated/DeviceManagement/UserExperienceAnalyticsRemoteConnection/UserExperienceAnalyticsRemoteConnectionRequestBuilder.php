@@ -30,7 +30,7 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilder extends BaseRequestB
     
     /**
      * Provides operations to manage the userExperienceAnalyticsRemoteConnection property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsRemoteConnectionId Unique identifier of the item
+     * @param string $userExperienceAnalyticsRemoteConnectionId The unique identifier of userExperienceAnalyticsRemoteConnection
      * @return UserExperienceAnalyticsRemoteConnectionItemRequestBuilder
     */
     public function byUserExperienceAnalyticsRemoteConnectionId(string $userExperienceAnalyticsRemoteConnectionId): UserExperienceAnalyticsRemoteConnectionItemRequestBuilder {

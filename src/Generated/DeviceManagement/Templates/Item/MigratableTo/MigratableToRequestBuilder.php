@@ -37,7 +37,7 @@ class MigratableToRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
-     * @param string $deviceManagementTemplateId1 Unique identifier of the item
+     * @param string $deviceManagementTemplateId1 The unique identifier of deviceManagementTemplate
      * @return DeviceManagementTemplateItemRequestBuilder
     */
     public function byDeviceManagementTemplateId1(string $deviceManagementTemplateId1): DeviceManagementTemplateItemRequestBuilder {

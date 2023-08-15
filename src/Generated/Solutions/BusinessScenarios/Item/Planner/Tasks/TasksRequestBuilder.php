@@ -29,7 +29,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.businessScenarioPlanner entity.
-     * @param string $businessScenarioTaskId Unique identifier of the item
+     * @param string $businessScenarioTaskId The unique identifier of businessScenarioTask
      * @return BusinessScenarioTaskItemRequestBuilder
     */
     public function byBusinessScenarioTaskId(string $businessScenarioTaskId): BusinessScenarioTaskItemRequestBuilder {

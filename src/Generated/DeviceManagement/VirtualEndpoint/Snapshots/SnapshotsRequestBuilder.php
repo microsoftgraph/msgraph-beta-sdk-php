@@ -38,7 +38,7 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcSnapshotId Unique identifier of the item
+     * @param string $cloudPcSnapshotId The unique identifier of cloudPcSnapshot
      * @return CloudPcSnapshotItemRequestBuilder
     */
     public function byCloudPcSnapshotId(string $cloudPcSnapshotId): CloudPcSnapshotItemRequestBuilder {

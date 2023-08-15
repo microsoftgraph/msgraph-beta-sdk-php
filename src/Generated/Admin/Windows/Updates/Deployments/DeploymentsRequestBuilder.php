@@ -29,7 +29,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deployments property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $deploymentId Unique identifier of the item
+     * @param string $deploymentId The unique identifier of deployment
      * @return DeploymentItemRequestBuilder
     */
     public function byDeploymentId(string $deploymentId): DeploymentItemRequestBuilder {

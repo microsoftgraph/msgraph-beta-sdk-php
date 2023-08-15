@@ -29,7 +29,7 @@ class ActivityStatisticsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
-     * @param string $activityStatisticsId Unique identifier of the item
+     * @param string $activityStatisticsId The unique identifier of activityStatistics
      * @return ActivityStatisticsItemRequestBuilder
     */
     public function byActivityStatisticsId(string $activityStatisticsId): ActivityStatisticsItemRequestBuilder {

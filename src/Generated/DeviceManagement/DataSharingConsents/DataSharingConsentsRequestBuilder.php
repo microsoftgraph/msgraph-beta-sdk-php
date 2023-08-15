@@ -29,7 +29,7 @@ class DataSharingConsentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dataSharingConsents property of the microsoft.graph.deviceManagement entity.
-     * @param string $dataSharingConsentId Unique identifier of the item
+     * @param string $dataSharingConsentId The unique identifier of dataSharingConsent
      * @return DataSharingConsentItemRequestBuilder
     */
     public function byDataSharingConsentId(string $dataSharingConsentId): DataSharingConsentItemRequestBuilder {

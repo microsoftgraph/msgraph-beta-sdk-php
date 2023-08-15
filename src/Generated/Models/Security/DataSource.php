@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DataSource extends Entity implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Security\DataSource extends Entity implements Parsable 
 {
     /**
      * Instantiates a new dataSource and sets the default values.
@@ -21,19 +21,19 @@ class DataSource extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return DataSource
+     * @return \Microsoft\Graph\Beta\Generated\Models\Security\DataSource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DataSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Security\DataSource {
         $mappingValueNode = $parseNode->getChildNode("@odata.type");
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.security.siteSource': return new SiteSource();
-                case '#microsoft.graph.security.unifiedGroupSource': return new UnifiedGroupSource();
-                case '#microsoft.graph.security.userSource': return new UserSource();
+                case '#microsoft.graph.security.siteSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource();
+                case '#microsoft.graph.security.unifiedGroupSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource();
+                case '#microsoft.graph.security.userSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\UserSource();
             }
         }
-        return new DataSource();
+        return new \Microsoft\Graph\Beta\Generated\Models\Security\DataSource();
     }
 
     /**

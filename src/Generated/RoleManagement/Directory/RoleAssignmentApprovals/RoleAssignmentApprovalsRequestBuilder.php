@@ -30,7 +30,7 @@ class RoleAssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.
-     * @param string $approvalId Unique identifier of the item
+     * @param string $approvalId The unique identifier of approval
      * @return ApprovalItemRequestBuilder
     */
     public function byApprovalId(string $approvalId): ApprovalItemRequestBuilder {

@@ -29,7 +29,7 @@ class DefinitionValuesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
-     * @param string $groupPolicyDefinitionValueId Unique identifier of the item
+     * @param string $groupPolicyDefinitionValueId The unique identifier of groupPolicyDefinitionValue
      * @return GroupPolicyDefinitionValueItemRequestBuilder
     */
     public function byGroupPolicyDefinitionValueId(string $groupPolicyDefinitionValueId): GroupPolicyDefinitionValueItemRequestBuilder {

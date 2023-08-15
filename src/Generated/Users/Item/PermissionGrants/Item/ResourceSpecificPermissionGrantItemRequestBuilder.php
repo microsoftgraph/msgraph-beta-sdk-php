@@ -90,7 +90,7 @@ class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get permissionGrants from users
+     * List all resource-specific permission grants of a user.
      * @param ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -144,7 +144,7 @@ class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get permissionGrants from users
+     * List all resource-specific permission grants of a user.
      * @param ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

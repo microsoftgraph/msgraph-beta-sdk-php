@@ -29,7 +29,7 @@ class RoleAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
-     * @param string $unifiedRoleAssignmentMultipleId Unique identifier of the item
+     * @param string $unifiedRoleAssignmentMultipleId The unique identifier of unifiedRoleAssignmentMultiple
      * @return UnifiedRoleAssignmentMultipleItemRequestBuilder
     */
     public function byUnifiedRoleAssignmentMultipleId(string $unifiedRoleAssignmentMultipleId): UnifiedRoleAssignmentMultipleItemRequestBuilder {
@@ -56,7 +56,7 @@ class RoleAssignmentsRequestBuilder extends BaseRequestBuilder
      * Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Azure AD), use unifiedRoleAssignment.
      * @param RoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-roleassignments?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

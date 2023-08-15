@@ -29,7 +29,7 @@ class AccessPackageResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.
-     * @param string $accessPackageResourceId Unique identifier of the item
+     * @param string $accessPackageResourceId The unique identifier of accessPackageResource
      * @return AccessPackageResourceItemRequestBuilder
     */
     public function byAccessPackageResourceId(string $accessPackageResourceId): AccessPackageResourceItemRequestBuilder {

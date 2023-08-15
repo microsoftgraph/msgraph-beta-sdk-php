@@ -29,7 +29,7 @@ class RecordingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
-     * @param string $callRecordingId Unique identifier of the item
+     * @param string $callRecordingId The unique identifier of callRecording
      * @return CallRecordingItemRequestBuilder
     */
     public function byCallRecordingId(string $callRecordingId): CallRecordingItemRequestBuilder {

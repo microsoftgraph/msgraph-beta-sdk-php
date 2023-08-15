@@ -29,7 +29,7 @@ class MicrosoftTunnelSitesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the microsoftTunnelSites property of the microsoft.graph.deviceManagement entity.
-     * @param string $microsoftTunnelSiteId Unique identifier of the item
+     * @param string $microsoftTunnelSiteId The unique identifier of microsoftTunnelSite
      * @return MicrosoftTunnelSiteItemRequestBuilder
     */
     public function byMicrosoftTunnelSiteId(string $microsoftTunnelSiteId): MicrosoftTunnelSiteItemRequestBuilder {

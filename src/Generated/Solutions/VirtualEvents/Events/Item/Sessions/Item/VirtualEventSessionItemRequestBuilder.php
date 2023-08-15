@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Recordings\RecordingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Registrations\RegistrationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Transcripts\TranscriptsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -84,17 +84,17 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.
+    */
+    public function registrations(): RegistrationsRequestBuilder {
+        return new RegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
     */
     public function transcripts(): TranscriptsRequestBuilder {
         return new TranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the virtualAppointment property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function virtualAppointment(): VirtualAppointmentRequestBuilder {
-        return new VirtualAppointmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -130,10 +130,9 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Sessions of the virtual event.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/virtualeventsession-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?VirtualEventSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -185,7 +184,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Sessions of the virtual event.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

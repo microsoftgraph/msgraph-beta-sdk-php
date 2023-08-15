@@ -29,7 +29,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcOnPremisesConnectionId Unique identifier of the item
+     * @param string $cloudPcOnPremisesConnectionId The unique identifier of cloudPcOnPremisesConnection
      * @return CloudPcOnPremisesConnectionItemRequestBuilder
     */
     public function byCloudPcOnPremisesConnectionId(string $cloudPcOnPremisesConnectionId): CloudPcOnPremisesConnectionItemRequestBuilder {

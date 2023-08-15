@@ -29,7 +29,7 @@ class AllowedDataLocationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of allowedDataLocation entities.
-     * @param string $allowedDataLocationId Unique identifier of the item
+     * @param string $allowedDataLocationId The unique identifier of allowedDataLocation
      * @return AllowedDataLocationItemRequestBuilder
     */
     public function byAllowedDataLocationId(string $allowedDataLocationId): AllowedDataLocationItemRequestBuilder {

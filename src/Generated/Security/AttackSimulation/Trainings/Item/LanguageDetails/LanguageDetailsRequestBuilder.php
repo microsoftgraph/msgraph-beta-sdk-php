@@ -29,7 +29,7 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
-     * @param string $trainingLanguageDetailId Unique identifier of the item
+     * @param string $trainingLanguageDetailId The unique identifier of trainingLanguageDetail
      * @return TrainingLanguageDetailItemRequestBuilder
     */
     public function byTrainingLanguageDetailId(string $trainingLanguageDetailId): TrainingLanguageDetailItemRequestBuilder {

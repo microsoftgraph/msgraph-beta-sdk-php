@@ -37,7 +37,7 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
-     * @param string $alertRecordId Unique identifier of the item
+     * @param string $alertRecordId The unique identifier of alertRecord
      * @return AlertRecordItemRequestBuilder
     */
     public function byAlertRecordId(string $alertRecordId): AlertRecordItemRequestBuilder {

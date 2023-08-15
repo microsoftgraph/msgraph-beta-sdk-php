@@ -29,7 +29,7 @@ class SharedEmailDomainsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
-     * @param string $sharedEmailDomainId Unique identifier of the item
+     * @param string $sharedEmailDomainId The unique identifier of sharedEmailDomain
      * @return SharedEmailDomainItemRequestBuilder
     */
     public function bySharedEmailDomainId(string $sharedEmailDomainId): SharedEmailDomainItemRequestBuilder {

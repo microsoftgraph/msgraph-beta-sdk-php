@@ -29,7 +29,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the exportJobs property of the microsoft.graph.cloudPcReports entity.
-     * @param string $cloudPcExportJobId Unique identifier of the item
+     * @param string $cloudPcExportJobId The unique identifier of cloudPcExportJob
      * @return CloudPcExportJobItemRequestBuilder
     */
     public function byCloudPcExportJobId(string $cloudPcExportJobId): CloudPcExportJobItemRequestBuilder {

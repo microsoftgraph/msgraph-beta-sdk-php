@@ -29,7 +29,7 @@ class CustomerPaymentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
-     * @param string $customerPaymentId Unique identifier of the item
+     * @param string $customerPaymentId The unique identifier of customerPayment
      * @return CustomerPaymentItemRequestBuilder
     */
     public function byCustomerPaymentId(string $customerPaymentId): CustomerPaymentItemRequestBuilder {

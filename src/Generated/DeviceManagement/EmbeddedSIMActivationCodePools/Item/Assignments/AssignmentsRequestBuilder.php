@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
-     * @param string $embeddedSIMActivationCodePoolAssignmentId Unique identifier of the item
+     * @param string $embeddedSIMActivationCodePoolAssignmentId The unique identifier of embeddedSIMActivationCodePoolAssignment
      * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder
     */
     public function byEmbeddedSIMActivationCodePoolAssignmentId(string $embeddedSIMActivationCodePoolAssignmentId): EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder {

@@ -77,7 +77,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of user entities.
-     * @param string $userId Unique identifier of the item
+     * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */
     public function byUserId(string $userId): UserItemRequestBuilder {

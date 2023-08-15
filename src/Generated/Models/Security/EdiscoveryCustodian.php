@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class EdiscoveryCustodian extends DataSourceContainer implements Parsable 
+class EdiscoveryCustodian extends \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer implements Parsable 
 {
     /**
      * Instantiates a new ediscoveryCustodian and sets the default values.
@@ -61,9 +61,9 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
             'acknowledgedDateTime' => fn(ParseNode $n) => $o->setAcknowledgedDateTime($n->getDateTimeValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'lastIndexOperation' => fn(ParseNode $n) => $o->setLastIndexOperation($n->getObjectValue([EdiscoveryIndexOperation::class, 'createFromDiscriminatorValue'])),
-            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
-            'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
-            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
+            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource::class, 'createFromDiscriminatorValue'])),
+            'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
+            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -81,13 +81,13 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Gets the siteSources property value. Data source entity for SharePoint sites associated with the custodian.
-     * @return array<SiteSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null
     */
     public function getSiteSources(): ?array {
         $val = $this->getBackingStore()->get('siteSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, SiteSource::class);
-            /** @var array<SiteSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
@@ -95,13 +95,13 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Gets the unifiedGroupSources property value. Data source entity for groups associated with the custodian.
-     * @return array<UnifiedGroupSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource>|null
     */
     public function getUnifiedGroupSources(): ?array {
         $val = $this->getBackingStore()->get('unifiedGroupSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UnifiedGroupSource::class);
-            /** @var array<UnifiedGroupSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'unifiedGroupSources'");
@@ -109,13 +109,13 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Gets the userSources property value. Data source entity for a custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
-     * @return array<UserSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null
     */
     public function getUserSources(): ?array {
         $val = $this->getBackingStore()->get('userSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UserSource::class);
-            /** @var array<UserSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\UserSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
@@ -161,7 +161,7 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Sets the siteSources property value. Data source entity for SharePoint sites associated with the custodian.
-     * @param array<SiteSource>|null $value Value to set for the siteSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null $value Value to set for the siteSources property.
     */
     public function setSiteSources(?array $value): void {
         $this->getBackingStore()->set('siteSources', $value);
@@ -169,7 +169,7 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Sets the unifiedGroupSources property value. Data source entity for groups associated with the custodian.
-     * @param array<UnifiedGroupSource>|null $value Value to set for the unifiedGroupSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource>|null $value Value to set for the unifiedGroupSources property.
     */
     public function setUnifiedGroupSources(?array $value): void {
         $this->getBackingStore()->set('unifiedGroupSources', $value);
@@ -177,7 +177,7 @@ class EdiscoveryCustodian extends DataSourceContainer implements Parsable
 
     /**
      * Sets the userSources property value. Data source entity for a custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
-     * @param array<UserSource>|null $value Value to set for the userSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null $value Value to set for the userSources property.
     */
     public function setUserSources(?array $value): void {
         $this->getBackingStore()->set('userSources', $value);

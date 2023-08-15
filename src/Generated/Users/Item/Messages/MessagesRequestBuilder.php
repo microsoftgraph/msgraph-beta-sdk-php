@@ -37,7 +37,7 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the messages property of the microsoft.graph.user entity.
-     * @param string $messageId Unique identifier of the item
+     * @param string $messageId The unique identifier of message
      * @return MessageItemRequestBuilder
     */
     public function byMessageId(string $messageId): MessageItemRequestBuilder {
@@ -64,7 +64,7 @@ class MessagesRequestBuilder extends BaseRequestBuilder
      * The messages in a mailbox or folder. Read-only. Nullable.
      * @param MessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MessagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

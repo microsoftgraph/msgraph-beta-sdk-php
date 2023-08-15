@@ -36,7 +36,7 @@ class RunsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the runs property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $industryDataRunId Unique identifier of the item
+     * @param string $industryDataRunId The unique identifier of industryDataRun
      * @return IndustryDataRunItemRequestBuilder
     */
     public function byIndustryDataRunId(string $industryDataRunId): IndustryDataRunItemRequestBuilder {

@@ -68,7 +68,7 @@ class CloudRealtimeCommunicationInfo implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the isSipEnabled property value. The isSipEnabled property
+     * Gets the isSipEnabled property value. Indicates whether the user has a SIP-enabled client registered for them. Read-only.
      * @return bool|null
     */
     public function getIsSipEnabled(): ?bool {
@@ -118,7 +118,7 @@ class CloudRealtimeCommunicationInfo implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the isSipEnabled property value. The isSipEnabled property
+     * Sets the isSipEnabled property value. Indicates whether the user has a SIP-enabled client registered for them. Read-only.
      * @param bool|null $value Value to set for the isSipEnabled property.
     */
     public function setIsSipEnabled(?bool $value): void {

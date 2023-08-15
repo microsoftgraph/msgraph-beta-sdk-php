@@ -61,7 +61,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
-     * @param string $informationProtectionLabelId Unique identifier of the item
+     * @param string $informationProtectionLabelId The unique identifier of informationProtectionLabel
      * @return InformationProtectionLabelItemRequestBuilder
     */
     public function byInformationProtectionLabelId(string $informationProtectionLabelId): InformationProtectionLabelItemRequestBuilder {

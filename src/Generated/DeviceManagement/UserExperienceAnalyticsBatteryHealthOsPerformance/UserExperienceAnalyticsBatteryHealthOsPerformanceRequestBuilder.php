@@ -29,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthOsPerformance property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsBatteryHealthOsPerformanceId Unique identifier of the item
+     * @param string $userExperienceAnalyticsBatteryHealthOsPerformanceId The unique identifier of userExperienceAnalyticsBatteryHealthOsPerformance
      * @return UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder
     */
     public function byUserExperienceAnalyticsBatteryHealthOsPerformanceId(string $userExperienceAnalyticsBatteryHealthOsPerformanceId): UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder {

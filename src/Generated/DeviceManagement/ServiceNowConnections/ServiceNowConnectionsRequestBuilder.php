@@ -29,7 +29,7 @@ class ServiceNowConnectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
-     * @param string $serviceNowConnectionId Unique identifier of the item
+     * @param string $serviceNowConnectionId The unique identifier of serviceNowConnection
      * @return ServiceNowConnectionItemRequestBuilder
     */
     public function byServiceNowConnectionId(string $serviceNowConnectionId): ServiceNowConnectionItemRequestBuilder {

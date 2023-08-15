@@ -61,7 +61,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
-     * @param string $updatableAssetId Unique identifier of the item
+     * @param string $updatableAssetId The unique identifier of updatableAsset
      * @return UpdatableAssetItemRequestBuilder
     */
     public function byUpdatableAssetId(string $updatableAssetId): UpdatableAssetItemRequestBuilder {

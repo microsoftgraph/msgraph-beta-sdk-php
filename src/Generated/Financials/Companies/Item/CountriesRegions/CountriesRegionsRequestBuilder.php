@@ -29,7 +29,7 @@ class CountriesRegionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
-     * @param string $countryRegionId Unique identifier of the item
+     * @param string $countryRegionId The unique identifier of countryRegion
      * @return CountryRegionItemRequestBuilder
     */
     public function byCountryRegionId(string $countryRegionId): CountryRegionItemRequestBuilder {

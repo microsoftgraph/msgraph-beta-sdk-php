@@ -29,7 +29,7 @@ class PaymentMethodsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.
-     * @param string $paymentMethodId Unique identifier of the item
+     * @param string $paymentMethodId The unique identifier of paymentMethod
      * @return PaymentMethodItemRequestBuilder
     */
     public function byPaymentMethodId(string $paymentMethodId): PaymentMethodItemRequestBuilder {

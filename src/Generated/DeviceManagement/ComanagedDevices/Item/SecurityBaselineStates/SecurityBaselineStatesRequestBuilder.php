@@ -29,7 +29,7 @@ class SecurityBaselineStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
-     * @param string $securityBaselineStateId Unique identifier of the item
+     * @param string $securityBaselineStateId The unique identifier of securityBaselineState
      * @return SecurityBaselineStateItemRequestBuilder
     */
     public function bySecurityBaselineStateId(string $securityBaselineStateId): SecurityBaselineStateItemRequestBuilder {

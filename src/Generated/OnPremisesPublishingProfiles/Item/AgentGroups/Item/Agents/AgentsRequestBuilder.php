@@ -29,7 +29,7 @@ class AgentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.
-     * @param string $onPremisesAgentId Unique identifier of the item
+     * @param string $onPremisesAgentId The unique identifier of onPremisesAgent
      * @return OnPremisesAgentItemRequestBuilder
     */
     public function byOnPremisesAgentId(string $onPremisesAgentId): OnPremisesAgentItemRequestBuilder {

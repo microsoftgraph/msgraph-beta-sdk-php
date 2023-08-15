@@ -30,7 +30,7 @@ class SeriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
-     * @param string $workbookChartSeriesId Unique identifier of the item
+     * @param string $workbookChartSeriesId The unique identifier of workbookChartSeries
      * @return WorkbookChartSeriesItemRequestBuilder
     */
     public function byWorkbookChartSeriesId(string $workbookChartSeriesId): WorkbookChartSeriesItemRequestBuilder {
@@ -57,7 +57,7 @@ class SeriesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of chartseries objects.
      * @param SeriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0 Find more info here
     */
     public function get(?SeriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -36,7 +36,7 @@ class ExceptionOccurrencesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
-     * @param string $eventId2 Unique identifier of the item
+     * @param string $eventId2 The unique identifier of event
      * @return EventItemRequestBuilder
     */
     public function byEventId2(string $eventId2): EventItemRequestBuilder {

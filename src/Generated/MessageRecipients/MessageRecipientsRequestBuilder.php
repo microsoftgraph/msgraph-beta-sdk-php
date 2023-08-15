@@ -29,7 +29,7 @@ class MessageRecipientsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of messageRecipient entities.
-     * @param string $messageRecipientId Unique identifier of the item
+     * @param string $messageRecipientId The unique identifier of messageRecipient
      * @return MessageRecipientItemRequestBuilder
     */
     public function byMessageRecipientId(string $messageRecipientId): MessageRecipientItemRequestBuilder {

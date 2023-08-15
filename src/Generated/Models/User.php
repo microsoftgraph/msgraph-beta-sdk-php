@@ -333,7 +333,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the cloudRealtimeCommunicationInfo property value. The cloudRealtimeCommunicationInfo property
+     * Gets the cloudRealtimeCommunicationInfo property value. Microsoft realtime communication information related to the user.  Supports $filter (eq, ne,not).
      * @return CloudRealtimeCommunicationInfo|null
     */
     public function getCloudRealtimeCommunicationInfo(): ?CloudRealtimeCommunicationInfo {
@@ -1562,7 +1562,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSipInfo property value. The onPremisesSipInfo property
+     * Gets the onPremisesSipInfo property value. Contains all on-premises Session Initiation Protocol (SIP) information related to the user. Read-only.
      * @return OnPremisesSipInfo|null
     */
     public function getOnPremisesSipInfo(): ?OnPremisesSipInfo {
@@ -1718,7 +1718,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the permissionGrants property value. The permissionGrants property
+     * Gets the permissionGrants property value. List all resource-specific permission grants of a user.
      * @return array<ResourceSpecificPermissionGrant>|null
     */
     public function getPermissionGrants(): ?array {
@@ -2547,7 +2547,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the cloudRealtimeCommunicationInfo property value. The cloudRealtimeCommunicationInfo property
+     * Sets the cloudRealtimeCommunicationInfo property value. Microsoft realtime communication information related to the user.  Supports $filter (eq, ne,not).
      * @param CloudRealtimeCommunicationInfo|null $value Value to set for the cloudRealtimeCommunicationInfo property.
     */
     public function setCloudRealtimeCommunicationInfo(?CloudRealtimeCommunicationInfo $value): void {
@@ -3171,7 +3171,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSipInfo property value. The onPremisesSipInfo property
+     * Sets the onPremisesSipInfo property value. Contains all on-premises Session Initiation Protocol (SIP) information related to the user. Read-only.
      * @param OnPremisesSipInfo|null $value Value to set for the onPremisesSipInfo property.
     */
     public function setOnPremisesSipInfo(?OnPremisesSipInfo $value): void {
@@ -3267,7 +3267,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the permissionGrants property value. The permissionGrants property
+     * Sets the permissionGrants property value. List all resource-specific permission grants of a user.
      * @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
     */
     public function setPermissionGrants(?array $value): void {

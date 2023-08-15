@@ -32,9 +32,10 @@ class SetUpResourcesFolderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setUpResourcesFolder
+     * Create a SharePoint folder to upload files for a given educationModule. Only teachers can perform this operation. The teacher determines what resources to upload to the SharePoint folder for the module.
      * @param SetUpResourcesFolderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-setupresourcesfolder?view=graph-rest-1.0 Find more info here
     */
     public function post(?SetUpResourcesFolderRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class SetUpResourcesFolderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setUpResourcesFolder
+     * Create a SharePoint folder to upload files for a given educationModule. Only teachers can perform this operation. The teacher determines what resources to upload to the SharePoint folder for the module.
      * @param SetUpResourcesFolderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

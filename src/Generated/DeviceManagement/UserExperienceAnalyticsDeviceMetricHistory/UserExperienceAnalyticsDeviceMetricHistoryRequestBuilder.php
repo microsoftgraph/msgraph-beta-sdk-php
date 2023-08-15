@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder extends BaseReque
     
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceMetricHistory property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsMetricHistoryId Unique identifier of the item
+     * @param string $userExperienceAnalyticsMetricHistoryId The unique identifier of userExperienceAnalyticsMetricHistory
      * @return UserExperienceAnalyticsMetricHistoryItemRequestBuilder
     */
     public function byUserExperienceAnalyticsMetricHistoryId(string $userExperienceAnalyticsMetricHistoryId): UserExperienceAnalyticsMetricHistoryItemRequestBuilder {

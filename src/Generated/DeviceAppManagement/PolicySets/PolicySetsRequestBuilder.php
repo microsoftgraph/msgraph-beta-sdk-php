@@ -37,7 +37,7 @@ class PolicySetsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policySets property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $policySetId Unique identifier of the item
+     * @param string $policySetId The unique identifier of policySet
      * @return PolicySetItemRequestBuilder
     */
     public function byPolicySetId(string $policySetId): PolicySetItemRequestBuilder {

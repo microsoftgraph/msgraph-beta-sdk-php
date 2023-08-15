@@ -29,7 +29,7 @@ class PrivilegedAccessRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of privilegedAccess entities.
-     * @param string $privilegedAccessId Unique identifier of the item
+     * @param string $privilegedAccessId The unique identifier of privilegedAccess
      * @return PrivilegedAccessItemRequestBuilder
     */
     public function byPrivilegedAccessId(string $privilegedAccessId): PrivilegedAccessItemRequestBuilder {

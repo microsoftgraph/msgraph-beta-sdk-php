@@ -29,7 +29,7 @@ class BookingCurrenciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of bookingCurrency entities.
-     * @param string $bookingCurrencyId Unique identifier of the item
+     * @param string $bookingCurrencyId The unique identifier of bookingCurrency
      * @return BookingCurrencyItemRequestBuilder
     */
     public function byBookingCurrencyId(string $bookingCurrencyId): BookingCurrencyItemRequestBuilder {

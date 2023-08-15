@@ -28,7 +28,7 @@ class RecentPlansRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
-     * @param string $plannerPlanId Unique identifier of the item
+     * @param string $plannerPlanId The unique identifier of plannerPlan
      * @return PlannerPlanItemRequestBuilder
     */
     public function byPlannerPlanId(string $plannerPlanId): PlannerPlanItemRequestBuilder {

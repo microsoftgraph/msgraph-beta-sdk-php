@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Parsable 
+class EdiscoveryNoncustodialDataSource extends \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer implements Parsable 
 {
     /**
      * Instantiates a new ediscoveryNoncustodialDataSource and sets the default values.
@@ -27,11 +27,11 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
 
     /**
      * Gets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
-     * @return DataSource|null
+     * @return \Microsoft\Graph\Beta\Generated\Models\Security\DataSource|null
     */
-    public function getDataSource(): ?DataSource {
+    public function getDataSource(): ?\Microsoft\Graph\Beta\Generated\Models\Security\DataSource {
         $val = $this->getBackingStore()->get('dataSource');
-        if (is_null($val) || $val instanceof DataSource) {
+        if (is_null($val) || $val instanceof \Microsoft\Graph\Beta\Generated\Models\Security\DataSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSource'");
@@ -44,7 +44,7 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dataSource' => fn(ParseNode $n) => $o->setDataSource($n->getObjectValue([DataSource::class, 'createFromDiscriminatorValue'])),
+            'dataSource' => fn(ParseNode $n) => $o->setDataSource($n->getObjectValue([\Microsoft\Graph\Beta\Generated\Models\Security\DataSource::class, 'createFromDiscriminatorValue'])),
             'lastIndexOperation' => fn(ParseNode $n) => $o->setLastIndexOperation($n->getObjectValue([EdiscoveryIndexOperation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -73,9 +73,9 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
 
     /**
      * Sets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
-     * @param DataSource|null $value Value to set for the dataSource property.
+     * @param \Microsoft\Graph\Beta\Generated\Models\Security\DataSource|null $value Value to set for the dataSource property.
     */
-    public function setDataSource(?DataSource $value): void {
+    public function setDataSource(?\Microsoft\Graph\Beta\Generated\Models\Security\DataSource $value): void {
         $this->getBackingStore()->set('dataSource', $value);
     }
 

@@ -29,7 +29,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $connectorGroupId Unique identifier of the item
+     * @param string $connectorGroupId The unique identifier of connectorGroup
      * @return ConnectorGroupItemRequestBuilder
     */
     public function byConnectorGroupId(string $connectorGroupId): ConnectorGroupItemRequestBuilder {

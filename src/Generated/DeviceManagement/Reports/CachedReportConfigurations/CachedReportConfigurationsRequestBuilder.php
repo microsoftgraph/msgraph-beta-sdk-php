@@ -29,7 +29,7 @@ class CachedReportConfigurationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
-     * @param string $deviceManagementCachedReportConfigurationId Unique identifier of the item
+     * @param string $deviceManagementCachedReportConfigurationId The unique identifier of deviceManagementCachedReportConfiguration
      * @return DeviceManagementCachedReportConfigurationItemRequestBuilder
     */
     public function byDeviceManagementCachedReportConfigurationId(string $deviceManagementCachedReportConfigurationId): DeviceManagementCachedReportConfigurationItemRequestBuilder {

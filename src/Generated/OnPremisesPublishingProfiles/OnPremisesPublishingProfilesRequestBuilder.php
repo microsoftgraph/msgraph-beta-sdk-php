@@ -29,7 +29,7 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of onPremisesPublishingProfile entities.
-     * @param string $onPremisesPublishingProfileId Unique identifier of the item
+     * @param string $onPremisesPublishingProfileId The unique identifier of onPremisesPublishingProfile
      * @return OnPremisesPublishingProfileItemRequestBuilder
     */
     public function byOnPremisesPublishingProfileId(string $onPremisesPublishingProfileId): OnPremisesPublishingProfileItemRequestBuilder {

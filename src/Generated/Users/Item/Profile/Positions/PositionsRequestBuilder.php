@@ -29,7 +29,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the positions property of the microsoft.graph.profile entity.
-     * @param string $workPositionId Unique identifier of the item
+     * @param string $workPositionId The unique identifier of workPosition
      * @return WorkPositionItemRequestBuilder
     */
     public function byWorkPositionId(string $workPositionId): WorkPositionItemRequestBuilder {

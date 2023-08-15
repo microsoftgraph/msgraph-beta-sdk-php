@@ -29,7 +29,7 @@ class InboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
-     * @param string $inboundSharedUserProfileUserId Unique identifier of the item
+     * @param string $inboundSharedUserProfileUserId The unique identifier of inboundSharedUserProfile
      * @return InboundSharedUserProfileUserItemRequestBuilder
     */
     public function byInboundSharedUserProfileUserId(string $inboundSharedUserProfileUserId): InboundSharedUserProfileUserItemRequestBuilder {

@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSourceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -29,7 +29,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
-     * @param string $dataSourceId Unique identifier of the item
+     * @param string $dataSourceId The unique identifier of dataSource
      * @return DataSourceItemRequestBuilder
     */
     public function byDataSourceId(string $dataSourceId): DataSourceItemRequestBuilder {
@@ -73,18 +73,18 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to additionalSources for compliance
-     * @param DataSource $body The request body
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body The request body
      * @param AdditionalSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(DataSource $body, ?AdditionalSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body, ?AdditionalSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -113,11 +113,11 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to additionalSources for compliance
-     * @param DataSource $body The request body
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body The request body
      * @param AdditionalSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DataSource $body, ?AdditionalSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body, ?AdditionalSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

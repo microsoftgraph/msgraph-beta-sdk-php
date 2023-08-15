@@ -38,7 +38,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
-     * @param string $workbookTableColumnId Unique identifier of the item
+     * @param string $workbookTableColumnId The unique identifier of workbookTableColumn
      * @return WorkbookTableColumnItemRequestBuilder
     */
     public function byWorkbookTableColumnId(string $workbookTableColumnId): WorkbookTableColumnItemRequestBuilder {

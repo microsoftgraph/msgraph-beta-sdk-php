@@ -29,7 +29,7 @@ class TenantsDetailedInformationRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $tenantDetailedInformationId Unique identifier of the item
+     * @param string $tenantDetailedInformationId The unique identifier of tenantDetailedInformation
      * @return TenantDetailedInformationItemRequestBuilder
     */
     public function byTenantDetailedInformationId(string $tenantDetailedInformationId): TenantDetailedInformationItemRequestBuilder {

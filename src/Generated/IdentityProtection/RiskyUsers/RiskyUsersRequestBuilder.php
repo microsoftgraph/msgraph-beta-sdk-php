@@ -45,7 +45,7 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
-     * @param string $riskyUserId Unique identifier of the item
+     * @param string $riskyUserId The unique identifier of riskyUser
      * @return RiskyUserItemRequestBuilder
     */
     public function byRiskyUserId(string $riskyUserId): RiskyUserItemRequestBuilder {
@@ -69,10 +69,10 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a riskyUser object.
+     * Retrieve the properties and relationships of a collection of riskyUser objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/riskyusers-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskyusers-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskyUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -107,7 +107,7 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a riskyUser object.
+     * Retrieve the properties and relationships of a collection of riskyUser objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

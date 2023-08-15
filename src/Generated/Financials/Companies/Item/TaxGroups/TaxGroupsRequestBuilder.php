@@ -29,7 +29,7 @@ class TaxGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
-     * @param string $taxGroupId Unique identifier of the item
+     * @param string $taxGroupId The unique identifier of taxGroup
      * @return TaxGroupItemRequestBuilder
     */
     public function byTaxGroupId(string $taxGroupId): TaxGroupItemRequestBuilder {

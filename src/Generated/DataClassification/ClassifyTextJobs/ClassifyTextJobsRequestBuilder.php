@@ -29,7 +29,7 @@ class ClassifyTextJobsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $jobResponseBaseId Unique identifier of the item
+     * @param string $jobResponseBaseId The unique identifier of jobResponseBase
      * @return JobResponseBaseItemRequestBuilder
     */
     public function byJobResponseBaseId(string $jobResponseBaseId): JobResponseBaseItemRequestBuilder {

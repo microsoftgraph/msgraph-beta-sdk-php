@@ -29,7 +29,7 @@ class AccessPackageResourceRolesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageCatalog entity.
-     * @param string $accessPackageResourceRoleId Unique identifier of the item
+     * @param string $accessPackageResourceRoleId The unique identifier of accessPackageResourceRole
      * @return AccessPackageResourceRoleItemRequestBuilder
     */
     public function byAccessPackageResourceRoleId(string $accessPackageResourceRoleId): AccessPackageResourceRoleItemRequestBuilder {

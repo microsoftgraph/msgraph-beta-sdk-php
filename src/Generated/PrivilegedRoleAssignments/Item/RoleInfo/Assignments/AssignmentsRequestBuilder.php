@@ -28,7 +28,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
-     * @param string $privilegedRoleAssignmentId1 Unique identifier of the item
+     * @param string $privilegedRoleAssignmentId1 The unique identifier of privilegedRoleAssignment
      * @return PrivilegedRoleAssignmentItemRequestBuilder
     */
     public function byPrivilegedRoleAssignmentId1(string $privilegedRoleAssignmentId1): PrivilegedRoleAssignmentItemRequestBuilder {

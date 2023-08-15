@@ -29,7 +29,7 @@ class CloudPcDevicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $cloudPcDeviceId Unique identifier of the item
+     * @param string $cloudPcDeviceId The unique identifier of cloudPcDevice
      * @return CloudPcDeviceItemRequestBuilder
     */
     public function byCloudPcDeviceId(string $cloudPcDeviceId): CloudPcDeviceItemRequestBuilder {

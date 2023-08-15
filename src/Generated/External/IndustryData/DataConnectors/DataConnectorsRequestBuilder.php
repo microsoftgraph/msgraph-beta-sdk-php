@@ -29,7 +29,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $industryDataConnectorId Unique identifier of the item
+     * @param string $industryDataConnectorId The unique identifier of industryDataConnector
      * @return IndustryDataConnectorItemRequestBuilder
     */
     public function byIndustryDataConnectorId(string $industryDataConnectorId): IndustryDataConnectorItemRequestBuilder {
@@ -53,10 +53,10 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the azureDataLakeConnector objects and their properties.
+     * Get the industryDataConnector resources from the dataConnector navigation property.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?DataConnectorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +92,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the azureDataLakeConnector objects and their properties.
+     * Get the industryDataConnector resources from the dataConnector navigation property.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

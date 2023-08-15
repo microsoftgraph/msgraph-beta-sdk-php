@@ -125,10 +125,10 @@ class LegalHold extends Entity implements Parsable
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
+            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LegalHoldStatus::class)),
-            'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
-            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
+            'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
+            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -170,13 +170,13 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Gets the siteSources property value. Data source entity for SharePoint sites associated with the legal hold.
-     * @return array<SiteSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource>|null
     */
     public function getSiteSources(): ?array {
         $val = $this->getBackingStore()->get('siteSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, SiteSource::class);
-            /** @var array<SiteSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
@@ -196,13 +196,13 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Gets the unifiedGroupSources property value. The unifiedGroupSources property
-     * @return array<UnifiedGroupSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource>|null
     */
     public function getUnifiedGroupSources(): ?array {
         $val = $this->getBackingStore()->get('unifiedGroupSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UnifiedGroupSource::class);
-            /** @var array<UnifiedGroupSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'unifiedGroupSources'");
@@ -210,13 +210,13 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Gets the userSources property value. Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
-     * @return array<UserSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource>|null
     */
     public function getUserSources(): ?array {
         $val = $this->getBackingStore()->get('userSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UserSource::class);
-            /** @var array<UserSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
@@ -317,7 +317,7 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Sets the siteSources property value. Data source entity for SharePoint sites associated with the legal hold.
-     * @param array<SiteSource>|null $value Value to set for the siteSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource>|null $value Value to set for the siteSources property.
     */
     public function setSiteSources(?array $value): void {
         $this->getBackingStore()->set('siteSources', $value);
@@ -333,7 +333,7 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Sets the unifiedGroupSources property value. The unifiedGroupSources property
-     * @param array<UnifiedGroupSource>|null $value Value to set for the unifiedGroupSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource>|null $value Value to set for the unifiedGroupSources property.
     */
     public function setUnifiedGroupSources(?array $value): void {
         $this->getBackingStore()->set('unifiedGroupSources', $value);
@@ -341,7 +341,7 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Sets the userSources property value. Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
-     * @param array<UserSource>|null $value Value to set for the userSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource>|null $value Value to set for the userSources property.
     */
     public function setUserSources(?array $value): void {
         $this->getBackingStore()->set('userSources', $value);

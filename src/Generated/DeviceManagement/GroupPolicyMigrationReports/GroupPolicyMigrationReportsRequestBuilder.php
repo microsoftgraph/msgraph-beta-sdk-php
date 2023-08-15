@@ -37,7 +37,7 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupPolicyMigrationReports property of the microsoft.graph.deviceManagement entity.
-     * @param string $groupPolicyMigrationReportId Unique identifier of the item
+     * @param string $groupPolicyMigrationReportId The unique identifier of groupPolicyMigrationReport
      * @return GroupPolicyMigrationReportItemRequestBuilder
     */
     public function byGroupPolicyMigrationReportId(string $groupPolicyMigrationReportId): GroupPolicyMigrationReportItemRequestBuilder {

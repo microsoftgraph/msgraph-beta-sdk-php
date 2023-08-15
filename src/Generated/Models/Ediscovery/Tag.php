@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class Tag extends Entity implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag extends Entity implements Parsable 
 {
     /**
      * Instantiates a new tag and sets the default values.
@@ -22,10 +22,10 @@ class Tag extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return Tag
+     * @return \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Tag {
-        return new Tag();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag {
+        return new \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag();
     }
 
     /**
@@ -42,13 +42,13 @@ class Tag extends Entity implements Parsable
 
     /**
      * Gets the childTags property value. Returns the tags that are a child of a tag.
-     * @return array<Tag>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null
     */
     public function getChildTags(): ?array {
         $val = $this->getBackingStore()->get('childTags');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Tag::class);
-            /** @var array<Tag>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'childTags'");
@@ -98,12 +98,12 @@ class Tag extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'childSelectability' => fn(ParseNode $n) => $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)),
-            'childTags' => fn(ParseNode $n) => $o->setChildTags($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
+            'childTags' => fn(ParseNode $n) => $o->setChildTags($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([Tag::class, 'createFromDiscriminatorValue'])),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -121,11 +121,11 @@ class Tag extends Entity implements Parsable
 
     /**
      * Gets the parent property value. Returns the parent tag of the specified tag.
-     * @return Tag|null
+     * @return \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag|null
     */
-    public function getParent(): ?Tag {
+    public function getParent(): ?\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag {
         $val = $this->getBackingStore()->get('parent');
-        if (is_null($val) || $val instanceof Tag) {
+        if (is_null($val) || $val instanceof \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'parent'");
@@ -156,7 +156,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the childTags property value. Returns the tags that are a child of a tag.
-     * @param array<Tag>|null $value Value to set for the childTags property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $value Value to set for the childTags property.
     */
     public function setChildTags(?array $value): void {
         $this->getBackingStore()->set('childTags', $value);
@@ -196,9 +196,9 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the parent property value. Returns the parent tag of the specified tag.
-     * @param Tag|null $value Value to set for the parent property.
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag|null $value Value to set for the parent property.
     */
-    public function setParent(?Tag $value): void {
+    public function setParent(?\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag $value): void {
         $this->getBackingStore()->set('parent', $value);
     }
 

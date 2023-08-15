@@ -29,7 +29,7 @@ class ItemCategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
-     * @param string $itemCategoryId Unique identifier of the item
+     * @param string $itemCategoryId The unique identifier of itemCategory
      * @return ItemCategoryItemRequestBuilder
     */
     public function byItemCategoryId(string $itemCategoryId): ItemCategoryItemRequestBuilder {

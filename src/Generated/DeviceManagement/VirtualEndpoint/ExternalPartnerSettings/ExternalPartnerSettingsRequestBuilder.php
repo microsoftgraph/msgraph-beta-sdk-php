@@ -29,7 +29,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcExternalPartnerSettingId Unique identifier of the item
+     * @param string $cloudPcExternalPartnerSettingId The unique identifier of cloudPcExternalPartnerSetting
      * @return CloudPcExternalPartnerSettingItemRequestBuilder
     */
     public function byCloudPcExternalPartnerSettingId(string $cloudPcExternalPartnerSettingId): CloudPcExternalPartnerSettingItemRequestBuilder {

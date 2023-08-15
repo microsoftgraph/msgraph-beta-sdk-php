@@ -198,11 +198,11 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a message object.
+     * Update the properties of an eventMessage object.
      * @param Message $body The request body
      * @param MessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/message-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Message $body, ?MessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -256,7 +256,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a message object.
+     * Update the properties of an eventMessage object.
      * @param Message $body The request body
      * @param MessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

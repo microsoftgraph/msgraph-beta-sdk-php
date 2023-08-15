@@ -29,7 +29,7 @@ class CustomersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customers property of the microsoft.graph.company entity.
-     * @param string $customerId Unique identifier of the item
+     * @param string $customerId The unique identifier of customer
      * @return CustomerItemRequestBuilder
     */
     public function byCustomerId(string $customerId): CustomerItemRequestBuilder {

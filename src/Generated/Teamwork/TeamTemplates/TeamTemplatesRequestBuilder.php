@@ -29,7 +29,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
-     * @param string $teamTemplateId Unique identifier of the item
+     * @param string $teamTemplateId The unique identifier of teamTemplate
      * @return TeamTemplateItemRequestBuilder
     */
     public function byTeamTemplateId(string $teamTemplateId): TeamTemplateItemRequestBuilder {
@@ -53,10 +53,10 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of teamTemplate objects that are available for a tenant. 
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/teamwork-list-teamtemplates?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamtemplate-list-definitions?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +91,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of teamTemplate objects that are available for a tenant. 
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -29,7 +29,7 @@ class GroupPolicyOperationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
-     * @param string $groupPolicyOperationId Unique identifier of the item
+     * @param string $groupPolicyOperationId The unique identifier of groupPolicyOperation
      * @return GroupPolicyOperationItemRequestBuilder
     */
     public function byGroupPolicyOperationId(string $groupPolicyOperationId): GroupPolicyOperationItemRequestBuilder {

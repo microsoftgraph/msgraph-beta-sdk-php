@@ -30,7 +30,7 @@ class UserExperienceAnalyticsResourcePerformanceRequestBuilder extends BaseReque
     
     /**
      * Provides operations to manage the userExperienceAnalyticsResourcePerformance property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsResourcePerformanceId Unique identifier of the item
+     * @param string $userExperienceAnalyticsResourcePerformanceId The unique identifier of userExperienceAnalyticsResourcePerformance
      * @return UserExperienceAnalyticsResourcePerformanceItemRequestBuilder
     */
     public function byUserExperienceAnalyticsResourcePerformanceId(string $userExperienceAnalyticsResourcePerformanceId): UserExperienceAnalyticsResourcePerformanceItemRequestBuilder {

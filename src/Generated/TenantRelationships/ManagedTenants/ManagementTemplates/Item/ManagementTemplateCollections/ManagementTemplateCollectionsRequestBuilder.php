@@ -28,7 +28,7 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managementTemplate entity.
-     * @param string $managementTemplateCollectionId Unique identifier of the item
+     * @param string $managementTemplateCollectionId The unique identifier of managementTemplateCollection
      * @return ManagementTemplateCollectionItemRequestBuilder
     */
     public function byManagementTemplateCollectionId(string $managementTemplateCollectionId): ManagementTemplateCollectionItemRequestBuilder {

@@ -29,7 +29,7 @@ class RoleDefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
-     * @param string $roleDefinitionId Unique identifier of the item
+     * @param string $roleDefinitionId The unique identifier of roleDefinition
      * @return RoleDefinitionItemRequestBuilder
     */
     public function byRoleDefinitionId(string $roleDefinitionId): RoleDefinitionItemRequestBuilder {

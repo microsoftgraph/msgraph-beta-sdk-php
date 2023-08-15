@@ -28,7 +28,7 @@ class PurchaseInvoicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.
-     * @param string $purchaseInvoiceId Unique identifier of the item
+     * @param string $purchaseInvoiceId The unique identifier of purchaseInvoice
      * @return PurchaseInvoiceItemRequestBuilder
     */
     public function byPurchaseInvoiceId(string $purchaseInvoiceId): PurchaseInvoiceItemRequestBuilder {

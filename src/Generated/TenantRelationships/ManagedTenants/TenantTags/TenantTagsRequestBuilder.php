@@ -29,7 +29,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $tenantTagId Unique identifier of the item
+     * @param string $tenantTagId The unique identifier of tenantTag
      * @return TenantTagItemRequestBuilder
     */
     public function byTenantTagId(string $tenantTagId): TenantTagItemRequestBuilder {

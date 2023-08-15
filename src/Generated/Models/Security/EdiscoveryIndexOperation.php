@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EdiscoveryIndexOperation extends CaseOperation implements Parsable 
+class EdiscoveryIndexOperation extends \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation implements Parsable 
 {
     /**
      * Instantiates a new ediscoveryIndexOperation and sets the default values.

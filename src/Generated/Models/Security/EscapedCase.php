@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EscapedCase extends Entity implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase extends Entity implements Parsable 
 {
     /**
      * Instantiates a new EscapedCase and sets the default values.
@@ -21,9 +21,9 @@ class EscapedCase extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return EscapedCase
+     * @return \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EscapedCase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase {
         $mappingValueNode = $parseNode->getChildNode("@odata.type");
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
@@ -31,7 +31,7 @@ class EscapedCase extends Entity implements Parsable
                 case '#microsoft.graph.security.ediscoveryCase': return new EdiscoveryCase();
             }
         }
-        return new EscapedCase();
+        return new \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase();
     }
 
     /**

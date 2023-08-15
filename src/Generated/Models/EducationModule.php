@@ -27,7 +27,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The display name of the user that created the module.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -39,7 +39,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date time the module was created.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -51,7 +51,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the module.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -63,7 +63,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the module.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -95,7 +95,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPinned property value. The isPinned property
+     * Gets the isPinned property value. Indicates whether the module is pinned or not.
      * @return bool|null
     */
     public function getIsPinned(): ?bool {
@@ -107,7 +107,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The last user that modified the module.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -119,7 +119,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Date time the module was last modified.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -131,7 +131,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Learning objects that are associated with this module.  Only teachers can modify this list. Nullable.
      * @return array<EducationModuleResource>|null
     */
     public function getResources(): ?array {
@@ -145,7 +145,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourcesFolderUrl property value. The resourcesFolderUrl property
+     * Gets the resourcesFolderUrl property value. Folder URL where all the file resources for this module are stored.
      * @return string|null
     */
     public function getResourcesFolderUrl(): ?string {
@@ -157,7 +157,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
      * @return EducationModuleStatus|null
     */
     public function getStatus(): ?EducationModuleStatus {
@@ -181,7 +181,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The display name of the user that created the module.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -189,7 +189,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date time the module was created.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -197,7 +197,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the module.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -205,7 +205,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the module.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -213,7 +213,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPinned property value. The isPinned property
+     * Sets the isPinned property value. Indicates whether the module is pinned or not.
      * @param bool|null $value Value to set for the isPinned property.
     */
     public function setIsPinned(?bool $value): void {
@@ -221,7 +221,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The last user that modified the module.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -229,7 +229,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Date time the module was last modified.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -237,7 +237,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Learning objects that are associated with this module.  Only teachers can modify this list. Nullable.
      * @param array<EducationModuleResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -245,7 +245,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourcesFolderUrl property value. The resourcesFolderUrl property
+     * Sets the resourcesFolderUrl property value. Folder URL where all the file resources for this module are stored.
      * @param string|null $value Value to set for the resourcesFolderUrl property.
     */
     public function setResourcesFolderUrl(?string $value): void {
@@ -253,7 +253,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
      * @param EducationModuleStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationModuleStatus $value): void {

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Gets the activeDevices property value. Number of active devices for that model. Valid values -2147483648 to 2147483647
+     * Gets the activeDevices property value. Number of active devices for that model. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getActiveDevices(): ?int {
@@ -40,7 +40,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Gets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values -2147483648 to 2147483647
+     * Gets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getAverageBatteryAgeInDays(): ?int {
@@ -52,7 +52,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Gets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Gets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getAverageEstimatedRuntimeInMinutes(): ?int {
@@ -64,7 +64,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Gets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
+     * Gets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getAverageMaxCapacityPercentage(): ?int {
@@ -170,7 +170,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Gets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+     * Gets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getModelBatteryHealthScore(): ?int {
@@ -214,7 +214,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Sets the activeDevices property value. Number of active devices for that model. Valid values -2147483648 to 2147483647
+     * Sets the activeDevices property value. Number of active devices for that model. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
@@ -222,7 +222,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Sets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values -2147483648 to 2147483647
+     * Sets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the averageBatteryAgeInDays property.
     */
     public function setAverageBatteryAgeInDays(?int $value): void {
@@ -230,7 +230,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Sets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Sets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
     */
     public function setAverageEstimatedRuntimeInMinutes(?int $value): void {
@@ -238,7 +238,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Sets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
+     * Sets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the averageMaxCapacityPercentage property.
     */
     public function setAverageMaxCapacityPercentage(?int $value): void {
@@ -294,7 +294,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
-     * Sets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+     * Sets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the modelBatteryHealthScore property.
     */
     public function setModelBatteryHealthScore(?int $value): void {

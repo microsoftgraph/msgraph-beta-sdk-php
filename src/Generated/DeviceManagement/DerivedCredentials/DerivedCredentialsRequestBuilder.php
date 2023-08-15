@@ -29,7 +29,7 @@ class DerivedCredentialsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the derivedCredentials property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementDerivedCredentialSettingsId Unique identifier of the item
+     * @param string $deviceManagementDerivedCredentialSettingsId The unique identifier of deviceManagementDerivedCredentialSettings
      * @return DeviceManagementDerivedCredentialSettingsItemRequestBuilder
     */
     public function byDeviceManagementDerivedCredentialSettingsId(string $deviceManagementDerivedCredentialSettingsId): DeviceManagementDerivedCredentialSettingsItemRequestBuilder {

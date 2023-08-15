@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DataSourceContainer extends Entity implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer extends Entity implements Parsable 
 {
     /**
      * Instantiates a new dataSourceContainer and sets the default values.
@@ -20,9 +20,9 @@ class DataSourceContainer extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return DataSourceContainer
+     * @return \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DataSourceContainer {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer {
         $mappingValueNode = $parseNode->getChildNode("@odata.type");
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
@@ -31,7 +31,7 @@ class DataSourceContainer extends Entity implements Parsable
                 case '#microsoft.graph.security.ediscoveryNoncustodialDataSource': return new EdiscoveryNoncustodialDataSource();
             }
         }
-        return new DataSourceContainer();
+        return new \Microsoft\Graph\Beta\Generated\Models\Security\DataSourceContainer();
     }
 
     /**

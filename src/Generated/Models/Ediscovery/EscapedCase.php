@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class EscapedCase extends Entity implements Parsable 
+class \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase extends Entity implements Parsable 
 {
     /**
      * Instantiates a new EscapedCase and sets the default values.
@@ -22,10 +22,10 @@ class EscapedCase extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return EscapedCase
+     * @return \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EscapedCase {
-        return new EscapedCase();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase {
+        return new \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase();
     }
 
     /**
@@ -132,12 +132,12 @@ class EscapedCase extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'legalHolds' => fn(ParseNode $n) => $o->setLegalHolds($n->getCollectionOfObjectValues([LegalHold::class, 'createFromDiscriminatorValue'])),
             'noncustodialDataSources' => fn(ParseNode $n) => $o->setNoncustodialDataSources($n->getCollectionOfObjectValues([NoncustodialDataSource::class, 'createFromDiscriminatorValue'])),
-            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([CaseOperation::class, 'createFromDiscriminatorValue'])),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class, 'createFromDiscriminatorValue'])),
             'reviewSets' => fn(ParseNode $n) => $o->setReviewSets($n->getCollectionOfObjectValues([ReviewSet::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([CaseSettings::class, 'createFromDiscriminatorValue'])),
             'sourceCollections' => fn(ParseNode $n) => $o->setSourceCollections($n->getCollectionOfObjectValues([SourceCollection::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CaseStatus::class)),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -195,13 +195,13 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Gets the operations property value. Returns a list of case operation objects for this case. Nullable.
-     * @return array<CaseOperation>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null
     */
     public function getOperations(): ?array {
         $val = $this->getBackingStore()->get('operations');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, CaseOperation::class);
-            /** @var array<CaseOperation>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
@@ -261,13 +261,13 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Gets the tags property value. Returns a list of tag objects associated to this case.
-     * @return array<Tag>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null
     */
     public function getTags(): ?array {
         $val = $this->getBackingStore()->get('tags');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Tag::class);
-            /** @var array<Tag>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
@@ -388,7 +388,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the operations property value. Returns a list of case operation objects for this case. Nullable.
-     * @param array<CaseOperation>|null $value Value to set for the operations property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -428,7 +428,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the tags property value. Returns a list of tag objects associated to this case.
-     * @param array<Tag>|null $value Value to set for the tags property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);

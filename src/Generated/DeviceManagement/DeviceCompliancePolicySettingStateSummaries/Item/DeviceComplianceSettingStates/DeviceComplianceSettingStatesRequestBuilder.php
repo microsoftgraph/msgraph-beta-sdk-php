@@ -29,7 +29,7 @@ class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
-     * @param string $deviceComplianceSettingStateId Unique identifier of the item
+     * @param string $deviceComplianceSettingStateId The unique identifier of deviceComplianceSettingState
      * @return DeviceComplianceSettingStateItemRequestBuilder
     */
     public function byDeviceComplianceSettingStateId(string $deviceComplianceSettingStateId): DeviceComplianceSettingStateItemRequestBuilder {
@@ -53,7 +53,7 @@ class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Not yet documented
+     * Get deviceComplianceSettingStates from deviceManagement
      * @param DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Not yet documented
+     * Get deviceComplianceSettingStates from deviceManagement
      * @param DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

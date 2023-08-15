@@ -30,7 +30,7 @@ class ChangesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.
-     * @param string $workbookDocumentTaskChangeId Unique identifier of the item
+     * @param string $workbookDocumentTaskChangeId The unique identifier of workbookDocumentTaskChange
      * @return WorkbookDocumentTaskChangeItemRequestBuilder
     */
     public function byWorkbookDocumentTaskChangeId(string $workbookDocumentTaskChangeId): WorkbookDocumentTaskChangeItemRequestBuilder {

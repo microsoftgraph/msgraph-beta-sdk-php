@@ -29,7 +29,7 @@ class RemoteActionAuditsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
-     * @param string $remoteActionAuditId Unique identifier of the item
+     * @param string $remoteActionAuditId The unique identifier of remoteActionAudit
      * @return RemoteActionAuditItemRequestBuilder
     */
     public function byRemoteActionAuditId(string $remoteActionAuditId): RemoteActionAuditItemRequestBuilder {

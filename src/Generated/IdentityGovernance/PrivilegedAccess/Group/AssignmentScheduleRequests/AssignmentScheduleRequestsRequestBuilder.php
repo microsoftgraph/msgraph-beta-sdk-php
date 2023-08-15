@@ -30,7 +30,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
-     * @param string $privilegedAccessGroupAssignmentScheduleRequestId Unique identifier of the item
+     * @param string $privilegedAccessGroupAssignmentScheduleRequestId The unique identifier of privilegedAccessGroupAssignmentScheduleRequest
      * @return PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder
     */
     public function byPrivilegedAccessGroupAssignmentScheduleRequestId(string $privilegedAccessGroupAssignmentScheduleRequestId): PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder {

@@ -29,7 +29,7 @@ class UserPfxCertificatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userPfxCertificates property of the microsoft.graph.deviceManagement entity.
-     * @param string $userPFXCertificateId Unique identifier of the item
+     * @param string $userPFXCertificateId The unique identifier of userPFXCertificate
      * @return UserPFXCertificateItemRequestBuilder
     */
     public function byUserPFXCertificateId(string $userPFXCertificateId): UserPFXCertificateItemRequestBuilder {

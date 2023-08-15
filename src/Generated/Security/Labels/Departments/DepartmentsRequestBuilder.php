@@ -29,7 +29,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the departments property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $departmentTemplateId Unique identifier of the item
+     * @param string $departmentTemplateId The unique identifier of departmentTemplate
      * @return DepartmentTemplateItemRequestBuilder
     */
     public function byDepartmentTemplateId(string $departmentTemplateId): DepartmentTemplateItemRequestBuilder {

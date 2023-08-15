@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class EdiscoveryReviewTag extends Tag implements Parsable 
+class EdiscoveryReviewTag extends \Microsoft\Graph\Beta\Generated\Models\Security\Tag implements Parsable 
 {
     /**
      * Instantiates a new ediscoveryReviewTag and sets the default values.

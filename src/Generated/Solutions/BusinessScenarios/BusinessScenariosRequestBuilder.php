@@ -29,7 +29,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
-     * @param string $businessScenarioId Unique identifier of the item
+     * @param string $businessScenarioId The unique identifier of businessScenario
      * @return BusinessScenarioItemRequestBuilder
     */
     public function byBusinessScenarioId(string $businessScenarioId): BusinessScenarioItemRequestBuilder {

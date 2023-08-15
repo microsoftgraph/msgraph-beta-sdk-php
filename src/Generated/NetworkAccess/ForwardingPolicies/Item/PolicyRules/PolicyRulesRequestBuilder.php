@@ -29,7 +29,7 @@ class PolicyRulesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policyRules property of the microsoft.graph.networkaccess.policy entity.
-     * @param string $policyRuleId Unique identifier of the item
+     * @param string $policyRuleId The unique identifier of policyRule
      * @return PolicyRuleItemRequestBuilder
     */
     public function byPolicyRuleId(string $policyRuleId): PolicyRuleItemRequestBuilder {

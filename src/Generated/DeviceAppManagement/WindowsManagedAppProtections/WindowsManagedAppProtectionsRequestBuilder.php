@@ -29,7 +29,7 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $windowsManagedAppProtectionId Unique identifier of the item
+     * @param string $windowsManagedAppProtectionId The unique identifier of windowsManagedAppProtection
      * @return WindowsManagedAppProtectionItemRequestBuilder
     */
     public function byWindowsManagedAppProtectionId(string $windowsManagedAppProtectionId): WindowsManagedAppProtectionItemRequestBuilder {

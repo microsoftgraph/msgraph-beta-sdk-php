@@ -28,7 +28,7 @@ class SalesInvoicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
-     * @param string $salesInvoiceId Unique identifier of the item
+     * @param string $salesInvoiceId The unique identifier of salesInvoice
      * @return SalesInvoiceItemRequestBuilder
     */
     public function bySalesInvoiceId(string $salesInvoiceId): SalesInvoiceItemRequestBuilder {

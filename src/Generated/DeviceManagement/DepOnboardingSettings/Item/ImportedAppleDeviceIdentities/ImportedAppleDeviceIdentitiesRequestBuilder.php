@@ -37,7 +37,7 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
-     * @param string $importedAppleDeviceIdentityId Unique identifier of the item
+     * @param string $importedAppleDeviceIdentityId The unique identifier of importedAppleDeviceIdentity
      * @return ImportedAppleDeviceIdentityItemRequestBuilder
     */
     public function byImportedAppleDeviceIdentityId(string $importedAppleDeviceIdentityId): ImportedAppleDeviceIdentityItemRequestBuilder {

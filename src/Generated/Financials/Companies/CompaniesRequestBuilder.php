@@ -28,7 +28,7 @@ class CompaniesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the companies property of the microsoft.graph.financials entity.
-     * @param string $companyId Unique identifier of the item
+     * @param string $companyId The unique identifier of company
      * @return CompanyItemRequestBuilder
     */
     public function byCompanyId(string $companyId): CompanyItemRequestBuilder {

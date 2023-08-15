@@ -29,7 +29,7 @@ class UserSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $userSecurityProfileId Unique identifier of the item
+     * @param string $userSecurityProfileId The unique identifier of userSecurityProfile
      * @return UserSecurityProfileItemRequestBuilder
     */
     public function byUserSecurityProfileId(string $userSecurityProfileId): UserSecurityProfileItemRequestBuilder {

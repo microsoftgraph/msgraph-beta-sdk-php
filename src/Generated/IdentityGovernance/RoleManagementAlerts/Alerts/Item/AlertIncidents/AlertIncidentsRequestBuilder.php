@@ -29,7 +29,7 @@ class AlertIncidentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the alertIncidents property of the microsoft.graph.unifiedRoleManagementAlert entity.
-     * @param string $unifiedRoleManagementAlertIncidentId Unique identifier of the item
+     * @param string $unifiedRoleManagementAlertIncidentId The unique identifier of unifiedRoleManagementAlertIncident
      * @return UnifiedRoleManagementAlertIncidentItemRequestBuilder
     */
     public function byUnifiedRoleManagementAlertIncidentId(string $unifiedRoleManagementAlertIncidentId): UnifiedRoleManagementAlertIncidentItemRequestBuilder {

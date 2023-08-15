@@ -37,7 +37,7 @@ class TemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the templates property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementTemplateId Unique identifier of the item
+     * @param string $deviceManagementTemplateId The unique identifier of deviceManagementTemplate
      * @return DeviceManagementTemplateItemRequestBuilder
     */
     public function byDeviceManagementTemplateId(string $deviceManagementTemplateId): DeviceManagementTemplateItemRequestBuilder {

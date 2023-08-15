@@ -29,7 +29,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the settings property of the microsoft.graph.managedAppConfiguration entity.
-     * @param string $deviceManagementConfigurationSettingId Unique identifier of the item
+     * @param string $deviceManagementConfigurationSettingId The unique identifier of deviceManagementConfigurationSetting
      * @return DeviceManagementConfigurationSettingItemRequestBuilder
     */
     public function byDeviceManagementConfigurationSettingId(string $deviceManagementConfigurationSettingId): DeviceManagementConfigurationSettingItemRequestBuilder {

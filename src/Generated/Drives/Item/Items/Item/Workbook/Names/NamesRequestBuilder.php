@@ -45,7 +45,7 @@ class NamesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the names property of the microsoft.graph.workbook entity.
-     * @param string $workbookNamedItemId Unique identifier of the item
+     * @param string $workbookNamedItemId The unique identifier of workbookNamedItem
      * @return WorkbookNamedItemItemRequestBuilder
     */
     public function byWorkbookNamedItemId(string $workbookNamedItemId): WorkbookNamedItemItemRequestBuilder {
@@ -72,7 +72,7 @@ class NamesRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of nameditem objects.
      * @param NamesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0 Find more info here
     */
     public function get(?NamesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

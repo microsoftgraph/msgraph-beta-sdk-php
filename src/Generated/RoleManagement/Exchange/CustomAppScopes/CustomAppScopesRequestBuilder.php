@@ -29,7 +29,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.
-     * @param string $customAppScopeId Unique identifier of the item
+     * @param string $customAppScopeId The unique identifier of customAppScope
      * @return CustomAppScopeItemRequestBuilder
     */
     public function byCustomAppScopeId(string $customAppScopeId): CustomAppScopeItemRequestBuilder {

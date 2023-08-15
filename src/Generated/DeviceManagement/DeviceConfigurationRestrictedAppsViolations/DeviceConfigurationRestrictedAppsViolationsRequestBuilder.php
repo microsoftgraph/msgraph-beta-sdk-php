@@ -29,7 +29,7 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
     
     /**
      * Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
-     * @param string $restrictedAppsViolationId Unique identifier of the item
+     * @param string $restrictedAppsViolationId The unique identifier of restrictedAppsViolation
      * @return RestrictedAppsViolationItemRequestBuilder
     */
     public function byRestrictedAppsViolationId(string $restrictedAppsViolationId): RestrictedAppsViolationItemRequestBuilder {

@@ -29,7 +29,7 @@ class PrivilegedOperationEventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of privilegedOperationEvent entities.
-     * @param string $privilegedOperationEventId Unique identifier of the item
+     * @param string $privilegedOperationEventId The unique identifier of privilegedOperationEvent
      * @return PrivilegedOperationEventItemRequestBuilder
     */
     public function byPrivilegedOperationEventId(string $privilegedOperationEventId): PrivilegedOperationEventItemRequestBuilder {

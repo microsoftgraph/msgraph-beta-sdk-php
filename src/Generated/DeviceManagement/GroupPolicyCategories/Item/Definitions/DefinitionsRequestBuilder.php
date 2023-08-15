@@ -28,7 +28,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.
-     * @param string $groupPolicyDefinitionId Unique identifier of the item
+     * @param string $groupPolicyDefinitionId The unique identifier of groupPolicyDefinition
      * @return GroupPolicyDefinitionItemRequestBuilder
     */
     public function byGroupPolicyDefinitionId(string $groupPolicyDefinitionId): GroupPolicyDefinitionItemRequestBuilder {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\Res
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get resources from education
+ * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
 */
 class ResourcesRequestBuilderGetQueryParameters 
 {

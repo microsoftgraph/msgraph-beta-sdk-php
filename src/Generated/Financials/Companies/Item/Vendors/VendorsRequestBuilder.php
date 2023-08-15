@@ -29,7 +29,7 @@ class VendorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the vendors property of the microsoft.graph.company entity.
-     * @param string $vendorId Unique identifier of the item
+     * @param string $vendorId The unique identifier of vendor
      * @return VendorItemRequestBuilder
     */
     public function byVendorId(string $vendorId): VendorItemRequestBuilder {

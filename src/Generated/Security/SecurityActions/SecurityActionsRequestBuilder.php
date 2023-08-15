@@ -29,7 +29,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the securityActions property of the microsoft.graph.security entity.
-     * @param string $securityActionId Unique identifier of the item
+     * @param string $securityActionId The unique identifier of securityAction
      * @return SecurityActionItemRequestBuilder
     */
     public function bySecurityActionId(string $securityActionId): SecurityActionItemRequestBuilder {

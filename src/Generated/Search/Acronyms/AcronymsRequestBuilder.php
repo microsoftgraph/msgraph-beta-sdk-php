@@ -29,7 +29,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
-     * @param string $acronymId Unique identifier of the item
+     * @param string $acronymId The unique identifier of acronym
      * @return AcronymItemRequestBuilder
     */
     public function byAcronymId(string $acronymId): AcronymItemRequestBuilder {

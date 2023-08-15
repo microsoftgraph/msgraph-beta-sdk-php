@@ -29,7 +29,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
-     * @param string $outlookTaskGroupId Unique identifier of the item
+     * @param string $outlookTaskGroupId The unique identifier of outlookTaskGroup
      * @return OutlookTaskGroupItemRequestBuilder
     */
     public function byOutlookTaskGroupId(string $outlookTaskGroupId): OutlookTaskGroupItemRequestBuilder {

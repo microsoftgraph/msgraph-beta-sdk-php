@@ -29,7 +29,7 @@ class PayloadsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $payloadId Unique identifier of the item
+     * @param string $payloadId The unique identifier of payload
      * @return PayloadItemRequestBuilder
     */
     public function byPayloadId(string $payloadId): PayloadItemRequestBuilder {

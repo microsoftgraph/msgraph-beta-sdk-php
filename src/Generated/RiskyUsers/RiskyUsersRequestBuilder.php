@@ -45,7 +45,7 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of riskyUser entities.
-     * @param string $riskyUserId Unique identifier of the item
+     * @param string $riskyUserId The unique identifier of riskyUser
      * @return RiskyUserItemRequestBuilder
     */
     public function byRiskyUserId(string $riskyUserId): RiskyUserItemRequestBuilder {

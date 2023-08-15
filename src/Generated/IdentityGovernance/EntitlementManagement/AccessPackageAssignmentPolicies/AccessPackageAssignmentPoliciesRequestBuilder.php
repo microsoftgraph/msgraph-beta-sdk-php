@@ -29,7 +29,7 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.
-     * @param string $accessPackageAssignmentPolicyId Unique identifier of the item
+     * @param string $accessPackageAssignmentPolicyId The unique identifier of accessPackageAssignmentPolicy
      * @return AccessPackageAssignmentPolicyItemRequestBuilder
     */
     public function byAccessPackageAssignmentPolicyId(string $accessPackageAssignmentPolicyId): AccessPackageAssignmentPolicyItemRequestBuilder {

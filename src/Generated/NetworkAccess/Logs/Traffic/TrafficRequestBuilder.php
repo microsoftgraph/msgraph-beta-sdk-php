@@ -29,7 +29,7 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the traffic property of the microsoft.graph.networkaccess.logs entity.
-     * @param string $networkAccessTrafficTransactionId Unique identifier of the item
+     * @param string $networkAccessTrafficTransactionId The unique identifier of networkAccessTraffic
      * @return NetworkAccessTrafficTransactionItemRequestBuilder
     */
     public function byNetworkAccessTrafficTransactionId(string $networkAccessTrafficTransactionId): NetworkAccessTrafficTransactionItemRequestBuilder {

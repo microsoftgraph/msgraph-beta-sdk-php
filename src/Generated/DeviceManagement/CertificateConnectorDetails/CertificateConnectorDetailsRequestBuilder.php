@@ -29,7 +29,7 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the certificateConnectorDetails property of the microsoft.graph.deviceManagement entity.
-     * @param string $certificateConnectorDetailsId Unique identifier of the item
+     * @param string $certificateConnectorDetailsId The unique identifier of certificateConnectorDetails
      * @return CertificateConnectorDetailsItemRequestBuilder
     */
     public function byCertificateConnectorDetailsId(string $certificateConnectorDetailsId): CertificateConnectorDetailsItemRequestBuilder {

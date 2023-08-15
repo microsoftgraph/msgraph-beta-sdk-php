@@ -29,7 +29,7 @@ class StepsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the steps property of the microsoft.graph.approval entity.
-     * @param string $approvalStepId Unique identifier of the item
+     * @param string $approvalStepId The unique identifier of approvalStep
      * @return ApprovalStepItemRequestBuilder
     */
     public function byApprovalStepId(string $approvalStepId): ApprovalStepItemRequestBuilder {

@@ -29,7 +29,7 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
-     * @param string $applicationSignInDetailedSummaryId Unique identifier of the item
+     * @param string $applicationSignInDetailedSummaryId The unique identifier of applicationSignInDetailedSummary
      * @return ApplicationSignInDetailedSummaryItemRequestBuilder
     */
     public function byApplicationSignInDetailedSummaryId(string $applicationSignInDetailedSummaryId): ApplicationSignInDetailedSummaryItemRequestBuilder {

@@ -28,7 +28,7 @@ class SalesInvoiceLinesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.company entity.
-     * @param string $salesInvoiceLineId Unique identifier of the item
+     * @param string $salesInvoiceLineId The unique identifier of salesInvoiceLine
      * @return SalesInvoiceLineItemRequestBuilder
     */
     public function bySalesInvoiceLineId(string $salesInvoiceLineId): SalesInvoiceLineItemRequestBuilder {

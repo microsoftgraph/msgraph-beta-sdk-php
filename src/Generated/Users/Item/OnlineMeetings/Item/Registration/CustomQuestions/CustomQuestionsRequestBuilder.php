@@ -29,7 +29,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
-     * @param string $meetingRegistrationQuestionId Unique identifier of the item
+     * @param string $meetingRegistrationQuestionId The unique identifier of meetingRegistrationQuestion
      * @return MeetingRegistrationQuestionItemRequestBuilder
     */
     public function byMeetingRegistrationQuestionId(string $meetingRegistrationQuestionId): MeetingRegistrationQuestionItemRequestBuilder {

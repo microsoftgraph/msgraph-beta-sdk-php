@@ -30,13 +30,13 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Gets the additionalSources property value. Adds an additional source to the sourceCollection.
-     * @return array<DataSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null
     */
     public function getAdditionalSources(): ?array {
         $val = $this->getBackingStore()->get('additionalSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, DataSource::class);
-            /** @var array<DataSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalSources'");
@@ -92,13 +92,13 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Gets the custodianSources property value. Custodian sources that are included in the sourceCollection.
-     * @return array<DataSource>|null
+     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null
     */
     public function getCustodianSources(): ?array {
         $val = $this->getBackingStore()->get('custodianSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, DataSource::class);
-            /** @var array<DataSource>|null $val */
+            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class);
+            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'custodianSources'");
@@ -147,12 +147,12 @@ class SourceCollection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalSources' => fn(ParseNode $n) => $o->setAdditionalSources($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
+            'additionalSources' => fn(ParseNode $n) => $o->setAdditionalSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'])),
             'addToReviewSetOperation' => fn(ParseNode $n) => $o->setAddToReviewSetOperation($n->getObjectValue([AddToReviewSetOperation::class, 'createFromDiscriminatorValue'])),
             'contentQuery' => fn(ParseNode $n) => $o->setContentQuery($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'custodianSources' => fn(ParseNode $n) => $o->setCustodianSources($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
+            'custodianSources' => fn(ParseNode $n) => $o->setCustodianSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'])),
             'dataSourceScopes' => fn(ParseNode $n) => $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -236,7 +236,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the additionalSources property value. Adds an additional source to the sourceCollection.
-     * @param array<DataSource>|null $value Value to set for the additionalSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $value Value to set for the additionalSources property.
     */
     public function setAdditionalSources(?array $value): void {
         $this->getBackingStore()->set('additionalSources', $value);
@@ -276,7 +276,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the custodianSources property value. Custodian sources that are included in the sourceCollection.
-     * @param array<DataSource>|null $value Value to set for the custodianSources property.
+     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $value Value to set for the custodianSources property.
     */
     public function setCustodianSources(?array $value): void {
         $this->getBackingStore()->set('custodianSources', $value);

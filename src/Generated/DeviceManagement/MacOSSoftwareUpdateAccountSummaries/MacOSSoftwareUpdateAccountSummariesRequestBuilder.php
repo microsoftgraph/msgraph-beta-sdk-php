@@ -29,7 +29,7 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
     
     /**
      * Provides operations to manage the macOSSoftwareUpdateAccountSummaries property of the microsoft.graph.deviceManagement entity.
-     * @param string $macOSSoftwareUpdateAccountSummaryId Unique identifier of the item
+     * @param string $macOSSoftwareUpdateAccountSummaryId The unique identifier of macOSSoftwareUpdateAccountSummary
      * @return MacOSSoftwareUpdateAccountSummaryItemRequestBuilder
     */
     public function byMacOSSoftwareUpdateAccountSummaryId(string $macOSSoftwareUpdateAccountSummaryId): MacOSSoftwareUpdateAccountSummaryItemRequestBuilder {

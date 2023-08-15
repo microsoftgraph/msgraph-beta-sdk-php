@@ -28,7 +28,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
+     * Gets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getBatteryAgeInDays(): ?int {
@@ -52,7 +52,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+     * Gets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getDeviceBatteryHealthScore(): ?int {
@@ -88,7 +88,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Gets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getEstimatedRuntimeInMinutes(): ?int {
@@ -157,7 +157,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values -2147483648 to 2147483647
+     * Gets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getMaxCapacityPercentage(): ?int {
@@ -200,7 +200,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
+     * Sets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the batteryAgeInDays property.
     */
     public function setBatteryAgeInDays(?int $value): void {
@@ -216,7 +216,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+     * Sets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the deviceBatteryHealthScore property.
     */
     public function setDeviceBatteryHealthScore(?int $value): void {
@@ -240,7 +240,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {
@@ -272,7 +272,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values -2147483648 to 2147483647
+     * Sets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the maxCapacityPercentage property.
     */
     public function setMaxCapacityPercentage(?int $value): void {

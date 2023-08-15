@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.cloudPcProvisioningPolicy entity.
-     * @param string $cloudPcProvisioningPolicyAssignmentId Unique identifier of the item
+     * @param string $cloudPcProvisioningPolicyAssignmentId The unique identifier of cloudPcProvisioningPolicyAssignment
      * @return CloudPcProvisioningPolicyAssignmentItemRequestBuilder
     */
     public function byCloudPcProvisioningPolicyAssignmentId(string $cloudPcProvisioningPolicyAssignmentId): CloudPcProvisioningPolicyAssignmentItemRequestBuilder {

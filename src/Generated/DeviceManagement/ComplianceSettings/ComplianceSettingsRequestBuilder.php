@@ -29,7 +29,7 @@ class ComplianceSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the complianceSettings property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementConfigurationSettingDefinitionId Unique identifier of the item
+     * @param string $deviceManagementConfigurationSettingDefinitionId The unique identifier of deviceManagementConfigurationSettingDefinition
      * @return DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
     public function byDeviceManagementConfigurationSettingDefinitionId(string $deviceManagementConfigurationSettingDefinitionId): DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {

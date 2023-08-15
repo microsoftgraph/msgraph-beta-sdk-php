@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,7 +29,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.custodian entity.
-     * @param string $userSourceId Unique identifier of the item
+     * @param string $userSourceId The unique identifier of userSource
      * @return UserSourceItemRequestBuilder
     */
     public function byUserSourceId(string $userSourceId): UserSourceItemRequestBuilder {
@@ -73,19 +73,19 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new custodian userSource object.
-     * @param UserSource $body The request body
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-post-usersources?view=graph-rest-1.0 Find more info here
     */
-    public function post(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UserSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -114,11 +114,11 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new custodian userSource object.
-     * @param UserSource $body The request body
+     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

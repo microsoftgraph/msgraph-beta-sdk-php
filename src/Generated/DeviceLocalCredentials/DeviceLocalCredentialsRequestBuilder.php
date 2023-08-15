@@ -21,7 +21,7 @@ class DeviceLocalCredentialsRequestBuilder extends BaseRequestBuilder
 {
     /**
      * Provides operations to manage the collection of deviceLocalCredentialInfo entities.
-     * @param string $deviceLocalCredentialInfoId Unique identifier of the item
+     * @param string $deviceLocalCredentialInfoId The unique identifier of deviceLocalCredentialInfo
      * @return DeviceLocalCredentialInfoItemRequestBuilder
     */
     public function byDeviceLocalCredentialInfoId(string $deviceLocalCredentialInfoId): DeviceLocalCredentialInfoItemRequestBuilder {

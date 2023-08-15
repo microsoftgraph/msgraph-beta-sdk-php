@@ -29,7 +29,7 @@ class CloudAppSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $cloudAppSecurityProfileId Unique identifier of the item
+     * @param string $cloudAppSecurityProfileId The unique identifier of cloudAppSecurityProfile
      * @return CloudAppSecurityProfileItemRequestBuilder
     */
     public function byCloudAppSecurityProfileId(string $cloudAppSecurityProfileId): CloudAppSecurityProfileItemRequestBuilder {

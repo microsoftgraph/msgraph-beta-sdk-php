@@ -29,7 +29,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
-     * @param string $qnaId Unique identifier of the item
+     * @param string $qnaId The unique identifier of qna
      * @return QnaItemRequestBuilder
     */
     public function byQnaId(string $qnaId): QnaItemRequestBuilder {

@@ -28,7 +28,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.
-     * @param string $managedTenantAlertId Unique identifier of the item
+     * @param string $managedTenantAlertId The unique identifier of managedTenantAlert
      * @return ManagedTenantAlertItemRequestBuilder
     */
     public function byManagedTenantAlertId(string $managedTenantAlertId): ManagedTenantAlertItemRequestBuilder {

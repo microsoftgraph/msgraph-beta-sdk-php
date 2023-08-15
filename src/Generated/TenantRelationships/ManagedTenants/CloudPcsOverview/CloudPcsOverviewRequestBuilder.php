@@ -29,7 +29,7 @@ class CloudPcsOverviewRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $cloudPcOverviewTenantId Unique identifier of the item
+     * @param string $cloudPcOverviewTenantId The unique identifier of cloudPcOverview
      * @return CloudPcOverviewTenantItemRequestBuilder
     */
     public function byCloudPcOverviewTenantId(string $cloudPcOverviewTenantId): CloudPcOverviewTenantItemRequestBuilder {

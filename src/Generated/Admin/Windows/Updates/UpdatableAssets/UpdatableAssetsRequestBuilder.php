@@ -61,7 +61,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $updatableAssetId Unique identifier of the item
+     * @param string $updatableAssetId The unique identifier of updatableAsset
      * @return UpdatableAssetItemRequestBuilder
     */
     public function byUpdatableAssetId(string $updatableAssetId): UpdatableAssetItemRequestBuilder {
