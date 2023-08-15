@@ -8,9 +8,9 @@ name: "bump sdk version"
 
 
 on:
-  pull_request:
+  push:
     branches:
-      - dev
+      - "kiota/beta/pipelinebuild/*"
     paths:
       - 'src/Generated/**'
 
@@ -20,7 +20,6 @@ defaults:
 
 jobs:
   bump-sdk-version:
-    if: startsWith(github.head_ref, 'kiota/beta/pipelinebuild/')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -33,4 +32,4 @@ jobs:
       run: php scripts/BumpPreviewSdkVersion.php
 
     - name: Commit and push changes if any
-      run: if git commit -am "Bump SDK version"; then git push origin $GITHUB_HEAD_REF; fi
+      run: if git commit -am "Bump SDK version"; then git push origin $GITHUB_REF; fi
