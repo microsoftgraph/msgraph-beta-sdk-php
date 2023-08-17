@@ -33,19 +33,19 @@ class DataSourceCollectionResponse extends BaseCollectionPaginationCountResponse
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The value property
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null
+     * @return array<DataSource>|null
     */
     public function getValue(): ?array {
         $val = $this->getBackingStore()->get('value');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $val */
+            TypeUtils::validateCollectionValues($val, DataSource::class);
+            /** @var array<DataSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
@@ -62,7 +62,7 @@ class DataSourceCollectionResponse extends BaseCollectionPaginationCountResponse
 
     /**
      * Sets the value property value. The value property
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource>|null $value Value to set for the value property.
+     * @param array<DataSource>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

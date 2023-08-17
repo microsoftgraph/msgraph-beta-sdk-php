@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -73,19 +73,19 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Adds a siteSource to a legalHold object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource $body The request body
+     * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-post-sitesources?view=graph-rest-1.0 Find more info here
     */
-    public function post(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [SiteSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -114,11 +114,11 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Adds a siteSource to a legalHold object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource $body The request body
+     * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

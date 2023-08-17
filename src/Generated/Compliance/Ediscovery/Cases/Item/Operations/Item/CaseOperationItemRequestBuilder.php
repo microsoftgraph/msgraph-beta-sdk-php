@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\MicrosoftGraphEdiscoveryCaseExportOperation\MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -69,7 +69,7 @@ class CaseOperationItemRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -77,18 +77,18 @@ class CaseOperationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property operations in compliance
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation $body The request body
+     * @param CaseOperation $body The request body
      * @param CaseOperationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation $body, ?CaseOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CaseOperation $body, ?CaseOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -134,11 +134,11 @@ class CaseOperationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property operations in compliance
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation $body The request body
+     * @param CaseOperation $body The request body
      * @param CaseOperationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation $body, ?CaseOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CaseOperation $body, ?CaseOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

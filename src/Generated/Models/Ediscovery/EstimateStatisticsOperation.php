@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EstimateStatisticsOperation extends \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation implements Parsable 
+class EstimateStatisticsOperation extends CaseOperation implements Parsable 
 {
     /**
      * Instantiates a new estimateStatisticsOperation and sets the default values.

@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AddToReviewSetOperation extends \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation implements Parsable 
+class AddToReviewSetOperation extends CaseOperation implements Parsable 
 {
     /**
      * Instantiates a new addToReviewSetOperation and sets the default values.

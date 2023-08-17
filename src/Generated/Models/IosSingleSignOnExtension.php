@@ -31,7 +31,6 @@ class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.iosAzureAdSingleSignOnExtension': return new IosAzureAdSingleSignOnExtension();
                 case '#microsoft.graph.iosCredentialSingleSignOnExtension': return new IosCredentialSingleSignOnExtension();
-                case '#microsoft.graph.iosKerberosSingleSignOnExtension': return new IosKerberosSingleSignOnExtension();
                 case '#microsoft.graph.iosRedirectSingleSignOnExtension': return new IosRedirectSingleSignOnExtension();
             }
         }

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphEdiscoveryApplyTags;
 
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -64,20 +64,20 @@ class ApplyTagsPostRequestBody implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'tagsToAdd' => fn(ParseNode $n) => $o->setTagsToAdd($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'])),
-            'tagsToRemove' => fn(ParseNode $n) => $o->setTagsToRemove($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'])),
+            'tagsToAdd' => fn(ParseNode $n) => $o->setTagsToAdd($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
+            'tagsToRemove' => fn(ParseNode $n) => $o->setTagsToRemove($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
      * Gets the tagsToAdd property value. The tagsToAdd property
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null
+     * @return array<Tag>|null
     */
     public function getTagsToAdd(): ?array {
         $val = $this->getBackingStore()->get('tagsToAdd');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $val */
+            TypeUtils::validateCollectionValues($val, Tag::class);
+            /** @var array<Tag>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tagsToAdd'");
@@ -85,13 +85,13 @@ class ApplyTagsPostRequestBody implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the tagsToRemove property value. The tagsToRemove property
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null
+     * @return array<Tag>|null
     */
     public function getTagsToRemove(): ?array {
         $val = $this->getBackingStore()->get('tagsToRemove');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $val */
+            TypeUtils::validateCollectionValues($val, Tag::class);
+            /** @var array<Tag>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tagsToRemove'");
@@ -125,7 +125,7 @@ class ApplyTagsPostRequestBody implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the tagsToAdd property value. The tagsToAdd property
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $value Value to set for the tagsToAdd property.
+     * @param array<Tag>|null $value Value to set for the tagsToAdd property.
     */
     public function setTagsToAdd(?array $value): void {
         $this->getBackingStore()->set('tagsToAdd', $value);
@@ -133,7 +133,7 @@ class ApplyTagsPostRequestBody implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the tagsToRemove property value. The tagsToRemove property
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag>|null $value Value to set for the tagsToRemove property.
+     * @param array<Tag>|null $value Value to set for the tagsToRemove property.
     */
     public function setTagsToRemove(?array $value): void {
         $this->getBackingStore()->set('tagsToRemove', $value);

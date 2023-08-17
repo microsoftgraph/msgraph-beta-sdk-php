@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource;
+use Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UnifiedGroupSources\Item\Group\GroupRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -69,7 +69,7 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UnifiedGroupSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -77,18 +77,18 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property unifiedGroupSources in security
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource $body The request body
+     * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource $body, ?UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UnifiedGroupSource $body, ?UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UnifiedGroupSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -134,11 +134,11 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property unifiedGroupSources in security
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource $body The request body
+     * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource $body, ?UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UnifiedGroupSource $body, ?UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

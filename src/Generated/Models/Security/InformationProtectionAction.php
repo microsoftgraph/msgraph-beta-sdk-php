@@ -39,7 +39,6 @@ class InformationProtectionAction implements AdditionalDataHolder, BackedModel, 
                 case '#microsoft.graph.security.addContentHeaderAction': return new AddContentHeaderAction();
                 case '#microsoft.graph.security.addWatermarkAction': return new AddWatermarkAction();
                 case '#microsoft.graph.security.applyLabelAction': return new ApplyLabelAction();
-                case '#microsoft.graph.security.customAction': return new CustomAction();
                 case '#microsoft.graph.security.justifyAction': return new JustifyAction();
                 case '#microsoft.graph.security.metadataAction': return new MetadataAction();
                 case '#microsoft.graph.security.protectAdhocAction': return new ProtectAdhocAction();

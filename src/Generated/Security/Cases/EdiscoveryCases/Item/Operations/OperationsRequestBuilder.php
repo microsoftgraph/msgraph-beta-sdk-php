@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation;
 use Microsoft\Graph\Beta\Generated\Models\Security\CaseOperationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Security\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Operations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Operations\Item\CaseOperationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -73,18 +73,18 @@ class OperationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to operations for security
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation $body The request body
+     * @param CaseOperation $body The request body
      * @param OperationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CaseOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CaseOperation::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -113,11 +113,11 @@ class OperationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to operations for security
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation $body The request body
+     * @param CaseOperation $body The request body
      * @param OperationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CaseOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

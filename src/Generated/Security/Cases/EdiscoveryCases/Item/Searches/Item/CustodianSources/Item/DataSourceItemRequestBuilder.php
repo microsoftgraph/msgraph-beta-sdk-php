@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Microsoft\Graph\Beta\Generated\Models\Security\DataSource;
+use Microsoft\Graph\Beta\Generated\Models\Security\DataSource;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -62,7 +62,7 @@ class DataSourceItemRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Security\DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

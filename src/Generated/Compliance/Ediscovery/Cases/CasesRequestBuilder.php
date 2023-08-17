@@ -8,7 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\CaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -73,19 +73,19 @@ class CasesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new case object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase $body The request body
+     * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-1.0 Find more info here
     */
-    public function post(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EscapedCase::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -114,11 +114,11 @@ class CasesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new case object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase $body The request body
+     * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

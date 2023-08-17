@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -61,7 +61,7 @@ class DataSourceItemRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -69,18 +69,18 @@ class DataSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property additionalSources in compliance
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body The request body
+     * @param DataSource $body The request body
      * @param DataSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body, ?DataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DataSource $body, ?DataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DataSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -126,11 +126,11 @@ class DataSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property additionalSources in compliance
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body The request body
+     * @param DataSource $body The request body
      * @param DataSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource $body, ?DataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DataSource $body, ?DataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

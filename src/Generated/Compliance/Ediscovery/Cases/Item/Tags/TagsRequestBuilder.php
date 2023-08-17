@@ -8,7 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\MicrosoftGraphEdiscoveryAsHierarchy\MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\TagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -81,19 +81,19 @@ class TagsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag $body The request body
+     * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-post-tags?view=graph-rest-1.0 Find more info here
     */
-    public function post(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Tag::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -122,11 +122,11 @@ class TagsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag $body The request body
+     * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

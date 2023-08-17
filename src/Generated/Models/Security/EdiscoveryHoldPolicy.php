@@ -69,8 +69,8 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
                 $this->setErrors($val);
             },
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
-            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource::class, 'createFromDiscriminatorValue'])),
-            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\UserSource::class, 'createFromDiscriminatorValue'])),
+            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
+            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -88,13 +88,13 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Gets the siteSources property value. Data sources that represent SharePoint sites.
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null
+     * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
         $val = $this->getBackingStore()->get('siteSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null $val */
+            TypeUtils::validateCollectionValues($val, SiteSource::class);
+            /** @var array<SiteSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
@@ -102,13 +102,13 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Gets the userSources property value. Data sources that represent Exchange mailboxes.
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null
+     * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
         $val = $this->getBackingStore()->get('userSources');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\UserSource::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null $val */
+            TypeUtils::validateCollectionValues($val, UserSource::class);
+            /** @var array<UserSource>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
@@ -153,7 +153,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the siteSources property value. Data sources that represent SharePoint sites.
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\SiteSource>|null $value Value to set for the siteSources property.
+     * @param array<SiteSource>|null $value Value to set for the siteSources property.
     */
     public function setSiteSources(?array $value): void {
         $this->getBackingStore()->set('siteSources', $value);
@@ -161,7 +161,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the userSources property value. Data sources that represent Exchange mailboxes.
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\UserSource>|null $value Value to set for the userSources property.
+     * @param array<UserSource>|null $value Value to set for the userSources property.
     */
     public function setUserSources(?array $value): void {
         $this->getBackingStore()->set('userSources', $value);

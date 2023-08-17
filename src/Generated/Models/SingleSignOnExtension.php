@@ -41,7 +41,6 @@ class SingleSignOnExtension implements AdditionalDataHolder, BackedModel, Parsab
                 case '#microsoft.graph.credentialSingleSignOnExtension': return new CredentialSingleSignOnExtension();
                 case '#microsoft.graph.iosAzureAdSingleSignOnExtension': return new IosAzureAdSingleSignOnExtension();
                 case '#microsoft.graph.iosCredentialSingleSignOnExtension': return new IosCredentialSingleSignOnExtension();
-                case '#microsoft.graph.iosKerberosSingleSignOnExtension': return new IosKerberosSingleSignOnExtension();
                 case '#microsoft.graph.iosRedirectSingleSignOnExtension': return new IosRedirectSingleSignOnExtension();
                 case '#microsoft.graph.iosSingleSignOnExtension': return new IosSingleSignOnExtension();
                 case '#microsoft.graph.kerberosSingleSignOnExtension': return new KerberosSingleSignOnExtension();

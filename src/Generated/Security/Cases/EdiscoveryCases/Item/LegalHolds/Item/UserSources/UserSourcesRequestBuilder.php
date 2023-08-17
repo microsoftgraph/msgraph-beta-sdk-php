@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Microsoft\Graph\Beta\Generated\Models\Security\UserSource;
+use Microsoft\Graph\Beta\Generated\Models\Security\UserSource;
 use Microsoft\Graph\Beta\Generated\Models\Security\UserSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\Item\UserSourceItemRequestBuilder;
@@ -72,19 +72,19 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new userSource object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\UserSource $body The request body
+     * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-post-usersources?view=graph-rest-1.0 Find more info here
     */
-    public function post(\Microsoft\Graph\Beta\Generated\Models\Security\UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [\Microsoft\Graph\Beta\Generated\Models\Security\UserSource::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UserSource::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -113,11 +113,11 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new userSource object.
-     * @param \Microsoft\Graph\Beta\Generated\Models\Security\UserSource $body The request body
+     * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(\Microsoft\Graph\Beta\Generated\Models\Security\UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

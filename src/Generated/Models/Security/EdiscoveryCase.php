@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class EdiscoveryCase extends \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase implements Parsable 
+class EdiscoveryCase extends EscapedCase implements Parsable 
 {
     /**
      * Instantiates a new ediscoveryCase and sets the default values.
@@ -91,7 +91,7 @@ class EdiscoveryCase extends \Microsoft\Graph\Beta\Generated\Models\Security\Esc
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             'legalHolds' => fn(ParseNode $n) => $o->setLegalHolds($n->getCollectionOfObjectValues([EdiscoveryHoldPolicy::class, 'createFromDiscriminatorValue'])),
             'noncustodialDataSources' => fn(ParseNode $n) => $o->setNoncustodialDataSources($n->getCollectionOfObjectValues([EdiscoveryNoncustodialDataSource::class, 'createFromDiscriminatorValue'])),
-            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation::class, 'createFromDiscriminatorValue'])),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([CaseOperation::class, 'createFromDiscriminatorValue'])),
             'reviewSets' => fn(ParseNode $n) => $o->setReviewSets($n->getCollectionOfObjectValues([EdiscoveryReviewSet::class, 'createFromDiscriminatorValue'])),
             'searches' => fn(ParseNode $n) => $o->setSearches($n->getCollectionOfObjectValues([EdiscoverySearch::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([EdiscoveryCaseSettings::class, 'createFromDiscriminatorValue'])),
@@ -129,13 +129,13 @@ class EdiscoveryCase extends \Microsoft\Graph\Beta\Generated\Models\Security\Esc
 
     /**
      * Gets the operations property value. Returns a list of case caseOperation objects for this case.
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation>|null
+     * @return array<CaseOperation>|null
     */
     public function getOperations(): ?array {
         $val = $this->getBackingStore()->get('operations');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation>|null $val */
+            TypeUtils::validateCollectionValues($val, CaseOperation::class);
+            /** @var array<CaseOperation>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
@@ -264,7 +264,7 @@ class EdiscoveryCase extends \Microsoft\Graph\Beta\Generated\Models\Security\Esc
 
     /**
      * Sets the operations property value. Returns a list of case caseOperation objects for this case.
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation>|null $value Value to set for the operations property.
+     * @param array<CaseOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);

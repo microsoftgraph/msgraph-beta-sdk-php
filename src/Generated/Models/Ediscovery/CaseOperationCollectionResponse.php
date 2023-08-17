@@ -33,19 +33,19 @@ class CaseOperationCollectionResponse extends BaseCollectionPaginationCountRespo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([CaseOperation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The value property
-     * @return array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null
+     * @return array<CaseOperation>|null
     */
     public function getValue(): ?array {
         $val = $this->getBackingStore()->get('value');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, \Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation::class);
-            /** @var array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null $val */
+            TypeUtils::validateCollectionValues($val, CaseOperation::class);
+            /** @var array<CaseOperation>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
@@ -62,7 +62,7 @@ class CaseOperationCollectionResponse extends BaseCollectionPaginationCountRespo
 
     /**
      * Sets the value property value. The value property
-     * @param array<\Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation>|null $value Value to set for the value property.
+     * @param array<CaseOperation>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);
