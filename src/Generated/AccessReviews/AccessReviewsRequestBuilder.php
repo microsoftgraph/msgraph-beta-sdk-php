@@ -29,7 +29,7 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of accessReview entities.
-     * @param string $accessReviewId Unique identifier of the item
+     * @param string $accessReviewId The unique identifier of accessReview
      * @return AccessReviewItemRequestBuilder
     */
     public function byAccessReviewId(string $accessReviewId): AccessReviewItemRequestBuilder {

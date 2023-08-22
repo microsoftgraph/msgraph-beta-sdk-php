@@ -29,7 +29,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
-     * @param string $accessPackageSubjectId Unique identifier of the item
+     * @param string $accessPackageSubjectId The unique identifier of accessPackageSubject
      * @return AccessPackageSubjectItemRequestBuilder
     */
     public function byAccessPackageSubjectId(string $accessPackageSubjectId): AccessPackageSubjectItemRequestBuilder {

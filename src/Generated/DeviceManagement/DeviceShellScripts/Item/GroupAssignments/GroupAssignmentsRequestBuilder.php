@@ -29,7 +29,7 @@ class GroupAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceShellScript entity.
-     * @param string $deviceManagementScriptGroupAssignmentId Unique identifier of the item
+     * @param string $deviceManagementScriptGroupAssignmentId The unique identifier of deviceManagementScriptGroupAssignment
      * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder
     */
     public function byDeviceManagementScriptGroupAssignmentId(string $deviceManagementScriptGroupAssignmentId): DeviceManagementScriptGroupAssignmentItemRequestBuilder {

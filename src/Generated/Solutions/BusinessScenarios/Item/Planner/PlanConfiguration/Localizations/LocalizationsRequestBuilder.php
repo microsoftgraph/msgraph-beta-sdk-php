@@ -29,7 +29,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the localizations property of the microsoft.graph.plannerPlanConfiguration entity.
-     * @param string $plannerPlanConfigurationLocalizationId Unique identifier of the item
+     * @param string $plannerPlanConfigurationLocalizationId The unique identifier of plannerPlanConfigurationLocalization
      * @return PlannerPlanConfigurationLocalizationItemRequestBuilder
     */
     public function byPlannerPlanConfigurationLocalizationId(string $plannerPlanConfigurationLocalizationId): PlannerPlanConfigurationLocalizationItemRequestBuilder {

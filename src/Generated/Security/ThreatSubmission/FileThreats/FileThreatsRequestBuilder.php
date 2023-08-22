@@ -29,7 +29,7 @@ class FileThreatsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $fileThreatSubmissionId Unique identifier of the item
+     * @param string $fileThreatSubmissionId The unique identifier of fileThreatSubmission
      * @return FileThreatSubmissionItemRequestBuilder
     */
     public function byFileThreatSubmissionId(string $fileThreatSubmissionId): FileThreatSubmissionItemRequestBuilder {

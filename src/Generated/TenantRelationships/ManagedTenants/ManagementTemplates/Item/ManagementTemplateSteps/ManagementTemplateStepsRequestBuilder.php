@@ -28,7 +28,7 @@ class ManagementTemplateStepsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managementTemplate entity.
-     * @param string $managementTemplateStepId Unique identifier of the item
+     * @param string $managementTemplateStepId The unique identifier of managementTemplateStep
      * @return ManagementTemplateStepItemRequestBuilder
     */
     public function byManagementTemplateStepId(string $managementTemplateStepId): ManagementTemplateStepItemRequestBuilder {

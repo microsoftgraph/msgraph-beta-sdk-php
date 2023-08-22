@@ -37,7 +37,7 @@ class DeviceManagementScriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceManagementScripts property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementScriptId Unique identifier of the item
+     * @param string $deviceManagementScriptId The unique identifier of deviceManagementScript
      * @return DeviceManagementScriptItemRequestBuilder
     */
     public function byDeviceManagementScriptId(string $deviceManagementScriptId): DeviceManagementScriptItemRequestBuilder {

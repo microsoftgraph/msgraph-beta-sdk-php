@@ -29,7 +29,7 @@ class PaymentTermsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.
-     * @param string $paymentTermId Unique identifier of the item
+     * @param string $paymentTermId The unique identifier of paymentTerm
      * @return PaymentTermItemRequestBuilder
     */
     public function byPaymentTermId(string $paymentTermId): PaymentTermItemRequestBuilder {

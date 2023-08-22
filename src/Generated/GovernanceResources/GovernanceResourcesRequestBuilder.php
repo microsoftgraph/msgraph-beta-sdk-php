@@ -37,7 +37,7 @@ class GovernanceResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of governanceResource entities.
-     * @param string $governanceResourceId Unique identifier of the item
+     * @param string $governanceResourceId The unique identifier of governanceResource
      * @return GovernanceResourceItemRequestBuilder
     */
     public function byGovernanceResourceId(string $governanceResourceId): GovernanceResourceItemRequestBuilder {

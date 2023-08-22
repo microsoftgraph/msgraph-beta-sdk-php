@@ -37,7 +37,7 @@ class ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcProvisioningPolicyId Unique identifier of the item
+     * @param string $cloudPcProvisioningPolicyId The unique identifier of cloudPcProvisioningPolicy
      * @return CloudPcProvisioningPolicyItemRequestBuilder
     */
     public function byCloudPcProvisioningPolicyId(string $cloudPcProvisioningPolicyId): CloudPcProvisioningPolicyItemRequestBuilder {

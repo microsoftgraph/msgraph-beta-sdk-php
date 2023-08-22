@@ -29,7 +29,7 @@ class WindowsProtectionStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $windowsProtectionStateId Unique identifier of the item
+     * @param string $windowsProtectionStateId The unique identifier of windowsProtectionState
      * @return WindowsProtectionStateItemRequestBuilder
     */
     public function byWindowsProtectionStateId(string $windowsProtectionStateId): WindowsProtectionStateItemRequestBuilder {

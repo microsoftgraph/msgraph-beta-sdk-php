@@ -29,7 +29,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
-     * @param string $authenticationEventListenerId Unique identifier of the item
+     * @param string $authenticationEventListenerId The unique identifier of authenticationEventListener
      * @return AuthenticationEventListenerItemRequestBuilder
     */
     public function byAuthenticationEventListenerId(string $authenticationEventListenerId): AuthenticationEventListenerItemRequestBuilder {

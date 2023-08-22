@@ -29,7 +29,7 @@ class DeviceComplianceScriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceComplianceScripts property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceComplianceScriptId Unique identifier of the item
+     * @param string $deviceComplianceScriptId The unique identifier of deviceComplianceScript
      * @return DeviceComplianceScriptItemRequestBuilder
     */
     public function byDeviceComplianceScriptId(string $deviceComplianceScriptId): DeviceComplianceScriptItemRequestBuilder {

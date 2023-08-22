@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.roleScopeTag entity.
-     * @param string $roleScopeTagAutoAssignmentId Unique identifier of the item
+     * @param string $roleScopeTagAutoAssignmentId The unique identifier of roleScopeTagAutoAssignment
      * @return RoleScopeTagAutoAssignmentItemRequestBuilder
     */
     public function byRoleScopeTagAutoAssignmentId(string $roleScopeTagAutoAssignmentId): RoleScopeTagAutoAssignmentItemRequestBuilder {

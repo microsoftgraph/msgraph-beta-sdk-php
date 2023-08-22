@@ -29,7 +29,7 @@ class PayloadResponseRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of payloadResponse entities.
-     * @param string $payloadResponseId Unique identifier of the item
+     * @param string $payloadResponseId The unique identifier of payloadResponse
      * @return PayloadResponseItemRequestBuilder
     */
     public function byPayloadResponseId(string $payloadResponseId): PayloadResponseItemRequestBuilder {

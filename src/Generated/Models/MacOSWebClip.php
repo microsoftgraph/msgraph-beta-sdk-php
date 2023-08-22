@@ -29,7 +29,7 @@ class MacOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appUrl property value. The web app URL starting with http:// or https://, such as https://learn.microsoft.com/en-us/mem/.
+     * Gets the appUrl property value. The web app URL starting with http:// or https://, such as https://learn.microsoft.com/mem/.
      * @return string|null
     */
     public function getAppUrl(): ?string {
@@ -66,7 +66,7 @@ class MacOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding "shine" to the icon. If FALSE, SpringBoard can add "shine".
+     * Gets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding 'shine' to the icon. If FALSE, SpringBoard can add 'shine'.
      * @return bool|null
     */
     public function getPreComposedIconEnabled(): ?bool {
@@ -89,7 +89,7 @@ class MacOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the appUrl property value. The web app URL starting with http:// or https://, such as https://learn.microsoft.com/en-us/mem/.
+     * Sets the appUrl property value. The web app URL starting with http:// or https://, such as https://learn.microsoft.com/mem/.
      * @param string|null $value Value to set for the appUrl property.
     */
     public function setAppUrl(?string $value): void {
@@ -105,7 +105,7 @@ class MacOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding "shine" to the icon. If FALSE, SpringBoard can add "shine".
+     * Sets the preComposedIconEnabled property value. Whether or not the icon for the app is precomosed. Defaults to false. If TRUE, prevents SpringBoard from adding 'shine' to the icon. If FALSE, SpringBoard can add 'shine'.
      * @param bool|null $value Value to set for the preComposedIconEnabled property.
     */
     public function setPreComposedIconEnabled(?bool $value): void {

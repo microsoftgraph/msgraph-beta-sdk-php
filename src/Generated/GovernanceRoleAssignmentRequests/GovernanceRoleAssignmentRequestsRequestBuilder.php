@@ -29,7 +29,7 @@ class GovernanceRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of governanceRoleAssignmentRequest entities.
-     * @param string $governanceRoleAssignmentRequestId Unique identifier of the item
+     * @param string $governanceRoleAssignmentRequestId The unique identifier of governanceRoleAssignmentRequest
      * @return GovernanceRoleAssignmentRequestItemRequestBuilder
     */
     public function byGovernanceRoleAssignmentRequestId(string $governanceRoleAssignmentRequestId): GovernanceRoleAssignmentRequestItemRequestBuilder {

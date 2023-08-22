@@ -29,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder ext
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId Unique identifier of the item
+     * @param string $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId The unique identifier of userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory
      * @return UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder
     */
     public function byUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId(string $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder {

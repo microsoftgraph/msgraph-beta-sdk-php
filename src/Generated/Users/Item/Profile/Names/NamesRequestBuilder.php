@@ -29,7 +29,7 @@ class NamesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the names property of the microsoft.graph.profile entity.
-     * @param string $personNameId Unique identifier of the item
+     * @param string $personNameId The unique identifier of personName
      * @return PersonNameItemRequestBuilder
     */
     public function byPersonNameId(string $personNameId): PersonNameItemRequestBuilder {

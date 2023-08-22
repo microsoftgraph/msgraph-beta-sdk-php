@@ -32,9 +32,10 @@ class PinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action pin
+     * Pin an educationModule in the classwork list. This action sets the isPinned property to true for an educationModule. Only teachers can perform this action and only one module at a time can be pinned in the classwork list.
      * @param PinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-pin?view=graph-rest-1.0 Find more info here
     */
     public function post(?PinRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class PinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action pin
+     * Pin an educationModule in the classwork list. This action sets the isPinned property to true for an educationModule. Only teachers can perform this action and only one module at a time can be pinned in the classwork list.
      * @param PinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

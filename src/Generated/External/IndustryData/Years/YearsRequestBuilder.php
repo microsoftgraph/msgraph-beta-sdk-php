@@ -29,7 +29,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the years property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $yearTimePeriodDefinitionId Unique identifier of the item
+     * @param string $yearTimePeriodDefinitionId The unique identifier of yearTimePeriodDefinition
      * @return YearTimePeriodDefinitionItemRequestBuilder
     */
     public function byYearTimePeriodDefinitionId(string $yearTimePeriodDefinitionId): YearTimePeriodDefinitionItemRequestBuilder {

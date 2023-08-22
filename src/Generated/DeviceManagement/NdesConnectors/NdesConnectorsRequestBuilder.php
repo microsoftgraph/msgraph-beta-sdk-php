@@ -29,7 +29,7 @@ class NdesConnectorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the ndesConnectors property of the microsoft.graph.deviceManagement entity.
-     * @param string $ndesConnectorId Unique identifier of the item
+     * @param string $ndesConnectorId The unique identifier of ndesConnector
      * @return NdesConnectorItemRequestBuilder
     */
     public function byNdesConnectorId(string $ndesConnectorId): NdesConnectorItemRequestBuilder {

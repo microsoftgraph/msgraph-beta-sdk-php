@@ -28,7 +28,7 @@ class ParentHostPairsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the parentHostPairs property of the microsoft.graph.security.host entity.
-     * @param string $hostPairId Unique identifier of the item
+     * @param string $hostPairId The unique identifier of hostPair
      * @return HostPairItemRequestBuilder
     */
     public function byHostPairId(string $hostPairId): HostPairItemRequestBuilder {

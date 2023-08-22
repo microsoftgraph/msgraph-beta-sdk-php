@@ -28,7 +28,7 @@ class UserConfigurationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
-     * @param string $userConfigurationId Unique identifier of the item
+     * @param string $userConfigurationId The unique identifier of userConfiguration
      * @return UserConfigurationItemRequestBuilder
     */
     public function byUserConfigurationId(string $userConfigurationId): UserConfigurationItemRequestBuilder {

@@ -29,7 +29,7 @@ class AutopilotEventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the autopilotEvents property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementAutopilotEventId Unique identifier of the item
+     * @param string $deviceManagementAutopilotEventId The unique identifier of deviceManagementAutopilotEvent
      * @return DeviceManagementAutopilotEventItemRequestBuilder
     */
     public function byDeviceManagementAutopilotEventId(string $deviceManagementAutopilotEventId): DeviceManagementAutopilotEventItemRequestBuilder {

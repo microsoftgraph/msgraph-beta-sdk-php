@@ -37,7 +37,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcAuditEventId Unique identifier of the item
+     * @param string $cloudPcAuditEventId The unique identifier of cloudPcAuditEvent
      * @return CloudPcAuditEventItemRequestBuilder
     */
     public function byCloudPcAuditEventId(string $cloudPcAuditEventId): CloudPcAuditEventItemRequestBuilder {

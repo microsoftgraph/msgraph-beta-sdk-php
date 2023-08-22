@@ -29,7 +29,7 @@ class ManagedDeviceCompliancesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managedDeviceComplianceId Unique identifier of the item
+     * @param string $managedDeviceComplianceId The unique identifier of managedDeviceCompliance
      * @return ManagedDeviceComplianceItemRequestBuilder
     */
     public function byManagedDeviceComplianceId(string $managedDeviceComplianceId): ManagedDeviceComplianceItemRequestBuilder {

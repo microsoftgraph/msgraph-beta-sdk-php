@@ -29,7 +29,7 @@ class AssignedDevicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
-     * @param string $windowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @param string $windowsAutopilotDeviceIdentityId The unique identifier of windowsAutopilotDeviceIdentity
      * @return WindowsAutopilotDeviceIdentityItemRequestBuilder
     */
     public function byWindowsAutopilotDeviceIdentityId(string $windowsAutopilotDeviceIdentityId): WindowsAutopilotDeviceIdentityItemRequestBuilder {

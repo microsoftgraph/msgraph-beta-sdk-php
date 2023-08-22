@@ -29,6 +29,11 @@ class CloudPcBulkAction extends Entity implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.cloudPcBulkPowerOff': return new CloudPcBulkPowerOff();
                 case '#microsoft.graph.cloudPcBulkPowerOn': return new CloudPcBulkPowerOn();
+                case '#microsoft.graph.cloudPcBulkReprovision': return new CloudPcBulkReprovision();
+                case '#microsoft.graph.cloudPcBulkResize': return new CloudPcBulkResize();
+                case '#microsoft.graph.cloudPcBulkRestart': return new CloudPcBulkRestart();
+                case '#microsoft.graph.cloudPcBulkRestore': return new CloudPcBulkRestore();
+                case '#microsoft.graph.cloudPcBulkTroubleshoot': return new CloudPcBulkTroubleshoot();
             }
         }
         return new CloudPcBulkAction();

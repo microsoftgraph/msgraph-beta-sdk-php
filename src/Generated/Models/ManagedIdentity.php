@@ -68,6 +68,30 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the federatedTokenId property value. The unique ID of the federated token.
+     * @return string|null
+    */
+    public function getFederatedTokenId(): ?string {
+        $val = $this->getBackingStore()->get('federatedTokenId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'federatedTokenId'");
+    }
+
+    /**
+     * Gets the federatedTokenIssuer property value. The issuer of the federated token.
+     * @return string|null
+    */
+    public function getFederatedTokenIssuer(): ?string {
+        $val = $this->getBackingStore()->get('federatedTokenIssuer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'federatedTokenIssuer'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -75,6 +99,8 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'associatedResourceId' => fn(ParseNode $n) => $o->setAssociatedResourceId($n->getStringValue()),
+            'federatedTokenId' => fn(ParseNode $n) => $o->setFederatedTokenId($n->getStringValue()),
+            'federatedTokenIssuer' => fn(ParseNode $n) => $o->setFederatedTokenIssuer($n->getStringValue()),
             'msiType' => fn(ParseNode $n) => $o->setMsiType($n->getEnumValue(MsiType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -110,6 +136,8 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('associatedResourceId', $this->getAssociatedResourceId());
+        $writer->writeStringValue('federatedTokenId', $this->getFederatedTokenId());
+        $writer->writeStringValue('federatedTokenIssuer', $this->getFederatedTokenIssuer());
         $writer->writeEnumValue('msiType', $this->getMsiType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -137,6 +165,22 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the federatedTokenId property value. The unique ID of the federated token.
+     * @param string|null $value Value to set for the federatedTokenId property.
+    */
+    public function setFederatedTokenId(?string $value): void {
+        $this->getBackingStore()->set('federatedTokenId', $value);
+    }
+
+    /**
+     * Sets the federatedTokenIssuer property value. The issuer of the federated token.
+     * @param string|null $value Value to set for the federatedTokenIssuer property.
+    */
+    public function setFederatedTokenIssuer(?string $value): void {
+        $this->getBackingStore()->set('federatedTokenIssuer', $value);
     }
 
     /**

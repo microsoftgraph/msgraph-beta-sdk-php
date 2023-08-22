@@ -32,9 +32,10 @@ class UnpinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unpin
+     * Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.
      * @param UnpinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-1.0 Find more info here
     */
     public function post(?UnpinRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class UnpinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unpin
+     * Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.
      * @param UnpinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

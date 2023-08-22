@@ -29,7 +29,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the skills property of the microsoft.graph.profile entity.
-     * @param string $skillProficiencyId Unique identifier of the item
+     * @param string $skillProficiencyId The unique identifier of skillProficiency
      * @return SkillProficiencyItemRequestBuilder
     */
     public function bySkillProficiencyId(string $skillProficiencyId): SkillProficiencyItemRequestBuilder {

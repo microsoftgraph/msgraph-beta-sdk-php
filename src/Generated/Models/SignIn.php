@@ -79,6 +79,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
+     * @return TokenProtectionStatus|null
+    */
+    public function getAppTokenProtectionStatus(): ?TokenProtectionStatus {
+        $val = $this->getBackingStore()->get('appTokenProtectionStatus');
+        if (is_null($val) || $val instanceof TokenProtectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appTokenProtectionStatus'");
+    }
+
+    /**
      * Gets the authenticationAppDeviceDetails property value. Provides details about the app and device used during an Azure AD authentication step.
      * @return AuthenticationAppDeviceDetails|null
     */
@@ -329,6 +341,7 @@ class SignIn extends Entity implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'appliedConditionalAccessPolicies' => fn(ParseNode $n) => $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues([AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'appliedEventListeners' => fn(ParseNode $n) => $o->setAppliedEventListeners($n->getCollectionOfObjectValues([AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
+            'appTokenProtectionStatus' => fn(ParseNode $n) => $o->setAppTokenProtectionStatus($n->getEnumValue(TokenProtectionStatus::class)),
             'authenticationAppDeviceDetails' => fn(ParseNode $n) => $o->setAuthenticationAppDeviceDetails($n->getObjectValue([AuthenticationAppDeviceDetails::class, 'createFromDiscriminatorValue'])),
             'authenticationAppPolicyEvaluationDetails' => fn(ParseNode $n) => $o->setAuthenticationAppPolicyEvaluationDetails($n->getCollectionOfObjectValues([AuthenticationAppPolicyDetails::class, 'createFromDiscriminatorValue'])),
             'authenticationContextClassReferences' => fn(ParseNode $n) => $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues([AuthenticationContext::class, 'createFromDiscriminatorValue'])),
@@ -368,6 +381,7 @@ class SignIn extends Entity implements Parsable
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
             'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
             'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
+            'originalTransferMethod' => fn(ParseNode $n) => $o->setOriginalTransferMethod($n->getEnumValue(OriginalTransferMethods::class)),
             'privateLinkDetails' => fn(ParseNode $n) => $o->setPrivateLinkDetails($n->getObjectValue([PrivateLinkDetails::class, 'createFromDiscriminatorValue'])),
             'processingTimeInMilliseconds' => fn(ParseNode $n) => $o->setProcessingTimeInMilliseconds($n->getIntegerValue()),
             'resourceDisplayName' => fn(ParseNode $n) => $o->setResourceDisplayName($n->getStringValue()),
@@ -401,6 +415,7 @@ class SignIn extends Entity implements Parsable
             },
             'signInIdentifier' => fn(ParseNode $n) => $o->setSignInIdentifier($n->getStringValue()),
             'signInIdentifierType' => fn(ParseNode $n) => $o->setSignInIdentifierType($n->getEnumValue(SignInIdentifierType::class)),
+            'signInTokenProtectionStatus' => fn(ParseNode $n) => $o->setSignInTokenProtectionStatus($n->getEnumValue(TokenProtectionStatus::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
             'tokenIssuerName' => fn(ParseNode $n) => $o->setTokenIssuerName($n->getStringValue()),
             'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
@@ -522,7 +537,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * Gets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type, associated Azure Resource Manager (ARM) resource ID, and federated token information.
      * @return ManagedIdentity|null
     */
     public function getManagedServiceIdentity(): ?ManagedIdentity {
@@ -569,6 +584,18 @@ class SignIn extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'originalRequestId'");
+    }
+
+    /**
+     * Gets the originalTransferMethod property value. The originalTransferMethod property
+     * @return OriginalTransferMethods|null
+    */
+    public function getOriginalTransferMethod(): ?OriginalTransferMethods {
+        $val = $this->getBackingStore()->get('originalTransferMethod');
+        if (is_null($val) || $val instanceof OriginalTransferMethods) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originalTransferMethod'");
     }
 
     /**
@@ -806,6 +833,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the signInTokenProtectionStatus property value. The signInTokenProtectionStatus property
+     * @return TokenProtectionStatus|null
+    */
+    public function getSignInTokenProtectionStatus(): ?TokenProtectionStatus {
+        $val = $this->getBackingStore()->get('signInTokenProtectionStatus');
+        if (is_null($val) || $val instanceof TokenProtectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInTokenProtectionStatus'");
+    }
+
+    /**
      * Gets the status property value. The sign-in status. Includes the error code and description of the error (in case of a sign-in failure).  Supports $filter (eq) on errorCode property.
      * @return SignInStatus|null
     */
@@ -923,6 +962,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeCollectionOfObjectValues('appliedConditionalAccessPolicies', $this->getAppliedConditionalAccessPolicies());
         $writer->writeCollectionOfObjectValues('appliedEventListeners', $this->getAppliedEventListeners());
+        $writer->writeEnumValue('appTokenProtectionStatus', $this->getAppTokenProtectionStatus());
         $writer->writeObjectValue('authenticationAppDeviceDetails', $this->getAuthenticationAppDeviceDetails());
         $writer->writeCollectionOfObjectValues('authenticationAppPolicyEvaluationDetails', $this->getAuthenticationAppPolicyEvaluationDetails());
         $writer->writeCollectionOfObjectValues('authenticationContextClassReferences', $this->getAuthenticationContextClassReferences());
@@ -955,6 +995,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
         $writer->writeCollectionOfObjectValues('networkLocationDetails', $this->getNetworkLocationDetails());
         $writer->writeStringValue('originalRequestId', $this->getOriginalRequestId());
+        $writer->writeEnumValue('originalTransferMethod', $this->getOriginalTransferMethod());
         $writer->writeObjectValue('privateLinkDetails', $this->getPrivateLinkDetails());
         $writer->writeIntegerValue('processingTimeInMilliseconds', $this->getProcessingTimeInMilliseconds());
         $writer->writeStringValue('resourceDisplayName', $this->getResourceDisplayName());
@@ -974,6 +1015,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('signInEventTypes', $this->getSignInEventTypes());
         $writer->writeStringValue('signInIdentifier', $this->getSignInIdentifier());
         $writer->writeEnumValue('signInIdentifierType', $this->getSignInIdentifierType());
+        $writer->writeEnumValue('signInTokenProtectionStatus', $this->getSignInTokenProtectionStatus());
         $writer->writeObjectValue('status', $this->getStatus());
         $writer->writeStringValue('tokenIssuerName', $this->getTokenIssuerName());
         $writer->writeEnumValue('tokenIssuerType', $this->getTokenIssuerType());
@@ -1015,6 +1057,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setAppliedEventListeners(?array $value): void {
         $this->getBackingStore()->set('appliedEventListeners', $value);
+    }
+
+    /**
+     * Sets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
+     * @param TokenProtectionStatus|null $value Value to set for the appTokenProtectionStatus property.
+    */
+    public function setAppTokenProtectionStatus(?TokenProtectionStatus $value): void {
+        $this->getBackingStore()->set('appTokenProtectionStatus', $value);
     }
 
     /**
@@ -1242,7 +1292,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * Sets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type, associated Azure Resource Manager (ARM) resource ID, and federated token information.
      * @param ManagedIdentity|null $value Value to set for the managedServiceIdentity property.
     */
     public function setManagedServiceIdentity(?ManagedIdentity $value): void {
@@ -1271,6 +1321,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setOriginalRequestId(?string $value): void {
         $this->getBackingStore()->set('originalRequestId', $value);
+    }
+
+    /**
+     * Sets the originalTransferMethod property value. The originalTransferMethod property
+     * @param OriginalTransferMethods|null $value Value to set for the originalTransferMethod property.
+    */
+    public function setOriginalTransferMethod(?OriginalTransferMethods $value): void {
+        $this->getBackingStore()->set('originalTransferMethod', $value);
     }
 
     /**
@@ -1423,6 +1481,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setSignInIdentifierType(?SignInIdentifierType $value): void {
         $this->getBackingStore()->set('signInIdentifierType', $value);
+    }
+
+    /**
+     * Sets the signInTokenProtectionStatus property value. The signInTokenProtectionStatus property
+     * @param TokenProtectionStatus|null $value Value to set for the signInTokenProtectionStatus property.
+    */
+    public function setSignInTokenProtectionStatus(?TokenProtectionStatus $value): void {
+        $this->getBackingStore()->set('signInTokenProtectionStatus', $value);
     }
 
     /**

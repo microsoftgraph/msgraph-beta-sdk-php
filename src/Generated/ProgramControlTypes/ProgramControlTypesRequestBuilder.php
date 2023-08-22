@@ -29,7 +29,7 @@ class ProgramControlTypesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of programControlType entities.
-     * @param string $programControlTypeId Unique identifier of the item
+     * @param string $programControlTypeId The unique identifier of programControlType
      * @return ProgramControlTypeItemRequestBuilder
     */
     public function byProgramControlTypeId(string $programControlTypeId): ProgramControlTypeItemRequestBuilder {

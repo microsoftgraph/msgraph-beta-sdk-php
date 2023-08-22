@@ -29,7 +29,7 @@ class UserRunStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.
-     * @param string $deviceManagementScriptUserStateId Unique identifier of the item
+     * @param string $deviceManagementScriptUserStateId The unique identifier of deviceManagementScriptUserState
      * @return DeviceManagementScriptUserStateItemRequestBuilder
     */
     public function byDeviceManagementScriptUserStateId(string $deviceManagementScriptUserStateId): DeviceManagementScriptUserStateItemRequestBuilder {

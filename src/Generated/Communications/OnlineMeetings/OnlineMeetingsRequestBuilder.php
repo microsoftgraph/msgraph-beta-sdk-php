@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\CreateOrGet\CreateOrGetRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllRecordings\GetAllRecordingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllTranscripts\GetAllTranscriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
@@ -36,8 +38,22 @@ class OnlineMeetingsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getAllRecordings method.
+    */
+    public function getAllRecordings(): GetAllRecordingsRequestBuilder {
+        return new GetAllRecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllTranscripts method.
+    */
+    public function getAllTranscripts(): GetAllTranscriptsRequestBuilder {
+        return new GetAllTranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
-     * @param string $onlineMeetingId Unique identifier of the item
+     * @param string $onlineMeetingId The unique identifier of onlineMeeting
      * @return OnlineMeetingItemRequestBuilder
     */
     public function byOnlineMeetingId(string $onlineMeetingId): OnlineMeetingItemRequestBuilder {

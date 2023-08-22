@@ -29,7 +29,7 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the resources property of the microsoft.graph.educationModule entity.
-     * @param string $educationModuleResourceId Unique identifier of the item
+     * @param string $educationModuleResourceId The unique identifier of educationModuleResource
      * @return EducationModuleResourceItemRequestBuilder
     */
     public function byEducationModuleResourceId(string $educationModuleResourceId): EducationModuleResourceItemRequestBuilder {
@@ -53,9 +53,10 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resources from education
+     * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
      * @param ResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-list-resources?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to resources for education
+     * Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
      * @param EducationModuleResource $body The request body
      * @param ResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-post-resources?view=graph-rest-1.0 Find more info here
     */
     public function post(EducationModuleResource $body, ?ResourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resources from education
+     * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
      * @param ResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to resources for education
+     * Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
      * @param EducationModuleResource $body The request body
      * @param ResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

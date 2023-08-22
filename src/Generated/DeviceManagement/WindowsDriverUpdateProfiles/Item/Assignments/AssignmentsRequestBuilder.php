@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsDriverUpdateProfile entity.
-     * @param string $windowsDriverUpdateProfileAssignmentId Unique identifier of the item
+     * @param string $windowsDriverUpdateProfileAssignmentId The unique identifier of windowsDriverUpdateProfileAssignment
      * @return WindowsDriverUpdateProfileAssignmentItemRequestBuilder
     */
     public function byWindowsDriverUpdateProfileAssignmentId(string $windowsDriverUpdateProfileAssignmentId): WindowsDriverUpdateProfileAssignmentItemRequestBuilder {

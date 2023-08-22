@@ -29,7 +29,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the patents property of the microsoft.graph.profile entity.
-     * @param string $itemPatentId Unique identifier of the item
+     * @param string $itemPatentId The unique identifier of itemPatent
      * @return ItemPatentItemRequestBuilder
     */
     public function byItemPatentId(string $itemPatentId): ItemPatentItemRequestBuilder {

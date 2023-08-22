@@ -29,7 +29,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntent entity.
-     * @param string $deviceManagementSettingInstanceId Unique identifier of the item
+     * @param string $deviceManagementSettingInstanceId The unique identifier of deviceManagementSettingInstance
      * @return DeviceManagementSettingInstanceItemRequestBuilder
     */
     public function byDeviceManagementSettingInstanceId(string $deviceManagementSettingInstanceId): DeviceManagementSettingInstanceItemRequestBuilder {

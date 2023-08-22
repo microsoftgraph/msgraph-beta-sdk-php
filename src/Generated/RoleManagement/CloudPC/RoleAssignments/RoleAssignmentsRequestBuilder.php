@@ -29,7 +29,7 @@ class RoleAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
-     * @param string $unifiedRoleAssignmentMultipleId Unique identifier of the item
+     * @param string $unifiedRoleAssignmentMultipleId The unique identifier of unifiedRoleAssignmentMultiple
      * @return UnifiedRoleAssignmentMultipleItemRequestBuilder
     */
     public function byUnifiedRoleAssignmentMultipleId(string $unifiedRoleAssignmentMultipleId): UnifiedRoleAssignmentMultipleItemRequestBuilder {

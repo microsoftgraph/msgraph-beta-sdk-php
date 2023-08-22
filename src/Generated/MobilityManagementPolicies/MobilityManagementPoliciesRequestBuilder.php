@@ -29,7 +29,7 @@ class MobilityManagementPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of mobilityManagementPolicy entities.
-     * @param string $mobilityManagementPolicyId Unique identifier of the item
+     * @param string $mobilityManagementPolicyId The unique identifier of mobilityManagementPolicy
      * @return MobilityManagementPolicyItemRequestBuilder
     */
     public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {

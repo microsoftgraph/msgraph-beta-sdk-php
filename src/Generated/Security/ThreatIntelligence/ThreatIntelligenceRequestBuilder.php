@@ -21,6 +21,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\SslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Subdomains\SubdomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\VulnerabilitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisHistoryRecords\WhoisHistoryRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecords\WhoisRecordsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -128,6 +129,13 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     */
     public function vulnerabilities(): VulnerabilitiesRequestBuilder {
         return new VulnerabilitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the whoisHistoryRecords property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function whoisHistoryRecords(): WhoisHistoryRecordsRequestBuilder {
+        return new WhoisHistoryRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -59,7 +59,46 @@ class CallRecording extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'meetingId' => fn(ParseNode $n) => $o->setMeetingId($n->getStringValue()),
+            'meetingOrganizerId' => fn(ParseNode $n) => $o->setMeetingOrganizerId($n->getStringValue()),
+            'recordingContentUrl' => fn(ParseNode $n) => $o->setRecordingContentUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the meetingId property value. The unique identifier of the onlineMeeting related to this recording. Read-only.
+     * @return string|null
+    */
+    public function getMeetingId(): ?string {
+        $val = $this->getBackingStore()->get('meetingId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingId'");
+    }
+
+    /**
+     * Gets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this recording. Read-only.
+     * @return string|null
+    */
+    public function getMeetingOrganizerId(): ?string {
+        $val = $this->getBackingStore()->get('meetingOrganizerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingOrganizerId'");
+    }
+
+    /**
+     * Gets the recordingContentUrl property value. The URL which can be used to access the content of the recording. Read-only.
+     * @return string|null
+    */
+    public function getRecordingContentUrl(): ?string {
+        $val = $this->getBackingStore()->get('recordingContentUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordingContentUrl'");
     }
 
     /**
@@ -70,6 +109,9 @@ class CallRecording extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('meetingId', $this->getMeetingId());
+        $writer->writeStringValue('meetingOrganizerId', $this->getMeetingOrganizerId());
+        $writer->writeStringValue('recordingContentUrl', $this->getRecordingContentUrl());
     }
 
     /**
@@ -86,6 +128,30 @@ class CallRecording extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the meetingId property value. The unique identifier of the onlineMeeting related to this recording. Read-only.
+     * @param string|null $value Value to set for the meetingId property.
+    */
+    public function setMeetingId(?string $value): void {
+        $this->getBackingStore()->set('meetingId', $value);
+    }
+
+    /**
+     * Sets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this recording. Read-only.
+     * @param string|null $value Value to set for the meetingOrganizerId property.
+    */
+    public function setMeetingOrganizerId(?string $value): void {
+        $this->getBackingStore()->set('meetingOrganizerId', $value);
+    }
+
+    /**
+     * Sets the recordingContentUrl property value. The URL which can be used to access the content of the recording. Read-only.
+     * @param string|null $value Value to set for the recordingContentUrl property.
+    */
+    public function setRecordingContentUrl(?string $value): void {
+        $this->getBackingStore()->set('recordingContentUrl', $value);
     }
 
 }

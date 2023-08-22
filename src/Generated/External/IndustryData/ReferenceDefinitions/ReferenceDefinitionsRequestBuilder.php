@@ -29,7 +29,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the referenceDefinitions property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $referenceDefinitionId Unique identifier of the item
+     * @param string $referenceDefinitionId The unique identifier of referenceDefinition
      * @return ReferenceDefinitionItemRequestBuilder
     */
     public function byReferenceDefinitionId(string $referenceDefinitionId): ReferenceDefinitionItemRequestBuilder {

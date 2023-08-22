@@ -29,7 +29,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the publications property of the microsoft.graph.profile entity.
-     * @param string $itemPublicationId Unique identifier of the item
+     * @param string $itemPublicationId The unique identifier of itemPublication
      * @return ItemPublicationItemRequestBuilder
     */
     public function byItemPublicationId(string $itemPublicationId): ItemPublicationItemRequestBuilder {

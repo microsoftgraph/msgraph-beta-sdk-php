@@ -29,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Gets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
+     * Gets the activeDevices property value. Number of active devices within the tenant. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getActiveDevices(): ?int {
@@ -41,7 +41,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Gets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
+     * Gets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getBatteryRuntimeFair(): ?int {
@@ -53,7 +53,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Gets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
+     * Gets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getBatteryRuntimeGood(): ?int {
@@ -65,7 +65,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Gets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
+     * Gets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getBatteryRuntimePoor(): ?int {
@@ -117,7 +117,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Sets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
+     * Sets the activeDevices property value. Number of active devices within the tenant. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
@@ -125,7 +125,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Sets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
+     * Sets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the batteryRuntimeFair property.
     */
     public function setBatteryRuntimeFair(?int $value): void {
@@ -133,7 +133,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Sets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
+     * Sets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the batteryRuntimeGood property.
     */
     public function setBatteryRuntimeGood(?int $value): void {
@@ -141,7 +141,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     }
 
     /**
-     * Sets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
+     * Sets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the batteryRuntimePoor property.
     */
     public function setBatteryRuntimePoor(?int $value): void {

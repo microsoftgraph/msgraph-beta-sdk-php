@@ -29,7 +29,7 @@ class ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $managedAppPolicyId Unique identifier of the item
+     * @param string $managedAppPolicyId The unique identifier of managedAppPolicy
      * @return ManagedAppPolicyItemRequestBuilder
     */
     public function byManagedAppPolicyId(string $managedAppPolicyId): ManagedAppPolicyItemRequestBuilder {

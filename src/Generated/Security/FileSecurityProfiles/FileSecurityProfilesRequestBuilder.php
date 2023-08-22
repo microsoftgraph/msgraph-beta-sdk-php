@@ -29,7 +29,7 @@ class FileSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $fileSecurityProfileId Unique identifier of the item
+     * @param string $fileSecurityProfileId The unique identifier of fileSecurityProfile
      * @return FileSecurityProfileItemRequestBuilder
     */
     public function byFileSecurityProfileId(string $fileSecurityProfileId): FileSecurityProfileItemRequestBuilder {

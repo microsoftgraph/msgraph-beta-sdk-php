@@ -245,6 +245,18 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the chatRestrictions property value. The chatRestrictions property
+     * @return ChatRestrictions|null
+    */
+    public function getChatRestrictions(): ?ChatRestrictions {
+        $val = $this->getBackingStore()->get('chatRestrictions');
+        if (is_null($val) || $val instanceof ChatRestrictions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'chatRestrictions'");
+    }
+
+    /**
      * Gets the creationDateTime property value. The meeting creation time in UTC. Read-only.
      * @return DateTime|null
     */
@@ -304,6 +316,7 @@ class OnlineMeeting extends Entity implements Parsable
             'broadcastSettings' => fn(ParseNode $n) => $o->setBroadcastSettings($n->getObjectValue([BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'])),
             'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
+            'chatRestrictions' => fn(ParseNode $n) => $o->setChatRestrictions($n->getObjectValue([ChatRestrictions::class, 'createFromDiscriminatorValue'])),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
@@ -325,7 +338,6 @@ class OnlineMeeting extends Entity implements Parsable
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
             'transcripts' => fn(ParseNode $n) => $o->setTranscripts($n->getCollectionOfObjectValues([CallTranscript::class, 'createFromDiscriminatorValue'])),
             'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
-            'virtualAppointment' => fn(ParseNode $n) => $o->setVirtualAppointment($n->getObjectValue([VirtualAppointment::class, 'createFromDiscriminatorValue'])),
             'watermarkProtection' => fn(ParseNode $n) => $o->setWatermarkProtection($n->getObjectValue([WatermarkProtectionValues::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -551,18 +563,6 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the virtualAppointment property value. The virtualAppointment property
-     * @return VirtualAppointment|null
-    */
-    public function getVirtualAppointment(): ?VirtualAppointment {
-        $val = $this->getBackingStore()->get('virtualAppointment');
-        if (is_null($val) || $val instanceof VirtualAppointment) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualAppointment'");
-    }
-
-    /**
      * Gets the watermarkProtection property value. Specifies whether a watermark should be applied to a content type by the client application.
      * @return WatermarkProtectionValues|null
     */
@@ -597,6 +597,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeObjectValue('broadcastSettings', $this->getBroadcastSettings());
         $writer->writeCollectionOfEnumValues('capabilities', $this->getCapabilities());
         $writer->writeObjectValue('chatInfo', $this->getChatInfo());
+        $writer->writeObjectValue('chatRestrictions', $this->getChatRestrictions());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeStringValue('externalId', $this->getExternalId());
@@ -618,7 +619,6 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeStringValue('subject', $this->getSubject());
         $writer->writeCollectionOfObjectValues('transcripts', $this->getTranscripts());
         $writer->writeStringValue('videoTeleconferenceId', $this->getVideoTeleconferenceId());
-        $writer->writeObjectValue('virtualAppointment', $this->getVirtualAppointment());
         $writer->writeObjectValue('watermarkProtection', $this->getWatermarkProtection());
     }
 
@@ -756,6 +756,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setChatInfo(?ChatInfo $value): void {
         $this->getBackingStore()->set('chatInfo', $value);
+    }
+
+    /**
+     * Sets the chatRestrictions property value. The chatRestrictions property
+     * @param ChatRestrictions|null $value Value to set for the chatRestrictions property.
+    */
+    public function setChatRestrictions(?ChatRestrictions $value): void {
+        $this->getBackingStore()->set('chatRestrictions', $value);
     }
 
     /**
@@ -924,14 +932,6 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setVideoTeleconferenceId(?string $value): void {
         $this->getBackingStore()->set('videoTeleconferenceId', $value);
-    }
-
-    /**
-     * Sets the virtualAppointment property value. The virtualAppointment property
-     * @param VirtualAppointment|null $value Value to set for the virtualAppointment property.
-    */
-    public function setVirtualAppointment(?VirtualAppointment $value): void {
-        $this->getBackingStore()->set('virtualAppointment', $value);
     }
 
     /**

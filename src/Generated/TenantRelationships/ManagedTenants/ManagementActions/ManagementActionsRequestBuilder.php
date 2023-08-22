@@ -29,7 +29,7 @@ class ManagementActionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managementActionId Unique identifier of the item
+     * @param string $managementActionId The unique identifier of managementAction
      * @return ManagementActionItemRequestBuilder
     */
     public function byManagementActionId(string $managementActionId): ManagementActionItemRequestBuilder {

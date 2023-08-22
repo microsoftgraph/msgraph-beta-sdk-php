@@ -61,7 +61,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of organization entities.
-     * @param string $organizationId Unique identifier of the item
+     * @param string $organizationId The unique identifier of organization
      * @return OrganizationItemRequestBuilder
     */
     public function byOrganizationId(string $organizationId): OrganizationItemRequestBuilder {

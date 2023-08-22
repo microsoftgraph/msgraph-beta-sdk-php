@@ -29,7 +29,7 @@ class CitationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the citations property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $citationTemplateId Unique identifier of the item
+     * @param string $citationTemplateId The unique identifier of citationTemplate
      * @return CitationTemplateItemRequestBuilder
     */
     public function byCitationTemplateId(string $citationTemplateId): CitationTemplateItemRequestBuilder {

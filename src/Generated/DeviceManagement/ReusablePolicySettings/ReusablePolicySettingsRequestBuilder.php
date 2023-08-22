@@ -29,7 +29,7 @@ class ReusablePolicySettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the reusablePolicySettings property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementReusablePolicySettingId Unique identifier of the item
+     * @param string $deviceManagementReusablePolicySettingId The unique identifier of deviceManagementReusablePolicySetting
      * @return DeviceManagementReusablePolicySettingItemRequestBuilder
     */
     public function byDeviceManagementReusablePolicySettingId(string $deviceManagementReusablePolicySettingId): DeviceManagementReusablePolicySettingItemRequestBuilder {

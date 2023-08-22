@@ -29,7 +29,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the servicePrincipalCreationPolicies property of the microsoft.graph.policyRoot entity.
-     * @param string $servicePrincipalCreationPolicyId Unique identifier of the item
+     * @param string $servicePrincipalCreationPolicyId The unique identifier of servicePrincipalCreationPolicy
      * @return ServicePrincipalCreationPolicyItemRequestBuilder
     */
     public function byServicePrincipalCreationPolicyId(string $servicePrincipalCreationPolicyId): ServicePrincipalCreationPolicyItemRequestBuilder {

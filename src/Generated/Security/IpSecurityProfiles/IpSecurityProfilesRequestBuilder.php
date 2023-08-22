@@ -29,7 +29,7 @@ class IpSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $ipSecurityProfileId Unique identifier of the item
+     * @param string $ipSecurityProfileId The unique identifier of ipSecurityProfile
      * @return IpSecurityProfileItemRequestBuilder
     */
     public function byIpSecurityProfileId(string $ipSecurityProfileId): IpSecurityProfileItemRequestBuilder {

@@ -29,7 +29,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcUserSettingId Unique identifier of the item
+     * @param string $cloudPcUserSettingId The unique identifier of cloudPcUserSetting
      * @return CloudPcUserSettingItemRequestBuilder
     */
     public function byCloudPcUserSettingId(string $cloudPcUserSettingId): CloudPcUserSettingItemRequestBuilder {

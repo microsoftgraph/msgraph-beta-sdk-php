@@ -28,7 +28,7 @@ class SalesCreditMemoLinesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.company entity.
-     * @param string $salesCreditMemoLineId Unique identifier of the item
+     * @param string $salesCreditMemoLineId The unique identifier of salesCreditMemoLine
      * @return SalesCreditMemoLineItemRequestBuilder
     */
     public function bySalesCreditMemoLineId(string $salesCreditMemoLineId): SalesCreditMemoLineItemRequestBuilder {

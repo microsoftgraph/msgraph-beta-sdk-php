@@ -29,7 +29,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the emails property of the microsoft.graph.profile entity.
-     * @param string $itemEmailId Unique identifier of the item
+     * @param string $itemEmailId The unique identifier of itemEmail
      * @return ItemEmailItemRequestBuilder
     */
     public function byItemEmailId(string $itemEmailId): ItemEmailItemRequestBuilder {

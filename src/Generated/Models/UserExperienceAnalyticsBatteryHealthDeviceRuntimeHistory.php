@@ -40,7 +40,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     }
 
     /**
-     * Gets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Gets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getEstimatedRuntimeInMinutes(): ?int {
@@ -96,7 +96,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     }
 
     /**
-     * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
+     * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {

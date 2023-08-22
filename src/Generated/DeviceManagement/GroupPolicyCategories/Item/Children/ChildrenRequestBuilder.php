@@ -28,7 +28,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
-     * @param string $groupPolicyCategoryId1 Unique identifier of the item
+     * @param string $groupPolicyCategoryId1 The unique identifier of groupPolicyCategory
      * @return GroupPolicyCategoryItemRequestBuilder
     */
     public function byGroupPolicyCategoryId1(string $groupPolicyCategoryId1): GroupPolicyCategoryItemRequestBuilder {

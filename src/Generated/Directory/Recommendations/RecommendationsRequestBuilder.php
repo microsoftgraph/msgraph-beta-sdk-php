@@ -29,7 +29,7 @@ class RecommendationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
-     * @param string $recommendationId Unique identifier of the item
+     * @param string $recommendationId The unique identifier of recommendation
      * @return RecommendationItemRequestBuilder
     */
     public function byRecommendationId(string $recommendationId): RecommendationItemRequestBuilder {

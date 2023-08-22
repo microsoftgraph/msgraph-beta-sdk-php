@@ -29,7 +29,7 @@ class DeviceStatusesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
-     * @param string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId Unique identifier of the item
+     * @param string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId The unique identifier of windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder
     */
     public function byWindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId(string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId): WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder {

@@ -29,7 +29,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
-     * @param string $identityUserFlowId Unique identifier of the item
+     * @param string $identityUserFlowId The unique identifier of identityUserFlow
      * @return IdentityUserFlowItemRequestBuilder
     */
     public function byIdentityUserFlowId(string $identityUserFlowId): IdentityUserFlowItemRequestBuilder {

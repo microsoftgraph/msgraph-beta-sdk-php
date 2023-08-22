@@ -29,7 +29,7 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the bulkActions property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcBulkActionId Unique identifier of the item
+     * @param string $cloudPcBulkActionId The unique identifier of cloudPcBulkAction
      * @return CloudPcBulkActionItemRequestBuilder
     */
     public function byCloudPcBulkActionId(string $cloudPcBulkActionId): CloudPcBulkActionItemRequestBuilder {

@@ -29,7 +29,7 @@ class DeletedChatsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deletedChats property of the microsoft.graph.teamwork entity.
-     * @param string $deletedChatId Unique identifier of the item
+     * @param string $deletedChatId The unique identifier of deletedChat
      * @return DeletedChatItemRequestBuilder
     */
     public function byDeletedChatId(string $deletedChatId): DeletedChatItemRequestBuilder {

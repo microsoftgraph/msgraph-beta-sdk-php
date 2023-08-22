@@ -37,7 +37,7 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder extends BaseRequestBuilde
     
     /**
      * Provides operations to manage the windowsAutopilotDeploymentProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $windowsAutopilotDeploymentProfileId Unique identifier of the item
+     * @param string $windowsAutopilotDeploymentProfileId The unique identifier of windowsAutopilotDeploymentProfile
      * @return WindowsAutopilotDeploymentProfileItemRequestBuilder
     */
     public function byWindowsAutopilotDeploymentProfileId(string $windowsAutopilotDeploymentProfileId): WindowsAutopilotDeploymentProfileItemRequestBuilder {

@@ -29,7 +29,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     
     /**
      * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
-     * @param string $customAccessPackageWorkflowExtensionId Unique identifier of the item
+     * @param string $customAccessPackageWorkflowExtensionId The unique identifier of customAccessPackageWorkflowExtension
      * @return CustomAccessPackageWorkflowExtensionItemRequestBuilder
     */
     public function byCustomAccessPackageWorkflowExtensionId(string $customAccessPackageWorkflowExtensionId): CustomAccessPackageWorkflowExtensionItemRequestBuilder {

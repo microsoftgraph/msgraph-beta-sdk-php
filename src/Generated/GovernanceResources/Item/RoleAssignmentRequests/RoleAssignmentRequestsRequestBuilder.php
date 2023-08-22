@@ -29,7 +29,7 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
-     * @param string $governanceRoleAssignmentRequestId Unique identifier of the item
+     * @param string $governanceRoleAssignmentRequestId The unique identifier of governanceRoleAssignmentRequest
      * @return GovernanceRoleAssignmentRequestItemRequestBuilder
     */
     public function byGovernanceRoleAssignmentRequestId(string $governanceRoleAssignmentRequestId): GovernanceRoleAssignmentRequestItemRequestBuilder {

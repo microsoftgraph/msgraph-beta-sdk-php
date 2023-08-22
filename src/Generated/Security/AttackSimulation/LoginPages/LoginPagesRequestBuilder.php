@@ -29,7 +29,7 @@ class LoginPagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the loginPages property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $loginPageId Unique identifier of the item
+     * @param string $loginPageId The unique identifier of loginPage
      * @return LoginPageItemRequestBuilder
     */
     public function byLoginPageId(string $loginPageId): LoginPageItemRequestBuilder {

@@ -29,7 +29,7 @@ class SslCertificatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sslCertificates property of the microsoft.graph.security.threatIntelligence entity.
-     * @param string $sslCertificateId Unique identifier of the item
+     * @param string $sslCertificateId The unique identifier of sslCertificate
      * @return SslCertificateItemRequestBuilder
     */
     public function bySslCertificateId(string $sslCertificateId): SslCertificateItemRequestBuilder {

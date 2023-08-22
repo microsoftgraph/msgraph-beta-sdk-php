@@ -29,7 +29,7 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the enterpriseCodeSigningCertificates property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $enterpriseCodeSigningCertificateId Unique identifier of the item
+     * @param string $enterpriseCodeSigningCertificateId The unique identifier of enterpriseCodeSigningCertificate
      * @return EnterpriseCodeSigningCertificateItemRequestBuilder
     */
     public function byEnterpriseCodeSigningCertificateId(string $enterpriseCodeSigningCertificateId): EnterpriseCodeSigningCertificateItemRequestBuilder {

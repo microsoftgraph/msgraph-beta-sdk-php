@@ -29,7 +29,7 @@ class TemplateInsightsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the templateInsights property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementTemplateInsightsDefinitionId Unique identifier of the item
+     * @param string $deviceManagementTemplateInsightsDefinitionId The unique identifier of deviceManagementTemplateInsightsDefinition
      * @return DeviceManagementTemplateInsightsDefinitionItemRequestBuilder
     */
     public function byDeviceManagementTemplateInsightsDefinitionId(string $deviceManagementTemplateInsightsDefinitionId): DeviceManagementTemplateInsightsDefinitionItemRequestBuilder {

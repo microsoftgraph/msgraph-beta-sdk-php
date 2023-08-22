@@ -29,7 +29,7 @@ class NotificationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the notifications property of the microsoft.graph.user entity.
-     * @param string $notificationId Unique identifier of the item
+     * @param string $notificationId The unique identifier of notification
      * @return NotificationItemRequestBuilder
     */
     public function byNotificationId(string $notificationId): NotificationItemRequestBuilder {

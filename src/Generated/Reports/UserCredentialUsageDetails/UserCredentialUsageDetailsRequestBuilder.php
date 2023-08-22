@@ -29,7 +29,7 @@ class UserCredentialUsageDetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
-     * @param string $userCredentialUsageDetailsId Unique identifier of the item
+     * @param string $userCredentialUsageDetailsId The unique identifier of userCredentialUsageDetails
      * @return UserCredentialUsageDetailsItemRequestBuilder
     */
     public function byUserCredentialUsageDetailsId(string $userCredentialUsageDetailsId): UserCredentialUsageDetailsItemRequestBuilder {

@@ -37,7 +37,7 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $tenantGroupId Unique identifier of the item
+     * @param string $tenantGroupId The unique identifier of tenantGroup
      * @return TenantGroupItemRequestBuilder
     */
     public function byTenantGroupId(string $tenantGroupId): TenantGroupItemRequestBuilder {

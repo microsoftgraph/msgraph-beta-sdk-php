@@ -29,7 +29,7 @@ class DetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the details property of the microsoft.graph.endUserNotification entity.
-     * @param string $endUserNotificationDetailId Unique identifier of the item
+     * @param string $endUserNotificationDetailId The unique identifier of endUserNotificationDetail
      * @return EndUserNotificationDetailItemRequestBuilder
     */
     public function byEndUserNotificationDetailId(string $endUserNotificationDetailId): EndUserNotificationDetailItemRequestBuilder {

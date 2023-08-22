@@ -29,7 +29,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the hostPairs property of the microsoft.graph.security.threatIntelligence entity.
-     * @param string $hostPairId Unique identifier of the item
+     * @param string $hostPairId The unique identifier of hostPair
      * @return HostPairItemRequestBuilder
     */
     public function byHostPairId(string $hostPairId): HostPairItemRequestBuilder {

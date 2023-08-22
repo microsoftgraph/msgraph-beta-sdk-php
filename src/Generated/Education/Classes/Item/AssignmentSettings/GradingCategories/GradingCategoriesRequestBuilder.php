@@ -29,7 +29,7 @@ class GradingCategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
-     * @param string $educationGradingCategoryId Unique identifier of the item
+     * @param string $educationGradingCategoryId The unique identifier of educationGradingCategory
      * @return EducationGradingCategoryItemRequestBuilder
     */
     public function byEducationGradingCategoryId(string $educationGradingCategoryId): EducationGradingCategoryItemRequestBuilder {

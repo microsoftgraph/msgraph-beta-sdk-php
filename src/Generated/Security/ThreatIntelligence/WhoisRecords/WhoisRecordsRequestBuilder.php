@@ -29,7 +29,7 @@ class WhoisRecordsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the whoisRecords property of the microsoft.graph.security.threatIntelligence entity.
-     * @param string $whoisRecordId Unique identifier of the item
+     * @param string $whoisRecordId The unique identifier of whoisRecord
      * @return WhoisRecordItemRequestBuilder
     */
     public function byWhoisRecordId(string $whoisRecordId): WhoisRecordItemRequestBuilder {

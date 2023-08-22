@@ -30,7 +30,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the expirationDateTime property value. Time that the cached report expires
+     * Gets the expirationDateTime property value. Time that the cached report expires. This property is read-only.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the lastRefreshDateTime property value. Time that the cached report was last refreshed
+     * Gets the lastRefreshDateTime property value. Time that the cached report was last refreshed. This property is read-only.
      * @return DateTime|null
     */
     public function getLastRefreshDateTime(): ?DateTime {
@@ -124,7 +124,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the reportName property value. Name of the report
+     * Gets the reportName property value. Name of the report. This property is read-only.
      * @return string|null
     */
     public function getReportName(): ?string {
@@ -175,7 +175,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the expirationDateTime property value. Time that the cached report expires
+     * Sets the expirationDateTime property value. Time that the cached report expires. This property is read-only.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -191,7 +191,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed
+     * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed. This property is read-only.
      * @param DateTime|null $value Value to set for the lastRefreshDateTime property.
     */
     public function setLastRefreshDateTime(?DateTime $value): void {
@@ -215,7 +215,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the reportName property value. Name of the report
+     * Sets the reportName property value. Name of the report. This property is read-only.
      * @param string|null $value Value to set for the reportName property.
     */
     public function setReportName(?string $value): void {

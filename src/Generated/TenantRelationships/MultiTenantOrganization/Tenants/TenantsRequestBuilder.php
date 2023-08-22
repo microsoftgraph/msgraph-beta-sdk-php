@@ -29,7 +29,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tenants property of the microsoft.graph.multiTenantOrganization entity.
-     * @param string $multiTenantOrganizationMemberId Unique identifier of the item
+     * @param string $multiTenantOrganizationMemberId The unique identifier of multiTenantOrganizationMember
      * @return MultiTenantOrganizationMemberItemRequestBuilder
     */
     public function byMultiTenantOrganizationMemberId(string $multiTenantOrganizationMemberId): MultiTenantOrganizationMemberItemRequestBuilder {

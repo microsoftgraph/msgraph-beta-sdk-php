@@ -28,7 +28,7 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder extends BaseReques
     
     /**
      * Provides operations to manage the passwordlessMicrosoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
-     * @param string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId Unique identifier of the item
+     * @param string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId The unique identifier of passwordlessMicrosoftAuthenticatorAuthenticationMethod
      * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
     */
     public function byPasswordlessMicrosoftAuthenticatorAuthenticationMethodId(string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId): PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {

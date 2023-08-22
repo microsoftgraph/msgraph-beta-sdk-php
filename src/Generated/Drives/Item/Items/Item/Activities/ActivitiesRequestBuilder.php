@@ -28,7 +28,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the activities property of the microsoft.graph.driveItem entity.
-     * @param string $itemActivityOLDId Unique identifier of the item
+     * @param string $itemActivityOLDId The unique identifier of itemActivityOLD
      * @return ItemActivityOLDItemRequestBuilder
     */
     public function byItemActivityOLDId(string $itemActivityOLDId): ItemActivityOLDItemRequestBuilder {

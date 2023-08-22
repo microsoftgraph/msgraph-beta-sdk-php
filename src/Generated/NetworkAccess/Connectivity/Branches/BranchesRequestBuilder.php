@@ -29,7 +29,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the branches property of the microsoft.graph.networkaccess.connectivity entity.
-     * @param string $branchSiteId Unique identifier of the item
+     * @param string $branchSiteId The unique identifier of branchSite
      * @return BranchSiteItemRequestBuilder
     */
     public function byBranchSiteId(string $branchSiteId): BranchSiteItemRequestBuilder {

@@ -28,7 +28,7 @@ class AgedAccountsReceivableRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
-     * @param string $agedAccountsReceivableId Unique identifier of the item
+     * @param string $agedAccountsReceivableId The unique identifier of agedAccountsReceivable
      * @return AgedAccountsReceivableItemRequestBuilder
     */
     public function byAgedAccountsReceivableId(string $agedAccountsReceivableId): AgedAccountsReceivableItemRequestBuilder {

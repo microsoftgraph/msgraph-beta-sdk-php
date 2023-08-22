@@ -45,7 +45,7 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
-     * @param string $custodianId Unique identifier of the item
+     * @param string $custodianId The unique identifier of custodian
      * @return CustodianItemRequestBuilder
     */
     public function byCustodianId(string $custodianId): CustodianItemRequestBuilder {

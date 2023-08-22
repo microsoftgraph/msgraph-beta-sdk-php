@@ -29,7 +29,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the authorities property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $authorityTemplateId Unique identifier of the item
+     * @param string $authorityTemplateId The unique identifier of authorityTemplate
      * @return AuthorityTemplateItemRequestBuilder
     */
     public function byAuthorityTemplateId(string $authorityTemplateId): AuthorityTemplateItemRequestBuilder {

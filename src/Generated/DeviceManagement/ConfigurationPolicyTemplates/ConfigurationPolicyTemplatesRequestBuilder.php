@@ -29,7 +29,7 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the configurationPolicyTemplates property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementConfigurationPolicyTemplateId Unique identifier of the item
+     * @param string $deviceManagementConfigurationPolicyTemplateId The unique identifier of deviceManagementConfigurationPolicyTemplate
      * @return DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
     */
     public function byDeviceManagementConfigurationPolicyTemplateId(string $deviceManagementConfigurationPolicyTemplateId): DeviceManagementConfigurationPolicyTemplateItemRequestBuilder {

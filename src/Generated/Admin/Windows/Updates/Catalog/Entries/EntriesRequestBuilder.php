@@ -29,7 +29,7 @@ class EntriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
-     * @param string $catalogEntryId Unique identifier of the item
+     * @param string $catalogEntryId The unique identifier of catalogEntry
      * @return CatalogEntryItemRequestBuilder
     */
     public function byCatalogEntryId(string $catalogEntryId): CatalogEntryItemRequestBuilder {

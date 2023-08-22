@@ -29,7 +29,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the categories property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementSettingCategoryId Unique identifier of the item
+     * @param string $deviceManagementSettingCategoryId The unique identifier of deviceManagementSettingCategory
      * @return DeviceManagementSettingCategoryItemRequestBuilder
     */
     public function byDeviceManagementSettingCategoryId(string $deviceManagementSettingCategoryId): DeviceManagementSettingCategoryItemRequestBuilder {

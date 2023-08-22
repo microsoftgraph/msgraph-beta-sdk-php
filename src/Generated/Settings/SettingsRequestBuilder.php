@@ -29,7 +29,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of directorySetting entities.
-     * @param string $directorySettingId Unique identifier of the item
+     * @param string $directorySettingId The unique identifier of directorySetting
      * @return DirectorySettingItemRequestBuilder
     */
     public function byDirectorySettingId(string $directorySettingId): DirectorySettingItemRequestBuilder {

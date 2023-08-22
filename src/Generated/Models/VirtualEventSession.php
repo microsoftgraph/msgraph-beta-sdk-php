@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEventSession extends OnlineMeeting implements Parsable 
 {
@@ -31,7 +32,22 @@ class VirtualEventSession extends OnlineMeeting implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the registrations property value. The registrations property
+     * @return array<VirtualEventRegistration>|null
+    */
+    public function getRegistrations(): ?array {
+        $val = $this->getBackingStore()->get('registrations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistration::class);
+            /** @var array<VirtualEventRegistration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrations'");
     }
 
     /**
@@ -40,6 +56,15 @@ class VirtualEventSession extends OnlineMeeting implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('registrations', $this->getRegistrations());
+    }
+
+    /**
+     * Sets the registrations property value. The registrations property
+     * @param array<VirtualEventRegistration>|null $value Value to set for the registrations property.
+    */
+    public function setRegistrations(?array $value): void {
+        $this->getBackingStore()->set('registrations', $value);
     }
 
 }

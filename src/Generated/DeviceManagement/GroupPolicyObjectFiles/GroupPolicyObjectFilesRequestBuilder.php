@@ -29,7 +29,7 @@ class GroupPolicyObjectFilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupPolicyObjectFiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $groupPolicyObjectFileId Unique identifier of the item
+     * @param string $groupPolicyObjectFileId The unique identifier of groupPolicyObjectFile
      * @return GroupPolicyObjectFileItemRequestBuilder
     */
     public function byGroupPolicyObjectFileId(string $groupPolicyObjectFileId): GroupPolicyObjectFileItemRequestBuilder {

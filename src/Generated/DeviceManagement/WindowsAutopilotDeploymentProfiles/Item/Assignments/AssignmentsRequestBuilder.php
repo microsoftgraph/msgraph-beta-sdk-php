@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
-     * @param string $windowsAutopilotDeploymentProfileAssignmentId Unique identifier of the item
+     * @param string $windowsAutopilotDeploymentProfileAssignmentId The unique identifier of windowsAutopilotDeploymentProfileAssignment
      * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder
     */
     public function byWindowsAutopilotDeploymentProfileAssignmentId(string $windowsAutopilotDeploymentProfileAssignmentId): WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder {

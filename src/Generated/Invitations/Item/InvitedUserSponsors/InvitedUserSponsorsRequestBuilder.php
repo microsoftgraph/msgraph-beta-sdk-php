@@ -28,7 +28,7 @@ class InvitedUserSponsorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the invitedUserSponsors property of the microsoft.graph.invitation entity.
-     * @param string $directoryObjectId Unique identifier of the item
+     * @param string $directoryObjectId The unique identifier of directoryObject
      * @return DirectoryObjectItemRequestBuilder
     */
     public function byDirectoryObjectId(string $directoryObjectId): DirectoryObjectItemRequestBuilder {

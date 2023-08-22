@@ -29,7 +29,7 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
-     * @param string $outboundSharedUserProfileUserId Unique identifier of the item
+     * @param string $outboundSharedUserProfileUserId The unique identifier of outboundSharedUserProfile
      * @return OutboundSharedUserProfileUserItemRequestBuilder
     */
     public function byOutboundSharedUserProfileUserId(string $outboundSharedUserProfileUserId): OutboundSharedUserProfileUserItemRequestBuilder {

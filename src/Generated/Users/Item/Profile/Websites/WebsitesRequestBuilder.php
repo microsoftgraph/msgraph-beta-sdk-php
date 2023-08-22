@@ -29,7 +29,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the websites property of the microsoft.graph.profile entity.
-     * @param string $personWebsiteId Unique identifier of the item
+     * @param string $personWebsiteId The unique identifier of personWebsite
      * @return PersonWebsiteItemRequestBuilder
     */
     public function byPersonWebsiteId(string $personWebsiteId): PersonWebsiteItemRequestBuilder {

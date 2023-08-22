@@ -61,7 +61,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the devices property of the microsoft.graph.user entity.
-     * @param string $deviceId Unique identifier of the item
+     * @param string $deviceId The unique identifier of device
      * @return DeviceItemRequestBuilder
     */
     public function byDeviceId(string $deviceId): DeviceItemRequestBuilder {

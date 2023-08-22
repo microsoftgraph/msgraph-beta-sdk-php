@@ -29,7 +29,7 @@ class UpdatePoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the updatePolicies property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $updatePolicyId Unique identifier of the item
+     * @param string $updatePolicyId The unique identifier of updatePolicy
      * @return UpdatePolicyItemRequestBuilder
     */
     public function byUpdatePolicyId(string $updatePolicyId): UpdatePolicyItemRequestBuilder {

@@ -28,7 +28,7 @@ class RelatedHostsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the relatedHosts property of the microsoft.graph.security.sslCertificate entity.
-     * @param string $hostId Unique identifier of the item
+     * @param string $hostId The unique identifier of host
      * @return HostItemRequestBuilder
     */
     public function byHostId(string $hostId): HostItemRequestBuilder {

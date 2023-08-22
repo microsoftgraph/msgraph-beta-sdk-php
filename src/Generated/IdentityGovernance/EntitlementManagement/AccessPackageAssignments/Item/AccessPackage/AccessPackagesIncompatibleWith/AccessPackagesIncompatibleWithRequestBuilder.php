@@ -28,7 +28,7 @@ class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
-     * @param string $accessPackageId Unique identifier of the item
+     * @param string $accessPackageId The unique identifier of accessPackage
      * @return AccessPackageItemRequestBuilder
     */
     public function byAccessPackageId(string $accessPackageId): AccessPackageItemRequestBuilder {

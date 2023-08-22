@@ -29,7 +29,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
-     * @param string $exactMatchSessionId Unique identifier of the item
+     * @param string $exactMatchSessionId The unique identifier of exactMatchSession
      * @return ExactMatchSessionItemRequestBuilder
     */
     public function byExactMatchSessionId(string $exactMatchSessionId): ExactMatchSessionItemRequestBuilder {

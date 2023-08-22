@@ -29,7 +29,7 @@ class EnterpriseAppsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.
-     * @param string $rbacApplicationId Unique identifier of the item
+     * @param string $rbacApplicationId The unique identifier of rbacApplication
      * @return RbacApplicationItemRequestBuilder
     */
     public function byRbacApplicationId(string $rbacApplicationId): RbacApplicationItemRequestBuilder {

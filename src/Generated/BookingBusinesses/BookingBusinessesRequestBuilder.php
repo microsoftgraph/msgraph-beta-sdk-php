@@ -29,7 +29,7 @@ class BookingBusinessesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of bookingBusiness entities.
-     * @param string $bookingBusinessId Unique identifier of the item
+     * @param string $bookingBusinessId The unique identifier of bookingBusiness
      * @return BookingBusinessItemRequestBuilder
     */
     public function byBookingBusinessId(string $bookingBusinessId): BookingBusinessItemRequestBuilder {

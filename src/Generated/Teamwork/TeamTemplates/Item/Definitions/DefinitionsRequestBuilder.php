@@ -29,7 +29,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
-     * @param string $teamTemplateDefinitionId Unique identifier of the item
+     * @param string $teamTemplateDefinitionId The unique identifier of teamTemplateDefinition
      * @return TeamTemplateDefinitionItemRequestBuilder
     */
     public function byTeamTemplateDefinitionId(string $teamTemplateDefinitionId): TeamTemplateDefinitionItemRequestBuilder {

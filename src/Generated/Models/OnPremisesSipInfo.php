@@ -70,7 +70,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isSipEnabled property value. The isSipEnabled property
+     * Gets the isSipEnabled property value. Indicates whether the user is currently enabled for on-premises Skype for Business.
      * @return bool|null
     */
     public function getIsSipEnabled(): ?bool {
@@ -94,7 +94,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sipDeploymentLocation property value. The sipDeploymentLocation property
+     * Gets the sipDeploymentLocation property value. Indicates a fully qualified DNS name of the Microsoft Online Communications Server deployment.
      * @return string|null
     */
     public function getSipDeploymentLocation(): ?string {
@@ -106,7 +106,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sipPrimaryAddress property value. The sipPrimaryAddress property
+     * Gets the sipPrimaryAddress property value. Serves as a unique identifier for each user on the on-premises Skype for Business.
      * @return string|null
     */
     public function getSipPrimaryAddress(): ?string {
@@ -146,7 +146,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isSipEnabled property value. The isSipEnabled property
+     * Sets the isSipEnabled property value. Indicates whether the user is currently enabled for on-premises Skype for Business.
      * @param bool|null $value Value to set for the isSipEnabled property.
     */
     public function setIsSipEnabled(?bool $value): void {
@@ -162,7 +162,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sipDeploymentLocation property value. The sipDeploymentLocation property
+     * Sets the sipDeploymentLocation property value. Indicates a fully qualified DNS name of the Microsoft Online Communications Server deployment.
      * @param string|null $value Value to set for the sipDeploymentLocation property.
     */
     public function setSipDeploymentLocation(?string $value): void {
@@ -170,7 +170,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sipPrimaryAddress property value. The sipPrimaryAddress property
+     * Sets the sipPrimaryAddress property value. Serves as a unique identifier for each user on the on-premises Skype for Business.
      * @param string|null $value Value to set for the sipPrimaryAddress property.
     */
     public function setSipPrimaryAddress(?string $value): void {

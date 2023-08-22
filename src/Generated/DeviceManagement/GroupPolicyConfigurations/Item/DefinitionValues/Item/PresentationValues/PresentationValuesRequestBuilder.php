@@ -29,7 +29,7 @@ class PresentationValuesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
-     * @param string $groupPolicyPresentationValueId Unique identifier of the item
+     * @param string $groupPolicyPresentationValueId The unique identifier of groupPolicyPresentationValue
      * @return GroupPolicyPresentationValueItemRequestBuilder
     */
     public function byGroupPolicyPresentationValueId(string $groupPolicyPresentationValueId): GroupPolicyPresentationValueItemRequestBuilder {

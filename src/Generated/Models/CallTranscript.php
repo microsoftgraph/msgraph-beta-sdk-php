@@ -59,8 +59,35 @@ class CallTranscript extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'meetingId' => fn(ParseNode $n) => $o->setMeetingId($n->getStringValue()),
+            'meetingOrganizerId' => fn(ParseNode $n) => $o->setMeetingOrganizerId($n->getStringValue()),
             'metadataContent' => fn(ParseNode $n) => $o->setMetadataContent($n->getBinaryContent()),
+            'transcriptContentUrl' => fn(ParseNode $n) => $o->setTranscriptContentUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the meetingId property value. The unique identifier of the online meeting related to this transcript. Read-only.
+     * @return string|null
+    */
+    public function getMeetingId(): ?string {
+        $val = $this->getBackingStore()->get('meetingId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingId'");
+    }
+
+    /**
+     * Gets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this transcript. Read-only.
+     * @return string|null
+    */
+    public function getMeetingOrganizerId(): ?string {
+        $val = $this->getBackingStore()->get('meetingOrganizerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingOrganizerId'");
     }
 
     /**
@@ -76,6 +103,18 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
+     * Gets the transcriptContentUrl property value. The URL which can be used to access the content of the transcript. Read-only.
+     * @return string|null
+    */
+    public function getTranscriptContentUrl(): ?string {
+        $val = $this->getBackingStore()->get('transcriptContentUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transcriptContentUrl'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -83,7 +122,10 @@ class CallTranscript extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('meetingId', $this->getMeetingId());
+        $writer->writeStringValue('meetingOrganizerId', $this->getMeetingOrganizerId());
         $writer->writeBinaryContent('metadataContent', $this->getMetadataContent());
+        $writer->writeStringValue('transcriptContentUrl', $this->getTranscriptContentUrl());
     }
 
     /**
@@ -103,11 +145,35 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
+     * Sets the meetingId property value. The unique identifier of the online meeting related to this transcript. Read-only.
+     * @param string|null $value Value to set for the meetingId property.
+    */
+    public function setMeetingId(?string $value): void {
+        $this->getBackingStore()->set('meetingId', $value);
+    }
+
+    /**
+     * Sets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this transcript. Read-only.
+     * @param string|null $value Value to set for the meetingOrganizerId property.
+    */
+    public function setMeetingOrganizerId(?string $value): void {
+        $this->getBackingStore()->set('meetingOrganizerId', $value);
+    }
+
+    /**
      * Sets the metadataContent property value. The time-aligned metadata of the utterances in the transcript. Read-only.
      * @param StreamInterface|null $value Value to set for the metadataContent property.
     */
     public function setMetadataContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('metadataContent', $value);
+    }
+
+    /**
+     * Sets the transcriptContentUrl property value. The URL which can be used to access the content of the transcript. Read-only.
+     * @param string|null $value Value to set for the transcriptContentUrl property.
+    */
+    public function setTranscriptContentUrl(?string $value): void {
+        $this->getBackingStore()->set('transcriptContentUrl', $value);
     }
 
 }

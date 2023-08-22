@@ -53,7 +53,7 @@ class DeviceHealthScriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceHealthScriptId Unique identifier of the item
+     * @param string $deviceHealthScriptId The unique identifier of deviceHealthScript
      * @return DeviceHealthScriptItemRequestBuilder
     */
     public function byDeviceHealthScriptId(string $deviceHealthScriptId): DeviceHealthScriptItemRequestBuilder {

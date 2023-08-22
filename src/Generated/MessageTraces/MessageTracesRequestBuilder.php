@@ -29,7 +29,7 @@ class MessageTracesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of messageTrace entities.
-     * @param string $messageTraceId Unique identifier of the item
+     * @param string $messageTraceId The unique identifier of messageTrace
      * @return MessageTraceItemRequestBuilder
     */
     public function byMessageTraceId(string $messageTraceId): MessageTraceItemRequestBuilder {

@@ -29,7 +29,7 @@ class CurrenciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the currencies property of the microsoft.graph.company entity.
-     * @param string $currencyId Unique identifier of the item
+     * @param string $currencyId The unique identifier of currency
      * @return CurrencyItemRequestBuilder
     */
     public function byCurrencyId(string $currencyId): CurrencyItemRequestBuilder {

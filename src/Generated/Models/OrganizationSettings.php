@@ -90,7 +90,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the profileCardProperties property value. Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Gets the profileCardProperties property value. The profileCardProperties property
      * @return array<ProfileCardProperty>|null
     */
     public function getProfileCardProperties(): ?array {
@@ -162,7 +162,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the profileCardProperties property value. Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Sets the profileCardProperties property value. The profileCardProperties property
      * @param array<ProfileCardProperty>|null $value Value to set for the profileCardProperties property.
     */
     public function setProfileCardProperties(?array $value): void {

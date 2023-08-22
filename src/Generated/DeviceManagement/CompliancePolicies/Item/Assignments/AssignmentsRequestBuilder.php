@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementCompliancePolicy entity.
-     * @param string $deviceManagementConfigurationPolicyAssignmentId Unique identifier of the item
+     * @param string $deviceManagementConfigurationPolicyAssignmentId The unique identifier of deviceManagementConfigurationPolicyAssignment
      * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
     */
     public function byDeviceManagementConfigurationPolicyAssignmentId(string $deviceManagementConfigurationPolicyAssignmentId): DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder {

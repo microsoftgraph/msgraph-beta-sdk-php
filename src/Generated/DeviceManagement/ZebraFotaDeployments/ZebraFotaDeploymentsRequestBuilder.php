@@ -29,7 +29,7 @@ class ZebraFotaDeploymentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the zebraFotaDeployments property of the microsoft.graph.deviceManagement entity.
-     * @param string $zebraFotaDeploymentId Unique identifier of the item
+     * @param string $zebraFotaDeploymentId The unique identifier of zebraFotaDeployment
      * @return ZebraFotaDeploymentItemRequestBuilder
     */
     public function byZebraFotaDeploymentId(string $zebraFotaDeploymentId): ZebraFotaDeploymentItemRequestBuilder {

@@ -61,7 +61,7 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $mobileAppId Unique identifier of the item
+     * @param string $mobileAppId The unique identifier of mobileApp
      * @return MobileAppItemRequestBuilder
     */
     public function byMobileAppId(string $mobileAppId): MobileAppItemRequestBuilder {

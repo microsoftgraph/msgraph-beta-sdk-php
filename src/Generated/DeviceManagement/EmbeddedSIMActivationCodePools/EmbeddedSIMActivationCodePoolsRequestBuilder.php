@@ -29,7 +29,7 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the embeddedSIMActivationCodePools property of the microsoft.graph.deviceManagement entity.
-     * @param string $embeddedSIMActivationCodePoolId Unique identifier of the item
+     * @param string $embeddedSIMActivationCodePoolId The unique identifier of embeddedSIMActivationCodePool
      * @return EmbeddedSIMActivationCodePoolItemRequestBuilder
     */
     public function byEmbeddedSIMActivationCodePoolId(string $embeddedSIMActivationCodePoolId): EmbeddedSIMActivationCodePoolItemRequestBuilder {

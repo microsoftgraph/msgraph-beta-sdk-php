@@ -29,7 +29,7 @@ class MentionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mentions property of the microsoft.graph.post entity.
-     * @param string $mentionId Unique identifier of the item
+     * @param string $mentionId The unique identifier of mention
      * @return MentionItemRequestBuilder
     */
     public function byMentionId(string $mentionId): MentionItemRequestBuilder {

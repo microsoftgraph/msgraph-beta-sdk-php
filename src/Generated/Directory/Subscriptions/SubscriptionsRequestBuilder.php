@@ -29,7 +29,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
-     * @param string $companySubscriptionId Unique identifier of the item
+     * @param string $companySubscriptionId The unique identifier of companySubscription
      * @return CompanySubscriptionItemRequestBuilder
     */
     public function byCompanySubscriptionId(string $companySubscriptionId): CompanySubscriptionItemRequestBuilder {

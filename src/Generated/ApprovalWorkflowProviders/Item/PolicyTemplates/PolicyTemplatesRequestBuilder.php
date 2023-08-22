@@ -29,7 +29,7 @@ class PolicyTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
-     * @param string $governancePolicyTemplateId Unique identifier of the item
+     * @param string $governancePolicyTemplateId The unique identifier of governancePolicyTemplate
      * @return GovernancePolicyTemplateItemRequestBuilder
     */
     public function byGovernancePolicyTemplateId(string $governancePolicyTemplateId): GovernancePolicyTemplateItemRequestBuilder {

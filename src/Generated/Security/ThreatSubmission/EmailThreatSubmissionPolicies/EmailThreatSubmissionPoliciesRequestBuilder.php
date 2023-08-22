@@ -29,7 +29,7 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $emailThreatSubmissionPolicyId Unique identifier of the item
+     * @param string $emailThreatSubmissionPolicyId The unique identifier of emailThreatSubmissionPolicy
      * @return EmailThreatSubmissionPolicyItemRequestBuilder
     */
     public function byEmailThreatSubmissionPolicyId(string $emailThreatSubmissionPolicyId): EmailThreatSubmissionPolicyItemRequestBuilder {

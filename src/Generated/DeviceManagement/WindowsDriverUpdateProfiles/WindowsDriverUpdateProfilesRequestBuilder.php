@@ -29,7 +29,7 @@ class WindowsDriverUpdateProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsDriverUpdateProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $windowsDriverUpdateProfileId Unique identifier of the item
+     * @param string $windowsDriverUpdateProfileId The unique identifier of windowsDriverUpdateProfile
      * @return WindowsDriverUpdateProfileItemRequestBuilder
     */
     public function byWindowsDriverUpdateProfileId(string $windowsDriverUpdateProfileId): WindowsDriverUpdateProfileItemRequestBuilder {

@@ -29,7 +29,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the filePlanReferences property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $filePlanReferenceTemplateId Unique identifier of the item
+     * @param string $filePlanReferenceTemplateId The unique identifier of filePlanReferenceTemplate
      * @return FilePlanReferenceTemplateItemRequestBuilder
     */
     public function byFilePlanReferenceTemplateId(string $filePlanReferenceTemplateId): FilePlanReferenceTemplateItemRequestBuilder {

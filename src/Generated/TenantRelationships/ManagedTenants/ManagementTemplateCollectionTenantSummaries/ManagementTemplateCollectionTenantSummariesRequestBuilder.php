@@ -29,7 +29,7 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
     
     /**
      * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managementTemplateCollectionTenantSummaryId Unique identifier of the item
+     * @param string $managementTemplateCollectionTenantSummaryId The unique identifier of managementTemplateCollectionTenantSummary
      * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder
     */
     public function byManagementTemplateCollectionTenantSummaryId(string $managementTemplateCollectionTenantSummaryId): ManagementTemplateCollectionTenantSummaryItemRequestBuilder {

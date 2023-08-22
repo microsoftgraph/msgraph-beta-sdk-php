@@ -29,7 +29,7 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.
-     * @param string $appCredentialSignInActivityId Unique identifier of the item
+     * @param string $appCredentialSignInActivityId The unique identifier of appCredentialSignInActivity
      * @return AppCredentialSignInActivityItemRequestBuilder
     */
     public function byAppCredentialSignInActivityId(string $appCredentialSignInActivityId): AppCredentialSignInActivityItemRequestBuilder {

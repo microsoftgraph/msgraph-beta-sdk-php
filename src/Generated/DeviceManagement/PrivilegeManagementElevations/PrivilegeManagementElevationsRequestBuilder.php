@@ -29,7 +29,7 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
-     * @param string $privilegeManagementElevationId Unique identifier of the item
+     * @param string $privilegeManagementElevationId The unique identifier of privilegeManagementElevation
      * @return PrivilegeManagementElevationItemRequestBuilder
     */
     public function byPrivilegeManagementElevationId(string $privilegeManagementElevationId): PrivilegeManagementElevationItemRequestBuilder {

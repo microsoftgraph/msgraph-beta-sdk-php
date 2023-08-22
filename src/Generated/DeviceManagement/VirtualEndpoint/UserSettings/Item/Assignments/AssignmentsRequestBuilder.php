@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.cloudPcUserSetting entity.
-     * @param string $cloudPcUserSettingAssignmentId Unique identifier of the item
+     * @param string $cloudPcUserSettingAssignmentId The unique identifier of cloudPcUserSettingAssignment
      * @return CloudPcUserSettingAssignmentItemRequestBuilder
     */
     public function byCloudPcUserSettingAssignmentId(string $cloudPcUserSettingAssignmentId): CloudPcUserSettingAssignmentItemRequestBuilder {

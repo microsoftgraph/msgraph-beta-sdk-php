@@ -141,7 +141,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
+     * Gets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFilter is set.
      * @return array<string>|null
     */
     public function getIncludeDevices(): ?array {
@@ -235,7 +235,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
+     * Sets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFilter is set.
      * @param array<string>|null $value Value to set for the includeDevices property.
     */
     public function setIncludeDevices(?array $value): void {

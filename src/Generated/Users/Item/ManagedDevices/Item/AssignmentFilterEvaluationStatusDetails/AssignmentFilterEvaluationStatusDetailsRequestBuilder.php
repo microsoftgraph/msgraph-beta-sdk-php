@@ -29,7 +29,7 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
     
     /**
      * Provides operations to manage the assignmentFilterEvaluationStatusDetails property of the microsoft.graph.managedDevice entity.
-     * @param string $assignmentFilterEvaluationStatusDetailsId Unique identifier of the item
+     * @param string $assignmentFilterEvaluationStatusDetailsId The unique identifier of assignmentFilterEvaluationStatusDetails
      * @return AssignmentFilterEvaluationStatusDetailsItemRequestBuilder
     */
     public function byAssignmentFilterEvaluationStatusDetailsId(string $assignmentFilterEvaluationStatusDetailsId): AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {

@@ -37,7 +37,7 @@ class DataLossPreventionPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
-     * @param string $dataLossPreventionPolicyId Unique identifier of the item
+     * @param string $dataLossPreventionPolicyId The unique identifier of dataLossPreventionPolicy
      * @return DataLossPreventionPolicyItemRequestBuilder
     */
     public function byDataLossPreventionPolicyId(string $dataLossPreventionPolicyId): DataLossPreventionPolicyItemRequestBuilder {

@@ -29,7 +29,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the interests property of the microsoft.graph.profile entity.
-     * @param string $personInterestId Unique identifier of the item
+     * @param string $personInterestId The unique identifier of personInterest
      * @return PersonInterestItemRequestBuilder
     */
     public function byPersonInterestId(string $personInterestId): PersonInterestItemRequestBuilder {

@@ -29,7 +29,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the languages property of the microsoft.graph.profile entity.
-     * @param string $languageProficiencyId Unique identifier of the item
+     * @param string $languageProficiencyId The unique identifier of languageProficiency
      * @return LanguageProficiencyItemRequestBuilder
     */
     public function byLanguageProficiencyId(string $languageProficiencyId): LanguageProficiencyItemRequestBuilder {

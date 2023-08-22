@@ -29,7 +29,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
-     * @param string $itemAddressId Unique identifier of the item
+     * @param string $itemAddressId The unique identifier of itemAddress
      * @return ItemAddressItemRequestBuilder
     */
     public function byItemAddressId(string $itemAddressId): ItemAddressItemRequestBuilder {

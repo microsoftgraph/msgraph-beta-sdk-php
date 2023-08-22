@@ -29,7 +29,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
-     * @param string $reviewSetQueryId Unique identifier of the item
+     * @param string $reviewSetQueryId The unique identifier of reviewSetQuery
      * @return ReviewSetQueryItemRequestBuilder
     */
     public function byReviewSetQueryId(string $reviewSetQueryId): ReviewSetQueryItemRequestBuilder {

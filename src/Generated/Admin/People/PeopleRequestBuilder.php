@@ -66,9 +66,10 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get people from admin
+     * Retrieve the properties and relationships of a peopleAdminSettings object.
      * @param PeopleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PeopleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get people from admin
+     * Retrieve the properties and relationships of a peopleAdminSettings object.
      * @param PeopleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
