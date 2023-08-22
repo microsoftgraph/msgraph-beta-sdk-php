@@ -29,7 +29,7 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
     
     /**
      * Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $windowsInformationProtectionDeviceRegistrationId Unique identifier of the item
+     * @param string $windowsInformationProtectionDeviceRegistrationId The unique identifier of windowsInformationProtectionDeviceRegistration
      * @return WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
     */
     public function byWindowsInformationProtectionDeviceRegistrationId(string $windowsInformationProtectionDeviceRegistrationId): WindowsInformationProtectionDeviceRegistrationItemRequestBuilder {

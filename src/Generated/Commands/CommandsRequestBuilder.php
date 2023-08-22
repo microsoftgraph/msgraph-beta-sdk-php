@@ -29,7 +29,7 @@ class CommandsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of command entities.
-     * @param string $commandId Unique identifier of the item
+     * @param string $commandId The unique identifier of command
      * @return CommandItemRequestBuilder
     */
     public function byCommandId(string $commandId): CommandItemRequestBuilder {

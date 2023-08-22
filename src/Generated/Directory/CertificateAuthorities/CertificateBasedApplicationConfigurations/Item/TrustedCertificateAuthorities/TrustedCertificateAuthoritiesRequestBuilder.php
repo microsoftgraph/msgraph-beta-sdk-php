@@ -29,7 +29,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the trustedCertificateAuthorities property of the microsoft.graph.trustedCertificateAuthorityAsEntityBase entity.
-     * @param string $certificateAuthorityAsEntityId Unique identifier of the item
+     * @param string $certificateAuthorityAsEntityId The unique identifier of certificateAuthorityAsEntity
      * @return CertificateAuthorityAsEntityItemRequestBuilder
     */
     public function byCertificateAuthorityAsEntityId(string $certificateAuthorityAsEntityId): CertificateAuthorityAsEntityItemRequestBuilder {

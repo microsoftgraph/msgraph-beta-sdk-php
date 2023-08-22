@@ -29,7 +29,7 @@ class ExcludesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the excludes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
-     * @param string $servicePrincipalCreationConditionSetId Unique identifier of the item
+     * @param string $servicePrincipalCreationConditionSetId The unique identifier of servicePrincipalCreationConditionSet
      * @return ServicePrincipalCreationConditionSetItemRequestBuilder
     */
     public function byServicePrincipalCreationConditionSetId(string $servicePrincipalCreationConditionSetId): ServicePrincipalCreationConditionSetItemRequestBuilder {

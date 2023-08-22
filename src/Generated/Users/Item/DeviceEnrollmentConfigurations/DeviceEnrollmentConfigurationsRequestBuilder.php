@@ -45,7 +45,7 @@ class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
-     * @param string $deviceEnrollmentConfigurationId Unique identifier of the item
+     * @param string $deviceEnrollmentConfigurationId The unique identifier of deviceEnrollmentConfiguration
      * @return DeviceEnrollmentConfigurationItemRequestBuilder
     */
     public function byDeviceEnrollmentConfigurationId(string $deviceEnrollmentConfigurationId): DeviceEnrollmentConfigurationItemRequestBuilder {

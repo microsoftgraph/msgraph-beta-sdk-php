@@ -29,7 +29,7 @@ class ManagementIntentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managementIntentId Unique identifier of the item
+     * @param string $managementIntentId The unique identifier of managementIntent
      * @return ManagementIntentItemRequestBuilder
     */
     public function byManagementIntentId(string $managementIntentId): ManagementIntentItemRequestBuilder {

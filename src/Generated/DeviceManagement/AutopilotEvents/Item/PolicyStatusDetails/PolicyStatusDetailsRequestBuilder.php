@@ -29,7 +29,7 @@ class PolicyStatusDetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
-     * @param string $deviceManagementAutopilotPolicyStatusDetailId Unique identifier of the item
+     * @param string $deviceManagementAutopilotPolicyStatusDetailId The unique identifier of deviceManagementAutopilotPolicyStatusDetail
      * @return DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder
     */
     public function byDeviceManagementAutopilotPolicyStatusDetailId(string $deviceManagementAutopilotPolicyStatusDetailId): DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder {

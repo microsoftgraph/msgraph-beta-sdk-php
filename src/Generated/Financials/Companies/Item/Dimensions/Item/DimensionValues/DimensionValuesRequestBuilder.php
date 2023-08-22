@@ -28,7 +28,7 @@ class DimensionValuesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
-     * @param string $dimensionValueId Unique identifier of the item
+     * @param string $dimensionValueId The unique identifier of dimensionValue
      * @return DimensionValueItemRequestBuilder
     */
     public function byDimensionValueId(string $dimensionValueId): DimensionValueItemRequestBuilder {

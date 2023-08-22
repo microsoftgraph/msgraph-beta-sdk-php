@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the host property of the microsoft.graph.security.whoisRecord entity.
+ * Provides operations to manage the host property of the microsoft.graph.security.whoisBaseRecord entity.
 */
 class HostRequestBuilder extends BaseRequestBuilder 
 {

@@ -29,7 +29,7 @@ class RoleDefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.
-     * @param string $governanceRoleDefinitionId Unique identifier of the item
+     * @param string $governanceRoleDefinitionId The unique identifier of governanceRoleDefinition
      * @return GovernanceRoleDefinitionItemRequestBuilder
     */
     public function byGovernanceRoleDefinitionId(string $governanceRoleDefinitionId): GovernanceRoleDefinitionItemRequestBuilder {

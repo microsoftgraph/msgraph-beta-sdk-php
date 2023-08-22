@@ -29,7 +29,7 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
-     * @param string $credentialUserRegistrationDetailsId Unique identifier of the item
+     * @param string $credentialUserRegistrationDetailsId The unique identifier of credentialUserRegistrationDetails
      * @return CredentialUserRegistrationDetailsItemRequestBuilder
     */
     public function byCredentialUserRegistrationDetailsId(string $credentialUserRegistrationDetailsId): CredentialUserRegistrationDetailsItemRequestBuilder {

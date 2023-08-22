@@ -37,7 +37,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcDeviceImageId Unique identifier of the item
+     * @param string $cloudPcDeviceImageId The unique identifier of cloudPcDeviceImage
      * @return CloudPcDeviceImageItemRequestBuilder
     */
     public function byCloudPcDeviceImageId(string $cloudPcDeviceImageId): CloudPcDeviceImageItemRequestBuilder {

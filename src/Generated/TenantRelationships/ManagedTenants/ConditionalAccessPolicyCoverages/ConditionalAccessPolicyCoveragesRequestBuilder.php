@@ -29,7 +29,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $conditionalAccessPolicyCoverageId Unique identifier of the item
+     * @param string $conditionalAccessPolicyCoverageId The unique identifier of conditionalAccessPolicyCoverage
      * @return ConditionalAccessPolicyCoverageItemRequestBuilder
     */
     public function byConditionalAccessPolicyCoverageId(string $conditionalAccessPolicyCoverageId): ConditionalAccessPolicyCoverageItemRequestBuilder {

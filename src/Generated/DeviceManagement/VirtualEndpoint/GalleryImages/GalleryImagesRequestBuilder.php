@@ -29,7 +29,7 @@ class GalleryImagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcGalleryImageId Unique identifier of the item
+     * @param string $cloudPcGalleryImageId The unique identifier of cloudPcGalleryImage
      * @return CloudPcGalleryImageItemRequestBuilder
     */
     public function byCloudPcGalleryImageId(string $cloudPcGalleryImageId): CloudPcGalleryImageItemRequestBuilder {

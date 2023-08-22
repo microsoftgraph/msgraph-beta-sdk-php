@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Not yet documented
+ * Get deviceComplianceSettingStates from deviceManagement
 */
 class DeviceComplianceSettingStatesRequestBuilderGetQueryParameters 
 {

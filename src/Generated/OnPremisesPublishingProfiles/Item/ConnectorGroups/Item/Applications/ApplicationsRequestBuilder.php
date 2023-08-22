@@ -28,7 +28,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
-     * @param string $applicationId Unique identifier of the item
+     * @param string $applicationId The unique identifier of application
      * @return ApplicationItemRequestBuilder
     */
     public function byApplicationId(string $applicationId): ApplicationItemRequestBuilder {

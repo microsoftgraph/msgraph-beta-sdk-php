@@ -29,7 +29,7 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsFeatureUpdateProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $windowsFeatureUpdateProfileId Unique identifier of the item
+     * @param string $windowsFeatureUpdateProfileId The unique identifier of windowsFeatureUpdateProfile
      * @return WindowsFeatureUpdateProfileItemRequestBuilder
     */
     public function byWindowsFeatureUpdateProfileId(string $windowsFeatureUpdateProfileId): WindowsFeatureUpdateProfileItemRequestBuilder {

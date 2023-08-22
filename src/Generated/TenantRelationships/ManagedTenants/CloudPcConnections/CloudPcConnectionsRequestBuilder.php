@@ -29,7 +29,7 @@ class CloudPcConnectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $cloudPcConnectionId Unique identifier of the item
+     * @param string $cloudPcConnectionId The unique identifier of cloudPcConnection
      * @return CloudPcConnectionItemRequestBuilder
     */
     public function byCloudPcConnectionId(string $cloudPcConnectionId): CloudPcConnectionItemRequestBuilder {

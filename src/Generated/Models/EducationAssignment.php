@@ -307,7 +307,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the moduleUrl property value. The moduleUrl property
+     * Gets the moduleUrl property value. The URL of the module from which to access the assignment.
      * @return string|null
     */
     public function getModuleUrl(): ?string {
@@ -593,7 +593,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the moduleUrl property value. The moduleUrl property
+     * Sets the moduleUrl property value. The URL of the module from which to access the assignment.
      * @param string|null $value Value to set for the moduleUrl property.
     */
     public function setModuleUrl(?string $value): void {

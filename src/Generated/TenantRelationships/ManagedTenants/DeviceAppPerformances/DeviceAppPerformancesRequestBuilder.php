@@ -29,7 +29,7 @@ class DeviceAppPerformancesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceAppPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $deviceAppPerformanceId Unique identifier of the item
+     * @param string $deviceAppPerformanceId The unique identifier of deviceAppPerformance
      * @return DeviceAppPerformanceItemRequestBuilder
     */
     public function byDeviceAppPerformanceId(string $deviceAppPerformanceId): DeviceAppPerformanceItemRequestBuilder {

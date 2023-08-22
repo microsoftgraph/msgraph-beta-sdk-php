@@ -37,7 +37,7 @@ class ResourceAccessProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the resourceAccessProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementResourceAccessProfileBaseId Unique identifier of the item
+     * @param string $deviceManagementResourceAccessProfileBaseId The unique identifier of deviceManagementResourceAccessProfileBase
      * @return DeviceManagementResourceAccessProfileBaseItemRequestBuilder
     */
     public function byDeviceManagementResourceAccessProfileBaseId(string $deviceManagementResourceAccessProfileBaseId): DeviceManagementResourceAccessProfileBaseItemRequestBuilder {

@@ -64,7 +64,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     }
 
     /**
-     * Gets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values 0 to 1.79769313486232E+308
      * @return float|null
     */
     public function getBatteryUsagePercentage(): ?float {
@@ -154,7 +154,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     }
 
     /**
-     * Sets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values 0 to 1.79769313486232E+308
      * @param float|null $value Value to set for the batteryUsagePercentage property.
     */
     public function setBatteryUsagePercentage(?float $value): void {

@@ -29,7 +29,7 @@ class MessageEventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of messageEvent entities.
-     * @param string $messageEventId Unique identifier of the item
+     * @param string $messageEventId The unique identifier of messageEvent
      * @return MessageEventItemRequestBuilder
     */
     public function byMessageEventId(string $messageEventId): MessageEventItemRequestBuilder {

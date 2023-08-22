@@ -61,7 +61,7 @@ class PrivilegedSignupStatusRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of privilegedSignupStatus entities.
-     * @param string $privilegedSignupStatusId Unique identifier of the item
+     * @param string $privilegedSignupStatusId The unique identifier of privilegedSignupStatus
      * @return PrivilegedSignupStatusItemRequestBuilder
     */
     public function byPrivilegedSignupStatusId(string $privilegedSignupStatusId): PrivilegedSignupStatusItemRequestBuilder {

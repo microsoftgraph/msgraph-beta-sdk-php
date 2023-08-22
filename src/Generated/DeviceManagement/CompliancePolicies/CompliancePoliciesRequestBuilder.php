@@ -29,7 +29,7 @@ class CompliancePoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the compliancePolicies property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementCompliancePolicyId Unique identifier of the item
+     * @param string $deviceManagementCompliancePolicyId The unique identifier of deviceManagementCompliancePolicy
      * @return DeviceManagementCompliancePolicyItemRequestBuilder
     */
     public function byDeviceManagementCompliancePolicyId(string $deviceManagementCompliancePolicyId): DeviceManagementCompliancePolicyItemRequestBuilder {

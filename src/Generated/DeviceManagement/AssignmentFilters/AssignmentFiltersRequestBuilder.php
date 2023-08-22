@@ -54,7 +54,7 @@ class AssignmentFiltersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceAndAppManagementAssignmentFilterId Unique identifier of the item
+     * @param string $deviceAndAppManagementAssignmentFilterId The unique identifier of deviceAndAppManagementAssignmentFilter
      * @return DeviceAndAppManagementAssignmentFilterItemRequestBuilder
     */
     public function byDeviceAndAppManagementAssignmentFilterId(string $deviceAndAppManagementAssignmentFilterId): DeviceAndAppManagementAssignmentFilterItemRequestBuilder {

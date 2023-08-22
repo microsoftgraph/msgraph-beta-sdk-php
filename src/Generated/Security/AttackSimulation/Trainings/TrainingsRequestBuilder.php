@@ -29,7 +29,7 @@ class TrainingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $trainingId Unique identifier of the item
+     * @param string $trainingId The unique identifier of training
      * @return TrainingItemRequestBuilder
     */
     public function byTrainingId(string $trainingId): TrainingItemRequestBuilder {

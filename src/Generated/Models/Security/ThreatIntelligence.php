@@ -75,6 +75,7 @@ class ThreatIntelligence extends Entity implements Parsable
             'sslCertificates' => fn(ParseNode $n) => $o->setSslCertificates($n->getCollectionOfObjectValues([SslCertificate::class, 'createFromDiscriminatorValue'])),
             'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'vulnerabilities' => fn(ParseNode $n) => $o->setVulnerabilities($n->getCollectionOfObjectValues([Vulnerability::class, 'createFromDiscriminatorValue'])),
+            'whoisHistoryRecords' => fn(ParseNode $n) => $o->setWhoisHistoryRecords($n->getCollectionOfObjectValues([WhoisHistoryRecord::class, 'createFromDiscriminatorValue'])),
             'whoisRecords' => fn(ParseNode $n) => $o->setWhoisRecords($n->getCollectionOfObjectValues([WhoisRecord::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -248,6 +249,20 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the whoisHistoryRecords property value. The whoisHistoryRecords property
+     * @return array<WhoisHistoryRecord>|null
+    */
+    public function getWhoisHistoryRecords(): ?array {
+        $val = $this->getBackingStore()->get('whoisHistoryRecords');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WhoisHistoryRecord::class);
+            /** @var array<WhoisHistoryRecord>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'whoisHistoryRecords'");
+    }
+
+    /**
      * Gets the whoisRecords property value. The whoisRecords property
      * @return array<WhoisRecord>|null
     */
@@ -281,6 +296,7 @@ class ThreatIntelligence extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('sslCertificates', $this->getSslCertificates());
         $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('vulnerabilities', $this->getVulnerabilities());
+        $writer->writeCollectionOfObjectValues('whoisHistoryRecords', $this->getWhoisHistoryRecords());
         $writer->writeCollectionOfObjectValues('whoisRecords', $this->getWhoisRecords());
     }
 
@@ -394,6 +410,14 @@ class ThreatIntelligence extends Entity implements Parsable
     */
     public function setVulnerabilities(?array $value): void {
         $this->getBackingStore()->set('vulnerabilities', $value);
+    }
+
+    /**
+     * Sets the whoisHistoryRecords property value. The whoisHistoryRecords property
+     * @param array<WhoisHistoryRecord>|null $value Value to set for the whoisHistoryRecords property.
+    */
+    public function setWhoisHistoryRecords(?array $value): void {
+        $this->getBackingStore()->set('whoisHistoryRecords', $value);
     }
 
     /**

@@ -29,7 +29,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
-     * @param string $profileCardPropertyId Unique identifier of the item
+     * @param string $profileCardPropertyId The unique identifier of profileCardProperty
      * @return ProfileCardPropertyItemRequestBuilder
     */
     public function byProfileCardPropertyId(string $profileCardPropertyId): ProfileCardPropertyItemRequestBuilder {
@@ -53,10 +53,9 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its directoryPropertyName property.
+     * Get profileCardProperties from organization
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/organizationsettings-list-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProfileCardPropertiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -72,11 +71,10 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information on adding properties to the profile card for an organization, see customize the profile card.
+     * Create new navigation property to profileCardProperties for organization
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/organizationsettings-post-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function post(ProfileCardProperty $body, ?ProfileCardPropertiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -92,7 +90,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its directoryPropertyName property.
+     * Get profileCardProperties from organization
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +111,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information on adding properties to the profile card for an organization, see customize the profile card.
+     * Create new navigation property to profileCardProperties for organization
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

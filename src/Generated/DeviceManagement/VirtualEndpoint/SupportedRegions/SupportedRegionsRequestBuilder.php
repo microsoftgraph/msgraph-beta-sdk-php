@@ -29,7 +29,7 @@ class SupportedRegionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcSupportedRegionId Unique identifier of the item
+     * @param string $cloudPcSupportedRegionId The unique identifier of cloudPcSupportedRegion
      * @return CloudPcSupportedRegionItemRequestBuilder
     */
     public function byCloudPcSupportedRegionId(string $cloudPcSupportedRegionId): CloudPcSupportedRegionItemRequestBuilder {

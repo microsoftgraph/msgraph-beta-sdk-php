@@ -28,7 +28,7 @@ class OwnersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the owners property of the microsoft.graph.team entity.
-     * @param string $userId Unique identifier of the item
+     * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */
     public function byUserId(string $userId): UserItemRequestBuilder {

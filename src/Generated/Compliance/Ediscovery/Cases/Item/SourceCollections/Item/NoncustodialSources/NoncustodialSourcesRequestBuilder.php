@@ -28,7 +28,7 @@ class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the noncustodialSources property of the microsoft.graph.ediscovery.sourceCollection entity.
-     * @param string $noncustodialDataSourceId Unique identifier of the item
+     * @param string $noncustodialDataSourceId The unique identifier of noncustodialDataSource
      * @return NoncustodialDataSourceItemRequestBuilder
     */
     public function byNoncustodialDataSourceId(string $noncustodialDataSourceId): NoncustodialDataSourceItemRequestBuilder {

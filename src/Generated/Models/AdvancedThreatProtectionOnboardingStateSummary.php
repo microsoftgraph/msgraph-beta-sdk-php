@@ -29,7 +29,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
     }
 
     /**
-     * Gets the advancedThreatProtectionOnboardingDeviceSettingStates property value. Not yet documented
+     * Gets the advancedThreatProtectionOnboardingDeviceSettingStates property value. The advancedThreatProtectionOnboardingDeviceSettingStates property
      * @return array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null
     */
     public function getAdvancedThreatProtectionOnboardingDeviceSettingStates(): ?array {
@@ -175,7 +175,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
     }
 
     /**
-     * Sets the advancedThreatProtectionOnboardingDeviceSettingStates property value. Not yet documented
+     * Sets the advancedThreatProtectionOnboardingDeviceSettingStates property value. The advancedThreatProtectionOnboardingDeviceSettingStates property
      * @param array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null $value Value to set for the advancedThreatProtectionOnboardingDeviceSettingStates property.
     */
     public function setAdvancedThreatProtectionOnboardingDeviceSettingStates(?array $value): void {

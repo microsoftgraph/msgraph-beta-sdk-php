@@ -29,7 +29,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $publishedResourceId Unique identifier of the item
+     * @param string $publishedResourceId The unique identifier of publishedResource
      * @return PublishedResourceItemRequestBuilder
     */
     public function byPublishedResourceId(string $publishedResourceId): PublishedResourceItemRequestBuilder {

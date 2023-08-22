@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
-     * @param string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId Unique identifier of the item
+     * @param string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId The unique identifier of windowsDefenderApplicationControlSupplementalPolicyAssignment
      * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder
     */
     public function byWindowsDefenderApplicationControlSupplementalPolicyAssignmentId(string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId): WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder {

@@ -29,7 +29,7 @@ class TaxAreasRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
-     * @param string $taxAreaId Unique identifier of the item
+     * @param string $taxAreaId The unique identifier of taxArea
      * @return TaxAreaItemRequestBuilder
     */
     public function byTaxAreaId(string $taxAreaId): TaxAreaItemRequestBuilder {

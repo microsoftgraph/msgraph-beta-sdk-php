@@ -29,7 +29,7 @@ class GroupAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $mobileAppProvisioningConfigGroupAssignmentId Unique identifier of the item
+     * @param string $mobileAppProvisioningConfigGroupAssignmentId The unique identifier of mobileAppProvisioningConfigGroupAssignment
      * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder
     */
     public function byMobileAppProvisioningConfigGroupAssignmentId(string $mobileAppProvisioningConfigGroupAssignmentId): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder {

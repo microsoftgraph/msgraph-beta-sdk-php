@@ -29,7 +29,7 @@ class CustomExtensionHandlersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param string $customExtensionHandlerId Unique identifier of the item
+     * @param string $customExtensionHandlerId The unique identifier of customExtensionHandler
      * @return CustomExtensionHandlerItemRequestBuilder
     */
     public function byCustomExtensionHandlerId(string $customExtensionHandlerId): CustomExtensionHandlerItemRequestBuilder {

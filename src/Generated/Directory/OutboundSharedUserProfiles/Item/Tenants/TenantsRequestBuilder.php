@@ -29,7 +29,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
-     * @param string $tenantReferenceTenantId Unique identifier of the item
+     * @param string $tenantReferenceTenantId The unique identifier of tenantReference
      * @return TenantReferenceTenantItemRequestBuilder
     */
     public function byTenantReferenceTenantId(string $tenantReferenceTenantId): TenantReferenceTenantItemRequestBuilder {

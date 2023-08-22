@@ -29,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthAppImpact property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsBatteryHealthAppImpactId Unique identifier of the item
+     * @param string $userExperienceAnalyticsBatteryHealthAppImpactId The unique identifier of userExperienceAnalyticsBatteryHealthAppImpact
      * @return UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder
     */
     public function byUserExperienceAnalyticsBatteryHealthAppImpactId(string $userExperienceAnalyticsBatteryHealthAppImpactId): UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder {

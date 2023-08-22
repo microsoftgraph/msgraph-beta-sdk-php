@@ -29,7 +29,7 @@ class RelationshipsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
-     * @param string $mobileAppRelationshipId Unique identifier of the item
+     * @param string $mobileAppRelationshipId The unique identifier of mobileAppRelationship
      * @return MobileAppRelationshipItemRequestBuilder
     */
     public function byMobileAppRelationshipId(string $mobileAppRelationshipId): MobileAppRelationshipItemRequestBuilder {

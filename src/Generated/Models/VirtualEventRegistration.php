@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -26,15 +27,27 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the capacity property value. Total capacity of the virtual event.
-     * @return int|null
+     * Gets the cancelationDateTime property value. The cancelationDateTime property
+     * @return DateTime|null
     */
-    public function getCapacity(): ?int {
-        $val = $this->getBackingStore()->get('capacity');
-        if (is_null($val) || is_int($val)) {
+    public function getCancelationDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('cancelationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'capacity'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cancelationDateTime'");
+    }
+
+    /**
+     * Gets the email property value. The email property
+     * @return string|null
+    */
+    public function getEmail(): ?string {
+        $val = $this->getBackingStore()->get('email');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'email'");
     }
 
     /**
@@ -44,51 +57,104 @@ class VirtualEventRegistration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'capacity' => fn(ParseNode $n) => $o->setCapacity($n->getIntegerValue()),
-            'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestion::class, 'createFromDiscriminatorValue'])),
-            'registrants' => fn(ParseNode $n) => $o->setRegistrants($n->getCollectionOfObjectValues([VirtualEventRegistrant::class, 'createFromDiscriminatorValue'])),
-            'registrationWebUrl' => fn(ParseNode $n) => $o->setRegistrationWebUrl($n->getStringValue()),
+            'cancelationDateTime' => fn(ParseNode $n) => $o->setCancelationDateTime($n->getDateTimeValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'firstName' => fn(ParseNode $n) => $o->setFirstName($n->getStringValue()),
+            'lastName' => fn(ParseNode $n) => $o->setLastName($n->getStringValue()),
+            'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
+            'registrationQuestionAnswers' => fn(ParseNode $n) => $o->setRegistrationQuestionAnswers($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionAnswer::class, 'createFromDiscriminatorValue'])),
+            'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventAttendeeRegistrationStatus::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the questions property value. Registration questions.
-     * @return array<VirtualEventRegistrationQuestion>|null
-    */
-    public function getQuestions(): ?array {
-        $val = $this->getBackingStore()->get('questions');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, VirtualEventRegistrationQuestion::class);
-            /** @var array<VirtualEventRegistrationQuestion>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'questions'");
-    }
-
-    /**
-     * Gets the registrants property value. Information of attendees who have registered for the virtual event.
-     * @return array<VirtualEventRegistrant>|null
-    */
-    public function getRegistrants(): ?array {
-        $val = $this->getBackingStore()->get('registrants');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, VirtualEventRegistrant::class);
-            /** @var array<VirtualEventRegistrant>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrants'");
-    }
-
-    /**
-     * Gets the registrationWebUrl property value. Registration URL of the virtual event.
+     * Gets the firstName property value. The firstName property
      * @return string|null
     */
-    public function getRegistrationWebUrl(): ?string {
-        $val = $this->getBackingStore()->get('registrationWebUrl');
+    public function getFirstName(): ?string {
+        $val = $this->getBackingStore()->get('firstName');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationWebUrl'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstName'");
+    }
+
+    /**
+     * Gets the lastName property value. The lastName property
+     * @return string|null
+    */
+    public function getLastName(): ?string {
+        $val = $this->getBackingStore()->get('lastName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastName'");
+    }
+
+    /**
+     * Gets the registrationDateTime property value. The registrationDateTime property
+     * @return DateTime|null
+    */
+    public function getRegistrationDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('registrationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationDateTime'");
+    }
+
+    /**
+     * Gets the registrationQuestionAnswers property value. The registrationQuestionAnswers property
+     * @return array<VirtualEventRegistrationQuestionAnswer>|null
+    */
+    public function getRegistrationQuestionAnswers(): ?array {
+        $val = $this->getBackingStore()->get('registrationQuestionAnswers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistrationQuestionAnswer::class);
+            /** @var array<VirtualEventRegistrationQuestionAnswer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationQuestionAnswers'");
+    }
+
+    /**
+     * Gets the sessions property value. The sessions property
+     * @return array<VirtualEventSession>|null
+    */
+    public function getSessions(): ?array {
+        $val = $this->getBackingStore()->get('sessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventSession::class);
+            /** @var array<VirtualEventSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessions'");
+    }
+
+    /**
+     * Gets the status property value. The status property
+     * @return VirtualEventAttendeeRegistrationStatus|null
+    */
+    public function getStatus(): ?VirtualEventAttendeeRegistrationStatus {
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof VirtualEventAttendeeRegistrationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
+    }
+
+    /**
+     * Gets the userId property value. The userId property
+     * @return string|null
+    */
+    public function getUserId(): ?string {
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -97,42 +163,87 @@ class VirtualEventRegistration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('capacity', $this->getCapacity());
-        $writer->writeCollectionOfObjectValues('questions', $this->getQuestions());
-        $writer->writeCollectionOfObjectValues('registrants', $this->getRegistrants());
-        $writer->writeStringValue('registrationWebUrl', $this->getRegistrationWebUrl());
+        $writer->writeDateTimeValue('cancelationDateTime', $this->getCancelationDateTime());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('firstName', $this->getFirstName());
+        $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
+        $writer->writeCollectionOfObjectValues('registrationQuestionAnswers', $this->getRegistrationQuestionAnswers());
+        $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
-     * Sets the capacity property value. Total capacity of the virtual event.
-     * @param int|null $value Value to set for the capacity property.
+     * Sets the cancelationDateTime property value. The cancelationDateTime property
+     * @param DateTime|null $value Value to set for the cancelationDateTime property.
     */
-    public function setCapacity(?int $value): void {
-        $this->getBackingStore()->set('capacity', $value);
+    public function setCancelationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('cancelationDateTime', $value);
     }
 
     /**
-     * Sets the questions property value. Registration questions.
-     * @param array<VirtualEventRegistrationQuestion>|null $value Value to set for the questions property.
+     * Sets the email property value. The email property
+     * @param string|null $value Value to set for the email property.
     */
-    public function setQuestions(?array $value): void {
-        $this->getBackingStore()->set('questions', $value);
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
-     * Sets the registrants property value. Information of attendees who have registered for the virtual event.
-     * @param array<VirtualEventRegistrant>|null $value Value to set for the registrants property.
+     * Sets the firstName property value. The firstName property
+     * @param string|null $value Value to set for the firstName property.
     */
-    public function setRegistrants(?array $value): void {
-        $this->getBackingStore()->set('registrants', $value);
+    public function setFirstName(?string $value): void {
+        $this->getBackingStore()->set('firstName', $value);
     }
 
     /**
-     * Sets the registrationWebUrl property value. Registration URL of the virtual event.
-     * @param string|null $value Value to set for the registrationWebUrl property.
+     * Sets the lastName property value. The lastName property
+     * @param string|null $value Value to set for the lastName property.
     */
-    public function setRegistrationWebUrl(?string $value): void {
-        $this->getBackingStore()->set('registrationWebUrl', $value);
+    public function setLastName(?string $value): void {
+        $this->getBackingStore()->set('lastName', $value);
+    }
+
+    /**
+     * Sets the registrationDateTime property value. The registrationDateTime property
+     * @param DateTime|null $value Value to set for the registrationDateTime property.
+    */
+    public function setRegistrationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('registrationDateTime', $value);
+    }
+
+    /**
+     * Sets the registrationQuestionAnswers property value. The registrationQuestionAnswers property
+     * @param array<VirtualEventRegistrationQuestionAnswer>|null $value Value to set for the registrationQuestionAnswers property.
+    */
+    public function setRegistrationQuestionAnswers(?array $value): void {
+        $this->getBackingStore()->set('registrationQuestionAnswers', $value);
+    }
+
+    /**
+     * Sets the sessions property value. The sessions property
+     * @param array<VirtualEventSession>|null $value Value to set for the sessions property.
+    */
+    public function setSessions(?array $value): void {
+        $this->getBackingStore()->set('sessions', $value);
+    }
+
+    /**
+     * Sets the status property value. The status property
+     * @param VirtualEventAttendeeRegistrationStatus|null $value Value to set for the status property.
+    */
+    public function setStatus(?VirtualEventAttendeeRegistrationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the userId property value. The userId property
+     * @param string|null $value Value to set for the userId property.
+    */
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

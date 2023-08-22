@@ -37,7 +37,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
-     * @param string $timeCardId Unique identifier of the item
+     * @param string $timeCardId The unique identifier of timeCard
      * @return TimeCardItemRequestBuilder
     */
     public function byTimeCardId(string $timeCardId): TimeCardItemRequestBuilder {

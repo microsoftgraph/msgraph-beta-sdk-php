@@ -29,7 +29,7 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
-     * @param string $deviceManagementIntentDeviceSettingStateSummaryId Unique identifier of the item
+     * @param string $deviceManagementIntentDeviceSettingStateSummaryId The unique identifier of deviceManagementIntentDeviceSettingStateSummary
      * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder
     */
     public function byDeviceManagementIntentDeviceSettingStateSummaryId(string $deviceManagementIntentDeviceSettingStateSummaryId): DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder {

@@ -29,7 +29,7 @@ class UnitsOfMeasureRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
-     * @param string $unitOfMeasureId Unique identifier of the item
+     * @param string $unitOfMeasureId The unique identifier of unitOfMeasure
      * @return UnitOfMeasureItemRequestBuilder
     */
     public function byUnitOfMeasureId(string $unitOfMeasureId): UnitOfMeasureItemRequestBuilder {

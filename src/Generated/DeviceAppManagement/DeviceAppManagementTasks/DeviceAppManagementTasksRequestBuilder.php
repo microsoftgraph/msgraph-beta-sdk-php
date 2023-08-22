@@ -29,7 +29,7 @@ class DeviceAppManagementTasksRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceAppManagementTasks property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $deviceAppManagementTaskId Unique identifier of the item
+     * @param string $deviceAppManagementTaskId The unique identifier of deviceAppManagementTask
      * @return DeviceAppManagementTaskItemRequestBuilder
     */
     public function byDeviceAppManagementTaskId(string $deviceAppManagementTaskId): DeviceAppManagementTaskItemRequestBuilder {

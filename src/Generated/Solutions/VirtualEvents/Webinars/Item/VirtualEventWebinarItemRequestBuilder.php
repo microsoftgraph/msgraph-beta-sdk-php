@@ -8,7 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinar;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Presenters\PresentersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\RegistrationConfigurationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\RegistrationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -28,10 +29,17 @@ class VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the registration property of the microsoft.graph.virtualEventWebinar entity.
+     * Provides operations to manage the registrationConfiguration property of the microsoft.graph.virtualEventWebinar entity.
     */
-    public function registration(): RegistrationRequestBuilder {
-        return new RegistrationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function registrationConfiguration(): RegistrationConfigurationRequestBuilder {
+        return new RegistrationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
+    */
+    public function registrations(): RegistrationsRequestBuilder {
+        return new RegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

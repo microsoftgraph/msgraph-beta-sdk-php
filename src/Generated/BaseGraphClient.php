@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\App\AppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\AppCatalogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\ApplicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationsWithAppId\ApplicationsWithAppIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ApplicationsWithUniqueName\ApplicationsWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationTemplates\ApplicationTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\ApprovalWorkflowProvidersRequestBuilder;
@@ -62,6 +63,7 @@ use Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\GovernanceRoleSettings
 use Microsoft\Graph\Beta\Generated\GovernanceSubjects\GovernanceSubjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\GroupLifecyclePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\GroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\GroupsWithUniqueName\GroupsWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\IdentityGovernanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\IdentityProtectionRequestBuilder;
@@ -927,6 +929,15 @@ class BaseGraphClient extends BaseRequestBuilder
     }
 
     /**
+     * Provides operations to manage the collection of application entities.
+     * @param string $uniqueName Alternate key of application
+     * @return ApplicationsWithUniqueNameRequestBuilder
+    */
+    public function applicationsWithUniqueName(string $uniqueName): ApplicationsWithUniqueNameRequestBuilder {
+        return new ApplicationsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
+    /**
      * Instantiates a new BaseGraphClient and sets the default values.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
      * @param BackingStoreFactory|null $backingStore The backing store to use for the models.
@@ -960,6 +971,15 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function directoryRolesWithRoleTemplateId(string $roleTemplateId): DirectoryRolesWithRoleTemplateIdRequestBuilder {
         return new DirectoryRolesWithRoleTemplateIdRequestBuilder($this->pathParameters, $this->requestAdapter, $roleTemplateId);
+    }
+
+    /**
+     * Provides operations to manage the collection of group entities.
+     * @param string $uniqueName Alternate key of group
+     * @return GroupsWithUniqueNameRequestBuilder
+    */
+    public function groupsWithUniqueName(string $uniqueName): GroupsWithUniqueNameRequestBuilder {
+        return new GroupsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
     }
 
     /**

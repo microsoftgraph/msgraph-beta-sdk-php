@@ -29,7 +29,7 @@ class FilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param string $ediscoveryFileId Unique identifier of the item
+     * @param string $ediscoveryFileId The unique identifier of ediscoveryFile
      * @return EdiscoveryFileItemRequestBuilder
     */
     public function byEdiscoveryFileId(string $ediscoveryFileId): EdiscoveryFileItemRequestBuilder {

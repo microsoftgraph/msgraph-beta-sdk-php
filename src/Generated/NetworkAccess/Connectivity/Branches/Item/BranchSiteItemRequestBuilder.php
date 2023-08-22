@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BranchSite;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\ConnectivityConfiguration\ConnectivityConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\DeviceLinks\DeviceLinksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\ForwardingProfiles\ForwardingProfilesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class BranchSiteItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.branchSite entity.
+    */
+    public function connectivityConfiguration(): ConnectivityConfigurationRequestBuilder {
+        return new ConnectivityConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.
     */

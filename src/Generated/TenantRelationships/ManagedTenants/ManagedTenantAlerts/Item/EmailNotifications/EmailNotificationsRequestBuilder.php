@@ -28,7 +28,7 @@ class EmailNotificationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the emailNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
-     * @param string $managedTenantEmailNotificationId Unique identifier of the item
+     * @param string $managedTenantEmailNotificationId The unique identifier of managedTenantEmailNotification
      * @return ManagedTenantEmailNotificationItemRequestBuilder
     */
     public function byManagedTenantEmailNotificationId(string $managedTenantEmailNotificationId): ManagedTenantEmailNotificationItemRequestBuilder {

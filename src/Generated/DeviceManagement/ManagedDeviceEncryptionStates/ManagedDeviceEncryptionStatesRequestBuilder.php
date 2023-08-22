@@ -29,7 +29,7 @@ class ManagedDeviceEncryptionStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedDeviceEncryptionStates property of the microsoft.graph.deviceManagement entity.
-     * @param string $managedDeviceEncryptionStateId Unique identifier of the item
+     * @param string $managedDeviceEncryptionStateId The unique identifier of managedDeviceEncryptionState
      * @return ManagedDeviceEncryptionStateItemRequestBuilder
     */
     public function byManagedDeviceEncryptionStateId(string $managedDeviceEncryptionStateId): ManagedDeviceEncryptionStateItemRequestBuilder {

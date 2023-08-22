@@ -29,7 +29,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
-     * @param string $virtualEventWebinarId Unique identifier of the item
+     * @param string $virtualEventWebinarId The unique identifier of virtualEventWebinar
      * @return VirtualEventWebinarItemRequestBuilder
     */
     public function byVirtualEventWebinarId(string $virtualEventWebinarId): VirtualEventWebinarItemRequestBuilder {

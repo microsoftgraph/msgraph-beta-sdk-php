@@ -29,7 +29,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the pages property of the microsoft.graph.site entity.
-     * @param string $baseSitePageId Unique identifier of the item
+     * @param string $baseSitePageId The unique identifier of baseSitePage
      * @return BaseSitePageItemRequestBuilder
     */
     public function byBaseSitePageId(string $baseSitePageId): BaseSitePageItemRequestBuilder {

@@ -29,7 +29,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $sourceSystemDefinitionId Unique identifier of the item
+     * @param string $sourceSystemDefinitionId The unique identifier of sourceSystemDefinition
      * @return SourceSystemDefinitionItemRequestBuilder
     */
     public function bySourceSystemDefinitionId(string $sourceSystemDefinitionId): SourceSystemDefinitionItemRequestBuilder {

@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $iosLobAppProvisioningConfigurationAssignmentId Unique identifier of the item
+     * @param string $iosLobAppProvisioningConfigurationAssignmentId The unique identifier of iosLobAppProvisioningConfigurationAssignment
      * @return IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder
     */
     public function byIosLobAppProvisioningConfigurationAssignmentId(string $iosLobAppProvisioningConfigurationAssignmentId): IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder {

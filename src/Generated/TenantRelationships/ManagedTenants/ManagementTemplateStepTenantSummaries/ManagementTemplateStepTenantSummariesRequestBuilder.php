@@ -29,7 +29,7 @@ class ManagementTemplateStepTenantSummariesRequestBuilder extends BaseRequestBui
     
     /**
      * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managementTemplateStepTenantSummaryId Unique identifier of the item
+     * @param string $managementTemplateStepTenantSummaryId The unique identifier of managementTemplateStepTenantSummary
      * @return ManagementTemplateStepTenantSummaryItemRequestBuilder
     */
     public function byManagementTemplateStepTenantSummaryId(string $managementTemplateStepTenantSummaryId): ManagementTemplateStepTenantSummaryItemRequestBuilder {

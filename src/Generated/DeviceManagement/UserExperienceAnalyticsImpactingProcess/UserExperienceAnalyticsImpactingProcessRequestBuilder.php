@@ -29,7 +29,7 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
     
     /**
      * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsImpactingProcessId Unique identifier of the item
+     * @param string $userExperienceAnalyticsImpactingProcessId The unique identifier of userExperienceAnalyticsImpactingProcess
      * @return UserExperienceAnalyticsImpactingProcessItemRequestBuilder
     */
     public function byUserExperienceAnalyticsImpactingProcessId(string $userExperienceAnalyticsImpactingProcessId): UserExperienceAnalyticsImpactingProcessItemRequestBuilder {

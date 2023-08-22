@@ -37,7 +37,7 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of privilegedApproval entities.
-     * @param string $privilegedApprovalId Unique identifier of the item
+     * @param string $privilegedApprovalId The unique identifier of privilegedApproval
      * @return PrivilegedApprovalItemRequestBuilder
     */
     public function byPrivilegedApprovalId(string $privilegedApprovalId): PrivilegedApprovalItemRequestBuilder {

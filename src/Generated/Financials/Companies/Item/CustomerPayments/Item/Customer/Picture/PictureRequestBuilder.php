@@ -29,7 +29,7 @@ class PictureRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the picture property of the microsoft.graph.customer entity.
-     * @param string $pictureId Unique identifier of the item
+     * @param string $pictureId The unique identifier of picture
      * @return PictureItemRequestBuilder
     */
     public function byPictureId(string $pictureId): PictureItemRequestBuilder {

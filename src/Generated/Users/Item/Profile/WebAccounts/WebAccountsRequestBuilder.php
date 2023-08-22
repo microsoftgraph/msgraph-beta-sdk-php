@@ -29,7 +29,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
-     * @param string $webAccountId Unique identifier of the item
+     * @param string $webAccountId The unique identifier of webAccount
      * @return WebAccountItemRequestBuilder
     */
     public function byWebAccountId(string $webAccountId): WebAccountItemRequestBuilder {

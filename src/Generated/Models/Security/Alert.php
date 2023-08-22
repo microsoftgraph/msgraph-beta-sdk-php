@@ -40,6 +40,18 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the alertPolicyId property value. The alertPolicyId property
+     * @return string|null
+    */
+    public function getAlertPolicyId(): ?string {
+        $val = $this->getBackingStore()->get('alertPolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertPolicyId'");
+    }
+
+    /**
      * Gets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      * @return string|null
     */
@@ -76,7 +88,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
+     * Gets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @return AlertClassification|null
     */
     public function getClassification(): ?AlertClassification {
@@ -183,6 +195,7 @@ class Alert extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'actorDisplayName' => fn(ParseNode $n) => $o->setActorDisplayName($n->getStringValue()),
+            'alertPolicyId' => fn(ParseNode $n) => $o->setAlertPolicyId($n->getStringValue()),
             'alertWebUrl' => fn(ParseNode $n) => $o->setAlertWebUrl($n->getStringValue()),
             'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getStringValue()),
             'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
@@ -443,6 +456,7 @@ class Alert extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('actorDisplayName', $this->getActorDisplayName());
+        $writer->writeStringValue('alertPolicyId', $this->getAlertPolicyId());
         $writer->writeStringValue('alertWebUrl', $this->getAlertWebUrl());
         $writer->writeStringValue('assignedTo', $this->getAssignedTo());
         $writer->writeStringValue('category', $this->getCategory());
@@ -482,6 +496,14 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Sets the alertPolicyId property value. The alertPolicyId property
+     * @param string|null $value Value to set for the alertPolicyId property.
+    */
+    public function setAlertPolicyId(?string $value): void {
+        $this->getBackingStore()->set('alertPolicyId', $value);
+    }
+
+    /**
      * Sets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      * @param string|null $value Value to set for the alertWebUrl property.
     */
@@ -506,7 +528,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
+     * Sets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @param AlertClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?AlertClassification $value): void {

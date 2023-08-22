@@ -29,7 +29,7 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder extends BaseRequestBuilde
     
     /**
      * Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $groupPolicyUploadedDefinitionFileId Unique identifier of the item
+     * @param string $groupPolicyUploadedDefinitionFileId The unique identifier of groupPolicyUploadedDefinitionFile
      * @return GroupPolicyUploadedDefinitionFileItemRequestBuilder
     */
     public function byGroupPolicyUploadedDefinitionFileId(string $groupPolicyUploadedDefinitionFileId): GroupPolicyUploadedDefinitionFileItemRequestBuilder {

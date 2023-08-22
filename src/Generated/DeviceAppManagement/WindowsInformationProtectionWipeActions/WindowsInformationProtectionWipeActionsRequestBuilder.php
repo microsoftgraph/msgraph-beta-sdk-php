@@ -29,7 +29,7 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
     
     /**
      * Provides operations to manage the windowsInformationProtectionWipeActions property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $windowsInformationProtectionWipeActionId Unique identifier of the item
+     * @param string $windowsInformationProtectionWipeActionId The unique identifier of windowsInformationProtectionWipeAction
      * @return WindowsInformationProtectionWipeActionItemRequestBuilder
     */
     public function byWindowsInformationProtectionWipeActionId(string $windowsInformationProtectionWipeActionId): WindowsInformationProtectionWipeActionItemRequestBuilder {

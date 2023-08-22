@@ -29,7 +29,7 @@ class ServicePlansRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcServicePlanId Unique identifier of the item
+     * @param string $cloudPcServicePlanId The unique identifier of cloudPcServicePlan
      * @return CloudPcServicePlanItemRequestBuilder
     */
     public function byCloudPcServicePlanId(string $cloudPcServicePlanId): CloudPcServicePlanItemRequestBuilder {

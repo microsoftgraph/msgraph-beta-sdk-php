@@ -29,7 +29,7 @@ class EmployeesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the employees property of the microsoft.graph.company entity.
-     * @param string $employeeId Unique identifier of the item
+     * @param string $employeeId The unique identifier of employee
      * @return EmployeeItemRequestBuilder
     */
     public function byEmployeeId(string $employeeId): EmployeeItemRequestBuilder {

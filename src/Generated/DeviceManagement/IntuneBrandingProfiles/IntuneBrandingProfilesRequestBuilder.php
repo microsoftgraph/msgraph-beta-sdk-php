@@ -29,7 +29,7 @@ class IntuneBrandingProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the intuneBrandingProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $intuneBrandingProfileId Unique identifier of the item
+     * @param string $intuneBrandingProfileId The unique identifier of intuneBrandingProfile
      * @return IntuneBrandingProfileItemRequestBuilder
     */
     public function byIntuneBrandingProfileId(string $intuneBrandingProfileId): IntuneBrandingProfileItemRequestBuilder {

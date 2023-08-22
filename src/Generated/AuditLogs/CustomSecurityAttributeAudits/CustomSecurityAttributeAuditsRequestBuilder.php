@@ -29,7 +29,7 @@ class CustomSecurityAttributeAuditsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customSecurityAttributeAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param string $customSecurityAttributeAuditId Unique identifier of the item
+     * @param string $customSecurityAttributeAuditId The unique identifier of customSecurityAttributeAudit
      * @return CustomSecurityAttributeAuditItemRequestBuilder
     */
     public function byCustomSecurityAttributeAuditId(string $customSecurityAttributeAuditId): CustomSecurityAttributeAuditItemRequestBuilder {

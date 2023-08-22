@@ -38,7 +38,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $accessReviewInstanceDecisionItemId1 Unique identifier of the item
+     * @param string $accessReviewInstanceDecisionItemId1 The unique identifier of accessReviewInstanceDecisionItem
      * @return AccessReviewInstanceDecisionItemItemRequestBuilder
     */
     public function byAccessReviewInstanceDecisionItemId1(string $accessReviewInstanceDecisionItemId1): AccessReviewInstanceDecisionItemItemRequestBuilder {

@@ -29,7 +29,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
-     * @param string $teamworkDeviceId Unique identifier of the item
+     * @param string $teamworkDeviceId The unique identifier of teamworkDevice
      * @return TeamworkDeviceItemRequestBuilder
     */
     public function byTeamworkDeviceId(string $teamworkDeviceId): TeamworkDeviceItemRequestBuilder {

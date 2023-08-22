@@ -29,7 +29,7 @@ class ManagedTenantTicketingEndpointsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managedTenantTicketingEndpointId Unique identifier of the item
+     * @param string $managedTenantTicketingEndpointId The unique identifier of managedTenantTicketingEndpoint
      * @return ManagedTenantTicketingEndpointItemRequestBuilder
     */
     public function byManagedTenantTicketingEndpointId(string $managedTenantTicketingEndpointId): ManagedTenantTicketingEndpointItemRequestBuilder {

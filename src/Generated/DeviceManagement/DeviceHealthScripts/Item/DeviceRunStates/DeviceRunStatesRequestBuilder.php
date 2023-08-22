@@ -29,7 +29,7 @@ class DeviceRunStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.
-     * @param string $deviceHealthScriptDeviceStateId Unique identifier of the item
+     * @param string $deviceHealthScriptDeviceStateId The unique identifier of deviceHealthScriptDeviceState
      * @return DeviceHealthScriptDeviceStateItemRequestBuilder
     */
     public function byDeviceHealthScriptDeviceStateId(string $deviceHealthScriptDeviceStateId): DeviceHealthScriptDeviceStateItemRequestBuilder {

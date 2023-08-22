@@ -28,7 +28,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the activities property of the microsoft.graph.industryData.industryDataRun entity.
-     * @param string $industryDataRunActivityId Unique identifier of the item
+     * @param string $industryDataRunActivityId The unique identifier of industryDataRunActivity
      * @return IndustryDataRunActivityItemRequestBuilder
     */
     public function byIndustryDataRunActivityId(string $industryDataRunActivityId): IndustryDataRunActivityItemRequestBuilder {

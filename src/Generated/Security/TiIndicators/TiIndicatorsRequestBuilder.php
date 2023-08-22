@@ -61,7 +61,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.
-     * @param string $tiIndicatorId Unique identifier of the item
+     * @param string $tiIndicatorId The unique identifier of tiIndicator
      * @return TiIndicatorItemRequestBuilder
     */
     public function byTiIndicatorId(string $tiIndicatorId): TiIndicatorItemRequestBuilder {

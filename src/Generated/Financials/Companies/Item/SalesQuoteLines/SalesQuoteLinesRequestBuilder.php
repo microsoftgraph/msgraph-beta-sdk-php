@@ -28,7 +28,7 @@ class SalesQuoteLinesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the salesQuoteLines property of the microsoft.graph.company entity.
-     * @param string $salesQuoteLineId Unique identifier of the item
+     * @param string $salesQuoteLineId The unique identifier of salesQuoteLine
      * @return SalesQuoteLineItemRequestBuilder
     */
     public function bySalesQuoteLineId(string $salesQuoteLineId): SalesQuoteLineItemRequestBuilder {

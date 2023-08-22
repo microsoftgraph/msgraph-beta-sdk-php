@@ -29,7 +29,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the servicePrincipalSignInActivities property of the microsoft.graph.reportRoot entity.
-     * @param string $servicePrincipalSignInActivityId Unique identifier of the item
+     * @param string $servicePrincipalSignInActivityId The unique identifier of servicePrincipalSignInActivity
      * @return ServicePrincipalSignInActivityItemRequestBuilder
     */
     public function byServicePrincipalSignInActivityId(string $servicePrincipalSignInActivityId): ServicePrincipalSignInActivityItemRequestBuilder {

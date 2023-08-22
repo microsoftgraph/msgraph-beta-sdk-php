@@ -36,7 +36,7 @@ class EducationModuleResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. Resource object that has been associated with this module.
      * @return EducationResource|null
     */
     public function getResource(): ?EducationResource {
@@ -57,7 +57,7 @@ class EducationModuleResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the resource property value. The resource property
+     * Sets the resource property value. Resource object that has been associated with this module.
      * @param EducationResource|null $value Value to set for the resource property.
     */
     public function setResource(?EducationResource $value): void {

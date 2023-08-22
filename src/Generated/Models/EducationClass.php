@@ -267,7 +267,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Gets the modules property value. The modules property
+     * Gets the modules property value. All modules in the class. Nullable.
      * @return array<EducationModule>|null
     */
     public function getModules(): ?array {
@@ -486,7 +486,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Sets the modules property value. The modules property
+     * Sets the modules property value. All modules in the class. Nullable.
      * @param array<EducationModule>|null $value Value to set for the modules property.
     */
     public function setModules(?array $value): void {

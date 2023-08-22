@@ -29,7 +29,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
-     * @param string $educationalActivityId Unique identifier of the item
+     * @param string $educationalActivityId The unique identifier of educationalActivity
      * @return EducationalActivityItemRequestBuilder
     */
     public function byEducationalActivityId(string $educationalActivityId): EducationalActivityItemRequestBuilder {

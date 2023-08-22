@@ -29,7 +29,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
-     * @param string $alertRuleId Unique identifier of the item
+     * @param string $alertRuleId The unique identifier of alertRule
      * @return AlertRuleItemRequestBuilder
     */
     public function byAlertRuleId(string $alertRuleId): AlertRuleItemRequestBuilder {

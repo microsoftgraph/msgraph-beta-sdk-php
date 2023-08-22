@@ -30,7 +30,7 @@ class DepOnboardingSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the depOnboardingSettings property of the microsoft.graph.deviceManagement entity.
-     * @param string $depOnboardingSettingId Unique identifier of the item
+     * @param string $depOnboardingSettingId The unique identifier of depOnboardingSetting
      * @return DepOnboardingSettingItemRequestBuilder
     */
     public function byDepOnboardingSettingId(string $depOnboardingSettingId): DepOnboardingSettingItemRequestBuilder {

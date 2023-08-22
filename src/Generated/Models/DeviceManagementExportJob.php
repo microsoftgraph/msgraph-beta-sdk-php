@@ -30,7 +30,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. Time that the exported report expires
+     * Gets the expirationDateTime property value. Time that the exported report expires. This property is read-only.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -117,7 +117,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestDateTime property value. Time that the exported report was requested
+     * Gets the requestDateTime property value. Time that the exported report was requested. This property is read-only.
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
@@ -167,7 +167,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the url property value. Temporary location of the exported report
+     * Gets the url property value. Temporary location of the exported report. This property is read-only.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -194,7 +194,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. Time that the exported report expires
+     * Sets the expirationDateTime property value. Time that the exported report expires. This property is read-only.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -234,7 +234,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestDateTime property value. Time that the exported report was requested
+     * Sets the requestDateTime property value. Time that the exported report was requested. This property is read-only.
      * @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {
@@ -266,7 +266,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the url property value. Temporary location of the exported report
+     * Sets the url property value. Temporary location of the exported report. This property is read-only.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

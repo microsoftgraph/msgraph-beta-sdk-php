@@ -29,7 +29,7 @@ class UserStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.
-     * @param string $deviceManagementIntentUserStateId Unique identifier of the item
+     * @param string $deviceManagementIntentUserStateId The unique identifier of deviceManagementIntentUserState
      * @return DeviceManagementIntentUserStateItemRequestBuilder
     */
     public function byDeviceManagementIntentUserStateId(string $deviceManagementIntentUserStateId): DeviceManagementIntentUserStateItemRequestBuilder {

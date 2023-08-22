@@ -29,7 +29,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     
     /**
      * Provides operations to manage the certificateBasedApplicationConfigurations property of the microsoft.graph.certificateAuthorityPath entity.
-     * @param string $certificateBasedApplicationConfigurationId Unique identifier of the item
+     * @param string $certificateBasedApplicationConfigurationId The unique identifier of certificateBasedApplicationConfiguration
      * @return CertificateBasedApplicationConfigurationItemRequestBuilder
     */
     public function byCertificateBasedApplicationConfigurationId(string $certificateBasedApplicationConfigurationId): CertificateBasedApplicationConfigurationItemRequestBuilder {

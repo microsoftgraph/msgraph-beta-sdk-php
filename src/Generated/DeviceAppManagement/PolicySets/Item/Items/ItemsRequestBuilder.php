@@ -29,7 +29,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the items property of the microsoft.graph.policySet entity.
-     * @param string $policySetItemId Unique identifier of the item
+     * @param string $policySetItemId The unique identifier of policySetItem
      * @return PolicySetItemItemRequestBuilder
     */
     public function byPolicySetItemId(string $policySetItemId): PolicySetItemItemRequestBuilder {

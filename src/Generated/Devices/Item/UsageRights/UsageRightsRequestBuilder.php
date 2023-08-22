@@ -29,7 +29,7 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the usageRights property of the microsoft.graph.device entity.
-     * @param string $usageRightId Unique identifier of the item
+     * @param string $usageRightId The unique identifier of usageRight
      * @return UsageRightItemRequestBuilder
     */
     public function byUsageRightId(string $usageRightId): UsageRightItemRequestBuilder {

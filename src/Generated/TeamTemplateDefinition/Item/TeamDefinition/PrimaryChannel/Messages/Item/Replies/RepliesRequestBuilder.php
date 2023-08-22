@@ -37,7 +37,7 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
-     * @param string $chatMessageId1 Unique identifier of the item
+     * @param string $chatMessageId1 The unique identifier of chatMessage
      * @return ChatMessageItemRequestBuilder
     */
     public function byChatMessageId1(string $chatMessageId1): ChatMessageItemRequestBuilder {

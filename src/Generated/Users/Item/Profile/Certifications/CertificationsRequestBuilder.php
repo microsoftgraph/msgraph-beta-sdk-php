@@ -29,7 +29,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
-     * @param string $personCertificationId Unique identifier of the item
+     * @param string $personCertificationId The unique identifier of personCertification
      * @return PersonCertificationItemRequestBuilder
     */
     public function byPersonCertificationId(string $personCertificationId): PersonCertificationItemRequestBuilder {

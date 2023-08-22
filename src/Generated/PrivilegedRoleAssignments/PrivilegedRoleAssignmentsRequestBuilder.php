@@ -37,7 +37,7 @@ class PrivilegedRoleAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of privilegedRoleAssignment entities.
-     * @param string $privilegedRoleAssignmentId Unique identifier of the item
+     * @param string $privilegedRoleAssignmentId The unique identifier of privilegedRoleAssignment
      * @return PrivilegedRoleAssignmentItemRequestBuilder
     */
     public function byPrivilegedRoleAssignmentId(string $privilegedRoleAssignmentId): PrivilegedRoleAssignmentItemRequestBuilder {

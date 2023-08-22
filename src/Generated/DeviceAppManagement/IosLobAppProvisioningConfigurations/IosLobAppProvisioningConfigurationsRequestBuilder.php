@@ -37,7 +37,7 @@ class IosLobAppProvisioningConfigurationsRequestBuilder extends BaseRequestBuild
     
     /**
      * Provides operations to manage the iosLobAppProvisioningConfigurations property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $iosLobAppProvisioningConfigurationId Unique identifier of the item
+     * @param string $iosLobAppProvisioningConfigurationId The unique identifier of iosLobAppProvisioningConfiguration
      * @return IosLobAppProvisioningConfigurationItemRequestBuilder
     */
     public function byIosLobAppProvisioningConfigurationId(string $iosLobAppProvisioningConfigurationId): IosLobAppProvisioningConfigurationItemRequestBuilder {

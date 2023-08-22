@@ -29,7 +29,7 @@ class AccessPackageResourceScopesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageCatalog entity.
-     * @param string $accessPackageResourceScopeId Unique identifier of the item
+     * @param string $accessPackageResourceScopeId The unique identifier of accessPackageResourceScope
      * @return AccessPackageResourceScopeItemRequestBuilder
     */
     public function byAccessPackageResourceScopeId(string $accessPackageResourceScopeId): AccessPackageResourceScopeItemRequestBuilder {

@@ -30,7 +30,7 @@ class ConfigManagerCollectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the configManagerCollections property of the microsoft.graph.deviceManagement entity.
-     * @param string $configManagerCollectionId Unique identifier of the item
+     * @param string $configManagerCollectionId The unique identifier of configManagerCollection
      * @return ConfigManagerCollectionItemRequestBuilder
     */
     public function byConfigManagerCollectionId(string $configManagerCollectionId): ConfigManagerCollectionItemRequestBuilder {

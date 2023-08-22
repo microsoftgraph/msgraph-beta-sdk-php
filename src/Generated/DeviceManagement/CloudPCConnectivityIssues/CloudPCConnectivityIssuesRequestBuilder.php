@@ -29,7 +29,7 @@ class CloudPCConnectivityIssuesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
-     * @param string $cloudPCConnectivityIssueId Unique identifier of the item
+     * @param string $cloudPCConnectivityIssueId The unique identifier of cloudPCConnectivityIssue
      * @return CloudPCConnectivityIssueItemRequestBuilder
     */
     public function byCloudPCConnectivityIssueId(string $cloudPCConnectivityIssueId): CloudPCConnectivityIssueItemRequestBuilder {

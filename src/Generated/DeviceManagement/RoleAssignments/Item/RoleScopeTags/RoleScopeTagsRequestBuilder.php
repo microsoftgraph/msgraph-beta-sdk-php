@@ -28,7 +28,7 @@ class RoleScopeTagsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
-     * @param string $roleScopeTagId Unique identifier of the item
+     * @param string $roleScopeTagId The unique identifier of roleScopeTag
      * @return RoleScopeTagItemRequestBuilder
     */
     public function byRoleScopeTagId(string $roleScopeTagId): RoleScopeTagItemRequestBuilder {

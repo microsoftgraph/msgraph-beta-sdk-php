@@ -28,7 +28,7 @@ class SalesOrdersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
-     * @param string $salesOrderId Unique identifier of the item
+     * @param string $salesOrderId The unique identifier of salesOrder
      * @return SalesOrderItemRequestBuilder
     */
     public function bySalesOrderId(string $salesOrderId): SalesOrderItemRequestBuilder {

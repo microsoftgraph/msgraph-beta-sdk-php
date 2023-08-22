@@ -29,7 +29,7 @@ class ProviderTenantSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
-     * @param string $providerTenantSettingId Unique identifier of the item
+     * @param string $providerTenantSettingId The unique identifier of providerTenantSetting
      * @return ProviderTenantSettingItemRequestBuilder
     */
     public function byProviderTenantSettingId(string $providerTenantSettingId): ProviderTenantSettingItemRequestBuilder {

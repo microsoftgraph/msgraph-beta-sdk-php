@@ -29,7 +29,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
-     * @param string $outlookTaskFolderId Unique identifier of the item
+     * @param string $outlookTaskFolderId The unique identifier of outlookTaskFolder
      * @return OutlookTaskFolderItemRequestBuilder
     */
     public function byOutlookTaskFolderId(string $outlookTaskFolderId): OutlookTaskFolderItemRequestBuilder {

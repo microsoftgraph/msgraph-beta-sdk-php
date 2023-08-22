@@ -29,7 +29,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder exten
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAnomalyCorrelationGroupOverview property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsAnomalyCorrelationGroupOverviewId Unique identifier of the item
+     * @param string $userExperienceAnalyticsAnomalyCorrelationGroupOverviewId The unique identifier of userExperienceAnalyticsAnomalyCorrelationGroupOverview
      * @return UserExperienceAnalyticsAnomalyCorrelationGroupOverviewItemRequestBuilder
     */
     public function byUserExperienceAnalyticsAnomalyCorrelationGroupOverviewId(string $userExperienceAnalyticsAnomalyCorrelationGroupOverviewId): UserExperienceAnalyticsAnomalyCorrelationGroupOverviewItemRequestBuilder {

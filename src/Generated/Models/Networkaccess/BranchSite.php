@@ -40,6 +40,18 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectivityConfiguration property value. The connectivityConfiguration property
+     * @return BranchConnectivityConfiguration|null
+    */
+    public function getConnectivityConfiguration(): ?BranchConnectivityConfiguration {
+        $val = $this->getBackingStore()->get('connectivityConfiguration');
+        if (is_null($val) || $val instanceof BranchConnectivityConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivityConfiguration'");
+    }
+
+    /**
      * Gets the connectivityState property value. Determines the branch site status. The possible values are: pending, connected, inactive, error.
      * @return ConnectivityState|null
     */
@@ -85,6 +97,7 @@ class BranchSite extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'bandwidthCapacity' => fn(ParseNode $n) => $o->setBandwidthCapacity($n->getIntegerValue()),
+            'connectivityConfiguration' => fn(ParseNode $n) => $o->setConnectivityConfiguration($n->getObjectValue([BranchConnectivityConfiguration::class, 'createFromDiscriminatorValue'])),
             'connectivityState' => fn(ParseNode $n) => $o->setConnectivityState($n->getEnumValue(ConnectivityState::class)),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'deviceLinks' => fn(ParseNode $n) => $o->setDeviceLinks($n->getCollectionOfObjectValues([DeviceLink::class, 'createFromDiscriminatorValue'])),
@@ -165,6 +178,7 @@ class BranchSite extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('bandwidthCapacity', $this->getBandwidthCapacity());
+        $writer->writeObjectValue('connectivityConfiguration', $this->getConnectivityConfiguration());
         $writer->writeEnumValue('connectivityState', $this->getConnectivityState());
         $writer->writeStringValue('country', $this->getCountry());
         $writer->writeCollectionOfObjectValues('deviceLinks', $this->getDeviceLinks());
@@ -181,6 +195,14 @@ class BranchSite extends Entity implements Parsable
     */
     public function setBandwidthCapacity(?int $value): void {
         $this->getBackingStore()->set('bandwidthCapacity', $value);
+    }
+
+    /**
+     * Sets the connectivityConfiguration property value. The connectivityConfiguration property
+     * @param BranchConnectivityConfiguration|null $value Value to set for the connectivityConfiguration property.
+    */
+    public function setConnectivityConfiguration(?BranchConnectivityConfiguration $value): void {
+        $this->getBackingStore()->set('connectivityConfiguration', $value);
     }
 
     /**

@@ -29,7 +29,7 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $aggregatedPolicyComplianceId Unique identifier of the item
+     * @param string $aggregatedPolicyComplianceId The unique identifier of aggregatedPolicyCompliance
      * @return AggregatedPolicyComplianceItemRequestBuilder
     */
     public function byAggregatedPolicyComplianceId(string $aggregatedPolicyComplianceId): AggregatedPolicyComplianceItemRequestBuilder {

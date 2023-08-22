@@ -103,7 +103,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string
+     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -115,7 +115,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string
+     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -173,7 +173,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string
+     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
      * @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value): void {
@@ -181,7 +181,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string
+     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
      * @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value): void {

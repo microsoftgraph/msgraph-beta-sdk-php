@@ -29,7 +29,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
-     * @param string $trustFrameworkKeySetId Unique identifier of the item
+     * @param string $trustFrameworkKeySetId The unique identifier of trustFrameworkKeySet
      * @return TrustFrameworkKeySetItemRequestBuilder
     */
     public function byTrustFrameworkKeySetId(string $trustFrameworkKeySetId): TrustFrameworkKeySetItemRequestBuilder {

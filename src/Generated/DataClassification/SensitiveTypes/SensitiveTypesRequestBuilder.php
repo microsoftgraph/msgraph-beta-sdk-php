@@ -29,7 +29,7 @@ class SensitiveTypesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
-     * @param string $sensitiveTypeId Unique identifier of the item
+     * @param string $sensitiveTypeId The unique identifier of sensitiveType
      * @return SensitiveTypeItemRequestBuilder
     */
     public function bySensitiveTypeId(string $sensitiveTypeId): SensitiveTypeItemRequestBuilder {

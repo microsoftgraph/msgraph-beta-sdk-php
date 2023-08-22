@@ -13,4 +13,5 @@ class CloudPcReportName extends Enum {
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const NO_LICENSE_AVAILABLE_CONNECTIVITY_FAILURE_REPORT = 'noLicenseAvailableConnectivityFailureReport';
     public const REMOTE_CONNECTION_QUALITY_REPORTS = 'remoteConnectionQualityReports';
+    public const INACCESSIBLE_CLOUD_PC_REPORTS = 'inaccessibleCloudPcReports';
 }

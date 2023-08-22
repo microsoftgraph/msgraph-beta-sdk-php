@@ -29,7 +29,7 @@ class AppPerformancesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the appPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $appPerformanceId Unique identifier of the item
+     * @param string $appPerformanceId The unique identifier of appPerformance
      * @return AppPerformanceItemRequestBuilder
     */
     public function byAppPerformanceId(string $appPerformanceId): AppPerformanceItemRequestBuilder {

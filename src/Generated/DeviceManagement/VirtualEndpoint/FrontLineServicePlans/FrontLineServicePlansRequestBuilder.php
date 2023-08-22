@@ -29,7 +29,7 @@ class FrontLineServicePlansRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the frontLineServicePlans property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcFrontLineServicePlanId Unique identifier of the item
+     * @param string $cloudPcFrontLineServicePlanId The unique identifier of cloudPcFrontLineServicePlan
      * @return CloudPcFrontLineServicePlanItemRequestBuilder
     */
     public function byCloudPcFrontLineServicePlanId(string $cloudPcFrontLineServicePlanId): CloudPcFrontLineServicePlanItemRequestBuilder {

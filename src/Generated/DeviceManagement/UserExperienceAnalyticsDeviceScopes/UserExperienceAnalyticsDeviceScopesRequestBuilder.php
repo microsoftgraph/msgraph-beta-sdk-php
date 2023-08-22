@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
     
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceScopes property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsDeviceScopeId Unique identifier of the item
+     * @param string $userExperienceAnalyticsDeviceScopeId The unique identifier of userExperienceAnalyticsDeviceScope
      * @return UserExperienceAnalyticsDeviceScopeItemRequestBuilder
     */
     public function byUserExperienceAnalyticsDeviceScopeId(string $userExperienceAnalyticsDeviceScopeId): UserExperienceAnalyticsDeviceScopeItemRequestBuilder {

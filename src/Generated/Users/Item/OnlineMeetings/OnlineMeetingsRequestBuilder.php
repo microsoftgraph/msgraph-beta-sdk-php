@@ -10,6 +10,8 @@ use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
 use Microsoft\Graph\Beta\Generated\Models\OnlineMeetingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\CreateOrGet\CreateOrGetRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\GetAllRecordings\GetAllRecordingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\GetAllTranscripts\GetAllTranscriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -36,8 +38,22 @@ class OnlineMeetingsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getAllRecordings method.
+    */
+    public function getAllRecordings(): GetAllRecordingsRequestBuilder {
+        return new GetAllRecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllTranscripts method.
+    */
+    public function getAllTranscripts(): GetAllTranscriptsRequestBuilder {
+        return new GetAllTranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
-     * @param string $onlineMeetingId Unique identifier of the item
+     * @param string $onlineMeetingId The unique identifier of onlineMeeting
      * @return OnlineMeetingItemRequestBuilder
     */
     public function byOnlineMeetingId(string $onlineMeetingId): OnlineMeetingItemRequestBuilder {

@@ -28,7 +28,7 @@ class ApiNotificationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
-     * @param string $managedTenantApiNotificationId Unique identifier of the item
+     * @param string $managedTenantApiNotificationId The unique identifier of managedTenantApiNotification
      * @return ManagedTenantApiNotificationItemRequestBuilder
     */
     public function byManagedTenantApiNotificationId(string $managedTenantApiNotificationId): ManagedTenantApiNotificationItemRequestBuilder {

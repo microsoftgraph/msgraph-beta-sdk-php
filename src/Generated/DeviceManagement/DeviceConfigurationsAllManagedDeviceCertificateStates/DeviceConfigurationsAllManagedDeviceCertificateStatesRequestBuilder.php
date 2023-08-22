@@ -29,7 +29,7 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder extend
     
     /**
      * Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
-     * @param string $managedAllDeviceCertificateStateId Unique identifier of the item
+     * @param string $managedAllDeviceCertificateStateId The unique identifier of managedAllDeviceCertificateState
      * @return ManagedAllDeviceCertificateStateItemRequestBuilder
     */
     public function byManagedAllDeviceCertificateStateId(string $managedAllDeviceCertificateStateId): ManagedAllDeviceCertificateStateItemRequestBuilder {

@@ -29,7 +29,7 @@ class RoleGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleGroups property of the microsoft.graph.industryData.industryDataRoot entity.
-     * @param string $roleGroupId Unique identifier of the item
+     * @param string $roleGroupId The unique identifier of roleGroup
      * @return RoleGroupItemRequestBuilder
     */
     public function byRoleGroupId(string $roleGroupId): RoleGroupItemRequestBuilder {

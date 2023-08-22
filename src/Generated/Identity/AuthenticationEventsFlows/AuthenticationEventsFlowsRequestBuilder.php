@@ -29,7 +29,7 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
-     * @param string $authenticationEventsFlowId Unique identifier of the item
+     * @param string $authenticationEventsFlowId The unique identifier of authenticationEventsFlow
      * @return AuthenticationEventsFlowItemRequestBuilder
     */
     public function byAuthenticationEventsFlowId(string $authenticationEventsFlowId): AuthenticationEventsFlowItemRequestBuilder {

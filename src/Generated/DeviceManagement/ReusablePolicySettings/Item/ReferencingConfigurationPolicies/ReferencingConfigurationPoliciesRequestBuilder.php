@@ -29,7 +29,7 @@ class ReferencingConfigurationPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
-     * @param string $deviceManagementConfigurationPolicyId Unique identifier of the item
+     * @param string $deviceManagementConfigurationPolicyId The unique identifier of deviceManagementConfigurationPolicy
      * @return DeviceManagementConfigurationPolicyItemRequestBuilder
     */
     public function byDeviceManagementConfigurationPolicyId(string $deviceManagementConfigurationPolicyId): DeviceManagementConfigurationPolicyItemRequestBuilder {

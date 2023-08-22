@@ -29,7 +29,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
-     * @param string $personAnnualEventId Unique identifier of the item
+     * @param string $personAnnualEventId The unique identifier of personAnnualEvent
      * @return PersonAnnualEventItemRequestBuilder
     */
     public function byPersonAnnualEventId(string $personAnnualEventId): PersonAnnualEventItemRequestBuilder {

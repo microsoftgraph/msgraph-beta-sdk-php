@@ -37,7 +37,7 @@ class ResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
-     * @param string $governanceResourceId Unique identifier of the item
+     * @param string $governanceResourceId The unique identifier of governanceResource
      * @return GovernanceResourceItemRequestBuilder
     */
     public function byGovernanceResourceId(string $governanceResourceId): GovernanceResourceItemRequestBuilder {

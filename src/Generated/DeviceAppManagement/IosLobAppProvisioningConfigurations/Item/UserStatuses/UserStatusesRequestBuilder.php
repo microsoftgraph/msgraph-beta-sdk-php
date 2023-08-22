@@ -29,7 +29,7 @@ class UserStatusesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $managedDeviceMobileAppConfigurationUserStatusId Unique identifier of the item
+     * @param string $managedDeviceMobileAppConfigurationUserStatusId The unique identifier of managedDeviceMobileAppConfigurationUserStatus
      * @return ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
     */
     public function byManagedDeviceMobileAppConfigurationUserStatusId(string $managedDeviceMobileAppConfigurationUserStatusId): ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {

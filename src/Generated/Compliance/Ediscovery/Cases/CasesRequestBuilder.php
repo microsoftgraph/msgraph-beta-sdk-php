@@ -29,7 +29,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.
-     * @param string $caseId Unique identifier of the item
+     * @param string $caseId The unique identifier of case
      * @return CaseItemRequestBuilder
     */
     public function byCaseId(string $caseId): CaseItemRequestBuilder {

@@ -29,7 +29,7 @@ class SharedUseServicePlansRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPcSharedUseServicePlanId Unique identifier of the item
+     * @param string $cloudPcSharedUseServicePlanId The unique identifier of cloudPcSharedUseServicePlan
      * @return CloudPcSharedUseServicePlanItemRequestBuilder
     */
     public function byCloudPcSharedUseServicePlanId(string $cloudPcSharedUseServicePlanId): CloudPcSharedUseServicePlanItemRequestBuilder {

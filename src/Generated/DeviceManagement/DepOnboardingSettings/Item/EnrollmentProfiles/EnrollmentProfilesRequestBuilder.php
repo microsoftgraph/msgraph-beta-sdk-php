@@ -29,7 +29,7 @@ class EnrollmentProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
-     * @param string $enrollmentProfileId Unique identifier of the item
+     * @param string $enrollmentProfileId The unique identifier of enrollmentProfile
      * @return EnrollmentProfileItemRequestBuilder
     */
     public function byEnrollmentProfileId(string $enrollmentProfileId): EnrollmentProfileItemRequestBuilder {

@@ -29,7 +29,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policies property of the microsoft.graph.networkaccess.profile entity.
-     * @param string $policyLinkId Unique identifier of the item
+     * @param string $policyLinkId The unique identifier of policyLink
      * @return PolicyLinkItemRequestBuilder
     */
     public function byPolicyLinkId(string $policyLinkId): PolicyLinkItemRequestBuilder {

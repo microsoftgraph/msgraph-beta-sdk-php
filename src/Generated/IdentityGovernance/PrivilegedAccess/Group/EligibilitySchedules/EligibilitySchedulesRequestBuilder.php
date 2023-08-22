@@ -30,7 +30,7 @@ class EligibilitySchedulesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
-     * @param string $privilegedAccessGroupEligibilityScheduleId Unique identifier of the item
+     * @param string $privilegedAccessGroupEligibilityScheduleId The unique identifier of privilegedAccessGroupEligibilitySchedule
      * @return PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder
     */
     public function byPrivilegedAccessGroupEligibilityScheduleId(string $privilegedAccessGroupEligibilityScheduleId): PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder {

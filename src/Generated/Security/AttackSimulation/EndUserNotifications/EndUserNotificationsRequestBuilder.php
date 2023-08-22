@@ -29,7 +29,7 @@ class EndUserNotificationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the endUserNotifications property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $endUserNotificationId Unique identifier of the item
+     * @param string $endUserNotificationId The unique identifier of endUserNotification
      * @return EndUserNotificationItemRequestBuilder
     */
     public function byEndUserNotificationId(string $endUserNotificationId): EndUserNotificationItemRequestBuilder {

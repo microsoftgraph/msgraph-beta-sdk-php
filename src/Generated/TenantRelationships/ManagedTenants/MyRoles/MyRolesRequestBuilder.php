@@ -29,7 +29,7 @@ class MyRolesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $myRoleTenantId Unique identifier of the item
+     * @param string $myRoleTenantId The unique identifier of myRole
      * @return MyRoleTenantItemRequestBuilder
     */
     public function byMyRoleTenantId(string $myRoleTenantId): MyRoleTenantItemRequestBuilder {

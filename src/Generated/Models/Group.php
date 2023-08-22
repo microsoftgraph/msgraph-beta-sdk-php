@@ -427,6 +427,7 @@ class Group extends DirectoryObject implements Parsable
             'threads' => fn(ParseNode $n) => $o->setThreads($n->getCollectionOfObjectValues([ConversationThread::class, 'createFromDiscriminatorValue'])),
             'transitiveMemberOf' => fn(ParseNode $n) => $o->setTransitiveMemberOf($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'transitiveMembers' => fn(ParseNode $n) => $o->setTransitiveMembers($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'uniqueName' => fn(ParseNode $n) => $o->setUniqueName($n->getStringValue()),
             'unseenConversationsCount' => fn(ParseNode $n) => $o->setUnseenConversationsCount($n->getIntegerValue()),
             'unseenCount' => fn(ParseNode $n) => $o->setUnseenCount($n->getIntegerValue()),
             'unseenMessagesCount' => fn(ParseNode $n) => $o->setUnseenMessagesCount($n->getIntegerValue()),
@@ -1100,6 +1101,18 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the uniqueName property value. The uniqueName property
+     * @return string|null
+    */
+    public function getUniqueName(): ?string {
+        $val = $this->getBackingStore()->get('uniqueName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueName'");
+    }
+
+    /**
      * Gets the unseenConversationsCount property value. Count of conversations that have been delivered one or more new posts since the signed-in user's last visit to the group. This property is the same as unseenCount. Returned only on $select.
      * @return int|null
     */
@@ -1136,7 +1149,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.
      * @return string|null
     */
     public function getVisibility(): ?string {
@@ -1239,6 +1252,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('threads', $this->getThreads());
         $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->getTransitiveMemberOf());
         $writer->writeCollectionOfObjectValues('transitiveMembers', $this->getTransitiveMembers());
+        $writer->writeStringValue('uniqueName', $this->getUniqueName());
         $writer->writeIntegerValue('unseenConversationsCount', $this->getUnseenConversationsCount());
         $writer->writeIntegerValue('unseenCount', $this->getUnseenCount());
         $writer->writeIntegerValue('unseenMessagesCount', $this->getUnseenMessagesCount());
@@ -1839,6 +1853,14 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the uniqueName property value. The uniqueName property
+     * @param string|null $value Value to set for the uniqueName property.
+    */
+    public function setUniqueName(?string $value): void {
+        $this->getBackingStore()->set('uniqueName', $value);
+    }
+
+    /**
      * Sets the unseenConversationsCount property value. Count of conversations that have been delivered one or more new posts since the signed-in user's last visit to the group. This property is the same as unseenCount. Returned only on $select.
      * @param int|null $value Value to set for the unseenConversationsCount property.
     */
@@ -1863,7 +1885,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.
      * @param string|null $value Value to set for the visibility property.
     */
     public function setVisibility(?string $value): void {

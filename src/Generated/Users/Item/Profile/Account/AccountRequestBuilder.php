@@ -29,7 +29,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the account property of the microsoft.graph.profile entity.
-     * @param string $userAccountInformationId Unique identifier of the item
+     * @param string $userAccountInformationId The unique identifier of userAccountInformation
      * @return UserAccountInformationItemRequestBuilder
     */
     public function byUserAccountInformationId(string $userAccountInformationId): UserAccountInformationItemRequestBuilder {

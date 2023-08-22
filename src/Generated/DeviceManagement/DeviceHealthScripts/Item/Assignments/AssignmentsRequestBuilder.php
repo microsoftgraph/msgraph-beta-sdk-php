@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
-     * @param string $deviceHealthScriptAssignmentId Unique identifier of the item
+     * @param string $deviceHealthScriptAssignmentId The unique identifier of deviceHealthScriptAssignment
      * @return DeviceHealthScriptAssignmentItemRequestBuilder
     */
     public function byDeviceHealthScriptAssignmentId(string $deviceHealthScriptAssignmentId): DeviceHealthScriptAssignmentItemRequestBuilder {

@@ -50,7 +50,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
+     * Gets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. True indicates that Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. False blocks the installation of any Teams app that requires resource-specific permissions in a chat or a meeting.
      * @return bool|null
     */
     public function getIsChatResourceSpecificConsentEnabled(): ?bool {
@@ -62,7 +62,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isUserPersonalScopeResourceSpecificConsentEnabled property value. The isUserPersonalScopeResourceSpecificConsentEnabled property
+     * Gets the isUserPersonalScopeResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for personal scope in Teams apps has been enabled for the tenant. True indicates that Teams apps that are allowed in the tenant and require resource-specific permissions can be installed in the personal scope. False blocks the installation of any Teams app that requires resource-specific permissions in the personal scope.
      * @return bool|null
     */
     public function getIsUserPersonalScopeResourceSpecificConsentEnabled(): ?bool {
@@ -93,7 +93,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
+     * Sets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. True indicates that Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. False blocks the installation of any Teams app that requires resource-specific permissions in a chat or a meeting.
      * @param bool|null $value Value to set for the isChatResourceSpecificConsentEnabled property.
     */
     public function setIsChatResourceSpecificConsentEnabled(?bool $value): void {
@@ -101,7 +101,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isUserPersonalScopeResourceSpecificConsentEnabled property value. The isUserPersonalScopeResourceSpecificConsentEnabled property
+     * Sets the isUserPersonalScopeResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for personal scope in Teams apps has been enabled for the tenant. True indicates that Teams apps that are allowed in the tenant and require resource-specific permissions can be installed in the personal scope. False blocks the installation of any Teams app that requires resource-specific permissions in the personal scope.
      * @param bool|null $value Value to set for the isUserPersonalScopeResourceSpecificConsentEnabled property.
     */
     public function setIsUserPersonalScopeResourceSpecificConsentEnabled(?bool $value): void {

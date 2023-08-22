@@ -29,7 +29,7 @@ class ZebraFotaArtifactsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the zebraFotaArtifacts property of the microsoft.graph.deviceManagement entity.
-     * @param string $zebraFotaArtifactId Unique identifier of the item
+     * @param string $zebraFotaArtifactId The unique identifier of zebraFotaArtifact
      * @return ZebraFotaArtifactItemRequestBuilder
     */
     public function byZebraFotaArtifactId(string $zebraFotaArtifactId): ZebraFotaArtifactItemRequestBuilder {

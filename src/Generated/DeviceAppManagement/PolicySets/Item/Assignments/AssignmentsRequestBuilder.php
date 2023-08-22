@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
-     * @param string $policySetAssignmentId Unique identifier of the item
+     * @param string $policySetAssignmentId The unique identifier of policySetAssignment
      * @return PolicySetAssignmentItemRequestBuilder
     */
     public function byPolicySetAssignmentId(string $policySetAssignmentId): PolicySetAssignmentItemRequestBuilder {

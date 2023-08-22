@@ -29,7 +29,7 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
     
     /**
      * Provides operations to manage the microsoftTunnelServerLogCollectionResponses property of the microsoft.graph.deviceManagement entity.
-     * @param string $microsoftTunnelServerLogCollectionResponseId Unique identifier of the item
+     * @param string $microsoftTunnelServerLogCollectionResponseId The unique identifier of microsoftTunnelServerLogCollectionResponse
      * @return MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder
     */
     public function byMicrosoftTunnelServerLogCollectionResponseId(string $microsoftTunnelServerLogCollectionResponseId): MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder {

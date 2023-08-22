@@ -29,7 +29,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.
-     * @param string $virtualEventId Unique identifier of the item
+     * @param string $virtualEventId The unique identifier of virtualEvent
      * @return VirtualEventItemRequestBuilder
     */
     public function byVirtualEventId(string $virtualEventId): VirtualEventItemRequestBuilder {

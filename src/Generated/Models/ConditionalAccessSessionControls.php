@@ -146,7 +146,7 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the secureSignInSession property value. The secureSignInSession property
+     * Gets the secureSignInSession property value. Session control to require sign in sessions to be bound to a device.
      * @return SecureSignInSessionControl|null
     */
     public function getSecureSignInSession(): ?SecureSignInSessionControl {
@@ -250,7 +250,7 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the secureSignInSession property value. The secureSignInSession property
+     * Sets the secureSignInSession property value. Session control to require sign in sessions to be bound to a device.
      * @param SecureSignInSessionControl|null $value Value to set for the secureSignInSession property.
     */
     public function setSecureSignInSession(?SecureSignInSessionControl $value): void {

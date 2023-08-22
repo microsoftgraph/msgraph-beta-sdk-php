@@ -28,7 +28,7 @@ class CompanyInformationRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
-     * @param string $companyInformationId Unique identifier of the item
+     * @param string $companyInformationId The unique identifier of companyInformation
      * @return CompanyInformationItemRequestBuilder
     */
     public function byCompanyInformationId(string $companyInformationId): CompanyInformationItemRequestBuilder {

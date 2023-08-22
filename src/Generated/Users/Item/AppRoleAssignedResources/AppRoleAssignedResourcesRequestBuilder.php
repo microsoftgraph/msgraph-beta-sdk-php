@@ -28,7 +28,7 @@ class AppRoleAssignedResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
-     * @param string $servicePrincipalId Unique identifier of the item
+     * @param string $servicePrincipalId The unique identifier of servicePrincipal
      * @return ServicePrincipalItemRequestBuilder
     */
     public function byServicePrincipalId(string $servicePrincipalId): ServicePrincipalItemRequestBuilder {

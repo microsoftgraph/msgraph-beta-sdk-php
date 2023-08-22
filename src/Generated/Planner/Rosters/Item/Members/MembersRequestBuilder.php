@@ -29,7 +29,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
-     * @param string $plannerRosterMemberId Unique identifier of the item
+     * @param string $plannerRosterMemberId The unique identifier of plannerRosterMember
      * @return PlannerRosterMemberItemRequestBuilder
     */
     public function byPlannerRosterMemberId(string $plannerRosterMemberId): PlannerRosterMemberItemRequestBuilder {

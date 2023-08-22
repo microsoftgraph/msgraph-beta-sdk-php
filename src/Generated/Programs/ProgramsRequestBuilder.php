@@ -29,7 +29,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of program entities.
-     * @param string $programId Unique identifier of the item
+     * @param string $programId The unique identifier of program
      * @return ProgramItemRequestBuilder
     */
     public function byProgramId(string $programId): ProgramItemRequestBuilder {

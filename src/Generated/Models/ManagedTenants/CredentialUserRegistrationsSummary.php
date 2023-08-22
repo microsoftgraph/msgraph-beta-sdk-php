@@ -169,7 +169,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantLicenseType property value. The tenantLicenseType property
+     * Gets the tenantLicenseType property value. The license type associated with the tenant; for example, AADFree, AADPremium1, AADPremium2.
      * @return string|null
     */
     public function getTenantLicenseType(): ?string {
@@ -293,7 +293,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantLicenseType property value. The tenantLicenseType property
+     * Sets the tenantLicenseType property value. The license type associated with the tenant; for example, AADFree, AADPremium1, AADPremium2.
      * @param string|null $value Value to set for the tenantLicenseType property.
     */
     public function setTenantLicenseType(?string $value): void {

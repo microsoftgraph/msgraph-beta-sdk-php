@@ -29,7 +29,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
-     * @param string $educationSynchronizationErrorId Unique identifier of the item
+     * @param string $educationSynchronizationErrorId The unique identifier of educationSynchronizationError
      * @return EducationSynchronizationErrorItemRequestBuilder
     */
     public function byEducationSynchronizationErrorId(string $educationSynchronizationErrorId): EducationSynchronizationErrorItemRequestBuilder {

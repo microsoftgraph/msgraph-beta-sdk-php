@@ -29,7 +29,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.
-     * @param string $deviceLinkId Unique identifier of the item
+     * @param string $deviceLinkId The unique identifier of deviceLink
      * @return DeviceLinkItemRequestBuilder
     */
     public function byDeviceLinkId(string $deviceLinkId): DeviceLinkItemRequestBuilder {

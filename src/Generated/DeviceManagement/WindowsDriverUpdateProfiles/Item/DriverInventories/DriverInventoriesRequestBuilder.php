@@ -29,7 +29,7 @@ class DriverInventoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the driverInventories property of the microsoft.graph.windowsDriverUpdateProfile entity.
-     * @param string $windowsDriverUpdateInventoryId Unique identifier of the item
+     * @param string $windowsDriverUpdateInventoryId The unique identifier of windowsDriverUpdateInventory
      * @return WindowsDriverUpdateInventoryItemRequestBuilder
     */
     public function byWindowsDriverUpdateInventoryId(string $windowsDriverUpdateInventoryId): WindowsDriverUpdateInventoryItemRequestBuilder {

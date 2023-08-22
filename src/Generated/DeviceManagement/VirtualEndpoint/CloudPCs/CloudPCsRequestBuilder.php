@@ -46,7 +46,7 @@ class CloudPCsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
-     * @param string $cloudPCId Unique identifier of the item
+     * @param string $cloudPCId The unique identifier of cloudPC
      * @return CloudPCItemRequestBuilder
     */
     public function byCloudPCId(string $cloudPCId): CloudPCItemRequestBuilder {

@@ -29,7 +29,7 @@ class ExactMatchDataStoresRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
-     * @param string $exactMatchDataStoreId Unique identifier of the item
+     * @param string $exactMatchDataStoreId The unique identifier of exactMatchDataStore
      * @return ExactMatchDataStoreItemRequestBuilder
     */
     public function byExactMatchDataStoreId(string $exactMatchDataStoreId): ExactMatchDataStoreItemRequestBuilder {

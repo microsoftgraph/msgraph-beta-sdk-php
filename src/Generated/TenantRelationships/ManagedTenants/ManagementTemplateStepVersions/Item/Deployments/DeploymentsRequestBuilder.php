@@ -29,7 +29,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
-     * @param string $managementTemplateStepDeploymentId Unique identifier of the item
+     * @param string $managementTemplateStepDeploymentId The unique identifier of managementTemplateStepDeployment
      * @return ManagementTemplateStepDeploymentItemRequestBuilder
     */
     public function byManagementTemplateStepDeploymentId(string $managementTemplateStepDeploymentId): ManagementTemplateStepDeploymentItemRequestBuilder {

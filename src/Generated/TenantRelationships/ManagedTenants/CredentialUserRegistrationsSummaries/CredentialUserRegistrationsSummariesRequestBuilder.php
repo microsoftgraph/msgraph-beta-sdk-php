@@ -29,7 +29,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     
     /**
      * Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $credentialUserRegistrationsSummaryId Unique identifier of the item
+     * @param string $credentialUserRegistrationsSummaryId The unique identifier of credentialUserRegistrationsSummary
      * @return CredentialUserRegistrationsSummaryItemRequestBuilder
     */
     public function byCredentialUserRegistrationsSummaryId(string $credentialUserRegistrationsSummaryId): CredentialUserRegistrationsSummaryItemRequestBuilder {

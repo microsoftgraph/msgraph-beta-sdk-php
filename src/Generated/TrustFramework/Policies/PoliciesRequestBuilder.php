@@ -29,7 +29,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
-     * @param string $trustFrameworkPolicyId Unique identifier of the item
+     * @param string $trustFrameworkPolicyId The unique identifier of trustFrameworkPolicy
      * @return TrustFrameworkPolicyItemRequestBuilder
     */
     public function byTrustFrameworkPolicyId(string $trustFrameworkPolicyId): TrustFrameworkPolicyItemRequestBuilder {

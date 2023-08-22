@@ -29,7 +29,7 @@ class DomainSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $domainSecurityProfileId Unique identifier of the item
+     * @param string $domainSecurityProfileId The unique identifier of domainSecurityProfile
      * @return DomainSecurityProfileItemRequestBuilder
     */
     public function byDomainSecurityProfileId(string $domainSecurityProfileId): DomainSecurityProfileItemRequestBuilder {

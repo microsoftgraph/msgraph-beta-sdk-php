@@ -29,7 +29,7 @@ class AppScopesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
-     * @param string $appScopeId Unique identifier of the item
+     * @param string $appScopeId The unique identifier of appScope
      * @return AppScopeItemRequestBuilder
     */
     public function byAppScopeId(string $appScopeId): AppScopeItemRequestBuilder {

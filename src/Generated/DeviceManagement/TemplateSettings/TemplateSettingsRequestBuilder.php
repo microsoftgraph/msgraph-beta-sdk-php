@@ -29,7 +29,7 @@ class TemplateSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the templateSettings property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementConfigurationSettingTemplateId Unique identifier of the item
+     * @param string $deviceManagementConfigurationSettingTemplateId The unique identifier of deviceManagementConfigurationSettingTemplate
      * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder
     */
     public function byDeviceManagementConfigurationSettingTemplateId(string $deviceManagementConfigurationSettingTemplateId): DeviceManagementConfigurationSettingTemplateItemRequestBuilder {

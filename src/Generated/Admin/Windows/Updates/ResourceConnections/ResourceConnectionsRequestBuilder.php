@@ -29,7 +29,7 @@ class ResourceConnectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $resourceConnectionId Unique identifier of the item
+     * @param string $resourceConnectionId The unique identifier of resourceConnection
      * @return ResourceConnectionItemRequestBuilder
     */
     public function byResourceConnectionId(string $resourceConnectionId): ResourceConnectionItemRequestBuilder {

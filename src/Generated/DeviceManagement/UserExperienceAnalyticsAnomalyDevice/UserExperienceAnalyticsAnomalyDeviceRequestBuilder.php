@@ -29,7 +29,7 @@ class UserExperienceAnalyticsAnomalyDeviceRequestBuilder extends BaseRequestBuil
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAnomalyDevice property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsAnomalyDeviceId Unique identifier of the item
+     * @param string $userExperienceAnalyticsAnomalyDeviceId The unique identifier of userExperienceAnalyticsAnomalyDevice
      * @return UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder
     */
     public function byUserExperienceAnalyticsAnomalyDeviceId(string $userExperienceAnalyticsAnomalyDeviceId): UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder {

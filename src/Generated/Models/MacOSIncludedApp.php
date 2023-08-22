@@ -59,7 +59,7 @@ class MacOSIncludedApp implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bundleId property value. The CFBundleIdentifier.
+     * Gets the bundleId property value. The bundleId of the app. This maps to the CFBundleIdentifier in the app's bundle configuration.
      * @return string|null
     */
     public function getBundleId(): ?string {
@@ -71,7 +71,7 @@ class MacOSIncludedApp implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bundleVersion property value. The CFBundleVersion.
+     * Gets the bundleVersion property value. The version of the app. This maps to the CFBundleShortVersion in the app's bundle configuration.
      * @return string|null
     */
     public function getBundleVersion(): ?string {
@@ -135,7 +135,7 @@ class MacOSIncludedApp implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bundleId property value. The CFBundleIdentifier.
+     * Sets the bundleId property value. The bundleId of the app. This maps to the CFBundleIdentifier in the app's bundle configuration.
      * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
@@ -143,7 +143,7 @@ class MacOSIncludedApp implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bundleVersion property value. The CFBundleVersion.
+     * Sets the bundleVersion property value. The version of the app. This maps to the CFBundleShortVersion in the app's bundle configuration.
      * @param string|null $value Value to set for the bundleVersion property.
     */
     public function setBundleVersion(?string $value): void {

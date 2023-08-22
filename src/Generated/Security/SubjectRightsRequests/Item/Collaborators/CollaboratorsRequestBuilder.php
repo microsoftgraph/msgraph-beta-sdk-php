@@ -28,7 +28,7 @@ class CollaboratorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
-     * @param string $userId Unique identifier of the item
+     * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */
     public function byUserId(string $userId): UserItemRequestBuilder {

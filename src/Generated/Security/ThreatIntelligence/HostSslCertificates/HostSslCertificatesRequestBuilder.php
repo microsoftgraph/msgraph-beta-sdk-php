@@ -29,7 +29,7 @@ class HostSslCertificatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the hostSslCertificates property of the microsoft.graph.security.threatIntelligence entity.
-     * @param string $hostSslCertificateId Unique identifier of the item
+     * @param string $hostSslCertificateId The unique identifier of hostSslCertificate
      * @return HostSslCertificateItemRequestBuilder
     */
     public function byHostSslCertificateId(string $hostSslCertificateId): HostSslCertificateItemRequestBuilder {

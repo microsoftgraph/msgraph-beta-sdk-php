@@ -29,7 +29,7 @@ class WindowsUpdateCatalogItemsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsUpdateCatalogItems property of the microsoft.graph.deviceManagement entity.
-     * @param string $windowsUpdateCatalogItemId Unique identifier of the item
+     * @param string $windowsUpdateCatalogItemId The unique identifier of windowsUpdateCatalogItem
      * @return WindowsUpdateCatalogItemItemRequestBuilder
     */
     public function byWindowsUpdateCatalogItemId(string $windowsUpdateCatalogItemId): WindowsUpdateCatalogItemItemRequestBuilder {

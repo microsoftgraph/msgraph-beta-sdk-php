@@ -29,7 +29,7 @@ class GovernanceRoleDefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of governanceRoleDefinition entities.
-     * @param string $governanceRoleDefinitionId Unique identifier of the item
+     * @param string $governanceRoleDefinitionId The unique identifier of governanceRoleDefinition
      * @return GovernanceRoleDefinitionItemRequestBuilder
     */
     public function byGovernanceRoleDefinitionId(string $governanceRoleDefinitionId): GovernanceRoleDefinitionItemRequestBuilder {

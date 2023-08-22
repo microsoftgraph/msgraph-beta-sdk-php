@@ -29,7 +29,7 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
     
     /**
      * Provides operations to manage the deviceConfigurationConflictSummary property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceConfigurationConflictSummaryId Unique identifier of the item
+     * @param string $deviceConfigurationConflictSummaryId The unique identifier of deviceConfigurationConflictSummary
      * @return DeviceConfigurationConflictSummaryItemRequestBuilder
     */
     public function byDeviceConfigurationConflictSummaryId(string $deviceConfigurationConflictSummaryId): DeviceConfigurationConflictSummaryItemRequestBuilder {

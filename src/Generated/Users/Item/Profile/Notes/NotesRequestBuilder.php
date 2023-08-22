@@ -29,7 +29,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the notes property of the microsoft.graph.profile entity.
-     * @param string $personAnnotationId Unique identifier of the item
+     * @param string $personAnnotationId The unique identifier of personAnnotation
      * @return PersonAnnotationItemRequestBuilder
     */
     public function byPersonAnnotationId(string $personAnnotationId): PersonAnnotationItemRequestBuilder {

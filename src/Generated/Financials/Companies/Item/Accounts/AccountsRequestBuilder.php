@@ -28,7 +28,7 @@ class AccountsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accounts property of the microsoft.graph.company entity.
-     * @param string $accountId Unique identifier of the item
+     * @param string $accountId The unique identifier of account
      * @return AccountItemRequestBuilder
     */
     public function byAccountId(string $accountId): AccountItemRequestBuilder {

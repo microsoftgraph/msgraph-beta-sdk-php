@@ -29,7 +29,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
-     * @param string $messageEventId Unique identifier of the item
+     * @param string $messageEventId The unique identifier of messageEvent
      * @return MessageEventItemRequestBuilder
     */
     public function byMessageEventId(string $messageEventId): MessageEventItemRequestBuilder {

@@ -29,7 +29,7 @@ class DeviceShellScriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceShellScripts property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceShellScriptId Unique identifier of the item
+     * @param string $deviceShellScriptId The unique identifier of deviceShellScript
      * @return DeviceShellScriptItemRequestBuilder
     */
     public function byDeviceShellScriptId(string $deviceShellScriptId): DeviceShellScriptItemRequestBuilder {

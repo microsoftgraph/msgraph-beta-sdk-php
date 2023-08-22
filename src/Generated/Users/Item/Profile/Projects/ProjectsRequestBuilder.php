@@ -29,7 +29,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the projects property of the microsoft.graph.profile entity.
-     * @param string $projectParticipationId Unique identifier of the item
+     * @param string $projectParticipationId The unique identifier of projectParticipation
      * @return ProjectParticipationItemRequestBuilder
     */
     public function byProjectParticipationId(string $projectParticipationId): ProjectParticipationItemRequestBuilder {
