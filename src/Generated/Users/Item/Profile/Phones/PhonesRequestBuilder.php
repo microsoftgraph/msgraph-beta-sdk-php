@@ -29,7 +29,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the phones property of the microsoft.graph.profile entity.
-     * @param string $itemPhoneId Unique identifier of the item
+     * @param string $itemPhoneId The unique identifier of itemPhone
      * @return ItemPhoneItemRequestBuilder
     */
     public function byItemPhoneId(string $itemPhoneId): ItemPhoneItemRequestBuilder {

@@ -29,7 +29,7 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param string $mobilityManagementPolicyId Unique identifier of the item
+     * @param string $mobilityManagementPolicyId The unique identifier of mobilityManagementPolicy
      * @return MobilityManagementPolicyItemRequestBuilder
     */
     public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {

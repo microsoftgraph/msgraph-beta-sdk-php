@@ -61,7 +61,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
-     * @param string $sensitivityLabelId Unique identifier of the item
+     * @param string $sensitivityLabelId The unique identifier of sensitivityLabel
      * @return SensitivityLabelItemRequestBuilder
     */
     public function bySensitivityLabelId(string $sensitivityLabelId): SensitivityLabelItemRequestBuilder {

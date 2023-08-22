@@ -29,7 +29,7 @@ class MobileAppIntentAndStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
-     * @param string $mobileAppIntentAndStateId Unique identifier of the item
+     * @param string $mobileAppIntentAndStateId The unique identifier of mobileAppIntentAndState
      * @return MobileAppIntentAndStateItemRequestBuilder
     */
     public function byMobileAppIntentAndStateId(string $mobileAppIntentAndStateId): MobileAppIntentAndStateItemRequestBuilder {

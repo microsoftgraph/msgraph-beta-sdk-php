@@ -29,7 +29,7 @@ class RecommendedSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
-     * @param string $deviceManagementSettingInstanceId Unique identifier of the item
+     * @param string $deviceManagementSettingInstanceId The unique identifier of deviceManagementSettingInstance
      * @return DeviceManagementSettingInstanceItemRequestBuilder
     */
     public function byDeviceManagementSettingInstanceId(string $deviceManagementSettingInstanceId): DeviceManagementSettingInstanceItemRequestBuilder {

@@ -29,7 +29,7 @@ class CartToClassAssociationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
-     * @param string $cartToClassAssociationId Unique identifier of the item
+     * @param string $cartToClassAssociationId The unique identifier of cartToClassAssociation
      * @return CartToClassAssociationItemRequestBuilder
     */
     public function byCartToClassAssociationId(string $cartToClassAssociationId): CartToClassAssociationItemRequestBuilder {

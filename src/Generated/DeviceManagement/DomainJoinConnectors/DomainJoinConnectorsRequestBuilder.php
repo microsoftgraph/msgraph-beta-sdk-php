@@ -29,7 +29,7 @@ class DomainJoinConnectorsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the domainJoinConnectors property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementDomainJoinConnectorId Unique identifier of the item
+     * @param string $deviceManagementDomainJoinConnectorId The unique identifier of deviceManagementDomainJoinConnector
      * @return DeviceManagementDomainJoinConnectorItemRequestBuilder
     */
     public function byDeviceManagementDomainJoinConnectorId(string $deviceManagementDomainJoinConnectorId): DeviceManagementDomainJoinConnectorItemRequestBuilder {

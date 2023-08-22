@@ -29,7 +29,7 @@ class GroupPolicySettingMappingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
-     * @param string $groupPolicySettingMappingId Unique identifier of the item
+     * @param string $groupPolicySettingMappingId The unique identifier of groupPolicySettingMapping
      * @return GroupPolicySettingMappingItemRequestBuilder
     */
     public function byGroupPolicySettingMappingId(string $groupPolicySettingMappingId): GroupPolicySettingMappingItemRequestBuilder {

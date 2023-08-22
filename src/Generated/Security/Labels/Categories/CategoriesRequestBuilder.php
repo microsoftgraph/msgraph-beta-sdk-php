@@ -29,7 +29,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the categories property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $categoryTemplateId Unique identifier of the item
+     * @param string $categoryTemplateId The unique identifier of categoryTemplate
      * @return CategoryTemplateItemRequestBuilder
     */
     public function byCategoryTemplateId(string $categoryTemplateId): CategoryTemplateItemRequestBuilder {

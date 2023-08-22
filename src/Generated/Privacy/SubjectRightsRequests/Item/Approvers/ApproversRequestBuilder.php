@@ -28,7 +28,7 @@ class ApproversRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
-     * @param string $userId Unique identifier of the item
+     * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */
     public function byUserId(string $userId): UserItemRequestBuilder {

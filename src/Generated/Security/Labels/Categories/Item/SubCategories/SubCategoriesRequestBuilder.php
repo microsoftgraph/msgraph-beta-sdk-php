@@ -29,7 +29,7 @@ class SubCategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the subCategories property of the microsoft.graph.security.categoryTemplate entity.
-     * @param string $subCategoryTemplateId Unique identifier of the item
+     * @param string $subCategoryTemplateId The unique identifier of subCategoryTemplate
      * @return SubCategoryTemplateItemRequestBuilder
     */
     public function bySubCategoryTemplateId(string $subCategoryTemplateId): SubCategoryTemplateItemRequestBuilder {

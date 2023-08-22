@@ -30,7 +30,7 @@ class AssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignmentApprovals property of the microsoft.graph.privilegedAccessGroup entity.
-     * @param string $approvalId Unique identifier of the item
+     * @param string $approvalId The unique identifier of approval
      * @return ApprovalItemRequestBuilder
     */
     public function byApprovalId(string $approvalId): ApprovalItemRequestBuilder {

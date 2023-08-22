@@ -60,20 +60,35 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
-            'registration' => fn(ParseNode $n) => $o->setRegistration($n->getObjectValue([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
+            'registrationConfiguration' => fn(ParseNode $n) => $o->setRegistrationConfiguration($n->getObjectValue([VirtualEventRegistrationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the registration property value. Registration configuration of the webinar.
-     * @return VirtualEventRegistration|null
+     * Gets the registrationConfiguration property value. The registrationConfiguration property
+     * @return VirtualEventRegistrationConfiguration|null
     */
-    public function getRegistration(): ?VirtualEventRegistration {
-        $val = $this->getBackingStore()->get('registration');
-        if (is_null($val) || $val instanceof VirtualEventRegistration) {
+    public function getRegistrationConfiguration(): ?VirtualEventRegistrationConfiguration {
+        $val = $this->getBackingStore()->get('registrationConfiguration');
+        if (is_null($val) || $val instanceof VirtualEventRegistrationConfiguration) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'registration'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationConfiguration'");
+    }
+
+    /**
+     * Gets the registrations property value. The registrations property
+     * @return array<VirtualEventRegistration>|null
+    */
+    public function getRegistrations(): ?array {
+        $val = $this->getBackingStore()->get('registrations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistration::class);
+            /** @var array<VirtualEventRegistration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrations'");
     }
 
     /**
@@ -84,7 +99,8 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('audience', $this->getAudience());
         $writer->writeCollectionOfObjectValues('coOrganizers', $this->getCoOrganizers());
-        $writer->writeObjectValue('registration', $this->getRegistration());
+        $writer->writeObjectValue('registrationConfiguration', $this->getRegistrationConfiguration());
+        $writer->writeCollectionOfObjectValues('registrations', $this->getRegistrations());
     }
 
     /**
@@ -104,11 +120,19 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the registration property value. Registration configuration of the webinar.
-     * @param VirtualEventRegistration|null $value Value to set for the registration property.
+     * Sets the registrationConfiguration property value. The registrationConfiguration property
+     * @param VirtualEventRegistrationConfiguration|null $value Value to set for the registrationConfiguration property.
     */
-    public function setRegistration(?VirtualEventRegistration $value): void {
-        $this->getBackingStore()->set('registration', $value);
+    public function setRegistrationConfiguration(?VirtualEventRegistrationConfiguration $value): void {
+        $this->getBackingStore()->set('registrationConfiguration', $value);
+    }
+
+    /**
+     * Sets the registrations property value. The registrations property
+     * @param array<VirtualEventRegistration>|null $value Value to set for the registrations property.
+    */
+    public function setRegistrations(?array $value): void {
+        $this->getBackingStore()->set('registrations', $value);
     }
 
 }

@@ -165,6 +165,7 @@ class Incident extends Entity implements Parsable
             'determination' => fn(ParseNode $n) => $o->setDetermination($n->getEnumValue(AlertDetermination::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'incidentWebUrl' => fn(ParseNode $n) => $o->setIncidentWebUrl($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
             'recommendedActions' => fn(ParseNode $n) => $o->setRecommendedActions($n->getStringValue()),
             'recommendedHuntingQueries' => fn(ParseNode $n) => $o->setRecommendedHuntingQueries($n->getCollectionOfObjectValues([RecommendedHuntingQuery::class, 'createFromDiscriminatorValue'])),
@@ -193,6 +194,18 @@ class Incident extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'incidentWebUrl'");
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return string|null
+    */
+    public function getLastModifiedBy(): ?string {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -311,6 +324,7 @@ class Incident extends Entity implements Parsable
         $writer->writeEnumValue('determination', $this->getDetermination());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('incidentWebUrl', $this->getIncidentWebUrl());
+        $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
         $writer->writeStringValue('recommendedActions', $this->getRecommendedActions());
         $writer->writeCollectionOfObjectValues('recommendedHuntingQueries', $this->getRecommendedHuntingQueries());
@@ -399,6 +413,14 @@ class Incident extends Entity implements Parsable
     */
     public function setIncidentWebUrl(?string $value): void {
         $this->getBackingStore()->set('incidentWebUrl', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param string|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**

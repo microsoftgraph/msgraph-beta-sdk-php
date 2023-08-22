@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtecti
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Not yet documented
+ * Get advancedThreatProtectionOnboardingDeviceSettingStates from deviceManagement
 */
 class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilderGetQueryParameters 
 {

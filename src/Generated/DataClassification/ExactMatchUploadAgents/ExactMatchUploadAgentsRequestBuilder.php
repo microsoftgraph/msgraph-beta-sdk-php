@@ -29,7 +29,7 @@ class ExactMatchUploadAgentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
-     * @param string $exactMatchUploadAgentId Unique identifier of the item
+     * @param string $exactMatchUploadAgentId The unique identifier of exactMatchUploadAgent
      * @return ExactMatchUploadAgentItemRequestBuilder
     */
     public function byExactMatchUploadAgentId(string $exactMatchUploadAgentId): ExactMatchUploadAgentItemRequestBuilder {

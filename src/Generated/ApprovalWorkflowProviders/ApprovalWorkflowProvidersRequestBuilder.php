@@ -29,7 +29,7 @@ class ApprovalWorkflowProvidersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of approvalWorkflowProvider entities.
-     * @param string $approvalWorkflowProviderId Unique identifier of the item
+     * @param string $approvalWorkflowProviderId The unique identifier of approvalWorkflowProvider
      * @return ApprovalWorkflowProviderItemRequestBuilder
     */
     public function byApprovalWorkflowProviderId(string $approvalWorkflowProviderId): ApprovalWorkflowProviderItemRequestBuilder {

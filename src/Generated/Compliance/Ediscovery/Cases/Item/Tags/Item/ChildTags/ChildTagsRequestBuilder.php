@@ -28,7 +28,7 @@ class ChildTagsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
-     * @param string $tagId1 Unique identifier of the item
+     * @param string $tagId1 The unique identifier of tag
      * @return TagItemRequestBuilder
     */
     public function byTagId1(string $tagId1): TagItemRequestBuilder {

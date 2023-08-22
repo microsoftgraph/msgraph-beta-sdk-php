@@ -28,7 +28,7 @@ class GeneralLedgerEntriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.
-     * @param string $generalLedgerEntryId Unique identifier of the item
+     * @param string $generalLedgerEntryId The unique identifier of generalLedgerEntry
      * @return GeneralLedgerEntryItemRequestBuilder
     */
     public function byGeneralLedgerEntryId(string $generalLedgerEntryId): GeneralLedgerEntryItemRequestBuilder {

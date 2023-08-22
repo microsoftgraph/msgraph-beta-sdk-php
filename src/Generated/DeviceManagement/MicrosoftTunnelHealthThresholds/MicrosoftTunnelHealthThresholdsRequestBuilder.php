@@ -29,7 +29,7 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the microsoftTunnelHealthThresholds property of the microsoft.graph.deviceManagement entity.
-     * @param string $microsoftTunnelHealthThresholdId Unique identifier of the item
+     * @param string $microsoftTunnelHealthThresholdId The unique identifier of microsoftTunnelHealthThreshold
      * @return MicrosoftTunnelHealthThresholdItemRequestBuilder
     */
     public function byMicrosoftTunnelHealthThresholdId(string $microsoftTunnelHealthThresholdId): MicrosoftTunnelHealthThresholdItemRequestBuilder {

@@ -29,7 +29,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
-     * @param string $virtualEventSessionId Unique identifier of the item
+     * @param string $virtualEventSessionId The unique identifier of virtualEventSession
      * @return VirtualEventSessionItemRequestBuilder
     */
     public function byVirtualEventSessionId(string $virtualEventSessionId): VirtualEventSessionItemRequestBuilder {
@@ -53,7 +53,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Sessions of the virtual event.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Sessions of the virtual event.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

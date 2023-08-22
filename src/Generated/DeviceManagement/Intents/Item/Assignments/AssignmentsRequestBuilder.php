@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
-     * @param string $deviceManagementIntentAssignmentId Unique identifier of the item
+     * @param string $deviceManagementIntentAssignmentId The unique identifier of deviceManagementIntentAssignment
      * @return DeviceManagementIntentAssignmentItemRequestBuilder
     */
     public function byDeviceManagementIntentAssignmentId(string $deviceManagementIntentAssignmentId): DeviceManagementIntentAssignmentItemRequestBuilder {

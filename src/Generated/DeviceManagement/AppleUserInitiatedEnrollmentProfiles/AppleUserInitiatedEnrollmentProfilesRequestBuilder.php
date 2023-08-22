@@ -29,7 +29,7 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     
     /**
      * Provides operations to manage the appleUserInitiatedEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $appleUserInitiatedEnrollmentProfileId Unique identifier of the item
+     * @param string $appleUserInitiatedEnrollmentProfileId The unique identifier of appleUserInitiatedEnrollmentProfile
      * @return AppleUserInitiatedEnrollmentProfileItemRequestBuilder
     */
     public function byAppleUserInitiatedEnrollmentProfileId(string $appleUserInitiatedEnrollmentProfileId): AppleUserInitiatedEnrollmentProfileItemRequestBuilder {

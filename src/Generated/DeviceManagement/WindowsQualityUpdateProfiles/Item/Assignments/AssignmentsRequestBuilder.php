@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
-     * @param string $windowsQualityUpdateProfileAssignmentId Unique identifier of the item
+     * @param string $windowsQualityUpdateProfileAssignmentId The unique identifier of windowsQualityUpdateProfileAssignment
      * @return WindowsQualityUpdateProfileAssignmentItemRequestBuilder
     */
     public function byWindowsQualityUpdateProfileAssignmentId(string $windowsQualityUpdateProfileAssignmentId): WindowsQualityUpdateProfileAssignmentItemRequestBuilder {

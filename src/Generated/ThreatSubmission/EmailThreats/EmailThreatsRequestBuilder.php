@@ -29,7 +29,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $emailThreatSubmissionId Unique identifier of the item
+     * @param string $emailThreatSubmissionId The unique identifier of emailThreatSubmission
      * @return EmailThreatSubmissionItemRequestBuilder
     */
     public function byEmailThreatSubmissionId(string $emailThreatSubmissionId): EmailThreatSubmissionItemRequestBuilder {

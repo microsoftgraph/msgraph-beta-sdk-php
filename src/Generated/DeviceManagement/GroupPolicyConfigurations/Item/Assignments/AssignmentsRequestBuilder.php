@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
-     * @param string $groupPolicyConfigurationAssignmentId Unique identifier of the item
+     * @param string $groupPolicyConfigurationAssignmentId The unique identifier of groupPolicyConfigurationAssignment
      * @return GroupPolicyConfigurationAssignmentItemRequestBuilder
     */
     public function byGroupPolicyConfigurationAssignmentId(string $groupPolicyConfigurationAssignmentId): GroupPolicyConfigurationAssignmentItemRequestBuilder {

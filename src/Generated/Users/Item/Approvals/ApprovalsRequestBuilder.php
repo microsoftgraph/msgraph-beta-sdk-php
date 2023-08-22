@@ -30,7 +30,7 @@ class ApprovalsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the approvals property of the microsoft.graph.user entity.
-     * @param string $approvalId Unique identifier of the item
+     * @param string $approvalId The unique identifier of approval
      * @return ApprovalItemRequestBuilder
     */
     public function byApprovalId(string $approvalId): ApprovalItemRequestBuilder {

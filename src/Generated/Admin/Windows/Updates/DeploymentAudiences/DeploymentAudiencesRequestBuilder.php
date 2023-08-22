@@ -29,7 +29,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deploymentAudiences property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $deploymentAudienceId Unique identifier of the item
+     * @param string $deploymentAudienceId The unique identifier of deploymentAudience
      * @return DeploymentAudienceItemRequestBuilder
     */
     public function byDeploymentAudienceId(string $deploymentAudienceId): DeploymentAudienceItemRequestBuilder {

@@ -29,7 +29,7 @@ class DispositionReviewStagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
-     * @param string $dispositionReviewStageId Unique identifier of the item
+     * @param string $dispositionReviewStageId The unique identifier of dispositionReviewStage
      * @return DispositionReviewStageItemRequestBuilder
     */
     public function byDispositionReviewStageId(string $dispositionReviewStageId): DispositionReviewStageItemRequestBuilder {

@@ -29,7 +29,7 @@ class IntentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the intents property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementIntentId Unique identifier of the item
+     * @param string $deviceManagementIntentId The unique identifier of deviceManagementIntent
      * @return DeviceManagementIntentItemRequestBuilder
     */
     public function byDeviceManagementIntentId(string $deviceManagementIntentId): DeviceManagementIntentItemRequestBuilder {

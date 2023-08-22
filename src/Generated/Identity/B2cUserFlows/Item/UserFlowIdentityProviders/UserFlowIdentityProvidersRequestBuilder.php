@@ -28,7 +28,7 @@ class UserFlowIdentityProvidersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2cIdentityUserFlow entity.
-     * @param string $identityProviderBaseId Unique identifier of the item
+     * @param string $identityProviderBaseId The unique identifier of identityProviderBase
      * @return IdentityProviderBaseItemRequestBuilder
     */
     public function byIdentityProviderBaseId(string $identityProviderBaseId): IdentityProviderBaseItemRequestBuilder {

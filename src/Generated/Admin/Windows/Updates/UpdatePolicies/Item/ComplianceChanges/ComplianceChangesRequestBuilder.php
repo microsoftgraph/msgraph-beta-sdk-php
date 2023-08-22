@@ -29,7 +29,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
-     * @param string $complianceChangeId Unique identifier of the item
+     * @param string $complianceChangeId The unique identifier of complianceChange
      * @return ComplianceChangeItemRequestBuilder
     */
     public function byComplianceChangeId(string $complianceChangeId): ComplianceChangeItemRequestBuilder {

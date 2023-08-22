@@ -29,7 +29,7 @@ class TeamTemplateDefinitionRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of teamTemplateDefinition entities.
-     * @param string $teamTemplateDefinitionId Unique identifier of the item
+     * @param string $teamTemplateDefinitionId The unique identifier of teamTemplateDefinition
      * @return TeamTemplateDefinitionItemRequestBuilder
     */
     public function byTeamTemplateDefinitionId(string $teamTemplateDefinitionId): TeamTemplateDefinitionItemRequestBuilder {

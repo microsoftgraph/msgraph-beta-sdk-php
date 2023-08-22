@@ -50,7 +50,7 @@ class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Not yet documented
+     * Get deviceComplianceSettingStates from deviceManagement
      * @param DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Not yet documented
+     * Get deviceComplianceSettingStates from deviceManagement
      * @param DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

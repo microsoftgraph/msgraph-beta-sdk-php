@@ -45,7 +45,7 @@ class ChromeOSOnboardingSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the chromeOSOnboardingSettings property of the microsoft.graph.deviceManagement entity.
-     * @param string $chromeOSOnboardingSettingsId Unique identifier of the item
+     * @param string $chromeOSOnboardingSettingsId The unique identifier of chromeOSOnboardingSettings
      * @return ChromeOSOnboardingSettingsItemRequestBuilder
     */
     public function byChromeOSOnboardingSettingsId(string $chromeOSOnboardingSettingsId): ChromeOSOnboardingSettingsItemRequestBuilder {

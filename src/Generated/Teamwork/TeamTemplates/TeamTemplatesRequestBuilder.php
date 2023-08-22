@@ -29,7 +29,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
-     * @param string $teamTemplateId Unique identifier of the item
+     * @param string $teamTemplateId The unique identifier of teamTemplate
      * @return TeamTemplateItemRequestBuilder
     */
     public function byTeamTemplateId(string $teamTemplateId): TeamTemplateItemRequestBuilder {

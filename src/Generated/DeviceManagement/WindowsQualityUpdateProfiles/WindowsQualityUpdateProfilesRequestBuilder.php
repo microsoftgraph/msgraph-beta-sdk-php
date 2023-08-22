@@ -29,7 +29,7 @@ class WindowsQualityUpdateProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the windowsQualityUpdateProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $windowsQualityUpdateProfileId Unique identifier of the item
+     * @param string $windowsQualityUpdateProfileId The unique identifier of windowsQualityUpdateProfile
      * @return WindowsQualityUpdateProfileItemRequestBuilder
     */
     public function byWindowsQualityUpdateProfileId(string $windowsQualityUpdateProfileId): WindowsQualityUpdateProfileItemRequestBuilder {

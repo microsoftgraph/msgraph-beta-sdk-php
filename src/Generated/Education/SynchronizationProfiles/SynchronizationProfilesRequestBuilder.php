@@ -29,7 +29,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
-     * @param string $educationSynchronizationProfileId Unique identifier of the item
+     * @param string $educationSynchronizationProfileId The unique identifier of educationSynchronizationProfile
      * @return EducationSynchronizationProfileItemRequestBuilder
     */
     public function byEducationSynchronizationProfileId(string $educationSynchronizationProfileId): EducationSynchronizationProfileItemRequestBuilder {

@@ -29,7 +29,7 @@ class RoleSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the roleSettings property of the microsoft.graph.governanceResource entity.
-     * @param string $governanceRoleSettingId Unique identifier of the item
+     * @param string $governanceRoleSettingId The unique identifier of governanceRoleSetting
      * @return GovernanceRoleSettingItemRequestBuilder
     */
     public function byGovernanceRoleSettingId(string $governanceRoleSettingId): GovernanceRoleSettingItemRequestBuilder {

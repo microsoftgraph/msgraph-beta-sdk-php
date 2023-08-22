@@ -52,7 +52,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
-     * @param string $directoryObjectId Unique identifier of the item
+     * @param string $directoryObjectId The unique identifier of directoryObject
      * @return DirectoryObjectItemRequestBuilder
     */
     public function byDirectoryObjectId(string $directoryObjectId): DirectoryObjectItemRequestBuilder {
@@ -76,7 +76,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0 Find more info here
@@ -95,7 +95,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -29,7 +29,7 @@ class ManagedEBookCategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedEBookCategories property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $managedEBookCategoryId Unique identifier of the item
+     * @param string $managedEBookCategoryId The unique identifier of managedEBookCategory
      * @return ManagedEBookCategoryItemRequestBuilder
     */
     public function byManagedEBookCategoryId(string $managedEBookCategoryId): ManagedEBookCategoryItemRequestBuilder {

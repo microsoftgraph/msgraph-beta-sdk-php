@@ -29,7 +29,7 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
     
     /**
      * Provides operations to manage the androidManagedStoreAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
-     * @param string $androidManagedStoreAppConfigurationSchemaId Unique identifier of the item
+     * @param string $androidManagedStoreAppConfigurationSchemaId The unique identifier of androidManagedStoreAppConfigurationSchema
      * @return AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder
     */
     public function byAndroidManagedStoreAppConfigurationSchemaId(string $androidManagedStoreAppConfigurationSchemaId): AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder {

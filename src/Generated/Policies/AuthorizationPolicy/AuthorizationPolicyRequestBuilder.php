@@ -29,7 +29,7 @@ class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
-     * @param string $authorizationPolicyId Unique identifier of the item
+     * @param string $authorizationPolicyId The unique identifier of authorizationPolicy
      * @return AuthorizationPolicyItemRequestBuilder
     */
     public function byAuthorizationPolicyId(string $authorizationPolicyId): AuthorizationPolicyItemRequestBuilder {

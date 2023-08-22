@@ -29,7 +29,7 @@ class DeviceStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
-     * @param string $embeddedSIMDeviceStateId Unique identifier of the item
+     * @param string $embeddedSIMDeviceStateId The unique identifier of embeddedSIMDeviceState
      * @return EmbeddedSIMDeviceStateItemRequestBuilder
     */
     public function byEmbeddedSIMDeviceStateId(string $embeddedSIMDeviceStateId): EmbeddedSIMDeviceStateItemRequestBuilder {

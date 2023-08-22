@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder extends B
     
     /**
      * Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsDeviceWithoutCloudIdentityId Unique identifier of the item
+     * @param string $userExperienceAnalyticsDeviceWithoutCloudIdentityId The unique identifier of userExperienceAnalyticsDeviceWithoutCloudIdentity
      * @return UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder
     */
     public function byUserExperienceAnalyticsDeviceWithoutCloudIdentityId(string $userExperienceAnalyticsDeviceWithoutCloudIdentityId): UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder {

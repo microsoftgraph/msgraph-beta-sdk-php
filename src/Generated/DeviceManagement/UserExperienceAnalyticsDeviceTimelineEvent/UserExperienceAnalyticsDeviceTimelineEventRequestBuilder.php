@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
     
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsDeviceTimelineEventId Unique identifier of the item
+     * @param string $userExperienceAnalyticsDeviceTimelineEventId The unique identifier of userExperienceAnalyticsDeviceTimelineEvent
      * @return UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder
     */
     public function byUserExperienceAnalyticsDeviceTimelineEventId(string $userExperienceAnalyticsDeviceTimelineEventId): UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder {

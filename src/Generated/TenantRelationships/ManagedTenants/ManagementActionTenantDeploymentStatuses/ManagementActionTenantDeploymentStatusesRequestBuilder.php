@@ -37,7 +37,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     
     /**
      * Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managementActionTenantDeploymentStatusId Unique identifier of the item
+     * @param string $managementActionTenantDeploymentStatusId The unique identifier of managementActionTenantDeploymentStatus
      * @return ManagementActionTenantDeploymentStatusItemRequestBuilder
     */
     public function byManagementActionTenantDeploymentStatusId(string $managementActionTenantDeploymentStatusId): ManagementActionTenantDeploymentStatusItemRequestBuilder {

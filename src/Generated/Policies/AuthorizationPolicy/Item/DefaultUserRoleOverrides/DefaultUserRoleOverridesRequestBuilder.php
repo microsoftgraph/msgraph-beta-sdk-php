@@ -29,7 +29,7 @@ class DefaultUserRoleOverridesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
-     * @param string $defaultUserRoleOverrideId Unique identifier of the item
+     * @param string $defaultUserRoleOverrideId The unique identifier of defaultUserRoleOverride
      * @return DefaultUserRoleOverrideItemRequestBuilder
     */
     public function byDefaultUserRoleOverrideId(string $defaultUserRoleOverrideId): DefaultUserRoleOverrideItemRequestBuilder {

@@ -81,7 +81,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain cannot be verified.
+     * Gets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain can't be verified.
      * @return bool|null
     */
     public function getRemoveUnverifiedEmailClaim(): ?bool {
@@ -93,7 +93,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the requireClientServicePrincipal property value. The requireClientServicePrincipal property
+     * Gets the requireClientServicePrincipal property value. Requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multi-tenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
      * @return bool|null
     */
     public function getRequireClientServicePrincipal(): ?bool {
@@ -140,7 +140,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain cannot be verified.
+     * Sets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain can't be verified.
      * @param bool|null $value Value to set for the removeUnverifiedEmailClaim property.
     */
     public function setRemoveUnverifiedEmailClaim(?bool $value): void {
@@ -148,7 +148,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the requireClientServicePrincipal property value. The requireClientServicePrincipal property
+     * Sets the requireClientServicePrincipal property value. Requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multi-tenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
      * @param bool|null $value Value to set for the requireClientServicePrincipal property.
     */
     public function setRequireClientServicePrincipal(?bool $value): void {

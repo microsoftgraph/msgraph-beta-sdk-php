@@ -37,7 +37,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
-     * @param string $customAuthenticationExtensionId Unique identifier of the item
+     * @param string $customAuthenticationExtensionId The unique identifier of customAuthenticationExtension
      * @return CustomAuthenticationExtensionItemRequestBuilder
     */
     public function byCustomAuthenticationExtensionId(string $customAuthenticationExtensionId): CustomAuthenticationExtensionItemRequestBuilder {

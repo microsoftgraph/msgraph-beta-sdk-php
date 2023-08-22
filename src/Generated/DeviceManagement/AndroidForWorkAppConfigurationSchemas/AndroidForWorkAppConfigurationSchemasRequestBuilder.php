@@ -29,7 +29,7 @@ class AndroidForWorkAppConfigurationSchemasRequestBuilder extends BaseRequestBui
     
     /**
      * Provides operations to manage the androidForWorkAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
-     * @param string $androidForWorkAppConfigurationSchemaId Unique identifier of the item
+     * @param string $androidForWorkAppConfigurationSchemaId The unique identifier of androidForWorkAppConfigurationSchema
      * @return AndroidForWorkAppConfigurationSchemaItemRequestBuilder
     */
     public function byAndroidForWorkAppConfigurationSchemaId(string $androidForWorkAppConfigurationSchemaId): AndroidForWorkAppConfigurationSchemaItemRequestBuilder {

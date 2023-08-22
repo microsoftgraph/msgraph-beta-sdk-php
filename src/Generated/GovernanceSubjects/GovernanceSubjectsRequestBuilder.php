@@ -29,7 +29,7 @@ class GovernanceSubjectsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of governanceSubject entities.
-     * @param string $governanceSubjectId Unique identifier of the item
+     * @param string $governanceSubjectId The unique identifier of governanceSubject
      * @return GovernanceSubjectItemRequestBuilder
     */
     public function byGovernanceSubjectId(string $governanceSubjectId): GovernanceSubjectItemRequestBuilder {

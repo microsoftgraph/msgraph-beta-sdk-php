@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementResourceAccessProfileBase entity.
-     * @param string $deviceManagementResourceAccessProfileAssignmentId Unique identifier of the item
+     * @param string $deviceManagementResourceAccessProfileAssignmentId The unique identifier of deviceManagementResourceAccessProfileAssignment
      * @return DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder
     */
     public function byDeviceManagementResourceAccessProfileAssignmentId(string $deviceManagementResourceAccessProfileAssignmentId): DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder {

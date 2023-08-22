@@ -30,7 +30,7 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
-     * @param string $accessReviewInstanceId Unique identifier of the item
+     * @param string $accessReviewInstanceId The unique identifier of accessReviewInstance
      * @return AccessReviewInstanceItemRequestBuilder
     */
     public function byAccessReviewInstanceId(string $accessReviewInstanceId): AccessReviewInstanceItemRequestBuilder {

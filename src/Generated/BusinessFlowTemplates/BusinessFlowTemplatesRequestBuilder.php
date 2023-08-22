@@ -29,7 +29,7 @@ class BusinessFlowTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of businessFlowTemplate entities.
-     * @param string $businessFlowTemplateId Unique identifier of the item
+     * @param string $businessFlowTemplateId The unique identifier of businessFlowTemplate
      * @return BusinessFlowTemplateItemRequestBuilder
     */
     public function byBusinessFlowTemplateId(string $businessFlowTemplateId): BusinessFlowTemplateItemRequestBuilder {

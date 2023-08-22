@@ -37,7 +37,7 @@ class AllRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
-     * @param string $plannerDeltaId Unique identifier of the item
+     * @param string $plannerDeltaId The unique identifier of plannerDelta
      * @return PlannerDeltaItemRequestBuilder
     */
     public function byPlannerDeltaId(string $plannerDeltaId): PlannerDeltaItemRequestBuilder {

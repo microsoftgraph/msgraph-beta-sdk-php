@@ -29,7 +29,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
-     * @param string $profileCardPropertyId Unique identifier of the item
+     * @param string $profileCardPropertyId The unique identifier of profileCardProperty
      * @return ProfileCardPropertyItemRequestBuilder
     */
     public function byProfileCardPropertyId(string $profileCardPropertyId): ProfileCardPropertyItemRequestBuilder {
@@ -53,9 +53,10 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get profileCardProperties from admin
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProfileCardPropertiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function post(ProfileCardProperty $body, ?ProfileCardPropertiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get profileCardProperties from admin
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

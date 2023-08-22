@@ -29,7 +29,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $retentionLabelId Unique identifier of the item
+     * @param string $retentionLabelId The unique identifier of retentionLabel
      * @return RetentionLabelItemRequestBuilder
     */
     public function byRetentionLabelId(string $retentionLabelId): RetentionLabelItemRequestBuilder {

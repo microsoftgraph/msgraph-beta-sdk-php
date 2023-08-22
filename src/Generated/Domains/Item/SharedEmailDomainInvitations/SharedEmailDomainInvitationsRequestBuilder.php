@@ -29,7 +29,7 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sharedEmailDomainInvitations property of the microsoft.graph.domain entity.
-     * @param string $sharedEmailDomainInvitationId Unique identifier of the item
+     * @param string $sharedEmailDomainInvitationId The unique identifier of sharedEmailDomainInvitation
      * @return SharedEmailDomainInvitationItemRequestBuilder
     */
     public function bySharedEmailDomainInvitationId(string $sharedEmailDomainInvitationId): SharedEmailDomainInvitationItemRequestBuilder {

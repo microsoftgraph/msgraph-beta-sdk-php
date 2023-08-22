@@ -29,7 +29,7 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the comanagementEligibleDevices property of the microsoft.graph.deviceManagement entity.
-     * @param string $comanagementEligibleDeviceId Unique identifier of the item
+     * @param string $comanagementEligibleDeviceId The unique identifier of comanagementEligibleDevice
      * @return ComanagementEligibleDeviceItemRequestBuilder
     */
     public function byComanagementEligibleDeviceId(string $comanagementEligibleDeviceId): ComanagementEligibleDeviceItemRequestBuilder {

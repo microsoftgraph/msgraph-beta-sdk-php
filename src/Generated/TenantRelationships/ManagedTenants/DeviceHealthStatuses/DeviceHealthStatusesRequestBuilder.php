@@ -29,7 +29,7 @@ class DeviceHealthStatusesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $deviceHealthStatusId Unique identifier of the item
+     * @param string $deviceHealthStatusId The unique identifier of deviceHealthStatus
      * @return DeviceHealthStatusItemRequestBuilder
     */
     public function byDeviceHealthStatusId(string $deviceHealthStatusId): DeviceHealthStatusItemRequestBuilder {

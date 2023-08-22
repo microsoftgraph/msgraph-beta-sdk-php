@@ -29,7 +29,7 @@ class UpdateStateSummariesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
-     * @param string $macOSSoftwareUpdateStateSummaryId Unique identifier of the item
+     * @param string $macOSSoftwareUpdateStateSummaryId The unique identifier of macOSSoftwareUpdateStateSummary
      * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder
     */
     public function byMacOSSoftwareUpdateStateSummaryId(string $macOSSoftwareUpdateStateSummaryId): MacOSSoftwareUpdateStateSummaryItemRequestBuilder {

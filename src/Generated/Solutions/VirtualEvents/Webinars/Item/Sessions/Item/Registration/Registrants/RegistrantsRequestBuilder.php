@@ -29,7 +29,7 @@ class RegistrantsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the registrants property of the microsoft.graph.meetingRegistrationBase entity.
-     * @param string $meetingRegistrantBaseId Unique identifier of the item
+     * @param string $meetingRegistrantBaseId The unique identifier of meetingRegistrantBase
      * @return MeetingRegistrantBaseItemRequestBuilder
     */
     public function byMeetingRegistrantBaseId(string $meetingRegistrantBaseId): MeetingRegistrantBaseItemRequestBuilder {

@@ -29,7 +29,7 @@ class HostSecurityProfilesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.
-     * @param string $hostSecurityProfileId Unique identifier of the item
+     * @param string $hostSecurityProfileId The unique identifier of hostSecurityProfile
      * @return HostSecurityProfileItemRequestBuilder
     */
     public function byHostSecurityProfileId(string $hostSecurityProfileId): HostSecurityProfileItemRequestBuilder {

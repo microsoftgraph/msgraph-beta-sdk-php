@@ -29,7 +29,7 @@ class ImpactedResourcesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
-     * @param string $impactedResourceId Unique identifier of the item
+     * @param string $impactedResourceId The unique identifier of impactedResource
      * @return ImpactedResourceItemRequestBuilder
     */
     public function byImpactedResourceId(string $impactedResourceId): ImpactedResourceItemRequestBuilder {

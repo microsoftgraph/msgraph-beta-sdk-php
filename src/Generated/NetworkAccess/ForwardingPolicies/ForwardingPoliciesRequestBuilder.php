@@ -29,7 +29,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the forwardingPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
-     * @param string $forwardingPolicyId Unique identifier of the item
+     * @param string $forwardingPolicyId The unique identifier of forwardingPolicy
      * @return ForwardingPolicyItemRequestBuilder
     */
     public function byForwardingPolicyId(string $forwardingPolicyId): ForwardingPolicyItemRequestBuilder {

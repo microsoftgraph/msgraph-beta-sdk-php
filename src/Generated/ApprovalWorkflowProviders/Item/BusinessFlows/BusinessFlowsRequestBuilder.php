@@ -29,7 +29,7 @@ class BusinessFlowsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.
-     * @param string $businessFlowId Unique identifier of the item
+     * @param string $businessFlowId The unique identifier of businessFlow
      * @return BusinessFlowItemRequestBuilder
     */
     public function byBusinessFlowId(string $businessFlowId): BusinessFlowItemRequestBuilder {

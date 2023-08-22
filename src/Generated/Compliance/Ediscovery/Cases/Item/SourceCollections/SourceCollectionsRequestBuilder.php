@@ -29,7 +29,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
-     * @param string $sourceCollectionId Unique identifier of the item
+     * @param string $sourceCollectionId The unique identifier of sourceCollection
      * @return SourceCollectionItemRequestBuilder
     */
     public function bySourceCollectionId(string $sourceCollectionId): SourceCollectionItemRequestBuilder {

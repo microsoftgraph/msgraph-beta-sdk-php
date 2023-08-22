@@ -45,7 +45,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the importedDeviceIdentities property of the microsoft.graph.deviceManagement entity.
-     * @param string $importedDeviceIdentityId Unique identifier of the item
+     * @param string $importedDeviceIdentityId The unique identifier of importedDeviceIdentity
      * @return ImportedDeviceIdentityItemRequestBuilder
     */
     public function byImportedDeviceIdentityId(string $importedDeviceIdentityId): ImportedDeviceIdentityItemRequestBuilder {

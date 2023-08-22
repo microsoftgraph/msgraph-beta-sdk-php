@@ -30,7 +30,7 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the appConsentRequestsForApproval property of the microsoft.graph.user entity.
-     * @param string $appConsentRequestId Unique identifier of the item
+     * @param string $appConsentRequestId The unique identifier of appConsentRequest
      * @return AppConsentRequestItemRequestBuilder
     */
     public function byAppConsentRequestId(string $appConsentRequestId): AppConsentRequestItemRequestBuilder {

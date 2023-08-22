@@ -29,7 +29,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $attackSimulationOperationId Unique identifier of the item
+     * @param string $attackSimulationOperationId The unique identifier of attackSimulationOperation
      * @return AttackSimulationOperationItemRequestBuilder
     */
     public function byAttackSimulationOperationId(string $attackSimulationOperationId): AttackSimulationOperationItemRequestBuilder {

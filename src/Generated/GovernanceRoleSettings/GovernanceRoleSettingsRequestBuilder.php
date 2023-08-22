@@ -29,7 +29,7 @@ class GovernanceRoleSettingsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of governanceRoleSetting entities.
-     * @param string $governanceRoleSettingId Unique identifier of the item
+     * @param string $governanceRoleSettingId The unique identifier of governanceRoleSetting
      * @return GovernanceRoleSettingItemRequestBuilder
     */
     public function byGovernanceRoleSettingId(string $governanceRoleSettingId): GovernanceRoleSettingItemRequestBuilder {

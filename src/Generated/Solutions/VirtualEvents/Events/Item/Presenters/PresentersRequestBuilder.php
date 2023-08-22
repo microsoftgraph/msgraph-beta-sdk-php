@@ -29,7 +29,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
-     * @param string $virtualEventPresenterId Unique identifier of the item
+     * @param string $virtualEventPresenterId The unique identifier of virtualEventPresenter
      * @return VirtualEventPresenterItemRequestBuilder
     */
     public function byVirtualEventPresenterId(string $virtualEventPresenterId): VirtualEventPresenterItemRequestBuilder {

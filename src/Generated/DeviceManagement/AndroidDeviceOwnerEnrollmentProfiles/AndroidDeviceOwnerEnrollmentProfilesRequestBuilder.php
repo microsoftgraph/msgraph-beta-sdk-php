@@ -29,7 +29,7 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     
     /**
      * Provides operations to manage the androidDeviceOwnerEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
-     * @param string $androidDeviceOwnerEnrollmentProfileId Unique identifier of the item
+     * @param string $androidDeviceOwnerEnrollmentProfileId The unique identifier of androidDeviceOwnerEnrollmentProfile
      * @return AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder
     */
     public function byAndroidDeviceOwnerEnrollmentProfileId(string $androidDeviceOwnerEnrollmentProfileId): AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder {

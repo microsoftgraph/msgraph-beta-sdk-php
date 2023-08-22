@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.intuneBrandingProfile entity.
-     * @param string $intuneBrandingProfileAssignmentId Unique identifier of the item
+     * @param string $intuneBrandingProfileAssignmentId The unique identifier of intuneBrandingProfileAssignment
      * @return IntuneBrandingProfileAssignmentItemRequestBuilder
     */
     public function byIntuneBrandingProfileAssignmentId(string $intuneBrandingProfileAssignmentId): IntuneBrandingProfileAssignmentItemRequestBuilder {

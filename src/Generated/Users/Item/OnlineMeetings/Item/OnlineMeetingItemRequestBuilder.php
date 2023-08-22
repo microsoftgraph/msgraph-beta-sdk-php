@@ -17,7 +17,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Recording\Reco
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Recordings\RecordingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -96,13 +95,6 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     */
     public function transcripts(): TranscriptsRequestBuilder {
         return new TranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the virtualAppointment property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function virtualAppointment(): VirtualAppointmentRequestBuilder {
-        return new VirtualAppointmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

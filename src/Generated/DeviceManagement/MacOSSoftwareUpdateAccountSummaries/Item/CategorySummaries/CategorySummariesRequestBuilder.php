@@ -29,7 +29,7 @@ class CategorySummariesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.
-     * @param string $macOSSoftwareUpdateCategorySummaryId Unique identifier of the item
+     * @param string $macOSSoftwareUpdateCategorySummaryId The unique identifier of macOSSoftwareUpdateCategorySummary
      * @return MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     */
     public function byMacOSSoftwareUpdateCategorySummaryId(string $macOSSoftwareUpdateCategorySummaryId): MacOSSoftwareUpdateCategorySummaryItemRequestBuilder {

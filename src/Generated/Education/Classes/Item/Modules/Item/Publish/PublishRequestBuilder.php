@@ -32,9 +32,10 @@ class PublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action publish
+     * Change the state of an educationModule from its original draft status to the published status. Only teachers in the class can perform this operation. When a module is in draft status, students will not see the module. When you call this API, the module appears in the student's classwork list.
      * @param PublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/educationmodule-publish?view=graph-rest-1.0 Find more info here
     */
     public function post(?PublishRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class PublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action publish
+     * Change the state of an educationModule from its original draft status to the published status. Only teachers in the class can perform this operation. When a module is in draft status, students will not see the module. When you call this API, the module appears in the student's classwork list.
      * @param PublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

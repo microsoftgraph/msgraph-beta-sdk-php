@@ -29,7 +29,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder extend
     
     /**
      * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
-     * @param string $advancedThreatProtectionOnboardingDeviceSettingStateId Unique identifier of the item
+     * @param string $advancedThreatProtectionOnboardingDeviceSettingStateId The unique identifier of advancedThreatProtectionOnboardingDeviceSettingState
      * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
     */
     public function byAdvancedThreatProtectionOnboardingDeviceSettingStateId(string $advancedThreatProtectionOnboardingDeviceSettingStateId): AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
@@ -53,7 +53,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder extend
     }
 
     /**
-     * Not yet documented
+     * Get advancedThreatProtectionOnboardingDeviceSettingStates from deviceManagement
      * @param AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder extend
     }
 
     /**
-     * Not yet documented
+     * Get advancedThreatProtectionOnboardingDeviceSettingStates from deviceManagement
      * @param AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

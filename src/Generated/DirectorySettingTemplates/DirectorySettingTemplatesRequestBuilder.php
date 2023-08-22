@@ -61,7 +61,7 @@ class DirectorySettingTemplatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of directorySettingTemplate entities.
-     * @param string $directorySettingTemplateId Unique identifier of the item
+     * @param string $directorySettingTemplateId The unique identifier of directorySettingTemplate
      * @return DirectorySettingTemplateItemRequestBuilder
     */
     public function byDirectorySettingTemplateId(string $directorySettingTemplateId): DirectorySettingTemplateItemRequestBuilder {

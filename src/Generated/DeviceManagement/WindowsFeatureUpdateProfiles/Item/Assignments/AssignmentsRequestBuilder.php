@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.
-     * @param string $windowsFeatureUpdateProfileAssignmentId Unique identifier of the item
+     * @param string $windowsFeatureUpdateProfileAssignmentId The unique identifier of windowsFeatureUpdateProfileAssignment
      * @return WindowsFeatureUpdateProfileAssignmentItemRequestBuilder
     */
     public function byWindowsFeatureUpdateProfileAssignmentId(string $windowsFeatureUpdateProfileAssignmentId): WindowsFeatureUpdateProfileAssignmentItemRequestBuilder {

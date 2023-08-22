@@ -28,7 +28,7 @@ class AssignedUsersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
-     * @param string $userId Unique identifier of the item
+     * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */
     public function byUserId(string $userId): UserItemRequestBuilder {

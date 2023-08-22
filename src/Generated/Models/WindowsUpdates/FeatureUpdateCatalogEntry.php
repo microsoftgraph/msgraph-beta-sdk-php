@@ -26,12 +26,25 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
+     * Gets the buildNumber property value. The buildNumber property
+     * @return string|null
+    */
+    public function getBuildNumber(): ?string {
+        $val = $this->getBackingStore()->get('buildNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'buildNumber'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
@@ -54,7 +67,16 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('version', $this->getVersion());
+    }
+
+    /**
+     * Sets the buildNumber property value. The buildNumber property
+     * @param string|null $value Value to set for the buildNumber property.
+    */
+    public function setBuildNumber(?string $value): void {
+        $this->getBackingStore()->set('buildNumber', $value);
     }
 
     /**

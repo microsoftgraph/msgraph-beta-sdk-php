@@ -29,7 +29,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.appleUserInitiatedEnrollmentProfile entity.
-     * @param string $appleEnrollmentProfileAssignmentId Unique identifier of the item
+     * @param string $appleEnrollmentProfileAssignmentId The unique identifier of appleEnrollmentProfileAssignment
      * @return AppleEnrollmentProfileAssignmentItemRequestBuilder
     */
     public function byAppleEnrollmentProfileAssignmentId(string $appleEnrollmentProfileAssignmentId): AppleEnrollmentProfileAssignmentItemRequestBuilder {

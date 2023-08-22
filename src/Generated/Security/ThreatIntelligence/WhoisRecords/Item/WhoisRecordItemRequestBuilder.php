@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisRecord;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecords\Item\History\HistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecords\Item\Host\HostRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,7 +20,14 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class WhoisRecordItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the host property of the microsoft.graph.security.whoisRecord entity.
+     * Provides operations to manage the history property of the microsoft.graph.security.whoisRecord entity.
+    */
+    public function history(): HistoryRequestBuilder {
+        return new HistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the host property of the microsoft.graph.security.whoisBaseRecord entity.
     */
     public function host(): HostRequestBuilder {
         return new HostRequestBuilder($this->pathParameters, $this->requestAdapter);

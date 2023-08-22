@@ -29,7 +29,7 @@ class GroupPolicyDefinitionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the groupPolicyDefinitions property of the microsoft.graph.deviceManagement entity.
-     * @param string $groupPolicyDefinitionId Unique identifier of the item
+     * @param string $groupPolicyDefinitionId The unique identifier of groupPolicyDefinition
      * @return GroupPolicyDefinitionItemRequestBuilder
     */
     public function byGroupPolicyDefinitionId(string $groupPolicyDefinitionId): GroupPolicyDefinitionItemRequestBuilder {

@@ -50,7 +50,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder ext
     }
 
     /**
-     * Not yet documented
+     * Get advancedThreatProtectionOnboardingDeviceSettingStates from deviceManagement
      * @param AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder ext
     }
 
     /**
-     * Not yet documented
+     * Get advancedThreatProtectionOnboardingDeviceSettingStates from deviceManagement
      * @param AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -29,7 +29,7 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
-     * @param string $managedDeviceComplianceTrendId Unique identifier of the item
+     * @param string $managedDeviceComplianceTrendId The unique identifier of managedDeviceComplianceTrend
      * @return ManagedDeviceComplianceTrendItemRequestBuilder
     */
     public function byManagedDeviceComplianceTrendId(string $managedDeviceComplianceTrendId): ManagedDeviceComplianceTrendItemRequestBuilder {

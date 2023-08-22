@@ -29,7 +29,7 @@ class WdacSupplementalPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the wdacSupplementalPolicies property of the microsoft.graph.deviceAppManagement entity.
-     * @param string $windowsDefenderApplicationControlSupplementalPolicyId Unique identifier of the item
+     * @param string $windowsDefenderApplicationControlSupplementalPolicyId The unique identifier of windowsDefenderApplicationControlSupplementalPolicy
      * @return WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
     */
     public function byWindowsDefenderApplicationControlSupplementalPolicyId(string $windowsDefenderApplicationControlSupplementalPolicyId): WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder {

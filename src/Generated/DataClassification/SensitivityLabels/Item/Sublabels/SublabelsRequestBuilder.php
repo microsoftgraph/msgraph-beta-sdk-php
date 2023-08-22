@@ -37,7 +37,7 @@ class SublabelsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
-     * @param string $sensitivityLabelId1 Unique identifier of the item
+     * @param string $sensitivityLabelId1 The unique identifier of sensitivityLabel
      * @return SensitivityLabelItemRequestBuilder
     */
     public function bySensitivityLabelId1(string $sensitivityLabelId1): SensitivityLabelItemRequestBuilder {

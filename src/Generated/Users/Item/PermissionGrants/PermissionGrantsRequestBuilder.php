@@ -61,7 +61,7 @@ class PermissionGrantsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.user entity.
-     * @param string $resourceSpecificPermissionGrantId Unique identifier of the item
+     * @param string $resourceSpecificPermissionGrantId The unique identifier of resourceSpecificPermissionGrant
      * @return ResourceSpecificPermissionGrantItemRequestBuilder
     */
     public function byResourceSpecificPermissionGrantId(string $resourceSpecificPermissionGrantId): ResourceSpecificPermissionGrantItemRequestBuilder {
@@ -85,9 +85,10 @@ class PermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get permissionGrants from users
+     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has.
      * @param PermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/user-list-permissiongrants?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionGrantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -122,7 +123,7 @@ class PermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get permissionGrants from users
+     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has.
      * @param PermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

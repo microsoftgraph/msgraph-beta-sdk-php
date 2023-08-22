@@ -29,7 +29,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
     
     /**
      * Provides operations to manage the userExperienceAnalyticsNotAutopilotReadyDevice property of the microsoft.graph.deviceManagement entity.
-     * @param string $userExperienceAnalyticsNotAutopilotReadyDeviceId Unique identifier of the item
+     * @param string $userExperienceAnalyticsNotAutopilotReadyDeviceId The unique identifier of userExperienceAnalyticsNotAutopilotReadyDevice
      * @return UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder
     */
     public function byUserExperienceAnalyticsNotAutopilotReadyDeviceId(string $userExperienceAnalyticsNotAutopilotReadyDeviceId): UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder {

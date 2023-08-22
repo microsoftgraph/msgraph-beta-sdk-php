@@ -29,7 +29,7 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the deviceCustomAttributeShellScripts property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceCustomAttributeShellScriptId Unique identifier of the item
+     * @param string $deviceCustomAttributeShellScriptId The unique identifier of deviceCustomAttributeShellScript
      * @return DeviceCustomAttributeShellScriptItemRequestBuilder
     */
     public function byDeviceCustomAttributeShellScriptId(string $deviceCustomAttributeShellScriptId): DeviceCustomAttributeShellScriptItemRequestBuilder {

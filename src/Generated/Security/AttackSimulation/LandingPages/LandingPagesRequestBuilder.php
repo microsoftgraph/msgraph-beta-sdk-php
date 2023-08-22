@@ -29,7 +29,7 @@ class LandingPagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the landingPages property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $landingPageId Unique identifier of the item
+     * @param string $landingPageId The unique identifier of landingPage
      * @return LandingPageItemRequestBuilder
     */
     public function byLandingPageId(string $landingPageId): LandingPageItemRequestBuilder {

@@ -61,7 +61,7 @@ class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of administrativeUnit entities.
-     * @param string $administrativeUnitId Unique identifier of the item
+     * @param string $administrativeUnitId The unique identifier of administrativeUnit
      * @return AdministrativeUnitItemRequestBuilder
     */
     public function byAdministrativeUnitId(string $administrativeUnitId): AdministrativeUnitItemRequestBuilder {

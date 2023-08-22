@@ -29,7 +29,7 @@ class DetailsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the details property of the microsoft.graph.landingPage entity.
-     * @param string $landingPageDetailId Unique identifier of the item
+     * @param string $landingPageDetailId The unique identifier of landingPageDetail
      * @return LandingPageDetailItemRequestBuilder
     */
     public function byLandingPageDetailId(string $landingPageDetailId): LandingPageDetailItemRequestBuilder {

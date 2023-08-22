@@ -28,7 +28,7 @@ class DimensionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dimensions property of the microsoft.graph.company entity.
-     * @param string $dimensionId Unique identifier of the item
+     * @param string $dimensionId The unique identifier of dimension
      * @return DimensionItemRequestBuilder
     */
     public function byDimensionId(string $dimensionId): DimensionItemRequestBuilder {

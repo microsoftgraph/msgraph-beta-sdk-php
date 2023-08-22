@@ -39,4 +39,7 @@ class ConditionalAccessRule extends Enum {
     public const OTHER_EXTERNAL_USER = 'otherExternalUser';
     public const SERVICE_PROVIDER = 'serviceProvider';
     public const MICROSOFT_ADMIN_PORTALS = 'microsoftAdminPortals';
+    public const DEVICE_CODE_FLOW = 'deviceCodeFlow';
+    public const AUTHENTICATION_TRANSFER = 'authenticationTransfer';
+    public const INSIDER_RISK = 'insiderRisk';
 }

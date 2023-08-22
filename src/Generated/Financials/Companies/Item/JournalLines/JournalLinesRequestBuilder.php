@@ -29,7 +29,7 @@ class JournalLinesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the journalLines property of the microsoft.graph.company entity.
-     * @param string $journalLineId Unique identifier of the item
+     * @param string $journalLineId The unique identifier of journalLine
      * @return JournalLineItemRequestBuilder
     */
     public function byJournalLineId(string $journalLineId): JournalLineItemRequestBuilder {

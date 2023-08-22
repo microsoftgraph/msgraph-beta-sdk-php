@@ -29,7 +29,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the awards property of the microsoft.graph.profile entity.
-     * @param string $personAwardId Unique identifier of the item
+     * @param string $personAwardId The unique identifier of personAward
      * @return PersonAwardItemRequestBuilder
     */
     public function byPersonAwardId(string $personAwardId): PersonAwardItemRequestBuilder {

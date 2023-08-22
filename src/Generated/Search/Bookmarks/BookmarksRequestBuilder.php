@@ -29,7 +29,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the bookmarks property of the microsoft.graph.searchEntity entity.
-     * @param string $bookmarkId Unique identifier of the item
+     * @param string $bookmarkId The unique identifier of bookmark
      * @return BookmarkItemRequestBuilder
     */
     public function byBookmarkId(string $bookmarkId): BookmarkItemRequestBuilder {

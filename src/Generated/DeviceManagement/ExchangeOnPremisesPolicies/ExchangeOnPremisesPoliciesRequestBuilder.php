@@ -29,7 +29,7 @@ class ExchangeOnPremisesPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the exchangeOnPremisesPolicies property of the microsoft.graph.deviceManagement entity.
-     * @param string $deviceManagementExchangeOnPremisesPolicyId Unique identifier of the item
+     * @param string $deviceManagementExchangeOnPremisesPolicyId The unique identifier of deviceManagementExchangeOnPremisesPolicy
      * @return DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder
     */
     public function byDeviceManagementExchangeOnPremisesPolicyId(string $deviceManagementExchangeOnPremisesPolicyId): DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder {

@@ -29,7 +29,7 @@ class AccessReviewDecisionsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the collection of accessReviewDecision entities.
-     * @param string $accessReviewDecisionId Unique identifier of the item
+     * @param string $accessReviewDecisionId The unique identifier of accessReviewDecision
      * @return AccessReviewDecisionItemRequestBuilder
     */
     public function byAccessReviewDecisionId(string $accessReviewDecisionId): AccessReviewDecisionItemRequestBuilder {

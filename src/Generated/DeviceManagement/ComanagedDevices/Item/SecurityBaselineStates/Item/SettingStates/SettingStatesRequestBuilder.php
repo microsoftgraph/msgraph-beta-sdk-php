@@ -29,7 +29,7 @@ class SettingStatesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
-     * @param string $securityBaselineSettingStateId Unique identifier of the item
+     * @param string $securityBaselineSettingStateId The unique identifier of securityBaselineSettingState
      * @return SecurityBaselineSettingStateItemRequestBuilder
     */
     public function bySecurityBaselineSettingStateId(string $securityBaselineSettingStateId): SecurityBaselineSettingStateItemRequestBuilder {

@@ -28,7 +28,7 @@ class AccessPackageAssignmentsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
-     * @param string $accessPackageAssignmentId Unique identifier of the item
+     * @param string $accessPackageAssignmentId The unique identifier of accessPackageAssignment
      * @return AccessPackageAssignmentItemRequestBuilder
     */
     public function byAccessPackageAssignmentId(string $accessPackageAssignmentId): AccessPackageAssignmentItemRequestBuilder {

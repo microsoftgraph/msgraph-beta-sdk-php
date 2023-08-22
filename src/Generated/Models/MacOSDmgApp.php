@@ -45,7 +45,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the ignoreVersionDetection property value. A value indicating whether the app's version will be used to detect the app after it is installed on a device. Set this to true for apps that use a self-update feature. Set this to false to install the app when it is not already installed on the device, or if the deploying app's version number does not match the version that's already installed on the device.
+     * Gets the ignoreVersionDetection property value. When TRUE, indicates that the app's version will NOT be used to detect if the app is installed on a device. When FALSE, indicates that the app's version will be used to detect if the app is installed on a device. Set this to true for apps that use a self update feature. The default value is FALSE.
      * @return bool|null
     */
     public function getIgnoreVersionDetection(): ?bool {
@@ -57,7 +57,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the includedApps property value. The list of apps expected to be installed by the DMG.
+     * Gets the includedApps property value. The list of .apps expected to be installed by the DMG (Apple Disk Image)
      * @return array<MacOSIncludedApp>|null
     */
     public function getIncludedApps(): ?array {
@@ -71,7 +71,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * Gets the minimumSupportedOperatingSystem property value. ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application.
      * @return MacOSMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?MacOSMinimumOperatingSystem {
@@ -83,7 +83,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the primaryBundleId property value. The primary CFBundleIdentifier of the DMG.
+     * Gets the primaryBundleId property value. The bundleId of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleIdentifier in the app's bundle configuration.
      * @return string|null
     */
     public function getPrimaryBundleId(): ?string {
@@ -95,7 +95,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the primaryBundleVersion property value. The primary CFBundleVersion of the DMG.
+     * Gets the primaryBundleVersion property value. The version of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleShortVersion in the app's bundle configuration.
      * @return string|null
     */
     public function getPrimaryBundleVersion(): ?string {
@@ -120,7 +120,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the ignoreVersionDetection property value. A value indicating whether the app's version will be used to detect the app after it is installed on a device. Set this to true for apps that use a self-update feature. Set this to false to install the app when it is not already installed on the device, or if the deploying app's version number does not match the version that's already installed on the device.
+     * Sets the ignoreVersionDetection property value. When TRUE, indicates that the app's version will NOT be used to detect if the app is installed on a device. When FALSE, indicates that the app's version will be used to detect if the app is installed on a device. Set this to true for apps that use a self update feature. The default value is FALSE.
      * @param bool|null $value Value to set for the ignoreVersionDetection property.
     */
     public function setIgnoreVersionDetection(?bool $value): void {
@@ -128,7 +128,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the includedApps property value. The list of apps expected to be installed by the DMG.
+     * Sets the includedApps property value. The list of .apps expected to be installed by the DMG (Apple Disk Image)
      * @param array<MacOSIncludedApp>|null $value Value to set for the includedApps property.
     */
     public function setIncludedApps(?array $value): void {
@@ -136,7 +136,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * Sets the minimumSupportedOperatingSystem property value. ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application.
      * @param MacOSMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?MacOSMinimumOperatingSystem $value): void {
@@ -144,7 +144,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the primaryBundleId property value. The primary CFBundleIdentifier of the DMG.
+     * Sets the primaryBundleId property value. The bundleId of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleIdentifier in the app's bundle configuration.
      * @param string|null $value Value to set for the primaryBundleId property.
     */
     public function setPrimaryBundleId(?string $value): void {
@@ -152,7 +152,7 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the primaryBundleVersion property value. The primary CFBundleVersion of the DMG.
+     * Sets the primaryBundleVersion property value. The version of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleShortVersion in the app's bundle configuration.
      * @param string|null $value Value to set for the primaryBundleVersion property.
     */
     public function setPrimaryBundleVersion(?string $value): void {
