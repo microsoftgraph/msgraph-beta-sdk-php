@@ -587,7 +587,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the originalTransferMethod property value. The originalTransferMethod property
+     * Gets the originalTransferMethod property value. Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
      * @return OriginalTransferMethods|null
     */
     public function getOriginalTransferMethod(): ?OriginalTransferMethods {
@@ -833,7 +833,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the signInTokenProtectionStatus property value. The signInTokenProtectionStatus property
+     * Gets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
      * @return TokenProtectionStatus|null
     */
     public function getSignInTokenProtectionStatus(): ?TokenProtectionStatus {
@@ -1324,7 +1324,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the originalTransferMethod property value. The originalTransferMethod property
+     * Sets the originalTransferMethod property value. Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
      * @param OriginalTransferMethods|null $value Value to set for the originalTransferMethod property.
     */
     public function setOriginalTransferMethod(?OriginalTransferMethods $value): void {
@@ -1484,7 +1484,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the signInTokenProtectionStatus property value. The signInTokenProtectionStatus property
+     * Sets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
      * @param TokenProtectionStatus|null $value Value to set for the signInTokenProtectionStatus property.
     */
     public function setSignInTokenProtectionStatus(?TokenProtectionStatus $value): void {

@@ -53,7 +53,7 @@ class IncludesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+     * Retrieve the condition sets that are *included* in a permissionGrantPolicy.
      * @param IncludesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-includes?view=graph-rest-1.0 Find more info here
@@ -92,7 +92,7 @@ class IncludesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+     * Retrieve the condition sets that are *included* in a permissionGrantPolicy.
      * @param IncludesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

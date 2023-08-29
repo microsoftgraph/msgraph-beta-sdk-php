@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -34,6 +35,18 @@ class AccessPackageSubject extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'altSecId'");
+    }
+
+    /**
+     * Gets the cleanupScheduledDateTime property value. The cleanupScheduledDateTime property
+     * @return DateTime|null
+    */
+    public function getCleanupScheduledDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('cleanupScheduledDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cleanupScheduledDateTime'");
     }
 
     /**
@@ -92,6 +105,7 @@ class AccessPackageSubject extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'altSecId' => fn(ParseNode $n) => $o->setAltSecId($n->getStringValue()),
+            'cleanupScheduledDateTime' => fn(ParseNode $n) => $o->setCleanupScheduledDateTime($n->getDateTimeValue()),
             'connectedOrganization' => fn(ParseNode $n) => $o->setConnectedOrganization($n->getObjectValue([ConnectedOrganization::class, 'createFromDiscriminatorValue'])),
             'connectedOrganizationId' => fn(ParseNode $n) => $o->setConnectedOrganizationId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -171,6 +185,7 @@ class AccessPackageSubject extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('altSecId', $this->getAltSecId());
+        $writer->writeDateTimeValue('cleanupScheduledDateTime', $this->getCleanupScheduledDateTime());
         $writer->writeObjectValue('connectedOrganization', $this->getConnectedOrganization());
         $writer->writeStringValue('connectedOrganizationId', $this->getConnectedOrganizationId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -188,6 +203,14 @@ class AccessPackageSubject extends Entity implements Parsable
     */
     public function setAltSecId(?string $value): void {
         $this->getBackingStore()->set('altSecId', $value);
+    }
+
+    /**
+     * Sets the cleanupScheduledDateTime property value. The cleanupScheduledDateTime property
+     * @param DateTime|null $value Value to set for the cleanupScheduledDateTime property.
+    */
+    public function setCleanupScheduledDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('cleanupScheduledDateTime', $value);
     }
 
     /**

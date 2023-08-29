@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallTranscript;
 use Microsoft\Graph\Beta\Generated\Models\CallTranscriptCollectionResponse;
@@ -25,6 +26,13 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -901,6 +901,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.groupPolicySettingMapping': return new GroupPolicySettingMapping();
                 case '#microsoft.graph.groupPolicyUploadedDefinitionFile': return new GroupPolicyUploadedDefinitionFile();
                 case '#microsoft.graph.groupPolicyUploadedPresentation': return new GroupPolicyUploadedPresentation();
+                case '#microsoft.graph.hardwareOathAuthenticationMethodConfiguration': return new HardwareOathAuthenticationMethodConfiguration();
                 case '#microsoft.graph.homeRealmDiscoveryPolicy': return new HomeRealmDiscoveryPolicy();
                 case '#microsoft.graph.horizontalSection': return new HorizontalSection();
                 case '#microsoft.graph.horizontalSectionColumn': return new HorizontalSectionColumn();
