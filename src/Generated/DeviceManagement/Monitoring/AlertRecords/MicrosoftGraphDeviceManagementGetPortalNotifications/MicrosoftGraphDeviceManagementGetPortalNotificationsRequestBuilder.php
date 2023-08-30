@@ -69,4 +69,13 @@ class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder extends
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder {
+        return new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

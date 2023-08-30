@@ -90,4 +90,13 @@ class AccountsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return AccountsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): AccountsRequestBuilder {
+        return new AccountsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

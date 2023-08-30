@@ -131,4 +131,13 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MobileDeviceManagementPoliciesRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MobileDeviceManagementPoliciesRequestBuilder {
+        return new MobileDeviceManagementPoliciesRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

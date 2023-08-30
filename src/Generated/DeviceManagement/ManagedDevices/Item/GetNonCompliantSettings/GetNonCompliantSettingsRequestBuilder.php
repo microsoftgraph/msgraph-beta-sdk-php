@@ -69,4 +69,13 @@ class GetNonCompliantSettingsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return GetNonCompliantSettingsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): GetNonCompliantSettingsRequestBuilder {
+        return new GetNonCompliantSettingsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

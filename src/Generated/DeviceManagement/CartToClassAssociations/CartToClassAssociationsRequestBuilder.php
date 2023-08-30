@@ -130,4 +130,13 @@ class CartToClassAssociationsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return CartToClassAssociationsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): CartToClassAssociationsRequestBuilder {
+        return new CartToClassAssociationsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

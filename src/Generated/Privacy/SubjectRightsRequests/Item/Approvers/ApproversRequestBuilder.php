@@ -90,4 +90,13 @@ class ApproversRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ApproversRequestBuilder
+    */
+    public function withUrl(string $rawUrl): ApproversRequestBuilder {
+        return new ApproversRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

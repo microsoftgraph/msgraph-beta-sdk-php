@@ -104,4 +104,13 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return AlternativeRecordingRequestBuilder
+    */
+    public function withUrl(string $rawUrl): AlternativeRecordingRequestBuilder {
+        return new AlternativeRecordingRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -146,4 +146,13 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return B2cAuthenticationMethodsPolicyRequestBuilder
+    */
+    public function withUrl(string $rawUrl): B2cAuthenticationMethodsPolicyRequestBuilder {
+        return new B2cAuthenticationMethodsPolicyRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -179,4 +179,13 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return B2cIdentityUserFlowItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): B2cIdentityUserFlowItemRequestBuilder {
+        return new B2cIdentityUserFlowItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

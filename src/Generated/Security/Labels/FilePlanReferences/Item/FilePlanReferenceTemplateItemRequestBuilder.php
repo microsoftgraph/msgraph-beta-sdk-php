@@ -146,4 +146,13 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return FilePlanReferenceTemplateItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): FilePlanReferenceTemplateItemRequestBuilder {
+        return new FilePlanReferenceTemplateItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

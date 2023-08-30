@@ -71,4 +71,13 @@ class MicrosoftGraphSecurityExtractContentLabelRequestBuilder extends BaseReques
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MicrosoftGraphSecurityExtractContentLabelRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MicrosoftGraphSecurityExtractContentLabelRequestBuilder {
+        return new MicrosoftGraphSecurityExtractContentLabelRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

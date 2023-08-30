@@ -144,4 +144,13 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder ext
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
+        return new AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

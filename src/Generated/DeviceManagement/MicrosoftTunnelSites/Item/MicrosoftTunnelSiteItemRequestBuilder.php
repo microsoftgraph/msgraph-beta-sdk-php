@@ -168,4 +168,13 @@ class MicrosoftTunnelSiteItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MicrosoftTunnelSiteItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MicrosoftTunnelSiteItemRequestBuilder {
+        return new MicrosoftTunnelSiteItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

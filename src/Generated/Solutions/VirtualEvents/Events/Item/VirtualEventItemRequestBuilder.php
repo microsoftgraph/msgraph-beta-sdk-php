@@ -160,4 +160,13 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return VirtualEventItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): VirtualEventItemRequestBuilder {
+        return new VirtualEventItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

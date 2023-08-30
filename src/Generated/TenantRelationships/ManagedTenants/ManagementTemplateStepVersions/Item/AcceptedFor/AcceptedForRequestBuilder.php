@@ -70,4 +70,13 @@ class AcceptedForRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return AcceptedForRequestBuilder
+    */
+    public function withUrl(string $rawUrl): AcceptedForRequestBuilder {
+        return new AcceptedForRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

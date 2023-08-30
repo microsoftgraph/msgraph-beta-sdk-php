@@ -66,4 +66,13 @@ class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder extends BaseReque
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder {
+        return new MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -160,4 +160,13 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder extends BaseRequ
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return DeviceManagementTemplateSettingCategoryItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): DeviceManagementTemplateSettingCategoryItemRequestBuilder {
+        return new DeviceManagementTemplateSettingCategoryItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

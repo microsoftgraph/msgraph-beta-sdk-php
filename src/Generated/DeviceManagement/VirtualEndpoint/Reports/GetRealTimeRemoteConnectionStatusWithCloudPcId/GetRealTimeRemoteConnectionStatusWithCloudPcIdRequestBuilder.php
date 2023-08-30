@@ -69,4 +69,13 @@ class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder extends BaseR
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder
+    */
+    public function withUrl(string $rawUrl): GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder {
+        return new GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

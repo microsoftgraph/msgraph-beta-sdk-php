@@ -144,4 +144,13 @@ class EducationSynchronizationErrorItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return EducationSynchronizationErrorItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): EducationSynchronizationErrorItemRequestBuilder {
+        return new EducationSynchronizationErrorItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -68,4 +68,13 @@ class OverrideComplianceStateRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return OverrideComplianceStateRequestBuilder
+    */
+    public function withUrl(string $rawUrl): OverrideComplianceStateRequestBuilder {
+        return new OverrideComplianceStateRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }
