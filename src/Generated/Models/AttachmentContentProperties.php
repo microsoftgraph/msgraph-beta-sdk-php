@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AttachmentContentProperties extends ContentProperties implements Parsable 
 {
@@ -38,6 +39,20 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
     }
 
     /**
+     * Gets the discoveredSensitiveTypes property value. The discoveredSensitiveTypes property
+     * @return array<DiscoveredSensitiveType>|null
+    */
+    public function getDiscoveredSensitiveTypes(): ?array {
+        $val = $this->getBackingStore()->get('discoveredSensitiveTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DiscoveredSensitiveType::class);
+            /** @var array<DiscoveredSensitiveType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discoveredSensitiveTypes'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +60,7 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'currentLabel' => fn(ParseNode $n) => $o->setCurrentLabel($n->getObjectValue([CurrentLabel::class, 'createFromDiscriminatorValue'])),
+            'discoveredSensitiveTypes' => fn(ParseNode $n) => $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues([DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -55,6 +71,7 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('currentLabel', $this->getCurrentLabel());
+        $writer->writeCollectionOfObjectValues('discoveredSensitiveTypes', $this->getDiscoveredSensitiveTypes());
     }
 
     /**
@@ -63,6 +80,14 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
     */
     public function setCurrentLabel(?CurrentLabel $value): void {
         $this->getBackingStore()->set('currentLabel', $value);
+    }
+
+    /**
+     * Sets the discoveredSensitiveTypes property value. The discoveredSensitiveTypes property
+     * @param array<DiscoveredSensitiveType>|null $value Value to set for the discoveredSensitiveTypes property.
+    */
+    public function setDiscoveredSensitiveTypes(?array $value): void {
+        $this->getBackingStore()->set('discoveredSensitiveTypes', $value);
     }
 
 }

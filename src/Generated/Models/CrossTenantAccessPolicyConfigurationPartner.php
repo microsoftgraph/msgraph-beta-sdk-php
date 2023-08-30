@@ -162,7 +162,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Gets the isInMultiTenantOrganization property value. The isInMultiTenantOrganization property
+     * Gets the isInMultiTenantOrganization property value. Identifies whether a tenant is a member of a multi-tenant organization.
      * @return bool|null
     */
     public function getIsInMultiTenantOrganization(): ?bool {
@@ -314,7 +314,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Sets the isInMultiTenantOrganization property value. The isInMultiTenantOrganization property
+     * Sets the isInMultiTenantOrganization property value. Identifies whether a tenant is a member of a multi-tenant organization.
      * @param bool|null $value Value to set for the isInMultiTenantOrganization property.
     */
     public function setIsInMultiTenantOrganization(?bool $value): void {

@@ -8,10 +8,10 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class MultiTenantOrganizationRequestBuilderPutRequestConfiguration extends BaseRequestConfiguration 
+class MultiTenantOrganizationRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new multiTenantOrganizationRequestBuilderPutRequestConfiguration and sets the default values.
+     * Instantiates a new multiTenantOrganizationRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

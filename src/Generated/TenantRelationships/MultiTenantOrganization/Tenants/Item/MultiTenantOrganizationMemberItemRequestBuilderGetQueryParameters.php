@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\MultiTenantOrganiza
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tenants from tenantRelationships
+ * Get a tenant and its properties in the multi-tenant organization.
 */
 class MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters 
 {

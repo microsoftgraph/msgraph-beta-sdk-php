@@ -40,7 +40,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.
+     * Gets the createdBy property value. Identity of the user, device, or application that created the item. Read-only.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -121,7 +121,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
+     * Gets the lastModifiedBy property value. Identity of the user, device, and application that last modified the item. Read-only.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -181,7 +181,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. URL that displays the resource in the browser. Read-only.
+     * Gets the webUrl property value. URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -212,7 +212,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.
+     * Sets the createdBy property value. Identity of the user, device, or application that created the item. Read-only.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -252,7 +252,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
+     * Sets the lastModifiedBy property value. Identity of the user, device, and application that last modified the item. Read-only.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -292,7 +292,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. URL that displays the resource in the browser. Read-only.
+     * Sets the webUrl property value. URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

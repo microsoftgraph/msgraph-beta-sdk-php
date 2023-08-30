@@ -32,9 +32,10 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tenants for tenantRelationships
+     * Remove a tenant from a multi-tenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
      * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/multitenantorganization-delete-tenants?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tenants from tenantRelationships
+     * Get a tenant and its properties in the multi-tenant organization.
      * @param MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/multitenantorganizationmember-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -87,7 +89,7 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tenants for tenantRelationships
+     * Remove a tenant from a multi-tenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
      * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +106,7 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tenants from tenantRelationships
+     * Get a tenant and its properties in the multi-tenant organization.
      * @param MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

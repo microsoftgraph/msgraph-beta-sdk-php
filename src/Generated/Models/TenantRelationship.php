@@ -113,7 +113,7 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the multiTenantOrganization property value. The multiTenantOrganization property
+     * Gets the multiTenantOrganization property value. Defines an organization with more than one instance of Azure Active Directory (Azure AD).
      * @return MultiTenantOrganization|null
     */
     public function getMultiTenantOrganization(): ?MultiTenantOrganization {
@@ -190,7 +190,7 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the multiTenantOrganization property value. The multiTenantOrganization property
+     * Sets the multiTenantOrganization property value. Defines an organization with more than one instance of Azure Active Directory (Azure AD).
      * @param MultiTenantOrganization|null $value Value to set for the multiTenantOrganization property.
     */
     public function setMultiTenantOrganization(?MultiTenantOrganization $value): void {

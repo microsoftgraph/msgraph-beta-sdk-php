@@ -56,7 +56,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the desiredRole property value. The desiredRole property
+     * Gets the desiredRole property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member, unknownFutureValue.
      * @return MultiTenantOrganizationMemberRole|null
     */
     public function getDesiredRole(): ?MultiTenantOrganizationMemberRole {
@@ -68,7 +68,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the desiredState property value. The desiredState property
+     * Gets the desiredState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @return MultiTenantOrganizationMemberState|null
     */
     public function getDesiredState(): ?MultiTenantOrganizationMemberState {
@@ -80,7 +80,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. Details that explain the processing status if any. Read-only.
      * @return string|null
     */
     public function getDetails(): ?string {
@@ -119,7 +119,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @return MultiTenantOrganizationMemberProcessingStatus|null
     */
     public function getStatus(): ?MultiTenantOrganizationMemberProcessingStatus {
@@ -160,7 +160,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the desiredRole property value. The desiredRole property
+     * Sets the desiredRole property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member, unknownFutureValue.
      * @param MultiTenantOrganizationMemberRole|null $value Value to set for the desiredRole property.
     */
     public function setDesiredRole(?MultiTenantOrganizationMemberRole $value): void {
@@ -168,7 +168,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the desiredState property value. The desiredState property
+     * Sets the desiredState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @param MultiTenantOrganizationMemberState|null $value Value to set for the desiredState property.
     */
     public function setDesiredState(?MultiTenantOrganizationMemberState $value): void {
@@ -176,7 +176,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. Details that explain the processing status if any. Read-only.
      * @param string|null $value Value to set for the details property.
     */
     public function setDetails(?string $value): void {
@@ -192,7 +192,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @param MultiTenantOrganizationMemberProcessingStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MultiTenantOrganizationMemberProcessingStatus $value): void {

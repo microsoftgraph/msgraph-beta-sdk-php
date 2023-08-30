@@ -56,7 +56,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Gets the desiredMemberState property value. The desiredMemberState property
+     * Gets the desiredMemberState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @return MultiTenantOrganizationMemberState|null
     */
     public function getDesiredMemberState(): ?MultiTenantOrganizationMemberState {
@@ -68,7 +68,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. Details that explain the processing status if any. Read-only.
      * @return string|null
     */
     public function getDetails(): ?string {
@@ -106,7 +106,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @return MultiTenantOrganizationMemberProcessingStatus|null
     */
     public function getStatus(): ?MultiTenantOrganizationMemberProcessingStatus {
@@ -146,7 +146,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Sets the desiredMemberState property value. The desiredMemberState property
+     * Sets the desiredMemberState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @param MultiTenantOrganizationMemberState|null $value Value to set for the desiredMemberState property.
     */
     public function setDesiredMemberState(?MultiTenantOrganizationMemberState $value): void {
@@ -154,7 +154,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. Details that explain the processing status if any. Read-only.
      * @param string|null $value Value to set for the details property.
     */
     public function setDetails(?string $value): void {
@@ -170,7 +170,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @param MultiTenantOrganizationMemberProcessingStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MultiTenantOrganizationMemberProcessingStatus $value): void {
