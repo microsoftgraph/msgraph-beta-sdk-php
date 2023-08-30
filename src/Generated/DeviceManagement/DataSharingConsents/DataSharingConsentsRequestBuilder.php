@@ -130,4 +130,13 @@ class DataSharingConsentsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return DataSharingConsentsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): DataSharingConsentsRequestBuilder {
+        return new DataSharingConsentsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

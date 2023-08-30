@@ -130,4 +130,13 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return WindowsInformationProtectionWipeActionsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): WindowsInformationProtectionWipeActionsRequestBuilder {
+        return new WindowsInformationProtectionWipeActionsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Recordings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Recordings\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Recordings\Item\CallRecordingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallRecording;
 use Microsoft\Graph\Beta\Generated\Models\CallRecordingCollectionResponse;
@@ -25,6 +26,13 @@ class RecordingsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -128,6 +136,15 @@ class RecordingsRequestBuilder extends BaseRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return RecordingsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): RecordingsRequestBuilder {
+        return new RecordingsRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

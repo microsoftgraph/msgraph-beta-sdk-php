@@ -59,10 +59,10 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an authenticationEventListener object. The @odata.type property in the response object indicates the type of the authenticationEventListener object.
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/authenticationeventlistener-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -114,7 +114,7 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an authenticationEventListener object. The @odata.type property in the response object indicates the type of the authenticationEventListener object.
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,6 +152,15 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return CustomAuthenticationExtensionItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): CustomAuthenticationExtensionItemRequestBuilder {
+        return new CustomAuthenticationExtensionItemRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

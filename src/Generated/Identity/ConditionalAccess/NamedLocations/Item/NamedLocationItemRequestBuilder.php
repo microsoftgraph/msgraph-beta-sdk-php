@@ -32,10 +32,10 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param NamedLocationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?NamedLocationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -51,10 +51,10 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a namedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?NamedLocationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +90,7 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param NamedLocationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a namedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -145,6 +145,15 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return NamedLocationItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): NamedLocationItemRequestBuilder {
+        return new NamedLocationItemRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

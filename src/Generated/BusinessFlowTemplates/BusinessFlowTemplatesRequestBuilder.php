@@ -131,4 +131,13 @@ class BusinessFlowTemplatesRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return BusinessFlowTemplatesRequestBuilder
+    */
+    public function withUrl(string $rawUrl): BusinessFlowTemplatesRequestBuilder {
+        return new BusinessFlowTemplatesRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

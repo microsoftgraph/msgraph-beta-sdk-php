@@ -147,4 +147,13 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ItemEmailItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): ItemEmailItemRequestBuilder {
+        return new ItemEmailItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -32,10 +32,10 @@ class RangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param RangeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/range-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RangeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -51,7 +51,7 @@ class RangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param RangeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -66,6 +66,15 @@ class RangeRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return RangeRequestBuilder
+    */
+    public function withUrl(string $rawUrl): RangeRequestBuilder {
+        return new RangeRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

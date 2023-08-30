@@ -69,4 +69,13 @@ class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder extends BaseReque
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder
+    */
+    public function withUrl(string $rawUrl): GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder {
+        return new GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

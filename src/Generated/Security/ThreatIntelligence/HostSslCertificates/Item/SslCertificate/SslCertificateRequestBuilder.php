@@ -70,4 +70,13 @@ class SslCertificateRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return SslCertificateRequestBuilder
+    */
+    public function withUrl(string $rawUrl): SslCertificateRequestBuilder {
+        return new SslCertificateRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

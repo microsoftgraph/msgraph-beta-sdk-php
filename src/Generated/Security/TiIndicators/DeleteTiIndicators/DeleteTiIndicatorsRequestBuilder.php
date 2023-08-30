@@ -70,4 +70,13 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return DeleteTiIndicatorsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): DeleteTiIndicatorsRequestBuilder {
+        return new DeleteTiIndicatorsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

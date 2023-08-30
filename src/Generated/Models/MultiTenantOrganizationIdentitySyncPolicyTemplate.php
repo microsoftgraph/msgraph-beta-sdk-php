@@ -49,7 +49,7 @@ class MultiTenantOrganizationIdentitySyncPolicyTemplate extends Entity implement
     }
 
     /**
-     * Gets the userSyncInbound property value. The userSyncInbound property
+     * Gets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant.
      * @return CrossTenantUserSyncInbound|null
     */
     public function getUserSyncInbound(): ?CrossTenantUserSyncInbound {
@@ -79,7 +79,7 @@ class MultiTenantOrganizationIdentitySyncPolicyTemplate extends Entity implement
     }
 
     /**
-     * Sets the userSyncInbound property value. The userSyncInbound property
+     * Sets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant.
      * @param CrossTenantUserSyncInbound|null $value Value to set for the userSyncInbound property.
     */
     public function setUserSyncInbound(?CrossTenantUserSyncInbound $value): void {

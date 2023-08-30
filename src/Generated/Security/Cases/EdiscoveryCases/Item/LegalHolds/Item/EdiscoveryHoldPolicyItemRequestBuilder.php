@@ -160,4 +160,13 @@ class EdiscoveryHoldPolicyItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return EdiscoveryHoldPolicyItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): EdiscoveryHoldPolicyItemRequestBuilder {
+        return new EdiscoveryHoldPolicyItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

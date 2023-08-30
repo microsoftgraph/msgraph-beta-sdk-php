@@ -130,4 +130,13 @@ class JournalLinesRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return JournalLinesRequestBuilder
+    */
+    public function withUrl(string $rawUrl): JournalLinesRequestBuilder {
+        return new JournalLinesRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

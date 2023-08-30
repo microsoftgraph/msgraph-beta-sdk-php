@@ -37,7 +37,7 @@ class PolicyTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the multiTenantOrganizationIdentitySynchronization property value. The multiTenantOrganizationIdentitySynchronization property
+     * Gets the multiTenantOrganizationIdentitySynchronization property value. Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
      * @return MultiTenantOrganizationIdentitySyncPolicyTemplate|null
     */
     public function getMultiTenantOrganizationIdentitySynchronization(): ?MultiTenantOrganizationIdentitySyncPolicyTemplate {
@@ -49,7 +49,7 @@ class PolicyTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the multiTenantOrganizationPartnerConfiguration property value. The multiTenantOrganizationPartnerConfiguration property
+     * Gets the multiTenantOrganizationPartnerConfiguration property value. Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
      * @return MultiTenantOrganizationPartnerConfigurationTemplate|null
     */
     public function getMultiTenantOrganizationPartnerConfiguration(): ?MultiTenantOrganizationPartnerConfigurationTemplate {
@@ -71,7 +71,7 @@ class PolicyTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the multiTenantOrganizationIdentitySynchronization property value. The multiTenantOrganizationIdentitySynchronization property
+     * Sets the multiTenantOrganizationIdentitySynchronization property value. Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
      * @param MultiTenantOrganizationIdentitySyncPolicyTemplate|null $value Value to set for the multiTenantOrganizationIdentitySynchronization property.
     */
     public function setMultiTenantOrganizationIdentitySynchronization(?MultiTenantOrganizationIdentitySyncPolicyTemplate $value): void {
@@ -79,7 +79,7 @@ class PolicyTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the multiTenantOrganizationPartnerConfiguration property value. The multiTenantOrganizationPartnerConfiguration property
+     * Sets the multiTenantOrganizationPartnerConfiguration property value. Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate|null $value Value to set for the multiTenantOrganizationPartnerConfiguration property.
     */
     public function setMultiTenantOrganizationPartnerConfiguration(?MultiTenantOrganizationPartnerConfigurationTemplate $value): void {

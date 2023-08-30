@@ -71,4 +71,13 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return BulkReprovisionCloudPcRequestBuilder
+    */
+    public function withUrl(string $rawUrl): BulkReprovisionCloudPcRequestBuilder {
+        return new BulkReprovisionCloudPcRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

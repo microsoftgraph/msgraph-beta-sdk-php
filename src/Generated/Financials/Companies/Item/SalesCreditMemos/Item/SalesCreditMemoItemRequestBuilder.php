@@ -141,4 +141,13 @@ class SalesCreditMemoItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return SalesCreditMemoItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): SalesCreditMemoItemRequestBuilder {
+        return new SalesCreditMemoItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

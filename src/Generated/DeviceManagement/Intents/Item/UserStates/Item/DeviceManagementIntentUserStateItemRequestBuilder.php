@@ -144,4 +144,13 @@ class DeviceManagementIntentUserStateItemRequestBuilder extends BaseRequestBuild
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return DeviceManagementIntentUserStateItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): DeviceManagementIntentUserStateItemRequestBuilder {
+        return new DeviceManagementIntentUserStateItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -66,9 +66,10 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get multiTenantOrganization from tenantRelationships
+     * Get properties of the multi-tenant organization.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MultiTenantOrganizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,13 +85,14 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property multiTenantOrganization in tenantRelationships
+     * Update the properties of a multi-tenant organization.
      * @param MultiTenantOrganization $body The request body
-     * @param MultiTenantOrganizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-1.0 Find more info here
     */
-    public function put(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
+    public function patch(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -120,7 +122,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get multiTenantOrganization from tenantRelationships
+     * Get properties of the multi-tenant organization.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,16 +143,16 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property multiTenantOrganization in tenantRelationships
+     * Update the properties of a multi-tenant organization.
      * @param MultiTenantOrganization $body The request body
-     * @param MultiTenantOrganizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPutRequestInformation(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::PUT;
+        $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
@@ -158,6 +160,15 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return MultiTenantOrganizationRequestBuilder
+    */
+    public function withUrl(string $rawUrl): MultiTenantOrganizationRequestBuilder {
+        return new MultiTenantOrganizationRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

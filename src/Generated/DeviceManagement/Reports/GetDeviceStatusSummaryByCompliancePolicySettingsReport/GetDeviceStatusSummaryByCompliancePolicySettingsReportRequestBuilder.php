@@ -69,4 +69,13 @@ class GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder exten
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder
+    */
+    public function withUrl(string $rawUrl): GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder {
+        return new GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

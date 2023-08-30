@@ -66,4 +66,13 @@ class RunDiagnosticsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return RunDiagnosticsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): RunDiagnosticsRequestBuilder {
+        return new RunDiagnosticsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

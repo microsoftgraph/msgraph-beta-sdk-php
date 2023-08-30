@@ -144,4 +144,13 @@ class UserPFXCertificateItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return UserPFXCertificateItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): UserPFXCertificateItemRequestBuilder {
+        return new UserPFXCertificateItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -27,7 +27,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date when multi-tenant organization was created. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the multi-tenant organization.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -51,7 +51,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the multi-tenant organization.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -79,7 +79,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the joinRequest property value. The joinRequest property
+     * Gets the joinRequest property value. Defines the status of a tenant joining a multi-tenant organization.
      * @return MultiTenantOrganizationJoinRequestRecord|null
     */
     public function getJoinRequest(): ?MultiTenantOrganizationJoinRequestRecord {
@@ -91,7 +91,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. State of the multi-tenant organization. The possible values are: active, inactive, unknownFutureValue. active indicates the multi-tenant organization is created. inactive indicates the multi-tenant organization is not created. Read-only.
      * @return MultiTenantOrganizationState|null
     */
     public function getState(): ?MultiTenantOrganizationState {
@@ -103,7 +103,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenants property value. The tenants property
+     * Gets the tenants property value. Defines tenants added to a multi-tenant organization.
      * @return array<MultiTenantOrganizationMember>|null
     */
     public function getTenants(): ?array {
@@ -131,7 +131,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date when multi-tenant organization was created. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -139,7 +139,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the multi-tenant organization.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -147,7 +147,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the multi-tenant organization.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -155,7 +155,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the joinRequest property value. The joinRequest property
+     * Sets the joinRequest property value. Defines the status of a tenant joining a multi-tenant organization.
      * @param MultiTenantOrganizationJoinRequestRecord|null $value Value to set for the joinRequest property.
     */
     public function setJoinRequest(?MultiTenantOrganizationJoinRequestRecord $value): void {
@@ -163,7 +163,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. State of the multi-tenant organization. The possible values are: active, inactive, unknownFutureValue. active indicates the multi-tenant organization is created. inactive indicates the multi-tenant organization is not created. Read-only.
      * @param MultiTenantOrganizationState|null $value Value to set for the state property.
     */
     public function setState(?MultiTenantOrganizationState $value): void {
@@ -171,7 +171,7 @@ class MultiTenantOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenants property value. The tenants property
+     * Sets the tenants property value. Defines tenants added to a multi-tenant organization.
      * @param array<MultiTenantOrganizationMember>|null $value Value to set for the tenants property.
     */
     public function setTenants(?array $value): void {

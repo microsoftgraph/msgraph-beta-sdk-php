@@ -25,7 +25,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the automaticUserConsentSettings property value. The automaticUserConsentSettings property
+     * Gets the automaticUserConsentSettings property value. Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
      * @return InboundOutboundPolicyConfiguration|null
     */
     public function getAutomaticUserConsentSettings(): ?InboundOutboundPolicyConfiguration {
@@ -37,7 +37,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the b2bCollaborationInbound property value. The b2bCollaborationInbound property
+     * Gets the b2bCollaborationInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
      * @return CrossTenantAccessPolicyB2BSetting|null
     */
     public function getB2bCollaborationInbound(): ?CrossTenantAccessPolicyB2BSetting {
@@ -49,7 +49,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the b2bCollaborationOutbound property value. The b2bCollaborationOutbound property
+     * Gets the b2bCollaborationOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B collaboration.
      * @return CrossTenantAccessPolicyB2BSetting|null
     */
     public function getB2bCollaborationOutbound(): ?CrossTenantAccessPolicyB2BSetting {
@@ -61,7 +61,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the b2bDirectConnectInbound property value. The b2bDirectConnectInbound property
+     * Gets the b2bDirectConnectInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure B2B direct connect.
      * @return CrossTenantAccessPolicyB2BSetting|null
     */
     public function getB2bDirectConnectInbound(): ?CrossTenantAccessPolicyB2BSetting {
@@ -73,7 +73,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the b2bDirectConnectOutbound property value. The b2bDirectConnectOutbound property
+     * Gets the b2bDirectConnectOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B direct connect.
      * @return CrossTenantAccessPolicyB2BSetting|null
     */
     public function getB2bDirectConnectOutbound(): ?CrossTenantAccessPolicyB2BSetting {
@@ -102,7 +102,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Gets the inboundTrust property value. The inboundTrust property
+     * Gets the inboundTrust property value. Determines the partner-specific configuration for trusting other Conditional Access claims from external Azure AD organizations.
      * @return CrossTenantAccessPolicyInboundTrust|null
     */
     public function getInboundTrust(): ?CrossTenantAccessPolicyInboundTrust {
@@ -141,7 +141,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the automaticUserConsentSettings property value. The automaticUserConsentSettings property
+     * Sets the automaticUserConsentSettings property value. Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
      * @param InboundOutboundPolicyConfiguration|null $value Value to set for the automaticUserConsentSettings property.
     */
     public function setAutomaticUserConsentSettings(?InboundOutboundPolicyConfiguration $value): void {
@@ -149,7 +149,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the b2bCollaborationInbound property value. The b2bCollaborationInbound property
+     * Sets the b2bCollaborationInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
      * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationInbound property.
     */
     public function setB2bCollaborationInbound(?CrossTenantAccessPolicyB2BSetting $value): void {
@@ -157,7 +157,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the b2bCollaborationOutbound property value. The b2bCollaborationOutbound property
+     * Sets the b2bCollaborationOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B collaboration.
      * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationOutbound property.
     */
     public function setB2bCollaborationOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
@@ -165,7 +165,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the b2bDirectConnectInbound property value. The b2bDirectConnectInbound property
+     * Sets the b2bDirectConnectInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure B2B direct connect.
      * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectInbound property.
     */
     public function setB2bDirectConnectInbound(?CrossTenantAccessPolicyB2BSetting $value): void {
@@ -173,7 +173,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the b2bDirectConnectOutbound property value. The b2bDirectConnectOutbound property
+     * Sets the b2bDirectConnectOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B direct connect.
      * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectOutbound property.
     */
     public function setB2bDirectConnectOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
@@ -181,7 +181,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity impleme
     }
 
     /**
-     * Sets the inboundTrust property value. The inboundTrust property
+     * Sets the inboundTrust property value. Determines the partner-specific configuration for trusting other Conditional Access claims from external Azure AD organizations.
      * @param CrossTenantAccessPolicyInboundTrust|null $value Value to set for the inboundTrust property.
     */
     public function setInboundTrust(?CrossTenantAccessPolicyInboundTrust $value): void {
