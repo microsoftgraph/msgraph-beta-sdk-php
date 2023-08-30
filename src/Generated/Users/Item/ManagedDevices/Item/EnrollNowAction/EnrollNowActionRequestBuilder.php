@@ -65,4 +65,13 @@ class EnrollNowActionRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return EnrollNowActionRequestBuilder
+    */
+    public function withUrl(string $rawUrl): EnrollNowActionRequestBuilder {
+        return new EnrollNowActionRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

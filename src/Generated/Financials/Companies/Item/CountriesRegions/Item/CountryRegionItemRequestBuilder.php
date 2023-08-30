@@ -144,4 +144,13 @@ class CountryRegionItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return CountryRegionItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): CountryRegionItemRequestBuilder {
+        return new CountryRegionItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

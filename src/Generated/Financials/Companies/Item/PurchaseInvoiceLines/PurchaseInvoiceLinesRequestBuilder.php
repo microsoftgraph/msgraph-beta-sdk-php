@@ -90,4 +90,13 @@ class PurchaseInvoiceLinesRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return PurchaseInvoiceLinesRequestBuilder
+    */
+    public function withUrl(string $rawUrl): PurchaseInvoiceLinesRequestBuilder {
+        return new PurchaseInvoiceLinesRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

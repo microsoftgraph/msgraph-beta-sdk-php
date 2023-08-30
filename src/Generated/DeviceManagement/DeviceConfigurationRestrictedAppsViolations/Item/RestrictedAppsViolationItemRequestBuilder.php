@@ -144,4 +144,13 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return RestrictedAppsViolationItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): RestrictedAppsViolationItemRequestBuilder {
+        return new RestrictedAppsViolationItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

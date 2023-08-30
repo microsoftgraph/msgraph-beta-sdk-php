@@ -130,4 +130,13 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return UserExperienceAnalyticsImpactingProcessRequestBuilder
+    */
+    public function withUrl(string $rawUrl): UserExperienceAnalyticsImpactingProcessRequestBuilder {
+        return new UserExperienceAnalyticsImpactingProcessRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

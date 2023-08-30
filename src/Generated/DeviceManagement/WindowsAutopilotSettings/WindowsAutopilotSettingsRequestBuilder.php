@@ -152,4 +152,13 @@ class WindowsAutopilotSettingsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return WindowsAutopilotSettingsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): WindowsAutopilotSettingsRequestBuilder {
+        return new WindowsAutopilotSettingsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

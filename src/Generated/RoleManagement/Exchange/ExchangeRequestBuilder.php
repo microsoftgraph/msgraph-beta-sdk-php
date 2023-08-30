@@ -184,4 +184,13 @@ class ExchangeRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ExchangeRequestBuilder
+    */
+    public function withUrl(string $rawUrl): ExchangeRequestBuilder {
+        return new ExchangeRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

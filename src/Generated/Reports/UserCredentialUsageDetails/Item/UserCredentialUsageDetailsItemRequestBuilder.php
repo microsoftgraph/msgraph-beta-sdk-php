@@ -144,4 +144,13 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return UserCredentialUsageDetailsItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): UserCredentialUsageDetailsItemRequestBuilder {
+        return new UserCredentialUsageDetailsItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

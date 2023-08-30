@@ -130,4 +130,13 @@ class CustomerPaymentsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return CustomerPaymentsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): CustomerPaymentsRequestBuilder {
+        return new CustomerPaymentsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }

@@ -130,4 +130,13 @@ class ProviderTenantSettingsRequestBuilder extends BaseRequestBuilder
         return $requestInfo;
     }
 
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ProviderTenantSettingsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): ProviderTenantSettingsRequestBuilder {
+        return new ProviderTenantSettingsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
 }
