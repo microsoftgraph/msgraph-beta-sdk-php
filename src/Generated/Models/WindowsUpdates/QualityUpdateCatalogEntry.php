@@ -27,7 +27,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the catalogName property value. The catalogName property
+     * Gets the catalogName property value. The catalog name of the content. Read-only.
      * @return string|null
     */
     public function getCatalogName(): ?string {
@@ -39,7 +39,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the cveSeverityInformation property value. The cveSeverityInformation property
+     * Gets the cveSeverityInformation property value. Severity information of the Common Vulnerabilities and Exposures associated with the content.
      * @return QualityUpdateCveSeverityInformation|null
     */
     public function getCveSeverityInformation(): ?QualityUpdateCveSeverityInformation {
@@ -80,7 +80,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the productRevisions property value. The productRevisions property
+     * Gets the productRevisions property value. The operating system product revisions that are released as part of this quality update.
      * @return array<ProductRevision>|null
     */
     public function getProductRevisions(): ?array {
@@ -94,7 +94,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the qualityUpdateCadence property value. The qualityUpdateCadence property
+     * Gets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
      * @return QualityUpdateCadence|null
     */
     public function getQualityUpdateCadence(): ?QualityUpdateCadence {
@@ -118,7 +118,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the shortName property value. The shortName property
+     * Gets the shortName property value. The short name of the content. Read-only.
      * @return string|null
     */
     public function getShortName(): ?string {
@@ -145,7 +145,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the catalogName property value. The catalogName property
+     * Sets the catalogName property value. The catalog name of the content. Read-only.
      * @param string|null $value Value to set for the catalogName property.
     */
     public function setCatalogName(?string $value): void {
@@ -153,7 +153,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the cveSeverityInformation property value. The cveSeverityInformation property
+     * Sets the cveSeverityInformation property value. Severity information of the Common Vulnerabilities and Exposures associated with the content.
      * @param QualityUpdateCveSeverityInformation|null $value Value to set for the cveSeverityInformation property.
     */
     public function setCveSeverityInformation(?QualityUpdateCveSeverityInformation $value): void {
@@ -169,7 +169,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the productRevisions property value. The productRevisions property
+     * Sets the productRevisions property value. The operating system product revisions that are released as part of this quality update.
      * @param array<ProductRevision>|null $value Value to set for the productRevisions property.
     */
     public function setProductRevisions(?array $value): void {
@@ -177,7 +177,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the qualityUpdateCadence property value. The qualityUpdateCadence property
+     * Sets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
      * @param QualityUpdateCadence|null $value Value to set for the qualityUpdateCadence property.
     */
     public function setQualityUpdateCadence(?QualityUpdateCadence $value): void {
@@ -193,7 +193,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the shortName property value. The shortName property
+     * Sets the shortName property value. The short name of the content. Read-only.
      * @param string|null $value Value to set for the shortName property.
     */
     public function setShortName(?string $value): void {

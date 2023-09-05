@@ -69,7 +69,7 @@ class CveInformation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the number property value. The number property
+     * Gets the number property value. Identifies the number of the CVE. Read-only.
      * @return string|null
     */
     public function getNumber(): ?string {
@@ -93,7 +93,7 @@ class CveInformation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. URL to the full CVE information. Read-only.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -132,7 +132,7 @@ class CveInformation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the number property value. The number property
+     * Sets the number property value. Identifies the number of the CVE. Read-only.
      * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
@@ -148,7 +148,7 @@ class CveInformation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. URL to the full CVE information. Read-only.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

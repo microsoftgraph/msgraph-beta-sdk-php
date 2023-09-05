@@ -128,7 +128,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPrivileged property value. The isPrivileged property
+     * Gets the isPrivileged property value. Flag indicating if the role is privileged. Azure AD defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsPrivileged(): ?bool {
@@ -259,7 +259,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPrivileged property value. The isPrivileged property
+     * Sets the isPrivileged property value. Flag indicating if the role is privileged. Azure AD defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
      * @param bool|null $value Value to set for the isPrivileged property.
     */
     public function setIsPrivileged(?bool $value): void {

@@ -26,7 +26,7 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the buildNumber property value. The buildNumber property
+     * Gets the buildNumber property value. The build number of the feature update. Read-only.
      * @return string|null
     */
     public function getBuildNumber(): ?string {
@@ -72,7 +72,7 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the buildNumber property value. The buildNumber property
+     * Sets the buildNumber property value. The build number of the feature update. Read-only.
      * @param string|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?string $value): void {

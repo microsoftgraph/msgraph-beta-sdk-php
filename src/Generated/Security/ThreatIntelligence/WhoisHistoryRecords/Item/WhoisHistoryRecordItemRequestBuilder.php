@@ -58,7 +58,7 @@ class WhoisHistoryRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get whoisHistoryRecords from security
+     * Retrieve details about whoisHistoryRecord objects.Note: List retrieval is not yet supported.
      * @param WhoisHistoryRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class WhoisHistoryRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get whoisHistoryRecords from security
+     * Retrieve details about whoisHistoryRecord objects.Note: List retrieval is not yet supported.
      * @param WhoisHistoryRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

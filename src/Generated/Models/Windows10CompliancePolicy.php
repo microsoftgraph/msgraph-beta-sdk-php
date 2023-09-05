@@ -192,6 +192,9 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
             'deviceThreatProtectionEnabled' => fn(ParseNode $n) => $o->setDeviceThreatProtectionEnabled($n->getBooleanValue()),
             'deviceThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setDeviceThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
             'earlyLaunchAntiMalwareDriverEnabled' => fn(ParseNode $n) => $o->setEarlyLaunchAntiMalwareDriverEnabled($n->getBooleanValue()),
+            'firmwareProtectionEnabled' => fn(ParseNode $n) => $o->setFirmwareProtectionEnabled($n->getBooleanValue()),
+            'kernelDmaProtectionEnabled' => fn(ParseNode $n) => $o->setKernelDmaProtectionEnabled($n->getBooleanValue()),
+            'memoryIntegrityEnabled' => fn(ParseNode $n) => $o->setMemoryIntegrityEnabled($n->getBooleanValue()),
             'mobileOsMaximumVersion' => fn(ParseNode $n) => $o->setMobileOsMaximumVersion($n->getStringValue()),
             'mobileOsMinimumVersion' => fn(ParseNode $n) => $o->setMobileOsMinimumVersion($n->getStringValue()),
             'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
@@ -212,7 +215,44 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
             'storageRequireEncryption' => fn(ParseNode $n) => $o->setStorageRequireEncryption($n->getBooleanValue()),
             'tpmRequired' => fn(ParseNode $n) => $o->setTpmRequired($n->getBooleanValue()),
             'validOperatingSystemBuildRanges' => fn(ParseNode $n) => $o->setValidOperatingSystemBuildRanges($n->getCollectionOfObjectValues([OperatingSystemVersionRange::class, 'createFromDiscriminatorValue'])),
+            'virtualizationBasedSecurityEnabled' => fn(ParseNode $n) => $o->setVirtualizationBasedSecurityEnabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the firmwareProtectionEnabled property value. When TRUE, indicates that Firmware protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Firmware protection is not required to be reported as healthy. Devices that support either Dynamic Root of Trust for Measurement (DRTM) or Firmware Attack Surface Reduction (FASR) will report compliant for this setting. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getFirmwareProtectionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('firmwareProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareProtectionEnabled'");
+    }
+
+    /**
+     * Gets the kernelDmaProtectionEnabled property value. When TRUE, indicates that Kernel Direct Memory Access (DMA) protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Kernel DMA Protection is not required to be reported as healthy. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getKernelDmaProtectionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('kernelDmaProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kernelDmaProtectionEnabled'");
+    }
+
+    /**
+     * Gets the memoryIntegrityEnabled property value. When TRUE, indicates that Memory Integrity as known as Hypervisor-protected Code Integrity (HVCI) or Hypervisor Enforced Code Integrity protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Memory Integrity Protection is not required to be reported as healthy. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getMemoryIntegrityEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('memoryIntegrityEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memoryIntegrityEnabled'");
     }
 
     /**
@@ -458,6 +498,18 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     }
 
     /**
+     * Gets the virtualizationBasedSecurityEnabled property value. When TRUE, indicates that Virtualization-based Security is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Virtualization-based Security is not required to be reported as healthy. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getVirtualizationBasedSecurityEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('virtualizationBasedSecurityEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualizationBasedSecurityEnabled'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -475,6 +527,9 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
         $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->getDeviceThreatProtectionEnabled());
         $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->getDeviceThreatProtectionRequiredSecurityLevel());
         $writer->writeBooleanValue('earlyLaunchAntiMalwareDriverEnabled', $this->getEarlyLaunchAntiMalwareDriverEnabled());
+        $writer->writeBooleanValue('firmwareProtectionEnabled', $this->getFirmwareProtectionEnabled());
+        $writer->writeBooleanValue('kernelDmaProtectionEnabled', $this->getKernelDmaProtectionEnabled());
+        $writer->writeBooleanValue('memoryIntegrityEnabled', $this->getMemoryIntegrityEnabled());
         $writer->writeStringValue('mobileOsMaximumVersion', $this->getMobileOsMaximumVersion());
         $writer->writeStringValue('mobileOsMinimumVersion', $this->getMobileOsMinimumVersion());
         $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
@@ -495,6 +550,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
         $writer->writeBooleanValue('storageRequireEncryption', $this->getStorageRequireEncryption());
         $writer->writeBooleanValue('tpmRequired', $this->getTpmRequired());
         $writer->writeCollectionOfObjectValues('validOperatingSystemBuildRanges', $this->getValidOperatingSystemBuildRanges());
+        $writer->writeBooleanValue('virtualizationBasedSecurityEnabled', $this->getVirtualizationBasedSecurityEnabled());
     }
 
     /**
@@ -591,6 +647,30 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     */
     public function setEarlyLaunchAntiMalwareDriverEnabled(?bool $value): void {
         $this->getBackingStore()->set('earlyLaunchAntiMalwareDriverEnabled', $value);
+    }
+
+    /**
+     * Sets the firmwareProtectionEnabled property value. When TRUE, indicates that Firmware protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Firmware protection is not required to be reported as healthy. Devices that support either Dynamic Root of Trust for Measurement (DRTM) or Firmware Attack Surface Reduction (FASR) will report compliant for this setting. Default value is FALSE.
+     * @param bool|null $value Value to set for the firmwareProtectionEnabled property.
+    */
+    public function setFirmwareProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('firmwareProtectionEnabled', $value);
+    }
+
+    /**
+     * Sets the kernelDmaProtectionEnabled property value. When TRUE, indicates that Kernel Direct Memory Access (DMA) protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Kernel DMA Protection is not required to be reported as healthy. Default value is FALSE.
+     * @param bool|null $value Value to set for the kernelDmaProtectionEnabled property.
+    */
+    public function setKernelDmaProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('kernelDmaProtectionEnabled', $value);
+    }
+
+    /**
+     * Sets the memoryIntegrityEnabled property value. When TRUE, indicates that Memory Integrity as known as Hypervisor-protected Code Integrity (HVCI) or Hypervisor Enforced Code Integrity protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Memory Integrity Protection is not required to be reported as healthy. Default value is FALSE.
+     * @param bool|null $value Value to set for the memoryIntegrityEnabled property.
+    */
+    public function setMemoryIntegrityEnabled(?bool $value): void {
+        $this->getBackingStore()->set('memoryIntegrityEnabled', $value);
     }
 
     /**
@@ -751,6 +831,14 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     */
     public function setValidOperatingSystemBuildRanges(?array $value): void {
         $this->getBackingStore()->set('validOperatingSystemBuildRanges', $value);
+    }
+
+    /**
+     * Sets the virtualizationBasedSecurityEnabled property value. When TRUE, indicates that Virtualization-based Security is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Virtualization-based Security is not required to be reported as healthy. Default value is FALSE.
+     * @param bool|null $value Value to set for the virtualizationBasedSecurityEnabled property.
+    */
+    public function setVirtualizationBasedSecurityEnabled(?bool $value): void {
+        $this->getBackingStore()->set('virtualizationBasedSecurityEnabled', $value);
     }
 
 }

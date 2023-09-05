@@ -179,6 +179,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
             'supportPhoneNumber' => fn(ParseNode $n) => $o->setSupportPhoneNumber($n->getStringValue()),
             'termsAndConditionsDisabled' => fn(ParseNode $n) => $o->setTermsAndConditionsDisabled($n->getBooleanValue()),
             'touchIdDisabled' => fn(ParseNode $n) => $o->setTouchIdDisabled($n->getBooleanValue()),
+            'waitForDeviceConfiguredConfirmation' => fn(ParseNode $n) => $o->setWaitForDeviceConfiguredConfirmation($n->getBooleanValue()),
         ]);
     }
 
@@ -339,6 +340,18 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
+     * Gets the waitForDeviceConfiguredConfirmation property value. Indicates if the device will need to wait for configured confirmation
+     * @return bool|null
+    */
+    public function getWaitForDeviceConfiguredConfirmation(): ?bool {
+        $val = $this->getBackingStore()->get('waitForDeviceConfiguredConfirmation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'waitForDeviceConfiguredConfirmation'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -365,6 +378,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
         $writer->writeStringValue('supportPhoneNumber', $this->getSupportPhoneNumber());
         $writer->writeBooleanValue('termsAndConditionsDisabled', $this->getTermsAndConditionsDisabled());
         $writer->writeBooleanValue('touchIdDisabled', $this->getTouchIdDisabled());
+        $writer->writeBooleanValue('waitForDeviceConfiguredConfirmation', $this->getWaitForDeviceConfiguredConfirmation());
     }
 
     /**
@@ -533,6 +547,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     */
     public function setTouchIdDisabled(?bool $value): void {
         $this->getBackingStore()->set('touchIdDisabled', $value);
+    }
+
+    /**
+     * Sets the waitForDeviceConfiguredConfirmation property value. Indicates if the device will need to wait for configured confirmation
+     * @param bool|null $value Value to set for the waitForDeviceConfiguredConfirmation property.
+    */
+    public function setWaitForDeviceConfiguredConfirmation(?bool $value): void {
+        $this->getBackingStore()->set('waitForDeviceConfiguredConfirmation', $value);
     }
 
 }

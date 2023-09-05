@@ -56,7 +56,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the buildNumber property value. The buildNumber property
+     * Gets the buildNumber property value. The build number of the product release. Read-only.
      * @return int|null
     */
     public function getBuildNumber(): ?int {
@@ -83,7 +83,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the majorVersion property value. The majorVersion property
+     * Gets the majorVersion property value. The major version of the product release. Read-only.
      * @return int|null
     */
     public function getMajorVersion(): ?int {
@@ -95,7 +95,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the minorVersion property value. The minorVersion property
+     * Gets the minorVersion property value. The minor version of the product release. Read-only.
      * @return int|null
     */
     public function getMinorVersion(): ?int {
@@ -119,7 +119,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the updateBuildRevision property value. The updateBuildRevision property
+     * Gets the updateBuildRevision property value. The update build revision number of the product revision. Read-only.
      * @return int|null
     */
     public function getUpdateBuildRevision(): ?int {
@@ -160,7 +160,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the buildNumber property value. The buildNumber property
+     * Sets the buildNumber property value. The build number of the product release. Read-only.
      * @param int|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?int $value): void {
@@ -168,7 +168,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the majorVersion property value. The majorVersion property
+     * Sets the majorVersion property value. The major version of the product release. Read-only.
      * @param int|null $value Value to set for the majorVersion property.
     */
     public function setMajorVersion(?int $value): void {
@@ -176,7 +176,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the minorVersion property value. The minorVersion property
+     * Sets the minorVersion property value. The minor version of the product release. Read-only.
      * @param int|null $value Value to set for the minorVersion property.
     */
     public function setMinorVersion(?int $value): void {
@@ -192,7 +192,7 @@ class BuildVersionDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the updateBuildRevision property value. The updateBuildRevision property
+     * Sets the updateBuildRevision property value. The update build revision number of the product revision. Read-only.
      * @param int|null $value Value to set for the updateBuildRevision property.
     */
     public function setUpdateBuildRevision(?int $value): void {

@@ -41,6 +41,14 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
                 /** @var array<string>|null $val */
                 $this->setUpns($val);
             },
+            'userPrincipalNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setUserPrincipalNames($val);
+            },
         ]);
     }
 
@@ -59,12 +67,27 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
+     * Gets the userPrincipalNames property value. The userPrincipalNames property
+     * @return array<string>|null
+    */
+    public function getUserPrincipalNames(): ?array {
+        $val = $this->getBackingStore()->get('userPrincipalNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalNames'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('upns', $this->getUpns());
+        $writer->writeCollectionOfPrimitiveValues('userPrincipalNames', $this->getUserPrincipalNames());
     }
 
     /**
@@ -73,6 +96,14 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     */
     public function setUpns(?array $value): void {
         $this->getBackingStore()->set('upns', $value);
+    }
+
+    /**
+     * Sets the userPrincipalNames property value. The userPrincipalNames property
+     * @param array<string>|null $value Value to set for the userPrincipalNames property.
+    */
+    public function setUserPrincipalNames(?array $value): void {
+        $this->getBackingStore()->set('userPrincipalNames', $value);
     }
 
 }
