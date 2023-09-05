@@ -35,7 +35,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the action property value. The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
+     * Gets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
      * @return MonitoringAction|null
     */
     public function getAction(): ?MonitoringAction {
@@ -94,7 +94,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signal property value. The signal to monitor. Possible values are: rollback, unknownFutureValue.
+     * Gets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
      * @return MonitoringSignal|null
     */
     public function getSignal(): ?MonitoringSignal {
@@ -106,7 +106,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the threshold property value. The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
+     * Gets the threshold property value. The threshold for a signal at which to trigger the action. An integer from 1 to 100 (inclusive). This value is ignored when the signal is ineligible and the action is offerFallback.
      * @return int|null
     */
     public function getThreshold(): ?int {
@@ -130,7 +130,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the action property value. The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
+     * Sets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
      * @param MonitoringAction|null $value Value to set for the action property.
     */
     public function setAction(?MonitoringAction $value): void {
@@ -162,7 +162,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signal property value. The signal to monitor. Possible values are: rollback, unknownFutureValue.
+     * Sets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
      * @param MonitoringSignal|null $value Value to set for the signal property.
     */
     public function setSignal(?MonitoringSignal $value): void {
@@ -170,7 +170,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the threshold property value. The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
+     * Sets the threshold property value. The threshold for a signal at which to trigger the action. An integer from 1 to 100 (inclusive). This value is ignored when the signal is ineligible and the action is offerFallback.
      * @param int|null $value Value to set for the threshold property.
     */
     public function setThreshold(?int $value): void {

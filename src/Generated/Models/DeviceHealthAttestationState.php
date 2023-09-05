@@ -258,10 +258,13 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
             'dataExcutionPolicy' => fn(ParseNode $n) => $o->setDataExcutionPolicy($n->getStringValue()),
             'deviceHealthAttestationStatus' => fn(ParseNode $n) => $o->setDeviceHealthAttestationStatus($n->getStringValue()),
             'earlyLaunchAntiMalwareDriverProtection' => fn(ParseNode $n) => $o->setEarlyLaunchAntiMalwareDriverProtection($n->getStringValue()),
+            'firmwareProtection' => fn(ParseNode $n) => $o->setFirmwareProtection($n->getEnumValue(FirmwareProtectionType::class)),
             'healthAttestationSupportedStatus' => fn(ParseNode $n) => $o->setHealthAttestationSupportedStatus($n->getStringValue()),
             'healthStatusMismatchInfo' => fn(ParseNode $n) => $o->setHealthStatusMismatchInfo($n->getStringValue()),
             'issuedDateTime' => fn(ParseNode $n) => $o->setIssuedDateTime($n->getDateTimeValue()),
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getStringValue()),
+            'memoryAccessProtection' => fn(ParseNode $n) => $o->setMemoryAccessProtection($n->getEnumValue(AzureAttestationSettingStatus::class)),
+            'memoryIntegrityProtection' => fn(ParseNode $n) => $o->setMemoryIntegrityProtection($n->getEnumValue(AzureAttestationSettingStatus::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operatingSystemKernelDebugging' => fn(ParseNode $n) => $o->setOperatingSystemKernelDebugging($n->getStringValue()),
             'operatingSystemRevListInfo' => fn(ParseNode $n) => $o->setOperatingSystemRevListInfo($n->getStringValue()),
@@ -272,11 +275,26 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
             'safeMode' => fn(ParseNode $n) => $o->setSafeMode($n->getStringValue()),
             'secureBoot' => fn(ParseNode $n) => $o->setSecureBoot($n->getStringValue()),
             'secureBootConfigurationPolicyFingerPrint' => fn(ParseNode $n) => $o->setSecureBootConfigurationPolicyFingerPrint($n->getStringValue()),
+            'securedCorePC' => fn(ParseNode $n) => $o->setSecuredCorePC($n->getEnumValue(AzureAttestationSettingStatus::class)),
+            'systemManagementMode' => fn(ParseNode $n) => $o->setSystemManagementMode($n->getEnumValue(SystemManagementModeLevel::class)),
             'testSigning' => fn(ParseNode $n) => $o->setTestSigning($n->getStringValue()),
             'tpmVersion' => fn(ParseNode $n) => $o->setTpmVersion($n->getStringValue()),
+            'virtualizationBasedSecurity' => fn(ParseNode $n) => $o->setVirtualizationBasedSecurity($n->getEnumValue(AzureAttestationSettingStatus::class)),
             'virtualSecureMode' => fn(ParseNode $n) => $o->setVirtualSecureMode($n->getStringValue()),
             'windowsPE' => fn(ParseNode $n) => $o->setWindowsPE($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the firmwareProtection property value. A list of possible Firmware protection type for a device. Firmware protection is a set of features that helps to ensure attackers can't get your device to start with untrusted or malicious firmware. Firmware protection type is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "systemGuardSecureLaunch" or "firmwareAttackSurfaceReduction" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @return FirmwareProtectionType|null
+    */
+    public function getFirmwareProtection(): ?FirmwareProtectionType {
+        $val = $this->getBackingStore()->get('firmwareProtection');
+        if (is_null($val) || $val instanceof FirmwareProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareProtection'");
     }
 
     /**
@@ -325,6 +343,30 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdateDateTime'");
+    }
+
+    /**
+     * Gets the memoryAccessProtection property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @return AzureAttestationSettingStatus|null
+    */
+    public function getMemoryAccessProtection(): ?AzureAttestationSettingStatus {
+        $val = $this->getBackingStore()->get('memoryAccessProtection');
+        if (is_null($val) || $val instanceof AzureAttestationSettingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memoryAccessProtection'");
+    }
+
+    /**
+     * Gets the memoryIntegrityProtection property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @return AzureAttestationSettingStatus|null
+    */
+    public function getMemoryIntegrityProtection(): ?AzureAttestationSettingStatus {
+        $val = $this->getBackingStore()->get('memoryIntegrityProtection');
+        if (is_null($val) || $val instanceof AzureAttestationSettingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memoryIntegrityProtection'");
     }
 
     /**
@@ -448,6 +490,30 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
     }
 
     /**
+     * Gets the securedCorePC property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @return AzureAttestationSettingStatus|null
+    */
+    public function getSecuredCorePC(): ?AzureAttestationSettingStatus {
+        $val = $this->getBackingStore()->get('securedCorePC');
+        if (is_null($val) || $val instanceof AzureAttestationSettingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securedCorePC'");
+    }
+
+    /**
+     * Gets the systemManagementMode property value. A list of possible System Management Mode levels for a device. System Management Mode levels is determined by report sent from Microsoft Azure Attestation service. Only specific hardwares support System Management Mode. Windows 11 devices will have values "notApplicable", "level1", "level2" or "level3". Windows 10 devices will have value "notApplicable".
+     * @return SystemManagementModeLevel|null
+    */
+    public function getSystemManagementMode(): ?SystemManagementModeLevel {
+        $val = $this->getBackingStore()->get('systemManagementMode');
+        if (is_null($val) || $val instanceof SystemManagementModeLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemManagementMode'");
+    }
+
+    /**
      * Gets the testSigning property value. When test signing is allowed, the device does not enforce signature validation during boot
      * @return string|null
     */
@@ -469,6 +535,18 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmVersion'");
+    }
+
+    /**
+     * Gets the virtualizationBasedSecurity property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @return AzureAttestationSettingStatus|null
+    */
+    public function getVirtualizationBasedSecurity(): ?AzureAttestationSettingStatus {
+        $val = $this->getBackingStore()->get('virtualizationBasedSecurity');
+        if (is_null($val) || $val instanceof AzureAttestationSettingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualizationBasedSecurity'");
     }
 
     /**
@@ -515,10 +593,13 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
         $writer->writeStringValue('dataExcutionPolicy', $this->getDataExcutionPolicy());
         $writer->writeStringValue('deviceHealthAttestationStatus', $this->getDeviceHealthAttestationStatus());
         $writer->writeStringValue('earlyLaunchAntiMalwareDriverProtection', $this->getEarlyLaunchAntiMalwareDriverProtection());
+        $writer->writeEnumValue('firmwareProtection', $this->getFirmwareProtection());
         $writer->writeStringValue('healthAttestationSupportedStatus', $this->getHealthAttestationSupportedStatus());
         $writer->writeStringValue('healthStatusMismatchInfo', $this->getHealthStatusMismatchInfo());
         $writer->writeDateTimeValue('issuedDateTime', $this->getIssuedDateTime());
         $writer->writeStringValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
+        $writer->writeEnumValue('memoryAccessProtection', $this->getMemoryAccessProtection());
+        $writer->writeEnumValue('memoryIntegrityProtection', $this->getMemoryIntegrityProtection());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('operatingSystemKernelDebugging', $this->getOperatingSystemKernelDebugging());
         $writer->writeStringValue('operatingSystemRevListInfo', $this->getOperatingSystemRevListInfo());
@@ -529,8 +610,11 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
         $writer->writeStringValue('safeMode', $this->getSafeMode());
         $writer->writeStringValue('secureBoot', $this->getSecureBoot());
         $writer->writeStringValue('secureBootConfigurationPolicyFingerPrint', $this->getSecureBootConfigurationPolicyFingerPrint());
+        $writer->writeEnumValue('securedCorePC', $this->getSecuredCorePC());
+        $writer->writeEnumValue('systemManagementMode', $this->getSystemManagementMode());
         $writer->writeStringValue('testSigning', $this->getTestSigning());
         $writer->writeStringValue('tpmVersion', $this->getTpmVersion());
+        $writer->writeEnumValue('virtualizationBasedSecurity', $this->getVirtualizationBasedSecurity());
         $writer->writeStringValue('virtualSecureMode', $this->getVirtualSecureMode());
         $writer->writeStringValue('windowsPE', $this->getWindowsPE());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -673,6 +757,14 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
     }
 
     /**
+     * Sets the firmwareProtection property value. A list of possible Firmware protection type for a device. Firmware protection is a set of features that helps to ensure attackers can't get your device to start with untrusted or malicious firmware. Firmware protection type is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "systemGuardSecureLaunch" or "firmwareAttackSurfaceReduction" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @param FirmwareProtectionType|null $value Value to set for the firmwareProtection property.
+    */
+    public function setFirmwareProtection(?FirmwareProtectionType $value): void {
+        $this->getBackingStore()->set('firmwareProtection', $value);
+    }
+
+    /**
      * Sets the healthAttestationSupportedStatus property value. This attribute indicates if DHA is supported for the device
      * @param string|null $value Value to set for the healthAttestationSupportedStatus property.
     */
@@ -702,6 +794,22 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
     */
     public function setLastUpdateDateTime(?string $value): void {
         $this->getBackingStore()->set('lastUpdateDateTime', $value);
+    }
+
+    /**
+     * Sets the memoryAccessProtection property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @param AzureAttestationSettingStatus|null $value Value to set for the memoryAccessProtection property.
+    */
+    public function setMemoryAccessProtection(?AzureAttestationSettingStatus $value): void {
+        $this->getBackingStore()->set('memoryAccessProtection', $value);
+    }
+
+    /**
+     * Sets the memoryIntegrityProtection property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @param AzureAttestationSettingStatus|null $value Value to set for the memoryIntegrityProtection property.
+    */
+    public function setMemoryIntegrityProtection(?AzureAttestationSettingStatus $value): void {
+        $this->getBackingStore()->set('memoryIntegrityProtection', $value);
     }
 
     /**
@@ -785,6 +893,22 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
     }
 
     /**
+     * Sets the securedCorePC property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @param AzureAttestationSettingStatus|null $value Value to set for the securedCorePC property.
+    */
+    public function setSecuredCorePC(?AzureAttestationSettingStatus $value): void {
+        $this->getBackingStore()->set('securedCorePC', $value);
+    }
+
+    /**
+     * Sets the systemManagementMode property value. A list of possible System Management Mode levels for a device. System Management Mode levels is determined by report sent from Microsoft Azure Attestation service. Only specific hardwares support System Management Mode. Windows 11 devices will have values "notApplicable", "level1", "level2" or "level3". Windows 10 devices will have value "notApplicable".
+     * @param SystemManagementModeLevel|null $value Value to set for the systemManagementMode property.
+    */
+    public function setSystemManagementMode(?SystemManagementModeLevel $value): void {
+        $this->getBackingStore()->set('systemManagementMode', $value);
+    }
+
+    /**
      * Sets the testSigning property value. When test signing is allowed, the device does not enforce signature validation during boot
      * @param string|null $value Value to set for the testSigning property.
     */
@@ -798,6 +922,14 @@ class DeviceHealthAttestationState implements AdditionalDataHolder, BackedModel,
     */
     public function setTpmVersion(?string $value): void {
         $this->getBackingStore()->set('tpmVersion', $value);
+    }
+
+    /**
+     * Sets the virtualizationBasedSecurity property value. A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values "enabled" or "disabled". Windows 10 devices will have value "notApplicable".
+     * @param AzureAttestationSettingStatus|null $value Value to set for the virtualizationBasedSecurity property.
+    */
+    public function setVirtualizationBasedSecurity(?AzureAttestationSettingStatus $value): void {
+        $this->getBackingStore()->set('virtualizationBasedSecurity', $value);
     }
 
     /**

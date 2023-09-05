@@ -32,9 +32,10 @@ class WhoisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get whois from security
+     * Get the current whoisRecord resource for a host.
      * @param WhoisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/security-host-get-whois?view=graph-rest-1.0 Find more info here
     */
     public function get(?WhoisRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class WhoisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get whois from security
+     * Get the current whoisRecord resource for a host.
      * @param WhoisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

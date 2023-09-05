@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisHistor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get host from security
+ * The host associated to this WHOIS object.
 */
 class HostRequestBuilderGetQueryParameters 
 {

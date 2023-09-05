@@ -27,7 +27,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the articleIndicators property value. Refers to indicators of threat or compromise highlighted in an microsoft.graph.security.article.Note: List retrieval is not yet supported.
+     * Gets the articleIndicators property value. Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
      * @return array<ArticleIndicator>|null
     */
     public function getArticleIndicators(): ?array {
@@ -81,7 +81,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostComponents property value. Retrieve details about microsoft.graph.security.hostComponent objects.Note: List retrieval is not yet supported.
+     * Gets the hostComponents property value. Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
      * @return array<HostComponent>|null
     */
     public function getHostComponents(): ?array {
@@ -95,7 +95,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostCookies property value. Retrieve details about microsoft.graph.security.hostCookie objects.Note: List retrieval is not yet supported.
+     * Gets the hostCookies property value. Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
      * @return array<HostCookie>|null
     */
     public function getHostCookies(): ?array {
@@ -109,7 +109,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostPairs property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
+     * Gets the hostPairs property value. Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @return array<HostPair>|null
     */
     public function getHostPairs(): ?array {
@@ -123,7 +123,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hosts property value. Refers to microsoft.graph.security.host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+     * Gets the hosts property value. Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @return array<Host>|null
     */
     public function getHosts(): ?array {
@@ -151,7 +151,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostTrackers property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
+     * Gets the hostTrackers property value. Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @return array<HostTracker>|null
     */
     public function getHostTrackers(): ?array {
@@ -193,7 +193,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the passiveDnsRecords property value. Retrieve details about microsoft.graph.security.passiveDnsRecord objects.Note: List retrieval is not yet supported.
+     * Gets the passiveDnsRecords property value. Retrieve details about passiveDnsRecord objects.Note: List retrieval is not yet supported.
      * @return array<PassiveDnsRecord>|null
     */
     public function getPassiveDnsRecords(): ?array {
@@ -221,7 +221,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
+     * Gets the subdomains property value. Retrieve details about the subdomain.Note: List retrieval is not yet supported.
      * @return array<Subdomain>|null
     */
     public function getSubdomains(): ?array {
@@ -235,7 +235,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the vulnerabilities property value. Retrieve details about microsoft.graph.security.vulnerabilities.Note: List retrieval is not yet supported.
+     * Gets the vulnerabilities property value. Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @return array<Vulnerability>|null
     */
     public function getVulnerabilities(): ?array {
@@ -249,7 +249,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the whoisHistoryRecords property value. The whoisHistoryRecords property
+     * Gets the whoisHistoryRecords property value. Retrieve details about whoisHistoryRecord objects.Note: List retrieval is not yet supported.
      * @return array<WhoisHistoryRecord>|null
     */
     public function getWhoisHistoryRecords(): ?array {
@@ -263,7 +263,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the whoisRecords property value. The whoisRecords property
+     * Gets the whoisRecords property value. A list of whoisRecord objects.
      * @return array<WhoisRecord>|null
     */
     public function getWhoisRecords(): ?array {
@@ -301,7 +301,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the articleIndicators property value. Refers to indicators of threat or compromise highlighted in an microsoft.graph.security.article.Note: List retrieval is not yet supported.
+     * Sets the articleIndicators property value. Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
      * @param array<ArticleIndicator>|null $value Value to set for the articleIndicators property.
     */
     public function setArticleIndicators(?array $value): void {
@@ -317,7 +317,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostComponents property value. Retrieve details about microsoft.graph.security.hostComponent objects.Note: List retrieval is not yet supported.
+     * Sets the hostComponents property value. Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
      * @param array<HostComponent>|null $value Value to set for the hostComponents property.
     */
     public function setHostComponents(?array $value): void {
@@ -325,7 +325,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostCookies property value. Retrieve details about microsoft.graph.security.hostCookie objects.Note: List retrieval is not yet supported.
+     * Sets the hostCookies property value. Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
      * @param array<HostCookie>|null $value Value to set for the hostCookies property.
     */
     public function setHostCookies(?array $value): void {
@@ -333,7 +333,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostPairs property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
+     * Sets the hostPairs property value. Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @param array<HostPair>|null $value Value to set for the hostPairs property.
     */
     public function setHostPairs(?array $value): void {
@@ -341,7 +341,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hosts property value. Refers to microsoft.graph.security.host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+     * Sets the hosts property value. Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @param array<Host>|null $value Value to set for the hosts property.
     */
     public function setHosts(?array $value): void {
@@ -357,7 +357,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostTrackers property value. Retrieve details about microsoft.graph.security.hostTracker objects.Note: List retrieval is not yet supported.
+     * Sets the hostTrackers property value. Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @param array<HostTracker>|null $value Value to set for the hostTrackers property.
     */
     public function setHostTrackers(?array $value): void {
@@ -381,7 +381,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the passiveDnsRecords property value. Retrieve details about microsoft.graph.security.passiveDnsRecord objects.Note: List retrieval is not yet supported.
+     * Sets the passiveDnsRecords property value. Retrieve details about passiveDnsRecord objects.Note: List retrieval is not yet supported.
      * @param array<PassiveDnsRecord>|null $value Value to set for the passiveDnsRecords property.
     */
     public function setPassiveDnsRecords(?array $value): void {
@@ -397,7 +397,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
+     * Sets the subdomains property value. Retrieve details about the subdomain.Note: List retrieval is not yet supported.
      * @param array<Subdomain>|null $value Value to set for the subdomains property.
     */
     public function setSubdomains(?array $value): void {
@@ -405,7 +405,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the vulnerabilities property value. Retrieve details about microsoft.graph.security.vulnerabilities.Note: List retrieval is not yet supported.
+     * Sets the vulnerabilities property value. Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @param array<Vulnerability>|null $value Value to set for the vulnerabilities property.
     */
     public function setVulnerabilities(?array $value): void {
@@ -413,7 +413,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the whoisHistoryRecords property value. The whoisHistoryRecords property
+     * Sets the whoisHistoryRecords property value. Retrieve details about whoisHistoryRecord objects.Note: List retrieval is not yet supported.
      * @param array<WhoisHistoryRecord>|null $value Value to set for the whoisHistoryRecords property.
     */
     public function setWhoisHistoryRecords(?array $value): void {
@@ -421,7 +421,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the whoisRecords property value. The whoisRecords property
+     * Sets the whoisRecords property value. A list of whoisRecord objects.
      * @param array<WhoisRecord>|null $value Value to set for the whoisRecords property.
     */
     public function setWhoisRecords(?array $value): void {

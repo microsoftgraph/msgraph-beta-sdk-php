@@ -78,7 +78,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the directoryScopeIds property value. Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
+     * Gets the directoryScopeIds property value. Ids of the directory objects that represent the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
      * @return array<string>|null
     */
     public function getDirectoryScopeIds(): ?array {
@@ -92,7 +92,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the directoryScopes property value. Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Gets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getDirectoryScopes(): ?array {
@@ -174,7 +174,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the principals property value. Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Gets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getPrincipals(): ?array {
@@ -263,7 +263,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the directoryScopeIds property value. Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
+     * Sets the directoryScopeIds property value. Ids of the directory objects that represent the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
      * @param array<string>|null $value Value to set for the directoryScopeIds property.
     */
     public function setDirectoryScopeIds(?array $value): void {
@@ -271,7 +271,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the directoryScopes property value. Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Sets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the directoryScopes property.
     */
     public function setDirectoryScopes(?array $value): void {
@@ -295,7 +295,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the principals property value. Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Sets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the principals property.
     */
     public function setPrincipals(?array $value): void {

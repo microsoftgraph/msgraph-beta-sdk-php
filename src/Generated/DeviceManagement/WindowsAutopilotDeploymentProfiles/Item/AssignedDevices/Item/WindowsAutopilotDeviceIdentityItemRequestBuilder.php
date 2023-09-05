@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploy
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Item\AllowNextEnrollment\AllowNextEnrollmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Item\AssignResourceAccountToDevice\AssignResourceAccountToDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Item\AssignUserToDevice\AssignUserToDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Item\DeploymentProfile\DeploymentProfileRequestBuilder;
@@ -24,6 +25,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the allowNextEnrollment method.
+    */
+    public function allowNextEnrollment(): AllowNextEnrollmentRequestBuilder {
+        return new AllowNextEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the assignResourceAccountToDevice method.
     */

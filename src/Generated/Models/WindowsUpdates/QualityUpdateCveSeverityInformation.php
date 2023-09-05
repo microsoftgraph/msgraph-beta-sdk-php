@@ -85,7 +85,7 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the maxBaseScore property value. The maxBaseScore property
+     * Gets the maxBaseScore property value. Highest base score that occurs of any CVE addressed by the quality update. Read-only.
      * @return float|null
     */
     public function getMaxBaseScore(): ?float {
@@ -157,7 +157,7 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the maxBaseScore property value. The maxBaseScore property
+     * Sets the maxBaseScore property value. Highest base score that occurs of any CVE addressed by the quality update. Read-only.
      * @param float|null $value Value to set for the maxBaseScore property.
     */
     public function setMaxBaseScore(?float $value): void {

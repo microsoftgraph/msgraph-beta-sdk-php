@@ -1840,6 +1840,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsKioskConfiguration': return new WindowsKioskConfiguration();
                 case '#microsoft.graph.windowsMalwareInformation': return new WindowsMalwareInformation();
                 case '#microsoft.graph.windowsManagedAppProtection': return new WindowsManagedAppProtection();
+                case '#microsoft.graph.windowsManagedAppRegistration': return new WindowsManagedAppRegistration();
                 case '#microsoft.graph.windowsManagedDevice': return new WindowsManagedDevice();
                 case '#microsoft.graph.windowsManagementApp': return new WindowsManagementApp();
                 case '#microsoft.graph.windowsManagementAppHealthState': return new WindowsManagementAppHealthState();

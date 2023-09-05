@@ -40,7 +40,7 @@ class WindowsUniversalAppXAppAssignmentSettings extends MobileAppAssignmentSetti
     }
 
     /**
-     * Gets the useDeviceContext property value. Whether or not to use device execution context for Windows Universal AppX mobile app.
+     * Gets the useDeviceContext property value. If true, uses device execution context for Windows Universal AppX mobile app. Device-context install is not allowed when this type of app is targeted with Available intent. Defaults to false.
      * @return bool|null
     */
     public function getUseDeviceContext(): ?bool {
@@ -61,7 +61,7 @@ class WindowsUniversalAppXAppAssignmentSettings extends MobileAppAssignmentSetti
     }
 
     /**
-     * Sets the useDeviceContext property value. Whether or not to use device execution context for Windows Universal AppX mobile app.
+     * Sets the useDeviceContext property value. If true, uses device execution context for Windows Universal AppX mobile app. Device-context install is not allowed when this type of app is targeted with Available intent. Defaults to false.
      * @param bool|null $value Value to set for the useDeviceContext property.
     */
     public function setUseDeviceContext(?bool $value): void {

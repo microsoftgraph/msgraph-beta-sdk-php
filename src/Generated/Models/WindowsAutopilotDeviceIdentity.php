@@ -205,6 +205,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
             'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
             'skuNumber' => fn(ParseNode $n) => $o->setSkuNumber($n->getStringValue()),
             'systemFamily' => fn(ParseNode $n) => $o->setSystemFamily($n->getStringValue()),
+            'userlessEnrollmentStatus' => fn(ParseNode $n) => $o->setUserlessEnrollmentStatus($n->getEnumValue(WindowsAutopilotUserlessEnrollmentStatus::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
@@ -378,6 +379,18 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
+     * Gets the userlessEnrollmentStatus property value. Userless enrollment block status, indicating whether the next device enrollment will be blocked.
+     * @return WindowsAutopilotUserlessEnrollmentStatus|null
+    */
+    public function getUserlessEnrollmentStatus(): ?WindowsAutopilotUserlessEnrollmentStatus {
+        $val = $this->getBackingStore()->get('userlessEnrollmentStatus');
+        if (is_null($val) || $val instanceof WindowsAutopilotUserlessEnrollmentStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userlessEnrollmentStatus'");
+    }
+
+    /**
      * Gets the userPrincipalName property value. User Principal Name.
      * @return string|null
     */
@@ -421,6 +434,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
         $writer->writeStringValue('serialNumber', $this->getSerialNumber());
         $writer->writeStringValue('skuNumber', $this->getSkuNumber());
         $writer->writeStringValue('systemFamily', $this->getSystemFamily());
+        $writer->writeEnumValue('userlessEnrollmentStatus', $this->getUserlessEnrollmentStatus());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
@@ -630,6 +644,14 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     */
     public function setSystemFamily(?string $value): void {
         $this->getBackingStore()->set('systemFamily', $value);
+    }
+
+    /**
+     * Sets the userlessEnrollmentStatus property value. Userless enrollment block status, indicating whether the next device enrollment will be blocked.
+     * @param WindowsAutopilotUserlessEnrollmentStatus|null $value Value to set for the userlessEnrollmentStatus property.
+    */
+    public function setUserlessEnrollmentStatus(?WindowsAutopilotUserlessEnrollmentStatus $value): void {
+        $this->getBackingStore()->set('userlessEnrollmentStatus', $value);
     }
 
     /**
