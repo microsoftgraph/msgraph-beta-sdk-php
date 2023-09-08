@@ -27,7 +27,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the content. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -55,7 +55,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Gets the knowledgeBaseArticle property value. The knowledgeBaseArticle property
+     * Gets the knowledgeBaseArticle property value. The knowledge base article associated with the product revision.
      * @return KnowledgeBaseArticle|null
     */
     public function getKnowledgeBaseArticle(): ?KnowledgeBaseArticle {
@@ -79,7 +79,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Gets the product property value. The product property
+     * Gets the product property value. The product of the revision. Possible values are: Windows 10, Windows 11. Read-only.
      * @return string|null
     */
     public function getProduct(): ?string {
@@ -91,7 +91,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Gets the releaseDateTime property value. The releaseDateTime property
+     * Gets the releaseDateTime property value. The release date for the content. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
@@ -103,7 +103,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version of the feature update. Read-only.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -129,7 +129,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the content. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -137,7 +137,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Sets the knowledgeBaseArticle property value. The knowledgeBaseArticle property
+     * Sets the knowledgeBaseArticle property value. The knowledge base article associated with the product revision.
      * @param KnowledgeBaseArticle|null $value Value to set for the knowledgeBaseArticle property.
     */
     public function setKnowledgeBaseArticle(?KnowledgeBaseArticle $value): void {
@@ -153,7 +153,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Sets the product property value. The product property
+     * Sets the product property value. The product of the revision. Possible values are: Windows 10, Windows 11. Read-only.
      * @param string|null $value Value to set for the product property.
     */
     public function setProduct(?string $value): void {
@@ -161,7 +161,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Sets the releaseDateTime property value. The releaseDateTime property
+     * Sets the releaseDateTime property value. The release date for the content. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
@@ -169,7 +169,7 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version of the feature update. Read-only.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

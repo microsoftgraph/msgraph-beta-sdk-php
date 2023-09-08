@@ -129,6 +129,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endOfSupportDate' => fn(ParseNode $n) => $o->setEndOfSupportDate($n->getDateTimeValue()),
             'featureUpdateVersion' => fn(ParseNode $n) => $o->setFeatureUpdateVersion($n->getStringValue()),
+            'installLatestWindows10OnWindows11IneligibleDevice' => fn(ParseNode $n) => $o->setInstallLatestWindows10OnWindows11IneligibleDevice($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -140,6 +141,18 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
             },
             'rolloutSettings' => fn(ParseNode $n) => $o->setRolloutSettings($n->getObjectValue([WindowsUpdateRolloutSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the installLatestWindows10OnWindows11IneligibleDevice property value. If true, the latest Microsoft Windows 10 update will be installed on devices ineligible for Microsoft Windows 11
+     * @return bool|null
+    */
+    public function getInstallLatestWindows10OnWindows11IneligibleDevice(): ?bool {
+        $val = $this->getBackingStore()->get('installLatestWindows10OnWindows11IneligibleDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installLatestWindows10OnWindows11IneligibleDevice'");
     }
 
     /**
@@ -193,6 +206,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('endOfSupportDate', $this->getEndOfSupportDate());
         $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
+        $writer->writeBooleanValue('installLatestWindows10OnWindows11IneligibleDevice', $this->getInstallLatestWindows10OnWindows11IneligibleDevice());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeObjectValue('rolloutSettings', $this->getRolloutSettings());
@@ -252,6 +266,14 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
     */
     public function setFeatureUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('featureUpdateVersion', $value);
+    }
+
+    /**
+     * Sets the installLatestWindows10OnWindows11IneligibleDevice property value. If true, the latest Microsoft Windows 10 update will be installed on devices ineligible for Microsoft Windows 11
+     * @param bool|null $value Value to set for the installLatestWindows10OnWindows11IneligibleDevice property.
+    */
+    public function setInstallLatestWindows10OnWindows11IneligibleDevice(?bool $value): void {
+        $this->getBackingStore()->set('installLatestWindows10OnWindows11IneligibleDevice', $value);
     }
 
     /**

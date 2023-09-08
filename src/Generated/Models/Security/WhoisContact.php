@@ -49,7 +49,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the address property value. The address property
+     * Gets the address property value. The physical address of the entity.
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
@@ -69,7 +69,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. The email of this WHOIS contact.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -81,7 +81,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the fax property value. The fax property
+     * Gets the fax property value. The fax of this WHOIS contact. No format is guaranteed.
      * @return string|null
     */
     public function getFax(): ?string {
@@ -110,7 +110,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of this WHOIS contact.
      * @return string|null
     */
     public function getName(): ?string {
@@ -134,7 +134,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the organization property value. The organization property
+     * Gets the organization property value. The organization of this WHOIS contact.
      * @return string|null
     */
     public function getOrganization(): ?string {
@@ -146,7 +146,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the telephone property value. The telephone property
+     * Gets the telephone property value. The telephone of this WHOIS contact. No format is guaranteed.
      * @return string|null
     */
     public function getTelephone(): ?string {
@@ -181,7 +181,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the address property value. The address property
+     * Sets the address property value. The physical address of the entity.
      * @param PhysicalAddress|null $value Value to set for the address property.
     */
     public function setAddress(?PhysicalAddress $value): void {
@@ -197,7 +197,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. The email of this WHOIS contact.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -205,7 +205,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the fax property value. The fax property
+     * Sets the fax property value. The fax of this WHOIS contact. No format is guaranteed.
      * @param string|null $value Value to set for the fax property.
     */
     public function setFax(?string $value): void {
@@ -213,7 +213,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of this WHOIS contact.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -229,7 +229,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the organization property value. The organization property
+     * Sets the organization property value. The organization of this WHOIS contact.
      * @param string|null $value Value to set for the organization property.
     */
     public function setOrganization(?string $value): void {
@@ -237,7 +237,7 @@ class WhoisContact implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the telephone property value. The telephone property
+     * Sets the telephone property value. The telephone of this WHOIS contact. No format is guaranteed.
      * @param string|null $value Value to set for the telephone property.
     */
     public function setTelephone(?string $value): void {

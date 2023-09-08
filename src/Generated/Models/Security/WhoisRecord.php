@@ -38,7 +38,7 @@ class WhoisRecord extends WhoisBaseRecord implements Parsable
     }
 
     /**
-     * Gets the history property value. The history property
+     * Gets the history property value. The collection of historical records associated to this WHOIS object.
      * @return array<WhoisHistoryRecord>|null
     */
     public function getHistory(): ?array {
@@ -61,7 +61,7 @@ class WhoisRecord extends WhoisBaseRecord implements Parsable
     }
 
     /**
-     * Sets the history property value. The history property
+     * Sets the history property value. The collection of historical records associated to this WHOIS object.
      * @param array<WhoisHistoryRecord>|null $value Value to set for the history property.
     */
     public function setHistory(?array $value): void {

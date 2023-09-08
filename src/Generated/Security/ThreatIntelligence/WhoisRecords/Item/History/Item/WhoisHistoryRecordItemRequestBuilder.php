@@ -32,7 +32,7 @@ class WhoisHistoryRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get history from security
+     * The collection of historical records associated to this WHOIS object.
      * @param WhoisHistoryRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class WhoisHistoryRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get history from security
+     * The collection of historical records associated to this WHOIS object.
      * @param WhoisHistoryRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
