@@ -52,7 +52,7 @@ class RelatedHostsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get relatedHosts from security
+     * The hosts related with this sslCertificate.
      * @param RelatedHostsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -70,7 +70,7 @@ class RelatedHostsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get relatedHosts from security
+     * The hosts related with this sslCertificate.
      * @param RelatedHostsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

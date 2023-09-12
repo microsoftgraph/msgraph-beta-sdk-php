@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountType\ChangeUserAccountTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CreateSnapshot\CreateSnapshotRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
@@ -18,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOn\PowerOnReque
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reboot\RebootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
@@ -38,6 +40,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function changeUserAccountType(): ChangeUserAccountTypeRequestBuilder {
         return new ChangeUserAccountTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createSnapshot method.
+    */
+    public function createSnapshot(): CreateSnapshotRequestBuilder {
+        return new CreateSnapshotRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -108,6 +117,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function reprovision(): ReprovisionRequestBuilder {
         return new ReprovisionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the resize method.
+    */
+    public function resize(): ResizeRequestBuilder {
+        return new ResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

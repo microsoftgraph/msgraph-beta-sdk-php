@@ -32,7 +32,7 @@ class SslCertificateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sslCertificate from security
+     * The sslCertificate for this hostSslCertificate.
      * @param SslCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class SslCertificateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sslCertificate from security
+     * The sslCertificate for this hostSslCertificate.
      * @param SslCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

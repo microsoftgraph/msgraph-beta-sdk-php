@@ -43,7 +43,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time that this hostSslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -55,7 +55,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the host property value. The host property
+     * Gets the host property value. The host for this hostSslCertificate.
      * @return Host|null
     */
     public function getHost(): ?Host {
@@ -67,7 +67,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The most recent date and time that this hostSslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -79,7 +79,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the ports property value. The ports related with this hostSslCertificate.
      * @return array<HostSslCertificatePort>|null
     */
     public function getPorts(): ?array {
@@ -93,7 +93,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the sslCertificate property value. The sslCertificate property
+     * Gets the sslCertificate property value. The sslCertificate for this hostSslCertificate.
      * @return SslCertificate|null
     */
     public function getSslCertificate(): ?SslCertificate {
@@ -118,7 +118,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time that this hostSslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -126,7 +126,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the host property value. The host property
+     * Sets the host property value. The host for this hostSslCertificate.
      * @param Host|null $value Value to set for the host property.
     */
     public function setHost(?Host $value): void {
@@ -134,7 +134,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The most recent date and time that this hostSslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
@@ -142,7 +142,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the ports property value. The ports related with this hostSslCertificate.
      * @param array<HostSslCertificatePort>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {
@@ -150,7 +150,7 @@ class HostSslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the sslCertificate property value. The sslCertificate property
+     * Sets the sslCertificate property value. The sslCertificate for this hostSslCertificate.
      * @param SslCertificate|null $value Value to set for the sslCertificate property.
     */
     public function setSslCertificate(?SslCertificate $value): void {

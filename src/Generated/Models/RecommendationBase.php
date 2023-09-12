@@ -146,6 +146,7 @@ class RecommendationBase extends Entity implements Parsable
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
             'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
+            'releaseType' => fn(ParseNode $n) => $o->setReleaseType($n->getStringValue()),
             'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
         ]);
@@ -286,6 +287,18 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the releaseType property value. The current release type of the recommendation. The possible values are: preview or generallyAvailable.
+     * @return string|null
+    */
+    public function getReleaseType(): ?string {
+        $val = $this->getBackingStore()->get('releaseType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseType'");
+    }
+
+    /**
      * Gets the remediationImpact property value. Description of the impact on users of the remediation. Only applies to recommendations with category set to identitySecureScore.
      * @return string|null
     */
@@ -333,6 +346,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
+        $writer->writeStringValue('releaseType', $this->getReleaseType());
         $writer->writeStringValue('remediationImpact', $this->getRemediationImpact());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -479,6 +493,14 @@ class RecommendationBase extends Entity implements Parsable
     */
     public function setRecommendationType(?RecommendationType $value): void {
         $this->getBackingStore()->set('recommendationType', $value);
+    }
+
+    /**
+     * Sets the releaseType property value. The current release type of the recommendation. The possible values are: preview or generallyAvailable.
+     * @param string|null $value Value to set for the releaseType property.
+    */
+    public function setReleaseType(?string $value): void {
+        $this->getBackingStore()->set('releaseType', $value);
     }
 
     /**

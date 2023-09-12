@@ -32,7 +32,7 @@ class HostPairItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @param HostPairItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class HostPairItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @param HostPairItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

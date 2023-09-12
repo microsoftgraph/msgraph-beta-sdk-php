@@ -105,6 +105,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\TransitiveReport
 use Microsoft\Graph\Beta\Generated\Users\Item\TranslateExchangeIds\TranslateExchangeIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\UnblockManagedApps\UnblockManagedAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\UsageRights\UsageRightsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\WindowsInformationProtectionDeviceRegistrations\WindowsInformationProtectionDeviceRegistrationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\WipeAndBlockManagedApps\WipeAndBlockManagedAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\WipeManagedAppRegistrationByDeviceTag\WipeManagedAppRegistrationByDeviceTagRequestBuilder;
@@ -783,6 +784,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function usageRights(): UsageRightsRequestBuilder {
         return new UsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the virtualEvents property of the microsoft.graph.user entity.
+    */
+    public function virtualEvents(): VirtualEventsRequestBuilder {
+        return new VirtualEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

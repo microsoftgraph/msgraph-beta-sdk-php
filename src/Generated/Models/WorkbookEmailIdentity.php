@@ -56,7 +56,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the user.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -68,7 +68,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. Email address of the user.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -94,7 +94,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. The unique identifier of the user.
      * @return string|null
     */
     public function getId(): ?string {
@@ -146,7 +146,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the user.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -154,7 +154,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. Email address of the user.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -162,7 +162,7 @@ class WorkbookEmailIdentity implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. The unique identifier of the user.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

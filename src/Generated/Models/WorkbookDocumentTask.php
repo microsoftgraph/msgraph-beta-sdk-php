@@ -27,7 +27,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignees property value. The assignees property
+     * Gets the assignees property value. A collection of user identities the task is assigned to.
      * @return array<WorkbookEmailIdentity>|null
     */
     public function getAssignees(): ?array {
@@ -41,7 +41,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the changes property value. The changes property
+     * Gets the changes property value. A collection of task change histories.
      * @return array<WorkbookDocumentTaskChange>|null
     */
     public function getChanges(): ?array {
@@ -55,7 +55,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the comment property value. The comment property
+     * Gets the comment property value. The comment that the task is associated with.
      * @return WorkbookComment|null
     */
     public function getComment(): ?WorkbookComment {
@@ -67,7 +67,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedBy property value. The completedBy property
+     * Gets the completedBy property value. The identity of the user who completed the task. Nullable.
      * @return WorkbookEmailIdentity|null
     */
     public function getCompletedBy(): ?WorkbookEmailIdentity {
@@ -79,7 +79,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. Date and time when the task was completed. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -91,7 +91,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. A user identity that creates the task. Nullable.
      * @return WorkbookEmailIdentity|null
     */
     public function getCreatedBy(): ?WorkbookEmailIdentity {
@@ -103,7 +103,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time when the task was created. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -136,7 +136,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the percentComplete property value. The percentComplete property
+     * Gets the percentComplete property value. An integer value from 0 to 100 that represents the percentage of the completion of the task. 100 means that the task is completed. Nullable.
      * @return int|null
     */
     public function getPercentComplete(): ?int {
@@ -148,7 +148,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. An integer value from 0 to 10 that represents the priority of the task. A lower value indicates a higher priority. Nullable.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -160,7 +160,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the startAndDueDateTime property value. The startAndDueDateTime property
+     * Gets the startAndDueDateTime property value. Start and due date of the task. Nullable.
      * @return WorkbookDocumentTaskSchedule|null
     */
     public function getStartAndDueDateTime(): ?WorkbookDocumentTaskSchedule {
@@ -172,7 +172,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. The title of the task.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -203,7 +203,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignees property value. The assignees property
+     * Sets the assignees property value. A collection of user identities the task is assigned to.
      * @param array<WorkbookEmailIdentity>|null $value Value to set for the assignees property.
     */
     public function setAssignees(?array $value): void {
@@ -211,7 +211,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the changes property value. The changes property
+     * Sets the changes property value. A collection of task change histories.
      * @param array<WorkbookDocumentTaskChange>|null $value Value to set for the changes property.
     */
     public function setChanges(?array $value): void {
@@ -219,7 +219,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the comment property value. The comment property
+     * Sets the comment property value. The comment that the task is associated with.
      * @param WorkbookComment|null $value Value to set for the comment property.
     */
     public function setComment(?WorkbookComment $value): void {
@@ -227,7 +227,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedBy property value. The completedBy property
+     * Sets the completedBy property value. The identity of the user who completed the task. Nullable.
      * @param WorkbookEmailIdentity|null $value Value to set for the completedBy property.
     */
     public function setCompletedBy(?WorkbookEmailIdentity $value): void {
@@ -235,7 +235,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. Date and time when the task was completed. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
@@ -243,7 +243,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. A user identity that creates the task. Nullable.
      * @param WorkbookEmailIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?WorkbookEmailIdentity $value): void {
@@ -251,7 +251,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time when the task was created. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -259,7 +259,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the percentComplete property value. The percentComplete property
+     * Sets the percentComplete property value. An integer value from 0 to 100 that represents the percentage of the completion of the task. 100 means that the task is completed. Nullable.
      * @param int|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?int $value): void {
@@ -267,7 +267,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. An integer value from 0 to 10 that represents the priority of the task. A lower value indicates a higher priority. Nullable.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
@@ -275,7 +275,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the startAndDueDateTime property value. The startAndDueDateTime property
+     * Sets the startAndDueDateTime property value. Start and due date of the task. Nullable.
      * @param WorkbookDocumentTaskSchedule|null $value Value to set for the startAndDueDateTime property.
     */
     public function setStartAndDueDateTime(?WorkbookDocumentTaskSchedule $value): void {
@@ -283,7 +283,7 @@ class WorkbookDocumentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. The title of the task.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

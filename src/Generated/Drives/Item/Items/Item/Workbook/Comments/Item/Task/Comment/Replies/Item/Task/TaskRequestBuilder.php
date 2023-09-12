@@ -58,7 +58,7 @@ class TaskRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get task from drives
+     * The task associated with the comment thread.
      * @param TaskRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class TaskRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get task from drives
+     * The task associated with the comment thread.
      * @param TaskRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

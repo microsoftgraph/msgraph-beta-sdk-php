@@ -8,7 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\ExportJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetConnectionQualityReports\GetConnectionQualityReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetDailyAggregatedRemoteConnectionReports\GetDailyAggregatedRemoteConnectionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetFrontlineReport\GetFrontlineReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetInaccessibleCloudPcReports\GetInaccessibleCloudPcReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRawRemoteConnectionReports\GetRawRemoteConnectionReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionLatencyWithCloudPcId\GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionStatusWithCloudPcId\GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
@@ -48,10 +50,24 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getFrontlineReport method.
+    */
+    public function getFrontlineReport(): GetFrontlineReportRequestBuilder {
+        return new GetFrontlineReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getInaccessibleCloudPcReports method.
     */
     public function getInaccessibleCloudPcReports(): GetInaccessibleCloudPcReportsRequestBuilder {
         return new GetInaccessibleCloudPcReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getRawRemoteConnectionReports method.
+    */
+    public function getRawRemoteConnectionReports(): GetRawRemoteConnectionReportsRequestBuilder {
+        return new GetRawRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

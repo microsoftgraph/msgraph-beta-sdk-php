@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OrganizationSettings extends Entity implements Parsable 
 {
@@ -48,8 +47,6 @@ class OrganizationSettings extends Entity implements Parsable
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'microsoftApplicationDataAccess' => fn(ParseNode $n) => $o->setMicrosoftApplicationDataAccess($n->getObjectValue([MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'])),
             'peopleInsights' => fn(ParseNode $n) => $o->setPeopleInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
-            'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
-            'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -90,32 +87,6 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the profileCardProperties property value. The profileCardProperties property
-     * @return array<ProfileCardProperty>|null
-    */
-    public function getProfileCardProperties(): ?array {
-        $val = $this->getBackingStore()->get('profileCardProperties');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ProfileCardProperty::class);
-            /** @var array<ProfileCardProperty>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileCardProperties'");
-    }
-
-    /**
-     * Gets the pronouns property value. The pronouns property
-     * @return PronounsSettings|null
-    */
-    public function getPronouns(): ?PronounsSettings {
-        $val = $this->getBackingStore()->get('pronouns');
-        if (is_null($val) || $val instanceof PronounsSettings) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'pronouns'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -125,8 +96,6 @@ class OrganizationSettings extends Entity implements Parsable
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
         $writer->writeObjectValue('microsoftApplicationDataAccess', $this->getMicrosoftApplicationDataAccess());
         $writer->writeObjectValue('peopleInsights', $this->getPeopleInsights());
-        $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
-        $writer->writeObjectValue('pronouns', $this->getPronouns());
     }
 
     /**
@@ -159,22 +128,6 @@ class OrganizationSettings extends Entity implements Parsable
     */
     public function setPeopleInsights(?InsightsSettings $value): void {
         $this->getBackingStore()->set('peopleInsights', $value);
-    }
-
-    /**
-     * Sets the profileCardProperties property value. The profileCardProperties property
-     * @param array<ProfileCardProperty>|null $value Value to set for the profileCardProperties property.
-    */
-    public function setProfileCardProperties(?array $value): void {
-        $this->getBackingStore()->set('profileCardProperties', $value);
-    }
-
-    /**
-     * Sets the pronouns property value. The pronouns property
-     * @param PronounsSettings|null $value Value to set for the pronouns property.
-    */
-    public function setPronouns(?PronounsSettings $value): void {
-        $this->getBackingStore()->set('pronouns', $value);
     }
 
 }

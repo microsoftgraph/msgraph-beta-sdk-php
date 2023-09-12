@@ -66,7 +66,7 @@ class CommentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get comment from drives
+     * The comment that the task is associated with.
      * @param CommentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class CommentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get comment from drives
+     * The comment that the task is associated with.
      * @param CommentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

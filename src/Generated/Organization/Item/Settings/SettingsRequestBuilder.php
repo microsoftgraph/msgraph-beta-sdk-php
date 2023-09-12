@@ -11,8 +11,6 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsights\Co
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApplicationDataAccess\MicrosoftApplicationDataAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\Pronouns\PronounsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -49,20 +47,6 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function peopleInsights(): PeopleInsightsRequestBuilder {
         return new PeopleInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
-    */
-    public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
-        return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the pronouns property of the microsoft.graph.organizationSettings entity.
-    */
-    public function pronouns(): PronounsRequestBuilder {
-        return new PronounsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

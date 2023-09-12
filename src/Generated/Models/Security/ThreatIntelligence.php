@@ -137,7 +137,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostSslCertificates property value. The hostSslCertificates property
+     * Gets the hostSslCertificates property value. Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @return array<HostSslCertificate>|null
     */
     public function getHostSslCertificates(): ?array {
@@ -207,7 +207,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the sslCertificates property value. The sslCertificates property
+     * Gets the sslCertificates property value. Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @return array<SslCertificate>|null
     */
     public function getSslCertificates(): ?array {
@@ -349,7 +349,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostSslCertificates property value. The hostSslCertificates property
+     * Sets the hostSslCertificates property value. Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @param array<HostSslCertificate>|null $value Value to set for the hostSslCertificates property.
     */
     public function setHostSslCertificates(?array $value): void {
@@ -389,7 +389,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the sslCertificates property value. The sslCertificates property
+     * Sets the sslCertificates property value. Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @param array<SslCertificate>|null $value Value to set for the sslCertificates property.
     */
     public function setSslCertificates(?array $value): void {

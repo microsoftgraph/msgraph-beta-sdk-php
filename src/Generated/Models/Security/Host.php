@@ -36,7 +36,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * Gets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @return array<HostPair>|null
     */
     public function getChildHostPairs(): ?array {
@@ -194,7 +194,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the sslCertificates property value. The sslCertificates property
+     * Gets the sslCertificates property value. The hostSslCertificates that are associated with this host.
      * @return array<HostSslCertificate>|null
     */
     public function getSslCertificates(): ?array {
@@ -270,7 +270,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * Sets the childHostPairs property value. The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a cihldHost.
      * @param array<HostPair>|null $value Value to set for the childHostPairs property.
     */
     public function setChildHostPairs(?array $value): void {
@@ -350,7 +350,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the sslCertificates property value. The sslCertificates property
+     * Sets the sslCertificates property value. The hostSslCertificates that are associated with this host.
      * @param array<HostSslCertificate>|null $value Value to set for the sslCertificates property.
     */
     public function setSslCertificates(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tasks from drives
+ * Collection of document tasks on this worksheet. Read-only.
 */
 class WorkbookDocumentTaskItemRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sslCertificates from security
+ * Get a list of hostSslCertificate objects from the host navigation property.
 */
 class SslCertificatesRequestBuilderGetQueryParameters 
 {
