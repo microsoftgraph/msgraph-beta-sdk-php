@@ -50,7 +50,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the address property value. The address property
+     * Gets the address property value. A physical address of the entity.
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
@@ -62,7 +62,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the alternateNames property value. The alternateNames property
+     * Gets the alternateNames property value. Alternate names for this entity that are part of the certificate.
      * @return array<string>|null
     */
     public function getAlternateNames(): ?array {
@@ -84,7 +84,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the commonName property value. The commonName property
+     * Gets the commonName property value. A common name for this entity.
      * @return string|null
     */
     public function getCommonName(): ?string {
@@ -96,7 +96,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. An email for this entity.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -135,7 +135,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the givenName property value. The givenName property
+     * Gets the givenName property value. If the entity is a person, this is the person's given name (first name).
      * @return string|null
     */
     public function getGivenName(): ?string {
@@ -159,7 +159,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the organizationName property value. The organizationName property
+     * Gets the organizationName property value. If the entity is an organization, this is the name of the organization.
      * @return string|null
     */
     public function getOrganizationName(): ?string {
@@ -171,7 +171,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the organizationUnitName property value. The organizationUnitName property
+     * Gets the organizationUnitName property value. If the entity is an organization, this communicates if a unit in the organization is named on the entity.
      * @return string|null
     */
     public function getOrganizationUnitName(): ?string {
@@ -183,7 +183,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the serialNumber property value. The serialNumber property
+     * Gets the serialNumber property value. A serial number assigned to the entity; usually only available if the entity is the issuer.
      * @return string|null
     */
     public function getSerialNumber(): ?string {
@@ -195,7 +195,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the surname property value. The surname property
+     * Gets the surname property value. If the entity is a person, this is the person's surname (last name).
      * @return string|null
     */
     public function getSurname(): ?string {
@@ -233,7 +233,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the address property value. The address property
+     * Sets the address property value. A physical address of the entity.
      * @param PhysicalAddress|null $value Value to set for the address property.
     */
     public function setAddress(?PhysicalAddress $value): void {
@@ -241,7 +241,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the alternateNames property value. The alternateNames property
+     * Sets the alternateNames property value. Alternate names for this entity that are part of the certificate.
      * @param array<string>|null $value Value to set for the alternateNames property.
     */
     public function setAlternateNames(?array $value): void {
@@ -257,7 +257,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the commonName property value. The commonName property
+     * Sets the commonName property value. A common name for this entity.
      * @param string|null $value Value to set for the commonName property.
     */
     public function setCommonName(?string $value): void {
@@ -265,7 +265,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. An email for this entity.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -273,7 +273,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the givenName property value. The givenName property
+     * Sets the givenName property value. If the entity is a person, this is the person's given name (first name).
      * @param string|null $value Value to set for the givenName property.
     */
     public function setGivenName(?string $value): void {
@@ -289,7 +289,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the organizationName property value. The organizationName property
+     * Sets the organizationName property value. If the entity is an organization, this is the name of the organization.
      * @param string|null $value Value to set for the organizationName property.
     */
     public function setOrganizationName(?string $value): void {
@@ -297,7 +297,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the organizationUnitName property value. The organizationUnitName property
+     * Sets the organizationUnitName property value. If the entity is an organization, this communicates if a unit in the organization is named on the entity.
      * @param string|null $value Value to set for the organizationUnitName property.
     */
     public function setOrganizationUnitName(?string $value): void {
@@ -305,7 +305,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the serialNumber property value. The serialNumber property
+     * Sets the serialNumber property value. A serial number assigned to the entity; usually only available if the entity is the issuer.
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
@@ -313,7 +313,7 @@ class SslCertificateEntity implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the surname property value. The surname property
+     * Sets the surname property value. If the entity is a person, this is the person's surname (last name).
      * @param string|null $value Value to set for the surname property.
     */
     public function setSurname(?string $value): void {

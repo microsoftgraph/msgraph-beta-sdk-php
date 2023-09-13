@@ -32,7 +32,7 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get relatedHosts from security
+     * The hosts related with this sslCertificate.
      * @param HostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get relatedHosts from security
+     * The hosts related with this sslCertificate.
      * @param HostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

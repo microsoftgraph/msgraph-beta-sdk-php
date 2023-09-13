@@ -62,7 +62,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Gets the task property value. The task property
+     * Gets the task property value. The task associated with the comment thread.
      * @return WorkbookDocumentTask|null
     */
     public function getTask(): ?WorkbookDocumentTask {
@@ -101,7 +101,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Sets the task property value. The task property
+     * Sets the task property value. The task associated with the comment thread.
      * @param WorkbookDocumentTask|null $value Value to set for the task property.
     */
     public function setTask(?WorkbookDocumentTask $value): void {

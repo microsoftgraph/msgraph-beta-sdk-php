@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get comment from drives
+ * The comment that the task is associated with.
 */
 class CommentRequestBuilderGetQueryParameters 
 {

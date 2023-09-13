@@ -1754,6 +1754,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userSettings': return new UserSettings();
                 case '#microsoft.graph.userSignInInsight': return new UserSignInInsight();
                 case '#microsoft.graph.userTeamwork': return new UserTeamwork();
+                case '#microsoft.graph.userVirtualEventsRoot': return new UserVirtualEventsRoot();
                 case '#microsoft.graph.verticalSection': return new VerticalSection();
                 case '#microsoft.graph.virtualEndpoint': return new VirtualEndpoint();
                 case '#microsoft.graph.virtualEvent': return new VirtualEvent();

@@ -54,7 +54,7 @@ class ChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get changes from drives
+     * A collection of task change histories.
      * @param ChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -100,7 +100,7 @@ class ChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get changes from drives
+     * A collection of task change histories.
      * @param ChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

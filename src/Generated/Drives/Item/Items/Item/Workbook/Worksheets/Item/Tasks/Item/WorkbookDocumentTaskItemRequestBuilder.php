@@ -66,7 +66,7 @@ class WorkbookDocumentTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from drives
+     * Collection of document tasks on this worksheet. Read-only.
      * @param WorkbookDocumentTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class WorkbookDocumentTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from drives
+     * Collection of document tasks on this worksheet. Read-only.
      * @param WorkbookDocumentTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
