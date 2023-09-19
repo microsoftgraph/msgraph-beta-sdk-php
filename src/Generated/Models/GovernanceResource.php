@@ -136,7 +136,7 @@ class GovernanceResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinitions property value. The collection of role defintions for the resource.
+     * Gets the roleDefinitions property value. The collection of role definitions for the resource.
      * @return array<GovernanceRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
@@ -263,7 +263,7 @@ class GovernanceResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinitions property value. The collection of role defintions for the resource.
+     * Sets the roleDefinitions property value. The collection of role definitions for the resource.
      * @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {

@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\HostPa
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\ParentHostPairs\ParentHostPairsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\PassiveDnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\PassiveDnsReverseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Ports\PortsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Reputation\ReputationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\SslCertificates\SslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Subdomains\SubdomainsRequestBuilder;
@@ -76,6 +77,13 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     */
     public function passiveDnsReverse(): PassiveDnsReverseRequestBuilder {
         return new PassiveDnsReverseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the ports property of the microsoft.graph.security.host entity.
+    */
+    public function ports(): PortsRequestBuilder {
+        return new PortsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -56,7 +56,7 @@ class ClaimsMapping implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The claim that provides the display name or full name for the user. It is a required propoerty.
+     * Gets the displayName property value. The claim that provides the display name or full name for the user. It's a required property.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -132,7 +132,7 @@ class ClaimsMapping implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The claim that provides the unique identifier for the signed-in user. It is a required propoerty.
+     * Gets the userId property value. The claim that provides the unique identifier for the signed-in user. It is a required property.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -174,7 +174,7 @@ class ClaimsMapping implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The claim that provides the display name or full name for the user. It is a required propoerty.
+     * Sets the displayName property value. The claim that provides the display name or full name for the user. It's a required property.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -214,7 +214,7 @@ class ClaimsMapping implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The claim that provides the unique identifier for the signed-in user. It is a required propoerty.
+     * Sets the userId property value. The claim that provides the unique identifier for the signed-in user. It is a required property.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

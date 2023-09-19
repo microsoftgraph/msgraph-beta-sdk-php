@@ -26,7 +26,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     }
 
     /**
-     * Gets the applyHoldToSource property value. Indicates if hold is applied to non-custodial data source (such as mailbox or site).
+     * Gets the applyHoldToSource property value. Indicates if hold is applied to noncustodial data source (such as mailbox or site).
      * @return bool|null
     */
     public function getApplyHoldToSource(): ?bool {
@@ -38,7 +38,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     }
 
     /**
-     * Gets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
+     * Gets the dataSource property value. User source or SharePoint site data source as noncustodial data source.
      * @return DataSource|null
     */
     public function getDataSource(): ?DataSource {
@@ -72,7 +72,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     }
 
     /**
-     * Sets the applyHoldToSource property value. Indicates if hold is applied to non-custodial data source (such as mailbox or site).
+     * Sets the applyHoldToSource property value. Indicates if hold is applied to noncustodial data source (such as mailbox or site).
      * @param bool|null $value Value to set for the applyHoldToSource property.
     */
     public function setApplyHoldToSource(?bool $value): void {
@@ -80,7 +80,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     }
 
     /**
-     * Sets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
+     * Sets the dataSource property value. User source or SharePoint site data source as noncustodial data source.
      * @param DataSource|null $value Value to set for the dataSource property.
     */
     public function setDataSource(?DataSource $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Noncus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * User source or SharePoint site data source as non-custodial data source.
+ * User source or SharePoint site data source as noncustodial data source.
 */
 class DataSourceRequestBuilderGetQueryParameters 
 {

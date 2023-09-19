@@ -56,7 +56,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
+     * Gets the cloudPcId property value. The cloudPC ID that corresponds to its unique identifier.
      * @return string|null
     */
     public function getCloudPcId(): ?string {
@@ -132,7 +132,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
+     * Sets the cloudPcId property value. The cloudPC ID that corresponds to its unique identifier.
      * @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value): void {

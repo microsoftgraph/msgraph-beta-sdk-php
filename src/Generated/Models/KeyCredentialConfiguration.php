@@ -59,7 +59,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the certificateBasedApplicationConfigurationIds property value. The certificateBasedApplicationConfigurationIds property
+     * Gets the certificateBasedApplicationConfigurationIds property value. Collection of GUIDs that point to the certificateBasedApplicationConfiguration that contains the collection of allowed root and intermediate certificate authorities.
      * @return array<string>|null
     */
     public function getCertificateBasedApplicationConfigurationIds(): ?array {
@@ -172,7 +172,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the certificateBasedApplicationConfigurationIds property value. The certificateBasedApplicationConfigurationIds property
+     * Sets the certificateBasedApplicationConfigurationIds property value. Collection of GUIDs that point to the certificateBasedApplicationConfiguration that contains the collection of allowed root and intermediate certificate authorities.
      * @param array<string>|null $value Value to set for the certificateBasedApplicationConfigurationIds property.
     */
     public function setCertificateBasedApplicationConfigurationIds(?array $value): void {

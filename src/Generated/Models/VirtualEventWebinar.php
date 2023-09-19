@@ -38,7 +38,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the coOrganizers property value. Identity information of co-organizers of the webinar.
+     * Gets the coOrganizers property value. Identity information of coorganizers of the webinar.
      * @return array<CommunicationsUserIdentity>|null
     */
     public function getCoOrganizers(): ?array {
@@ -112,7 +112,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the coOrganizers property value. Identity information of co-organizers of the webinar.
+     * Sets the coOrganizers property value. Identity information of coorganizers of the webinar.
      * @param array<CommunicationsUserIdentity>|null $value Value to set for the coOrganizers property.
     */
     public function setCoOrganizers(?array $value): void {

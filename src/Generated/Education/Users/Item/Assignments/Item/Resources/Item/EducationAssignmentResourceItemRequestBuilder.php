@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\R
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Resources\Item\DependentResources\DependentResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the dependentResources property of the microsoft.graph.educationAssignmentResource entity.
+    */
+    public function dependentResources(): DependentResourcesRequestBuilder {
+        return new DependentResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new EducationAssignmentResourceItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

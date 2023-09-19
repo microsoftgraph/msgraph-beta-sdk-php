@@ -38,7 +38,7 @@ class TenantStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
+     * Gets the onboardingErrorMessage property value. Reflects a message to the user if there's an error.
      * @return string|null
     */
     public function getOnboardingErrorMessage(): ?string {
@@ -72,7 +72,7 @@ class TenantStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the onboardingErrorMessage property value. Reflects a message to the user in case of an error.
+     * Sets the onboardingErrorMessage property value. Reflects a message to the user if there's an error.
      * @param string|null $value Value to set for the onboardingErrorMessage property.
     */
     public function setOnboardingErrorMessage(?string $value): void {

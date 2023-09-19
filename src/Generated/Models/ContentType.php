@@ -26,7 +26,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This contains all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      * @return array<string>|null
     */
     public function getAssociatedHubsUrls(): ?array {
@@ -276,7 +276,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Gets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
+     * Gets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
      * @return bool|null
     */
     public function getReadOnly(): ?bool {
@@ -288,7 +288,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Gets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * Gets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      * @return bool|null
     */
     public function getSealed(): ?bool {
@@ -327,7 +327,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This contains all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      * @param array<string>|null $value Value to set for the associatedHubsUrls property.
     */
     public function setAssociatedHubsUrls(?array $value): void {
@@ -463,7 +463,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Sets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
+     * Sets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
      * @param bool|null $value Value to set for the readOnly property.
     */
     public function setReadOnly(?bool $value): void {
@@ -471,7 +471,7 @@ class ContentType extends Entity implements Parsable
     }
 
     /**
-     * Sets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * Sets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      * @param bool|null $value Value to set for the sealed property.
     */
     public function setSealed(?bool $value): void {

@@ -91,7 +91,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the autoReviewEnabled property value. Indicates whether a decision should be set if the reviewer did not supply one. For use when auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
+     * Gets the autoReviewEnabled property value. Indicates whether a decision should be set if the reviewer didn't supply one. For use when, auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
      * @return bool|null
     */
     public function getAutoReviewEnabled(): ?bool {
@@ -103,7 +103,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the autoReviewSettings property value. Detailed settings for how the feature should set the review decision. For use when auto-apply is enabled.
+     * Gets the autoReviewSettings property value. Detailed settings for how the feature should set the review decision. For use when, auto-apply is enabled.
      * @return AutoReviewSettings|null
     */
     public function getAutoReviewSettings(): ?AutoReviewSettings {
@@ -253,7 +253,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the autoReviewEnabled property value. Indicates whether a decision should be set if the reviewer did not supply one. For use when auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
+     * Sets the autoReviewEnabled property value. Indicates whether a decision should be set if the reviewer didn't supply one. For use when, auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
      * @param bool|null $value Value to set for the autoReviewEnabled property.
     */
     public function setAutoReviewEnabled(?bool $value): void {
@@ -261,7 +261,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the autoReviewSettings property value. Detailed settings for how the feature should set the review decision. For use when auto-apply is enabled.
+     * Sets the autoReviewSettings property value. Detailed settings for how the feature should set the review decision. For use when, auto-apply is enabled.
      * @param AutoReviewSettings|null $value Value to set for the autoReviewSettings property.
     */
     public function setAutoReviewSettings(?AutoReviewSettings $value): void {

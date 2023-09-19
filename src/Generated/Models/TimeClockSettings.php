@@ -48,7 +48,7 @@ class TimeClockSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the approvedLocation property value. The aprroved location of the timeClock.
+     * Gets the approvedLocation property value. The approved location of the timeClock.
      * @return GeoCoordinates|null
     */
     public function getApprovedLocation(): ?GeoCoordinates {
@@ -110,7 +110,7 @@ class TimeClockSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the approvedLocation property value. The aprroved location of the timeClock.
+     * Sets the approvedLocation property value. The approved location of the timeClock.
      * @param GeoCoordinates|null $value Value to set for the approvedLocation property.
     */
     public function setApprovedLocation(?GeoCoordinates $value): void {

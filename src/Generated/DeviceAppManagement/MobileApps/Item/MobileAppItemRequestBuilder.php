@@ -8,8 +8,27 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Categories\CategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidForWorkApp\GraphAndroidForWorkAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidLobApp\GraphAndroidLobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidManagedStoreApp\GraphAndroidManagedStoreAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidStoreApp\GraphAndroidStoreAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphIosLobApp\GraphIosLobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphIosStoreApp\GraphIosStoreAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphIosVppApp\GraphIosVppAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSDmgApp\GraphMacOSDmgAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSLobApp\GraphMacOSLobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\GraphMacOSPkgAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphManagedAndroidLobApp\GraphManagedAndroidLobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphManagedIOSLobApp\GraphManagedIOSLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphManagedMobileLobApp\GraphManagedMobileLobAppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMobileLobApp\GraphMobileLobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMicrosoftStoreForBusinessApp\GraphMicrosoftStoreForBusinessAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\GraphWin32LobAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\GraphWindowsAppXRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsMobileMSI\GraphWindowsMobileMSIRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsStoreApp\GraphWindowsStoreAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\GraphWindowsUniversalAppXRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsWebApp\GraphWindowsWebAppRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWinGetApp\GraphWinGetAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\RelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UpdateRelationships\UpdateRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileApp;
@@ -46,6 +65,90 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Casts the previous resource to androidForWorkApp.
+    */
+    public function graphAndroidForWorkApp(): GraphAndroidForWorkAppRequestBuilder {
+        return new GraphAndroidForWorkAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to androidLobApp.
+    */
+    public function graphAndroidLobApp(): GraphAndroidLobAppRequestBuilder {
+        return new GraphAndroidLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to androidManagedStoreApp.
+    */
+    public function graphAndroidManagedStoreApp(): GraphAndroidManagedStoreAppRequestBuilder {
+        return new GraphAndroidManagedStoreAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to androidStoreApp.
+    */
+    public function graphAndroidStoreApp(): GraphAndroidStoreAppRequestBuilder {
+        return new GraphAndroidStoreAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to iosLobApp.
+    */
+    public function graphIosLobApp(): GraphIosLobAppRequestBuilder {
+        return new GraphIosLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to iosStoreApp.
+    */
+    public function graphIosStoreApp(): GraphIosStoreAppRequestBuilder {
+        return new GraphIosStoreAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to iosVppApp.
+    */
+    public function graphIosVppApp(): GraphIosVppAppRequestBuilder {
+        return new GraphIosVppAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to macOSDmgApp.
+    */
+    public function graphMacOSDmgApp(): GraphMacOSDmgAppRequestBuilder {
+        return new GraphMacOSDmgAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to macOSLobApp.
+    */
+    public function graphMacOSLobApp(): GraphMacOSLobAppRequestBuilder {
+        return new GraphMacOSLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to macOSPkgApp.
+    */
+    public function graphMacOSPkgApp(): GraphMacOSPkgAppRequestBuilder {
+        return new GraphMacOSPkgAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to managedAndroidLobApp.
+    */
+    public function graphManagedAndroidLobApp(): GraphManagedAndroidLobAppRequestBuilder {
+        return new GraphManagedAndroidLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to managedIOSLobApp.
+    */
+    public function graphManagedIOSLobApp(): GraphManagedIOSLobAppRequestBuilder {
+        return new GraphManagedIOSLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Casts the previous resource to managedMobileLobApp.
     */
     public function graphManagedMobileLobApp(): GraphManagedMobileLobAppRequestBuilder {
@@ -53,10 +156,59 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Casts the previous resource to mobileLobApp.
+     * Casts the previous resource to microsoftStoreForBusinessApp.
     */
-    public function graphMobileLobApp(): GraphMobileLobAppRequestBuilder {
-        return new GraphMobileLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphMicrosoftStoreForBusinessApp(): GraphMicrosoftStoreForBusinessAppRequestBuilder {
+        return new GraphMicrosoftStoreForBusinessAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to win32LobApp.
+    */
+    public function graphWin32LobApp(): GraphWin32LobAppRequestBuilder {
+        return new GraphWin32LobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to windowsAppX.
+    */
+    public function graphWindowsAppX(): GraphWindowsAppXRequestBuilder {
+        return new GraphWindowsAppXRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to windowsMobileMSI.
+    */
+    public function graphWindowsMobileMSI(): GraphWindowsMobileMSIRequestBuilder {
+        return new GraphWindowsMobileMSIRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to windowsStoreApp.
+    */
+    public function graphWindowsStoreApp(): GraphWindowsStoreAppRequestBuilder {
+        return new GraphWindowsStoreAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to windowsUniversalAppX.
+    */
+    public function graphWindowsUniversalAppX(): GraphWindowsUniversalAppXRequestBuilder {
+        return new GraphWindowsUniversalAppXRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to windowsWebApp.
+    */
+    public function graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder {
+        return new GraphWindowsWebAppRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to winGetApp.
+    */
+    public function graphWinGetApp(): GraphWinGetAppRequestBuilder {
+        return new GraphWinGetAppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

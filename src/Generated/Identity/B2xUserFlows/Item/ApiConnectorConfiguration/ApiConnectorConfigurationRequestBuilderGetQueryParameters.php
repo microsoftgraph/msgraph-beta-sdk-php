@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnector
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+ * Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
 */
 class ApiConnectorConfigurationRequestBuilderGetQueryParameters 
 {

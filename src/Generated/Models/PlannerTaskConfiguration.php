@@ -25,7 +25,7 @@ class PlannerTaskConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the editPolicy property value. Policy configuration for tasks created for the businessScenario when they are being changed outside of the scenario.
+     * Gets the editPolicy property value. Policy configuration for tasks created for the businessScenario when they're being changed outside of the scenario.
      * @return PlannerTaskPolicy|null
     */
     public function getEditPolicy(): ?PlannerTaskPolicy {
@@ -57,7 +57,7 @@ class PlannerTaskConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the editPolicy property value. Policy configuration for tasks created for the businessScenario when they are being changed outside of the scenario.
+     * Sets the editPolicy property value. Policy configuration for tasks created for the businessScenario when they're being changed outside of the scenario.
      * @param PlannerTaskPolicy|null $value Value to set for the editPolicy property.
     */
     public function setEditPolicy(?PlannerTaskPolicy $value): void {

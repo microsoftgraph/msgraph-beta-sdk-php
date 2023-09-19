@@ -50,7 +50,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
+     * Gets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It isn't automatically updated if the customer tenant's default domain name changes.
      * @return string|null
     */
     public function getDefaultDomainName(): ?string {
@@ -62,7 +62,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
+     * Gets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It isn't automatically updated if the customer tenant's display name changes.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -116,7 +116,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
+     * Sets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It isn't automatically updated if the customer tenant's default domain name changes.
      * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
@@ -124,7 +124,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
+     * Sets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It isn't automatically updated if the customer tenant's display name changes.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

@@ -50,7 +50,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
+     * Gets the hidden property value. True if the participant wouldn't like to be shown in other participants' rosters.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -80,7 +80,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
+     * Sets the hidden property value. True if the participant wouldn't like to be shown in other participants' rosters.
      * @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value): void {

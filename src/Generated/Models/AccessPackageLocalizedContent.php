@@ -57,7 +57,7 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the defaultText property value. The fallback string, which is used when a requested localization is not available. Required.
+     * Gets the defaultText property value. The fallback string, which is used when a requested localization isn't available. Required.
      * @return string|null
     */
     public function getDefaultText(): ?string {
@@ -135,7 +135,7 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the defaultText property value. The fallback string, which is used when a requested localization is not available. Required.
+     * Sets the defaultText property value. The fallback string, which is used when a requested localization isn't available. Required.
      * @param string|null $value Value to set for the defaultText property.
     */
     public function setDefaultText(?string $value): void {

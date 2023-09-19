@@ -66,7 +66,7 @@ class GradualRolloutSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the durationBetweenOffers property value. The duration between each set of devices being offered the update. The value is represented in ISO 8601 format for duration. Default value is P1D (1 day).
+     * Gets the durationBetweenOffers property value. The duration between each set of devices being offered the update. The value is represented in ISO 8601 format for duration. Default value is P1D (one day).
      * @return DateInterval|null
     */
     public function getDurationBetweenOffers(): ?DateInterval {
@@ -128,7 +128,7 @@ class GradualRolloutSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the durationBetweenOffers property value. The duration between each set of devices being offered the update. The value is represented in ISO 8601 format for duration. Default value is P1D (1 day).
+     * Sets the durationBetweenOffers property value. The duration between each set of devices being offered the update. The value is represented in ISO 8601 format for duration. Default value is P1D (one day).
      * @param DateInterval|null $value Value to set for the durationBetweenOffers property.
     */
     public function setDurationBetweenOffers(?DateInterval $value): void {

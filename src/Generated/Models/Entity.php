@@ -171,6 +171,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\HostComponent;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostCookie;
 use Microsoft\Graph\Beta\Generated\Models\Security\Hostname;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostPair;
+use Microsoft\Graph\Beta\Generated\Models\Security\HostPort;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostReputation;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostSslCertificate;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostTracker;
@@ -1477,6 +1478,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.hostCookie': return new HostCookie();
                 case '#microsoft.graph.security.hostname': return new Hostname();
                 case '#microsoft.graph.security.hostPair': return new HostPair();
+                case '#microsoft.graph.security.hostPort': return new HostPort();
                 case '#microsoft.graph.security.hostReputation': return new HostReputation();
                 case '#microsoft.graph.security.hostSslCertificate': return new HostSslCertificate();
                 case '#microsoft.graph.security.hostTracker': return new HostTracker();

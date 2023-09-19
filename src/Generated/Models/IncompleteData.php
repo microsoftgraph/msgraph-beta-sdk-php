@@ -70,7 +70,7 @@ class IncompleteData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the missingDataBeforeDateTime property value. The service does not have source data before the specified time.
+     * Gets the missingDataBeforeDateTime property value. The service doesn't have source data before the specified time.
      * @return DateTime|null
     */
     public function getMissingDataBeforeDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class IncompleteData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the wasThrottled property value. Some data was not recorded due to excessive activity.
+     * Gets the wasThrottled property value. Some data wasn't recorded due to excessive activity.
      * @return bool|null
     */
     public function getWasThrottled(): ?bool {
@@ -133,7 +133,7 @@ class IncompleteData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the missingDataBeforeDateTime property value. The service does not have source data before the specified time.
+     * Sets the missingDataBeforeDateTime property value. The service doesn't have source data before the specified time.
      * @param DateTime|null $value Value to set for the missingDataBeforeDateTime property.
     */
     public function setMissingDataBeforeDateTime(?DateTime $value): void {
@@ -149,7 +149,7 @@ class IncompleteData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the wasThrottled property value. Some data was not recorded due to excessive activity.
+     * Sets the wasThrottled property value. Some data wasn't recorded due to excessive activity.
      * @param bool|null $value Value to set for the wasThrottled property.
     */
     public function setWasThrottled(?bool $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a signIn object that contains a specific user sign-in event for your tenant. This includes sign-ins where a user is asked to enter a username or password, and session tokens.
+ * Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
 */
 class SignInItemRequestBuilderGetQueryParameters 
 {

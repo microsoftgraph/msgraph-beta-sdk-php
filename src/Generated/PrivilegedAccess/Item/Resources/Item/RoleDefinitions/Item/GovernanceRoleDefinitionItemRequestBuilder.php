@@ -66,7 +66,7 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of role defintions for the resource.
+     * The collection of role definitions for the resource.
      * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of role defintions for the resource.
+     * The collection of role definitions for the resource.
      * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

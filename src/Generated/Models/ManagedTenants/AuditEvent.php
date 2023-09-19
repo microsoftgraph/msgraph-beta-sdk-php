@@ -27,7 +27,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the activity property value. A string which uniquely represents the operation that occurred. Required. Read-only.
+     * Gets the activity property value. A string that uniquely represents the operation that occurred. Required. Read-only.
      * @return string|null
     */
     public function getActivity(): ?string {
@@ -39,7 +39,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. The time when the activity ocurred. Required. Read-only.
+     * Gets the activityDateTime property value. The time when the activity occurred. Required. Read-only.
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. A category which represents a logical grouping of activities. Required. Read-only.
+     * Gets the category property value. A category that represents a logical grouping of activities. Required. Read-only.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -182,7 +182,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
+     * Gets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @return string|null
     */
     public function getTenantIds(): ?string {
@@ -194,7 +194,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantNames property value. The collection of tenant names that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
+     * Gets the tenantNames property value. The collection of tenant names that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @return string|null
     */
     public function getTenantNames(): ?string {
@@ -227,7 +227,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the activity property value. A string which uniquely represents the operation that occurred. Required. Read-only.
+     * Sets the activity property value. A string that uniquely represents the operation that occurred. Required. Read-only.
      * @param string|null $value Value to set for the activity property.
     */
     public function setActivity(?string $value): void {
@@ -235,7 +235,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. The time when the activity ocurred. Required. Read-only.
+     * Sets the activityDateTime property value. The time when the activity occurred. Required. Read-only.
      * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
@@ -251,7 +251,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. A category which represents a logical grouping of activities. Required. Read-only.
+     * Sets the category property value. A category that represents a logical grouping of activities. Required. Read-only.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
@@ -315,7 +315,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
+     * Sets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @param string|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?string $value): void {
@@ -323,7 +323,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantNames property value. The collection of tenant names that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
+     * Sets the tenantNames property value. The collection of tenant names that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @param string|null $value Value to set for the tenantNames property.
     */
     public function setTenantNames(?string $value): void {
