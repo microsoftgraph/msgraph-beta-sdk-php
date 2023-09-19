@@ -51,7 +51,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
+     * Gets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions are included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
      * @return array<AccessReviewHistoryDecisionFilter>|null
     */
     public function getDecisions(): ?array {
@@ -123,7 +123,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the instances property value. If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance.
+     * Gets the instances property value. If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
      * @return array<AccessReviewHistoryInstance>|null
     */
     public function getInstances(): ?array {
@@ -149,7 +149,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the reviewHistoryPeriodStartDateTime property value. A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined.
+     * Gets the reviewHistoryPeriodStartDateTime property value. A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings isn't defined.
      * @return DateTime|null
     */
     public function getReviewHistoryPeriodStartDateTime(): ?DateTime {
@@ -161,7 +161,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet.
+     * Gets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime aren't defined. Not supported yet.
      * @return AccessReviewHistoryScheduleSettings|null
     */
     public function getScheduleSettings(): ?AccessReviewHistoryScheduleSettings {
@@ -235,7 +235,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
+     * Sets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions are included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
      * @param array<AccessReviewHistoryDecisionFilter>|null $value Value to set for the decisions property.
     */
     public function setDecisions(?array $value): void {
@@ -267,7 +267,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the instances property value. If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance.
+     * Sets the instances property value. If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
      * @param array<AccessReviewHistoryInstance>|null $value Value to set for the instances property.
     */
     public function setInstances(?array $value): void {
@@ -283,7 +283,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the reviewHistoryPeriodStartDateTime property value. A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined.
+     * Sets the reviewHistoryPeriodStartDateTime property value. A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings isn't defined.
      * @param DateTime|null $value Value to set for the reviewHistoryPeriodStartDateTime property.
     */
     public function setReviewHistoryPeriodStartDateTime(?DateTime $value): void {
@@ -291,7 +291,7 @@ class AccessReviewHistoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet.
+     * Sets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime aren't defined. Not supported yet.
      * @param AccessReviewHistoryScheduleSettings|null $value Value to set for the scheduleSettings property.
     */
     public function setScheduleSettings(?AccessReviewHistoryScheduleSettings $value): void {

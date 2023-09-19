@@ -38,7 +38,7 @@ class ServiceHostedMediaConfig extends MediaConfig implements Parsable
     }
 
     /**
-     * Gets the preFetchMedia property value. The list of media to pre-fetch.
+     * Gets the preFetchMedia property value. The list of media to prefetch.
      * @return array<MediaInfo>|null
     */
     public function getPreFetchMedia(): ?array {
@@ -61,7 +61,7 @@ class ServiceHostedMediaConfig extends MediaConfig implements Parsable
     }
 
     /**
-     * Sets the preFetchMedia property value. The list of media to pre-fetch.
+     * Sets the preFetchMedia property value. The list of media to prefetch.
      * @param array<MediaInfo>|null $value Value to set for the preFetchMedia property.
     */
     public function setPreFetchMedia(?array $value): void {

@@ -32,7 +32,7 @@ class IdentityProviderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
+     * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign-up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
      * @param IdentityProviderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/b2xidentityuserflow-delete-identityproviders?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class IdentityProviderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
+     * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign-up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
      * @param IdentityProviderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

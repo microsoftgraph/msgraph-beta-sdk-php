@@ -157,7 +157,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * Gets the externalSourceDetail property value. The name of the external source this resource was generated from.
      * @return string|null
     */
     public function getExternalSourceDetail(): ?string {
@@ -248,7 +248,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources.
+     * Gets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox aren't supported for educationUser resources.
      * @return PhysicalAddress|null
     */
     public function getMailingAddress(): ?PhysicalAddress {
@@ -308,7 +308,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesInfo property value. Additional information used to associate the AAD user with it's Active Directory counterpart.
+     * Gets the onPremisesInfo property value. Additional information used to associate the Azure Active Directory user with its Active Directory counterpart.
      * @return EducationOnPremisesInfo|null
     */
     public function getOnPremisesInfo(): ?EducationOnPremisesInfo {
@@ -320,7 +320,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for additional details.
+     * Gets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for more details.
      * @return string|null
     */
     public function getPasswordPolicies(): ?string {
@@ -332,7 +332,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for additional details.
+     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for more details.
      * @return PasswordProfile|null
     */
     public function getPasswordProfile(): ?PasswordProfile {
@@ -408,7 +408,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources.
+     * Gets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox aren't supported for educationUser resources.
      * @return PhysicalAddress|null
     */
     public function getResidenceAddress(): ?PhysicalAddress {
@@ -460,7 +460,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the student property value. If the primary role is student, this block will contain student specific data.
+     * Gets the student property value. If the primary role is student, this block contains student specific data.
      * @return EducationStudent|null
     */
     public function getStudent(): ?EducationStudent {
@@ -684,7 +684,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * Sets the externalSourceDetail property value. The name of the external source this resource was generated from.
      * @param string|null $value Value to set for the externalSourceDetail property.
     */
     public function setExternalSourceDetail(?string $value): void {
@@ -708,7 +708,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources.
+     * Sets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox aren't supported for educationUser resources.
      * @param PhysicalAddress|null $value Value to set for the mailingAddress property.
     */
     public function setMailingAddress(?PhysicalAddress $value): void {
@@ -748,7 +748,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesInfo property value. Additional information used to associate the AAD user with it's Active Directory counterpart.
+     * Sets the onPremisesInfo property value. Additional information used to associate the Azure Active Directory user with its Active Directory counterpart.
      * @param EducationOnPremisesInfo|null $value Value to set for the onPremisesInfo property.
     */
     public function setOnPremisesInfo(?EducationOnPremisesInfo $value): void {
@@ -756,7 +756,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for additional details.
+     * Sets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for more details.
      * @param string|null $value Value to set for the passwordPolicies property.
     */
     public function setPasswordPolicies(?string $value): void {
@@ -764,7 +764,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for additional details.
+     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for more details.
      * @param PasswordProfile|null $value Value to set for the passwordProfile property.
     */
     public function setPasswordProfile(?PasswordProfile $value): void {
@@ -812,7 +812,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources.
+     * Sets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox aren't supported for educationUser resources.
      * @param PhysicalAddress|null $value Value to set for the residenceAddress property.
     */
     public function setResidenceAddress(?PhysicalAddress $value): void {
@@ -844,7 +844,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the student property value. If the primary role is student, this block will contain student specific data.
+     * Sets the student property value. If the primary role is student, this block contains student specific data.
      * @param EducationStudent|null $value Value to set for the student property.
     */
     public function setStudent(?EducationStudent $value): void {

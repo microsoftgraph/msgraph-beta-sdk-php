@@ -161,7 +161,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isEnabled property value. Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+     * Gets the isEnabled property value. Determines whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -173,7 +173,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+     * Gets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can't be true for a disabled workflow (where isEnabled is false).
      * @return bool|null
     */
     public function getIsSchedulingEnabled(): ?bool {
@@ -319,7 +319,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isEnabled property value. Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+     * Sets the isEnabled property value. Determines whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -327,7 +327,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+     * Sets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can't be true for a disabled workflow (where isEnabled is false).
      * @param bool|null $value Value to set for the isSchedulingEnabled property.
     */
     public function setIsSchedulingEnabled(?bool $value): void {

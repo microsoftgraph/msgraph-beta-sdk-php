@@ -56,7 +56,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the clientMachineName property value. The name of the onPremises client machine which ran the last export.
+     * Gets the clientMachineName property value. The name of the onPremises client machine that ran the last export.
      * @return string|null
     */
     public function getClientMachineName(): ?string {
@@ -135,7 +135,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the serviceAccount property value. The name of the dirsync service account which is configured to connect to the directory.
+     * Gets the serviceAccount property value. The name of the dirsync service account that is configured to connect to the directory.
      * @return string|null
     */
     public function getServiceAccount(): ?string {
@@ -159,7 +159,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the successfulObjectsProvisioningCount property value. The count of objects which were successfully provisioned during the current directory sync export run.
+     * Gets the successfulObjectsProvisioningCount property value. The count of objects that were successfully provisioned during the current directory sync export run.
      * @return int|null
     */
     public function getSuccessfulObjectsProvisioningCount(): ?int {
@@ -216,7 +216,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the clientMachineName property value. The name of the onPremises client machine which ran the last export.
+     * Sets the clientMachineName property value. The name of the onPremises client machine that ran the last export.
      * @param string|null $value Value to set for the clientMachineName property.
     */
     public function setClientMachineName(?string $value): void {
@@ -256,7 +256,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the serviceAccount property value. The name of the dirsync service account which is configured to connect to the directory.
+     * Sets the serviceAccount property value. The name of the dirsync service account that is configured to connect to the directory.
      * @param string|null $value Value to set for the serviceAccount property.
     */
     public function setServiceAccount(?string $value): void {
@@ -272,7 +272,7 @@ class OnPremisesCurrentExportData implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the successfulObjectsProvisioningCount property value. The count of objects which were successfully provisioned during the current directory sync export run.
+     * Sets the successfulObjectsProvisioningCount property value. The count of objects that were successfully provisioned during the current directory sync export run.
      * @param int|null $value Value to set for the successfulObjectsProvisioningCount property.
     */
     public function setSuccessfulObjectsProvisioningCount(?int $value): void {

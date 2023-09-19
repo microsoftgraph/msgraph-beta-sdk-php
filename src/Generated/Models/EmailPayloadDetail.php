@@ -64,7 +64,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
     }
 
     /**
-     * Gets the isExternalSender property value. Indicates whether the sender is not from the user's organization.
+     * Gets the isExternalSender property value. Indicates whether the sender isn't from the user's organization.
      * @return bool|null
     */
     public function getIsExternalSender(): ?bool {
@@ -116,7 +116,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
     }
 
     /**
-     * Sets the isExternalSender property value. Indicates whether the sender is not from the user's organization.
+     * Sets the isExternalSender property value. Indicates whether the sender isn't from the user's organization.
      * @param bool|null $value Value to set for the isExternalSender property.
     */
     public function setIsExternalSender(?bool $value): void {

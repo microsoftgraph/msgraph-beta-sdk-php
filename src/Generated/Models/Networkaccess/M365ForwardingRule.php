@@ -59,7 +59,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Gets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
+     * Gets the ports property value. The port(s) used by a forwarding rule for Microsoft 365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @return array<string>|null
     */
     public function getPorts(): ?array {
@@ -104,7 +104,7 @@ class M365ForwardingRule extends ForwardingRule implements Parsable
     }
 
     /**
-     * Sets the ports property value. The port(s) used by a forwarding rule for M365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
+     * Sets the ports property value. The port(s) used by a forwarding rule for Microsoft 365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.
      * @param array<string>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {

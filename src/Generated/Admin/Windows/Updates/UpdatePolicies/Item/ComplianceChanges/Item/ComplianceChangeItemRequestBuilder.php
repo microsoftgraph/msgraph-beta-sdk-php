@@ -59,10 +59,10 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contentApproval object.
+     * Read the properties and relationships of a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-contentapproval-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ComplianceChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +78,11 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a complianceChange object.
+     * Update the properties of a contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-contentapproval-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ComplianceChange $body, ?ComplianceChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -115,7 +115,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contentApproval object.
+     * Read the properties and relationships of a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +136,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a complianceChange object.
+     * Update the properties of a contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

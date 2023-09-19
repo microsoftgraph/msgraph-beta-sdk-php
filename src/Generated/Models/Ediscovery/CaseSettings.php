@@ -63,7 +63,7 @@ class CaseSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the topicModeling property value. The Topic Modeling (Themes) settings for the case.
+     * Gets the topicModeling property value. The article Modeling (Themes) settings for the case.
      * @return TopicModelingSettings|null
     */
     public function getTopicModeling(): ?TopicModelingSettings {
@@ -102,7 +102,7 @@ class CaseSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the topicModeling property value. The Topic Modeling (Themes) settings for the case.
+     * Sets the topicModeling property value. The article Modeling (Themes) settings for the case.
      * @param TopicModelingSettings|null $value Value to set for the topicModeling property.
     */
     public function setTopicModeling(?TopicModelingSettings $value): void {

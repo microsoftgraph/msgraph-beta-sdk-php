@@ -56,7 +56,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
+     * Gets the description property value. Description of the NIC (for example, Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -96,7 +96,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ipV6Address property value. Last Public (aka global) IPv6 address associated with this NIC.
+     * Gets the ipV6Address property value. Last Public (also known as global) IPv6 address associated with this NIC.
      * @return string|null
     */
     public function getIpV6Address(): ?string {
@@ -174,7 +174,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
+     * Sets the description property value. Description of the NIC (for example, Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -190,7 +190,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ipV6Address property value. Last Public (aka global) IPv6 address associated with this NIC.
+     * Sets the ipV6Address property value. Last Public (also known as global) IPv6 address associated with this NIC.
      * @param string|null $value Value to set for the ipV6Address property.
     */
     public function setIpV6Address(?string $value): void {

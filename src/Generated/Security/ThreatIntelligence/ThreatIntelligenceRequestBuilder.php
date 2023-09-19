@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\Articles
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostComponents\HostComponentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostCookies\HostCookiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPairs\HostPairsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPorts\HostPortsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\HostsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostSslCertificates\HostSslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostTrackers\HostTrackersRequestBuilder;
@@ -66,6 +67,13 @@ class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder
     */
     public function hostPairs(): HostPairsRequestBuilder {
         return new HostPairsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+    */
+    public function hostPorts(): HostPortsRequestBuilder {
+        return new HostPortsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

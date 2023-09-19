@@ -73,6 +73,18 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
+     * Gets the autoExtendDuration property value. The autoExtendDuration property
+     * @return DateInterval|null
+    */
+    public function getAutoExtendDuration(): ?DateInterval {
+        $val = $this->getBackingStore()->get('autoExtendDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoExtendDuration'");
+    }
+
+    /**
      * Gets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only.
      * @return DateTime|null
     */
@@ -85,7 +97,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the customer property value. The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer.
+     * Gets the customer property value. The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Can't be changed by the customer.
      * @return DelegatedAdminRelationshipCustomerParticipant|null
     */
     public function getCustomer(): ?DelegatedAdminRelationshipCustomerParticipant {
@@ -97,7 +109,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
+     * Gets the displayName property value. The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and can't be changed by the customer.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -109,7 +121,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the duration property value. The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
+     * Gets the duration property value. The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and can't be changed by the customer.
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
@@ -142,6 +154,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
             'accessAssignments' => fn(ParseNode $n) => $o->setAccessAssignments($n->getCollectionOfObjectValues([DelegatedAdminAccessAssignment::class, 'createFromDiscriminatorValue'])),
             'accessDetails' => fn(ParseNode $n) => $o->setAccessDetails($n->getObjectValue([DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'])),
             'activatedDateTime' => fn(ParseNode $n) => $o->setActivatedDateTime($n->getDateTimeValue()),
+            'autoExtendDuration' => fn(ParseNode $n) => $o->setAutoExtendDuration($n->getDateIntervalValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([DelegatedAdminRelationshipCustomerParticipant::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -215,6 +228,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('accessAssignments', $this->getAccessAssignments());
         $writer->writeObjectValue('accessDetails', $this->getAccessDetails());
         $writer->writeDateTimeValue('activatedDateTime', $this->getActivatedDateTime());
+        $writer->writeDateIntervalValue('autoExtendDuration', $this->getAutoExtendDuration());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('customer', $this->getCustomer());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -251,6 +265,14 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
+     * Sets the autoExtendDuration property value. The autoExtendDuration property
+     * @param DateInterval|null $value Value to set for the autoExtendDuration property.
+    */
+    public function setAutoExtendDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('autoExtendDuration', $value);
+    }
+
+    /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
@@ -259,7 +281,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the customer property value. The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer.
+     * Sets the customer property value. The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Can't be changed by the customer.
      * @param DelegatedAdminRelationshipCustomerParticipant|null $value Value to set for the customer property.
     */
     public function setCustomer(?DelegatedAdminRelationshipCustomerParticipant $value): void {
@@ -267,7 +289,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
+     * Sets the displayName property value. The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and can't be changed by the customer.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -275,7 +297,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the duration property value. The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
+     * Sets the duration property value. The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and can't be changed by the customer.
      * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {

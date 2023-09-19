@@ -76,7 +76,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportOptions property value. The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30th, 2023. Going forward, the summary and load file are always included.
+     * Gets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
@@ -88,7 +88,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportStructure property value. The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
+     * Gets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
@@ -156,7 +156,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the reviewSetQuery property value. The review set query which is used to filter the documents for export.
+     * Gets the reviewSetQuery property value. The review set query that is used to filter the documents for export.
      * @return EdiscoveryReviewSetQuery|null
     */
     public function getReviewSetQuery(): ?EdiscoveryReviewSetQuery {
@@ -218,7 +218,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportOptions property value. The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30th, 2023. Going forward, the summary and load file are always included.
+     * Sets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
      * @param ExportOptions|null $value Value to set for the exportOptions property.
     */
     public function setExportOptions(?ExportOptions $value): void {
@@ -226,7 +226,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportStructure property value. The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
+     * Sets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
      * @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
     public function setExportStructure(?ExportFileStructure $value): void {
@@ -258,7 +258,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the reviewSetQuery property value. The review set query which is used to filter the documents for export.
+     * Sets the reviewSetQuery property value. The review set query that is used to filter the documents for export.
      * @param EdiscoveryReviewSetQuery|null $value Value to set for the reviewSetQuery property.
     */
     public function setReviewSetQuery(?EdiscoveryReviewSetQuery $value): void {

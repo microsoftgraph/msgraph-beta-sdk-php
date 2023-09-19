@@ -268,6 +268,7 @@ class Device extends DirectoryObject implements Parsable
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'onPremisesLastSyncDateTime' => fn(ParseNode $n) => $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()),
+            'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
             'operatingSystemVersion' => fn(ParseNode $n) => $o->setOperatingSystemVersion($n->getStringValue()),
@@ -457,6 +458,18 @@ class Device extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesLastSyncDateTime'");
+    }
+
+    /**
+     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * @return string|null
+    */
+    public function getOnPremisesSecurityIdentifier(): ?string {
+        $val = $this->getBackingStore()->get('onPremisesSecurityIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSecurityIdentifier'");
     }
 
     /**
@@ -674,6 +687,7 @@ class Device extends DirectoryObject implements Parsable
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
+        $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
         $writer->writeStringValue('operatingSystemVersion', $this->getOperatingSystemVersion());
@@ -920,6 +934,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
+    */
+    public function setOnPremisesSecurityIdentifier(?string $value): void {
+        $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
     }
 
     /**

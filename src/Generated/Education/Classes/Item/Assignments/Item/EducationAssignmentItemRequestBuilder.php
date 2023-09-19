@@ -150,7 +150,7 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an educationAssignment object.  Only teachers in the class can do this. Note that you can't use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
+     * Update an educationAssignment object.  Only teachers in the class can do this. You can't use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
      * @param EducationAssignment $body The request body
      * @param EducationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -208,7 +208,7 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an educationAssignment object.  Only teachers in the class can do this. Note that you can't use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
+     * Update an educationAssignment object.  Only teachers in the class can do this. You can't use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
      * @param EducationAssignment $body The request body
      * @param EducationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

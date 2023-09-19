@@ -93,7 +93,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the userRestoreEnabled property value. If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users cannot use snapshots to restore the Cloud PC.
+     * Gets the userRestoreEnabled property value. If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users can't use snapshots to restore the Cloud PC.
      * @return bool|null
     */
     public function getUserRestoreEnabled(): ?bool {
@@ -148,7 +148,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the userRestoreEnabled property value. If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users cannot use snapshots to restore the Cloud PC.
+     * Sets the userRestoreEnabled property value. If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users can't use snapshots to restore the Cloud PC.
      * @param bool|null $value Value to set for the userRestoreEnabled property.
     */
     public function setUserRestoreEnabled(?bool $value): void {

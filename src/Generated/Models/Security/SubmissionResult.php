@@ -69,7 +69,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detail property value. Specifies the additional details provided by Microsoft to substantiate their analysis result.
+     * Gets the detail property value. Specifies the extra details provided by Microsoft to substantiate their analysis result.
      * @return SubmissionResultDetail|null
     */
     public function getDetail(): ?SubmissionResultDetail {
@@ -95,7 +95,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detectedUrls property value. Specifes the URLs detected by Microsoft in the submitted email.
+     * Gets the detectedUrls property value. Specifies the URLs detected by Microsoft in the submitted email.
      * @return array<string>|null
     */
     public function getDetectedUrls(): ?array {
@@ -194,7 +194,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detail property value. Specifies the additional details provided by Microsoft to substantiate their analysis result.
+     * Sets the detail property value. Specifies the extra details provided by Microsoft to substantiate their analysis result.
      * @param SubmissionResultDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?SubmissionResultDetail $value): void {
@@ -210,7 +210,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detectedUrls property value. Specifes the URLs detected by Microsoft in the submitted email.
+     * Sets the detectedUrls property value. Specifies the URLs detected by Microsoft in the submitted email.
      * @param array<string>|null $value Value to set for the detectedUrls property.
     */
     public function setDetectedUrls(?array $value): void {

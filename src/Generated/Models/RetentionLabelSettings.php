@@ -57,7 +57,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the behaviorDuringRetentionPeriod property value. The behaviorDuringRetentionPeriod property
+     * Gets the behaviorDuringRetentionPeriod property value. Describes the item behavior during retention period. Possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue. Read-only.
      * @return BehaviorDuringRetentionPeriod|null
     */
     public function getBehaviorDuringRetentionPeriod(): ?BehaviorDuringRetentionPeriod {
@@ -86,7 +86,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isContentUpdateAllowed property value. The isContentUpdateAllowed property
+     * Gets the isContentUpdateAllowed property value. Specifies whether updates to document content are allowed. Read-only.
      * @return bool|null
     */
     public function getIsContentUpdateAllowed(): ?bool {
@@ -98,7 +98,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isDeleteAllowed property value. The isDeleteAllowed property
+     * Gets the isDeleteAllowed property value. Specifies whether the document deletion is allowed. Read-only.
      * @return bool|null
     */
     public function getIsDeleteAllowed(): ?bool {
@@ -110,7 +110,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isLabelUpdateAllowed property value. The isLabelUpdateAllowed property
+     * Gets the isLabelUpdateAllowed property value. Specifies whether you're allowed to change the retention label on the document. Read-only.
      * @return bool|null
     */
     public function getIsLabelUpdateAllowed(): ?bool {
@@ -122,7 +122,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isMetadataUpdateAllowed property value. The isMetadataUpdateAllowed property
+     * Gets the isMetadataUpdateAllowed property value. Specifies whether updates to the item metadata (for example, the Title field) are blocked. Read-only.
      * @return bool|null
     */
     public function getIsMetadataUpdateAllowed(): ?bool {
@@ -134,7 +134,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isRecordLocked property value. The isRecordLocked property
+     * Gets the isRecordLocked property value. Specifies whether the item is locked. Read-write.
      * @return bool|null
     */
     public function getIsRecordLocked(): ?bool {
@@ -189,7 +189,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the behaviorDuringRetentionPeriod property value. The behaviorDuringRetentionPeriod property
+     * Sets the behaviorDuringRetentionPeriod property value. Describes the item behavior during retention period. Possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue. Read-only.
      * @param BehaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
     */
     public function setBehaviorDuringRetentionPeriod(?BehaviorDuringRetentionPeriod $value): void {
@@ -197,7 +197,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isContentUpdateAllowed property value. The isContentUpdateAllowed property
+     * Sets the isContentUpdateAllowed property value. Specifies whether updates to document content are allowed. Read-only.
      * @param bool|null $value Value to set for the isContentUpdateAllowed property.
     */
     public function setIsContentUpdateAllowed(?bool $value): void {
@@ -205,7 +205,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isDeleteAllowed property value. The isDeleteAllowed property
+     * Sets the isDeleteAllowed property value. Specifies whether the document deletion is allowed. Read-only.
      * @param bool|null $value Value to set for the isDeleteAllowed property.
     */
     public function setIsDeleteAllowed(?bool $value): void {
@@ -213,7 +213,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isLabelUpdateAllowed property value. The isLabelUpdateAllowed property
+     * Sets the isLabelUpdateAllowed property value. Specifies whether you're allowed to change the retention label on the document. Read-only.
      * @param bool|null $value Value to set for the isLabelUpdateAllowed property.
     */
     public function setIsLabelUpdateAllowed(?bool $value): void {
@@ -221,7 +221,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isMetadataUpdateAllowed property value. The isMetadataUpdateAllowed property
+     * Sets the isMetadataUpdateAllowed property value. Specifies whether updates to the item metadata (for example, the Title field) are blocked. Read-only.
      * @param bool|null $value Value to set for the isMetadataUpdateAllowed property.
     */
     public function setIsMetadataUpdateAllowed(?bool $value): void {
@@ -229,7 +229,7 @@ class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isRecordLocked property value. The isRecordLocked property
+     * Sets the isRecordLocked property value. Specifies whether the item is locked. Read-write.
      * @param bool|null $value Value to set for the isRecordLocked property.
     */
     public function setIsRecordLocked(?bool $value): void {

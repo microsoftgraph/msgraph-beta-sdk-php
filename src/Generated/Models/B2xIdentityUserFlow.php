@@ -26,7 +26,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Gets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * Gets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
      * @return UserFlowApiConnectorConfiguration|null
     */
     public function getApiConnectorConfiguration(): ?UserFlowApiConnectorConfiguration {
@@ -67,7 +67,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Gets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * Gets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
      * @return array<UserFlowLanguageConfiguration>|null
     */
     public function getLanguages(): ?array {
@@ -122,7 +122,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Sets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * Sets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
      * @param UserFlowApiConnectorConfiguration|null $value Value to set for the apiConnectorConfiguration property.
     */
     public function setApiConnectorConfiguration(?UserFlowApiConnectorConfiguration $value): void {
@@ -138,7 +138,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Sets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * Sets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
      * @param array<UserFlowLanguageConfiguration>|null $value Value to set for the languages property.
     */
     public function setLanguages(?array $value): void {
