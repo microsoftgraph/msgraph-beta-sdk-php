@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoomList;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Rooms\RoomsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces\WorkspacesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +19,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class GraphRoomListRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
+    */
+    public function rooms(): RoomsRequestBuilder {
+        return new RoomsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
+    */
+    public function workspaces(): WorkspacesRequestBuilder {
+        return new WorkspacesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new GraphRoomListRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

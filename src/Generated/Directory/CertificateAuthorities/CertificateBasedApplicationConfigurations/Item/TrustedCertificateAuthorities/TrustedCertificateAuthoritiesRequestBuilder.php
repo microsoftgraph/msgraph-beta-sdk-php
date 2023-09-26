@@ -53,7 +53,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Get trustedCertificateAuthorities from directory
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Get trustedCertificateAuthorities from directory
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

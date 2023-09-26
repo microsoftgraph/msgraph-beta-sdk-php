@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\MicrosoftGraphEdiscoveryCaseExportOperation\ReviewSet\ReviewSetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseExportOperation;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the reviewSet property of the microsoft.graph.ediscovery.caseExportOperation entity.
+    */
+    public function reviewSet(): ReviewSetRequestBuilder {
+        return new ReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

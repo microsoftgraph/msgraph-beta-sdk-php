@@ -96,6 +96,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\RevokeSignInSessions\RevokeSignInS
 use Microsoft\Graph\Beta\Generated\Users\Item\ScopedRoleMemberOf\ScopedRoleMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\SendMail\SendMailRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Sponsors\SponsorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\TeamworkRequestBuilder;
@@ -721,6 +722,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function sendMail(): SendMailRequestBuilder {
         return new SendMailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The serviceProvisioningErrors property
+    */
+    public function serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

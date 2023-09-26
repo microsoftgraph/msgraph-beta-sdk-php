@@ -33,7 +33,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the capacity property value. The capacity property
+     * Gets the capacity property value. Total capacity of the virtual event.
      * @return int|null
     */
     public function getCapacity(): ?int {
@@ -58,7 +58,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the questions property value. The questions property
+     * Gets the questions property value. Registration questions.
      * @return array<VirtualEventRegistrationQuestion>|null
     */
     public function getQuestions(): ?array {
@@ -72,7 +72,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrationWebUrl property value. The registrationWebUrl property
+     * Gets the registrationWebUrl property value. Registration URL of the virtual event.
      * @return string|null
     */
     public function getRegistrationWebUrl(): ?string {
@@ -95,7 +95,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the capacity property value. The capacity property
+     * Sets the capacity property value. Total capacity of the virtual event.
      * @param int|null $value Value to set for the capacity property.
     */
     public function setCapacity(?int $value): void {
@@ -103,7 +103,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the questions property value. The questions property
+     * Sets the questions property value. Registration questions.
      * @param array<VirtualEventRegistrationQuestion>|null $value Value to set for the questions property.
     */
     public function setQuestions(?array $value): void {
@@ -111,7 +111,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrationWebUrl property value. The registrationWebUrl property
+     * Sets the registrationWebUrl property value. Registration URL of the virtual event.
      * @param string|null $value Value to set for the registrationWebUrl property.
     */
     public function setRegistrationWebUrl(?string $value): void {

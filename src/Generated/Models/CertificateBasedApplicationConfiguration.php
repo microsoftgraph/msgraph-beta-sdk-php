@@ -26,7 +26,7 @@ class CertificateBasedApplicationConfiguration extends TrustedCertificateAuthori
     }
 
     /**
-     * Gets the description property value. The description of the trusted certificate authorities.
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -38,7 +38,7 @@ class CertificateBasedApplicationConfiguration extends TrustedCertificateAuthori
     }
 
     /**
-     * Gets the displayName property value. The display name of the trusted certificate authorities.
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -72,7 +72,7 @@ class CertificateBasedApplicationConfiguration extends TrustedCertificateAuthori
     }
 
     /**
-     * Sets the description property value. The description of the trusted certificate authorities.
+     * Sets the description property value. The description property
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -80,7 +80,7 @@ class CertificateBasedApplicationConfiguration extends TrustedCertificateAuthori
     }
 
     /**
-     * Sets the displayName property value. The display name of the trusted certificate authorities.
+     * Sets the displayName property value. The displayName property
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

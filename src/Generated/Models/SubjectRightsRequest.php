@@ -200,7 +200,7 @@ class SubjectRightsRequest extends Entity implements Parsable
             'internalDueDateTime' => fn(ParseNode $n) => $o->setInternalDueDateTime($n->getDateTimeValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'mailboxlocations' => fn(ParseNode $n) => $o->setMailboxlocations($n->getObjectValue([SubjectRightsRequestMailboxLocation::class, 'createFromDiscriminatorValue'])),
+            'mailboxLocations' => fn(ParseNode $n) => $o->setMailboxLocations($n->getObjectValue([SubjectRightsRequestMailboxLocation::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getCollectionOfObjectValues([AuthoredNote::class, 'createFromDiscriminatorValue'])),
             'pauseAfterEstimate' => fn(ParseNode $n) => $o->setPauseAfterEstimate($n->getBooleanValue()),
             'regulations' => function (ParseNode $n) {
@@ -211,7 +211,7 @@ class SubjectRightsRequest extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setRegulations($val);
             },
-            'sitelocations' => fn(ParseNode $n) => $o->setSitelocations($n->getObjectValue([SubjectRightsRequestSiteLocation::class, 'createFromDiscriminatorValue'])),
+            'siteLocations' => fn(ParseNode $n) => $o->setSiteLocations($n->getObjectValue([SubjectRightsRequestSiteLocation::class, 'createFromDiscriminatorValue'])),
             'stages' => fn(ParseNode $n) => $o->setStages($n->getCollectionOfObjectValues([SubjectRightsRequestStageDetail::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SubjectRightsRequestStatus::class)),
             'team' => fn(ParseNode $n) => $o->setTeam($n->getObjectValue([Team::class, 'createFromDiscriminatorValue'])),
@@ -234,7 +234,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the includeAllVersions property value. Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * Gets the includeAllVersions property value. Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @return bool|null
     */
     public function getIncludeAllVersions(): ?bool {
@@ -306,15 +306,15 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the mailboxlocations property value. The mailboxlocations property
+     * Gets the mailboxLocations property value. The mailbox locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @return SubjectRightsRequestMailboxLocation|null
     */
-    public function getMailboxlocations(): ?SubjectRightsRequestMailboxLocation {
-        $val = $this->getBackingStore()->get('mailboxlocations');
+    public function getMailboxLocations(): ?SubjectRightsRequestMailboxLocation {
+        $val = $this->getBackingStore()->get('mailboxLocations');
         if (is_null($val) || $val instanceof SubjectRightsRequestMailboxLocation) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxlocations'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxLocations'");
     }
 
     /**
@@ -332,7 +332,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * Gets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate runs and then pauses, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @return bool|null
     */
     public function getPauseAfterEstimate(): ?bool {
@@ -344,7 +344,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the regulations property value. List of regulations that this request will fulfill.
+     * Gets the regulations property value. List of regulations that this request fulfills.
      * @return array<string>|null
     */
     public function getRegulations(): ?array {
@@ -358,15 +358,15 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the sitelocations property value. The sitelocations property
+     * Gets the siteLocations property value. The SharePoint and OneDrive site locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @return SubjectRightsRequestSiteLocation|null
     */
-    public function getSitelocations(): ?SubjectRightsRequestSiteLocation {
-        $val = $this->getBackingStore()->get('sitelocations');
+    public function getSiteLocations(): ?SubjectRightsRequestSiteLocation {
+        $val = $this->getBackingStore()->get('siteLocations');
         if (is_null($val) || $val instanceof SubjectRightsRequestSiteLocation) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sitelocations'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteLocations'");
     }
 
     /**
@@ -444,11 +444,11 @@ class SubjectRightsRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('internalDueDateTime', $this->getInternalDueDateTime());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
-        $writer->writeObjectValue('mailboxlocations', $this->getMailboxlocations());
+        $writer->writeObjectValue('mailboxLocations', $this->getMailboxLocations());
         $writer->writeCollectionOfObjectValues('notes', $this->getNotes());
         $writer->writeBooleanValue('pauseAfterEstimate', $this->getPauseAfterEstimate());
         $writer->writeCollectionOfPrimitiveValues('regulations', $this->getRegulations());
-        $writer->writeObjectValue('sitelocations', $this->getSitelocations());
+        $writer->writeObjectValue('siteLocations', $this->getSiteLocations());
         $writer->writeCollectionOfObjectValues('stages', $this->getStages());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeObjectValue('team', $this->getTeam());
@@ -560,7 +560,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the includeAllVersions property value. Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * Sets the includeAllVersions property value. Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @param bool|null $value Value to set for the includeAllVersions property.
     */
     public function setIncludeAllVersions(?bool $value): void {
@@ -608,11 +608,11 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the mailboxlocations property value. The mailboxlocations property
-     * @param SubjectRightsRequestMailboxLocation|null $value Value to set for the mailboxlocations property.
+     * Sets the mailboxLocations property value. The mailbox locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * @param SubjectRightsRequestMailboxLocation|null $value Value to set for the mailboxLocations property.
     */
-    public function setMailboxlocations(?SubjectRightsRequestMailboxLocation $value): void {
-        $this->getBackingStore()->set('mailboxlocations', $value);
+    public function setMailboxLocations(?SubjectRightsRequestMailboxLocation $value): void {
+        $this->getBackingStore()->set('mailboxLocations', $value);
     }
 
     /**
@@ -624,7 +624,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * Sets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate runs and then pauses, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @param bool|null $value Value to set for the pauseAfterEstimate property.
     */
     public function setPauseAfterEstimate(?bool $value): void {
@@ -632,7 +632,7 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the regulations property value. List of regulations that this request will fulfill.
+     * Sets the regulations property value. List of regulations that this request fulfills.
      * @param array<string>|null $value Value to set for the regulations property.
     */
     public function setRegulations(?array $value): void {
@@ -640,11 +640,11 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the sitelocations property value. The sitelocations property
-     * @param SubjectRightsRequestSiteLocation|null $value Value to set for the sitelocations property.
+     * Sets the siteLocations property value. The SharePoint and OneDrive site locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
+     * @param SubjectRightsRequestSiteLocation|null $value Value to set for the siteLocations property.
     */
-    public function setSitelocations(?SubjectRightsRequestSiteLocation $value): void {
-        $this->getBackingStore()->set('sitelocations', $value);
+    public function setSiteLocations(?SubjectRightsRequestSiteLocation $value): void {
+        $this->getBackingStore()->set('siteLocations', $value);
     }
 
     /**

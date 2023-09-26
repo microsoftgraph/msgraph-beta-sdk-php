@@ -37,7 +37,7 @@ class GovernanceSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the email property value. The email address of the user subject. If the subject is in other types, it is empty.
+     * Gets the email property value. The email address of the user subject. If the subject is in other types, it's empty.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -63,7 +63,7 @@ class GovernanceSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the principalName property value. The principal name of the user subject. If the subject is in other types, it is empty.
+     * Gets the principalName property value. The principal name of the user subject. If the subject is in other types, it's empty.
      * @return string|null
     */
     public function getPrincipalName(): ?string {
@@ -107,7 +107,7 @@ class GovernanceSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the email property value. The email address of the user subject. If the subject is in other types, it is empty.
+     * Sets the email property value. The email address of the user subject. If the subject is in other types, it's empty.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -115,7 +115,7 @@ class GovernanceSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the principalName property value. The principal name of the user subject. If the subject is in other types, it is empty.
+     * Sets the principalName property value. The principal name of the user subject. If the subject is in other types, it's empty.
      * @param string|null $value Value to set for the principalName property.
     */
     public function setPrincipalName(?string $value): void {

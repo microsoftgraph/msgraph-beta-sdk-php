@@ -35,7 +35,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actionUrl property value. A link to the documentation or Azure portal page that is associated with the action step.
+     * Gets the actionUrl property value. A link to the documentation or Microsoft Entra admin center page that is associated with the action step.
      * @return ActionUrl|null
     */
     public function getActionUrl(): ?ActionUrl {
@@ -130,7 +130,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actionUrl property value. A link to the documentation or Azure portal page that is associated with the action step.
+     * Sets the actionUrl property value. A link to the documentation or Microsoft Entra admin center page that is associated with the action step.
      * @param ActionUrl|null $value Value to set for the actionUrl property.
     */
     public function setActionUrl(?ActionUrl $value): void {

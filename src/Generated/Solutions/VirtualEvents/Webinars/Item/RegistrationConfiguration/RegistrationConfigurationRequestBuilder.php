@@ -32,7 +32,7 @@ class RegistrationConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get registrationConfiguration from solutions
+     * Registration configuration of the webinar.
      * @param RegistrationConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class RegistrationConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get registrationConfiguration from solutions
+     * Registration configuration of the webinar.
      * @param RegistrationConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
