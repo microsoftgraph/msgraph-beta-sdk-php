@@ -26,7 +26,7 @@ class CertificateAuthorityPath extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateBasedApplicationConfigurations property value. Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+     * Gets the certificateBasedApplicationConfigurations property value. The certificateBasedApplicationConfigurations property
      * @return array<CertificateBasedApplicationConfiguration>|null
     */
     public function getCertificateBasedApplicationConfigurations(): ?array {
@@ -60,7 +60,7 @@ class CertificateAuthorityPath extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateBasedApplicationConfigurations property value. Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+     * Sets the certificateBasedApplicationConfigurations property value. The certificateBasedApplicationConfigurations property
      * @param array<CertificateBasedApplicationConfiguration>|null $value Value to set for the certificateBasedApplicationConfigurations property.
     */
     public function setCertificateBasedApplicationConfigurations(?array $value): void {

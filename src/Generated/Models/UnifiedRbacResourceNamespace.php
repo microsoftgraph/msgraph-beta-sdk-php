@@ -50,7 +50,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceActions property value. Operations that an authorized principal are allowed to perform.
+     * Gets the resourceActions property value. Operations that an authorized principal is allowed to perform.
      * @return array<UnifiedRbacResourceAction>|null
     */
     public function getResourceActions(): ?array {
@@ -82,7 +82,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceActions property value. Operations that an authorized principal are allowed to perform.
+     * Sets the resourceActions property value. Operations that an authorized principal is allowed to perform.
      * @param array<UnifiedRbacResourceAction>|null $value Value to set for the resourceActions property.
     */
     public function setResourceActions(?array $value): void {

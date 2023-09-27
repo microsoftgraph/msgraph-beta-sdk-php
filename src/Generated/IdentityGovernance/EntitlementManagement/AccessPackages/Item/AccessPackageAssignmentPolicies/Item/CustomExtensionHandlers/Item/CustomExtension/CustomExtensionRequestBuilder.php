@@ -32,7 +32,7 @@ class CustomExtensionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+     * Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.
      * @param CustomExtensionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class CustomExtensionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+     * Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.
      * @param CustomExtensionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

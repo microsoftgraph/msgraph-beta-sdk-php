@@ -93,7 +93,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the url property value. The URL to the documentation or Azure portal page.
+     * Gets the url property value. The URL to the documentation or Microsoft Entra admin center page.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -148,7 +148,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the url property value. The URL to the documentation or Azure portal page.
+     * Sets the url property value. The URL to the documentation or Microsoft Entra admin center page.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

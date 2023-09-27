@@ -66,7 +66,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the registrationConfiguration property value. The registrationConfiguration property
+     * Gets the registrationConfiguration property value. Registration configuration of the webinar.
      * @return VirtualEventRegistrationConfiguration|null
     */
     public function getRegistrationConfiguration(): ?VirtualEventRegistrationConfiguration {
@@ -78,7 +78,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the registrations property value. The registrations property
+     * Gets the registrations property value. Registration records of the webinar.
      * @return array<VirtualEventRegistration>|null
     */
     public function getRegistrations(): ?array {
@@ -120,7 +120,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the registrationConfiguration property value. The registrationConfiguration property
+     * Sets the registrationConfiguration property value. Registration configuration of the webinar.
      * @param VirtualEventRegistrationConfiguration|null $value Value to set for the registrationConfiguration property.
     */
     public function setRegistrationConfiguration(?VirtualEventRegistrationConfiguration $value): void {
@@ -128,7 +128,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the registrations property value. The registrations property
+     * Sets the registrations property value. Registration records of the webinar.
      * @param array<VirtualEventRegistration>|null $value Value to set for the registrations property.
     */
     public function setRegistrations(?array $value): void {

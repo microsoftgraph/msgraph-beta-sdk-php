@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\Certif
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of certificateBasedApplicationConfiguration objects.
+ * Get certificateBasedApplicationConfigurations from directory
 */
 class CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters 
 {

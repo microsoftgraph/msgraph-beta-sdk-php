@@ -53,10 +53,9 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get a list of certificateBasedApplicationConfiguration objects.
+     * Get certificateBasedApplicationConfigurations from directory
      * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-1.0 Find more info here
     */
     public function get(?CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +90,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get a list of certificateBasedApplicationConfiguration objects.
+     * Get certificateBasedApplicationConfigurations from directory
      * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

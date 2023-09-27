@@ -26,7 +26,7 @@ class Endpoint extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the capability property value. Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.
+     * Gets the capability property value. Describes the capability that is associated with this resource. (for example, Messages, Conversations, etc.) Not nullable. Read-only.
      * @return string|null
     */
     public function getCapability(): ?string {
@@ -77,7 +77,7 @@ class Endpoint extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the providerResourceId property value. For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.
+     * Gets the providerResourceId property value. For Microsoft 365 groups, this is set to a well-known name for the resource (for example, Yammer.FeedURL etc.). Not nullable. Read-only.
      * @return string|null
     */
     public function getProviderResourceId(): ?string {
@@ -114,7 +114,7 @@ class Endpoint extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the capability property value. Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.
+     * Sets the capability property value. Describes the capability that is associated with this resource. (for example, Messages, Conversations, etc.) Not nullable. Read-only.
      * @param string|null $value Value to set for the capability property.
     */
     public function setCapability(?string $value): void {
@@ -138,7 +138,7 @@ class Endpoint extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the providerResourceId property value. For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.
+     * Sets the providerResourceId property value. For Microsoft 365 groups, this is set to a well-known name for the resource (for example, Yammer.FeedURL etc.). Not nullable. Read-only.
      * @param string|null $value Value to set for the providerResourceId property.
     */
     public function setProviderResourceId(?string $value): void {

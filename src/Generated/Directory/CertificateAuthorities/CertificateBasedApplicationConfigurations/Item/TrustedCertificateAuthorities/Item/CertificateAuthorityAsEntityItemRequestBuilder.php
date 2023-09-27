@@ -50,7 +50,7 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Get trustedCertificateAuthorities from directory
      * @param CertificateAuthorityAsEntityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Get trustedCertificateAuthorities from directory
      * @param CertificateAuthorityAsEntityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

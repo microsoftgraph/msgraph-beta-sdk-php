@@ -40,6 +40,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Renew\RenewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\ResetUnseenCount\ResetUnseenCountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\SubscribeByMail\SubscribeByMailRequestBuilder;
@@ -304,6 +305,13 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
     */
     public function retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
         return new RetryServiceProvisioningRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The serviceProvisioningErrors property
+    */
+    public function serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

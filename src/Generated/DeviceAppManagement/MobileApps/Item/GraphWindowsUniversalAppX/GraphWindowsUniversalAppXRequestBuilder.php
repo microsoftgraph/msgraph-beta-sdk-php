@@ -5,6 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Gra
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\Assignments\AssignmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\Categories\CategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\CommittedContainedApps\CommittedContainedAppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\ContentVersions\ContentVersionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsUniversalAppX\Relationships\RelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUniversalAppX;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +22,41 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class GraphWindowsUniversalAppXRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
+    */
+    public function assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
+    */
+    public function categories(): CategoriesRequestBuilder {
+        return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the committedContainedApps property of the microsoft.graph.windowsUniversalAppX entity.
+    */
+    public function committedContainedApps(): CommittedContainedAppsRequestBuilder {
+        return new CommittedContainedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the contentVersions property of the microsoft.graph.mobileLobApp entity.
+    */
+    public function contentVersions(): ContentVersionsRequestBuilder {
+        return new ContentVersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
+    */
+    public function relationships(): RelationshipsRequestBuilder {
+        return new RelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new GraphWindowsUniversalAppXRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

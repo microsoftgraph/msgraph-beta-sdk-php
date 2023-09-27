@@ -95,7 +95,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the fieldId property value. Id used to identity the field type. This is an internal id and possible values are param1, param2, paramuserName, parampassword.
+     * Gets the fieldId property value. Id used to identity the field type. This is an internal ID and possible values are param1, param2, paramuserName, parampassword.
      * @return string|null
     */
     public function getFieldId(): ?string {
@@ -176,7 +176,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the fieldId property value. Id used to identity the field type. This is an internal id and possible values are param1, param2, paramuserName, parampassword.
+     * Sets the fieldId property value. Id used to identity the field type. This is an internal ID and possible values are param1, param2, paramuserName, parampassword.
      * @param string|null $value Value to set for the fieldId property.
     */
     public function setFieldId(?string $value): void {

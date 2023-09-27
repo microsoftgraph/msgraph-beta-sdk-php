@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+ * Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.
 */
 class CustomExtensionRequestBuilderGetQueryParameters 
 {

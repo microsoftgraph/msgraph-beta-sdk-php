@@ -64,7 +64,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Sessions of the webinar.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -82,7 +82,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Sessions of the webinar.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -72,7 +72,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students will not see the modules until publication.
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students won't see the modules until publication.
      * @param EducationModule $body The request body
      * @param ModulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -113,7 +113,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students will not see the modules until publication.
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students won't see the modules until publication.
      * @param EducationModule $body The request body
      * @param ModulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

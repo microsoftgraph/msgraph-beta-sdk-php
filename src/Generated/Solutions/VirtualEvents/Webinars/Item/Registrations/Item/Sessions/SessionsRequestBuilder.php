@@ -52,7 +52,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Sessions of the webinar.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -70,7 +70,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Sessions of the webinar.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

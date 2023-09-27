@@ -27,7 +27,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the appDisplayName property value. The application name displayed in the Azure portal.  Supports $filter (eq, startsWith).
+     * Gets the appDisplayName property value. The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -1028,7 +1028,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the appDisplayName property value. The application name displayed in the Azure portal.  Supports $filter (eq, startsWith).
+     * Sets the appDisplayName property value. The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {

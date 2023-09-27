@@ -122,10 +122,10 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of richLongRunningOperations associated with a list.
+     * Return the metadata for a [list][].
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/list-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ListItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -177,7 +177,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of richLongRunningOperations associated with a list.
+     * Return the metadata for a [list][].
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
