@@ -53,7 +53,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant.
+     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant. This API is supported in the following national cloud deployments.
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamworkdevice-list?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant.
+     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant. This API is supported in the following national cloud deployments.
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

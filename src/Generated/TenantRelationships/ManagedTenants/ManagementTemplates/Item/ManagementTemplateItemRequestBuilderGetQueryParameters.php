@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a managementTemplate object.
+ * Read the properties and relationships of a managementTemplate object. This API is supported in the following national cloud deployments.
 */
 class ManagementTemplateItemRequestBuilderGetQueryParameters 
 {

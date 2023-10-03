@@ -42,7 +42,7 @@ class ImportOffice365DeviceConfigurationPoliciesRequestBuilder extends BaseReque
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ImportOffice365DeviceConfigurationPoliciesResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ImportOffice365DeviceConfigurationPoliciesPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

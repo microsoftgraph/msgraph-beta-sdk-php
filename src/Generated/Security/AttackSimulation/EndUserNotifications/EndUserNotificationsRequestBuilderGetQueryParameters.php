@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\EndUserNotifi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get endUserNotifications from security
+ * Get a list of endUserNotification objects and their properties. This API is supported in the following national cloud deployments.
 */
 class EndUserNotificationsRequestBuilderGetQueryParameters 
 {

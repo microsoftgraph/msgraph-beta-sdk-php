@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\OpenShiftChangeRequ
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of openShiftChangeRequest objects in a team.
+ * Retrieve a list of openShiftChangeRequest objects in a team. This API is supported in the following national cloud deployments.
 */
 class OpenShiftChangeRequestsRequestBuilderGetQueryParameters 
 {

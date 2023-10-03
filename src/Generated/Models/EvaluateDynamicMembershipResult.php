@@ -70,7 +70,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the membershipRule property value. If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
+     * Gets the membershipRule property value. If a group ID is provided, the value is the membership rule for the group. If a group ID isn't provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
      * @return string|null
     */
     public function getMembershipRule(): ?string {
@@ -82,7 +82,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the membershipRuleEvaluationDetails property value. Provides a detailed anaylsis of the membership evaluation result.
+     * Gets the membershipRuleEvaluationDetails property value. Provides a detailed analysis of the membership evaluation result.
      * @return ExpressionEvaluationDetails|null
     */
     public function getMembershipRuleEvaluationDetails(): ?ExpressionEvaluationDetails {
@@ -146,7 +146,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the membershipRule property value. If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
+     * Sets the membershipRule property value. If a group ID is provided, the value is the membership rule for the group. If a group ID isn't provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
      * @param string|null $value Value to set for the membershipRule property.
     */
     public function setMembershipRule(?string $value): void {
@@ -154,7 +154,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the membershipRuleEvaluationDetails property value. Provides a detailed anaylsis of the membership evaluation result.
+     * Sets the membershipRuleEvaluationDetails property value. Provides a detailed analysis of the membership evaluation result.
      * @param ExpressionEvaluationDetails|null $value Value to set for the membershipRuleEvaluationDetails property.
     */
     public function setMembershipRuleEvaluationDetails(?ExpressionEvaluationDetails $value): void {

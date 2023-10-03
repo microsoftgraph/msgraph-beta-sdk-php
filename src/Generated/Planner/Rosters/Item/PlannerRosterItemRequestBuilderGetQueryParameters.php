@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Rosters\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a plannerRoster object.
+ * Read the properties and relationships of a plannerRoster object. This API is supported in the following national cloud deployments.
 */
 class PlannerRosterItemRequestBuilderGetQueryParameters 
 {

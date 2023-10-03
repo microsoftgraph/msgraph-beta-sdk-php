@@ -32,7 +32,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/meetingregistrationquestion-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/meetingregistrationquestion-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -121,7 +121,7 @@ class Participant extends Entity implements Parsable
     }
 
     /**
-     * Gets the preferredDisplayName property value. The preferredDisplayName property
+     * Gets the preferredDisplayName property value. The participant's preferred display name that overrides the original display name.
      * @return string|null
     */
     public function getPreferredDisplayName(): ?string {
@@ -248,7 +248,7 @@ class Participant extends Entity implements Parsable
     }
 
     /**
-     * Sets the preferredDisplayName property value. The preferredDisplayName property
+     * Sets the preferredDisplayName property value. The participant's preferred display name that overrides the original display name.
      * @param string|null $value Value to set for the preferredDisplayName property.
     */
     public function setPreferredDisplayName(?string $value): void {

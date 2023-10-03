@@ -53,7 +53,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar. This API is supported in the following national cloud deployments.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualeventregistration-list?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar. This API is supported in the following national cloud deployments.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

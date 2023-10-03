@@ -38,7 +38,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the cleanupScheduledDateTime property value. The cleanupScheduledDateTime property
+     * Gets the cleanupScheduledDateTime property value. The date and time the subject is marked to be blocked from sign in or deleted. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time.
      * @return DateTime|null
     */
     public function getCleanupScheduledDateTime(): ?DateTime {
@@ -119,7 +119,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
+     * Gets the objectId property value. The object identifier of the subject. null if the subject isn't yet a user in the tenant. Alternate key.
      * @return string|null
     */
     public function getObjectId(): ?string {
@@ -206,7 +206,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the cleanupScheduledDateTime property value. The cleanupScheduledDateTime property
+     * Sets the cleanupScheduledDateTime property value. The date and time the subject is marked to be blocked from sign in or deleted. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time.
      * @param DateTime|null $value Value to set for the cleanupScheduledDateTime property.
     */
     public function setCleanupScheduledDateTime(?DateTime $value): void {
@@ -246,7 +246,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
+     * Sets the objectId property value. The object identifier of the subject. null if the subject isn't yet a user in the tenant. Alternate key.
      * @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value): void {

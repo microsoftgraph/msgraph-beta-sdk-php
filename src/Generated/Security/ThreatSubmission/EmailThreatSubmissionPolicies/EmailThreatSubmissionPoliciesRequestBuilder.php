@@ -53,7 +53,7 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the emailThreatSubmissionPolicy objects and their properties.
+     * Get a list of the emailThreatSubmissionPolicy objects and their properties. This API is supported in the following national cloud deployments.
      * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-emailthreatsubmissionpolicy-list?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the emailThreatSubmissionPolicy objects and their properties.
+     * Get a list of the emailThreatSubmissionPolicy objects and their properties. This API is supported in the following national cloud deployments.
      * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

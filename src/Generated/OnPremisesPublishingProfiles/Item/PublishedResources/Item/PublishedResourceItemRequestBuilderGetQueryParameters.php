@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of publishedResource object.
+ * Retrieve the properties and relationships of publishedResource object. This API is supported in the following national cloud deployments.
 */
 class PublishedResourceItemRequestBuilderGetQueryParameters 
 {

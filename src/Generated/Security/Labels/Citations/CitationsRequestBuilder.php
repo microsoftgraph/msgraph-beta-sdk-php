@@ -53,7 +53,7 @@ class CitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the citationTemplate objects and their properties.
+     * Get a list of the citationTemplate objects and their properties. This API is supported in the following national cloud deployments.
      * @param CitationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-list-citations?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class CitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new citationTemplate object.
+     * Create a new citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplate $body The request body
      * @param CitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class CitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the citationTemplate objects and their properties.
+     * Get a list of the citationTemplate objects and their properties. This API is supported in the following national cloud deployments.
      * @param CitationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class CitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new citationTemplate object.
+     * Create a new citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplate $body The request body
      * @param CitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -81,7 +81,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rules property value. The rules that should be enforced on the tasks when they are being changed outside of the scenario, based on the role of the caller.
+     * Gets the rules property value. The rules that should be enforced on the tasks when they're being changed outside of the scenario, based on the role of the caller.
      * @return array<PlannerTaskRoleBasedRule>|null
     */
     public function getRules(): ?array {
@@ -129,7 +129,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the rules property value. The rules that should be enforced on the tasks when they are being changed outside of the scenario, based on the role of the caller.
+     * Sets the rules property value. The rules that should be enforced on the tasks when they're being changed outside of the scenario, based on the role of the caller.
      * @param array<PlannerTaskRoleBasedRule>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {

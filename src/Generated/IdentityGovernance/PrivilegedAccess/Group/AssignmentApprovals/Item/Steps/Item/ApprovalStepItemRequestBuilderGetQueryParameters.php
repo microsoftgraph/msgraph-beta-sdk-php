@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of an approvalStep object.
+ * Retrieve the properties of an approvalStep object. This API is supported in the following national cloud deployments.
 */
 class ApprovalStepItemRequestBuilderGetQueryParameters 
 {

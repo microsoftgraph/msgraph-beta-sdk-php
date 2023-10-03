@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a collection of governanceResource that the requestor has access to.
+ * Retrieve a collection of governanceResource that the requestor has access to. This API is supported in the following national cloud deployments.
 */
 class ResourcesRequestBuilderGetQueryParameters 
 {

@@ -53,7 +53,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of externalConnections.
+     * Retrieve a list of externalConnections. This API is supported in the following national cloud deployments.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalConnection.
+     * Create a new externalConnection. This API is supported in the following national cloud deployments.
      * @param ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of externalConnections.
+     * Retrieve a list of externalConnections. This API is supported in the following national cloud deployments.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalConnection.
+     * Create a new externalConnection. This API is supported in the following national cloud deployments.
      * @param ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

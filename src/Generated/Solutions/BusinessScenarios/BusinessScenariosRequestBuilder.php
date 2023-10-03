@@ -53,7 +53,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all businessScenario objects in an organization.
+     * Get a list of all businessScenario objects in an organization. This API is supported in the following national cloud deployments.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/solutionsroot-list-businessscenarios?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenario object.
+     * Create a new businessScenario object. This API is supported in the following national cloud deployments.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all businessScenario objects in an organization.
+     * Get a list of all businessScenario objects in an organization. This API is supported in the following national cloud deployments.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenario object.
+     * Create a new businessScenario object. This API is supported in the following national cloud deployments.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

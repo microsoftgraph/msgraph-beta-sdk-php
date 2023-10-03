@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\AccessReview
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\PrivilegedAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\RoleManagementAlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\TermsOfUseRequestBuilder;
@@ -50,6 +51,13 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
     */
     public function lifecycleWorkflows(): LifecycleWorkflowsRequestBuilder {
         return new LifecycleWorkflowsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissionsManagement property of the microsoft.graph.identityGovernance entity.
+    */
+    public function permissionsManagement(): PermissionsManagementRequestBuilder {
+        return new PermissionsManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve information about a specific forwarding profile.
+ * Retrieve information about a specific forwarding profile. This API is supported in the following national cloud deployments.
 */
 class ForwardingProfileItemRequestBuilderGetQueryParameters 
 {

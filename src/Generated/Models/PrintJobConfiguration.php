@@ -57,7 +57,7 @@ class PrintJobConfiguration implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
+     * Gets the collate property value. Whether the printer should collate pages when printing multiple copies of a multi-page document.
      * @return bool|null
     */
     public function getCollate(): ?bool {
@@ -375,7 +375,7 @@ class PrintJobConfiguration implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
+     * Sets the collate property value. Whether the printer should collate pages when printing multiple copies of a multi-page document.
      * @param bool|null $value Value to set for the collate property.
     */
     public function setCollate(?bool $value): void {

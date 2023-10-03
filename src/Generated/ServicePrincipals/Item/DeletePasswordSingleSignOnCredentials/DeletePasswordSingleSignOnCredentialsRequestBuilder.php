@@ -31,7 +31,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Delete single sign-on credentials using a password for a user or group.
+     * Delete single sign-on credentials using a password for a user or group. This API is supported in the following national cloud deployments.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Delete single sign-on credentials using a password for a user or group.
+     * Delete single sign-on credentials using a password for a user or group. This API is supported in the following national cloud deployments.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,7 +31,7 @@ class CancelSecurityActionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel a security operation.
+     * Cancel a security operation. This API is supported in the following national cloud deployments.
      * @param CancelSecurityActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class CancelSecurityActionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel a security operation.
+     * Cancel a security operation. This API is supported in the following national cloud deployments.
      * @param CancelSecurityActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

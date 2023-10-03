@@ -52,7 +52,7 @@ class SslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of hostSslCertificate objects from the host navigation property.
+     * Get a list of hostSslCertificate objects from the host navigation property. This API is supported in the following national cloud deployments.
      * @param SslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-hostsslcertificate-list-host?view=graph-rest-1.0 Find more info here
@@ -71,7 +71,7 @@ class SslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of hostSslCertificate objects from the host navigation property.
+     * Get a list of hostSslCertificate objects from the host navigation property. This API is supported in the following national cloud deployments.
      * @param SslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

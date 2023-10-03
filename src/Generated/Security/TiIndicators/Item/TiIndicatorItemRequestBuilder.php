@@ -32,7 +32,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tiIndicator object.
+     * Delete a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicatorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/tiindicator-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tiIndicator object.
+     * Retrieve the properties and relationships of a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/tiindicator-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tiIndicator object.
+     * Update the properties of a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicator $body The request body
      * @param TiIndicatorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tiIndicator object.
+     * Delete a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicatorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tiIndicator object.
+     * Retrieve the properties and relationships of a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tiIndicator object.
+     * Update the properties of a tiIndicator object. This API is supported in the following national cloud deployments.
      * @param TiIndicator $body The request body
      * @param TiIndicatorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

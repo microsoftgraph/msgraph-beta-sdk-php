@@ -68,7 +68,7 @@ class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote. This API is supported in the following national cloud deployments.
      * @param SecureScoreControlProfile $body The request body
      * @param SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -126,7 +126,7 @@ class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote. This API is supported in the following national cloud deployments.
      * @param SecureScoreControlProfile $body The request body
      * @param SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

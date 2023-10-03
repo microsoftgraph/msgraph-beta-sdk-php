@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of all inboundSharedUserProfiles.
+ * Retrieve the properties of all inboundSharedUserProfiles. This API is supported in the following national cloud deployments.
 */
 class InboundSharedUserProfilesRequestBuilderGetQueryParameters 
 {

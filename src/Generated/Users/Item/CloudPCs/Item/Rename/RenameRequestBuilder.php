@@ -31,7 +31,7 @@ class RenameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.
+     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity. This API is supported in the following national cloud deployments.
      * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class RenameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.
+     * Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity. This API is supported in the following national cloud deployments.
      * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -56,7 +56,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a retentionLabel object.
+     * Delete a retentionLabel object. This API is supported in the following national cloud deployments.
      * @param RetentionLabelItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-retentionlabel-delete?view=graph-rest-1.0 Find more info here
@@ -93,7 +93,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified. This API is supported in the following national cloud deployments.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -113,7 +113,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a retentionLabel object.
+     * Delete a retentionLabel object. This API is supported in the following national cloud deployments.
      * @param RetentionLabelItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -151,7 +151,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified. This API is supported in the following national cloud deployments.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

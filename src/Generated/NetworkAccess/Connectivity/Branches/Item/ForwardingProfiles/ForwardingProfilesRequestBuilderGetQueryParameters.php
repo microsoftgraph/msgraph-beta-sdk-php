@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of traffic forwarding profiles associated with a branch.
+ * Retrieve a list of traffic forwarding profiles associated with a branch. This API is supported in the following national cloud deployments.
 */
 class ForwardingProfilesRequestBuilderGetQueryParameters 
 {

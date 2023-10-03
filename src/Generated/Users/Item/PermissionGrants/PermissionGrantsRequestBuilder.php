@@ -85,7 +85,7 @@ class PermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has. This API is supported in the following national cloud deployments.
      * @param PermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/user-list-permissiongrants?view=graph-rest-1.0 Find more info here
@@ -123,7 +123,7 @@ class PermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants of a user. This list specifies the Azure Active Directory apps that have access to the user, along with the corresponding kind of resource-specific access that each app has. This API is supported in the following national cloud deployments.
      * @param PermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

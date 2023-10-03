@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the categoryTemplate objects and their properties.
+ * Get a list of the categoryTemplate objects and their properties. This API is supported in the following national cloud deployments.
 */
 class CategoriesRequestBuilderGetQueryParameters 
 {

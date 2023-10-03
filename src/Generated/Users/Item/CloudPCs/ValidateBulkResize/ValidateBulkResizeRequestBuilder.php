@@ -31,7 +31,7 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized. This API is supported in the following national cloud deployments.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ValidateBulkResizeResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ValidateBulkResizePostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized. This API is supported in the following national cloud deployments.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

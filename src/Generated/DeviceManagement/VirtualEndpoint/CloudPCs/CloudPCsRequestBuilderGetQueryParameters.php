@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the cloudPC devices in a tenant.
+ * List the cloudPC devices in a tenant. This API is supported in the following national cloud deployments.
 */
 class CloudPCsRequestBuilderGetQueryParameters 
 {

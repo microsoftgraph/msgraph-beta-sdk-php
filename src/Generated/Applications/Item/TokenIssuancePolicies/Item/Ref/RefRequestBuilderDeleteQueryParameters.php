@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove a tokenIssuancePolicy from an application.
+ * Remove a tokenIssuancePolicy from an application. This API is supported in the following national cloud deployments.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

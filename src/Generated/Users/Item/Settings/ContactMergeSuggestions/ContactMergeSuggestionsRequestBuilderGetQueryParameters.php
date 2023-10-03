@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggest
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a contactMergeSuggestions object.
+ * Read the properties and relationships of a contactMergeSuggestions object. This API is supported in the following national cloud deployments.
 */
 class ContactMergeSuggestionsRequestBuilderGetQueryParameters 
 {

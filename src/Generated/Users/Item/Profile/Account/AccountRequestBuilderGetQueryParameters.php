@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieves properties related to the user's accounts from the profile.
+ * Retrieves properties related to the user's accounts from the profile. This API is supported in the following national cloud deployments.
 */
 class AccountRequestBuilderGetQueryParameters 
 {

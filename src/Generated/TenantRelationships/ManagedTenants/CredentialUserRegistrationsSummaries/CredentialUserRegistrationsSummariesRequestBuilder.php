@@ -53,7 +53,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a list of the credentialUserRegistrationsSummary objects and their properties.
+     * Get a list of the credentialUserRegistrationsSummary objects and their properties. This API is supported in the following national cloud deployments.
      * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-credentialuserregistrationssummaries?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a list of the credentialUserRegistrationsSummary objects and their properties.
+     * Get a list of the credentialUserRegistrationsSummary objects and their properties. This API is supported in the following national cloud deployments.
      * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

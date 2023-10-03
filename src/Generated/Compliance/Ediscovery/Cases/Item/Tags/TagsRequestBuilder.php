@@ -61,7 +61,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tag objects from an eDiscovery case.
+     * Retrieve a list of tag objects from an eDiscovery case. This API is supported in the following national cloud deployments.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-list-tags?view=graph-rest-1.0 Find more info here
@@ -80,7 +80,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content. This API is supported in the following national cloud deployments.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -100,7 +100,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tag objects from an eDiscovery case.
+     * Retrieve a list of tag objects from an eDiscovery case. This API is supported in the following national cloud deployments.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content. This API is supported in the following national cloud deployments.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

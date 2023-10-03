@@ -84,7 +84,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups. This API is supported in the following national cloud deployments.
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0 Find more info here
@@ -103,7 +103,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups. This API is supported in the following national cloud deployments.
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

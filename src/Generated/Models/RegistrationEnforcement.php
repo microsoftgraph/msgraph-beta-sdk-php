@@ -48,7 +48,7 @@ class RegistrationEnforcement implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      * @return AuthenticationMethodsRegistrationCampaign|null
     */
     public function getAuthenticationMethodsRegistrationCampaign(): ?AuthenticationMethodsRegistrationCampaign {
@@ -110,7 +110,7 @@ class RegistrationEnforcement implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      * @param AuthenticationMethodsRegistrationCampaign|null $value Value to set for the authenticationMethodsRegistrationCampaign property.
     */
     public function setAuthenticationMethodsRegistrationCampaign(?AuthenticationMethodsRegistrationCampaign $value): void {

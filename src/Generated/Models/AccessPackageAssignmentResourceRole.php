@@ -117,7 +117,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
+     * Gets the status property value. The value is PendingFulfillment when the access package assignment hasn't yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -192,7 +192,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
+     * Sets the status property value. The value is PendingFulfillment when the access package assignment hasn't yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

@@ -80,7 +80,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an accessPackageCatalog.
+     * Delete an accessPackageCatalog. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-1.0 Find more info here
@@ -99,7 +99,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an accessPackageCatalog object.
+     * Retrieve the properties and relationships of an accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-1.0 Find more info here
@@ -118,7 +118,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
+     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -138,7 +138,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an accessPackageCatalog.
+     * Delete an accessPackageCatalog. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -155,7 +155,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an accessPackageCatalog object.
+     * Retrieve the properties and relationships of an accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -176,7 +176,7 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
+     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

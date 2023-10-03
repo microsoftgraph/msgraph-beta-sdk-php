@@ -32,7 +32,7 @@ class ConfirmRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Confirm a specific timeCard.
+     * Confirm a specific timeCard. This API is supported in the following national cloud deployments.
      * @param ConfirmRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/timecard-confirm?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ConfirmRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Confirm a specific timeCard.
+     * Confirm a specific timeCard. This API is supported in the following national cloud deployments.
      * @param ConfirmRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

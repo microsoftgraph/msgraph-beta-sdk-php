@@ -112,7 +112,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ediscoveryCase object.
+     * Delete an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-casesroot-delete-ediscoverycases?view=graph-rest-1.0 Find more info here
@@ -131,7 +131,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryCase object.
+     * Read the properties and relationships of an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-get?view=graph-rest-1.0 Find more info here
@@ -150,7 +150,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an ediscoveryCase object.
+     * Update the properties of an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -170,7 +170,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ediscoveryCase object.
+     * Delete an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -187,7 +187,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryCase object.
+     * Read the properties and relationships of an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -208,7 +208,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an ediscoveryCase object.
+     * Update the properties of an ediscoveryCase object. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -78,7 +78,7 @@ class HostPair extends Entity implements Parsable
     }
 
     /**
-     * Gets the linkKind property value. The reason the two hosts are identified as hostPairs.
+     * Gets the linkKind property value. The reason that two hosts are identified as hostPair.
      * @return string|null
     */
     public function getLinkKind(): ?string {
@@ -139,7 +139,7 @@ class HostPair extends Entity implements Parsable
     }
 
     /**
-     * Sets the linkKind property value. The reason the two hosts are identified as hostPairs.
+     * Sets the linkKind property value. The reason that two hosts are identified as hostPair.
      * @param string|null $value Value to set for the linkKind property.
     */
     public function setLinkKind(?string $value): void {

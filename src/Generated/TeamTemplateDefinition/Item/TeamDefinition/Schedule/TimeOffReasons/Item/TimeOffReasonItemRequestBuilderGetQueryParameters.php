@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a timeOffReason object by ID.
+ * Retrieve the properties and relationships of a timeOffReason object by ID. This API is supported in the following national cloud deployments.
 */
 class TimeOffReasonItemRequestBuilderGetQueryParameters 
 {

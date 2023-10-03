@@ -41,7 +41,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedDate property value. The date when the delete operation happened. Default value is 'null' when the user has not been deleted.
+     * Gets the deletedDate property value. The date when the delete operation happened. Default value is 'null' when the user hasn't been deleted.
      * @return Date|null
     */
     public function getDeletedDate(): ?Date {
@@ -53,7 +53,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates.
+     * Gets the displayName property value. The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it can't be cleared during updates.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -398,7 +398,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedDate property value. The date when the delete operation happened. Default value is 'null' when the user has not been deleted.
+     * Sets the deletedDate property value. The date when the delete operation happened. Default value is 'null' when the user hasn't been deleted.
      * @param Date|null $value Value to set for the deletedDate property.
     */
     public function setDeletedDate(?Date $value): void {
@@ -406,7 +406,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates.
+     * Sets the displayName property value. The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it can't be cleared during updates.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set a presence status message for a user. An optional expiration date and time can be supplied.
+ * Set a presence status message for a user. An optional expiration date and time can be supplied. This API is supported in the following national cloud deployments.
 */
 class PresenceRequestBuilderGetQueryParameters 
 {

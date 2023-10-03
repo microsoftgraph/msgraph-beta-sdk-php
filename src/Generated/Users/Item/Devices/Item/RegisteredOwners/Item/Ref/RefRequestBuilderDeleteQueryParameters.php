@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwner
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove a user as a registered owner of the device.
+ * Remove a user as a registered owner of the device. This API is supported in the following national cloud deployments.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

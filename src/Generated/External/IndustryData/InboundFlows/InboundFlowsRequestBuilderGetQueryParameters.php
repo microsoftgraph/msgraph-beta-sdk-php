@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the inboundFlow objects and their properties.
+ * Get a list of the inboundFlow objects and their properties. This API is supported in the following national cloud deployments.
 */
 class InboundFlowsRequestBuilderGetQueryParameters 
 {

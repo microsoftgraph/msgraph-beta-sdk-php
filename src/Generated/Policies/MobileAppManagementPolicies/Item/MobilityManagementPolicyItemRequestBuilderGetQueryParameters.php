@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a mobilityManagementPolicy object.
+ * Read the properties and relationships of a mobilityManagementPolicy object. This API is supported in the following national cloud deployments.
 */
 class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
 {

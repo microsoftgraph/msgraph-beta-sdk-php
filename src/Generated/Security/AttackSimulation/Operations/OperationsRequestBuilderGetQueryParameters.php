@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get an attack simulation operation to track a long-running operation request for a tenant.
+ * Get an attack simulation operation to track a long-running operation request for a tenant. This API is supported in the following national cloud deployments.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

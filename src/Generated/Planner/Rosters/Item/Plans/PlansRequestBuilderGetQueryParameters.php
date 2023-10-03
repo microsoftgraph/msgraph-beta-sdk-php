@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the plannerPlans contained by the plannerRoster.
+ * Get the plannerPlans contained by the plannerRoster. This API is supported in the following national cloud deployments.
 */
 class PlansRequestBuilderGetQueryParameters 
 {

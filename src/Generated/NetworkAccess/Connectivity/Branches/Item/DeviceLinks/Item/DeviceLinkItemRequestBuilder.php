@@ -32,7 +32,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
+     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them. This API is supported in the following national cloud deployments.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch.
+     * Retrieve the device link associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch.
+     * Update the device link associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
+     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them. This API is supported in the following national cloud deployments.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch.
+     * Retrieve the device link associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch.
+     * Update the device link associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

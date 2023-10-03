@@ -39,7 +39,7 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope implements Par
     }
 
     /**
-     * Gets the principalScopes property value. Defines the scopes of the principals whose access to resources are reviewed in the access review.
+     * Gets the principalScopes property value. Defines the scopes of the principals for which access to resources are reviewed in the access review.
      * @return array<AccessReviewScope>|null
     */
     public function getPrincipalScopes(): ?array {
@@ -77,7 +77,7 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope implements Par
     }
 
     /**
-     * Sets the principalScopes property value. Defines the scopes of the principals whose access to resources are reviewed in the access review.
+     * Sets the principalScopes property value. Defines the scopes of the principals for which access to resources are reviewed in the access review.
      * @param array<AccessReviewScope>|null $value Value to set for the principalScopes property.
     */
     public function setPrincipalScopes(?array $value): void {

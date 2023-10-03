@@ -37,7 +37,7 @@ class FileUrlThreatSubmission extends FileThreatSubmission implements Parsable
     }
 
     /**
-     * Gets the fileUrl property value. It specifies the URL of the file which needs to be submitted.
+     * Gets the fileUrl property value. It specifies the URL of the file that needs to be submitted.
      * @return string|null
     */
     public function getFileUrl(): ?string {
@@ -58,7 +58,7 @@ class FileUrlThreatSubmission extends FileThreatSubmission implements Parsable
     }
 
     /**
-     * Sets the fileUrl property value. It specifies the URL of the file which needs to be submitted.
+     * Sets the fileUrl property value. It specifies the URL of the file that needs to be submitted.
      * @param string|null $value Value to set for the fileUrl property.
     */
     public function setFileUrl(?string $value): void {

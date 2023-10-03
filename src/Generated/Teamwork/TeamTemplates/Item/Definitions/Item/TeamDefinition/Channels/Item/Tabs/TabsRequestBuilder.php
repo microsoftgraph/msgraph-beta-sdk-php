@@ -53,7 +53,7 @@ class TabsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of tabs in the specified channel within a team. 
+     * Retrieve the list of tabs in the specified channel within a team.  This API is supported in the following national cloud deployments.
      * @param TabsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class TabsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of tabs in the specified channel within a team. 
+     * Retrieve the list of tabs in the specified channel within a team.  This API is supported in the following national cloud deployments.
      * @param TabsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

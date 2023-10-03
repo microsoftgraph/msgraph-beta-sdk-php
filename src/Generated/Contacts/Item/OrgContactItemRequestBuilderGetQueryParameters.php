@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of an organizational contact object.
+ * Get the properties and relationships of an organizational contact object. This API is supported in the following national cloud deployments.
 */
 class OrgContactItemRequestBuilderGetQueryParameters 
 {

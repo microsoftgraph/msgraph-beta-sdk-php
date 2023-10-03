@@ -79,7 +79,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the meetingOrganizer property value. The meetingOrganizer property
+     * Gets the meetingOrganizer property value. The identity information of the organizer of the onlineMeeting related to this recording. Read-only.
      * @return IdentitySet|null
     */
     public function getMeetingOrganizer(): ?IdentitySet {
@@ -153,7 +153,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Sets the meetingOrganizer property value. The meetingOrganizer property
+     * Sets the meetingOrganizer property value. The identity information of the organizer of the onlineMeeting related to this recording. Read-only.
      * @param IdentitySet|null $value Value to set for the meetingOrganizer property.
     */
     public function setMeetingOrganizer(?IdentitySet $value): void {

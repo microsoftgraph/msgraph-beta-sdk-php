@@ -45,7 +45,7 @@ class GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder extends BaseR
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [GetOffice365GroupsActivityFileCountsWithPeriodResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GetOffice365GroupsActivityFileCountsWithPeriodGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

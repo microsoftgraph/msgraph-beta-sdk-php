@@ -50,7 +50,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchangeReceivedEmailCount property value. The number of email that the group mailbox received.
+     * Gets the exchangeReceivedEmailCount property value. The number of emails that the group mailbox received.
      * @return int|null
     */
     public function getExchangeReceivedEmailCount(): ?int {
@@ -354,7 +354,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchangeReceivedEmailCount property value. The number of email that the group mailbox received.
+     * Sets the exchangeReceivedEmailCount property value. The number of emails that the group mailbox received.
      * @param int|null $value Value to set for the exchangeReceivedEmailCount property.
     */
     public function setExchangeReceivedEmailCount(?int $value): void {

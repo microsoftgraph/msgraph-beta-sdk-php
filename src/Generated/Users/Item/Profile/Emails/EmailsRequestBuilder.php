@@ -53,7 +53,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is supported in the following national cloud deployments.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-emails?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemEmail object in a user's profile.
+     * Create a new itemEmail object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemEmail $body The request body
      * @param EmailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is supported in the following national cloud deployments.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemEmail object in a user's profile.
+     * Create a new itemEmail object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemEmail $body The request body
      * @param EmailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

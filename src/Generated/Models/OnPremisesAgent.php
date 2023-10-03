@@ -67,7 +67,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the machineName property value. The name of the machine that the aggent is running on. Read-only
+     * Gets the machineName property value. The name of the machine that the agent is running on. Read-only
      * @return string|null
     */
     public function getMachineName(): ?string {
@@ -134,7 +134,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the machineName property value. The name of the machine that the aggent is running on. Read-only
+     * Sets the machineName property value. The name of the machine that the agent is running on. Read-only
      * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {

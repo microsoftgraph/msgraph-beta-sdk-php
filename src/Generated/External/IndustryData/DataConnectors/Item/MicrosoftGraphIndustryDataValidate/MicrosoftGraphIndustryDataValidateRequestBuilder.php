@@ -31,7 +31,7 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Perform validations applicable for the specific instance of the data connector.
+     * Perform validations applicable for the specific instance of the data connector. This API is supported in the following national cloud deployments.
      * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Perform validations applicable for the specific instance of the data connector.
+     * Perform validations applicable for the specific instance of the data connector. This API is supported in the following national cloud deployments.
      * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

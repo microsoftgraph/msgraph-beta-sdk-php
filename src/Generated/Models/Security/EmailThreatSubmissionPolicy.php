@@ -38,7 +38,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the customizedReportRecipientEmailAddress property value. Specifies the destination where the reported messages from end users will land whenever they report something as phish, junk or not junk. The default value is null. Optional for creation.
+     * Gets the customizedReportRecipientEmailAddress property value. Specifies the destination where the reported messages from end users land whenever they report something as phish, junk or not junk. The default value is null. Optional for creation.
      * @return string|null
     */
     public function getCustomizedReportRecipientEmailAddress(): ?string {
@@ -97,7 +97,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the isCustomizedMessageEnabled property value. Indicates whether the email notifications sent to end users to inform them if an email is phish, spam or junk is customized or not. The default value is false. Optional for creation.
+     * Gets the isCustomizedMessageEnabled property value. Indicates whether the email notifications sent to end users to inform them if an email is a phish mail, spam or junk is customized or not. The default value is false. Optional for creation.
      * @return bool|null
     */
     public function getIsCustomizedMessageEnabled(): ?bool {
@@ -133,7 +133,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the isNeverReportEnabledForUsers property value. Indicates whether end users can simply move the message from one folder to another based on the action of spam, phish or not junk without actually reporting it. The default value is true. Optional for creation.
+     * Gets the isNeverReportEnabledForUsers property value. Indicates whether end users can move the message from one folder to another based on the action of spam, phish or not junk without actually reporting it. The default value is true. Optional for creation.
      * @return bool|null
     */
     public function getIsNeverReportEnabledForUsers(): ?bool {
@@ -169,7 +169,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the isReportToCustomizedEmailAddressEnabled property value. Indicates whether emails reported by end users should be send to the custom mailbox configured using customizedReportRecipientEmailAddress.  The default value is false. Optional for creation.
+     * Gets the isReportToCustomizedEmailAddressEnabled property value. Indicates whether emails reported by end users should be sent to the custom mailbox configured using customizedReportRecipientEmailAddress.  The default value is false. Optional for creation.
      * @return bool|null
     */
     public function getIsReportToCustomizedEmailAddressEnabled(): ?bool {
@@ -181,7 +181,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the isReportToMicrosoftEnabled property value. If enabled, the email will be sent to Microsoft for analysis. The default value is false. Required for creation.
+     * Gets the isReportToMicrosoftEnabled property value. If enabled, the email is sent to Microsoft for analysis. The default value is false. Required for creation.
      * @return bool|null
     */
     public function getIsReportToMicrosoftEnabled(): ?bool {
@@ -234,7 +234,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the customizedReportRecipientEmailAddress property value. Specifies the destination where the reported messages from end users will land whenever they report something as phish, junk or not junk. The default value is null. Optional for creation.
+     * Sets the customizedReportRecipientEmailAddress property value. Specifies the destination where the reported messages from end users land whenever they report something as phish, junk or not junk. The default value is null. Optional for creation.
      * @param string|null $value Value to set for the customizedReportRecipientEmailAddress property.
     */
     public function setCustomizedReportRecipientEmailAddress(?string $value): void {
@@ -258,7 +258,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the isCustomizedMessageEnabled property value. Indicates whether the email notifications sent to end users to inform them if an email is phish, spam or junk is customized or not. The default value is false. Optional for creation.
+     * Sets the isCustomizedMessageEnabled property value. Indicates whether the email notifications sent to end users to inform them if an email is a phish mail, spam or junk is customized or not. The default value is false. Optional for creation.
      * @param bool|null $value Value to set for the isCustomizedMessageEnabled property.
     */
     public function setIsCustomizedMessageEnabled(?bool $value): void {
@@ -282,7 +282,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the isNeverReportEnabledForUsers property value. Indicates whether end users can simply move the message from one folder to another based on the action of spam, phish or not junk without actually reporting it. The default value is true. Optional for creation.
+     * Sets the isNeverReportEnabledForUsers property value. Indicates whether end users can move the message from one folder to another based on the action of spam, phish or not junk without actually reporting it. The default value is true. Optional for creation.
      * @param bool|null $value Value to set for the isNeverReportEnabledForUsers property.
     */
     public function setIsNeverReportEnabledForUsers(?bool $value): void {
@@ -306,7 +306,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the isReportToCustomizedEmailAddressEnabled property value. Indicates whether emails reported by end users should be send to the custom mailbox configured using customizedReportRecipientEmailAddress.  The default value is false. Optional for creation.
+     * Sets the isReportToCustomizedEmailAddressEnabled property value. Indicates whether emails reported by end users should be sent to the custom mailbox configured using customizedReportRecipientEmailAddress.  The default value is false. Optional for creation.
      * @param bool|null $value Value to set for the isReportToCustomizedEmailAddressEnabled property.
     */
     public function setIsReportToCustomizedEmailAddressEnabled(?bool $value): void {
@@ -314,7 +314,7 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the isReportToMicrosoftEnabled property value. If enabled, the email will be sent to Microsoft for analysis. The default value is false. Required for creation.
+     * Sets the isReportToMicrosoftEnabled property value. If enabled, the email is sent to Microsoft for analysis. The default value is false. Required for creation.
      * @param bool|null $value Value to set for the isReportToMicrosoftEnabled property.
     */
     public function setIsReportToMicrosoftEnabled(?bool $value): void {

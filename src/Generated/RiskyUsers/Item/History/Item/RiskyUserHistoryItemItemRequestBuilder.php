@@ -50,7 +50,7 @@ class RiskyUserHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a riskyUserHistoryItem object of a riskyUser.
+     * Get a riskyUserHistoryItem object of a riskyUser. This API is supported in the following national cloud deployments.
      * @param RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class RiskyUserHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a riskyUserHistoryItem object of a riskyUser.
+     * Get a riskyUserHistoryItem object of a riskyUser. This API is supported in the following national cloud deployments.
      * @param RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

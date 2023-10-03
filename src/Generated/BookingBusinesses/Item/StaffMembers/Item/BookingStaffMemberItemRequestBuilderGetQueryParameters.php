@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
+ * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is supported in the following national cloud deployments.
 */
 class BookingStaffMemberItemRequestBuilderGetQueryParameters 
 {

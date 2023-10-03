@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of worksheet object.
+ * Retrieve the properties and relationships of worksheet object. This API is supported in the following national cloud deployments.
 */
 class WorkbookWorksheetItemRequestBuilderGetQueryParameters 
 {

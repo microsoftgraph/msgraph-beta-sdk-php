@@ -53,7 +53,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the complianceChange objects and their properties.
+     * Get a list of the complianceChange objects and their properties. This API is supported in the following national cloud deployments.
      * @param ComplianceChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new contentApproval object.
+     * Create a new contentApproval object. This API is supported in the following national cloud deployments.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the complianceChange objects and their properties.
+     * Get a list of the complianceChange objects and their properties. This API is supported in the following national cloud deployments.
      * @param ComplianceChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new contentApproval object.
+     * Create a new contentApproval object. This API is supported in the following national cloud deployments.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

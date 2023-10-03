@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SwapShiftsCha
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of swapShiftsChangeRequest objects in a team.
+ * Retrieve a list of swapShiftsChangeRequest objects in a team. This API is supported in the following national cloud deployments.
 */
 class SwapShiftsChangeRequestsRequestBuilderGetQueryParameters 
 {

@@ -53,7 +53,7 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of log events for traffic routed through the Global Secure Access services.
+     * Get a list of log events for traffic routed through the Global Secure Access services. This API is supported in the following national cloud deployments.
      * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-logs-list-traffic?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of log events for traffic routed through the Global Secure Access services.
+     * Get a list of log events for traffic routed through the Global Secure Access services. This API is supported in the following national cloud deployments.
      * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

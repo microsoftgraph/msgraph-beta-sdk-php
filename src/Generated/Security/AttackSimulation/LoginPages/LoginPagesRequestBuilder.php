@@ -53,9 +53,10 @@ class LoginPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPages from security
+     * Get a list of the loginPage objects and their properties. This API is supported in the following national cloud deployments.
      * @param LoginPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/attacksimulationroot-list-loginpage?view=graph-rest-1.0 Find more info here
     */
     public function get(?LoginPagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class LoginPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPages from security
+     * Get a list of the loginPage objects and their properties. This API is supported in the following national cloud deployments.
      * @param LoginPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

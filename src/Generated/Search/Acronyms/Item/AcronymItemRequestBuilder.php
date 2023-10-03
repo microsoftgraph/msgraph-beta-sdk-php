@@ -32,7 +32,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an acronym object.
+     * Deletes an acronym object. This API is supported in the following national cloud deployments.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-acronym-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an acronym object.
+     * Read the properties and relationships of an acronym object. This API is supported in the following national cloud deployments.
      * @param AcronymItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-acronym-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an acronym object.
+     * Update the properties of an acronym object. This API is supported in the following national cloud deployments.
      * @param Acronym $body The request body
      * @param AcronymItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an acronym object.
+     * Deletes an acronym object. This API is supported in the following national cloud deployments.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an acronym object.
+     * Read the properties and relationships of an acronym object. This API is supported in the following national cloud deployments.
      * @param AcronymItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an acronym object.
+     * Update the properties of an acronym object. This API is supported in the following national cloud deployments.
      * @param Acronym $body The request body
      * @param AcronymItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

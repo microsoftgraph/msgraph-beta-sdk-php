@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
+ * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios: This API is supported in the following national cloud deployments.
 */
 class StepsRequestBuilderGetQueryParameters 
 {

@@ -50,7 +50,7 @@ class ShiftPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID.
+     * Retrieve the properties and relationships of a shiftPreferences object by ID. This API is supported in the following national cloud deployments.
      * @param ShiftPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-1.0 Find more info here
@@ -106,7 +106,7 @@ class ShiftPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID.
+     * Retrieve the properties and relationships of a shiftPreferences object by ID. This API is supported in the following national cloud deployments.
      * @param ShiftPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+ * Retrieve the properties and relationships of a unifiedRoleAssignment object. This API is supported in the following national cloud deployments.
 */
 class UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters 
 {

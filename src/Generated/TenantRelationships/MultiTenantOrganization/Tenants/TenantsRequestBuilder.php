@@ -53,7 +53,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenants and their properties in the multi-tenant organization.
+     * List the tenants and their properties in the multi-tenant organization. This API is supported in the following national cloud deployments.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/multitenantorganization-list-tenants?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a tenant to a multi-tenant organization. The administrator of an owner tenant has the permissions to add tenants to the multi-tenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multi-tenant organization by submitting a join request. Note that a tenant can be part of only one multi-tenant organization.
+     * Add a tenant to a multi-tenant organization. The administrator of an owner tenant has the permissions to add tenants to the multi-tenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multi-tenant organization by submitting a join request. Note that a tenant can be part of only one multi-tenant organization. This API is supported in the following national cloud deployments.
      * @param MultiTenantOrganizationMember $body The request body
      * @param TenantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenants and their properties in the multi-tenant organization.
+     * List the tenants and their properties in the multi-tenant organization. This API is supported in the following national cloud deployments.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a tenant to a multi-tenant organization. The administrator of an owner tenant has the permissions to add tenants to the multi-tenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multi-tenant organization by submitting a join request. Note that a tenant can be part of only one multi-tenant organization.
+     * Add a tenant to a multi-tenant organization. The administrator of an owner tenant has the permissions to add tenants to the multi-tenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multi-tenant organization by submitting a join request. Note that a tenant can be part of only one multi-tenant organization. This API is supported in the following national cloud deployments.
      * @param MultiTenantOrganizationMember $body The request body
      * @param TenantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

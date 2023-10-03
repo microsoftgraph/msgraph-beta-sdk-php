@@ -32,7 +32,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a personAnniversary object from the user's profile.
+     * Delete a personAnniversary object from the user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personanniversary-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personAnniversary object in a user's profile.
+     * Retrieve the properties and relationships of a personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personanniversary-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAnniversary object in a user's profile.
+     * Update the properties of a personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEvent $body The request body
      * @param PersonAnnualEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a personAnniversary object from the user's profile.
+     * Delete a personAnniversary object from the user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personAnniversary object in a user's profile.
+     * Retrieve the properties and relationships of a personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAnniversary object in a user's profile.
+     * Update the properties of a personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEvent $body The request body
      * @param PersonAnnualEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -88,7 +88,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete a school data synchronization profile in the tenant based on the identifier.
+     * Delete a school data synchronization profile in the tenant based on the identifier. This API is supported in the following national cloud deployments.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofile-delete?view=graph-rest-1.0 Find more info here
@@ -107,7 +107,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Retrieve a school data synchronization profile in the tenant based on the identifier.
+     * Retrieve a school data synchronization profile in the tenant based on the identifier. This API is supported in the following national cloud deployments.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofile-get?view=graph-rest-1.0 Find more info here
@@ -145,7 +145,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete a school data synchronization profile in the tenant based on the identifier.
+     * Delete a school data synchronization profile in the tenant based on the identifier. This API is supported in the following national cloud deployments.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -162,7 +162,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Retrieve a school data synchronization profile in the tenant based on the identifier.
+     * Retrieve a school data synchronization profile in the tenant based on the identifier. This API is supported in the following national cloud deployments.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

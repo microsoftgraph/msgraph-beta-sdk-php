@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\Policy\Labels;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of information protection labels available to the user or to the organization.
+ * Get a collection of information protection labels available to the user or to the organization. This API is supported in the following national cloud deployments.
 */
 class LabelsRequestBuilderGetQueryParameters 
 {

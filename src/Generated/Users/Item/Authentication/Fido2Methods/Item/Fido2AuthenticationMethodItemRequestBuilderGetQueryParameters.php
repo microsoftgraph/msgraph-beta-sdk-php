@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Fido2Methods\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a user's single FIDO2 Security Key Authentication Method object.
+ * Retrieve a user's single FIDO2 Security Key Authentication Method object. This API is supported in the following national cloud deployments.
 */
 class Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

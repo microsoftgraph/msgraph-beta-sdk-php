@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned.
+ * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned. This API is supported in the following national cloud deployments.
 */
 class CustomAuthenticationExtensionsRequestBuilderGetQueryParameters 
 {
