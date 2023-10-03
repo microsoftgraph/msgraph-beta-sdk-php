@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a deployment object.
+ * Read the properties and relationships of a deployment object. This API is supported in the following national cloud deployments.
 */
 class DeploymentItemRequestBuilderGetQueryParameters 
 {

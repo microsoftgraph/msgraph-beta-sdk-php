@@ -31,7 +31,7 @@ class ResizeCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.
+     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size. This API is supported in the following national cloud deployments.
      * @param ResizeCloudPcPostRequestBody $body The request body
      * @param ResizeCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class ResizeCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.
+     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size. This API is supported in the following national cloud deployments.
      * @param ResizeCloudPcPostRequestBody $body The request body
      * @param ResizeCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

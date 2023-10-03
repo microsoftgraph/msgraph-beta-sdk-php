@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Resources
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Resources\Item\DependentResources\DependentResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the dependentResources property of the microsoft.graph.educationAssignmentResource entity.
+    */
+    public function dependentResources(): DependentResourcesRequestBuilder {
+        return new DependentResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new EducationAssignmentResourceItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -32,7 +40,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers cannot remove resources that are marked as 'distributeToStudents'.
+     * Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers cannot remove resources that are marked as 'distributeToStudents'. This API is supported in the following national cloud deployments.
      * @param EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +59,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +97,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers cannot remove resources that are marked as 'distributeToStudents'.
+     * Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers cannot remove resources that are marked as 'distributeToStudents'. This API is supported in the following national cloud deployments.
      * @param EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +114,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

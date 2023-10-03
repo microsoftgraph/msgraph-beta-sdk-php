@@ -32,9 +32,10 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property retentionLabel for drives
+     * Remove a retention label from a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. This API is supported in the following national cloud deployments.
      * @param RetentionLabelRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/driveitem-removeretentionlabel?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RetentionLabelRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabel from drives
+     * Information about retention label and settings enforced on the driveItem. Read-write.
      * @param RetentionLabelRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -68,10 +69,11 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property retentionLabel in drives
+     * Apply (set) a retention label on a driveItem (files and folders). Retention labels don't need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. Conflict resolution is based on the following principle: explicit wins over implicit. For example, if a file in the folder has already been explicitly tagged with a label, that file doesn't inherit the label of the parent. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. This API is supported in the following national cloud deployments.
      * @param ItemRetentionLabel $body The request body
      * @param RetentionLabelRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/driveitem-setretentionlabel?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemRetentionLabel $body, ?RetentionLabelRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +89,7 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property retentionLabel for drives
+     * Remove a retention label from a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. This API is supported in the following national cloud deployments.
      * @param RetentionLabelRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +106,7 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabel from drives
+     * Information about retention label and settings enforced on the driveItem. Read-write.
      * @param RetentionLabelRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class RetentionLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property retentionLabel in drives
+     * Apply (set) a retention label on a driveItem (files and folders). Retention labels don't need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. Conflict resolution is based on the following principle: explicit wins over implicit. For example, if a file in the folder has already been explicitly tagged with a label, that file doesn't inherit the label of the parent. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. This API is supported in the following national cloud deployments.
      * @param ItemRetentionLabel $body The request body
      * @param RetentionLabelRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

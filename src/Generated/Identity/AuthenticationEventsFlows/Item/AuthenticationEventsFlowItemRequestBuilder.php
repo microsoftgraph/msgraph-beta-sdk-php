@@ -32,7 +32,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/authenticationeventsflow-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/authenticationeventsflow-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
+     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
+     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported. This API is supported in the following national cloud deployments.
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

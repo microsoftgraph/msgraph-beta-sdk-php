@@ -58,7 +58,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
+     * Gets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a subset of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
      * @return array<string>|null
     */
     public function getDecisionsThatWillMoveToNextStage(): ?array {
@@ -72,7 +72,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1.
+     * Gets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, don't specify dependsOn. Required if stageId isn't 1.
      * @return array<string>|null
     */
     public function getDependsOn(): ?array {
@@ -86,7 +86,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7.
+     * Gets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Can't exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays can't exceed 7.
      * @return int|null
     */
     public function getDurationInDays(): ?int {
@@ -98,7 +98,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Gets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers don't exist. For example, if managers are selected as reviewers and a principal under review doesn't have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @return array<AccessReviewReviewerScope>|null
     */
     public function getFallbackReviewers(): ?array {
@@ -172,7 +172,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the recommendationLookBackDuration property value. Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Gets the recommendationLookBackDuration property value. Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) from which that recommendations will be configured. The recommendation is to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @return DateInterval|null
     */
     public function getRecommendationLookBackDuration(): ?DateInterval {
@@ -184,7 +184,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Gets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @return bool|null
     */
     public function getRecommendationsEnabled(): ?bool {
@@ -196,7 +196,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the reviewers property value. Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition.
+     * Gets the reviewers property value. Defines who the reviewers are. If none is specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition.
      * @return array<AccessReviewReviewerScope>|null
     */
     public function getReviewers(): ?array {
@@ -210,7 +210,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.
+     * Gets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId is used in dependsOn property to indicate the stage relationship. Required.
      * @return string|null
     */
     public function getStageId(): ?string {
@@ -256,7 +256,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
+     * Sets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a subset of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
      * @param array<string>|null $value Value to set for the decisionsThatWillMoveToNextStage property.
     */
     public function setDecisionsThatWillMoveToNextStage(?array $value): void {
@@ -264,7 +264,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1.
+     * Sets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, don't specify dependsOn. Required if stageId isn't 1.
      * @param array<string>|null $value Value to set for the dependsOn property.
     */
     public function setDependsOn(?array $value): void {
@@ -272,7 +272,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7.
+     * Sets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Can't exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays can't exceed 7.
      * @param int|null $value Value to set for the durationInDays property.
     */
     public function setDurationInDays(?int $value): void {
@@ -280,7 +280,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Sets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers don't exist. For example, if managers are selected as reviewers and a principal under review doesn't have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @param array<AccessReviewReviewerScope>|null $value Value to set for the fallbackReviewers property.
     */
     public function setFallbackReviewers(?array $value): void {
@@ -304,7 +304,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the recommendationLookBackDuration property value. Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Sets the recommendationLookBackDuration property value. Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) from which that recommendations will be configured. The recommendation is to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @param DateInterval|null $value Value to set for the recommendationLookBackDuration property.
     */
     public function setRecommendationLookBackDuration(?DateInterval $value): void {
@@ -312,7 +312,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.
+     * Sets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.
      * @param bool|null $value Value to set for the recommendationsEnabled property.
     */
     public function setRecommendationsEnabled(?bool $value): void {
@@ -320,7 +320,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the reviewers property value. Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition.
+     * Sets the reviewers property value. Defines who the reviewers are. If none is specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition.
      * @param array<AccessReviewReviewerScope>|null $value Value to set for the reviewers property.
     */
     public function setReviewers(?array $value): void {
@@ -328,7 +328,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.
+     * Sets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId is used in dependsOn property to indicate the stage relationship. Required.
      * @param string|null $value Value to set for the stageId property.
     */
     public function setStageId(?string $value): void {

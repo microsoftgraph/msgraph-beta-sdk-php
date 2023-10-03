@@ -50,7 +50,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights. This API is supported in the following national cloud deployments.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/userinsightssettings-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the privacy settings for itemInsights and meeting hours insights of a user.
+     * Update the privacy settings for itemInsights and meeting hours insights of a user. This API is supported in the following national cloud deployments.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights. This API is supported in the following national cloud deployments.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the privacy settings for itemInsights and meeting hours insights of a user.
+     * Update the privacy settings for itemInsights and meeting hours insights of a user. This API is supported in the following national cloud deployments.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

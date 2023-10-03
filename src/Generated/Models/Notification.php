@@ -26,7 +26,7 @@ class Notification extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayTimeToLive property value. Sets how long (in seconds) this notification content will stay in each platform's notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification will stay in the user's Windows Action Center.
+     * Gets the displayTimeToLive property value. Sets how long (in seconds) this notification content stays in each platform's notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification stays in the user's Windows Action Center.
      * @return int|null
     */
     public function getDisplayTimeToLive(): ?int {
@@ -67,7 +67,7 @@ class Notification extends Entity implements Parsable
     }
 
     /**
-     * Gets the groupName property value. The name of the group that this notification belongs to. It is set by the developer for the purpose of grouping notifications together.
+     * Gets the groupName property value. The name of the group that this notification belongs to. It is set by the developer for grouping notifications together.
      * @return string|null
     */
     public function getGroupName(): ?string {
@@ -142,7 +142,7 @@ class Notification extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayTimeToLive property value. Sets how long (in seconds) this notification content will stay in each platform's notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification will stay in the user's Windows Action Center.
+     * Sets the displayTimeToLive property value. Sets how long (in seconds) this notification content stays in each platform's notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification stays in the user's Windows Action Center.
      * @param int|null $value Value to set for the displayTimeToLive property.
     */
     public function setDisplayTimeToLive(?int $value): void {
@@ -158,7 +158,7 @@ class Notification extends Entity implements Parsable
     }
 
     /**
-     * Sets the groupName property value. The name of the group that this notification belongs to. It is set by the developer for the purpose of grouping notifications together.
+     * Sets the groupName property value. The name of the group that this notification belongs to. It is set by the developer for grouping notifications together.
      * @param string|null $value Value to set for the groupName property.
     */
     public function setGroupName(?string $value): void {

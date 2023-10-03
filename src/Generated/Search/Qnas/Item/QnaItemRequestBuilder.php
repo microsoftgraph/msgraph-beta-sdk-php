@@ -32,7 +32,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a qna object.
+     * Delete a qna object. This API is supported in the following national cloud deployments.
      * @param QnaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a qna object.
+     * Read the properties and relationships of a qna object. This API is supported in the following national cloud deployments.
      * @param QnaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a qna object.
+     * Update the properties of a qna object. This API is supported in the following national cloud deployments.
      * @param Qna $body The request body
      * @param QnaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a qna object.
+     * Delete a qna object. This API is supported in the following national cloud deployments.
      * @param QnaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a qna object.
+     * Read the properties and relationships of a qna object. This API is supported in the following national cloud deployments.
      * @param QnaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a qna object.
+     * Update the properties of a qna object. This API is supported in the following national cloud deployments.
      * @param Qna $body The request body
      * @param QnaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

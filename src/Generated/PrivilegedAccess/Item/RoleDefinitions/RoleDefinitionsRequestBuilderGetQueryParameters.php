@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of role defintions for the provider.
+ * A collection of role definitions for the provider.
 */
 class RoleDefinitionsRequestBuilderGetQueryParameters 
 {

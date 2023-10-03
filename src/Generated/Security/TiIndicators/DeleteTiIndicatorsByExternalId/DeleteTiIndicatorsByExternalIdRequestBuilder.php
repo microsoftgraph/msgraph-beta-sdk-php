@@ -31,7 +31,7 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is supported in the following national cloud deployments.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeleteTiIndicatorsByExternalIdResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeleteTiIndicatorsByExternalIdPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is supported in the following national cloud deployments.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

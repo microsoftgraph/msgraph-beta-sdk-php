@@ -58,9 +58,10 @@ class SslCertificateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sslCertificates from security
+     * Get the properties and relationships of an sslCertificate object. This API is supported in the following national cloud deployments.
      * @param SslCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/security-sslcertificate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SslCertificateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class SslCertificateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sslCertificates from security
+     * Get the properties and relationships of an sslCertificate object. This API is supported in the following national cloud deployments.
      * @param SslCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

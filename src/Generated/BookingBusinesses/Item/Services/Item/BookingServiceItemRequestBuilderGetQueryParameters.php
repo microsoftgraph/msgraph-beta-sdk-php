@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+ * Get the properties and relationships of a bookingService object in the specified bookingBusiness. This API is supported in the following national cloud deployments.
 */
 class BookingServiceItemRequestBuilderGetQueryParameters 
 {

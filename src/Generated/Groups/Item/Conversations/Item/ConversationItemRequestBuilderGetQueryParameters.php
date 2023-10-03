@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a conversation object.
+ * Retrieve the properties and relationships of conversation object. This API is supported in the following national cloud deployments.
 */
 class ConversationItemRequestBuilderGetQueryParameters 
 {

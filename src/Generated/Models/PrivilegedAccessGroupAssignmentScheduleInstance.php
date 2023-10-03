@@ -38,7 +38,7 @@ class PrivilegedAccessGroupAssignmentScheduleInstance extends PrivilegedAccessSc
     }
 
     /**
-     * Gets the activatedUsing property value. When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it is null.
+     * Gets the activatedUsing property value. When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it's null.
      * @return PrivilegedAccessGroupEligibilityScheduleInstance|null
     */
     public function getActivatedUsing(): ?PrivilegedAccessGroupEligibilityScheduleInstance {
@@ -178,7 +178,7 @@ class PrivilegedAccessGroupAssignmentScheduleInstance extends PrivilegedAccessSc
     }
 
     /**
-     * Sets the activatedUsing property value. When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it is null.
+     * Sets the activatedUsing property value. When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it's null.
      * @param PrivilegedAccessGroupEligibilityScheduleInstance|null $value Value to set for the activatedUsing property.
     */
     public function setActivatedUsing(?PrivilegedAccessGroupEligibilityScheduleInstance $value): void {

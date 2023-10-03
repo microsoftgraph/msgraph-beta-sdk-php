@@ -25,6 +25,7 @@ use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\PagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Permissions\PermissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\TermStoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -140,6 +141,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the recycleBin property of the microsoft.graph.site entity.
+    */
+    public function recycleBin(): RecycleBinRequestBuilder {
+        return new RecycleBinRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

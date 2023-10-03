@@ -54,7 +54,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.
+     * Gets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderby.
      * @return DateTime|null
     */
     public function getApproximateLastSignInDateTime(): ?DateTime {
@@ -152,7 +152,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Gets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -268,6 +268,7 @@ class Device extends DirectoryObject implements Parsable
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'onPremisesLastSyncDateTime' => fn(ParseNode $n) => $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()),
+            'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
             'operatingSystemVersion' => fn(ParseNode $n) => $o->setOperatingSystemVersion($n->getStringValue()),
@@ -457,6 +458,18 @@ class Device extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesLastSyncDateTime'");
+    }
+
+    /**
+     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * @return string|null
+    */
+    public function getOnPremisesSecurityIdentifier(): ?string {
+        $val = $this->getBackingStore()->get('onPremisesSecurityIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSecurityIdentifier'");
     }
 
     /**
@@ -674,6 +687,7 @@ class Device extends DirectoryObject implements Parsable
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
+        $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
         $writer->writeStringValue('operatingSystemVersion', $this->getOperatingSystemVersion());
@@ -707,7 +721,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.
+     * Sets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderby.
      * @param DateTime|null $value Value to set for the approximateLastSignInDateTime property.
     */
     public function setApproximateLastSignInDateTime(?DateTime $value): void {
@@ -771,7 +785,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Sets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -920,6 +934,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
+    */
+    public function setOnPremisesSecurityIdentifier(?string $value): void {
+        $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
     }
 
     /**

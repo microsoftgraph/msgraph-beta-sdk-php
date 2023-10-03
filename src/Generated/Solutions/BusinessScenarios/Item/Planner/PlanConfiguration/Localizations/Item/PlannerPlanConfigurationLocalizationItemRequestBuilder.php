@@ -32,7 +32,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a plannerPlanConfigurationLocalization object.
+     * Delete a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of a plannerPlanConfigurationLocalization object.
+     * Update the properties of a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a plannerPlanConfigurationLocalization object.
+     * Delete a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of a plannerPlanConfigurationLocalization object.
+     * Update the properties of a plannerPlanConfigurationLocalization object. This API is supported in the following national cloud deployments.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

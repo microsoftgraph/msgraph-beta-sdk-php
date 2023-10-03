@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Shared
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the cloudPcSharedUseServicePlan objects and their properties.
+ * Get a list of the cloudPcSharedUseServicePlan objects and their properties. This API is supported in the following national cloud deployments.
 */
 class SharedUseServicePlansRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Rev
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an ediscoveryReviewSet object.
+ * Read the properties and relationships of an ediscoveryReviewSet object. This API is supported in the following national cloud deployments.
 */
 class EdiscoveryReviewSetItemRequestBuilderGetQueryParameters 
 {

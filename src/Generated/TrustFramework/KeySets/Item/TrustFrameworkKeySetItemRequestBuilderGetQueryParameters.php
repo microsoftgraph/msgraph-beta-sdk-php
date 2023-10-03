@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and associations for a Trustframeworkkeyset.
+ * Retrieve the properties and associations for a Trustframeworkkeyset. This API is supported in the following national cloud deployments.
 */
 class TrustFrameworkKeySetItemRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Classes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a collection of educationClass resources.
+ * Get the educationClass resources an educationUser is a member of. This API is supported in the following national cloud deployments.
 */
 class ClassesRequestBuilderGetQueryParameters 
 {

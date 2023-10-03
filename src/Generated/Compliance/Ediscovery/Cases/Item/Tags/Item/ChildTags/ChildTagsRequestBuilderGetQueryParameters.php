@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of child tag objects associated with a tag.
+ * Get a list of child tag objects associated with a tag. This API is supported in the following national cloud deployments.
 */
 class ChildTagsRequestBuilderGetQueryParameters 
 {

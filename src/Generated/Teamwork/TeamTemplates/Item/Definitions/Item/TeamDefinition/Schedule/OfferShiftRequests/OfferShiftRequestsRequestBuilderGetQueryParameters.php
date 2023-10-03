@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+ * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is supported in the following national cloud deployments.
 */
 class OfferShiftRequestsRequestBuilderGetQueryParameters 
 {

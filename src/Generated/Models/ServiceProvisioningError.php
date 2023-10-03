@@ -115,7 +115,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the serviceInstance property value. Qualified service instance (e.g., 'SharePoint/Dublin') that published the service error information.
+     * Gets the serviceInstance property value. Qualified service instance (for example, 'SharePoint/Dublin') that published the service error information.
      * @return string|null
     */
     public function getServiceInstance(): ?string {
@@ -179,7 +179,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the serviceInstance property value. Qualified service instance (e.g., 'SharePoint/Dublin') that published the service error information.
+     * Sets the serviceInstance property value. Qualified service instance (for example, 'SharePoint/Dublin') that published the service error information.
      * @param string|null $value Value to set for the serviceInstance property.
     */
     public function setServiceInstance(?string $value): void {

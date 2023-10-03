@@ -53,7 +53,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * Get the specified permissions object of a user or group calendar that has been shared. This API is supported in the following national cloud deployments.
      * @param CalendarPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -71,7 +71,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated. This API is supported in the following national cloud deployments.
      * @param CalendarPermission $body The request body
      * @param CalendarPermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -91,7 +91,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * Get the specified permissions object of a user or group calendar that has been shared. This API is supported in the following national cloud deployments.
      * @param CalendarPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +112,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated. This API is supported in the following national cloud deployments.
      * @param CalendarPermission $body The request body
      * @param CalendarPermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

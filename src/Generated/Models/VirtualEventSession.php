@@ -37,7 +37,7 @@ class VirtualEventSession extends OnlineMeeting implements Parsable
     }
 
     /**
-     * Gets the registrations property value. The registrations property
+     * Gets the registrations property value. Registration records of this virtual event session.
      * @return array<VirtualEventRegistration>|null
     */
     public function getRegistrations(): ?array {
@@ -60,7 +60,7 @@ class VirtualEventSession extends OnlineMeeting implements Parsable
     }
 
     /**
-     * Sets the registrations property value. The registrations property
+     * Sets the registrations property value. Registration records of this virtual event session.
      * @param array<VirtualEventRegistration>|null $value Value to set for the registrations property.
     */
     public function setRegistrations(?array $value): void {

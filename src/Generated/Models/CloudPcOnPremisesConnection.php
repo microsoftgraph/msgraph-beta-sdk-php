@@ -136,7 +136,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the inUse property value. When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
+     * Gets the inUse property value. When true, the Azure network connection is in use. When false, the connection isn't in use. You can't delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      * @return bool|null
     */
     public function getInUse(): ?bool {
@@ -220,7 +220,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Gets the type property value. Specifies how the provisioned Cloud PC is joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
@@ -337,7 +337,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the inUse property value. When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
+     * Sets the inUse property value. When true, the Azure network connection is in use. When false, the connection isn't in use. You can't delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      * @param bool|null $value Value to set for the inUse property.
     */
     public function setInUse(?bool $value): void {
@@ -393,7 +393,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Sets the type property value. Specifies how the provisioned Cloud PC is joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcOnPremisesConnectionType $value): void {

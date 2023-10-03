@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Contacts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:
+ * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder: This API is supported in the following national cloud deployments.
 */
 class ContactsRequestBuilderGetQueryParameters 
 {

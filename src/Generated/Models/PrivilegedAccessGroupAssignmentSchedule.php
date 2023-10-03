@@ -38,7 +38,7 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
     }
 
     /**
-     * Gets the activatedUsing property value. When the request activates an ownership or membership assignment in PIM for groups, this object represents the eligibility relationship. Otherwise, it is null. Supports $expand.
+     * Gets the activatedUsing property value. When the request activates an ownership or membership assignment in PIM for groups, this object represents the eligibility relationship. Otherwise, it's null. Supports $expand.
      * @return PrivilegedAccessGroupEligibilitySchedule|null
     */
     public function getActivatedUsing(): ?PrivilegedAccessGroupEligibilitySchedule {
@@ -164,7 +164,7 @@ class PrivilegedAccessGroupAssignmentSchedule extends PrivilegedAccessSchedule i
     }
 
     /**
-     * Sets the activatedUsing property value. When the request activates an ownership or membership assignment in PIM for groups, this object represents the eligibility relationship. Otherwise, it is null. Supports $expand.
+     * Sets the activatedUsing property value. When the request activates an ownership or membership assignment in PIM for groups, this object represents the eligibility relationship. Otherwise, it's null. Supports $expand.
      * @param PrivilegedAccessGroupEligibilitySchedule|null $value Value to set for the activatedUsing property.
     */
     public function setActivatedUsing(?PrivilegedAccessGroupEligibilitySchedule $value): void {

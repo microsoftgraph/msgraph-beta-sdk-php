@@ -31,7 +31,7 @@ class RestartRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.
+     * Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API. This API is supported in the following national cloud deployments.
      * @param RestartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamworkdevice-restart?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class RestartRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.
+     * Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API. This API is supported in the following national cloud deployments.
      * @param RestartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

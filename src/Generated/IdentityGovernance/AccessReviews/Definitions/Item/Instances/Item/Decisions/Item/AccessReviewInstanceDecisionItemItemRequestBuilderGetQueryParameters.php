@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Defini
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
+ * Read the properties and relationships of an accessReviewInstanceDecisionItem object. This API is supported in the following national cloud deployments.
 */
 class AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters 
 {

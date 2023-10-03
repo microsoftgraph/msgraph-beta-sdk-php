@@ -61,7 +61,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages.
+     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages. This API is supported in the following national cloud deployments.
      * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageassignmentresourceroles?view=graph-rest-1.0 Find more info here
@@ -99,7 +99,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages.
+     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages. This API is supported in the following national cloud deployments.
      * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecord
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an alertRecord object.
+ * Read the properties and relationships of an alertRecord object. This API is supported in the following national cloud deployments.
 */
 class AlertRecordItemRequestBuilderGetQueryParameters 
 {

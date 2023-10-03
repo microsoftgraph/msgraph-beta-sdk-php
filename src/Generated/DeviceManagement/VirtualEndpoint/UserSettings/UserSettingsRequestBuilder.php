@@ -53,7 +53,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of cloudPcUserSetting objects.
+     * Retrieve a list of cloudPcUserSetting objects. This API is supported in the following national cloud deployments.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-usersettings?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcUserSetting object.
+     * Create a new cloudPcUserSetting object. This API is supported in the following national cloud deployments.
      * @param CloudPcUserSetting $body The request body
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of cloudPcUserSetting objects.
+     * Retrieve a list of cloudPcUserSetting objects. This API is supported in the following national cloud deployments.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcUserSetting object.
+     * Create a new cloudPcUserSetting object. This API is supported in the following national cloud deployments.
      * @param CloudPcUserSetting $body The request body
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -48,7 +48,7 @@ class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTime
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

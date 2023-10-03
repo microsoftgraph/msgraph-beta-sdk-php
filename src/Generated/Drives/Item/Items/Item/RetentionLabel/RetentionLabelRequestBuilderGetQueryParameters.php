@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\RetentionLabel;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get retentionLabel from drives
+ * Information about retention label and settings enforced on the driveItem. Read-write.
 */
 class RetentionLabelRequestBuilderGetQueryParameters 
 {

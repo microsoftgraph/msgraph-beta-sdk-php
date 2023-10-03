@@ -142,7 +142,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
+     * Gets the direction property value. The direction of the call. The possible values are incoming or outgoing. Read-only.
      * @return CallDirection|null
     */
     public function getDirection(): ?CallDirection {
@@ -554,7 +554,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
+     * Sets the direction property value. The direction of the call. The possible values are incoming or outgoing. Read-only.
      * @param CallDirection|null $value Value to set for the direction property.
     */
     public function setDirection(?CallDirection $value): void {

@@ -50,7 +50,7 @@ class CloudPcSnapshotItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcSnapshot object.
+     * Read the properties and relationships of a cloudPcSnapshot object. This API is supported in the following national cloud deployments.
      * @param CloudPcSnapshotItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcsnapshot-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class CloudPcSnapshotItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcSnapshot object.
+     * Read the properties and relationships of a cloudPcSnapshot object. This API is supported in the following national cloud deployments.
      * @param CloudPcSnapshotItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

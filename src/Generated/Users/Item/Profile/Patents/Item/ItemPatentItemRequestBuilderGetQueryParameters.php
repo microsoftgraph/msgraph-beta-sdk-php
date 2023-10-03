@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an itemPatent object.
+ * Read the properties and relationships of an itemPatent object. This API is supported in the following national cloud deployments.
 */
 class ItemPatentItemRequestBuilderGetQueryParameters 
 {

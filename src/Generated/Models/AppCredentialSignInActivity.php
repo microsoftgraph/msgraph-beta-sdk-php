@@ -26,7 +26,7 @@ class AppCredentialSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the appId property value. The globally unique appId (also called client ID on the Azure portal) of the credential application.
+     * Gets the appId property value. The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credential application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -198,7 +198,7 @@ class AppCredentialSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appId property value. The globally unique appId (also called client ID on the Azure portal) of the credential application.
+     * Sets the appId property value. The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credential application.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {

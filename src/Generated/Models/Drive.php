@@ -55,7 +55,7 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.
+     * Gets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives return personal. OneDrive for Business returns business. SharePoint document libraries return documentLibrary. Read-only.
      * @return string|null
     */
     public function getDriveType(): ?string {
@@ -239,7 +239,7 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.
+     * Sets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives return personal. OneDrive for Business returns business. SharePoint document libraries return documentLibrary. Read-only.
      * @param string|null $value Value to set for the driveType property.
     */
     public function setDriveType(?string $value): void {

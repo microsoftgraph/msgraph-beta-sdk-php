@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a tag object.
+ * Read the properties and relationships of a tag object. This API is supported in the following national cloud deployments.
 */
 class TagItemRequestBuilderGetQueryParameters 
 {

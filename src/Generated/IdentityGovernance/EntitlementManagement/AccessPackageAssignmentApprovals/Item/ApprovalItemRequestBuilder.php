@@ -58,7 +58,7 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is supported in the following national cloud deployments.
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/approval-get?view=graph-rest-1.0 Find more info here
@@ -113,7 +113,7 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is supported in the following national cloud deployments.
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

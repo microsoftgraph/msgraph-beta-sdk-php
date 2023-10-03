@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an azureDataLakeConnector object.
+ * Read the properties and relationships of an azureDataLakeConnector object. This API is supported in the following national cloud deployments.
 */
 class IndustryDataConnectorItemRequestBuilderGetQueryParameters 
 {

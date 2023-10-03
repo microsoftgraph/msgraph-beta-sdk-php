@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get registrationConfiguration from solutions
+ * Registration configuration of the webinar.
 */
 class RegistrationConfigurationRequestBuilderGetQueryParameters 
 {

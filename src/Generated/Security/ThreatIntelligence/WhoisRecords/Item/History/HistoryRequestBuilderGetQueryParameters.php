@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecord
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of whoisHistoryRecord objects for a whoisRecord, including the properties and relationships of each whoisHistoryRecord object.
+ * Get the history for a whoisRecord, as represented by a collection of whoisHistoryRecord resources.
 */
 class HistoryRequestBuilderGetQueryParameters 
 {

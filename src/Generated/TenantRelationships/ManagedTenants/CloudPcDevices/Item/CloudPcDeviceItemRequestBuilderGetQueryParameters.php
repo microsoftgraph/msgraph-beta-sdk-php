@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Clou
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a cloudPcDevice object.
+ * Read the properties and relationships of a cloudPcDevice object. This API is supported in the following national cloud deployments.
 */
 class CloudPcDeviceItemRequestBuilderGetQueryParameters 
 {

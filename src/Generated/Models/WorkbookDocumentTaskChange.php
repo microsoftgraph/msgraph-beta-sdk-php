@@ -26,7 +26,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignee property value. The assignee property
+     * Gets the assignee property value. The user identity the task is assigned to. Only present when the type property is assign. Nullable.
      * @return WorkbookEmailIdentity|null
     */
     public function getAssignee(): ?WorkbookEmailIdentity {
@@ -50,7 +50,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the commentId property value. The commentId property
+     * Gets the commentId property value. The identifier of the associated comment.
      * @return string|null
     */
     public function getCommentId(): ?string {
@@ -62,7 +62,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time when the task was changed. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -74,7 +74,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The dueDateTime property
+     * Gets the dueDateTime property value. The due date and time for the task. Only present when the type property is setSchedule. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -107,7 +107,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the percentComplete property value. The percentComplete property
+     * Gets the percentComplete property value. An integer value from 0 to 100 that represents the percentage of the completion of the task and associated comment. 100 means that the task and associated comment are completed. If you change the completion from 100 to a lower value, the associated task and comment are reactivated. Only present when the type property is setPercentComplete. Nullable.
      * @return int|null
     */
     public function getPercentComplete(): ?int {
@@ -119,7 +119,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. An integer value from 0 to 10 that represents the priority of the task. A lower value indicates a higher priority. 5 indicates the default priority if not set. Only present when the type property is setPriority. Nullable.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -131,7 +131,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The start date and time for the task. Only present when the type property is setSchedule. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -143,7 +143,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. The title of the task. Only present when the type property is setTitle. Nullable.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -155,7 +155,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of the change history. Possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
      * @return string|null
     */
     public function getType(): ?string {
@@ -167,7 +167,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the undoChangeId property value. The undoChangeId property
+     * Gets the undoChangeId property value. The ID of the workbookDocumentTaskChange that was undone for the undo change action. Only exists on an undo change history. Nullable.
      * @return string|null
     */
     public function getUndoChangeId(): ?string {
@@ -198,7 +198,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignee property value. The assignee property
+     * Sets the assignee property value. The user identity the task is assigned to. Only present when the type property is assign. Nullable.
      * @param WorkbookEmailIdentity|null $value Value to set for the assignee property.
     */
     public function setAssignee(?WorkbookEmailIdentity $value): void {
@@ -214,7 +214,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the commentId property value. The commentId property
+     * Sets the commentId property value. The identifier of the associated comment.
      * @param string|null $value Value to set for the commentId property.
     */
     public function setCommentId(?string $value): void {
@@ -222,7 +222,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time when the task was changed. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -230,7 +230,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The dueDateTime property
+     * Sets the dueDateTime property value. The due date and time for the task. Only present when the type property is setSchedule. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -238,7 +238,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the percentComplete property value. The percentComplete property
+     * Sets the percentComplete property value. An integer value from 0 to 100 that represents the percentage of the completion of the task and associated comment. 100 means that the task and associated comment are completed. If you change the completion from 100 to a lower value, the associated task and comment are reactivated. Only present when the type property is setPercentComplete. Nullable.
      * @param int|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?int $value): void {
@@ -246,7 +246,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. An integer value from 0 to 10 that represents the priority of the task. A lower value indicates a higher priority. 5 indicates the default priority if not set. Only present when the type property is setPriority. Nullable.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
@@ -254,7 +254,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The start date and time for the task. Only present when the type property is setSchedule. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
@@ -262,7 +262,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. The title of the task. Only present when the type property is setTitle. Nullable.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
@@ -270,7 +270,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of the change history. Possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
@@ -278,7 +278,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the undoChangeId property value. The undoChangeId property
+     * Sets the undoChangeId property value. The ID of the workbookDocumentTaskChange that was undone for the undo change action. Only exists on an undo change history. Nullable.
      * @param string|null $value Value to set for the undoChangeId property.
     */
     public function setUndoChangeId(?string $value): void {

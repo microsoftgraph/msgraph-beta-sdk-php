@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\Sensitiv
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of sensitivityLabel objects associated with a user or organization.
+ * Get a list of sensitivityLabel objects associated with a user or organization. This API is supported in the following national cloud deployments.
 */
 class SensitivityLabelsRequestBuilderGetQueryParameters 
 {

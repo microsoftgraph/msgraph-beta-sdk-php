@@ -137,7 +137,7 @@ class WorkbookWorksheet extends Entity implements Parsable
     }
 
     /**
-     * Gets the tasks property value. The tasks property
+     * Gets the tasks property value. Collection of document tasks on this worksheet. Read-only.
      * @return array<WorkbookDocumentTask>|null
     */
     public function getTasks(): ?array {
@@ -151,7 +151,7 @@ class WorkbookWorksheet extends Entity implements Parsable
     }
 
     /**
-     * Gets the visibility property value. The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.
+     * Gets the visibility property value. The visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.
      * @return string|null
     */
     public function getVisibility(): ?string {
@@ -236,7 +236,7 @@ class WorkbookWorksheet extends Entity implements Parsable
     }
 
     /**
-     * Sets the tasks property value. The tasks property
+     * Sets the tasks property value. Collection of document tasks on this worksheet. Read-only.
      * @param array<WorkbookDocumentTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
@@ -244,7 +244,7 @@ class WorkbookWorksheet extends Entity implements Parsable
     }
 
     /**
-     * Sets the visibility property value. The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.
+     * Sets the visibility property value. The visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.
      * @param string|null $value Value to set for the visibility property.
     */
     public function setVisibility(?string $value): void {

@@ -37,7 +37,7 @@ class ResellerDelegatedAdminRelationship extends DelegatedAdminRelationship impl
     }
 
     /**
-     * Gets the indirectProviderTenantId property value. The indirectProviderTenantId property
+     * Gets the indirectProviderTenantId property value. The tenant ID of the indirect provider partner who created the relationship for the indirect reseller partner.
      * @return string|null
     */
     public function getIndirectProviderTenantId(): ?string {
@@ -49,7 +49,7 @@ class ResellerDelegatedAdminRelationship extends DelegatedAdminRelationship impl
     }
 
     /**
-     * Gets the isPartnerConsentPending property value. The isPartnerConsentPending property
+     * Gets the isPartnerConsentPending property value. Indicates the indirect reseller partner consent status. true indicates that the partner has yet to review the relationship; false indicates that the partner has already provided consent by approving or rejecting the relationship.
      * @return bool|null
     */
     public function getIsPartnerConsentPending(): ?bool {
@@ -71,7 +71,7 @@ class ResellerDelegatedAdminRelationship extends DelegatedAdminRelationship impl
     }
 
     /**
-     * Sets the indirectProviderTenantId property value. The indirectProviderTenantId property
+     * Sets the indirectProviderTenantId property value. The tenant ID of the indirect provider partner who created the relationship for the indirect reseller partner.
      * @param string|null $value Value to set for the indirectProviderTenantId property.
     */
     public function setIndirectProviderTenantId(?string $value): void {
@@ -79,7 +79,7 @@ class ResellerDelegatedAdminRelationship extends DelegatedAdminRelationship impl
     }
 
     /**
-     * Sets the isPartnerConsentPending property value. The isPartnerConsentPending property
+     * Sets the isPartnerConsentPending property value. Indicates the indirect reseller partner consent status. true indicates that the partner has yet to review the relationship; false indicates that the partner has already provided consent by approving or rejecting the relationship.
      * @param bool|null $value Value to set for the isPartnerConsentPending property.
     */
     public function setIsPartnerConsentPending(?bool $value): void {

@@ -1,0 +1,142 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items;
+
+use Exception;
+use Http\Promise\Promise;
+use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RecycleBinItem;
+use Microsoft\Graph\Beta\Generated\Models\RecycleBinItemCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items\Item\RecycleBinItemItemRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+
+/**
+ * Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+*/
+class ItemsRequestBuilder extends BaseRequestBuilder 
+{
+    /**
+     * Provides operations to count the resources in the collection.
+    */
+    public function count(): CountRequestBuilder {
+        return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+     * @param string $recycleBinItemId The unique identifier of recycleBinItem
+     * @return RecycleBinItemItemRequestBuilder
+    */
+    public function byRecycleBinItemId(string $recycleBinItemId): RecycleBinItemItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['recycleBinItem%2Did'] = $recycleBinItemId;
+        return new RecycleBinItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Instantiates a new ItemsRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/sites/{site%2Did}/recycleBin/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Get items from sites
+     * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function get(?ItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [RecycleBinItemCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Create new navigation property to items for sites
+     * @param RecycleBinItem $body The request body
+     * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(RecycleBinItem $body, ?ItemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [RecycleBinItem::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Get items from sites
+     * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?ItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        return $requestInfo;
+    }
+
+    /**
+     * Create new navigation property to items for sites
+     * @param RecycleBinItem $body The request body
+     * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(RecycleBinItem $body, ?ItemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ItemsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): ItemsRequestBuilder {
+        return new ItemsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
+}

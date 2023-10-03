@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of tiIndicator objects.
+ * Retrieve a list of tiIndicator objects. This API is supported in the following national cloud deployments.
 */
 class TiIndicatorsRequestBuilderGetQueryParameters 
 {

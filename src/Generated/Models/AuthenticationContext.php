@@ -81,7 +81,7 @@ class AuthenticationContext implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the id property value. The identifier of a authentication context in your tenant.
+     * Gets the id property value. The identifier of an authentication context in your tenant.
      * @return string|null
     */
     public function getId(): ?string {
@@ -140,7 +140,7 @@ class AuthenticationContext implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the id property value. The identifier of a authentication context in your tenant.
+     * Sets the id property value. The identifier of an authentication context in your tenant.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

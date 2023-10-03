@@ -35,7 +35,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is supported in the following national cloud deployments.
      * @param ApplicationsWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0 Find more info here
@@ -54,7 +54,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API is supported in the following national cloud deployments.
      * @param ApplicationsWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0 Find more info here
@@ -73,7 +73,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an application object.
+     * Update the properties of an application object. This API is supported in the following national cloud deployments.
      * @param Application $body The request body
      * @param ApplicationsWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -93,7 +93,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is supported in the following national cloud deployments.
      * @param ApplicationsWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,7 +110,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API is supported in the following national cloud deployments.
      * @param ApplicationsWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class ApplicationsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an application object.
+     * Update the properties of an application object. This API is supported in the following national cloud deployments.
      * @param Application $body The request body
      * @param ApplicationsWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

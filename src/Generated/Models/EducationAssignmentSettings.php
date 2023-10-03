@@ -52,7 +52,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation will not be shown. The default value is false.
+     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation won't be shown. The default value is false.
      * @return bool|null
     */
     public function getSubmissionAnimationDisabled(): ?bool {
@@ -82,7 +82,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation will not be shown. The default value is false.
+     * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation won't be shown. The default value is false.
      * @param bool|null $value Value to set for the submissionAnimationDisabled property.
     */
     public function setSubmissionAnimationDisabled(?bool $value): void {

@@ -48,7 +48,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tag object.
+     * Delete a tag object. This API is supported in the following national cloud deployments.
      * @param TagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-tag-delete?view=graph-rest-1.0 Find more info here
@@ -67,7 +67,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tag object.
+     * Read the properties and relationships of a tag object. This API is supported in the following national cloud deployments.
      * @param TagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-tag-get?view=graph-rest-1.0 Find more info here
@@ -86,7 +86,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tag object.
+     * Update the properties of a tag object. This API is supported in the following national cloud deployments.
      * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tag object.
+     * Delete a tag object. This API is supported in the following national cloud deployments.
      * @param TagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tag object.
+     * Read the properties and relationships of a tag object. This API is supported in the following national cloud deployments.
      * @param TagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +144,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tag object.
+     * Update the properties of a tag object. This API is supported in the following national cloud deployments.
      * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

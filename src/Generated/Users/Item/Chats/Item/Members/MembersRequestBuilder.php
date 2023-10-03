@@ -61,7 +61,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat. This API is supported in the following national cloud deployments.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/chat-list-members?view=graph-rest-1.0 Find more info here
@@ -80,7 +80,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a conversationMember to a chat.
+     * Add a conversationMember to a chat. This API is supported in the following national cloud deployments.
      * @param ConversationMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -100,7 +100,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat. This API is supported in the following national cloud deployments.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a conversationMember to a chat.
+     * Add a conversationMember to a chat. This API is supported in the following national cloud deployments.
      * @param ConversationMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

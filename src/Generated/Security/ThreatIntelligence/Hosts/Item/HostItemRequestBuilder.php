@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\HostPa
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\ParentHostPairs\ParentHostPairsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\PassiveDnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\PassiveDnsReverseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Ports\PortsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Reputation\ReputationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\SslCertificates\SslCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Subdomains\SubdomainsRequestBuilder;
@@ -76,6 +77,13 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     */
     public function passiveDnsReverse(): PassiveDnsReverseRequestBuilder {
         return new PassiveDnsReverseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the ports property of the microsoft.graph.security.host entity.
+    */
+    public function ports(): PortsRequestBuilder {
+        return new PortsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -146,7 +154,7 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types: This API is supported in the following national cloud deployments.
      * @param HostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-host-get?view=graph-rest-1.0 Find more info here
@@ -201,7 +209,7 @@ class HostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types: This API is supported in the following national cloud deployments.
      * @param HostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

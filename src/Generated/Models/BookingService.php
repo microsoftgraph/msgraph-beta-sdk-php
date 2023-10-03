@@ -180,7 +180,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isHiddenFromCustomers property value. True means this service is not available to customers for booking.
+     * Gets the isHiddenFromCustomers property value. True means this service isn't available to customers for booking.
      * @return bool|null
     */
     public function getIsHiddenFromCustomers(): ?bool {
@@ -413,7 +413,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isHiddenFromCustomers property value. True means this service is not available to customers for booking.
+     * Sets the isHiddenFromCustomers property value. True means this service isn't available to customers for booking.
      * @param bool|null $value Value to set for the isHiddenFromCustomers property.
     */
     public function setIsHiddenFromCustomers(?bool $value): void {

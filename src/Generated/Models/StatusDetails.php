@@ -26,7 +26,7 @@ class StatusDetails extends StatusBase implements Parsable
     }
 
     /**
-     * Gets the additionalDetails property value. Additional details in case of error.
+     * Gets the additionalDetails property value. Additional details if there is an error.
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
@@ -114,7 +114,7 @@ class StatusDetails extends StatusBase implements Parsable
     }
 
     /**
-     * Sets the additionalDetails property value. Additional details in case of error.
+     * Sets the additionalDetails property value. Additional details if there is an error.
      * @param string|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?string $value): void {

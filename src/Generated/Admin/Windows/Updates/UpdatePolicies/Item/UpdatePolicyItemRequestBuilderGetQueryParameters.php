@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an updatePolicy object.
+ * Read the properties and relationships of an updatePolicy object. This API is supported in the following national cloud deployments.
 */
 class UpdatePolicyItemRequestBuilderGetQueryParameters 
 {

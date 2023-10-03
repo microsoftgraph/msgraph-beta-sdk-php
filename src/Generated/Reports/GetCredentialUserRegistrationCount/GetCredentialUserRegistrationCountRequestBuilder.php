@@ -31,7 +31,7 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities. This API is supported in the following national cloud deployments.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-1.0 Find more info here
@@ -43,14 +43,14 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [GetCredentialUserRegistrationCountResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GetCredentialUserRegistrationCountGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities. This API is supported in the following national cloud deployments.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

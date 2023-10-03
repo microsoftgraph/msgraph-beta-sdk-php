@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an industryDataRun object.
+ * Read the properties and relationships of an industryDataRun object. This API is supported in the following national cloud deployments.
 */
 class IndustryDataRunItemRequestBuilderGetQueryParameters 
 {

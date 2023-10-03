@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Emails;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an itemEmail object in a user's profile.
+ * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is supported in the following national cloud deployments.
 */
 class EmailsRequestBuilderGetQueryParameters 
 {

@@ -32,7 +32,7 @@ class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get registrations from solutions
+     * Registration records of this virtual event session.
      * @param VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get registrations from solutions
+     * Registration records of this virtual event session.
      * @param VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

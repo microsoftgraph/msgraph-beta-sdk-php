@@ -32,7 +32,7 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a break in a specific timeCard.
+     * Start a break in a specific timeCard. This API is supported in the following national cloud deployments.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a break in a specific timeCard.
+     * Start a break in a specific timeCard. This API is supported in the following national cloud deployments.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

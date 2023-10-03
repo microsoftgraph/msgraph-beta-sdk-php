@@ -27,7 +27,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Supports $filter (eq, ge, le) and $orderby.
+     * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and $orderby.
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
      * @return string|null
     */
     public function getActivityDisplayName(): ?string {
@@ -51,7 +51,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalDetails property value. Indicates additional details on the activity.
+     * Gets the additionalDetails property value. Indicates more details on the activity.
      * @return array<KeyValue>|null
     */
     public function getAdditionalDetails(): ?array {
@@ -135,7 +135,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationType property value. Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.
+     * Gets the operationType property value. Indicates the type of operation that was performed. The possible values include but aren't limited to the following: Add, Assign, Update, Unassign, and Delete.
      * @return string|null
     */
     public function getOperationType(): ?string {
@@ -217,7 +217,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Supports $filter (eq, ge, le) and $orderby.
+     * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and $orderby.
      * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
@@ -225,7 +225,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
      * @param string|null $value Value to set for the activityDisplayName property.
     */
     public function setActivityDisplayName(?string $value): void {
@@ -233,7 +233,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalDetails property value. Indicates additional details on the activity.
+     * Sets the additionalDetails property value. Indicates more details on the activity.
      * @param array<KeyValue>|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?array $value): void {
@@ -273,7 +273,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationType property value. Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.
+     * Sets the operationType property value. Indicates the type of operation that was performed. The possible values include but aren't limited to the following: Add, Assign, Update, Unassign, and Delete.
      * @param string|null $value Value to set for the operationType property.
     */
     public function setOperationType(?string $value): void {

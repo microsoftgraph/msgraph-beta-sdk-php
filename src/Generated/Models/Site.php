@@ -147,12 +147,14 @@ class Site extends BaseItem implements Parsable
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
             'externalColumns' => fn(ParseNode $n) => $o->setExternalColumns($n->getCollectionOfObjectValues([ColumnDefinition::class, 'createFromDiscriminatorValue'])),
             'informationProtection' => fn(ParseNode $n) => $o->setInformationProtection($n->getObjectValue([InformationProtection::class, 'createFromDiscriminatorValue'])),
+            'isPersonalSite' => fn(ParseNode $n) => $o->setIsPersonalSite($n->getBooleanValue()),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([BaseItem::class, 'createFromDiscriminatorValue'])),
             'lists' => fn(ParseNode $n) => $o->setLists($n->getCollectionOfObjectValues([EscapedList::class, 'createFromDiscriminatorValue'])),
             'onenote' => fn(ParseNode $n) => $o->setOnenote($n->getObjectValue([Onenote::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
             'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([BaseSitePage::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
+            'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SiteSettings::class, 'createFromDiscriminatorValue'])),
             'sharepointIds' => fn(ParseNode $n) => $o->setSharepointIds($n->getObjectValue([SharepointIds::class, 'createFromDiscriminatorValue'])),
@@ -172,6 +174,18 @@ class Site extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'informationProtection'");
+    }
+
+    /**
+     * Gets the isPersonalSite property value. The isPersonalSite property
+     * @return bool|null
+    */
+    public function getIsPersonalSite(): ?bool {
+        $val = $this->getBackingStore()->get('isPersonalSite');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPersonalSite'");
     }
 
     /**
@@ -254,6 +268,18 @@ class Site extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'permissions'");
+    }
+
+    /**
+     * Gets the recycleBin property value. The recycleBin property
+     * @return RecycleBin|null
+    */
+    public function getRecycleBin(): ?RecycleBin {
+        $val = $this->getBackingStore()->get('recycleBin');
+        if (is_null($val) || $val instanceof RecycleBin) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recycleBin'");
     }
 
     /**
@@ -345,12 +371,14 @@ class Site extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
         $writer->writeCollectionOfObjectValues('externalColumns', $this->getExternalColumns());
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
+        $writer->writeBooleanValue('isPersonalSite', $this->getIsPersonalSite());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeCollectionOfObjectValues('lists', $this->getLists());
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
+        $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
         $writer->writeObjectValue('root', $this->getRoot());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('sharepointIds', $this->getSharepointIds());
@@ -432,6 +460,14 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Sets the isPersonalSite property value. The isPersonalSite property
+     * @param bool|null $value Value to set for the isPersonalSite property.
+    */
+    public function setIsPersonalSite(?bool $value): void {
+        $this->getBackingStore()->set('isPersonalSite', $value);
+    }
+
+    /**
      * Sets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
      * @param array<BaseItem>|null $value Value to set for the items property.
     */
@@ -477,6 +513,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setPermissions(?array $value): void {
         $this->getBackingStore()->set('permissions', $value);
+    }
+
+    /**
+     * Sets the recycleBin property value. The recycleBin property
+     * @param RecycleBin|null $value Value to set for the recycleBin property.
+    */
+    public function setRecycleBin(?RecycleBin $value): void {
+        $this->getBackingStore()->set('recycleBin', $value);
     }
 
     /**

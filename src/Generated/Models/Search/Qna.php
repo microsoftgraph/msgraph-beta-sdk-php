@@ -28,7 +28,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the availabilityEndDateTime property value. Timestamp of when the qna will stop to appear as a search result. Set as null for always available.
+     * Gets the availabilityEndDateTime property value. Timestamp of when the qna stops to appear as a search result. Set as null for always available.
      * @return DateTime|null
     */
     public function getAvailabilityEndDateTime(): ?DateTime {
@@ -40,7 +40,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the availabilityStartDateTime property value. Timestamp of when the qna will start to appear as a search result. Set as null for always available.
+     * Gets the availabilityStartDateTime property value. Timestamp of when the qna starts to appear as a search result. Set as null for always available.
      * @return DateTime|null
     */
     public function getAvailabilityStartDateTime(): ?DateTime {
@@ -99,7 +99,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the isSuggested property value. True if this qna was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
+     * Gets the isSuggested property value. True if a user or Microsoft suggested this qna to the admin. Read-only.
      * @return bool|null
     */
     public function getIsSuggested(): ?bool {
@@ -163,7 +163,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the targetedVariations property value. Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
+     * Gets the targetedVariations property value. Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      * @return array<AnswerVariant>|null
     */
     public function getTargetedVariations(): ?array {
@@ -194,7 +194,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the availabilityEndDateTime property value. Timestamp of when the qna will stop to appear as a search result. Set as null for always available.
+     * Sets the availabilityEndDateTime property value. Timestamp of when the qna stops to appear as a search result. Set as null for always available.
      * @param DateTime|null $value Value to set for the availabilityEndDateTime property.
     */
     public function setAvailabilityEndDateTime(?DateTime $value): void {
@@ -202,7 +202,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the availabilityStartDateTime property value. Timestamp of when the qna will start to appear as a search result. Set as null for always available.
+     * Sets the availabilityStartDateTime property value. Timestamp of when the qna starts to appear as a search result. Set as null for always available.
      * @param DateTime|null $value Value to set for the availabilityStartDateTime property.
     */
     public function setAvailabilityStartDateTime(?DateTime $value): void {
@@ -218,7 +218,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the isSuggested property value. True if this qna was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
+     * Sets the isSuggested property value. True if a user or Microsoft suggested this qna to the admin. Read-only.
      * @param bool|null $value Value to set for the isSuggested property.
     */
     public function setIsSuggested(?bool $value): void {
@@ -258,7 +258,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the targetedVariations property value. Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
+     * Sets the targetedVariations property value. Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      * @param array<AnswerVariant>|null $value Value to set for the targetedVariations property.
     */
     public function setTargetedVariations(?array $value): void {

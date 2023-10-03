@@ -27,7 +27,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the branches property value. Branch represent locations for connectivity.
+     * Gets the branches property value. Branches represent locations for connectivity.
      * @return array<BranchSite>|null
     */
     public function getBranches(): ?array {
@@ -61,7 +61,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the branches property value. Branch represent locations for connectivity.
+     * Sets the branches property value. Branches represent locations for connectivity.
      * @param array<BranchSite>|null $value Value to set for the branches property.
     */
     public function setBranches(?array $value): void {

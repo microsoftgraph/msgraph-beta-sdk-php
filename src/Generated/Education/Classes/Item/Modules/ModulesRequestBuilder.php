@@ -53,7 +53,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules.
+     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules. This API is supported in the following national cloud deployments.
      * @param ModulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationclass-list-modules?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students will not see the modules until publication.
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students won't see the modules until publication. This API is supported in the following national cloud deployments.
      * @param EducationModule $body The request body
      * @param ModulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules.
+     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules. This API is supported in the following national cloud deployments.
      * @param ModulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ModulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students will not see the modules until publication.
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students won't see the modules until publication. This API is supported in the following national cloud deployments.
      * @param EducationModule $body The request body
      * @param ModulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

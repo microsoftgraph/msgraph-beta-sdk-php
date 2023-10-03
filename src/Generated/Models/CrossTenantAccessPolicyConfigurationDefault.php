@@ -97,6 +97,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
             'b2bDirectConnectInbound' => fn(ParseNode $n) => $o->setB2bDirectConnectInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
+            'invitationRedemptionIdentityProviderConfiguration' => fn(ParseNode $n) => $o->setInvitationRedemptionIdentityProviderConfiguration($n->getObjectValue([DefaultInvitationRedemptionIdentityProviderConfiguration::class, 'createFromDiscriminatorValue'])),
             'isServiceDefault' => fn(ParseNode $n) => $o->setIsServiceDefault($n->getBooleanValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -112,6 +113,18 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundTrust'");
+    }
+
+    /**
+     * Gets the invitationRedemptionIdentityProviderConfiguration property value. The invitationRedemptionIdentityProviderConfiguration property
+     * @return DefaultInvitationRedemptionIdentityProviderConfiguration|null
+    */
+    public function getInvitationRedemptionIdentityProviderConfiguration(): ?DefaultInvitationRedemptionIdentityProviderConfiguration {
+        $val = $this->getBackingStore()->get('invitationRedemptionIdentityProviderConfiguration');
+        if (is_null($val) || $val instanceof DefaultInvitationRedemptionIdentityProviderConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invitationRedemptionIdentityProviderConfiguration'");
     }
 
     /**
@@ -150,6 +163,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
         $writer->writeObjectValue('b2bDirectConnectInbound', $this->getB2bDirectConnectInbound());
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
+        $writer->writeObjectValue('invitationRedemptionIdentityProviderConfiguration', $this->getInvitationRedemptionIdentityProviderConfiguration());
         $writer->writeBooleanValue('isServiceDefault', $this->getIsServiceDefault());
         $writer->writeObjectValue('tenantRestrictions', $this->getTenantRestrictions());
     }
@@ -200,6 +214,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public function setInboundTrust(?CrossTenantAccessPolicyInboundTrust $value): void {
         $this->getBackingStore()->set('inboundTrust', $value);
+    }
+
+    /**
+     * Sets the invitationRedemptionIdentityProviderConfiguration property value. The invitationRedemptionIdentityProviderConfiguration property
+     * @param DefaultInvitationRedemptionIdentityProviderConfiguration|null $value Value to set for the invitationRedemptionIdentityProviderConfiguration property.
+    */
+    public function setInvitationRedemptionIdentityProviderConfiguration(?DefaultInvitationRedemptionIdentityProviderConfiguration $value): void {
+        $this->getBackingStore()->set('invitationRedemptionIdentityProviderConfiguration', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an alertRule object.
+ * Read the properties and relationships of an alertRule object. This API is supported in the following national cloud deployments.
 */
 class AlertRuleItemRequestBuilderGetQueryParameters 
 {

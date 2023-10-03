@@ -37,7 +37,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the accessReviewTimeoutBehavior property value. The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
+     * Gets the accessReviewTimeoutBehavior property value. The default decision to apply if the request isn't reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
      * @return AccessReviewTimeoutBehavior|null
     */
     public function getAccessReviewTimeoutBehavior(): ?AccessReviewTimeoutBehavior {
@@ -218,7 +218,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the accessReviewTimeoutBehavior property value. The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
+     * Sets the accessReviewTimeoutBehavior property value. The default decision to apply if the request isn't reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
      * @param AccessReviewTimeoutBehavior|null $value Value to set for the accessReviewTimeoutBehavior property.
     */
     public function setAccessReviewTimeoutBehavior(?AccessReviewTimeoutBehavior $value): void {

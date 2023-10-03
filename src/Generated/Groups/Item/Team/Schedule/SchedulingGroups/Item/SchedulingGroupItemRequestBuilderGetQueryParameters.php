@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SchedulingGro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a schedulingGroup by ID.
+ * Retrieve the properties and relationships of a schedulingGroup by ID. This API is supported in the following national cloud deployments.
 */
 class SchedulingGroupItemRequestBuilderGetQueryParameters 
 {

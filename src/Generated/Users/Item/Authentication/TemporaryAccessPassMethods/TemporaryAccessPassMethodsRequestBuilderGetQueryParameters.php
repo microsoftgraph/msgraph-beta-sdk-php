@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAcce
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass (TAP) method.
+ * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass (TAP) method. This API is supported in the following national cloud deployments.
 */
 class TemporaryAccessPassMethodsRequestBuilderGetQueryParameters 
 {

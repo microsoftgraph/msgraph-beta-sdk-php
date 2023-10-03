@@ -50,7 +50,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contactMergeSuggestions object.
+     * Read the properties and relationships of a contactMergeSuggestions object. This API is supported in the following national cloud deployments.
      * @param ContactMergeSuggestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/contactmergesuggestions-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a contactMergeSuggestions object.
+     * Update the properties of a contactMergeSuggestions object. This API is supported in the following national cloud deployments.
      * @param ContactMergeSuggestions $body The request body
      * @param ContactMergeSuggestionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contactMergeSuggestions object.
+     * Read the properties and relationships of a contactMergeSuggestions object. This API is supported in the following national cloud deployments.
      * @param ContactMergeSuggestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a contactMergeSuggestions object.
+     * Update the properties of a contactMergeSuggestions object. This API is supported in the following national cloud deployments.
      * @param ContactMergeSuggestions $body The request body
      * @param ContactMergeSuggestionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

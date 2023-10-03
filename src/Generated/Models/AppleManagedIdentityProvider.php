@@ -26,7 +26,7 @@ class AppleManagedIdentityProvider extends IdentityProviderBase implements Parsa
     }
 
     /**
-     * Gets the certificateData property value. The certificate data which is a long string of text from the certificate, can be null.
+     * Gets the certificateData property value. The certificate data that is a long string of text from the certificate, can be null.
      * @return string|null
     */
     public function getCertificateData(): ?string {
@@ -100,7 +100,7 @@ class AppleManagedIdentityProvider extends IdentityProviderBase implements Parsa
     }
 
     /**
-     * Sets the certificateData property value. The certificate data which is a long string of text from the certificate, can be null.
+     * Sets the certificateData property value. The certificate data that is a long string of text from the certificate, can be null.
      * @param string|null $value Value to set for the certificateData property.
     */
     public function setCertificateData(?string $value): void {

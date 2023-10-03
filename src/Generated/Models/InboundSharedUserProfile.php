@@ -56,7 +56,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the displayName property value. The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
+     * Gets the displayName property value. The name displayed in the address book for the user at the time when the sharing record was created. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -160,7 +160,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the displayName property value. The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
+     * Sets the displayName property value. The name displayed in the address book for the user at the time when the sharing record was created. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

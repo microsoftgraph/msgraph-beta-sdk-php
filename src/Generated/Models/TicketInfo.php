@@ -63,7 +63,9 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ticketApproverIdentityId' => fn(ParseNode $n) => $o->setTicketApproverIdentityId($n->getStringValue()),
             'ticketNumber' => fn(ParseNode $n) => $o->setTicketNumber($n->getStringValue()),
+            'ticketSubmitterIdentityId' => fn(ParseNode $n) => $o->setTicketSubmitterIdentityId($n->getStringValue()),
             'ticketSystem' => fn(ParseNode $n) => $o->setTicketSystem($n->getStringValue()),
         ];
     }
@@ -81,6 +83,18 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the ticketApproverIdentityId property value. The ticketApproverIdentityId property
+     * @return string|null
+    */
+    public function getTicketApproverIdentityId(): ?string {
+        $val = $this->getBackingStore()->get('ticketApproverIdentityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketApproverIdentityId'");
+    }
+
+    /**
      * Gets the ticketNumber property value. The ticket number.
      * @return string|null
     */
@@ -90,6 +104,18 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketNumber'");
+    }
+
+    /**
+     * Gets the ticketSubmitterIdentityId property value. The ticketSubmitterIdentityId property
+     * @return string|null
+    */
+    public function getTicketSubmitterIdentityId(): ?string {
+        $val = $this->getBackingStore()->get('ticketSubmitterIdentityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketSubmitterIdentityId'");
     }
 
     /**
@@ -110,7 +136,9 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('ticketApproverIdentityId', $this->getTicketApproverIdentityId());
         $writer->writeStringValue('ticketNumber', $this->getTicketNumber());
+        $writer->writeStringValue('ticketSubmitterIdentityId', $this->getTicketSubmitterIdentityId());
         $writer->writeStringValue('ticketSystem', $this->getTicketSystem());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -140,11 +168,27 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the ticketApproverIdentityId property value. The ticketApproverIdentityId property
+     * @param string|null $value Value to set for the ticketApproverIdentityId property.
+    */
+    public function setTicketApproverIdentityId(?string $value): void {
+        $this->getBackingStore()->set('ticketApproverIdentityId', $value);
+    }
+
+    /**
      * Sets the ticketNumber property value. The ticket number.
      * @param string|null $value Value to set for the ticketNumber property.
     */
     public function setTicketNumber(?string $value): void {
         $this->getBackingStore()->set('ticketNumber', $value);
+    }
+
+    /**
+     * Sets the ticketSubmitterIdentityId property value. The ticketSubmitterIdentityId property
+     * @param string|null $value Value to set for the ticketSubmitterIdentityId property.
+    */
+    public function setTicketSubmitterIdentityId(?string $value): void {
+        $this->getBackingStore()->set('ticketSubmitterIdentityId', $value);
     }
 
     /**

@@ -103,7 +103,7 @@ class SynchronizationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values shouldn't be changed.
      * @return array<SynchronizationMetadataEntry>|null
     */
     public function getMetadata(): ?array {
@@ -184,7 +184,7 @@ class SynchronizationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values shouldn't be changed.
      * @param array<SynchronizationMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {

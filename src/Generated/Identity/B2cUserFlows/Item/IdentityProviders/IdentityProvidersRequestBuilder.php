@@ -60,7 +60,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identity providers in a b2cIdentityUserFlow object.
+     * Get the identity providers in a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0 Find more info here
@@ -79,7 +79,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identity providers in a b2cIdentityUserFlow object.
+     * Get the identity providers in a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

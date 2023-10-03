@@ -53,7 +53,7 @@ class GalleryImagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the properties and relationships of the cloudPcGalleryImage objects.
+     * List the properties and relationships of the cloudPcGalleryImage objects. This API is supported in the following national cloud deployments.
      * @param GalleryImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-galleryimages?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class GalleryImagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the properties and relationships of the cloudPcGalleryImage objects.
+     * List the properties and relationships of the cloudPcGalleryImage objects. This API is supported in the following national cloud deployments.
      * @param GalleryImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

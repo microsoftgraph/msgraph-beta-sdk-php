@@ -32,7 +32,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true. This API is supported in the following national cloud deployments.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true. This API is supported in the following national cloud deployments.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

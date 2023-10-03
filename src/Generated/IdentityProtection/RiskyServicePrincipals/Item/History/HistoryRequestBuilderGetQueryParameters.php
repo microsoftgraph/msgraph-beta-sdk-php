@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the risk history of a riskyServicePrincipal object.
+ * Get the risk history of a riskyServicePrincipal object. This API is supported in the following national cloud deployments.
 */
 class HistoryRequestBuilderGetQueryParameters 
 {

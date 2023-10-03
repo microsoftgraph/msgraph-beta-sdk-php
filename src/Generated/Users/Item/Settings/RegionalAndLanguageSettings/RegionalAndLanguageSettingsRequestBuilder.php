@@ -50,7 +50,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a user's regionalAndLanguageSettings.
+     * Retrieve the properties of a user's regionalAndLanguageSettings. This API is supported in the following national cloud deployments.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update some or all of the properties of a regionalAndLanguageSettings object.
+     * Update some or all of the properties of a regionalAndLanguageSettings object. This API is supported in the following national cloud deployments.
      * @param RegionalAndLanguageSettings $body The request body
      * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a user's regionalAndLanguageSettings.
+     * Retrieve the properties of a user's regionalAndLanguageSettings. This API is supported in the following national cloud deployments.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update some or all of the properties of a regionalAndLanguageSettings object.
+     * Update some or all of the properties of a regionalAndLanguageSettings object. This API is supported in the following national cloud deployments.
      * @param RegionalAndLanguageSettings $body The request body
      * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

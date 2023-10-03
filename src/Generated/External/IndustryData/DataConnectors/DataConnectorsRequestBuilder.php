@@ -53,7 +53,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the industryDataConnector resources from the dataConnector navigation property.
+     * Get the industryDataConnector resources from the dataConnector navigation property. This API is supported in the following national cloud deployments.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new industryDataConnector object.
+     * Create a new industryDataConnector object. This API is supported in the following national cloud deployments.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the industryDataConnector resources from the dataConnector navigation property.
+     * Get the industryDataConnector resources from the dataConnector navigation property. This API is supported in the following national cloud deployments.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new industryDataConnector object.
+     * Create a new industryDataConnector object. This API is supported in the following national cloud deployments.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -70,7 +70,7 @@ class CloudPCsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the cloudPC devices that are attributed to the signed-in user. 
+     * List the cloudPC devices that are attributed to the signed-in user.  This API is supported in the following national cloud deployments.
      * @param CloudPCsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/user-list-cloudpcs?view=graph-rest-1.0 Find more info here
@@ -118,7 +118,7 @@ class CloudPCsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the cloudPC devices that are attributed to the signed-in user. 
+     * List the cloudPC devices that are attributed to the signed-in user.  This API is supported in the following national cloud deployments.
      * @param CloudPCsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

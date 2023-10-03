@@ -53,7 +53,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch.
+     * Retrieve a list of device links associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links.
+     * Create a branch site with associated device links. This API is supported in the following national cloud deployments.
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch.
+     * Retrieve a list of device links associated with a specific branch. This API is supported in the following national cloud deployments.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links.
+     * Create a branch site with associated device links. This API is supported in the following national cloud deployments.
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

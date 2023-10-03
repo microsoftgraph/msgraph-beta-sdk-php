@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Group;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Group\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Group;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class GroupRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * The serviceProvisioningErrors property
+    */
+    public function serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new GroupRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -32,7 +40,7 @@ class GroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the Microsoft 365 group that corresponds to this educationClass.
+     * Retrieve the Microsoft 365 group that corresponds to this educationClass. This API is supported in the following national cloud deployments.
      * @param GroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-1.0 Find more info here
@@ -51,7 +59,7 @@ class GroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the Microsoft 365 group that corresponds to this educationClass.
+     * Retrieve the Microsoft 365 group that corresponds to this educationClass. This API is supported in the following national cloud deployments.
      * @param GroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

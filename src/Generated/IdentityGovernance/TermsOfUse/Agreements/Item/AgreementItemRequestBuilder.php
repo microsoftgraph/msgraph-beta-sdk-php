@@ -56,7 +56,7 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an agreement object.
+     * Delete an agreement object. This API is supported in the following national cloud deployments.
      * @param AgreementItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0 Find more info here
@@ -75,10 +75,10 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve all files related to an agreement. This includes the default file and all localized files.
+     * Retrieve the properties and relationships of an agreement object. This API is supported in the following national cloud deployments.
      * @param AgreementItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AgreementItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -94,7 +94,7 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an agreement object.
+     * Update the properties of an agreement object. This API is supported in the following national cloud deployments.
      * @param Agreement $body The request body
      * @param AgreementItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an agreement object.
+     * Delete an agreement object. This API is supported in the following national cloud deployments.
      * @param AgreementItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve all files related to an agreement. This includes the default file and all localized files.
+     * Retrieve the properties and relationships of an agreement object. This API is supported in the following national cloud deployments.
      * @param AgreementItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +152,7 @@ class AgreementItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an agreement object.
+     * Update the properties of an agreement object. This API is supported in the following national cloud deployments.
      * @param Agreement $body The request body
      * @param AgreementItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

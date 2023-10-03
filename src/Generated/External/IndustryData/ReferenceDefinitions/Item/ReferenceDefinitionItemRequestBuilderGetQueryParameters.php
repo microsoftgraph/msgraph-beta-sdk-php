@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefiniti
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a referenceDefinition object.
+ * Read the properties and relationships of a referenceDefinition object. This API is supported in the following national cloud deployments.
 */
 class ReferenceDefinitionItemRequestBuilderGetQueryParameters 
 {

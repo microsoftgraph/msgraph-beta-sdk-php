@@ -128,7 +128,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a registered device.
+     * Delete a registered device. This API is supported in the following national cloud deployments.
      * @param DeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-1.0 Find more info here
@@ -147,7 +147,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
+     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance. This API is supported in the following national cloud deployments.
      * @param DeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/device-get?view=graph-rest-1.0 Find more info here
@@ -166,7 +166,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
+     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps. This API is supported in the following national cloud deployments.
      * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -186,7 +186,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a registered device.
+     * Delete a registered device. This API is supported in the following national cloud deployments.
      * @param DeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -203,7 +203,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
+     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance. This API is supported in the following national cloud deployments.
      * @param DeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -224,7 +224,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
+     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps. This API is supported in the following national cloud deployments.
      * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

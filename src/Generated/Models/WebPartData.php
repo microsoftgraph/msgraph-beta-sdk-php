@@ -49,7 +49,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the audiences property value. Audience information of the web part. By using this property, specific content will be prioritized to specific audiences.
+     * Gets the audiences property value. Audience information of the web part. By using this property, specific content is prioritized to specific audiences.
      * @return array<string>|null
     */
     public function getAudiences(): ?array {
@@ -190,7 +190,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the audiences property value. Audience information of the web part. By using this property, specific content will be prioritized to specific audiences.
+     * Sets the audiences property value. Audience information of the web part. By using this property, specific content is prioritized to specific audiences.
      * @param array<string>|null $value Value to set for the audiences property.
     */
     public function setAudiences(?array $value): void {

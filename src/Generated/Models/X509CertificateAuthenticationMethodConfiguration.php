@@ -62,6 +62,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
             'authenticationModeConfiguration' => fn(ParseNode $n) => $o->setAuthenticationModeConfiguration($n->getObjectValue([X509CertificateAuthenticationModeConfiguration::class, 'createFromDiscriminatorValue'])),
             'certificateUserBindings' => fn(ParseNode $n) => $o->setCertificateUserBindings($n->getCollectionOfObjectValues([X509CertificateUserBinding::class, 'createFromDiscriminatorValue'])),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([AuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
+            'issuerHintsConfiguration' => fn(ParseNode $n) => $o->setIssuerHintsConfiguration($n->getObjectValue([X509CertificateIssuerHintsConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -80,6 +81,18 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
+     * Gets the issuerHintsConfiguration property value. The issuerHintsConfiguration property
+     * @return X509CertificateIssuerHintsConfiguration|null
+    */
+    public function getIssuerHintsConfiguration(): ?X509CertificateIssuerHintsConfiguration {
+        $val = $this->getBackingStore()->get('issuerHintsConfiguration');
+        if (is_null($val) || $val instanceof X509CertificateIssuerHintsConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuerHintsConfiguration'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -88,6 +101,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
         $writer->writeObjectValue('authenticationModeConfiguration', $this->getAuthenticationModeConfiguration());
         $writer->writeCollectionOfObjectValues('certificateUserBindings', $this->getCertificateUserBindings());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
+        $writer->writeObjectValue('issuerHintsConfiguration', $this->getIssuerHintsConfiguration());
     }
 
     /**
@@ -112,6 +126,14 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     */
     public function setIncludeTargets(?array $value): void {
         $this->getBackingStore()->set('includeTargets', $value);
+    }
+
+    /**
+     * Sets the issuerHintsConfiguration property value. The issuerHintsConfiguration property
+     * @param X509CertificateIssuerHintsConfiguration|null $value Value to set for the issuerHintsConfiguration property.
+    */
+    public function setIssuerHintsConfiguration(?X509CertificateIssuerHintsConfiguration $value): void {
+        $this->getBackingStore()->set('issuerHintsConfiguration', $value);
     }
 
 }

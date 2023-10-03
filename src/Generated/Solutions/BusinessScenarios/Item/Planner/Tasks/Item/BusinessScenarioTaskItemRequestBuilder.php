@@ -64,7 +64,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenarioTask object.
+     * Delete a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-delete-tasks?view=graph-rest-1.0 Find more info here
@@ -83,7 +83,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenarioTask object.
+     * Read the properties and relationships of a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/businessscenariotask-get?view=graph-rest-1.0 Find more info here
@@ -102,7 +102,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenarioTask object.
+     * Update the properties of a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -122,7 +122,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenarioTask object.
+     * Delete a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -139,7 +139,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenarioTask object.
+     * Read the properties and relationships of a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -160,7 +160,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenarioTask object.
+     * Update the properties of a businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

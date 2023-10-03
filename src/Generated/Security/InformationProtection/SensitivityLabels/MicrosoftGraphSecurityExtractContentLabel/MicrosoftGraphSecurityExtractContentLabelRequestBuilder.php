@@ -32,7 +32,7 @@ class MicrosoftGraphSecurityExtractContentLabelRequestBuilder extends BaseReques
     }
 
     /**
-     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
+     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel. This API is supported in the following national cloud deployments.
      * @param ExtractContentLabelPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class MicrosoftGraphSecurityExtractContentLabelRequestBuilder extends BaseReques
     }
 
     /**
-     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
+     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel. This API is supported in the following national cloud deployments.
      * @param ExtractContentLabelPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+ * Retrieve the properties and relationships of a swapShiftsChangeRequest object. This API is supported in the following national cloud deployments.
 */
 class SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters 
 {

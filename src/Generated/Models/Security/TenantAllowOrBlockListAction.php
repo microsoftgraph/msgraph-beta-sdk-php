@@ -37,7 +37,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the action property value. Specifies whether the tenant allow block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
+     * Gets the action property value. Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
      * @return TenantAllowBlockListAction|null
     */
     public function getAction(): ?TenantAllowBlockListAction {
@@ -97,7 +97,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the note property value. Specifies the note added to the tenant allow block list entry in the format of string.
+     * Gets the note property value. Specifies the note added to the tenant allow-or-block list entry in the format of string.
      * @return string|null
     */
     public function getNote(): ?string {
@@ -148,7 +148,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the action property value. Specifies whether the tenant allow block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
+     * Sets the action property value. Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
      * @param TenantAllowBlockListAction|null $value Value to set for the action property.
     */
     public function setAction(?TenantAllowBlockListAction $value): void {
@@ -180,7 +180,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the note property value. Specifies the note added to the tenant allow block list entry in the format of string.
+     * Sets the note property value. Specifies the note added to the tenant allow-or-block list entry in the format of string.
      * @param string|null $value Value to set for the note property.
     */
     public function setNote(?string $value): void {

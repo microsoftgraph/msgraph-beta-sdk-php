@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\EscapedDefault\DefaultRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners\PartnersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Templates\TemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,6 +32,13 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function partners(): PartnersRequestBuilder {
         return new PartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.crossTenantAccessPolicy entity.
+    */
+    public function templates(): TemplatesRequestBuilder {
+        return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -66,7 +74,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object.
+     * Read the properties and relationships of a crossTenantAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0 Find more info here
@@ -85,7 +93,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cross-tenant access policy.
+     * Update the properties of a cross-tenant access policy. This API is supported in the following national cloud deployments.
      * @param CrossTenantAccessPolicy $body The request body
      * @param CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -122,7 +130,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object.
+     * Read the properties and relationships of a crossTenantAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +151,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cross-tenant access policy.
+     * Update the properties of a cross-tenant access policy. This API is supported in the following national cloud deployments.
      * @param CrossTenantAccessPolicy $body The request body
      * @param CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

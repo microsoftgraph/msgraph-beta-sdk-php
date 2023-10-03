@@ -58,7 +58,7 @@ class TrainingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get trainings from security
+     * Represents details about attack simulation trainings.
      * @param TrainingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class TrainingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get trainings from security
+     * Represents details about attack simulation trainings.
      * @param TrainingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

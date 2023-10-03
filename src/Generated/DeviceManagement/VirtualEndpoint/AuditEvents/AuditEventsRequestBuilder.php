@@ -61,7 +61,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the cloudPcAuditEvent objects for the tenant.
+     * List all the cloudPcAuditEvent objects for the tenant. This API is supported in the following national cloud deployments.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-1.0 Find more info here
@@ -99,7 +99,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the cloudPcAuditEvent objects for the tenant.
+     * List all the cloudPcAuditEvent objects for the tenant. This API is supported in the following national cloud deployments.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -53,7 +53,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of additional dataSource objects associated with a source collection.
+     * Get a list of additional dataSource objects associated with a source collection. This API is supported in the following national cloud deployments.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-additionalsources?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of additional dataSource objects associated with a source collection.
+     * Get a list of additional dataSource objects associated with a source collection. This API is supported in the following national cloud deployments.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

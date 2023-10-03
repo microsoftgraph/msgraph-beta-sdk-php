@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProviders\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an identityProvider.
+ * Retrieve the properties and relationships of an identityProvider. This API is supported in the following national cloud deployments.
 */
 class IdentityProviderItemRequestBuilderGetQueryParameters 
 {

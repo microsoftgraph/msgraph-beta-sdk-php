@@ -31,7 +31,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is supported in the following national cloud deployments.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is supported in the following national cloud deployments.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

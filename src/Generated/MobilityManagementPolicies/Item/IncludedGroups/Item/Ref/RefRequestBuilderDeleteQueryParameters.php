@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\Include
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Delete a group from the list of groups included in a mobile app management policy.
+ * Delete a group from the list of groups included in a mobile app management policy. This API is supported in the following national cloud deployments.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

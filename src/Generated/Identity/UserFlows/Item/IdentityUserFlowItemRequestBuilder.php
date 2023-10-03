@@ -32,7 +32,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing userFlow object.
+     * Delete an existing userFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for an userFlow object.
+     * Retrieve the properties and associations for an userFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing userFlow object.
+     * Delete an existing userFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for an userFlow object.
+     * Retrieve the properties and associations for an userFlow object. This API is supported in the following national cloud deployments.
      * @param IdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

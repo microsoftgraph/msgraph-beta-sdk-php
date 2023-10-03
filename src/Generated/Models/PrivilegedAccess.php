@@ -96,7 +96,7 @@ class PrivilegedAccess extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinitions property value. A collection of role defintions for the provider.
+     * Gets the roleDefinitions property value. A collection of role definitions for the provider.
      * @return array<GovernanceRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
@@ -170,7 +170,7 @@ class PrivilegedAccess extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinitions property value. A collection of role defintions for the provider.
+     * Sets the roleDefinitions property value. A collection of role definitions for the provider.
      * @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {

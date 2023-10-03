@@ -66,7 +66,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a permission object on a site.
+     * Retrieve the properties and relationships of a permission object on a site. This API is supported in the following national cloud deployments.
      * @param PermissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0 Find more info here
@@ -85,7 +85,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the permission object on a site.
+     * Update the permission object on a site. This API is supported in the following national cloud deployments.
      * @param Permission $body The request body
      * @param PermissionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -122,7 +122,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a permission object on a site.
+     * Retrieve the properties and relationships of a permission object on a site. This API is supported in the following national cloud deployments.
      * @param PermissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +143,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the permission object on a site.
+     * Update the permission object on a site. This API is supported in the following national cloud deployments.
      * @param Permission $body The request body
      * @param PermissionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

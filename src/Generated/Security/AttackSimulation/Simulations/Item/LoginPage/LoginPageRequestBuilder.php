@@ -32,7 +32,7 @@ class LoginPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPage from security
+     * The login page associated with a simulation during its creation.
      * @param LoginPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class LoginPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPage from security
+     * The login page associated with a simulation during its creation.
      * @param LoginPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

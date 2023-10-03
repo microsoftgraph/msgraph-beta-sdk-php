@@ -32,7 +32,7 @@ class AttachmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an attachment from a user calendar event, message, Outlook task, or post.
+     * Delete an attachment from a user calendar event, message, Outlook task, or post. This API is supported in the following national cloud deployments.
      * @param AttachmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/attachment-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class AttachmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties, relationships, or raw contents of an attachment that is attached to a user event, message, Outlook task, or group post. An attachment can be one of the following types: All these types of attachments are derived from the attachment resource.
+     * Read the properties, relationships, or raw contents of an attachment that is attached to a user event, message, Outlook task, or group post. An attachment can be one of the following types: All these types of attachments are derived from the attachment resource. This API is supported in the following national cloud deployments.
      * @param AttachmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/attachment-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class AttachmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an attachment from a user calendar event, message, Outlook task, or post.
+     * Delete an attachment from a user calendar event, message, Outlook task, or post. This API is supported in the following national cloud deployments.
      * @param AttachmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -87,7 +87,7 @@ class AttachmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties, relationships, or raw contents of an attachment that is attached to a user event, message, Outlook task, or group post. An attachment can be one of the following types: All these types of attachments are derived from the attachment resource.
+     * Read the properties, relationships, or raw contents of an attachment that is attached to a user event, message, Outlook task, or group post. An attachment can be one of the following types: All these types of attachments are derived from the attachment resource. This API is supported in the following national cloud deployments.
      * @param AttachmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

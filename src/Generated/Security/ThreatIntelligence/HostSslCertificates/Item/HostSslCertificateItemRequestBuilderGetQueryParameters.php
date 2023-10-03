@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostSslCert
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get hostSslCertificates from security
+ * Get the properties and relationships of a hostSslCertificate object. This API is supported in the following national cloud deployments.
 */
 class HostSslCertificateItemRequestBuilderGetQueryParameters 
 {

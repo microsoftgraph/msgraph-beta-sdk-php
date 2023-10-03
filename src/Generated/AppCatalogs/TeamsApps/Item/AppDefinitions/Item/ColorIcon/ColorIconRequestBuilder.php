@@ -58,7 +58,7 @@ class ColorIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a Teams app icon associated with a specific definition of an app.
+     * Retrieve a Teams app icon associated with a specific definition of an app. This API is supported in the following national cloud deployments.
      * @param ColorIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamsappicon-get?view=graph-rest-1.0 Find more info here
@@ -113,7 +113,7 @@ class ColorIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a Teams app icon associated with a specific definition of an app.
+     * Retrieve a Teams app icon associated with a specific definition of an app. This API is supported in the following national cloud deployments.
      * @param ColorIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

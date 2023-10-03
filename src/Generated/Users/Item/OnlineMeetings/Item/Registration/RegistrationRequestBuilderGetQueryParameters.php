@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registra
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the externalMeetingRegistration details associated with an onlineMeeting.
+ * Get the externalMeetingRegistration details associated with an onlineMeeting. This API is supported in the following national cloud deployments.
 */
 class RegistrationRequestBuilderGetQueryParameters 
 {

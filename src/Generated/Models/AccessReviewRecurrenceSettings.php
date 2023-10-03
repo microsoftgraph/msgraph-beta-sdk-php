@@ -107,7 +107,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
+     * Gets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it's never, then there's no explicit end of the recurrence series. If it's endBy, then the recurrence ends at a certain date. If it's occurrences, then the series ends after recurrenceCount instances of the review have completed.
      * @return string|null
     */
     public function getRecurrenceEndType(): ?string {
@@ -119,7 +119,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the recurrenceType property value. The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
+     * Gets the recurrenceType property value. The recurrence interval. Possible values: onetime, weekly, monthly, quarterly, halfyearly or annual.
      * @return string|null
     */
     public function getRecurrenceType(): ?string {
@@ -184,7 +184,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
+     * Sets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it's never, then there's no explicit end of the recurrence series. If it's endBy, then the recurrence ends at a certain date. If it's occurrences, then the series ends after recurrenceCount instances of the review have completed.
      * @param string|null $value Value to set for the recurrenceEndType property.
     */
     public function setRecurrenceEndType(?string $value): void {
@@ -192,7 +192,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the recurrenceType property value. The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
+     * Sets the recurrenceType property value. The recurrence interval. Possible values: onetime, weekly, monthly, quarterly, halfyearly or annual.
      * @param string|null $value Value to set for the recurrenceType property.
     */
     public function setRecurrenceType(?string $value): void {

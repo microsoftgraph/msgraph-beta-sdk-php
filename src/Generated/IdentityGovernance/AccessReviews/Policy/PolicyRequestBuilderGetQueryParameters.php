@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessReviewPolicy object.
+ * Read the properties and relationships of an accessReviewPolicy object. This API is supported in the following national cloud deployments.
 */
 class PolicyRequestBuilderGetQueryParameters 
 {

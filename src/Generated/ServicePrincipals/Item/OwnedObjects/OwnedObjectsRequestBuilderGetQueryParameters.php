@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+ * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups. This API is supported in the following national cloud deployments.
 */
 class OwnedObjectsRequestBuilderGetQueryParameters 
 {

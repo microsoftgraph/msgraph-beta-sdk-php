@@ -66,6 +66,7 @@ class ThreatIntelligence extends Entity implements Parsable
             'hostComponents' => fn(ParseNode $n) => $o->setHostComponents($n->getCollectionOfObjectValues([HostComponent::class, 'createFromDiscriminatorValue'])),
             'hostCookies' => fn(ParseNode $n) => $o->setHostCookies($n->getCollectionOfObjectValues([HostCookie::class, 'createFromDiscriminatorValue'])),
             'hostPairs' => fn(ParseNode $n) => $o->setHostPairs($n->getCollectionOfObjectValues([HostPair::class, 'createFromDiscriminatorValue'])),
+            'hostPorts' => fn(ParseNode $n) => $o->setHostPorts($n->getCollectionOfObjectValues([HostPort::class, 'createFromDiscriminatorValue'])),
             'hosts' => fn(ParseNode $n) => $o->setHosts($n->getCollectionOfObjectValues([Host::class, 'createFromDiscriminatorValue'])),
             'hostSslCertificates' => fn(ParseNode $n) => $o->setHostSslCertificates($n->getCollectionOfObjectValues([HostSslCertificate::class, 'createFromDiscriminatorValue'])),
             'hostTrackers' => fn(ParseNode $n) => $o->setHostTrackers($n->getCollectionOfObjectValues([HostTracker::class, 'createFromDiscriminatorValue'])),
@@ -123,6 +124,20 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the hostPorts property value. The hostPorts property
+     * @return array<HostPort>|null
+    */
+    public function getHostPorts(): ?array {
+        $val = $this->getBackingStore()->get('hostPorts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostPort::class);
+            /** @var array<HostPort>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostPorts'");
+    }
+
+    /**
      * Gets the hosts property value. Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @return array<Host>|null
     */
@@ -137,7 +152,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostSslCertificates property value. The hostSslCertificates property
+     * Gets the hostSslCertificates property value. Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @return array<HostSslCertificate>|null
     */
     public function getHostSslCertificates(): ?array {
@@ -207,7 +222,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the sslCertificates property value. The sslCertificates property
+     * Gets the sslCertificates property value. Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @return array<SslCertificate>|null
     */
     public function getSslCertificates(): ?array {
@@ -287,6 +302,7 @@ class ThreatIntelligence extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('hostComponents', $this->getHostComponents());
         $writer->writeCollectionOfObjectValues('hostCookies', $this->getHostCookies());
         $writer->writeCollectionOfObjectValues('hostPairs', $this->getHostPairs());
+        $writer->writeCollectionOfObjectValues('hostPorts', $this->getHostPorts());
         $writer->writeCollectionOfObjectValues('hosts', $this->getHosts());
         $writer->writeCollectionOfObjectValues('hostSslCertificates', $this->getHostSslCertificates());
         $writer->writeCollectionOfObjectValues('hostTrackers', $this->getHostTrackers());
@@ -341,6 +357,14 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Sets the hostPorts property value. The hostPorts property
+     * @param array<HostPort>|null $value Value to set for the hostPorts property.
+    */
+    public function setHostPorts(?array $value): void {
+        $this->getBackingStore()->set('hostPorts', $value);
+    }
+
+    /**
      * Sets the hosts property value. Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @param array<Host>|null $value Value to set for the hosts property.
     */
@@ -349,7 +373,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostSslCertificates property value. The hostSslCertificates property
+     * Sets the hostSslCertificates property value. Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @param array<HostSslCertificate>|null $value Value to set for the hostSslCertificates property.
     */
     public function setHostSslCertificates(?array $value): void {
@@ -389,7 +413,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the sslCertificates property value. The sslCertificates property
+     * Sets the sslCertificates property value. Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @param array<SslCertificate>|null $value Value to set for the sslCertificates property.
     */
     public function setSslCertificates(?array $value): void {

@@ -32,7 +32,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user synchronization policy for a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user synchronization policy of a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0 Find more info here
@@ -70,14 +70,13 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the user synchronization policy of a partner-specific configuration.
+     * Update the navigation property identitySynchronization in policies
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
-     * @param IdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IdentitySynchronizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(CrossTenantIdentitySyncPolicyPartner $body, ?IdentitySynchronizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+    public function put(CrossTenantIdentitySyncPolicyPartner $body, ?IdentitySynchronizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,7 +89,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user synchronization policy for a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +106,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user synchronization policy of a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,16 +127,16 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the user synchronization policy of a partner-specific configuration.
+     * Update the navigation property identitySynchronization in policies
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
-     * @param IdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IdentitySynchronizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CrossTenantIdentitySyncPolicyPartner $body, ?IdentitySynchronizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPutRequestInformation(CrossTenantIdentitySyncPolicyPartner $body, ?IdentitySynchronizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->httpMethod = HttpMethod::PUT;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);

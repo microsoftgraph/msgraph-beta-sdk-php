@@ -53,9 +53,10 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an auditEvent object.
+     * Get a list of the auditEvent objects and their properties. This API is supported in the following national cloud deployments.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-auditevents?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuditEventsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an auditEvent object.
+     * Get a list of the auditEvent objects and their properties. This API is supported in the following national cloud deployments.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

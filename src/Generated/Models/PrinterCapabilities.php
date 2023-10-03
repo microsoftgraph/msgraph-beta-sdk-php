@@ -71,7 +71,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the collation property value. True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
+     * Gets the collation property value. True if the printer supports collating when printing multiple copies of a multi-page document; false otherwise.
      * @return bool|null
     */
     public function getCollation(): ?bool {
@@ -97,7 +97,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
+     * Gets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It isn't guaranteed that the Universal Print service supports printing all of these MIME types.
      * @return array<string>|null
     */
     public function getContentTypes(): ?array {
@@ -407,7 +407,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediaColors property value. The media (i.e., paper) colors supported by the printer.
+     * Gets the mediaColors property value. The media (that is, paper) colors supported by the printer.
      * @return array<string>|null
     */
     public function getMediaColors(): ?array {
@@ -835,7 +835,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the collation property value. True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
+     * Sets the collation property value. True if the printer supports collating when printing multiple copies of a multi-page document; false otherwise.
      * @param bool|null $value Value to set for the collation property.
     */
     public function setCollation(?bool $value): void {
@@ -851,7 +851,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
+     * Sets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It isn't guaranteed that the Universal Print service supports printing all of these MIME types.
      * @param array<string>|null $value Value to set for the contentTypes property.
     */
     public function setContentTypes(?array $value): void {
@@ -939,7 +939,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mediaColors property value. The media (i.e., paper) colors supported by the printer.
+     * Sets the mediaColors property value. The media (that is, paper) colors supported by the printer.
      * @param array<string>|null $value Value to set for the mediaColors property.
     */
     public function setMediaColors(?array $value): void {

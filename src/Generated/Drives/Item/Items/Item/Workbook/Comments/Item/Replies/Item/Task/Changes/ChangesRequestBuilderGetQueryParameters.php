@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get changes from drives
+ * A collection of task change histories.
 */
 class ChangesRequestBuilderGetQueryParameters 
 {

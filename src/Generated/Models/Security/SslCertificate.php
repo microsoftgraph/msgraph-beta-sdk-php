@@ -28,7 +28,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The date and time when a certificate expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -60,7 +60,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the fingerprint property value. The fingerprint property
+     * Gets the fingerprint property value. A hash of the certificate calculated on the data and signature.
      * @return string|null
     */
     public function getFingerprint(): ?string {
@@ -72,7 +72,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the issueDateTime property value. The issueDateTime property
+     * Gets the issueDateTime property value. The date and time when a certificate was issued. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getIssueDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the issuer property value. The issuer property
+     * Gets the issuer property value. The entity that grants this certificate.
      * @return SslCertificateEntity|null
     */
     public function getIssuer(): ?SslCertificateEntity {
@@ -108,7 +108,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The most recent date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -120,7 +120,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the relatedHosts property value. The relatedHosts property
+     * Gets the relatedHosts property value. The hosts related with this sslCertificate.
      * @return array<Host>|null
     */
     public function getRelatedHosts(): ?array {
@@ -134,7 +134,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the serialNumber property value. The serialNumber property
+     * Gets the serialNumber property value. The serial number associated with an SSL certificate.
      * @return string|null
     */
     public function getSerialNumber(): ?string {
@@ -146,7 +146,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the sha1 property value. The sha1 property
+     * Gets the sha1 property value. A SHA-1 hash of the certificate. Note: This is not the signature.
      * @return string|null
     */
     public function getSha1(): ?string {
@@ -158,7 +158,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The person, site, machine, and so on, this certificate is for.
      * @return SslCertificateEntity|null
     */
     public function getSubject(): ?SslCertificateEntity {
@@ -188,7 +188,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The date and time when a certificate expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -196,7 +196,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the fingerprint property value. The fingerprint property
+     * Sets the fingerprint property value. A hash of the certificate calculated on the data and signature.
      * @param string|null $value Value to set for the fingerprint property.
     */
     public function setFingerprint(?string $value): void {
@@ -204,7 +204,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -212,7 +212,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the issueDateTime property value. The issueDateTime property
+     * Sets the issueDateTime property value. The date and time when a certificate was issued. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the issueDateTime property.
     */
     public function setIssueDateTime(?DateTime $value): void {
@@ -220,7 +220,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the issuer property value. The issuer property
+     * Sets the issuer property value. The entity that grants this certificate.
      * @param SslCertificateEntity|null $value Value to set for the issuer property.
     */
     public function setIssuer(?SslCertificateEntity $value): void {
@@ -228,7 +228,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The most recent date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
@@ -236,7 +236,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the relatedHosts property value. The relatedHosts property
+     * Sets the relatedHosts property value. The hosts related with this sslCertificate.
      * @param array<Host>|null $value Value to set for the relatedHosts property.
     */
     public function setRelatedHosts(?array $value): void {
@@ -244,7 +244,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the serialNumber property value. The serialNumber property
+     * Sets the serialNumber property value. The serial number associated with an SSL certificate.
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
@@ -252,7 +252,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the sha1 property value. The sha1 property
+     * Sets the sha1 property value. A SHA-1 hash of the certificate. Note: This is not the signature.
      * @param string|null $value Value to set for the sha1 property.
     */
     public function setSha1(?string $value): void {
@@ -260,7 +260,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The person, site, machine, and so on, this certificate is for.
      * @param SslCertificateEntity|null $value Value to set for the subject property.
     */
     public function setSubject(?SslCertificateEntity $value): void {

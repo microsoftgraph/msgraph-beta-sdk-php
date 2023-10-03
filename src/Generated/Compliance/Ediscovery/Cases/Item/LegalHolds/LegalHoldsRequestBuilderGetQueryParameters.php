@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a legalHold object.
+ * Read the properties and relationships of a legalHold object. This API is supported in the following national cloud deployments.
 */
 class LegalHoldsRequestBuilderGetQueryParameters 
 {

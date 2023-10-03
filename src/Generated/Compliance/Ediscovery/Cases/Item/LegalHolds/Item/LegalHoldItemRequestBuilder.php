@@ -56,7 +56,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object.
+     * Delete a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-delete?view=graph-rest-1.0 Find more info here
@@ -75,7 +75,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Read the properties and relationships of a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-get?view=graph-rest-1.0 Find more info here
@@ -94,7 +94,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a legalHold object.
+     * Update the properties of a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object.
+     * Delete a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Read the properties and relationships of a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +152,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a legalHold object.
+     * Update the properties of a legalHold object. This API is supported in the following national cloud deployments.
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

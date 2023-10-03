@@ -1,0 +1,90 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class SingleResourceAzurePermissionsDefinition extends PermissionsDefinition implements Parsable 
+{
+    /**
+     * Instantiates a new singleResourceAzurePermissionsDefinition and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+        $this->setOdataType('#microsoft.graph.singleResourceAzurePermissionsDefinition');
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return SingleResourceAzurePermissionsDefinition
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SingleResourceAzurePermissionsDefinition {
+        return new SingleResourceAzurePermissionsDefinition();
+    }
+
+    /**
+     * Gets the actionInfo property value. The actionInfo property
+     * @return AzurePermissionsDefinitionAction|null
+    */
+    public function getActionInfo(): ?AzurePermissionsDefinitionAction {
+        $val = $this->getBackingStore()->get('actionInfo');
+        if (is_null($val) || $val instanceof AzurePermissionsDefinitionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionInfo'");
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'actionInfo' => fn(ParseNode $n) => $o->setActionInfo($n->getObjectValue([AzurePermissionsDefinitionAction::class, 'createFromDiscriminatorValue'])),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+        ]);
+    }
+
+    /**
+     * Gets the resourceId property value. The resourceId property
+     * @return string|null
+    */
+    public function getResourceId(): ?string {
+        $val = $this->getBackingStore()->get('resourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceId'");
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeObjectValue('actionInfo', $this->getActionInfo());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
+    }
+
+    /**
+     * Sets the actionInfo property value. The actionInfo property
+     * @param AzurePermissionsDefinitionAction|null $value Value to set for the actionInfo property.
+    */
+    public function setActionInfo(?AzurePermissionsDefinitionAction $value): void {
+        $this->getBackingStore()->set('actionInfo', $value);
+    }
+
+    /**
+     * Sets the resourceId property value. The resourceId property
+     * @param string|null $value Value to set for the resourceId property.
+    */
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
+    }
+
+}

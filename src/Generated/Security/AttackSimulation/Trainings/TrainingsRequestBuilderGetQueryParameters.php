@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get trainings from security
+ * Get a list of the training objects and their properties. This API is supported in the following national cloud deployments.
 */
 class TrainingsRequestBuilderGetQueryParameters 
 {

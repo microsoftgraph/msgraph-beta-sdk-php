@@ -38,7 +38,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessReviewId property value. The feature-generated id of the access review.
+     * Gets the accessReviewId property value. The feature-generated ID of the access review.
      * @return string|null
     */
     public function getAccessReviewId(): ?string {
@@ -50,7 +50,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
+     * Gets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was autoapplied, the userPrincipalName is empty.
      * @return UserIdentity|null
     */
     public function getAppliedBy(): ?UserIdentity {
@@ -178,7 +178,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessReviewId property value. The feature-generated id of the access review.
+     * Sets the accessReviewId property value. The feature-generated ID of the access review.
      * @param string|null $value Value to set for the accessReviewId property.
     */
     public function setAccessReviewId(?string $value): void {
@@ -186,7 +186,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
+     * Sets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was autoapplied, the userPrincipalName is empty.
      * @param UserIdentity|null $value Value to set for the appliedBy property.
     */
     public function setAppliedBy(?UserIdentity $value): void {

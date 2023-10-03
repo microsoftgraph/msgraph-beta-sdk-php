@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodian
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\EdiscoveryCustodianItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\MicrosoftGraphSecurityApplyHold\MicrosoftGraphSecurityApplyHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\MicrosoftGraphSecurityRemoveHold\MicrosoftGraphSecurityRemoveHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\MicrosoftGraphSecurityUpdateIndex\MicrosoftGraphSecurityUpdateIndexRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -44,6 +45,13 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the updateIndex method.
+    */
+    public function microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
+        return new MicrosoftGraphSecurityUpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
      * @param string $ediscoveryCustodianId The unique identifier of ediscoveryCustodian
      * @return EdiscoveryCustodianItemRequestBuilder
@@ -69,7 +77,7 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the custodian objects and their properties.
+     * Get a list of the custodian objects and their properties. This API is supported in the following national cloud deployments.
      * @param CustodiansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-1.0 Find more info here
@@ -88,7 +96,7 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
+     * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCustodian $body The request body
      * @param CustodiansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -108,7 +116,7 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the custodian objects and their properties.
+     * Get a list of the custodian objects and their properties. This API is supported in the following national cloud deployments.
      * @param CustodiansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +137,7 @@ class CustodiansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
+     * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site. This API is supported in the following national cloud deployments.
      * @param EdiscoveryCustodian $body The request body
      * @param CustodiansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -32,7 +32,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemAddress object.
+     * Deletes an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddressItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itemaddress-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemAddress object.
+     * Read the properties and relationships of an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddressItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itemaddress-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemAddress object.
+     * Update the properties of an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddress $body The request body
      * @param ItemAddressItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemAddress object.
+     * Deletes an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddressItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemAddress object.
+     * Read the properties and relationships of an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddressItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemAddress object.
+     * Update the properties of an itemAddress object. This API is supported in the following national cloud deployments.
      * @param ItemAddress $body The request body
      * @param ItemAddressItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

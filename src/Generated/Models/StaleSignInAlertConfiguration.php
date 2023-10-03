@@ -27,7 +27,7 @@ class StaleSignInAlertConfiguration extends UnifiedRoleManagementAlertConfigurat
     }
 
     /**
-     * Gets the duration property value. The number of days to look back from current timestamp within which the account has not signed in.
+     * Gets the duration property value. The number of days to look back from current timestamp within which the account hasn't signed in.
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
@@ -59,7 +59,7 @@ class StaleSignInAlertConfiguration extends UnifiedRoleManagementAlertConfigurat
     }
 
     /**
-     * Sets the duration property value. The number of days to look back from current timestamp within which the account has not signed in.
+     * Sets the duration property value. The number of days to look back from current timestamp within which the account hasn't signed in.
      * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {

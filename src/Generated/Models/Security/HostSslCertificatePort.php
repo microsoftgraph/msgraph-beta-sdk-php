@@ -71,7 +71,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time that this port was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -83,7 +83,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The most recent date and time that this port was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -107,7 +107,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. The port number.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -147,7 +147,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time that this port was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -155,7 +155,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The most recent date and time that this port was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
@@ -171,7 +171,7 @@ class HostSslCertificatePort implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. The port number.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {

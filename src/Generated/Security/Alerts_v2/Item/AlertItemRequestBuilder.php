@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
+use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\Comments\CommentsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AlertItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * The comments property
+    */
+    public function comments(): CommentsRequestBuilder {
+        return new CommentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new AlertItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -50,7 +58,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an alert in an organization based on the specified alert id property.
+     * Get the properties and relationships of an alert in an organization based on the specified alert id property. This API is supported in the following national cloud deployments.
      * @param AlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +77,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an alert object in an organization based on the specified alert id property.
+     * Update the properties of an alert object in an organization based on the specified alert id property. This API is supported in the following national cloud deployments.
      * @param Alert $body The request body
      * @param AlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +114,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an alert in an organization based on the specified alert id property.
+     * Get the properties and relationships of an alert in an organization based on the specified alert id property. This API is supported in the following national cloud deployments.
      * @param AlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +135,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an alert object in an organization based on the specified alert id property.
+     * Update the properties of an alert object in an organization based on the specified alert id property. This API is supported in the following national cloud deployments.
      * @param Alert $body The request body
      * @param AlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

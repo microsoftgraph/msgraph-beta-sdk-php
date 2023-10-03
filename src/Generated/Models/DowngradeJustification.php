@@ -69,7 +69,7 @@ class DowngradeJustification implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isDowngradeJustified property value. Indicates whether the downgrade is or is not justified.
+     * Gets the isDowngradeJustified property value. Indicates whether the downgrade is or isn't justified.
      * @return bool|null
     */
     public function getIsDowngradeJustified(): ?bool {
@@ -81,7 +81,7 @@ class DowngradeJustification implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the justificationMessage property value. Message that indicates why a downgrade is justified. The message will appear in administrative logs.
+     * Gets the justificationMessage property value. Message that indicates why a downgrade is justified. The message appears in administrative logs.
      * @return string|null
     */
     public function getJustificationMessage(): ?string {
@@ -132,7 +132,7 @@ class DowngradeJustification implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isDowngradeJustified property value. Indicates whether the downgrade is or is not justified.
+     * Sets the isDowngradeJustified property value. Indicates whether the downgrade is or isn't justified.
      * @param bool|null $value Value to set for the isDowngradeJustified property.
     */
     public function setIsDowngradeJustified(?bool $value): void {
@@ -140,7 +140,7 @@ class DowngradeJustification implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the justificationMessage property value. Message that indicates why a downgrade is justified. The message will appear in administrative logs.
+     * Sets the justificationMessage property value. Message that indicates why a downgrade is justified. The message appears in administrative logs.
      * @param string|null $value Value to set for the justificationMessage property.
     */
     public function setJustificationMessage(?string $value): void {

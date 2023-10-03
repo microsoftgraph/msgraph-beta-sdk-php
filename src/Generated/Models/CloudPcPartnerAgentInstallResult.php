@@ -83,7 +83,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent.  When 'FALSE', the agent is a Microsoft agent or is not known.  The default value is 'FALSE'.
+     * Gets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known.  The default value is 'FALSE'
      * @return bool|null
     */
     public function getIsThirdPartyPartner(): ?bool {
@@ -119,7 +119,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent. When 'FALSE', the agent is a Microsoft agent or is not known. The default value is 'FALSE'.
+     * Gets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known. The default value is 'FALSE'
      * @return bool|null
     */
     public function getRetriable(): ?bool {
@@ -168,7 +168,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent.  When 'FALSE', the agent is a Microsoft agent or is not known.  The default value is 'FALSE'.
+     * Sets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known.  The default value is 'FALSE'
      * @param bool|null $value Value to set for the isThirdPartyPartner property.
     */
     public function setIsThirdPartyPartner(?bool $value): void {
@@ -192,7 +192,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent. When 'FALSE', the agent is a Microsoft agent or is not known. The default value is 'FALSE'.
+     * Sets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known. The default value is 'FALSE'
      * @param bool|null $value Value to set for the retriable property.
     */
     public function setRetriable(?bool $value): void {

@@ -32,7 +32,7 @@ class LandingPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param LandingPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class LandingPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param LandingPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

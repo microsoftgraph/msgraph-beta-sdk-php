@@ -31,7 +31,7 @@ class RenewGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
+     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy. This API is supported in the following national cloud deployments.
      * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class RenewGroupRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [RenewGroupResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [RenewGroupPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
+     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy. This API is supported in the following national cloud deployments.
      * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

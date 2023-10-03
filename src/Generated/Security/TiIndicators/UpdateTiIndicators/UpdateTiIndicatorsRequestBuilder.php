@@ -31,7 +31,7 @@ class UpdateTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class UpdateTiIndicatorsRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UpdateTiIndicatorsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UpdateTiIndicatorsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

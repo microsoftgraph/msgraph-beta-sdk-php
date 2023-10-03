@@ -99,7 +99,7 @@ class SearchAnswer extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. Search answer URL link. When users click this search answer in search results, they will go to this URL.
+     * Gets the webUrl property value. Search answer URL link. When users click this search answer in search results, they'll go to this URL.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -156,7 +156,7 @@ class SearchAnswer extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. Search answer URL link. When users click this search answer in search results, they will go to this URL.
+     * Sets the webUrl property value. Search answer URL link. When users click this search answer in search results, they'll go to this URL.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

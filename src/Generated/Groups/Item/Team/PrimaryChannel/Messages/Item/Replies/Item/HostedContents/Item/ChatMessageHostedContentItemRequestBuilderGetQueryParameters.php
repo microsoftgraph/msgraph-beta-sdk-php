@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Message
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of chatMessageHostedContent object.
+ * Retrieve the properties and relationships of chatMessageHostedContent object. This API is supported in the following national cloud deployments.
 */
 class ChatMessageHostedContentItemRequestBuilderGetQueryParameters 
 {

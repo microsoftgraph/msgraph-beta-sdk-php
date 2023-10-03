@@ -57,7 +57,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
+     * Gets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include more data).
      * @return string|null
     */
     public function getCalleeNumber(): ?string {
@@ -81,7 +81,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
+     * Gets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include more data).
      * @return string|null
     */
     public function getCallerNumber(): ?string {
@@ -223,7 +223,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the inviteDateTime property value. When the initial invite was sent.
+     * Gets the inviteDateTime property value. The date and time when the initial invite was sent.
      * @return DateTime|null
     */
     public function getInviteDateTime(): ?DateTime {
@@ -271,7 +271,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
+     * Gets the otherPartyCountryCode property value. Country code of the caller for an incoming call, or callee for an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getOtherPartyCountryCode(): ?string {
@@ -355,7 +355,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info is null/empty for bot call types.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -367,7 +367,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -427,7 +427,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
+     * Sets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include more data).
      * @param string|null $value Value to set for the calleeNumber property.
     */
     public function setCalleeNumber(?string $value): void {
@@ -443,7 +443,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
+     * Sets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include more data).
      * @param string|null $value Value to set for the callerNumber property.
     */
     public function setCallerNumber(?string $value): void {
@@ -515,7 +515,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the inviteDateTime property value. When the initial invite was sent.
+     * Sets the inviteDateTime property value. The date and time when the initial invite was sent.
      * @param DateTime|null $value Value to set for the inviteDateTime property.
     */
     public function setInviteDateTime(?DateTime $value): void {
@@ -547,7 +547,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
+     * Sets the otherPartyCountryCode property value. Country code of the caller for an incoming call, or callee for an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the otherPartyCountryCode property.
     */
     public function setOtherPartyCountryCode(?string $value): void {
@@ -603,7 +603,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info is null/empty for bot call types.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -611,7 +611,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

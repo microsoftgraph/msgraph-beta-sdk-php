@@ -52,7 +52,7 @@ class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of noncustodialDataSource associated with a sourceCollection.
+     * Get a list of noncustodialDataSource associated with a sourceCollection. This API is supported in the following national cloud deployments.
      * @param NoncustodialSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-noncustodialsources?view=graph-rest-1.0 Find more info here
@@ -71,7 +71,7 @@ class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of noncustodialDataSource associated with a sourceCollection.
+     * Get a list of noncustodialDataSource associated with a sourceCollection. This API is supported in the following national cloud deployments.
      * @param NoncustodialSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

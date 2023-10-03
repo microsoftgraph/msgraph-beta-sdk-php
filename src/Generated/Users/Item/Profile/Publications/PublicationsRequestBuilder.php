@@ -53,7 +53,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile.
+     * Retrieve a list of itemPublication objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-publications?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPublication object in a user's profile.
+     * Create a new itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile.
+     * Retrieve a list of itemPublication objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPublication object in a user's profile.
+     * Create a new itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

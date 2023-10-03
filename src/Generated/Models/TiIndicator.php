@@ -53,7 +53,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalInformation property value. A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool.
+     * Gets the additionalInformation property value. A catchall area for extra data from the indicator that is not specifically covered by other tiIndicator properties. The security tool specified by targetProduct typically does not utilize this data.
      * @return string|null
     */
     public function getAdditionalInformation(): ?string {
@@ -245,7 +245,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. An identification number that ties the indicator back to the indicator provider’s system (e.g. a foreign key).
+     * Gets the externalId property value. An identification number that ties the indicator back to the indicator provider’s system (for example, a foreign key).
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -535,7 +535,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the malwareFamilyNames property value. The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
+     * Gets the malwareFamilyNames property value. The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible that can be found via the Windows Defender Security Intelligence threat encyclopedia.
      * @return array<string>|null
     */
     public function getMalwareFamilyNames(): ?array {
@@ -729,7 +729,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false.
+     * Gets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools won't notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they'll simply log that a match occurred but won't perform the action. Default value is false.
      * @return bool|null
     */
     public function getPassiveOnly(): ?bool {
@@ -741,7 +741,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the severity property value. An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero is not severe at all. Default value is 3.
+     * Gets the severity property value. An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero isn't severe at all. Default value is 3.
      * @return int|null
     */
     public function getSeverity(): ?int {
@@ -909,7 +909,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalInformation property value. A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool.
+     * Sets the additionalInformation property value. A catchall area for extra data from the indicator that is not specifically covered by other tiIndicator properties. The security tool specified by targetProduct typically does not utilize this data.
      * @param string|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?string $value): void {
@@ -1037,7 +1037,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. An identification number that ties the indicator back to the indicator provider’s system (e.g. a foreign key).
+     * Sets the externalId property value. An identification number that ties the indicator back to the indicator provider’s system (for example, a foreign key).
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -1165,7 +1165,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the malwareFamilyNames property value. The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
+     * Sets the malwareFamilyNames property value. The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible that can be found via the Windows Defender Security Intelligence threat encyclopedia.
      * @param array<string>|null $value Value to set for the malwareFamilyNames property.
     */
     public function setMalwareFamilyNames(?array $value): void {
@@ -1293,7 +1293,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false.
+     * Sets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools won't notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they'll simply log that a match occurred but won't perform the action. Default value is false.
      * @param bool|null $value Value to set for the passiveOnly property.
     */
     public function setPassiveOnly(?bool $value): void {
@@ -1301,7 +1301,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the severity property value. An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero is not severe at all. Default value is 3.
+     * Sets the severity property value. An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero isn't severe at all. Default value is 3.
      * @param int|null $value Value to set for the severity property.
     */
     public function setSeverity(?int $value): void {

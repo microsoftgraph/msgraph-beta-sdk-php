@@ -25,7 +25,7 @@ class CustomExtensionHandler extends Entity implements Parsable
     }
 
     /**
-     * Gets the customExtension property value. Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+     * Gets the customExtension property value. Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.
      * @return CustomAccessPackageWorkflowExtension|null
     */
     public function getCustomExtension(): ?CustomAccessPackageWorkflowExtension {
@@ -71,7 +71,7 @@ class CustomExtensionHandler extends Entity implements Parsable
     }
 
     /**
-     * Sets the customExtension property value. Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+     * Sets the customExtension property value. Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.
      * @param CustomAccessPackageWorkflowExtension|null $value Value to set for the customExtension property.
     */
     public function setCustomExtension(?CustomAccessPackageWorkflowExtension $value): void {

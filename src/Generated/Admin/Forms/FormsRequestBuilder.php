@@ -50,7 +50,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminForms object.
+     * Read the properties and relationships of a adminForms object. This API is supported in the following national cloud deployments.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/adminforms-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminForms object.
+     * Update the properties of a adminForms object. This API is supported in the following national cloud deployments.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminForms object.
+     * Read the properties and relationships of a adminForms object. This API is supported in the following national cloud deployments.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminForms object.
+     * Update the properties of a adminForms object. This API is supported in the following national cloud deployments.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

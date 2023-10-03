@@ -57,7 +57,7 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the entryType property value. The entry type of tenant allow block list. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
+     * Gets the entryType property value. The tenant allow-block list entry type. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
      * @return TenantAllowBlockListEntryType|null
     */
     public function getEntryType(): ?TenantAllowBlockListEntryType {
@@ -69,7 +69,7 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the expirationDateTime property value. Specifies when will this entry expire in date time.
+     * Gets the expirationDateTime property value. Specifies the date and time when the entry expires.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -175,7 +175,7 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the entryType property value. The entry type of tenant allow block list. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
+     * Sets the entryType property value. The tenant allow-block list entry type. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
      * @param TenantAllowBlockListEntryType|null $value Value to set for the entryType property.
     */
     public function setEntryType(?TenantAllowBlockListEntryType $value): void {
@@ -183,7 +183,7 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the expirationDateTime property value. Specifies when will this entry expire in date time.
+     * Sets the expirationDateTime property value. Specifies the date and time when the entry expires.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {

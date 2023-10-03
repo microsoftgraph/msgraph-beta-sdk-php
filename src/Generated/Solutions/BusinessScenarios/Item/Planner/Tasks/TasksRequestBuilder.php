@@ -53,7 +53,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the businessScenarioTask objects and their properties.
+     * Get a list of the businessScenarioTask objects and their properties. This API is supported in the following national cloud deployments.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-list-tasks?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenarioTask object.
+     * Create a new businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the businessScenarioTask objects and their properties.
+     * Get a list of the businessScenarioTask objects and their properties. This API is supported in the following national cloud deployments.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenarioTask object.
+     * Create a new businessScenarioTask object. This API is supported in the following national cloud deployments.
      * @param BusinessScenarioTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

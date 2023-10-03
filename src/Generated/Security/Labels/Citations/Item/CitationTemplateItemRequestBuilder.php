@@ -32,7 +32,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object.
+     * Delete a citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-citations?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * Read the properties and relationships of a citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object.
+     * Delete a citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * Read the properties and relationships of a citationTemplate object. This API is supported in the following national cloud deployments.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

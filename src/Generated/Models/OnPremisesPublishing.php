@@ -49,7 +49,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the alternateUrl property value. If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager.
+     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that points to the traffic manager.
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
@@ -61,7 +61,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the applicationServerTimeout property value. The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
+     * Gets the applicationServerTimeout property value. The duration the connector waits for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
      * @return string|null
     */
     public function getApplicationServerTimeout(): ?string {
@@ -93,7 +93,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication.
+     * Gets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
      * @return ExternalAuthenticationType|null
     */
     public function getExternalAuthenticationType(): ?ExternalAuthenticationType {
@@ -174,7 +174,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isBackendCertificateValidationEnabled property value. Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
+     * Gets the isBackendCertificateValidationEnabled property value. Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property is set to true by default. For all existing apps, the property is set to false.
      * @return bool|null
     */
     public function getIsBackendCertificateValidationEnabled(): ?bool {
@@ -198,7 +198,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isOnPremPublishingEnabled property value. Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only.
+     * Gets the isOnPremPublishingEnabled property value. Indicates if the application is currently being published via Application Proxy or not. This is preset by the system. Read-only.
      * @return bool|null
     */
     public function getIsOnPremPublishingEnabled(): ?bool {
@@ -246,7 +246,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
+     * Gets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the response headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
      * @return bool|null
     */
     public function getIsTranslateHostHeaderEnabled(): ?bool {
@@ -407,7 +407,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the alternateUrl property value. If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager.
+     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that points to the traffic manager.
      * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {
@@ -415,7 +415,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the applicationServerTimeout property value. The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
+     * Sets the applicationServerTimeout property value. The duration the connector waits for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
      * @param string|null $value Value to set for the applicationServerTimeout property.
     */
     public function setApplicationServerTimeout(?string $value): void {
@@ -439,7 +439,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication.
+     * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
      * @param ExternalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
     */
     public function setExternalAuthenticationType(?ExternalAuthenticationType $value): void {
@@ -471,7 +471,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isBackendCertificateValidationEnabled property value. Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
+     * Sets the isBackendCertificateValidationEnabled property value. Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property is set to true by default. For all existing apps, the property is set to false.
      * @param bool|null $value Value to set for the isBackendCertificateValidationEnabled property.
     */
     public function setIsBackendCertificateValidationEnabled(?bool $value): void {
@@ -487,7 +487,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isOnPremPublishingEnabled property value. Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only.
+     * Sets the isOnPremPublishingEnabled property value. Indicates if the application is currently being published via Application Proxy or not. This is preset by the system. Read-only.
      * @param bool|null $value Value to set for the isOnPremPublishingEnabled property.
     */
     public function setIsOnPremPublishingEnabled(?bool $value): void {
@@ -519,7 +519,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
+     * Sets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the response headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
      * @param bool|null $value Value to set for the isTranslateHostHeaderEnabled property.
     */
     public function setIsTranslateHostHeaderEnabled(?bool $value): void {

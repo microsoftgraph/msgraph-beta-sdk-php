@@ -95,7 +95,7 @@ class TopicModelingSettings implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the isEnabled property value. Indicates whether themes is enabled for the case.
+     * Gets the isEnabled property value. Indicates whether themes are enabled for the case.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -176,7 +176,7 @@ class TopicModelingSettings implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the isEnabled property value. Indicates whether themes is enabled for the case.
+     * Sets the isEnabled property value. Indicates whether themes are enabled for the case.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {

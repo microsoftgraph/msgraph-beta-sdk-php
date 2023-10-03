@@ -50,7 +50,7 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get changes from drives
+     * A collection of task change histories.
      * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get changes from drives
+     * A collection of task change histories.
      * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

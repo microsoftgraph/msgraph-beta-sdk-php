@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolder
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
+ * List all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox. This API is supported in the following national cloud deployments.
 */
 class MessagesRequestBuilderGetQueryParameters 
 {

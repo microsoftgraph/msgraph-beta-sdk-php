@@ -90,7 +90,7 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.
+     * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults. This API is supported in the following national cloud deployments.
      * @param DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-1.0 Find more info here
@@ -145,7 +145,7 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.
+     * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults. This API is supported in the following national cloud deployments.
      * @param DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

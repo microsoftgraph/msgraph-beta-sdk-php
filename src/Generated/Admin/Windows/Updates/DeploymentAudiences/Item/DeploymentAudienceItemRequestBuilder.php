@@ -64,7 +64,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deploymentAudience object.
+     * Delete a deploymentAudience object. This API is supported in the following national cloud deployments.
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-delete?view=graph-rest-1.0 Find more info here
@@ -83,7 +83,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deploymentAudience object.
+     * Read the properties and relationships of a deploymentAudience object. This API is supported in the following national cloud deployments.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-1.0 Find more info here
@@ -121,7 +121,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deploymentAudience object.
+     * Delete a deploymentAudience object. This API is supported in the following national cloud deployments.
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -138,7 +138,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deploymentAudience object.
+     * Read the properties and relationships of a deploymentAudience object. This API is supported in the following national cloud deployments.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

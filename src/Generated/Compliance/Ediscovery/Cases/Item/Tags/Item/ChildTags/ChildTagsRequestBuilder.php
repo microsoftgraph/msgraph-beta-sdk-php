@@ -52,7 +52,7 @@ class ChildTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of child tag objects associated with a tag.
+     * Get a list of child tag objects associated with a tag. This API is supported in the following national cloud deployments.
      * @param ChildTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-tag-childtags?view=graph-rest-1.0 Find more info here
@@ -71,7 +71,7 @@ class ChildTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of child tag objects associated with a tag.
+     * Get a list of child tag objects associated with a tag. This API is supported in the following national cloud deployments.
      * @param ChildTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

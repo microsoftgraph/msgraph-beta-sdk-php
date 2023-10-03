@@ -38,7 +38,7 @@ class Pkcs12Certificate extends ApiAuthenticationConfigurationBase implements Pa
     }
 
     /**
-     * Gets the password property value. This is the password for the pfx file. Required. If no password is used, must still provide a value of ''.
+     * Gets the password property value. Specifies the password for the pfx file. Required. If no password is used, must still provide a value of ''.
      * @return string|null
     */
     public function getPassword(): ?string {
@@ -50,7 +50,7 @@ class Pkcs12Certificate extends ApiAuthenticationConfigurationBase implements Pa
     }
 
     /**
-     * Gets the pkcs12Value property value. This is the field for sending pfx content. The value should be a base-64 encoded version of the actual certificate content. Required.
+     * Gets the pkcs12Value property value. Specifies the field for sending pfx content. The value should be a base-64 encoded version of the actual certificate content. Required.
      * @return string|null
     */
     public function getPkcs12Value(): ?string {
@@ -72,7 +72,7 @@ class Pkcs12Certificate extends ApiAuthenticationConfigurationBase implements Pa
     }
 
     /**
-     * Sets the password property value. This is the password for the pfx file. Required. If no password is used, must still provide a value of ''.
+     * Sets the password property value. Specifies the password for the pfx file. Required. If no password is used, must still provide a value of ''.
      * @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value): void {
@@ -80,7 +80,7 @@ class Pkcs12Certificate extends ApiAuthenticationConfigurationBase implements Pa
     }
 
     /**
-     * Sets the pkcs12Value property value. This is the field for sending pfx content. The value should be a base-64 encoded version of the actual certificate content. Required.
+     * Sets the pkcs12Value property value. Specifies the field for sending pfx content. The value should be a base-64 encoded version of the actual certificate content. Required.
      * @param string|null $value Value to set for the pkcs12Value property.
     */
     public function setPkcs12Value(?string $value): void {

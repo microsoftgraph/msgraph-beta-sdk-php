@@ -50,7 +50,7 @@ class TeamsAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the specified Teams async operation that ran or is running on a specific resource.
+     * Get the specified Teams async operation that ran or is running on a specific resource. This API is supported in the following national cloud deployments.
      * @param TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamsasyncoperation-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class TeamsAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the specified Teams async operation that ran or is running on a specific resource.
+     * Get the specified Teams async operation that ran or is running on a specific resource. This API is supported in the following national cloud deployments.
      * @param TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

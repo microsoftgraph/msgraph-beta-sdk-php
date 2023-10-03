@@ -50,7 +50,7 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantDetailedInformation object.
+     * Read the properties and relationships of a tenantDetailedInformation object. This API is supported in the following national cloud deployments.
      * @param TenantDetailedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenantdetailedinformation-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantDetailedInformation object.
+     * Read the properties and relationships of a tenantDetailedInformation object. This API is supported in the following national cloud deployments.
      * @param TenantDetailedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

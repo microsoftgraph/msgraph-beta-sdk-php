@@ -37,7 +37,7 @@ class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp extends OnInterac
     }
 
     /**
-     * Gets the isSignUpAllowed property value. Optional. Specifes whether the authentication flow includes an option to sign up (create account) as well as sign in. Default value is false meaning only sign in is enabled.
+     * Gets the isSignUpAllowed property value. Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled.
      * @return bool|null
     */
     public function getIsSignUpAllowed(): ?bool {
@@ -58,7 +58,7 @@ class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp extends OnInterac
     }
 
     /**
-     * Sets the isSignUpAllowed property value. Optional. Specifes whether the authentication flow includes an option to sign up (create account) as well as sign in. Default value is false meaning only sign in is enabled.
+     * Sets the isSignUpAllowed property value. Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled.
      * @param bool|null $value Value to set for the isSignUpAllowed property.
     */
     public function setIsSignUpAllowed(?bool $value): void {

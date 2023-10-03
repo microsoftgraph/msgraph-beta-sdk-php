@@ -35,7 +35,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Gets the attackSimulationInfo property value. If the email is phishing simulation, this field will not be null.
+     * Gets the attackSimulationInfo property value. If the email is phishing simulation, this field won't be null.
      * @return AttackSimulationInfo|null
     */
     public function getAttackSimulationInfo(): ?AttackSimulationInfo {
@@ -66,7 +66,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Gets the internetMessageId property value. Specifies the internet message id of the email being submitted. This information is present in the email header.
+     * Gets the internetMessageId property value. Specifies the internet message ID of the email being submitted. This information is present in the email header.
      * @return string|null
     */
     public function getInternetMessageId(): ?string {
@@ -138,7 +138,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Gets the subject property value. Specifies the subject of the email .
+     * Gets the subject property value. Specifies the subject of the email.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -150,7 +150,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Gets the tenantAllowOrBlockListAction property value. It is used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
+     * Gets the tenantAllowOrBlockListAction property value. It's used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
      * @return TenantAllowOrBlockListAction|null
     */
     public function getTenantAllowOrBlockListAction(): ?TenantAllowOrBlockListAction {
@@ -179,7 +179,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Sets the attackSimulationInfo property value. If the email is phishing simulation, this field will not be null.
+     * Sets the attackSimulationInfo property value. If the email is phishing simulation, this field won't be null.
      * @param AttackSimulationInfo|null $value Value to set for the attackSimulationInfo property.
     */
     public function setAttackSimulationInfo(?AttackSimulationInfo $value): void {
@@ -187,7 +187,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Sets the internetMessageId property value. Specifies the internet message id of the email being submitted. This information is present in the email header.
+     * Sets the internetMessageId property value. Specifies the internet message ID of the email being submitted. This information is present in the email header.
      * @param string|null $value Value to set for the internetMessageId property.
     */
     public function setInternetMessageId(?string $value): void {
@@ -235,7 +235,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Sets the subject property value. Specifies the subject of the email .
+     * Sets the subject property value. Specifies the subject of the email.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -243,7 +243,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     }
 
     /**
-     * Sets the tenantAllowOrBlockListAction property value. It is used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
+     * Sets the tenantAllowOrBlockListAction property value. It's used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
      * @param TenantAllowOrBlockListAction|null $value Value to set for the tenantAllowOrBlockListAction property.
     */
     public function setTenantAllowOrBlockListAction(?TenantAllowOrBlockListAction $value): void {

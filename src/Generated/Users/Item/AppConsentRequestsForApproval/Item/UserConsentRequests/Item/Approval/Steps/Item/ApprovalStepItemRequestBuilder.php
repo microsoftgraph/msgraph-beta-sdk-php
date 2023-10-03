@@ -50,7 +50,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approvalStep object.
+     * Retrieve the properties of an approvalStep object. This API is supported in the following national cloud deployments.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object.
+     * Apply approve or deny decision on an approvalStep object. This API is supported in the following national cloud deployments.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approvalStep object.
+     * Retrieve the properties of an approvalStep object. This API is supported in the following national cloud deployments.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object.
+     * Apply approve or deny decision on an approvalStep object. This API is supported in the following national cloud deployments.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

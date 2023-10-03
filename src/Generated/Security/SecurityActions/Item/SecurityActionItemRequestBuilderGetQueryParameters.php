@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a securityAction object.
+ * Retrieve the properties and relationships of a securityAction object. This API is supported in the following national cloud deployments.
 */
 class SecurityActionItemRequestBuilderGetQueryParameters 
 {

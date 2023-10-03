@@ -120,7 +120,7 @@ class MediaStream implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the serverMuted property value. Indicates whether the media is muted by the server.
+     * Gets the serverMuted property value. Indicates whether the server has muted the media.
      * @return bool|null
     */
     public function getServerMuted(): ?bool {
@@ -206,7 +206,7 @@ class MediaStream implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the serverMuted property value. Indicates whether the media is muted by the server.
+     * Sets the serverMuted property value. Indicates whether the server has muted the media.
      * @param bool|null $value Value to set for the serverMuted property.
     */
     public function setServerMuted(?bool $value): void {

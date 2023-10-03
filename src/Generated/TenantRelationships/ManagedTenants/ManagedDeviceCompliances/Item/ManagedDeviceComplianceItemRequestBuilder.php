@@ -50,7 +50,7 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a managedDeviceCompliance object.
+     * Read the properties and relationships of a managedDeviceCompliance object. This API is supported in the following national cloud deployments.
      * @param ManagedDeviceComplianceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliance-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a managedDeviceCompliance object.
+     * Read the properties and relationships of a managedDeviceCompliance object. This API is supported in the following national cloud deployments.
      * @param ManagedDeviceComplianceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

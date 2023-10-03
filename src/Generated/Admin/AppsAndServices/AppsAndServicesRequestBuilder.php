@@ -50,7 +50,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminAppsAndServices object.
+     * Read the properties and relationships of a adminAppsAndServices object. This API is supported in the following national cloud deployments.
      * @param AppsAndServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/adminappsandservices-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminAppsAndServices object.
+     * Update the properties of a adminAppsAndServices object. This API is supported in the following national cloud deployments.
      * @param AdminAppsAndServices $body The request body
      * @param AppsAndServicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminAppsAndServices object.
+     * Read the properties and relationships of a adminAppsAndServices object. This API is supported in the following national cloud deployments.
      * @param AppsAndServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminAppsAndServices object.
+     * Update the properties of a adminAppsAndServices object. This API is supported in the following national cloud deployments.
      * @param AdminAppsAndServices $body The request body
      * @param AppsAndServicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

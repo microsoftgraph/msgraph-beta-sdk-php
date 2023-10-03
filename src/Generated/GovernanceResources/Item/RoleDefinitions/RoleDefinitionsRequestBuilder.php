@@ -53,7 +53,7 @@ class RoleDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of role defintions for the resource.
+     * The collection of role definitions for the resource.
      * @param RoleDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class RoleDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of role defintions for the resource.
+     * The collection of role definitions for the resource.
      * @param RoleDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

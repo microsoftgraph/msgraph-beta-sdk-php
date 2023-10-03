@@ -32,7 +32,7 @@ class WhoisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the current whoisRecord resource for a host.
+     * Get the current whoisRecord resource for a host. This API is supported in the following national cloud deployments.
      * @param WhoisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-host-get-whois?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class WhoisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the current whoisRecord resource for a host.
+     * Get the current whoisRecord resource for a host. This API is supported in the following national cloud deployments.
      * @param WhoisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

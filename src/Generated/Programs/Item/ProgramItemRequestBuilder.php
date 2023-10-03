@@ -40,7 +40,7 @@ class ProgramItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted.
+     * In the Azure AD access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted. This API is supported in the following national cloud deployments.
      * @param ProgramItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/program-delete?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class ProgramItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, update an existing program object.
+     * In the Azure AD access reviews feature, update an existing program object. This API is supported in the following national cloud deployments.
      * @param Program $body The request body
      * @param ProgramItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -97,7 +97,7 @@ class ProgramItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted.
+     * In the Azure AD access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted. This API is supported in the following national cloud deployments.
      * @param ProgramItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class ProgramItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Azure AD access reviews feature, update an existing program object.
+     * In the Azure AD access reviews feature, update an existing program object. This API is supported in the following national cloud deployments.
      * @param Program $body The request body
      * @param ProgramItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

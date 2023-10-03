@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\AppConsentApprovalRoute;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\PermissionsManagement;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\RoleManagementAlert;
 use Microsoft\Graph\Beta\Generated\Models\TermsOfUseContainer;
@@ -109,6 +110,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([EntitlementManagement::class, 'createFromDiscriminatorValue'])),
             'lifecycleWorkflows' => fn(ParseNode $n) => $o->setLifecycleWorkflows($n->getObjectValue([LifecycleWorkflowsContainer::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'permissionsManagement' => fn(ParseNode $n) => $o->setPermissionsManagement($n->getObjectValue([PermissionsManagement::class, 'createFromDiscriminatorValue'])),
             'privilegedAccess' => fn(ParseNode $n) => $o->setPrivilegedAccess($n->getObjectValue([PrivilegedAccessRoot::class, 'createFromDiscriminatorValue'])),
             'roleManagementAlerts' => fn(ParseNode $n) => $o->setRoleManagementAlerts($n->getObjectValue([RoleManagementAlert::class, 'createFromDiscriminatorValue'])),
             'termsOfUse' => fn(ParseNode $n) => $o->setTermsOfUse($n->getObjectValue([TermsOfUseContainer::class, 'createFromDiscriminatorValue'])),
@@ -137,6 +139,18 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the permissionsManagement property value. The permissionsManagement property
+     * @return PermissionsManagement|null
+    */
+    public function getPermissionsManagement(): ?PermissionsManagement {
+        $val = $this->getBackingStore()->get('permissionsManagement');
+        if (is_null($val) || $val instanceof PermissionsManagement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionsManagement'");
     }
 
     /**
@@ -185,6 +199,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
         $writer->writeObjectValue('lifecycleWorkflows', $this->getLifecycleWorkflows());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('permissionsManagement', $this->getPermissionsManagement());
         $writer->writeObjectValue('privilegedAccess', $this->getPrivilegedAccess());
         $writer->writeObjectValue('roleManagementAlerts', $this->getRoleManagementAlerts());
         $writer->writeObjectValue('termsOfUse', $this->getTermsOfUse());
@@ -245,6 +260,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the permissionsManagement property value. The permissionsManagement property
+     * @param PermissionsManagement|null $value Value to set for the permissionsManagement property.
+    */
+    public function setPermissionsManagement(?PermissionsManagement $value): void {
+        $this->getBackingStore()->set('permissionsManagement', $value);
     }
 
     /**

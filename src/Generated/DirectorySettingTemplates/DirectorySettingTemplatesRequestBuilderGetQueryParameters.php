@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DirectorySettingTemplates;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available directorySettingTemplates objects.
+ * Directory setting templates represents a set of templates of directory settings, from which directory settings may be created and used within a tenant.  This operation retrieves the list of available directorySettingTemplates objects. This API is supported in the following national cloud deployments.
 */
 class DirectorySettingTemplatesRequestBuilderGetQueryParameters 
 {

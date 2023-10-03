@@ -53,7 +53,7 @@ class WhoisRecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of whoisRecord objects.
+     * Get a list of whoisRecord objects. This API is supported in the following national cloud deployments.
      * @param WhoisRecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-whoisrecord-list?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class WhoisRecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of whoisRecord objects.
+     * Get a list of whoisRecord objects. This API is supported in the following national cloud deployments.
      * @param WhoisRecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

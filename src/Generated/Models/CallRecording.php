@@ -60,6 +60,7 @@ class CallRecording extends Entity implements Parsable
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'meetingId' => fn(ParseNode $n) => $o->setMeetingId($n->getStringValue()),
+            'meetingOrganizer' => fn(ParseNode $n) => $o->setMeetingOrganizer($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'meetingOrganizerId' => fn(ParseNode $n) => $o->setMeetingOrganizerId($n->getStringValue()),
             'recordingContentUrl' => fn(ParseNode $n) => $o->setRecordingContentUrl($n->getStringValue()),
         ]);
@@ -75,6 +76,18 @@ class CallRecording extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingId'");
+    }
+
+    /**
+     * Gets the meetingOrganizer property value. The identity information of the organizer of the onlineMeeting related to this recording. Read-only.
+     * @return IdentitySet|null
+    */
+    public function getMeetingOrganizer(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('meetingOrganizer');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingOrganizer'");
     }
 
     /**
@@ -110,6 +123,7 @@ class CallRecording extends Entity implements Parsable
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('meetingId', $this->getMeetingId());
+        $writer->writeObjectValue('meetingOrganizer', $this->getMeetingOrganizer());
         $writer->writeStringValue('meetingOrganizerId', $this->getMeetingOrganizerId());
         $writer->writeStringValue('recordingContentUrl', $this->getRecordingContentUrl());
     }
@@ -136,6 +150,14 @@ class CallRecording extends Entity implements Parsable
     */
     public function setMeetingId(?string $value): void {
         $this->getBackingStore()->set('meetingId', $value);
+    }
+
+    /**
+     * Sets the meetingOrganizer property value. The identity information of the organizer of the onlineMeeting related to this recording. Read-only.
+     * @param IdentitySet|null $value Value to set for the meetingOrganizer property.
+    */
+    public function setMeetingOrganizer(?IdentitySet $value): void {
+        $this->getBackingStore()->set('meetingOrganizer', $value);
     }
 
     /**

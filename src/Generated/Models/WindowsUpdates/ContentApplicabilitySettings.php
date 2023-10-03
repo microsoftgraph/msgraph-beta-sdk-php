@@ -103,7 +103,7 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the safeguard property value. Settings for governing safeguard holds on offering content.
+     * Gets the safeguard property value. Settings for governing safeguard-holds on offering content.
      * @return SafeguardSettings|null
     */
     public function getSafeguard(): ?SafeguardSettings {
@@ -158,7 +158,7 @@ class ContentApplicabilitySettings implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the safeguard property value. Settings for governing safeguard holds on offering content.
+     * Sets the safeguard property value. Settings for governing safeguard-holds on offering content.
      * @param SafeguardSettings|null $value Value to set for the safeguard property.
     */
     public function setSafeguard(?SafeguardSettings $value): void {

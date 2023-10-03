@@ -32,10 +32,11 @@ class GetConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getConnectionQualityReports
+     * Get the overall connection quality reports for all devices within a current tenant during a given time period, including metrics like the average round trip time (P50), average available bandwidth, and UDP connection percentage. Get also other real-time metrics such as last connection round trip time, last connection client IP, last connection gateway, and last connection protocol. This API is supported in the following national cloud deployments.
      * @param GetConnectionQualityReportsPostRequestBody $body The request body
      * @param GetConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getconnectionqualityreports?view=graph-rest-1.0 Find more info here
     */
     public function post(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getConnectionQualityReports
+     * Get the overall connection quality reports for all devices within a current tenant during a given time period, including metrics like the average round trip time (P50), average available bandwidth, and UDP connection percentage. Get also other real-time metrics such as last connection round trip time, last connection client IP, last connection gateway, and last connection protocol. This API is supported in the following national cloud deployments.
      * @param GetConnectionQualityReportsPostRequestBody $body The request body
      * @param GetConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
