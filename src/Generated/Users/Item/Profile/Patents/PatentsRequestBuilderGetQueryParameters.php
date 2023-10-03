@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of itemPatent objects from a user's profile.
+ * Retrieve a list of itemPatent objects from a user's profile. This API is supported in the following national cloud deployments.
 */
 class PatentsRequestBuilderGetQueryParameters 
 {

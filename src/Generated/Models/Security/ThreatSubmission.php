@@ -40,7 +40,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the adminReview property value. Specifies the admin review property which constitutes of who reviewed the user submission, when and what was it identified as.
+     * Gets the adminReview property value. Specifies the admin review property that constitutes of who reviewed the user submission, when and what was it identified as.
      * @return SubmissionAdminReview|null
     */
     public function getAdminReview(): ?SubmissionAdminReview {
@@ -168,7 +168,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It is extracted from the token of the post API call.
+     * Gets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It's extracted from the token of the post API call.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -198,7 +198,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the adminReview property value. Specifies the admin review property which constitutes of who reviewed the user submission, when and what was it identified as.
+     * Sets the adminReview property value. Specifies the admin review property that constitutes of who reviewed the user submission, when and what was it identified as.
      * @param SubmissionAdminReview|null $value Value to set for the adminReview property.
     */
     public function setAdminReview(?SubmissionAdminReview $value): void {
@@ -270,7 +270,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It is extracted from the token of the post API call.
+     * Sets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It's extracted from the token of the post API call.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

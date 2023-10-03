@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Suppor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the supported regions that are available for creating Cloud PC connections.
+ * List the supported regions that are available for creating Cloud PC connections. This API is supported in the following national cloud deployments.
 */
 class SupportedRegionsRequestBuilderGetQueryParameters 
 {

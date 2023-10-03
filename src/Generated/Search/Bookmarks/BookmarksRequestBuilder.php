@@ -53,7 +53,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookmark objects and their properties.
+     * Get a list of bookmark objects and their properties. This API is supported in the following national cloud deployments.
      * @param BookmarksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-searchentity-list-bookmarks?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookmark object.
+     * Create a new bookmark object. This API is supported in the following national cloud deployments.
      * @param Bookmark $body The request body
      * @param BookmarksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookmark objects and their properties.
+     * Get a list of bookmark objects and their properties. This API is supported in the following national cloud deployments.
      * @param BookmarksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class BookmarksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookmark object.
+     * Create a new bookmark object. This API is supported in the following national cloud deployments.
      * @param Bookmark $body The request body
      * @param BookmarksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

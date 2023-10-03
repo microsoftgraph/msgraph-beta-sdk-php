@@ -31,7 +31,7 @@ class SubmitTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param SubmitTiIndicatorsPostRequestBody $body The request body
      * @param SubmitTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class SubmitTiIndicatorsRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [SubmitTiIndicatorsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [SubmitTiIndicatorsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param SubmitTiIndicatorsPostRequestBody $body The request body
      * @param SubmitTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

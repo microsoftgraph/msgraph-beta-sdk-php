@@ -50,7 +50,7 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific endpoint object.
+     * Retrieve the properties and relationships of a specific endpoint object. This API is supported in the following national cloud deployments.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/endpoint-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific endpoint object.
+     * Retrieve the properties and relationships of a specific endpoint object. This API is supported in the following national cloud deployments.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

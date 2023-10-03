@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of catalogEntry resources from the catalog. Currently, this operation returns entries of the featureUpdateCatalogEntry or qualityUpdateCatalog types, inherited from catalogEntry. 
+ * Get a list of catalogEntry resources from the catalog. Currently, this operation returns entries of the featureUpdateCatalogEntry or qualityUpdateCatalog types, inherited from catalogEntry.  This API is supported in the following national cloud deployments.
 */
 class EntriesRequestBuilderGetQueryParameters 
 {

@@ -122,7 +122,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a custodian object.
+     * Read the properties and relationships of a custodian object. This API is supported in the following national cloud deployments.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-get?view=graph-rest-1.0 Find more info here
@@ -141,7 +141,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a custodian object.
+     * Update the properties of a custodian object. This API is supported in the following national cloud deployments.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -178,7 +178,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a custodian object.
+     * Read the properties and relationships of a custodian object. This API is supported in the following national cloud deployments.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -199,7 +199,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a custodian object.
+     * Update the properties of a custodian object. This API is supported in the following national cloud deployments.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

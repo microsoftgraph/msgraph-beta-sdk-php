@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a roleGroup object.
+ * Read the properties and relationships of a roleGroup object. This API is supported in the following national cloud deployments.
 */
 class RoleGroupItemRequestBuilderGetQueryParameters 
 {

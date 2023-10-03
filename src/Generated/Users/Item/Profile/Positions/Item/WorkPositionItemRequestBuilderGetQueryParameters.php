@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Positions\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a workPosition object in a user's profile.
+ * Retrieve the properties and relationships of a workPosition object in a user's profile. This API is supported in the following national cloud deployments.
 */
 class WorkPositionItemRequestBuilderGetQueryParameters 
 {

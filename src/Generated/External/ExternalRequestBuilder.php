@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\External\AuthorizationSystems\AuthorizationSystemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\Connections\ConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\IndustryDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\External;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ExternalRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.
+    */
+    public function authorizationSystems(): AuthorizationSystemsRequestBuilder {
+        return new AuthorizationSystemsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
     */

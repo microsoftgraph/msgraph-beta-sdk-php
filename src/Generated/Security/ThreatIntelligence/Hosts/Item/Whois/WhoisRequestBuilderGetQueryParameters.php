@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the current whoisRecord resource for a host.
+ * Get the current whoisRecord resource for a host. This API is supported in the following national cloud deployments.
 */
 class WhoisRequestBuilderGetQueryParameters 
 {

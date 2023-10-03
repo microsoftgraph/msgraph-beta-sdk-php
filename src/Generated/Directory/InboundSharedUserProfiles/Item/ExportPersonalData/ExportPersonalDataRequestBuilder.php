@@ -31,7 +31,7 @@ class ExportPersonalDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a request to export the personal data for an inboundSharedUserProfile.
+     * Create a request to export the personal data for an inboundSharedUserProfile. This API is supported in the following national cloud deployments.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class ExportPersonalDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a request to export the personal data for an inboundSharedUserProfile.
+     * Create a request to export the personal data for an inboundSharedUserProfile. This API is supported in the following national cloud deployments.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -68,7 +68,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a connectorGroup to an application.
+     * Assign a connectorGroup to an application. This API is supported in the following national cloud deployments.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -123,7 +123,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a connectorGroup to an application.
+     * Assign a connectorGroup to an application. This API is supported in the following national cloud deployments.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

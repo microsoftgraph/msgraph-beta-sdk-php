@@ -32,10 +32,11 @@ class GetFrontlineReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getFrontlineReport
+     * Get the Windows 365 Frontline reports, such as real-time or historical data reports.
      * @param GetFrontlineReportPostRequestBody $body The request body
      * @param GetFrontlineReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getfrontlinereport?view=graph-rest-1.0 Find more info here
     */
     public function post(GetFrontlineReportPostRequestBody $body, ?GetFrontlineReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetFrontlineReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getFrontlineReport
+     * Get the Windows 365 Frontline reports, such as real-time or historical data reports.
      * @param GetFrontlineReportPostRequestBody $body The request body
      * @param GetFrontlineReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

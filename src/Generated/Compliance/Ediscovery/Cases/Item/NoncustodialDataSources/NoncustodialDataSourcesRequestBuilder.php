@@ -69,7 +69,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the noncustodialDataSource objects and their properties.
+     * Get a list of the noncustodialDataSource objects and their properties. This API is supported in the following national cloud deployments.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-list?view=graph-rest-1.0 Find more info here
@@ -88,7 +88,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new noncustodialDataSource object.
+     * Create a new noncustodialDataSource object. This API is supported in the following national cloud deployments.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -108,7 +108,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the noncustodialDataSource objects and their properties.
+     * Get a list of the noncustodialDataSource objects and their properties. This API is supported in the following national cloud deployments.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +129,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new noncustodialDataSource object.
+     * Create a new noncustodialDataSource object. This API is supported in the following national cloud deployments.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

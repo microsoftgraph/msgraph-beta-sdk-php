@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
+ * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties. This API is supported in the following national cloud deployments.
 */
 class DecisionsRequestBuilderGetQueryParameters 
 {

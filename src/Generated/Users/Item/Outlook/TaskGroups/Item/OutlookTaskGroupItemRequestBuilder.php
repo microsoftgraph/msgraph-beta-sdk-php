@@ -58,7 +58,7 @@ class OutlookTaskGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task group.
+     * Get the properties and relationships of the specified Outlook task group. This API is supported in the following national cloud deployments.
      * @param OutlookTaskGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-get?view=graph-rest-1.0 Find more info here
@@ -113,7 +113,7 @@ class OutlookTaskGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task group.
+     * Get the properties and relationships of the specified Outlook task group. This API is supported in the following national cloud deployments.
      * @param OutlookTaskGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

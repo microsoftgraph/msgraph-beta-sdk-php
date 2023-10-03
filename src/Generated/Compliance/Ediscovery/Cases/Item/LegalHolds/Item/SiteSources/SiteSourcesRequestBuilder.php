@@ -53,7 +53,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of siteSource objecs associated with a legal hold.
+     * Get the list of siteSource objecs associated with a legal hold. This API is supported in the following national cloud deployments.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-list-sitesources?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a siteSource to a legalHold object.
+     * Adds a siteSource to a legalHold object. This API is supported in the following national cloud deployments.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of siteSource objecs associated with a legal hold.
+     * Get the list of siteSource objecs associated with a legal hold. This API is supported in the following national cloud deployments.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a siteSource to a legalHold object.
+     * Adds a siteSource to a legalHold object. This API is supported in the following national cloud deployments.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

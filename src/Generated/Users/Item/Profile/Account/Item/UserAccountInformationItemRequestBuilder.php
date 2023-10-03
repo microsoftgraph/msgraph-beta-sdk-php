@@ -32,7 +32,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an userAccountInformation object from a user's profile.
+     * Delete an userAccountInformation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/useraccountinformation-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile.
+     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/useraccountinformation-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an userAccountInformation object in a user's profile.
+     * Update the properties of an userAccountInformation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformation $body The request body
      * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an userAccountInformation object from a user's profile.
+     * Delete an userAccountInformation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile.
+     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an userAccountInformation object in a user's profile.
+     * Update the properties of an userAccountInformation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param UserAccountInformation $body The request body
      * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an openShiftChangeRequest object.
+ * Retrieve the properties and relationships of an openShiftChangeRequest object. This API is supported in the following national cloud deployments.
 */
 class OpenShiftChangeRequestItemRequestBuilderGetQueryParameters 
 {

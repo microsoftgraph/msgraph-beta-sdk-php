@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Sponsors;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest user's privileges in the tenant and for keeping the guest user's information and access up to date.
+ * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest user's privileges in the tenant and for keeping the guest user's information and access up to date. This API is supported in the following national cloud deployments.
 */
 class SponsorsRequestBuilderGetQueryParameters 
 {

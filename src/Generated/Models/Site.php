@@ -154,6 +154,7 @@ class Site extends BaseItem implements Parsable
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
             'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([BaseSitePage::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
+            'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SiteSettings::class, 'createFromDiscriminatorValue'])),
             'sharepointIds' => fn(ParseNode $n) => $o->setSharepointIds($n->getObjectValue([SharepointIds::class, 'createFromDiscriminatorValue'])),
@@ -270,6 +271,18 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the recycleBin property value. The recycleBin property
+     * @return RecycleBin|null
+    */
+    public function getRecycleBin(): ?RecycleBin {
+        $val = $this->getBackingStore()->get('recycleBin');
+        if (is_null($val) || $val instanceof RecycleBin) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recycleBin'");
+    }
+
+    /**
      * Gets the root property value. If present, indicates that this is the root site in the site collection. Read-only.
      * @return Root|null
     */
@@ -365,6 +378,7 @@ class Site extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
+        $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
         $writer->writeObjectValue('root', $this->getRoot());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('sharepointIds', $this->getSharepointIds());
@@ -499,6 +513,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setPermissions(?array $value): void {
         $this->getBackingStore()->set('permissions', $value);
+    }
+
+    /**
+     * Sets the recycleBin property value. The recycleBin property
+     * @param RecycleBin|null $value Value to set for the recycleBin property.
+    */
+    public function setRecycleBin(?RecycleBin $value): void {
+        $this->getBackingStore()->set('recycleBin', $value);
     }
 
     /**

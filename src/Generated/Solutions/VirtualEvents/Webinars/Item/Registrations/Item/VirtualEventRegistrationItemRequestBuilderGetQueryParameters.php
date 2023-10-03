@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a virtualEventRegistration object.
+ * Get the properties and relationships of a virtualEventRegistration object. This API is supported in the following national cloud deployments.
 */
 class VirtualEventRegistrationItemRequestBuilderGetQueryParameters 
 {

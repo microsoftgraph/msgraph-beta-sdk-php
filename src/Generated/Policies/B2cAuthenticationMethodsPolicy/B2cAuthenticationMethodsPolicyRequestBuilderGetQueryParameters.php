@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties of a b2cAuthenticationMethodsPolicy object.
+ * Read the properties of a b2cAuthenticationMethodsPolicy object. This API is supported in the following national cloud deployments.
 */
 class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters 
 {

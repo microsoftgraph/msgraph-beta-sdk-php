@@ -26,7 +26,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the active property value. The number of active groups. A group is considered active if any of the following occurred: group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
+     * Gets the active property value. The number of active groups. A group is considered active if any of the following occurred: group mailbox received email, or  a user viewed, edited, shared, or synced files in SharePoint document library, or a user viewed SharePoint pages, or a user posted, read, or liked messages in Yammer groups.
      * @return int|null
     */
     public function getActive(): ?int {
@@ -53,7 +53,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportDate property value. The date on which a number of groups were active.
+     * Gets the reportDate property value. The date on which groups were active.
      * @return Date|null
     */
     public function getReportDate(): ?Date {
@@ -114,7 +114,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the active property value. The number of active groups. A group is considered active if any of the following occurred: group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
+     * Sets the active property value. The number of active groups. A group is considered active if any of the following occurred: group mailbox received email, or  a user viewed, edited, shared, or synced files in SharePoint document library, or a user viewed SharePoint pages, or a user posted, read, or liked messages in Yammer groups.
      * @param int|null $value Value to set for the active property.
     */
     public function setActive(?int $value): void {
@@ -122,7 +122,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportDate property value. The date on which a number of groups were active.
+     * Sets the reportDate property value. The date on which groups were active.
      * @param Date|null $value Value to set for the reportDate property.
     */
     public function setReportDate(?Date $value): void {

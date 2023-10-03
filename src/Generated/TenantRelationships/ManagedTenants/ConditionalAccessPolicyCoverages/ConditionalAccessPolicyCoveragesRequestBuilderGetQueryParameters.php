@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Cond
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list of Azure Active Directory conditional access policy coverage across all tenants that are being managed by the multi-tenant management platform.
+ * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list of Azure Active Directory conditional access policy coverage across all tenants that are being managed by the multi-tenant management platform. This API is supported in the following national cloud deployments.
 */
 class ConditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters 
 {

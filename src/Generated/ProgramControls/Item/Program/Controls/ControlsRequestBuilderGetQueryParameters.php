@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ProgramControls\Item\Program\Controls;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Azure AD access reviews feature, list all the programControl objects, linked to a particular program.
+ * In the Azure AD access reviews feature, list all the programControl objects, linked to a particular program. This API is supported in the following national cloud deployments.
 */
 class ControlsRequestBuilderGetQueryParameters 
 {

@@ -53,7 +53,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile.
+     * Retrieve a list of itemPatent objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-patents?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPatent object within a user's profile.
+     * Create a new itemPatent object within a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile.
+     * Retrieve a list of itemPatent objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPatent object within a user's profile.
+     * Create a new itemPatent object within a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of timeCard entries in a schedule.
+ * Retrieve a list of timeCard entries in a schedule. This API is supported in the following national cloud deployments.
 */
 class TimeCardsRequestBuilderGetQueryParameters 
 {

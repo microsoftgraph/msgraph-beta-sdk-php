@@ -72,7 +72,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a trustFrameworkKeySet.
+     * Delete a trustFrameworkKeySet. This API is supported in the following national cloud deployments.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for a Trustframeworkkeyset.
+     * Retrieve the properties and associations for a Trustframeworkkeyset. This API is supported in the following national cloud deployments.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-1.0 Find more info here
@@ -130,7 +130,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a trustFrameworkKeySet.
+     * Delete a trustFrameworkKeySet. This API is supported in the following national cloud deployments.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -147,7 +147,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for a Trustframeworkkeyset.
+     * Retrieve the properties and associations for a Trustframeworkkeyset. This API is supported in the following national cloud deployments.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

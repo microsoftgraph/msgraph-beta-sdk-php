@@ -63,7 +63,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties. This API is supported in the following national cloud deployments.
      * @param AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-assignmentschedulerequests?view=graph-rest-1.0 Find more info here
@@ -82,7 +82,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object. This API is supported in the following national cloud deployments.
      * @param PrivilegedAccessGroupAssignmentScheduleRequest $body The request body
      * @param AssignmentScheduleRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -102,7 +102,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties. This API is supported in the following national cloud deployments.
      * @param AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object. This API is supported in the following national cloud deployments.
      * @param PrivilegedAccessGroupAssignmentScheduleRequest $body The request body
      * @param AssignmentScheduleRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

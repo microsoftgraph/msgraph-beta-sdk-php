@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RiskDetections;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a collection of riskDetection objects.
+ * Retrieve the properties of a riskDetection object. This API is supported in the following national cloud deployments.
 */
 class RiskDetectionsRequestBuilderGetQueryParameters 
 {

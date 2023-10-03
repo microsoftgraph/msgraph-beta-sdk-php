@@ -32,7 +32,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object.
+     * Delete a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object.
+     * Read the properties and relationships of a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object.
+     * Update the properties of a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object.
+     * Delete a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object.
+     * Read the properties and relationships of a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object.
+     * Update the properties of a sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

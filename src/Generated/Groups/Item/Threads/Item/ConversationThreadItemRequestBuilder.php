@@ -48,7 +48,7 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a thread object.
+     * Delete a thread object. This API is supported in the following national cloud deployments.
      * @param ConversationThreadItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0 Find more info here
@@ -67,10 +67,10 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.  This API is supported in the following national cloud deployments.
      * @param ConversationThreadItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConversationThreadItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -86,7 +86,7 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a thread object.
+     * Update a thread object. This API is supported in the following national cloud deployments.
      * @param ConversationThread $body The request body
      * @param ConversationThreadItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a thread object.
+     * Delete a thread object. This API is supported in the following national cloud deployments.
      * @param ConversationThreadItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.  This API is supported in the following national cloud deployments.
      * @param ConversationThreadItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +144,7 @@ class ConversationThreadItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a thread object.
+     * Update a thread object. This API is supported in the following national cloud deployments.
      * @param ConversationThread $body The request body
      * @param ConversationThreadItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

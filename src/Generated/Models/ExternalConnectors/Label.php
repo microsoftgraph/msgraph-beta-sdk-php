@@ -15,7 +15,7 @@ class Label extends Enum {
     public const FILE_NAME = 'fileName';
     public const FILE_EXTENSION = 'fileExtension';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
-    public const ICON_URL = 'iconUrl';
     public const CONTAINER_NAME = 'containerName';
     public const CONTAINER_URL = 'containerUrl';
+    public const ICON_URL = 'iconUrl';
 }

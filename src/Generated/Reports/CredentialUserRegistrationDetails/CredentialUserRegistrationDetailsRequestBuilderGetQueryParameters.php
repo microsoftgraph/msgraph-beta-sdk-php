@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetai
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of credentialUserRegistrationDetails objects for a given tenant.
+ * Get a list of credentialUserRegistrationDetails objects for a given tenant. This API is supported in the following national cloud deployments.
 */
 class CredentialUserRegistrationDetailsRequestBuilderGetQueryParameters 
 {

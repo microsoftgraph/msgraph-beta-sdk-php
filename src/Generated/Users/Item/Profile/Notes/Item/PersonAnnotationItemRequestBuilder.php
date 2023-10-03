@@ -32,7 +32,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAnnotation object from a user's profile.
+     * Deletes a personAnnotation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personannotation-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personAnnotation object from a user's profile.
+     * Read the properties and relationships of a personAnnotation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personannotation-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAnnotation object in a user's profile.
+     * Update the properties of a personAnnotation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotation $body The request body
      * @param PersonAnnotationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAnnotation object from a user's profile.
+     * Deletes a personAnnotation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personAnnotation object from a user's profile.
+     * Read the properties and relationships of a personAnnotation object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAnnotation object in a user's profile.
+     * Update the properties of a personAnnotation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnotation $body The request body
      * @param PersonAnnotationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

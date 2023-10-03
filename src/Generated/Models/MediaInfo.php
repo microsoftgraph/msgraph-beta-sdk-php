@@ -81,7 +81,7 @@ class MediaInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceId property value. Optional, used to uniquely identity the resource. If passed the prompt uri will be cached against this resourceId as key.
+     * Gets the resourceId property value. Optional, used to uniquely identity the resource. If passed, the prompt uri is cached against this resourceId as key.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -93,7 +93,7 @@ class MediaInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the uri property value. Path to the prompt to be played. Currently only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16KHz) sampling rate is only supported.
+     * Gets the uri property value. Path to the prompt to be played. Currently only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16 KHz) sampling rate is only supported.
      * @return string|null
     */
     public function getUri(): ?string {
@@ -140,7 +140,7 @@ class MediaInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceId property value. Optional, used to uniquely identity the resource. If passed the prompt uri will be cached against this resourceId as key.
+     * Sets the resourceId property value. Optional, used to uniquely identity the resource. If passed, the prompt uri is cached against this resourceId as key.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
@@ -148,7 +148,7 @@ class MediaInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the uri property value. Path to the prompt to be played. Currently only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16KHz) sampling rate is only supported.
+     * Sets the uri property value. Path to the prompt to be played. Currently only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16 KHz) sampling rate is only supported.
      * @param string|null $value Value to set for the uri property.
     */
     public function setUri(?string $value): void {

@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\ExternalConnectors;
 
+use Microsoft\Graph\Beta\Generated\Models\AuthorizationSystem;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRoot;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -50,6 +51,20 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the authorizationSystems property value. The authorizationSystems property
+     * @return array<AuthorizationSystem>|null
+    */
+    public function getAuthorizationSystems(): ?array {
+        $val = $this->getBackingStore()->get('authorizationSystems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthorizationSystem::class);
+            /** @var array<AuthorizationSystem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizationSystems'");
+    }
+
+    /**
      * Gets the backingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -78,6 +93,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'authorizationSystems' => fn(ParseNode $n) => $o->setAuthorizationSystems($n->getCollectionOfObjectValues([AuthorizationSystem::class, 'createFromDiscriminatorValue'])),
             'connections' => fn(ParseNode $n) => $o->setConnections($n->getCollectionOfObjectValues([ExternalConnection::class, 'createFromDiscriminatorValue'])),
             'industryData' => fn(ParseNode $n) => $o->setIndustryData($n->getObjectValue([IndustryDataRoot::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -113,6 +129,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('authorizationSystems', $this->getAuthorizationSystems());
         $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
         $writer->writeObjectValue('industryData', $this->getIndustryData());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -125,6 +142,14 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the authorizationSystems property value. The authorizationSystems property
+     * @param array<AuthorizationSystem>|null $value Value to set for the authorizationSystems property.
+    */
+    public function setAuthorizationSystems(?array $value): void {
+        $this->getBackingStore()->set('authorizationSystems', $value);
     }
 
     /**

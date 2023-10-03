@@ -31,7 +31,7 @@ class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retry the group service provisioning.
+     * Retry the group service provisioning. This API is supported in the following national cloud deployments.
      * @param RetryServiceProvisioningRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/group-retryserviceprovisioning?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retry the group service provisioning.
+     * Retry the group service provisioning. This API is supported in the following national cloud deployments.
      * @param RetryServiceProvisioningRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

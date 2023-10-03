@@ -53,7 +53,7 @@ class UserCredentialUsageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure. This API is supported in the following national cloud deployments.
      * @param UserCredentialUsageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class UserCredentialUsageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure. This API is supported in the following national cloud deployments.
      * @param UserCredentialUsageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

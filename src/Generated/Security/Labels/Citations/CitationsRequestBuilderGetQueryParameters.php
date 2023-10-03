@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Citations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the citationTemplate objects and their properties.
+ * Get a list of the citationTemplate objects and their properties. This API is supported in the following national cloud deployments.
 */
 class CitationsRequestBuilderGetQueryParameters 
 {

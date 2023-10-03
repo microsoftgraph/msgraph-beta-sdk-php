@@ -50,7 +50,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an accessReviewPolicy object.
+     * Read the properties and relationships of an accessReviewPolicy object. This API is supported in the following national cloud deployments.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/accessreviewpolicy-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an accessReviewPolicy object.
+     * Update the properties of an accessReviewPolicy object. This API is supported in the following national cloud deployments.
      * @param AccessReviewPolicy $body The request body
      * @param PolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an accessReviewPolicy object.
+     * Read the properties and relationships of an accessReviewPolicy object. This API is supported in the following national cloud deployments.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an accessReviewPolicy object.
+     * Update the properties of an accessReviewPolicy object. This API is supported in the following national cloud deployments.
      * @param AccessReviewPolicy $body The request body
      * @param PolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

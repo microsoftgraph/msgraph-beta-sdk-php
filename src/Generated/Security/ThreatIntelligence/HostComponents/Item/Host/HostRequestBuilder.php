@@ -32,7 +32,7 @@ class HostRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The host related to this component. This is a reverse navigation property. When navigating to components from a host, this should be assumed to be a return reference.
+     * The host related to this component. This is a reverse navigation property. When you navigate to components from a host, this should be assumed to be a return reference.
      * @param HostRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class HostRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The host related to this component. This is a reverse navigation property. When navigating to components from a host, this should be assumed to be a return reference.
+     * The host related to this component. This is a reverse navigation property. When you navigate to components from a host, this should be assumed to be a return reference.
      * @param HostRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

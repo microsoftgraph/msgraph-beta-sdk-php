@@ -71,7 +71,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object.
+     * Create a new userSource object. This API is supported in the following national cloud deployments.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -112,7 +112,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object.
+     * Create a new userSource object. This API is supported in the following national cloud deployments.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

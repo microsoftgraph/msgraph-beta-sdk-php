@@ -31,7 +31,7 @@ class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Reset a caseSettings object to the default values.
+     * Reset a caseSettings object to the default values. This API is supported in the following national cloud deployments.
      * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-casesettings-resettodefault?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Reset a caseSettings object to the default values.
+     * Reset a caseSettings object to the default values. This API is supported in the following national cloud deployments.
      * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

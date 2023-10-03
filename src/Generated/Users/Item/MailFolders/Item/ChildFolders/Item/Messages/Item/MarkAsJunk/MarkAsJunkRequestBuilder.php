@@ -32,7 +32,7 @@ class MarkAsJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true.
+     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true. This API is supported in the following national cloud deployments.
      * @param MarkAsJunkPostRequestBody $body The request body
      * @param MarkAsJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class MarkAsJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true.
+     * Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true. This API is supported in the following national cloud deployments.
      * @param MarkAsJunkPostRequestBody $body The request body
      * @param MarkAsJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

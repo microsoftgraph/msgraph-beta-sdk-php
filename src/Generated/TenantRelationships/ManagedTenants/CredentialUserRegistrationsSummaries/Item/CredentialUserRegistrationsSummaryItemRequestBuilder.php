@@ -50,7 +50,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object. This API is supported in the following national cloud deployments.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object. This API is supported in the following national cloud deployments.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

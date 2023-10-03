@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a collection of userConsentRequest objects and their properties.
+ * Retrieve a collection of userConsentRequest objects and their properties. This API is supported in the following national cloud deployments.
 */
 class UserConsentRequestsRequestBuilderGetQueryParameters 
 {

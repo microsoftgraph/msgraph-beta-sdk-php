@@ -53,7 +53,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties. This API is supported in the following national cloud deployments.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcExternalPartnerSetting object.
+     * Create a new cloudPcExternalPartnerSetting object. This API is supported in the following national cloud deployments.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties. This API is supported in the following national cloud deployments.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcExternalPartnerSetting object.
+     * Create a new cloudPcExternalPartnerSetting object. This API is supported in the following national cloud deployments.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

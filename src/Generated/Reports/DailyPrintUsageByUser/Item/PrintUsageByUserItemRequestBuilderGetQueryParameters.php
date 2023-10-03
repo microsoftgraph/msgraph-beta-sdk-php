@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
+ * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints. This API is supported in the following national cloud deployments.
 */
 class PrintUsageByUserItemRequestBuilderGetQueryParameters 
 {

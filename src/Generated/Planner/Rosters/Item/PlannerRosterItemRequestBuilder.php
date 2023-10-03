@@ -48,7 +48,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerRoster object.
+     * Delete a plannerRoster object. This API is supported in the following national cloud deployments.
      * @param PlannerRosterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0 Find more info here
@@ -67,7 +67,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object.
+     * Read the properties and relationships of a plannerRoster object. This API is supported in the following national cloud deployments.
      * @param PlannerRosterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerRoster object.
+     * Delete a plannerRoster object. This API is supported in the following national cloud deployments.
      * @param PlannerRosterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object.
+     * Read the properties and relationships of a plannerRoster object. This API is supported in the following national cloud deployments.
      * @param PlannerRosterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

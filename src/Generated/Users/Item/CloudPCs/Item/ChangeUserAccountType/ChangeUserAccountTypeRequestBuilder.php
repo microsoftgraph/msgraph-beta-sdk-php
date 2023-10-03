@@ -31,7 +31,7 @@ class ChangeUserAccountTypeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Change the account type of the user on a specific Cloud PC.
+     * Change the account type of the user on a specific Cloud PC. This API is supported in the following national cloud deployments.
      * @param ChangeUserAccountTypePostRequestBody $body The request body
      * @param ChangeUserAccountTypeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class ChangeUserAccountTypeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Change the account type of the user on a specific Cloud PC.
+     * Change the account type of the user on a specific Cloud PC. This API is supported in the following national cloud deployments.
      * @param ChangeUserAccountTypePostRequestBody $body The request body
      * @param ChangeUserAccountTypeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

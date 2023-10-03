@@ -31,7 +31,7 @@ class UpdateAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple alerts in one request instead of multiple requests.
+     * Update multiple alerts in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param UpdateAlertsPostRequestBody $body The request body
      * @param UpdateAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class UpdateAlertsRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UpdateAlertsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UpdateAlertsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Update multiple alerts in one request instead of multiple requests.
+     * Update multiple alerts in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param UpdateAlertsPostRequestBody $body The request body
      * @param UpdateAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

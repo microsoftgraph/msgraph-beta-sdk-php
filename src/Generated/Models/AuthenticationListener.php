@@ -56,7 +56,7 @@ class AuthenticationListener extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated. This is currently limited to evaluations based on application the user is authenticating to.
+     * Gets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated, and is currently limited to evaluations based on application the user is authenticating to.
      * @return AuthenticationSourceFilter|null
     */
     public function getSourceFilter(): ?AuthenticationSourceFilter {
@@ -86,7 +86,7 @@ class AuthenticationListener extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated. This is currently limited to evaluations based on application the user is authenticating to.
+     * Sets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated, and is currently limited to evaluations based on application the user is authenticating to.
      * @param AuthenticationSourceFilter|null $value Value to set for the sourceFilter property.
     */
     public function setSourceFilter(?AuthenticationSourceFilter $value): void {

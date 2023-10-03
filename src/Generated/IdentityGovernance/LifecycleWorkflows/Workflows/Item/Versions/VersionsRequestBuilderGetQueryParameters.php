@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the workflowVersion objects and their properties.
+ * Get a list of the workflowVersion objects and their properties. This API is supported in the following national cloud deployments.
 */
 class VersionsRequestBuilderGetQueryParameters 
 {

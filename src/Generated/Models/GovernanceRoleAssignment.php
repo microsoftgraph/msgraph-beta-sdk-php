@@ -26,7 +26,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
+     * Gets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it's directly assigned Active by administrators, or activated on an eligible assignment by the users.
      * @return string|null
     */
     public function getAssignmentState(): ?string {
@@ -38,7 +38,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment is expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -110,7 +110,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
+     * Gets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment isn't inherited, but comes from the membership of a group assignment), or User (if the role assignment isn't inherited or from a group assignment).
      * @return string|null
     */
     public function getMemberType(): ?string {
@@ -134,7 +134,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceId property value. Required. The ID of the resource which the role assignment is associated with.
+     * Gets the resourceId property value. Required. The ID of the resource that the role assignment is associated with.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -158,7 +158,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinitionId property value. Required. The ID of the role definition which the role assignment is associated with.
+     * Gets the roleDefinitionId property value. Required. The ID of the role definition that the role assignment is associated with.
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
@@ -206,7 +206,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the subjectId property value. Required. The ID of the subject which the role assignment is associated with.
+     * Gets the subjectId property value. Required. The ID of the subject that the role assignment is associated with.
      * @return string|null
     */
     public function getSubjectId(): ?string {
@@ -240,7 +240,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
+     * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it's directly assigned Active by administrators, or activated on an eligible assignment by the users.
      * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
@@ -248,7 +248,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment is expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -280,7 +280,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
+     * Sets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment isn't inherited, but comes from the membership of a group assignment), or User (if the role assignment isn't inherited or from a group assignment).
      * @param string|null $value Value to set for the memberType property.
     */
     public function setMemberType(?string $value): void {
@@ -296,7 +296,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceId property value. Required. The ID of the resource which the role assignment is associated with.
+     * Sets the resourceId property value. Required. The ID of the resource that the role assignment is associated with.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
@@ -312,7 +312,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinitionId property value. Required. The ID of the role definition which the role assignment is associated with.
+     * Sets the roleDefinitionId property value. Required. The ID of the role definition that the role assignment is associated with.
      * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
@@ -344,7 +344,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the subjectId property value. Required. The ID of the subject which the role assignment is associated with.
+     * Sets the subjectId property value. Required. The ID of the subject that the role assignment is associated with.
      * @param string|null $value Value to set for the subjectId property.
     */
     public function setSubjectId(?string $value): void {

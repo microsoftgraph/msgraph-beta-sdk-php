@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represnts network connections that are routed through Global Secure Access.
+ * Represents network connections that are routed through Global Secure Access.
 */
 class LogsRequestBuilderGetQueryParameters 
 {

@@ -53,7 +53,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties.
+     * Get a list of deployment objects and their properties. This API is supported in the following national cloud deployments.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deployments?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object.
+     * Create a new deployment object. This API is supported in the following national cloud deployments.
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties.
+     * Get a list of deployment objects and their properties. This API is supported in the following national cloud deployments.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object.
+     * Create a new deployment object. This API is supported in the following national cloud deployments.
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

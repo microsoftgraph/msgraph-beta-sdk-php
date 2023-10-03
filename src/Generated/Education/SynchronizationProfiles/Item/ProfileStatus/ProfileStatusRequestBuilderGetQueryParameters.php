@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
+ * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync. This API is supported in the following national cloud deployments.
 */
 class ProfileStatusRequestBuilderGetQueryParameters 
 {

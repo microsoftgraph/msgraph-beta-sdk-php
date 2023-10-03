@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessPackageResourceEnvironment object.
+ * Read the properties and relationships of an accessPackageResourceEnvironment object. This API is supported in the following national cloud deployments.
 */
 class AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParameters 
 {

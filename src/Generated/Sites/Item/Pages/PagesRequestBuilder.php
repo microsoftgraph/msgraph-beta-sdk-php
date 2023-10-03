@@ -53,7 +53,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of [baseSitePage][] objects from the site pages [list][] in a [site][]. All pages in the site are returned (with pagination). Sort alphabetically by name in ascending order. The following table lists the available subtypes.
+     * Get the collection of baseSitePage][] objects from the site pages [list][] in a [site][]. All pages in the site are returned (with pagination). Sort alphabetically by name in ascending order. The following table lists the available subtypes. This API is supported in the following [national cloud deployments.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/basesitepage-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new [sitePage][] in the site pages [list][] in a [site][].
+     * Create a new sitePage][] in the site pages [list][] in a [site][]. This API is supported in the following [national cloud deployments.
      * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of [baseSitePage][] objects from the site pages [list][] in a [site][]. All pages in the site are returned (with pagination). Sort alphabetically by name in ascending order. The following table lists the available subtypes.
+     * Get the collection of baseSitePage][] objects from the site pages [list][] in a [site][]. All pages in the site are returned (with pagination). Sort alphabetically by name in ascending order. The following table lists the available subtypes. This API is supported in the following [national cloud deployments.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new [sitePage][] in the site pages [list][] in a [site][].
+     * Create a new sitePage][] in the site pages [list][] in a [site][]. This API is supported in the following [national cloud deployments.
      * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

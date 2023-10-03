@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAcce
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
+ * Retrieve a user's single temporaryAccessPassAuthenticationMethod object. This API is supported in the following national cloud deployments.
 */
 class TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

@@ -32,7 +32,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personInterest object from a user's profile.
+     * Deletes a personInterest object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personinterest-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personInterest object in a user's profile.
+     * Retrieve the properties and relationships of a personInterest object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personinterest-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personInterest object in a user's profile.
+     * Update the properties of a personInterest object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterest $body The request body
      * @param PersonInterestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personInterest object from a user's profile.
+     * Deletes a personInterest object from a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personInterest object in a user's profile.
+     * Retrieve the properties and relationships of a personInterest object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personInterest object in a user's profile.
+     * Update the properties of a personInterest object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonInterest $body The request body
      * @param PersonInterestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

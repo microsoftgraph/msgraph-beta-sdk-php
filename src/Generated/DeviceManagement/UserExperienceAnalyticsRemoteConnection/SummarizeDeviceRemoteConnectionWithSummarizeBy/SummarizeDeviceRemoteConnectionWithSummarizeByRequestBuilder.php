@@ -45,7 +45,7 @@ class SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilder extends BaseR
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [SummarizeDeviceRemoteConnectionWithSummarizeByResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

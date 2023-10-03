@@ -256,7 +256,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0 Find more info here
@@ -275,7 +275,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0 Find more info here
@@ -294,7 +294,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Update the properties of servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -314,7 +314,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -331,7 +331,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -352,7 +352,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Update the properties of servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

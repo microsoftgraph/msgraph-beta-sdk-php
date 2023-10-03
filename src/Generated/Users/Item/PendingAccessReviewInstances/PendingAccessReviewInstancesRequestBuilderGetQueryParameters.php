@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.
+ * Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer. This API is supported in the following national cloud deployments.
 */
 class PendingAccessReviewInstancesRequestBuilderGetQueryParameters 
 {

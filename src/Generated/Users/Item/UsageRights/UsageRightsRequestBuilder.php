@@ -53,7 +53,7 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of usageRight objects for a given user.
+     * Retrieve a list of usageRight objects for a given user. This API is supported in the following national cloud deployments.
      * @param UsageRightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/user-list-usagerights?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of usageRight objects for a given user.
+     * Retrieve a list of usageRight objects for a given user. This API is supported in the following national cloud deployments.
      * @param UsageRightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

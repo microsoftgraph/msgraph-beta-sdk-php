@@ -61,7 +61,7 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API does not support getting call transcripts from channel meetings. 
+     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API doesn't support getting call transcripts from channel meetings.  This API is supported in the following national cloud deployments.
      * @param TranscriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0 Find more info here
@@ -99,7 +99,7 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API does not support getting call transcripts from channel meetings. 
+     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API doesn't support getting call transcripts from channel meetings.  This API is supported in the following national cloud deployments.
      * @param TranscriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

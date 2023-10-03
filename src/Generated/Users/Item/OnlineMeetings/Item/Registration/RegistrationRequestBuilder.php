@@ -48,10 +48,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
+     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/externalmeetingregistration-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RegistrationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -67,7 +67,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting. This API is supported in the following national cloud deployments.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
@@ -86,7 +86,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
+     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting. This API is supported in the following national cloud deployments.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +144,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer. This API is supported in the following national cloud deployments.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

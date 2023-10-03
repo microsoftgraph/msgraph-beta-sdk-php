@@ -58,7 +58,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding profile.
+     * Retrieve information about a specific forwarding profile. This API is supported in the following national cloud deployments.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-get?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing forwarding profile.
+     * Update an existing forwarding profile. This API is supported in the following national cloud deployments.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding profile.
+     * Retrieve information about a specific forwarding profile. This API is supported in the following national cloud deployments.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing forwarding profile.
+     * Update an existing forwarding profile. This API is supported in the following national cloud deployments.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

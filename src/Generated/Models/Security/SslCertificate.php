@@ -28,7 +28,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The date and time when a certificate expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the expirationDateTime property value. The date and time when a certificate expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -72,7 +72,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The first date and time that this sslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the firstSeenDateTime property value. The first date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the issueDateTime property value. The date and time when a certificate was issued. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the issueDateTime property value. The date and time when a certificate was issued. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getIssueDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the issuer property value. The entity granting this certificate.
+     * Gets the issuer property value. The entity that grants this certificate.
      * @return SslCertificateEntity|null
     */
     public function getIssuer(): ?SslCertificateEntity {
@@ -108,7 +108,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The most recent date and time that this sslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the lastSeenDateTime property value. The most recent date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -188,7 +188,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The date and time when a certificate expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the expirationDateTime property value. The date and time when a certificate expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -204,7 +204,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The first date and time that this sslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the firstSeenDateTime property value. The first date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -212,7 +212,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the issueDateTime property value. The date and time when a certificate was issued. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the issueDateTime property value. The date and time when a certificate was issued. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the issueDateTime property.
     */
     public function setIssueDateTime(?DateTime $value): void {
@@ -220,7 +220,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the issuer property value. The entity granting this certificate.
+     * Sets the issuer property value. The entity that grants this certificate.
      * @param SslCertificateEntity|null $value Value to set for the issuer property.
     */
     public function setIssuer(?SslCertificateEntity $value): void {
@@ -228,7 +228,7 @@ class SslCertificate extends Artifact implements Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The most recent date and time that this sslCertificate was observed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the lastSeenDateTime property value. The most recent date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {

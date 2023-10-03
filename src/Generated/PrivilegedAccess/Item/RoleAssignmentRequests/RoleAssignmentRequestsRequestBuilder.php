@@ -71,7 +71,7 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
+     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations. This API is supported in the following national cloud deployments.
      * @param GovernanceRoleAssignmentRequest $body The request body
      * @param RoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -112,7 +112,7 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
+     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations. This API is supported in the following national cloud deployments.
      * @param GovernanceRoleAssignmentRequest $body The request body
      * @param RoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

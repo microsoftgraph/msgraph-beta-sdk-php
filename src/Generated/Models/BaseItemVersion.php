@@ -48,7 +48,7 @@ class BaseItemVersion extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
+     * Gets the lastModifiedBy property value. Identity of the user that last modified the version. Read-only.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -95,7 +95,7 @@ class BaseItemVersion extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
+     * Sets the lastModifiedBy property value. Identity of the user that last modified the version. Read-only.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {

@@ -53,7 +53,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task folders in the user's mailbox.
+     * Get all the Outlook task folders in the user's mailbox. This API is supported in the following national cloud deployments.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/outlookuser-list-taskfolders?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a task folder in the default task group (My Tasks) of the user's mailbox.
+     * Create a task folder in the default task group (My Tasks) of the user's mailbox. This API is supported in the following national cloud deployments.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task folders in the user's mailbox.
+     * Get all the Outlook task folders in the user's mailbox. This API is supported in the following national cloud deployments.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a task folder in the default task group (My Tasks) of the user's mailbox.
+     * Create a task folder in the default task group (My Tasks) of the user's mailbox. This API is supported in the following national cloud deployments.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

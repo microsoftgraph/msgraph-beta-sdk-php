@@ -138,7 +138,7 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
     }
 
     /**
-     * Gets the label property value. The label of the attribute field that will be displayed to end user, unless overridden.
+     * Gets the label property value. The label of the attribute field that is displayed to end user, unless overridden.
      * @return string|null
     */
     public function getLabel(): ?string {
@@ -200,7 +200,7 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
     }
 
     /**
-     * Gets the writeToDirectory property value. Whether the value collected will be stored.
+     * Gets the writeToDirectory property value. Whether the value collected is stored.
      * @return bool|null
     */
     public function getWriteToDirectory(): ?bool {
@@ -287,7 +287,7 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
     }
 
     /**
-     * Sets the label property value. The label of the attribute field that will be displayed to end user, unless overridden.
+     * Sets the label property value. The label of the attribute field that is displayed to end user, unless overridden.
      * @param string|null $value Value to set for the label property.
     */
     public function setLabel(?string $value): void {
@@ -327,7 +327,7 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
     }
 
     /**
-     * Sets the writeToDirectory property value. Whether the value collected will be stored.
+     * Sets the writeToDirectory property value. Whether the value collected is stored.
      * @param bool|null $value Value to set for the writeToDirectory property.
     */
     public function setWriteToDirectory(?bool $value): void {

@@ -56,7 +56,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Gloval Secure Access Service. It is then added to a forwarding profile.
+     * Gets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
      * @return array<ForwardingPolicy>|null
     */
     public function getForwardingPolicies(): ?array {
@@ -84,7 +84,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the logs property value. Represnts network connections that are routed through Global Secure Access.
+     * Gets the logs property value. Represents network connections that are routed through Global Secure Access.
      * @return Logs|null
     */
     public function getLogs(): ?Logs {
@@ -155,7 +155,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Gloval Secure Access Service. It is then added to a forwarding profile.
+     * Sets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
      * @param array<ForwardingPolicy>|null $value Value to set for the forwardingPolicies property.
     */
     public function setForwardingPolicies(?array $value): void {
@@ -171,7 +171,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the logs property value. Represnts network connections that are routed through Global Secure Access.
+     * Sets the logs property value. Represents network connections that are routed through Global Secure Access.
      * @param Logs|null $value Value to set for the logs property.
     */
     public function setLogs(?Logs $value): void {

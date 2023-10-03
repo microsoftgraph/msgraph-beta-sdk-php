@@ -69,7 +69,7 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of participant objects in the call.
+     * Retrieve a list of participant objects in the call. This API is supported in the following national cloud deployments.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0 Find more info here
@@ -107,7 +107,7 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of participant objects in the call.
+     * Retrieve a list of participant objects in the call. This API is supported in the following national cloud deployments.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

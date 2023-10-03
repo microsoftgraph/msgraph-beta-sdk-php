@@ -53,7 +53,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authorityTemplate objects and their properties.
+     * Get a list of the authorityTemplate objects and their properties. This API is supported in the following national cloud deployments.
      * @param AuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-list-authorities?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authorityTemplate object.
+     * Create a new authorityTemplate object. This API is supported in the following national cloud deployments.
      * @param AuthorityTemplate $body The request body
      * @param AuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authorityTemplate objects and their properties.
+     * Get a list of the authorityTemplate objects and their properties. This API is supported in the following national cloud deployments.
      * @param AuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authorityTemplate object.
+     * Create a new authorityTemplate object. This API is supported in the following national cloud deployments.
      * @param AuthorityTemplate $body The request body
      * @param AuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

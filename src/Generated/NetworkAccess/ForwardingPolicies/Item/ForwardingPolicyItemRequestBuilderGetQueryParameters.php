@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve information about a specific forwarding policy.
+ * Retrieve information about a specific forwarding policy. This API is supported in the following national cloud deployments.
 */
 class ForwardingPolicyItemRequestBuilderGetQueryParameters 
 {

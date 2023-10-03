@@ -53,7 +53,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationalActivity objects from a user's profile.
+     * Retrieve a list of educationalActivity objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param EducationalActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-educationalactivities?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationalActivity in a user's profile.
+     * Create a new educationalActivity in a user's profile. This API is supported in the following national cloud deployments.
      * @param EducationalActivity $body The request body
      * @param EducationalActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationalActivity objects from a user's profile.
+     * Retrieve a list of educationalActivity objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param EducationalActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationalActivity in a user's profile.
+     * Create a new educationalActivity in a user's profile. This API is supported in the following national cloud deployments.
      * @param EducationalActivity $body The request body
      * @param EducationalActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

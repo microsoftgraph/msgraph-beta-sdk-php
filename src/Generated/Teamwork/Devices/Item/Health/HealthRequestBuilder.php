@@ -50,7 +50,7 @@ class HealthRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+     * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters. This API is supported in the following national cloud deployments.
      * @param HealthRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class HealthRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+     * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters. This API is supported in the following national cloud deployments.
      * @param HealthRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Root;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the metadata for a driveItem in a drive by file system path or ID.
+ * Retrieve the metadata for a driveItem in a drive by file system path or ID. This API is supported in the following national cloud deployments.
 */
 class RootRequestBuilderGetQueryParameters 
 {

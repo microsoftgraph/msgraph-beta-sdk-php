@@ -61,7 +61,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * Retrieve a list of accessPackageCatalog objects. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackagecatalogs?view=graph-rest-1.0 Find more info here
@@ -80,7 +80,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessPackageCatalog object.
+     * Create a new accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -100,7 +100,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * Retrieve a list of accessPackageCatalog objects. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessPackageCatalog object.
+     * Create a new accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

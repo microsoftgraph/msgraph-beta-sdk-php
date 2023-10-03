@@ -50,7 +50,7 @@ class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant.
+     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is supported in the following national cloud deployments.
      * @param AttackSimulationOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant.
+     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is supported in the following national cloud deployments.
      * @param AttackSimulationOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

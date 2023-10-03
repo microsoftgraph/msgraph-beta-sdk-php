@@ -53,7 +53,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding policy.
+     * Retrieve information about a specific forwarding policy. This API is supported in the following national cloud deployments.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding policy.
+     * Retrieve information about a specific forwarding policy. This API is supported in the following national cloud deployments.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

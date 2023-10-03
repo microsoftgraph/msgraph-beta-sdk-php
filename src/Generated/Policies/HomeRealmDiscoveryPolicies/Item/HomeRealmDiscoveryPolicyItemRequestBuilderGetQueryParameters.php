@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
+ * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object. This API is supported in the following national cloud deployments.
 */
 class HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters 
 {

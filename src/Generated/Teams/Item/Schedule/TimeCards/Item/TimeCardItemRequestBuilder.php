@@ -64,7 +64,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule.
+     * Delete a timeCard instance in a schedule. This API is supported in the following national cloud deployments.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/timecard-delete?view=graph-rest-1.0 Find more info here
@@ -83,7 +83,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID.
+     * Get the properties and relationships of a timeCard object by ID. This API is supported in the following national cloud deployments.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/timecard-get?view=graph-rest-1.0 Find more info here
@@ -122,7 +122,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule.
+     * Delete a timeCard instance in a schedule. This API is supported in the following national cloud deployments.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -139,7 +139,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID.
+     * Get the properties and relationships of a timeCard object by ID. This API is supported in the following national cloud deployments.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

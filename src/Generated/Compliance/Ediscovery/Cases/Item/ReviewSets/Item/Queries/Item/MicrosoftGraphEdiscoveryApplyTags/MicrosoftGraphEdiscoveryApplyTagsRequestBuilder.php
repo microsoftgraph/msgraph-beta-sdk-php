@@ -31,7 +31,7 @@ class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply tags to documents that match the specified reviewSetQuery.
+     * Apply tags to documents that match the specified reviewSetQuery. This API is supported in the following national cloud deployments.
      * @param ApplyTagsPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply tags to documents that match the specified reviewSetQuery.
+     * Apply tags to documents that match the specified reviewSetQuery. This API is supported in the following national cloud deployments.
      * @param ApplyTagsPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

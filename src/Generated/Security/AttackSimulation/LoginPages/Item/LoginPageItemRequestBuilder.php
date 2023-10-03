@@ -50,7 +50,7 @@ class LoginPageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPages from security
+     * Represents an attack simulation training login page.
      * @param LoginPageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class LoginPageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get loginPages from security
+     * Represents an attack simulation training login page.
      * @param LoginPageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

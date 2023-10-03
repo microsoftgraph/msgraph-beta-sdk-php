@@ -32,7 +32,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object.
+     * Deletes an itemPublication object. This API is supported in the following national cloud deployments.
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itempublication-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile.
+     * Read the properties and relationships of an itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itempublication-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile.
+     * Update the properties of an itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object.
+     * Deletes an itemPublication object. This API is supported in the following national cloud deployments.
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile.
+     * Read the properties and relationships of an itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile.
+     * Update the properties of an itemPublication object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

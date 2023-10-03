@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAut
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get an attack simulation automation for a tenant.
+ * Get an attack simulation automation for a tenant. This API is supported in the following national cloud deployments.
 */
 class SimulationAutomationItemRequestBuilderGetQueryParameters 
 {

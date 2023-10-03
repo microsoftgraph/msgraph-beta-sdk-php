@@ -40,7 +40,7 @@ class TeamsAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
+     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process. This API is supported in the following national cloud deployments.
      * @param TeamsAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0 Find more info here
@@ -96,7 +96,7 @@ class TeamsAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
+     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process. This API is supported in the following national cloud deployments.
      * @param TeamsAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

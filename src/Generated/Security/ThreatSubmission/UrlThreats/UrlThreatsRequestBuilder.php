@@ -53,7 +53,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties.
+     * Get a list of the urlThreatSubmission objects and their properties. This API is supported in the following national cloud deployments.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new urlThreatSubmission object.
+     * Create a new urlThreatSubmission object. This API is supported in the following national cloud deployments.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties.
+     * Get a list of the urlThreatSubmission objects and their properties. This API is supported in the following national cloud deployments.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new urlThreatSubmission object.
+     * Create a new urlThreatSubmission object. This API is supported in the following national cloud deployments.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -53,7 +53,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of projectParticipation objects from a user's profile.
+     * Retrieve a list of projectParticipation objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-projects?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new projectParticipation object in a user's profile.
+     * Use this API to create a new projectParticipation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of projectParticipation objects from a user's profile.
+     * Retrieve a list of projectParticipation objects from a user's profile. This API is supported in the following national cloud deployments.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new projectParticipation object in a user's profile.
+     * Use this API to create a new projectParticipation object in a user's profile. This API is supported in the following national cloud deployments.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

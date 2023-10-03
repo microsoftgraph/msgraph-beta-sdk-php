@@ -61,7 +61,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs. This API is supported in the following national cloud deployments.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/group-list-grouplifecyclepolicies?view=graph-rest-1.0 Find more info here
@@ -99,7 +99,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs. This API is supported in the following national cloud deployments.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

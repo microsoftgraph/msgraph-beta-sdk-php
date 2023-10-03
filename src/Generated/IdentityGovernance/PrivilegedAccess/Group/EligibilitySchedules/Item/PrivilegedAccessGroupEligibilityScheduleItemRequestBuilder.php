@@ -66,7 +66,7 @@ class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object. This API is supported in the following national cloud deployments.
      * @param PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedule-get?view=graph-rest-1.0 Find more info here
@@ -121,7 +121,7 @@ class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object. This API is supported in the following national cloud deployments.
      * @param PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

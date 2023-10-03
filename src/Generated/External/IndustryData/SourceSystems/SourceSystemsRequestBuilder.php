@@ -53,7 +53,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties.
+     * Get a list of the sourceSystemDefinition objects and their properties. This API is supported in the following national cloud deployments.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceSystemDefinition object.
+     * Create a new sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties.
+     * Get a list of the sourceSystemDefinition objects and their properties. This API is supported in the following national cloud deployments.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceSystemDefinition object.
+     * Create a new sourceSystemDefinition object. This API is supported in the following national cloud deployments.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

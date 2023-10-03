@@ -53,7 +53,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnniversary objects for the given user from their profile.
+     * Retrieve a list of personAnniversary objects for the given user from their profile. This API is supported in the following national cloud deployments.
      * @param AnniversariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-anniversaries?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new personAnniversary object in a user's profile.
+     * Use this API to create a new personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnniversary objects for the given user from their profile.
+     * Retrieve a list of personAnniversary objects for the given user from their profile. This API is supported in the following national cloud deployments.
      * @param AnniversariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new personAnniversary object in a user's profile.
+     * Use this API to create a new personAnniversary object in a user's profile. This API is supported in the following national cloud deployments.
      * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

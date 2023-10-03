@@ -45,7 +45,7 @@ class GetOffice365GroupsActivityStorageWithPeriodRequestBuilder extends BaseRequ
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [GetOffice365GroupsActivityStorageWithPeriodResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GetOffice365GroupsActivityStorageWithPeriodGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

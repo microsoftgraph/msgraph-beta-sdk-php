@@ -31,7 +31,7 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param DeleteTiIndicatorsPostRequestBody $body The request body
      * @param DeleteTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -44,14 +44,14 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeleteTiIndicatorsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeleteTiIndicatorsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is supported in the following national cloud deployments.
      * @param DeleteTiIndicatorsPostRequestBody $body The request body
      * @param DeleteTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

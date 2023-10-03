@@ -27,7 +27,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue.
      * @return array<TrainingAssignedTo>|null
     */
     public function getAssignedTo(): ?array {
@@ -41,7 +41,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the custom training setting.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -53,7 +53,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the custom training setting.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -65,12 +65,12 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Gets the durationInMinutes property value. The durationInMinutes property
-     * @return string|null
+     * Gets the durationInMinutes property value. Training duration.
+     * @return int|null
     */
-    public function getDurationInMinutes(): ?string {
+    public function getDurationInMinutes(): ?int {
         $val = $this->getBackingStore()->get('durationInMinutes');
-        if (is_null($val) || is_string($val)) {
+        if (is_null($val) || is_int($val)) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'durationInMinutes'");
@@ -86,13 +86,13 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
             'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getCollectionOfEnumValues(TrainingAssignedTo::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'durationInMinutes' => fn(ParseNode $n) => $o->setDurationInMinutes($n->getStringValue()),
+            'durationInMinutes' => fn(ParseNode $n) => $o->setDurationInMinutes($n->getIntegerValue()),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. The training URL.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -112,12 +112,12 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
         $writer->writeCollectionOfEnumValues('assignedTo', $this->getAssignedTo());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeStringValue('durationInMinutes', $this->getDurationInMinutes());
+        $writer->writeIntegerValue('durationInMinutes', $this->getDurationInMinutes());
         $writer->writeStringValue('url', $this->getUrl());
     }
 
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue.
      * @param array<TrainingAssignedTo>|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?array $value): void {
@@ -125,7 +125,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the custom training setting.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -133,7 +133,7 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the custom training setting.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -141,15 +141,15 @@ class CustomTrainingSetting extends TrainingSetting implements Parsable
     }
 
     /**
-     * Sets the durationInMinutes property value. The durationInMinutes property
-     * @param string|null $value Value to set for the durationInMinutes property.
+     * Sets the durationInMinutes property value. Training duration.
+     * @param int|null $value Value to set for the durationInMinutes property.
     */
-    public function setDurationInMinutes(?string $value): void {
+    public function setDurationInMinutes(?int $value): void {
         $this->getBackingStore()->set('durationInMinutes', $value);
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. The training URL.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

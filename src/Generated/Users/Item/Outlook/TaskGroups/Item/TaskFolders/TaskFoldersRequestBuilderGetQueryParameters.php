@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\Task
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get Outlook task folders in a specific outlookTaskGroup.
+ * Get Outlook task folders in a specific outlookTaskGroup. This API is supported in the following national cloud deployments.
 */
 class TaskFoldersRequestBuilderGetQueryParameters 
 {

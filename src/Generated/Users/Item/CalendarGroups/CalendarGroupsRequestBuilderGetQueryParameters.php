@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the user's calendar groups.
+ * Get the user's calendar groups. This API is supported in the following national cloud deployments.
 */
 class CalendarGroupsRequestBuilderGetQueryParameters 
 {
