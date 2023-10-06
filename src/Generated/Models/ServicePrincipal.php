@@ -389,6 +389,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'preferredTokenSigningKeyThumbprint' => fn(ParseNode $n) => $o->setPreferredTokenSigningKeyThumbprint($n->getStringValue()),
             'publishedPermissionScopes' => fn(ParseNode $n) => $o->setPublishedPermissionScopes($n->getCollectionOfObjectValues([PermissionScope::class, 'createFromDiscriminatorValue'])),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
+            'remoteDesktopSecurityConfiguration' => fn(ParseNode $n) => $o->setRemoteDesktopSecurityConfiguration($n->getObjectValue([RemoteDesktopSecurityConfiguration::class, 'createFromDiscriminatorValue'])),
             'replyUrls' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -687,6 +688,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the remoteDesktopSecurityConfiguration property value. The remoteDesktopSecurityConfiguration property
+     * @return RemoteDesktopSecurityConfiguration|null
+    */
+    public function getRemoteDesktopSecurityConfiguration(): ?RemoteDesktopSecurityConfiguration {
+        $val = $this->getBackingStore()->get('remoteDesktopSecurityConfiguration');
+        if (is_null($val) || $val instanceof RemoteDesktopSecurityConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteDesktopSecurityConfiguration'");
+    }
+
+    /**
      * Gets the replyUrls property value. The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.
      * @return array<string>|null
     */
@@ -903,6 +916,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeStringValue('preferredTokenSigningKeyThumbprint', $this->getPreferredTokenSigningKeyThumbprint());
         $writer->writeCollectionOfObjectValues('publishedPermissionScopes', $this->getPublishedPermissionScopes());
         $writer->writeStringValue('publisherName', $this->getPublisherName());
+        $writer->writeObjectValue('remoteDesktopSecurityConfiguration', $this->getRemoteDesktopSecurityConfiguration());
         $writer->writeCollectionOfPrimitiveValues('replyUrls', $this->getReplyUrls());
         $writer->writeStringValue('samlMetadataUrl', $this->getSamlMetadataUrl());
         $writer->writeObjectValue('samlSingleSignOnSettings', $this->getSamlSingleSignOnSettings());
@@ -1260,6 +1274,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setPublisherName(?string $value): void {
         $this->getBackingStore()->set('publisherName', $value);
+    }
+
+    /**
+     * Sets the remoteDesktopSecurityConfiguration property value. The remoteDesktopSecurityConfiguration property
+     * @param RemoteDesktopSecurityConfiguration|null $value Value to set for the remoteDesktopSecurityConfiguration property.
+    */
+    public function setRemoteDesktopSecurityConfiguration(?RemoteDesktopSecurityConfiguration $value): void {
+        $this->getBackingStore()->set('remoteDesktopSecurityConfiguration', $value);
     }
 
     /**

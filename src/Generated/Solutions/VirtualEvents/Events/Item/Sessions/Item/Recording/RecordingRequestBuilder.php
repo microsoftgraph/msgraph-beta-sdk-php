@@ -32,7 +32,7 @@ class RecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the recording of a Teams live event. Read-only.
+     * Get recording for the navigation property sessions from solutions
      * @param RecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class RecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the recording of a Teams live event. Read-only.
+     * Update recording for the navigation property sessions in solutions
      * @param StreamInterface $body Binary request body
      * @param RecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -69,7 +69,7 @@ class RecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the recording of a Teams live event. Read-only.
+     * Get recording for the navigation property sessions from solutions
      * @param RecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -86,7 +86,7 @@ class RecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the recording of a Teams live event. Read-only.
+     * Update recording for the navigation property sessions in solutions
      * @param StreamInterface $body Binary request body
      * @param RecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

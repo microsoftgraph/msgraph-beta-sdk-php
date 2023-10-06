@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphApplication\GraphApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphDevice\GraphDeviceRequestBuilder;
@@ -13,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphGroup\GraphGroupR
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphUser\GraphUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,6 +32,13 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getByIds method.
+    */
+    public function getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -72,6 +81,13 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     */
     public function graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validateProperties method.
+    */
+    public function validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

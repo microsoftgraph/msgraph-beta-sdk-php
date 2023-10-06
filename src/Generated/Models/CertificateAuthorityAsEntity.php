@@ -26,7 +26,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificate property value. The certificate property
+     * Gets the certificate property value. The trusted certificate.
      * @return StreamInterface|null
     */
     public function getCertificate(): ?StreamInterface {
@@ -52,7 +52,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRootAuthority property value. The isRootAuthority property
+     * Gets the isRootAuthority property value. Indicates if the certificate is a root authority. In a certificateBasedApplicationConfiguration object, at least one object in the trustedCertificateAuthorities collection must be a root authority.
      * @return bool|null
     */
     public function getIsRootAuthority(): ?bool {
@@ -64,7 +64,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the issuer property value. The issuer property
+     * Gets the issuer property value. The issuer of the trusted certificate.
      * @return string|null
     */
     public function getIssuer(): ?string {
@@ -76,7 +76,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the issuerSubjectKeyIdentifier property value. The issuerSubjectKeyIdentifier property
+     * Gets the issuerSubjectKeyIdentifier property value. The subject key identifier of the trusted certificate.
      * @return string|null
     */
     public function getIssuerSubjectKeyIdentifier(): ?string {
@@ -100,7 +100,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificate property value. The certificate property
+     * Sets the certificate property value. The trusted certificate.
      * @param StreamInterface|null $value Value to set for the certificate property.
     */
     public function setCertificate(?StreamInterface $value): void {
@@ -108,7 +108,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRootAuthority property value. The isRootAuthority property
+     * Sets the isRootAuthority property value. Indicates if the certificate is a root authority. In a certificateBasedApplicationConfiguration object, at least one object in the trustedCertificateAuthorities collection must be a root authority.
      * @param bool|null $value Value to set for the isRootAuthority property.
     */
     public function setIsRootAuthority(?bool $value): void {
@@ -116,7 +116,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the issuer property value. The issuer property
+     * Sets the issuer property value. The issuer of the trusted certificate.
      * @param string|null $value Value to set for the issuer property.
     */
     public function setIssuer(?string $value): void {
@@ -124,7 +124,7 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the issuerSubjectKeyIdentifier property value. The issuerSubjectKeyIdentifier property
+     * Sets the issuerSubjectKeyIdentifier property value. The subject key identifier of the trusted certificate.
      * @param string|null $value Value to set for the issuerSubjectKeyIdentifier property.
     */
     public function setIssuerSubjectKeyIdentifier(?string $value): void {

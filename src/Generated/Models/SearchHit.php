@@ -35,7 +35,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -77,7 +77,6 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             '_id' => fn(ParseNode $n) => $o->setid($n->getStringValue()),
             '_score' => fn(ParseNode $n) => $o->setscore($n->getIntegerValue()),
             '_source' => fn(ParseNode $n) => $o->setsource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
-            '_summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
             'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
@@ -85,6 +84,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'resultTemplateId' => fn(ParseNode $n) => $o->setResultTemplateId($n->getStringValue()),
+            'summary' => fn(ParseNode $n) => $o->setsummary($n->getStringValue()),
         ];
     }
 
@@ -197,15 +197,15 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the _summary property value. The _summary property
+     * Gets the summary property value. A summary of the result, if a summary is available.
      * @return string|null
     */
-    public function getSummary(): ?string {
-        $val = $this->getBackingStore()->get('_summary');
+    public function getsummary(): ?string {
+        $val = $this->getBackingStore()->get('summary');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for '_summary'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'summary'");
     }
 
     /**
@@ -220,24 +220,24 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
+        $writer->writeStringValue('summary', $this->getsummary());
         $writer->writeStringValue('_id', $this->getid());
         $writer->writeIntegerValue('_score', $this->getscore());
         $writer->writeObjectValue('_source', $this->getsource());
-        $writer->writeStringValue('_summary', $this->getSummary());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -324,11 +324,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the _summary property value. The _summary property
-     * @param string|null $value Value to set for the _summary property.
+     * Sets the summary property value. A summary of the result, if a summary is available.
+     * @param string|null $value Value to set for the summary property.
     */
-    public function setSummary(?string $value): void {
-        $this->getBackingStore()->set('_summary', $value);
+    public function setsummary(?string $value): void {
+        $this->getBackingStore()->set('summary', $value);
     }
 
 }

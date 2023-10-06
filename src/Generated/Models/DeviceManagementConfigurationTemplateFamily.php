@@ -20,4 +20,5 @@ class DeviceManagementConfigurationTemplateFamily extends Enum {
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const DEVICE_CONFIGURATION_SCRIPTS = 'deviceConfigurationScripts';
     public const DEVICE_CONFIGURATION_POLICIES = 'deviceConfigurationPolicies';
+    public const COMPANY_PORTAL = 'companyPortal';
 }

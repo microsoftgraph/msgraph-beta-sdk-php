@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Ite
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\GetFrontlineCloudPcAccessState\GetFrontlineCloudPcAccessStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\GetShiftWorkCloudPcAccessState\GetShiftWorkCloudPcAccessStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\GetSupportedCloudPcRemoteActions\GetSupportedCloudPcRemoteActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\PowerOff\PowerOffRequestBuilder;
@@ -68,6 +69,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function getCloudPcLaunchInfo(): GetCloudPcLaunchInfoRequestBuilder {
         return new GetCloudPcLaunchInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getFrontlineCloudPcAccessState method.
+    */
+    public function getFrontlineCloudPcAccessState(): GetFrontlineCloudPcAccessStateRequestBuilder {
+        return new GetFrontlineCloudPcAccessStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

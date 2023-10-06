@@ -316,11 +316,11 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request. This API is supported in the following national cloud deployments.
+     * Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property. This API is supported in the following national cloud deployments.
      * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(DriveItem $body, ?DriveItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -383,7 +383,7 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request. This API is supported in the following national cloud deployments.
+     * Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property. This API is supported in the following national cloud deployments.
      * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -35,7 +35,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -80,7 +80,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. The possible values are: disabled, enabled, unknownFutureValue.
      * @return X509CertificateIssuerHintsState|null
     */
     public function getState(): ?X509CertificateIssuerHintsState {
@@ -102,16 +102,16 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. The possible values are: disabled, enabled, unknownFutureValue.
      * @param X509CertificateIssuerHintsState|null $value Value to set for the state property.
     */
     public function setState(?X509CertificateIssuerHintsState $value): void {

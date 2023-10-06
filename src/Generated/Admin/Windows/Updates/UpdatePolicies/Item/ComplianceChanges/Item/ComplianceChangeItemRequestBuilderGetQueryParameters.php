@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a contentApproval object. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a complianceChange object. This API is supported in the following national cloud deployments.
 */
 class ComplianceChangeItemRequestBuilderGetQueryParameters 
 {

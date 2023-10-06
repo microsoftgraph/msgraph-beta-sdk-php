@@ -38,7 +38,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -51,7 +51,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -78,6 +78,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
             'v11_0' => fn(ParseNode $n) => $o->setV110($n->getBooleanValue()),
             'v12_0' => fn(ParseNode $n) => $o->setV120($n->getBooleanValue()),
             'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
+            'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
         ];
     }
 
@@ -238,6 +239,18 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Gets the v14_0 property value. When TRUE, indicates macOS 14.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getV140(): ?bool {
+        $val = $this->getBackingStore()->get('v14_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v14_0'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -255,20 +268,21 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
         $writer->writeBooleanValue('v11_0', $this->getV110());
         $writer->writeBooleanValue('v12_0', $this->getV120());
         $writer->writeBooleanValue('v13_0', $this->getV130());
+        $writer->writeBooleanValue('v14_0', $this->getV140());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -376,6 +390,14 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     */
     public function setV130(?bool $value): void {
         $this->getBackingStore()->set('v13_0', $value);
+    }
+
+    /**
+     * Sets the v14_0 property value. When TRUE, indicates macOS 14.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @param bool|null $value Value to set for the v14_0 property.
+    */
+    public function setV140(?bool $value): void {
+        $this->getBackingStore()->set('v14_0', $value);
     }
 
 }

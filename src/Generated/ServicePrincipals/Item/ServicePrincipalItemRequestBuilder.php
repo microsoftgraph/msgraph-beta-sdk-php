@@ -29,6 +29,7 @@ use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\MemberOfReque
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\OwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\OwnersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\RemoteDesktopSecurityConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\SynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
@@ -197,6 +198,13 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     */
     public function owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the remoteDesktopSecurityConfiguration property of the microsoft.graph.servicePrincipal entity.
+    */
+    public function remoteDesktopSecurityConfiguration(): RemoteDesktopSecurityConfigurationRequestBuilder {
+        return new RemoteDesktopSecurityConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

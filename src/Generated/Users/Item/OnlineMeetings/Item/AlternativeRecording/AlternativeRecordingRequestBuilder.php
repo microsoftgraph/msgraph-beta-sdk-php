@@ -32,7 +32,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Get alternativeRecording for the navigation property onlineMeetings from users
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Update alternativeRecording for the navigation property onlineMeetings in users
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -70,7 +70,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Get alternativeRecording for the navigation property onlineMeetings from users
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -87,7 +87,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Update alternativeRecording for the navigation property onlineMeetings in users
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

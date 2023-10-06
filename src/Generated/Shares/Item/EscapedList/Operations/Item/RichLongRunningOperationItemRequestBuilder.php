@@ -50,7 +50,7 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of long running operations for the list.
+     * The collection of long-running operations on the list.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of long running operations for the list.
+     * The collection of long-running operations on the list.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
