@@ -85,7 +85,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tiIndicator objects. This API is supported in the following national cloud deployments.
+     * Retrieve a list of tiIndicator objects. This API is available in the following national cloud deployments.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/tiindicators-list?view=graph-rest-1.0 Find more info here
@@ -104,7 +104,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tiIndicator object. This API is supported in the following national cloud deployments.
+     * Create a new tiIndicator object. This API is available in the following national cloud deployments.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -124,7 +124,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tiIndicator objects. This API is supported in the following national cloud deployments.
+     * Retrieve a list of tiIndicator objects. This API is available in the following national cloud deployments.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -145,7 +145,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tiIndicator object. This API is supported in the following national cloud deployments.
+     * Create a new tiIndicator object. This API is available in the following national cloud deployments.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

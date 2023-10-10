@@ -64,7 +64,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
+     * Delete a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-1.0 Find more info here
@@ -83,7 +83,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a b2cUserFlow object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2cUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-1.0 Find more info here
@@ -102,7 +102,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
+     * Update the properties of a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -122,7 +122,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
+     * Delete a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -139,7 +139,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a b2cUserFlow object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2cUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -160,7 +160,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cIdentityUserFlow object. This API is supported in the following national cloud deployments.
+     * Update the properties of a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -53,7 +53,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPhone objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of itemPhone objects from a user's profile. This API is available in the following national cloud deployments.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-phones?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhone $body The request body
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPhone objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of itemPhone objects from a user's profile. This API is available in the following national cloud deployments.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhone $body The request body
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

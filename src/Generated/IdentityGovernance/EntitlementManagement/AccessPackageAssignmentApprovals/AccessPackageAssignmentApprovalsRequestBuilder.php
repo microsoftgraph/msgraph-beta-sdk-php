@@ -63,7 +63,7 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is supported in the following national cloud deployments.
+     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is available in the following national cloud deployments.
      * @param AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -100,7 +100,7 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is supported in the following national cloud deployments.
+     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios: This API is available in the following national cloud deployments.
      * @param AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

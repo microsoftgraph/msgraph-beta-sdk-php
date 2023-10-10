@@ -39,6 +39,8 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
             'ignoreVersionDetection' => fn(ParseNode $n) => $o->setIgnoreVersionDetection($n->getBooleanValue()),
             'includedApps' => fn(ParseNode $n) => $o->setIncludedApps($n->getCollectionOfObjectValues([MacOSIncludedApp::class, 'createFromDiscriminatorValue'])),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'postInstallScript' => fn(ParseNode $n) => $o->setPostInstallScript($n->getObjectValue([MacOSAppScript::class, 'createFromDiscriminatorValue'])),
+            'preInstallScript' => fn(ParseNode $n) => $o->setPreInstallScript($n->getObjectValue([MacOSAppScript::class, 'createFromDiscriminatorValue'])),
             'primaryBundleId' => fn(ParseNode $n) => $o->setPrimaryBundleId($n->getStringValue()),
             'primaryBundleVersion' => fn(ParseNode $n) => $o->setPrimaryBundleVersion($n->getStringValue()),
         ]);
@@ -83,6 +85,30 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
     }
 
     /**
+     * Gets the postInstallScript property value. ComplexType macOSAppScript the contains the post-install script for the app. This will execute on the macOS device after the app is installed.
+     * @return MacOSAppScript|null
+    */
+    public function getPostInstallScript(): ?MacOSAppScript {
+        $val = $this->getBackingStore()->get('postInstallScript');
+        if (is_null($val) || $val instanceof MacOSAppScript) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postInstallScript'");
+    }
+
+    /**
+     * Gets the preInstallScript property value. ComplexType macOSAppScript the contains the post-install script for the app. This will execute on the macOS device after the app is installed.
+     * @return MacOSAppScript|null
+    */
+    public function getPreInstallScript(): ?MacOSAppScript {
+        $val = $this->getBackingStore()->get('preInstallScript');
+        if (is_null($val) || $val instanceof MacOSAppScript) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preInstallScript'");
+    }
+
+    /**
      * Gets the primaryBundleId property value. The primary CFBundleIdentifier of the .pkg.
      * @return string|null
     */
@@ -115,6 +141,8 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
         $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
         $writer->writeCollectionOfObjectValues('includedApps', $this->getIncludedApps());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeObjectValue('postInstallScript', $this->getPostInstallScript());
+        $writer->writeObjectValue('preInstallScript', $this->getPreInstallScript());
         $writer->writeStringValue('primaryBundleId', $this->getPrimaryBundleId());
         $writer->writeStringValue('primaryBundleVersion', $this->getPrimaryBundleVersion());
     }
@@ -141,6 +169,22 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
     */
     public function setMinimumSupportedOperatingSystem(?MacOSMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
+    }
+
+    /**
+     * Sets the postInstallScript property value. ComplexType macOSAppScript the contains the post-install script for the app. This will execute on the macOS device after the app is installed.
+     * @param MacOSAppScript|null $value Value to set for the postInstallScript property.
+    */
+    public function setPostInstallScript(?MacOSAppScript $value): void {
+        $this->getBackingStore()->set('postInstallScript', $value);
+    }
+
+    /**
+     * Sets the preInstallScript property value. ComplexType macOSAppScript the contains the post-install script for the app. This will execute on the macOS device after the app is installed.
+     * @param MacOSAppScript|null $value Value to set for the preInstallScript property.
+    */
+    public function setPreInstallScript(?MacOSAppScript $value): void {
+        $this->getBackingStore()->set('preInstallScript', $value);
     }
 
     /**

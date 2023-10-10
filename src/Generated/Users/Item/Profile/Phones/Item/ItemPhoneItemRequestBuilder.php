@@ -32,7 +32,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemPhone object from the user's profile. This API is supported in the following national cloud deployments.
+     * Delete an itemPhone object from the user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itemphone-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhoneItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/itemphone-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of an itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemPhone object from the user's profile. This API is supported in the following national cloud deployments.
+     * Delete an itemPhone object from the user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhoneItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of an itemPhone object in a user's profile. This API is available in the following national cloud deployments.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

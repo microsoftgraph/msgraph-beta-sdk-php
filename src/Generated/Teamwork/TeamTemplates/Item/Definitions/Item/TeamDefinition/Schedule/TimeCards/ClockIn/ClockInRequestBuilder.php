@@ -32,7 +32,7 @@ class ClockInRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clock in to start a timeCard. This API is supported in the following national cloud deployments.
+     * Clock in to start a timeCard. This API is available in the following national cloud deployments.
      * @param ClockInPostRequestBody $body The request body
      * @param ClockInRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class ClockInRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clock in to start a timeCard. This API is supported in the following national cloud deployments.
+     * Clock in to start a timeCard. This API is available in the following national cloud deployments.
      * @param ClockInPostRequestBody $body The request body
      * @param ClockInRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

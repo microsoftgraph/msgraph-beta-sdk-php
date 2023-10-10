@@ -32,7 +32,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness. This API is supported in the following national cloud deployments.
+     * Delete a staff member in the specified bookingbusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is supported in the following national cloud deployments.
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness. This API is supported in the following national cloud deployments.
+     * Delete a staff member in the specified bookingbusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is supported in the following national cloud deployments.
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

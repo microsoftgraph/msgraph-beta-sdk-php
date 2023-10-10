@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a Teams app icon associated with a specific definition of an app. This API is supported in the following national cloud deployments.
+ * Retrieve a Teams app icon associated with a specific definition of an app. This API is available in the following national cloud deployments.
 */
 class OutlineIconRequestBuilderGetQueryParameters 
 {

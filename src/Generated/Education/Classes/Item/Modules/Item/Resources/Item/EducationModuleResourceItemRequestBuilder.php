@@ -32,7 +32,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource. This API is supported in the following national cloud deployments.
+     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource. This API is available in the following national cloud deployments.
      * @param EducationModuleResourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationmoduleresource-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
+     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
      * @param EducationModuleResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationmoduleresource-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types. This API is supported in the following national cloud deployments.
+     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types. This API is available in the following national cloud deployments.
      * @param EducationModuleResource $body The request body
      * @param EducationModuleResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource. This API is supported in the following national cloud deployments.
+     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource. This API is available in the following national cloud deployments.
      * @param EducationModuleResourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
+     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
      * @param EducationModuleResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types. This API is supported in the following national cloud deployments.
+     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types. This API is available in the following national cloud deployments.
      * @param EducationModuleResource $body The request body
      * @param EducationModuleResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

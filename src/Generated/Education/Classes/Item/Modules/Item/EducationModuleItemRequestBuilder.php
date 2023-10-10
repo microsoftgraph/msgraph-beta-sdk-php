@@ -72,7 +72,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing module in a class. Only teachers within a class can delete modules. This API is supported in the following national cloud deployments.
+     * Delete an existing module in a class. Only teachers within a class can delete modules. This API is available in the following national cloud deployments.
      * @param EducationModuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationmodule-delete?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class. This API is available in the following national cloud deployments.
      * @param EducationModuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationmodule-get?view=graph-rest-1.0 Find more info here
@@ -110,7 +110,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can't use a PATCH request to change the status of a module. Use the publish action to change the module status. This API is supported in the following national cloud deployments.
+     * Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can't use a PATCH request to change the status of a module. Use the publish action to change the module status. This API is available in the following national cloud deployments.
      * @param EducationModule $body The request body
      * @param EducationModuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -130,7 +130,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing module in a class. Only teachers within a class can delete modules. This API is supported in the following national cloud deployments.
+     * Delete an existing module in a class. Only teachers within a class can delete modules. This API is available in the following national cloud deployments.
      * @param EducationModuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -147,7 +147,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class. This API is available in the following national cloud deployments.
      * @param EducationModuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -168,7 +168,7 @@ class EducationModuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can't use a PATCH request to change the status of a module. Use the publish action to change the module status. This API is supported in the following national cloud deployments.
+     * Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can't use a PATCH request to change the status of a module. Use the publish action to change the module status. This API is available in the following national cloud deployments.
      * @param EducationModule $body The request body
      * @param EducationModuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

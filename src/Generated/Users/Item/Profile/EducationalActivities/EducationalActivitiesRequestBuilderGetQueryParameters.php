@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivitie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of educationalActivity objects from a user's profile. This API is supported in the following national cloud deployments.
+ * Retrieve a list of educationalActivity objects from a user's profile. This API is available in the following national cloud deployments.
 */
 class EducationalActivitiesRequestBuilderGetQueryParameters 
 {

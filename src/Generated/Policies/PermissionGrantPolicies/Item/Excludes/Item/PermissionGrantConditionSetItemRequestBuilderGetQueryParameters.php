@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\E
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
+ * Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.
 */
 class PermissionGrantConditionSetItemRequestBuilderGetQueryParameters 
 {

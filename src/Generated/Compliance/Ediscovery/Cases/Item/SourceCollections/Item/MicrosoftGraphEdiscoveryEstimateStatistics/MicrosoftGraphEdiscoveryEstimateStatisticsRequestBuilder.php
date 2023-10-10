@@ -31,7 +31,7 @@ class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder extends BaseReque
     }
 
     /**
-     * Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery. This API is supported in the following national cloud deployments.
+     * Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery. This API is available in the following national cloud deployments.
      * @param MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-estimatestatistics?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder extends BaseReque
     }
 
     /**
-     * Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery. This API is supported in the following national cloud deployments.
+     * Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery. This API is available in the following national cloud deployments.
      * @param MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\FilePlanReferences\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
 */
 class FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters 
 {

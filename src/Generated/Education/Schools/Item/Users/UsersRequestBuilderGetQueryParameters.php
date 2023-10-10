@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of users at a school. This API is supported in the following national cloud deployments.
+ * Retrieve a list of users at a school. This API is available in the following national cloud deployments.
 */
 class UsersRequestBuilderGetQueryParameters 
 {

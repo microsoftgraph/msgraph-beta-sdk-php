@@ -53,7 +53,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the recent activities that took place on an item or under a hierarchy. This API is supported in the following national cloud deployments.
+     * List the recent activities that took place on an item or under a hierarchy. This API is available in the following national cloud deployments.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/activities-list?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the recent activities that took place on an item or under a hierarchy. This API is supported in the following national cloud deployments.
+     * List the recent activities that took place on an item or under a hierarchy. This API is available in the following national cloud deployments.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

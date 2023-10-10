@@ -32,7 +32,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Complete an impactedResource object and update its status to completedByUser. This API is supported in the following national cloud deployments.
+     * Complete an impactedResource object and update its status to completedByUser. This API is available in the following national cloud deployments.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Complete an impactedResource object and update its status to completedByUser. This API is supported in the following national cloud deployments.
+     * Complete an impactedResource object and update its status to completedByUser. This API is available in the following national cloud deployments.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

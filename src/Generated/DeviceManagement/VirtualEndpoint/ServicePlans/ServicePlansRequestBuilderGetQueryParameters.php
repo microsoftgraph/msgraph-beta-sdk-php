@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Servic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise. This API is supported in the following national cloud deployments.
+ * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise. This API is available in the following national cloud deployments.
 */
 class ServicePlansRequestBuilderGetQueryParameters 
 {

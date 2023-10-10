@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the operations that are running on a Microsoft Teams-enabled device. This API is supported in the following national cloud deployments.
+ * Get a list of the operations that are running on a Microsoft Teams-enabled device. This API is available in the following national cloud deployments.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

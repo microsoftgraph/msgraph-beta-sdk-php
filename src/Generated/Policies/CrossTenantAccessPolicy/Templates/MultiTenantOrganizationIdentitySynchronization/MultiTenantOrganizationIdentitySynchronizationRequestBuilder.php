@@ -58,7 +58,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Get the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-get?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationIdentitySyncPolicyTemplate $body The request body
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Get the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationIdentitySyncPolicyTemplate $body The request body
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -85,7 +85,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is supported in the following national cloud deployments.
+     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is available in the following national cloud deployments.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-1.0 Find more info here
@@ -123,7 +123,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is supported in the following national cloud deployments.
+     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is available in the following national cloud deployments.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

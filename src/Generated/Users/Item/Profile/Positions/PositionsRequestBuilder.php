@@ -53,7 +53,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of workPosition objects from a user's profile. This API is available in the following national cloud deployments.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-positions?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new workPosition in a user's profile. This API is available in the following national cloud deployments.
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of workPosition objects from a user's profile. This API is available in the following national cloud deployments.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new workPosition in a user's profile. This API is available in the following national cloud deployments.
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

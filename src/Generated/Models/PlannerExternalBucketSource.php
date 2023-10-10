@@ -38,7 +38,7 @@ class PlannerExternalBucketSource extends PlannerBucketCreation implements Parsa
     }
 
     /**
-     * Gets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
+     * Gets the externalContextId property value. Nullable. The ID of the external entity's containing entity or context.
      * @return string|null
     */
     public function getExternalContextId(): ?string {
@@ -50,7 +50,7 @@ class PlannerExternalBucketSource extends PlannerBucketCreation implements Parsa
     }
 
     /**
-     * Gets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a bucket.
+     * Gets the externalObjectId property value. Nullable. The ID of the entity that an external service associates with a bucket.
      * @return string|null
     */
     public function getExternalObjectId(): ?string {
@@ -94,7 +94,7 @@ class PlannerExternalBucketSource extends PlannerBucketCreation implements Parsa
     }
 
     /**
-     * Sets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
+     * Sets the externalContextId property value. Nullable. The ID of the external entity's containing entity or context.
      * @param string|null $value Value to set for the externalContextId property.
     */
     public function setExternalContextId(?string $value): void {
@@ -102,7 +102,7 @@ class PlannerExternalBucketSource extends PlannerBucketCreation implements Parsa
     }
 
     /**
-     * Sets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a bucket.
+     * Sets the externalObjectId property value. Nullable. The ID of the entity that an external service associates with a bucket.
      * @param string|null $value Value to set for the externalObjectId property.
     */
     public function setExternalObjectId(?string $value): void {

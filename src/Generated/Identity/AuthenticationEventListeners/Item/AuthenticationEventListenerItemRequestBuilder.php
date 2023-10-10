@@ -32,7 +32,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object. This API is supported in the following national cloud deployments.
+     * Deletes an authenticationEventListener object. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/authenticationeventlistener-delete?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. This API is supported in the following national cloud deployments.
+     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -89,7 +89,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object. This API is supported in the following national cloud deployments.
+     * Deletes an authenticationEventListener object. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. This API is supported in the following national cloud deployments.
+     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

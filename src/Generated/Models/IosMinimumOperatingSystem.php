@@ -38,7 +38,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -51,7 +51,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -73,6 +73,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
             'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
             'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
             'v16_0' => fn(ParseNode $n) => $o->setV160($n->getBooleanValue()),
+            'v17_0' => fn(ParseNode $n) => $o->setV170($n->getBooleanValue()),
             'v8_0' => fn(ParseNode $n) => $o->setV80($n->getBooleanValue()),
             'v9_0' => fn(ParseNode $n) => $o->setV90($n->getBooleanValue()),
         ];
@@ -175,6 +176,18 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the v17_0 property value. When TRUE, only Version 17.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV170(): ?bool {
+        $val = $this->getBackingStore()->get('v17_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v17_0'");
+    }
+
+    /**
      * Gets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
@@ -211,22 +224,23 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
         $writer->writeBooleanValue('v14_0', $this->getV140());
         $writer->writeBooleanValue('v15_0', $this->getV150());
         $writer->writeBooleanValue('v16_0', $this->getV160());
+        $writer->writeBooleanValue('v17_0', $this->getV170());
         $writer->writeBooleanValue('v8_0', $this->getV80());
         $writer->writeBooleanValue('v9_0', $this->getV90());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -294,6 +308,14 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setV160(?bool $value): void {
         $this->getBackingStore()->set('v16_0', $value);
+    }
+
+    /**
+     * Sets the v17_0 property value. When TRUE, only Version 17.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v17_0 property.
+    */
+    public function setV170(?bool $value): void {
+        $this->getBackingStore()->set('v17_0', $value);
     }
 
     /**

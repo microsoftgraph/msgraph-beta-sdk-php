@@ -35,7 +35,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,11 +48,23 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
         return $this->backingStore;
+    }
+
+    /**
+     * Gets the errorMessage property value. The errorMessage property
+     * @return string|null
+    */
+    public function getErrorMessage(): ?string {
+        $val = $this->getBackingStore()->get('errorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorMessage'");
     }
 
     /**
@@ -62,6 +74,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
             'installStatus' => fn(ParseNode $n) => $o->setInstallStatus($n->getEnumValue(CloudPcPartnerAgentInstallStatus::class)),
             'isThirdPartyPartner' => fn(ParseNode $n) => $o->setIsThirdPartyPartner($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -135,6 +148,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('errorMessage', $this->getErrorMessage());
         $writer->writeEnumValue('installStatus', $this->getInstallStatus());
         $writer->writeBooleanValue('isThirdPartyPartner', $this->getIsThirdPartyPartner());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -144,19 +158,27 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the errorMessage property value. The errorMessage property
+     * @param string|null $value Value to set for the errorMessage property.
+    */
+    public function setErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('errorMessage', $value);
     }
 
     /**

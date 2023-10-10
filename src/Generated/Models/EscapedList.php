@@ -41,7 +41,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the columns property value. The columns property
+     * Gets the columns property value. The collection of field definitions for this list.
      * @return array<ColumnDefinition>|null
     */
     public function getColumns(): ?array {
@@ -55,7 +55,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the contentTypes property value. The contentTypes property
+     * Gets the contentTypes property value. The collection of content types present in this list.
      * @return array<ContentType>|null
     */
     public function getContentTypes(): ?array {
@@ -81,7 +81,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the drive property value. Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+     * Gets the drive property value. Allows access to the list as a drive resource with driveItems. Only present on document libraries.
      * @return Drive|null
     */
     public function getDrive(): ?Drive {
@@ -93,7 +93,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the list property value. Provides additional details about the list.
+     * Gets the list property value. Contains more details about the list.
      * @return ListInfo|null
     */
     public function getEscapedList(): ?ListInfo {
@@ -140,7 +140,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the operations property value. The collection of long running operations for the list.
+     * Gets the operations property value. The collection of long-running operations on the list.
      * @return array<RichLongRunningOperation>|null
     */
     public function getOperations(): ?array {
@@ -154,7 +154,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the sharepointIds property value. The sharepointIds property
+     * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @return SharepointIds|null
     */
     public function getSharepointIds(): ?SharepointIds {
@@ -180,7 +180,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the system property value. If present, indicates that this is a system-managed list. Read-only.
+     * Gets the system property value. If present, indicates that the list is system-managed. Read-only.
      * @return SystemFacet|null
     */
     public function getSystem(): ?SystemFacet {
@@ -219,7 +219,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the columns property value. The columns property
+     * Sets the columns property value. The collection of field definitions for this list.
      * @param array<ColumnDefinition>|null $value Value to set for the columns property.
     */
     public function setColumns(?array $value): void {
@@ -227,7 +227,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the contentTypes property value. The contentTypes property
+     * Sets the contentTypes property value. The collection of content types present in this list.
      * @param array<ContentType>|null $value Value to set for the contentTypes property.
     */
     public function setContentTypes(?array $value): void {
@@ -243,7 +243,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the drive property value. Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+     * Sets the drive property value. Allows access to the list as a drive resource with driveItems. Only present on document libraries.
      * @param Drive|null $value Value to set for the drive property.
     */
     public function setDrive(?Drive $value): void {
@@ -251,7 +251,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the list property value. Provides additional details about the list.
+     * Sets the list property value. Contains more details about the list.
      * @param ListInfo|null $value Value to set for the list property.
     */
     public function setEscapedList(?ListInfo $value): void {
@@ -267,7 +267,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the operations property value. The collection of long running operations for the list.
+     * Sets the operations property value. The collection of long-running operations on the list.
      * @param array<RichLongRunningOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
@@ -275,7 +275,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the sharepointIds property value. The sharepointIds property
+     * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
     public function setSharepointIds(?SharepointIds $value): void {
@@ -291,7 +291,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the system property value. If present, indicates that this is a system-managed list. Read-only.
+     * Sets the system property value. If present, indicates that the list is system-managed. Read-only.
      * @param SystemFacet|null $value Value to set for the system property.
     */
     public function setSystem(?SystemFacet $value): void {

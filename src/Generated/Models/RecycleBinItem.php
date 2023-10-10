@@ -27,7 +27,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. The deletedDateTime property
+     * Gets the deletedDateTime property value. Date and time when the item was deleted. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the deletedFromLocation property value. The deletedFromLocation property
+     * Gets the deletedFromLocation property value. Relative URL of the list or folder that originally contained the item.
      * @return string|null
     */
     public function getDeletedFromLocation(): ?string {
@@ -64,7 +64,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. Size of the item in bytes.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -87,7 +87,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. The deletedDateTime property
+     * Sets the deletedDateTime property value. Date and time when the item was deleted. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
@@ -95,7 +95,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the deletedFromLocation property value. The deletedFromLocation property
+     * Sets the deletedFromLocation property value. Relative URL of the list or folder that originally contained the item.
      * @param string|null $value Value to set for the deletedFromLocation property.
     */
     public function setDeletedFromLocation(?string $value): void {
@@ -103,7 +103,7 @@ class RecycleBinItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. Size of the item in bytes.
      * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {

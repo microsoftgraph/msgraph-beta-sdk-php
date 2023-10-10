@@ -131,7 +131,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Gets the alternativeRecording property value. The alternativeRecording property
      * @return StreamInterface|null
     */
     public function getAlternativeRecording(): ?StreamInterface {
@@ -171,7 +171,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
+     * Gets the attendeeReport property value. The attendeeReport property
      * @return StreamInterface|null
     */
     public function getAttendeeReport(): ?StreamInterface {
@@ -207,7 +207,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the broadcastSettings property value. Settings related to a live event.
+     * Gets the broadcastSettings property value. The broadcastSettings property
      * @return BroadcastMeetingSettings|null
     */
     public function getBroadcastSettings(): ?BroadcastMeetingSettings {
@@ -321,6 +321,7 @@ class OnlineMeeting extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             'isBroadcast' => fn(ParseNode $n) => $o->setIsBroadcast($n->getBooleanValue()),
+            'isEndToEndEncryptionEnabled' => fn(ParseNode $n) => $o->setIsEndToEndEncryptionEnabled($n->getBooleanValue()),
             'isEntryExitAnnounced' => fn(ParseNode $n) => $o->setIsEntryExitAnnounced($n->getBooleanValue()),
             'joinInformation' => fn(ParseNode $n) => $o->setJoinInformation($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'joinMeetingIdSettings' => fn(ParseNode $n) => $o->setJoinMeetingIdSettings($n->getObjectValue([JoinMeetingIdSettings::class, 'createFromDiscriminatorValue'])),
@@ -343,7 +344,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the isBroadcast property value. Indicates whether this is a Teams live event.
+     * Gets the isBroadcast property value. The isBroadcast property
      * @return bool|null
     */
     public function getIsBroadcast(): ?bool {
@@ -352,6 +353,18 @@ class OnlineMeeting extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isBroadcast'");
+    }
+
+    /**
+     * Gets the isEndToEndEncryptionEnabled property value. The isEndToEndEncryptionEnabled property
+     * @return bool|null
+    */
+    public function getIsEndToEndEncryptionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isEndToEndEncryptionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEndToEndEncryptionEnabled'");
     }
 
     /**
@@ -463,7 +476,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the recording property value. The content stream of the recording of a Teams live event. Read-only.
+     * Gets the recording property value. The recording property
      * @return StreamInterface|null
     */
     public function getRecording(): ?StreamInterface {
@@ -602,6 +615,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeStringValue('externalId', $this->getExternalId());
         $writer->writeBooleanValue('isBroadcast', $this->getIsBroadcast());
+        $writer->writeBooleanValue('isEndToEndEncryptionEnabled', $this->getIsEndToEndEncryptionEnabled());
         $writer->writeBooleanValue('isEntryExitAnnounced', $this->getIsEntryExitAnnounced());
         $writer->writeObjectValue('joinInformation', $this->getJoinInformation());
         $writer->writeObjectValue('joinMeetingIdSettings', $this->getJoinMeetingIdSettings());
@@ -687,7 +701,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Sets the alternativeRecording property value. The alternativeRecording property
      * @param StreamInterface|null $value Value to set for the alternativeRecording property.
     */
     public function setAlternativeRecording(?StreamInterface $value): void {
@@ -711,7 +725,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
+     * Sets the attendeeReport property value. The attendeeReport property
      * @param StreamInterface|null $value Value to set for the attendeeReport property.
     */
     public function setAttendeeReport(?StreamInterface $value): void {
@@ -735,7 +749,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the broadcastSettings property value. Settings related to a live event.
+     * Sets the broadcastSettings property value. The broadcastSettings property
      * @param BroadcastMeetingSettings|null $value Value to set for the broadcastSettings property.
     */
     public function setBroadcastSettings(?BroadcastMeetingSettings $value): void {
@@ -791,11 +805,19 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the isBroadcast property value. Indicates whether this is a Teams live event.
+     * Sets the isBroadcast property value. The isBroadcast property
      * @param bool|null $value Value to set for the isBroadcast property.
     */
     public function setIsBroadcast(?bool $value): void {
         $this->getBackingStore()->set('isBroadcast', $value);
+    }
+
+    /**
+     * Sets the isEndToEndEncryptionEnabled property value. The isEndToEndEncryptionEnabled property
+     * @param bool|null $value Value to set for the isEndToEndEncryptionEnabled property.
+    */
+    public function setIsEndToEndEncryptionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEndToEndEncryptionEnabled', $value);
     }
 
     /**
@@ -871,7 +893,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the recording property value. The content stream of the recording of a Teams live event. Read-only.
+     * Sets the recording property value. The recording property
      * @param StreamInterface|null $value Value to set for the recording property.
     */
     public function setRecording(?StreamInterface $value): void {

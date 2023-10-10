@@ -53,7 +53,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of personWebsite objects from a user's profile. This API is available in the following national cloud deployments.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-websites?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile. This API is supported in the following national cloud deployments.
+     * Create a new personWebsite object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of personWebsite objects from a user's profile. This API is available in the following national cloud deployments.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile. This API is supported in the following national cloud deployments.
+     * Create a new personWebsite object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

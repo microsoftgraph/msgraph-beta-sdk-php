@@ -85,7 +85,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sensitivityLabel objects associated with a user or organization. This API is supported in the following national cloud deployments.
+     * Get a list of sensitivityLabel objects associated with a user or organization. This API is available in the following national cloud deployments.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0 Find more info here
@@ -123,7 +123,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sensitivityLabel objects associated with a user or organization. This API is supported in the following national cloud deployments.
+     * Get a list of sensitivityLabel objects associated with a user or organization. This API is available in the following national cloud deployments.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

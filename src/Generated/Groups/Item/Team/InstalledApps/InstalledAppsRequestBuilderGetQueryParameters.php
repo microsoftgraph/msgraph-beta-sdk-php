@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\InstalledApps;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the list of apps installed in the specified team. This API is supported in the following national cloud deployments.
+ * Retrieve the list of apps installed in the specified team. This API is available in the following national cloud deployments.
 */
 class InstalledAppsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ProgramControlTypes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Azure AD access reviews feature, list all the programControlType objects. This API is supported in the following national cloud deployments.
+ * In the Azure AD access reviews feature, list all the programControlType objects. This API is available in the following national cloud deployments.
 */
 class ProgramControlTypesRequestBuilderGetQueryParameters 
 {

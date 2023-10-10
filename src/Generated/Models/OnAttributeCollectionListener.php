@@ -37,7 +37,7 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
     }
 
     /**
-     * Gets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.
+     * Gets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener.
      * @return OnAttributeCollectionHandler|null
     */
     public function getHandler(): ?OnAttributeCollectionHandler {
@@ -58,7 +58,7 @@ class OnAttributeCollectionListener extends AuthenticationEventListener implemen
     }
 
     /**
-     * Sets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.
+     * Sets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener.
      * @param OnAttributeCollectionHandler|null $value Value to set for the handler property.
     */
     public function setHandler(?OnAttributeCollectionHandler $value): void {

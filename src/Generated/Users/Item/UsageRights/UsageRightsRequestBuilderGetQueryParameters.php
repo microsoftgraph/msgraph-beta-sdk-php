@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\UsageRights;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of usageRight objects for a given user. This API is supported in the following national cloud deployments.
+ * Retrieve a list of usageRight objects for a given user. This API is available in the following national cloud deployments.
 */
 class UsageRightsRequestBuilderGetQueryParameters 
 {

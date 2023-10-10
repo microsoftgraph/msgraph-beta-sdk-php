@@ -53,7 +53,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all Teams async operations that ran or are running on the specified chat. This API is supported in the following national cloud deployments.
+     * List all Teams async operations that ran or are running on the specified chat. This API is available in the following national cloud deployments.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/chat-list-operations?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all Teams async operations that ran or are running on the specified chat. This API is supported in the following national cloud deployments.
+     * List all Teams async operations that ran or are running on the specified chat. This API is available in the following national cloud deployments.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

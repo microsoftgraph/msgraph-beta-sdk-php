@@ -58,7 +58,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an outboundSharedUserProfile. This API is supported in the following national cloud deployments.
+     * Get the details of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
      * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-1.0 Find more info here
@@ -113,7 +113,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an outboundSharedUserProfile. This API is supported in the following national cloud deployments.
+     * Get the details of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
      * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

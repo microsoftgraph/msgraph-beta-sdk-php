@@ -53,7 +53,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of sourceCollections from a case object. This API is supported in the following national cloud deployments.
+     * Get the list of sourceCollections from a case object. This API is available in the following national cloud deployments.
      * @param SourceCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceCollection object. This API is supported in the following national cloud deployments.
+     * Create a new sourceCollection object. This API is available in the following national cloud deployments.
      * @param SourceCollection $body The request body
      * @param SourceCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of sourceCollections from a case object. This API is supported in the following national cloud deployments.
+     * Get the list of sourceCollections from a case object. This API is available in the following national cloud deployments.
      * @param SourceCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class SourceCollectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceCollection object. This API is supported in the following national cloud deployments.
+     * Create a new sourceCollection object. This API is available in the following national cloud deployments.
      * @param SourceCollection $body The request body
      * @param SourceCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

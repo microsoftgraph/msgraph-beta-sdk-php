@@ -112,7 +112,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a case object. This API is supported in the following national cloud deployments.
+     * Delete a case object. This API is available in the following national cloud deployments.
      * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-1.0 Find more info here
@@ -131,7 +131,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a case object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a case object. This API is available in the following national cloud deployments.
      * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-1.0 Find more info here
@@ -150,7 +150,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a case object. This API is supported in the following national cloud deployments.
+     * Update the properties of a case object. This API is available in the following national cloud deployments.
      * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -170,7 +170,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a case object. This API is supported in the following national cloud deployments.
+     * Delete a case object. This API is available in the following national cloud deployments.
      * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -187,7 +187,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a case object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a case object. This API is available in the following national cloud deployments.
      * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -208,7 +208,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a case object. This API is supported in the following national cloud deployments.
+     * Update the properties of a case object. This API is available in the following national cloud deployments.
      * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -40,9 +40,10 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Delete navigation property certificateBasedApplicationConfigurations for directory
+     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Get certificateBasedApplicationConfigurations from directory
+     * Read the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +78,11 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Update the navigation property certificateBasedApplicationConfigurations in directory
+     * Update the properties of a certificateBasedApplicationConfiguration object. To update the trustedCertificateAuthorities within a certificateBasedApplicationConfiguration object, use the Update certificateAuthorityAsEntity operation.
      * @param CertificateBasedApplicationConfiguration $body The request body
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -95,7 +98,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Delete navigation property certificateBasedApplicationConfigurations for directory
+     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +115,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Get certificateBasedApplicationConfigurations from directory
+     * Read the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +136,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Update the navigation property certificateBasedApplicationConfigurations in directory
+     * Update the properties of a certificateBasedApplicationConfiguration object. To update the trustedCertificateAuthorities within a certificateBasedApplicationConfiguration object, use the Update certificateAuthorityAsEntity operation.
      * @param CertificateBasedApplicationConfiguration $body The request body
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

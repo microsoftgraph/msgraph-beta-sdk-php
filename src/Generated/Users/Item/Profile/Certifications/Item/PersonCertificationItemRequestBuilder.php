@@ -32,7 +32,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personCertification object from a user's profile. This API is supported in the following national cloud deployments.
+     * Deletes a personCertification object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personcertification-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personCertification object in a user's profile. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a personCertification object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertificationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personcertification-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personCertification object from a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of a personCertification object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertification $body The request body
      * @param PersonCertificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personCertification object from a user's profile. This API is supported in the following national cloud deployments.
+     * Deletes a personCertification object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personCertification object in a user's profile. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a personCertification object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertificationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personCertification object from a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of a personCertification object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonCertification $body The request body
      * @param PersonCertificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

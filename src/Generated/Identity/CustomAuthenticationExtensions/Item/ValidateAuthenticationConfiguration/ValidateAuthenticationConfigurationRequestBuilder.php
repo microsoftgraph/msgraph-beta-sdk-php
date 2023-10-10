@@ -32,7 +32,7 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is supported in the following national cloud deployments.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is available in the following national cloud deployments.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is supported in the following national cloud deployments.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is available in the following national cloud deployments.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

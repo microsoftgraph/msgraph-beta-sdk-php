@@ -53,7 +53,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of userflows. This API is supported in the following national cloud deployments.
+     * Retrieve a list of userflows. This API is available in the following national cloud deployments.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userFlow object. This API is supported in the following national cloud deployments.
+     * Create a new userFlow object. This API is available in the following national cloud deployments.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of userflows. This API is supported in the following national cloud deployments.
+     * Retrieve a list of userflows. This API is available in the following national cloud deployments.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userFlow object. This API is supported in the following national cloud deployments.
+     * Create a new userFlow object. This API is available in the following national cloud deployments.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Reviewers;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Azure AD access reviews feature, retrieve the reviewers of an accessReview object. This API is supported in the following national cloud deployments.
+ * In the Azure AD access reviews feature, retrieve the reviewers of an accessReview object. This API is available in the following national cloud deployments.
 */
 class ReviewersRequestBuilderGetQueryParameters 
 {

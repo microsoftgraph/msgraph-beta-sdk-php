@@ -53,7 +53,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the acronym objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the acronym objects and their properties. This API is available in the following national cloud deployments.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-searchentity-list-acronyms?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new acronym object. This API is supported in the following national cloud deployments.
+     * Create a new acronym object. This API is available in the following national cloud deployments.
      * @param Acronym $body The request body
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the acronym objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the acronym objects and their properties. This API is available in the following national cloud deployments.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new acronym object. This API is supported in the following national cloud deployments.
+     * Create a new acronym object. This API is available in the following national cloud deployments.
      * @param Acronym $body The request body
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

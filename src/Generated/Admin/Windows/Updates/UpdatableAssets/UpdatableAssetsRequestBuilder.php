@@ -85,7 +85,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is supported in the following national cloud deployments.
+     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is available in the following national cloud deployments.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-1.0 Find more info here
@@ -104,7 +104,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is supported in the following national cloud deployments.
+     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is available in the following national cloud deployments.
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -124,7 +124,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is supported in the following national cloud deployments.
+     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is available in the following national cloud deployments.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -145,7 +145,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is supported in the following national cloud deployments.
+     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is available in the following national cloud deployments.
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

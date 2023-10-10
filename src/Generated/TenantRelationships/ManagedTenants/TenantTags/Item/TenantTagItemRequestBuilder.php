@@ -48,7 +48,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tenantTag object. This API is supported in the following national cloud deployments.
+     * Delete a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenanttag-delete?view=graph-rest-1.0 Find more info here
@@ -67,7 +67,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantTag object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenanttag-get?view=graph-rest-1.0 Find more info here
@@ -86,7 +86,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tenantTag object. This API is supported in the following national cloud deployments.
+     * Update the properties of a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tenantTag object. This API is supported in the following national cloud deployments.
+     * Delete a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantTag object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +144,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tenantTag object. This API is supported in the following national cloud deployments.
+     * Update the properties of a tenantTag object. This API is available in the following national cloud deployments.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

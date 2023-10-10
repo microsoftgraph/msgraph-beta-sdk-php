@@ -32,7 +32,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a authorityTemplate object. This API is available in the following national cloud deployments.
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-authorities?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a authorityTemplate object. This API is available in the following national cloud deployments.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a authorityTemplate object. This API is available in the following national cloud deployments.
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a authorityTemplate object. This API is available in the following national cloud deployments.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

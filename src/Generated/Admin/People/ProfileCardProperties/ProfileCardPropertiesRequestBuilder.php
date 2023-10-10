@@ -53,7 +53,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is supported in the following national cloud deployments.
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is supported in the following national cloud deployments.
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

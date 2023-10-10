@@ -50,7 +50,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is available in the following national cloud deployments.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is supported in the following national cloud deployments.
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is available in the following national cloud deployments.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is available in the following national cloud deployments.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is supported in the following national cloud deployments.
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is available in the following national cloud deployments.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

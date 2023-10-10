@@ -53,7 +53,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup. This API is supported in the following national cloud deployments.
+     * Get Outlook task folders in a specific outlookTaskGroup. This API is available in the following national cloud deployments.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-list-taskfolders?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup. This API is supported in the following national cloud deployments.
+     * Create an Outlook task folder under a specified outlookTaskGroup. This API is available in the following national cloud deployments.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup. This API is supported in the following national cloud deployments.
+     * Get Outlook task folders in a specific outlookTaskGroup. This API is available in the following national cloud deployments.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup. This API is supported in the following national cloud deployments.
+     * Create an Outlook task folder under a specified outlookTaskGroup. This API is available in the following national cloud deployments.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

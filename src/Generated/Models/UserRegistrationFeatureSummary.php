@@ -36,7 +36,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -96,7 +96,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userRegistrationFeatureCounts property value. Number of users registered or capable for multi-factor authentication, self-service password reset, and passwordless authentication.
+     * Gets the userRegistrationFeatureCounts property value. Number of users registered or capable for multifactor authentication, self-service password reset, and passwordless authentication.
      * @return array<UserRegistrationFeatureCount>|null
     */
     public function getUserRegistrationFeatureCounts(): ?array {
@@ -147,16 +147,16 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -179,7 +179,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userRegistrationFeatureCounts property value. Number of users registered or capable for multi-factor authentication, self-service password reset, and passwordless authentication.
+     * Sets the userRegistrationFeatureCounts property value. Number of users registered or capable for multifactor authentication, self-service password reset, and passwordless authentication.
      * @param array<UserRegistrationFeatureCount>|null $value Value to set for the userRegistrationFeatureCounts property.
     */
     public function setUserRegistrationFeatureCounts(?array $value): void {

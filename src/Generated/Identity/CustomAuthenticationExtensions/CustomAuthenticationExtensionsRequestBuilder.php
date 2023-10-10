@@ -61,7 +61,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned. This API is supported in the following national cloud deployments.
+     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned. This API is available in the following national cloud deployments.
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/identitycontainer-list-customauthenticationextensions?view=graph-rest-1.0 Find more info here
@@ -80,7 +80,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported. This API is supported in the following national cloud deployments.
+     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported. This API is available in the following national cloud deployments.
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -100,7 +100,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned. This API is supported in the following national cloud deployments.
+     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned. This API is available in the following national cloud deployments.
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported. This API is supported in the following national cloud deployments.
+     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported. This API is available in the following national cloud deployments.
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

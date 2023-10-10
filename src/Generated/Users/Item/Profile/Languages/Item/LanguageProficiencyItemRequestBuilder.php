@@ -32,7 +32,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a languageProficiency object from a user's profile. This API is supported in the following national cloud deployments.
+     * Delete a languageProficiency object from a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/languageproficiency-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/languageproficiency-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a languageProficiency object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of a languageProficiency object in a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiency $body The request body
      * @param LanguageProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a languageProficiency object from a user's profile. This API is supported in the following national cloud deployments.
+     * Delete a languageProficiency object from a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a languageProficiency object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of a languageProficiency object in a user's profile. This API is available in the following national cloud deployments.
      * @param LanguageProficiency $body The request body
      * @param LanguageProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

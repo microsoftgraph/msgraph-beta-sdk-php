@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\People;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of person objects ordered by their relevance to the user, which is determined by the user's communication and collaboration patterns, and business relationships. This API is supported in the following national cloud deployments.
+ * Retrieve a list of person objects ordered by their relevance to the user, which is determined by the user's communication and collaboration patterns, and business relationships. This API is available in the following national cloud deployments.
 */
 class PeopleRequestBuilderGetQueryParameters 
 {

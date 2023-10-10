@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning. This API is supported in the following national cloud deployments.
+ * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning. This API is available in the following national cloud deployments.
 */
 class LearningContentsRequestBuilderGetQueryParameters 
 {

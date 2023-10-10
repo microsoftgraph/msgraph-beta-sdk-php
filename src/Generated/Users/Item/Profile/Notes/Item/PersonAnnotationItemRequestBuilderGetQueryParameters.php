@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a personAnnotation object from a user's profile. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a personAnnotation object from a user's profile. This API is available in the following national cloud deployments.
 */
 class PersonAnnotationItemRequestBuilderGetQueryParameters 
 {

@@ -53,7 +53,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the filePlanReferenceTemplate objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the filePlanReferenceTemplate objects and their properties. This API is available in the following national cloud deployments.
      * @param FilePlanReferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-list-fileplanreferences?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Create a new filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplate $body The request body
      * @param FilePlanReferencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the filePlanReferenceTemplate objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the filePlanReferenceTemplate objects and their properties. This API is available in the following national cloud deployments.
      * @param FilePlanReferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Create a new filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplate $body The request body
      * @param FilePlanReferencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

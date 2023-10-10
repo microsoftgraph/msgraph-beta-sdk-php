@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\L
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a linkedResource object. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a linkedResource object. This API is available in the following national cloud deployments.
 */
 class LinkedResourceItemRequestBuilderGetQueryParameters 
 {

@@ -31,7 +31,7 @@ class PauseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Pause the sync of a specific school data synchronization profile in the tenant. This API is supported in the following national cloud deployments.
+     * Pause the sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofile-pause?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class PauseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Pause the sync of a specific school data synchronization profile in the tenant. This API is supported in the following national cloud deployments.
+     * Pause the sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

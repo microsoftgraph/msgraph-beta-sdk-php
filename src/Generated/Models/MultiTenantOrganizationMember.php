@@ -27,7 +27,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the addedByTenantId property value. Tenant ID of the tenant that added the tenant to the multi-tenant organization. Read-only.
+     * Gets the addedByTenantId property value. Tenant ID of the tenant that added the tenant to the multitenant organization. Read-only.
      * @return string|null
     */
     public function getAddedByTenantId(): ?string {
@@ -39,7 +39,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the addedDateTime property value. Date and time when the tenant was added to the multi-tenant organization. Read-only.
+     * Gets the addedDateTime property value. Date and time when the tenant was added to the multitenant organization. Read-only.
      * @return DateTime|null
     */
     public function getAddedDateTime(): ?DateTime {
@@ -51,7 +51,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Display name of the tenant added to the multi-tenant organization.
+     * Gets the displayName property value. Display name of the tenant added to the multitenant organization.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -81,7 +81,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the joinedDateTime property value. Date and time when the tenant joined the multi-tenant organization. Read-only.
+     * Gets the joinedDateTime property value. Date and time when the tenant joined the multitenant organization. Read-only.
      * @return DateTime|null
     */
     public function getJoinedDateTime(): ?DateTime {
@@ -93,7 +93,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the role property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multi-tenant organization but tenants with the member role can only participate in a multi-tenant organization. There can be multiple tenants with the owner role in a multi-tenant organization.
+     * Gets the role property value. Role of the tenant in the multitenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multitenant organization but tenants with the member role can only participate in a multitenant organization. There can be multiple tenants with the owner role in a multitenant organization.
      * @return MultiTenantOrganizationMemberRole|null
     */
     public function getRole(): ?MultiTenantOrganizationMemberRole {
@@ -105,7 +105,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the state property value. State of the tenant in the multi-tenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multi-tenant organization to participate in the multi-tenant organization. Tenants in the active state can participate in the multi-tenant organization. Tenants in the removed state are in the process of being removed from the multi-tenant organization. Read-only.
+     * Gets the state property value. State of the tenant in the multitenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multitenant organization to participate in the multitenant organization. Tenants in the active state can participate in the multitenant organization. Tenants in the removed state are in the process of being removed from the multitenant organization. Read-only.
      * @return MultiTenantOrganizationMemberState|null
     */
     public function getState(): ?MultiTenantOrganizationMemberState {
@@ -117,7 +117,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multi-tenant organization. Set at the time tenant is added.Supports $filter. Key.
+     * Gets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -129,7 +129,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitionDetails property value. Details of the processing status for a tenant in a multi-tenant organization. Read-only. Nullable.
+     * Gets the transitionDetails property value. Details of the processing status for a tenant in a multitenant organization. Read-only. Nullable.
      * @return MultiTenantOrganizationMemberTransitionDetails|null
     */
     public function getTransitionDetails(): ?MultiTenantOrganizationMemberTransitionDetails {
@@ -157,7 +157,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the addedByTenantId property value. Tenant ID of the tenant that added the tenant to the multi-tenant organization. Read-only.
+     * Sets the addedByTenantId property value. Tenant ID of the tenant that added the tenant to the multitenant organization. Read-only.
      * @param string|null $value Value to set for the addedByTenantId property.
     */
     public function setAddedByTenantId(?string $value): void {
@@ -165,7 +165,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the addedDateTime property value. Date and time when the tenant was added to the multi-tenant organization. Read-only.
+     * Sets the addedDateTime property value. Date and time when the tenant was added to the multitenant organization. Read-only.
      * @param DateTime|null $value Value to set for the addedDateTime property.
     */
     public function setAddedDateTime(?DateTime $value): void {
@@ -173,7 +173,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Display name of the tenant added to the multi-tenant organization.
+     * Sets the displayName property value. Display name of the tenant added to the multitenant organization.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -181,7 +181,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the joinedDateTime property value. Date and time when the tenant joined the multi-tenant organization. Read-only.
+     * Sets the joinedDateTime property value. Date and time when the tenant joined the multitenant organization. Read-only.
      * @param DateTime|null $value Value to set for the joinedDateTime property.
     */
     public function setJoinedDateTime(?DateTime $value): void {
@@ -189,7 +189,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the role property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multi-tenant organization but tenants with the member role can only participate in a multi-tenant organization. There can be multiple tenants with the owner role in a multi-tenant organization.
+     * Sets the role property value. Role of the tenant in the multitenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multitenant organization but tenants with the member role can only participate in a multitenant organization. There can be multiple tenants with the owner role in a multitenant organization.
      * @param MultiTenantOrganizationMemberRole|null $value Value to set for the role property.
     */
     public function setRole(?MultiTenantOrganizationMemberRole $value): void {
@@ -197,7 +197,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the state property value. State of the tenant in the multi-tenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multi-tenant organization to participate in the multi-tenant organization. Tenants in the active state can participate in the multi-tenant organization. Tenants in the removed state are in the process of being removed from the multi-tenant organization. Read-only.
+     * Sets the state property value. State of the tenant in the multitenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multitenant organization to participate in the multitenant organization. Tenants in the active state can participate in the multitenant organization. Tenants in the removed state are in the process of being removed from the multitenant organization. Read-only.
      * @param MultiTenantOrganizationMemberState|null $value Value to set for the state property.
     */
     public function setState(?MultiTenantOrganizationMemberState $value): void {
@@ -205,7 +205,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multi-tenant organization. Set at the time tenant is added.Supports $filter. Key.
+     * Sets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -213,7 +213,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitionDetails property value. Details of the processing status for a tenant in a multi-tenant organization. Read-only. Nullable.
+     * Sets the transitionDetails property value. Details of the processing status for a tenant in a multitenant organization. Read-only. Nullable.
      * @param MultiTenantOrganizationMemberTransitionDetails|null $value Value to set for the transitionDetails property.
     */
     public function setTransitionDetails(?MultiTenantOrganizationMemberTransitionDetails $value): void {

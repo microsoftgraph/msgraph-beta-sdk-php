@@ -32,7 +32,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a conversationMember from a chat. This API is supported in the following national cloud deployments.
+     * Remove a conversationMember from a chat. This API is available in the following national cloud deployments.
      * @param ConversationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/chat-delete-members?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat. This API is supported in the following national cloud deployments.
+     * Retrieve a conversationMember from a chat. This API is available in the following national cloud deployments.
      * @param ConversationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/chat-get-members?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a conversationMember from a chat. This API is supported in the following national cloud deployments.
+     * Remove a conversationMember from a chat. This API is available in the following national cloud deployments.
      * @param ConversationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat. This API is supported in the following national cloud deployments.
+     * Retrieve a conversationMember from a chat. This API is available in the following national cloud deployments.
      * @param ConversationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

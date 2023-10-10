@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Settings\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a specific directory setting object. This API is supported in the following national cloud deployments.
+ * Retrieve the properties of a specific directory setting object. This API is available in the following national cloud deployments.
 */
 class DirectorySettingItemRequestBuilderGetQueryParameters 
 {

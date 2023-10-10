@@ -53,7 +53,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of userSource objects associated with a legal hold. This API is supported in the following national cloud deployments.
+     * Get the list of userSource objects associated with a legal hold. This API is available in the following national cloud deployments.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-list-usersources?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a userSource to a legalHold object. This API is supported in the following national cloud deployments.
+     * Adds a userSource to a legalHold object. This API is available in the following national cloud deployments.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of userSource objects associated with a legal hold. This API is supported in the following national cloud deployments.
+     * Get the list of userSource objects associated with a legal hold. This API is available in the following national cloud deployments.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a userSource to a legalHold object. This API is supported in the following national cloud deployments.
+     * Adds a userSource to a legalHold object. This API is available in the following national cloud deployments.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Operations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of long running operations for the list.
+ * The collection of long-running operations on the list.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

@@ -31,7 +31,7 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is supported in the following national cloud deployments.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is available in the following national cloud deployments.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is supported in the following national cloud deployments.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs. This API is available in the following national cloud deployments.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

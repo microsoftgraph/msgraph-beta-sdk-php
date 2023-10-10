@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get items from sites
+ * Get a list of recycleBinItems under the specified site.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

@@ -35,7 +35,7 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -62,12 +62,12 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'moveToJunk' => fn(ParseNode $n) => $o->setMoveToJunk($n->getBooleanValue()),
+            'MoveToJunk' => fn(ParseNode $n) => $o->setMoveToJunk($n->getBooleanValue()),
         ];
     }
 
     /**
-     * Gets the moveToJunk property value. The MoveToJunk property
+     * Gets the MoveToJunk property value. The MoveToJunk property
      * @return bool|null
     */
     public function getMoveToJunk(): ?bool {
@@ -83,29 +83,29 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('moveToJunk', $this->getMoveToJunk());
+        $writer->writeBooleanValue('MoveToJunk', $this->getMoveToJunk());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the moveToJunk property value. The MoveToJunk property
-     * @param bool|null $value Value to set for the moveToJunk property.
+     * Sets the MoveToJunk property value. The MoveToJunk property
+     * @param bool|null $value Value to set for the MoveToJunk property.
     */
     public function setMoveToJunk(?bool $value): void {
         $this->getBackingStore()->set('moveToJunk', $value);

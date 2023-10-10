@@ -32,7 +32,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a departmentTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a departmentTemplate object. This API is available in the following national cloud deployments.
      * @param DepartmentTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-departments?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a departmentTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a departmentTemplate object. This API is available in the following national cloud deployments.
      * @param DepartmentTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-departmenttemplate-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a departmentTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a departmentTemplate object. This API is available in the following national cloud deployments.
      * @param DepartmentTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a departmentTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a departmentTemplate object. This API is available in the following national cloud deployments.
      * @param DepartmentTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

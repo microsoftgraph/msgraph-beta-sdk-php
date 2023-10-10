@@ -35,7 +35,7 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -62,12 +62,12 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'moveToInbox' => fn(ParseNode $n) => $o->setMoveToInbox($n->getBooleanValue()),
+            'MoveToInbox' => fn(ParseNode $n) => $o->setMoveToInbox($n->getBooleanValue()),
         ];
     }
 
     /**
-     * Gets the moveToInbox property value. The MoveToInbox property
+     * Gets the MoveToInbox property value. The MoveToInbox property
      * @return bool|null
     */
     public function getMoveToInbox(): ?bool {
@@ -83,29 +83,29 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('moveToInbox', $this->getMoveToInbox());
+        $writer->writeBooleanValue('MoveToInbox', $this->getMoveToInbox());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the moveToInbox property value. The MoveToInbox property
-     * @param bool|null $value Value to set for the moveToInbox property.
+     * Sets the MoveToInbox property value. The MoveToInbox property
+     * @param bool|null $value Value to set for the MoveToInbox property.
     */
     public function setMoveToInbox(?bool $value): void {
         $this->getBackingStore()->set('moveToInbox', $value);

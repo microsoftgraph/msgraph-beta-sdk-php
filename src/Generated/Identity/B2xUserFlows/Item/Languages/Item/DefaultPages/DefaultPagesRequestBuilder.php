@@ -53,7 +53,7 @@ class DefaultPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow. This API is supported in the following national cloud deployments.
+     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow. This API is available in the following national cloud deployments.
      * @param DefaultPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-list-defaultpages?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class DefaultPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow. This API is supported in the following national cloud deployments.
+     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow. This API is available in the following national cloud deployments.
      * @param DefaultPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -105,7 +105,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes an item from a list][]. This API is supported in the following [national cloud deployments.
+     * Removes an item from a list][]. This API is available in the following [national cloud deployments.
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0 Find more info here
@@ -124,7 +124,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the metadata for an item][] in a [list][]. This API is supported in the following [national cloud deployments.
+     * Returns the metadata for an item][] in a [list][]. This API is available in the following [national cloud deployments.
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0 Find more info here
@@ -173,7 +173,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes an item from a list][]. This API is supported in the following [national cloud deployments.
+     * Removes an item from a list][]. This API is available in the following [national cloud deployments.
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -190,7 +190,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the metadata for an item][] in a [list][]. This API is supported in the following [national cloud deployments.
+     * Returns the metadata for an item][] in a [list][]. This API is available in the following [national cloud deployments.
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

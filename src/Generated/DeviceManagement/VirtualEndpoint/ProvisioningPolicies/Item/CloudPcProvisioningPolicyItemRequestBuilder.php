@@ -56,7 +56,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is supported in the following national cloud deployments.
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-delete?view=graph-rest-1.0 Find more info here
@@ -75,7 +75,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-get?view=graph-rest-1.0 Find more info here
@@ -94,7 +94,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object. This API is supported in the following national cloud deployments.
+     * Update the properties of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is supported in the following national cloud deployments.
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +152,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object. This API is supported in the following national cloud deployments.
+     * Update the properties of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

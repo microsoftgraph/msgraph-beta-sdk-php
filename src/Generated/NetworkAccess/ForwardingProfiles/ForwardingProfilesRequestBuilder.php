@@ -53,7 +53,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of forwarding profiles. This API is supported in the following national cloud deployments.
+     * Retrieve a list of forwarding profiles. This API is available in the following national cloud deployments.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-forwardingprofiles?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of forwarding profiles. This API is supported in the following national cloud deployments.
+     * Retrieve a list of forwarding profiles. This API is available in the following national cloud deployments.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

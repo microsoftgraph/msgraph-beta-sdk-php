@@ -40,7 +40,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcDeviceImage object. This API is supported in the following national cloud deployments.
+     * Delete a cloudPcDeviceImage object. This API is available in the following national cloud deployments.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-delete?view=graph-rest-1.0 Find more info here
@@ -59,7 +59,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is available in the following national cloud deployments.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-get?view=graph-rest-1.0 Find more info here
@@ -97,7 +97,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcDeviceImage object. This API is supported in the following national cloud deployments.
+     * Delete a cloudPcDeviceImage object. This API is available in the following national cloud deployments.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is available in the following national cloud deployments.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

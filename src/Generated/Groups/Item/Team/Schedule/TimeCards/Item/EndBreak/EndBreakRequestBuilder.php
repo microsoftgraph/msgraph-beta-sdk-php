@@ -32,7 +32,7 @@ class EndBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * End the open break in a specific timeCard. This API is supported in the following national cloud deployments.
+     * End the open break in a specific timeCard. This API is available in the following national cloud deployments.
      * @param EndBreakPostRequestBody $body The request body
      * @param EndBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class EndBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * End the open break in a specific timeCard. This API is supported in the following national cloud deployments.
+     * End the open break in a specific timeCard. This API is available in the following national cloud deployments.
      * @param EndBreakPostRequestBody $body The request body
      * @param EndBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

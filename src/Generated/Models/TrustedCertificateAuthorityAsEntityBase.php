@@ -45,7 +45,7 @@ class TrustedCertificateAuthorityAsEntityBase extends DirectoryObject implements
     }
 
     /**
-     * Gets the trustedCertificateAuthorities property value. The trustedCertificateAuthorities property
+     * Gets the trustedCertificateAuthorities property value. Collection of trusted certificate authorities.
      * @return array<CertificateAuthorityAsEntity>|null
     */
     public function getTrustedCertificateAuthorities(): ?array {
@@ -68,7 +68,7 @@ class TrustedCertificateAuthorityAsEntityBase extends DirectoryObject implements
     }
 
     /**
-     * Sets the trustedCertificateAuthorities property value. The trustedCertificateAuthorities property
+     * Sets the trustedCertificateAuthorities property value. Collection of trusted certificate authorities.
      * @param array<CertificateAuthorityAsEntity>|null $value Value to set for the trustedCertificateAuthorities property.
     */
     public function setTrustedCertificateAuthorities(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\TenantStatus;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the onboarding status of a specific tenant. This API is supported in the following national cloud deployments.
+ * Retrieve the onboarding status of a specific tenant. This API is available in the following national cloud deployments.
 */
 class TenantStatusRequestBuilderGetQueryParameters 
 {

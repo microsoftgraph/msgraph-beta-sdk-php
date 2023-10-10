@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummar
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the applicationSignInDetailedSummary objects. This API is supported in the following national cloud deployments.
+ * Retrieve the applicationSignInDetailedSummary objects. This API is available in the following national cloud deployments.
 */
 class ApplicationSignInDetailedSummaryRequestBuilderGetQueryParameters 
 {

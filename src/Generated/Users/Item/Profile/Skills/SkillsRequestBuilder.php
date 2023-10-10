@@ -53,7 +53,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of skillProficiency objects in a user's profile. This API is available in the following national cloud deployments.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-skills?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of skillProficiency objects in a user's profile. This API is available in the following national cloud deployments.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile. This API is supported in the following national cloud deployments.
+     * Use this API to create a new skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -53,7 +53,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is supported in the following national cloud deployments.
+     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is available in the following national cloud deployments.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Create a new reviewSetQuery object. This API is available in the following national cloud deployments.
      * @param ReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is supported in the following national cloud deployments.
+     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is available in the following national cloud deployments.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Create a new reviewSetQuery object. This API is available in the following national cloud deployments.
      * @param ReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

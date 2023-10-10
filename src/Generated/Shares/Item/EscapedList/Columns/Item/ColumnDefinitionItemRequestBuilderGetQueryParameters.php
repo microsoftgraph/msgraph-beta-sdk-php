@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Columns\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get columns from shares
+ * The collection of field definitions for this list.
 */
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {

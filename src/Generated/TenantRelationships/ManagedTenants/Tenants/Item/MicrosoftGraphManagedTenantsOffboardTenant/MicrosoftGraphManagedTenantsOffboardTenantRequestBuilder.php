@@ -32,7 +32,7 @@ class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder extends BaseReque
     }
 
     /**
-     * Carries out the appropriate procedures to remove a managed tenant from the multi-tenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multi-tenant management platform. This API is supported in the following national cloud deployments.
+     * Carries out the appropriate procedures to remove a managed tenant from the multitenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multitenant management platform. This API is available in the following national cloud deployments.
      * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenant-offboardtenant?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder extends BaseReque
     }
 
     /**
-     * Carries out the appropriate procedures to remove a managed tenant from the multi-tenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multi-tenant management platform. This API is supported in the following national cloud deployments.
+     * Carries out the appropriate procedures to remove a managed tenant from the multitenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multitenant management platform. This API is available in the following national cloud deployments.
      * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

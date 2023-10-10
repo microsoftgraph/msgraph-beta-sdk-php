@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get all the Outlook task folders in the user's mailbox. This API is supported in the following national cloud deployments.
+ * Get all the Outlook task folders in the user's mailbox. This API is available in the following national cloud deployments.
 */
 class TaskFoldersRequestBuilderGetQueryParameters 
 {

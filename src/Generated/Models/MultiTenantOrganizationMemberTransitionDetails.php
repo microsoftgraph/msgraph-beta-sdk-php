@@ -35,7 +35,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -56,7 +56,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the desiredRole property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member, unknownFutureValue.
+     * Gets the desiredRole property value. Role of the tenant in the multitenant organization. The possible values are: owner, member, unknownFutureValue.
      * @return MultiTenantOrganizationMemberRole|null
     */
     public function getDesiredRole(): ?MultiTenantOrganizationMemberRole {
@@ -68,7 +68,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Gets the desiredState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
+     * Gets the desiredState property value. State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @return MultiTenantOrganizationMemberState|null
     */
     public function getDesiredState(): ?MultiTenantOrganizationMemberState {
@@ -144,23 +144,23 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the desiredRole property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member, unknownFutureValue.
+     * Sets the desiredRole property value. Role of the tenant in the multitenant organization. The possible values are: owner, member, unknownFutureValue.
      * @param MultiTenantOrganizationMemberRole|null $value Value to set for the desiredRole property.
     */
     public function setDesiredRole(?MultiTenantOrganizationMemberRole $value): void {
@@ -168,7 +168,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     }
 
     /**
-     * Sets the desiredState property value. State of the tenant in the multi-tenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
+     * Sets the desiredState property value. State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @param MultiTenantOrganizationMemberState|null $value Value to set for the desiredState property.
     */
     public function setDesiredState(?MultiTenantOrganizationMemberState $value): void {

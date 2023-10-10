@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an agreement object. This API is supported in the following national cloud deployments.
+ * Retrieve the properties and relationships of an agreement object. This API is available in the following national cloud deployments.
 */
 class AgreementItemRequestBuilderGetQueryParameters 
 {

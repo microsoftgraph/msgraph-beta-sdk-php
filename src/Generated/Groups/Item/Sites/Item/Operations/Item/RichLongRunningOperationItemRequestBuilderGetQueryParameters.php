@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Operations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties of a richLongRunningOperation object. This API is supported in the following national cloud deployments.
+ * Read the properties of a richLongRunningOperation object. This API is available in the following national cloud deployments.
 */
 class RichLongRunningOperationItemRequestBuilderGetQueryParameters 
 {

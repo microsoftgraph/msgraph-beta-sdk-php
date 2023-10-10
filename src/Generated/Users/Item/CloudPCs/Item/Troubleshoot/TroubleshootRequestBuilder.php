@@ -31,7 +31,7 @@ class TroubleshootRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is supported in the following national cloud deployments.
+     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is available in the following national cloud deployments.
      * @param TroubleshootRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpc-troubleshoot?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class TroubleshootRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is supported in the following national cloud deployments.
+     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is available in the following national cloud deployments.
      * @param TroubleshootRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

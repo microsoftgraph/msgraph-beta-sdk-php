@@ -32,7 +32,7 @@ class RevokeGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Revoke access to a listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link. This API is supported in the following [national cloud deployments.
+     * Revoke access to a listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link. This API is available in the following [national cloud deployments.
      * @param RevokeGrantsPostRequestBody $body The request body
      * @param RevokeGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class RevokeGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Revoke access to a listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link. This API is supported in the following [national cloud deployments.
+     * Revoke access to a listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link. This API is available in the following [national cloud deployments.
      * @param RevokeGrantsPostRequestBody $body The request body
      * @param RevokeGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

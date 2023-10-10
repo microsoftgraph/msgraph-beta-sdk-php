@@ -32,7 +32,7 @@ class ReactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed. This API is supported in the following national cloud deployments.
+     * Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed. This API is available in the following national cloud deployments.
      * @param ReactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/recommendation-reactivate?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ReactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed. This API is supported in the following national cloud deployments.
+     * Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed. This API is available in the following national cloud deployments.
      * @param ReactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
