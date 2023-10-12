@@ -32,7 +32,7 @@ class DeactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments. This API is supported in the following national cloud deployments.
+     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments. This API is available in the following national cloud deployments.
      * @param DeactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class DeactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments. This API is supported in the following national cloud deployments.
+     * Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments. This API is available in the following national cloud deployments.
      * @param DeactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

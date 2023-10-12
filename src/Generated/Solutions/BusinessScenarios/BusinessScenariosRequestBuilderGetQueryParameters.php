@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of all businessScenario objects in an organization. This API is supported in the following national cloud deployments.
+ * Get a list of all businessScenario objects in an organization. This API is available in the following national cloud deployments.
 */
 class BusinessScenariosRequestBuilderGetQueryParameters 
 {

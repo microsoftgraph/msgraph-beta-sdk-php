@@ -32,7 +32,7 @@ class UploadCertificateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey. This API is supported in the following national cloud deployments.
+     * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey. This API is available in the following national cloud deployments.
      * @param UploadCertificatePostRequestBody $body The request body
      * @param UploadCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class UploadCertificateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey. This API is supported in the following national cloud deployments.
+     * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey. This API is available in the following national cloud deployments.
      * @param UploadCertificatePostRequestBody $body The request body
      * @param UploadCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

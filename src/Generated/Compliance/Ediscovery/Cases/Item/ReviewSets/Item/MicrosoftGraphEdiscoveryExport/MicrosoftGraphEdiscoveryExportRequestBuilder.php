@@ -31,7 +31,7 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery. This API is supported in the following national cloud deployments.
+     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery. This API is available in the following national cloud deployments.
      * @param ExportPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery. This API is supported in the following national cloud deployments.
+     * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery. This API is available in the following national cloud deployments.
      * @param ExportPostRequestBody $body The request body
      * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

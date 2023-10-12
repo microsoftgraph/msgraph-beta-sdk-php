@@ -53,7 +53,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a plannerRoster object. This API is available in the following national cloud deployments.
      * @param RostersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -71,7 +71,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new plannerRoster object. This API is supported in the following national cloud deployments.
+     * Create a new plannerRoster object. This API is available in the following national cloud deployments.
      * @param PlannerRoster $body The request body
      * @param RostersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -91,7 +91,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a plannerRoster object. This API is available in the following national cloud deployments.
      * @param RostersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +112,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new plannerRoster object. This API is supported in the following national cloud deployments.
+     * Create a new plannerRoster object. This API is available in the following national cloud deployments.
      * @param PlannerRoster $body The request body
      * @param RostersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

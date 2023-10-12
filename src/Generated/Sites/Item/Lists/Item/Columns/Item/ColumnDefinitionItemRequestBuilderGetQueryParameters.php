@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Columns\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get columns from sites
+ * The collection of field definitions for this list.
 */
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {

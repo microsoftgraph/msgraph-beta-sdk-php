@@ -53,7 +53,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster. This API is supported in the following national cloud deployments.
+     * Get the list of plannerRosterMembers from a plannerRoster. This API is available in the following national cloud deployments.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object. This API is supported in the following national cloud deployments.
+     * Add a member to the plannerRoster object. This API is available in the following national cloud deployments.
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster. This API is supported in the following national cloud deployments.
+     * Get the list of plannerRosterMembers from a plannerRoster. This API is available in the following national cloud deployments.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object. This API is supported in the following national cloud deployments.
+     * Add a member to the plannerRoster object. This API is available in the following national cloud deployments.
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

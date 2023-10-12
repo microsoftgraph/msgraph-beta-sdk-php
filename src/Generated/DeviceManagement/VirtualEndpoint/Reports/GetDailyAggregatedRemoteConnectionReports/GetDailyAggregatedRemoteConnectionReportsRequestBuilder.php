@@ -32,7 +32,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is supported in the following national cloud deployments.
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is available in the following national cloud deployments.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is supported in the following national cloud deployments.
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is available in the following national cloud deployments.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

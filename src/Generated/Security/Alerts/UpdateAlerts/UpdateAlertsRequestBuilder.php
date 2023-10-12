@@ -31,7 +31,7 @@ class UpdateAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple alerts in one request instead of multiple requests. This API is supported in the following national cloud deployments.
+     * Update multiple alerts in one request instead of multiple requests. This API is available in the following national cloud deployments.
      * @param UpdateAlertsPostRequestBody $body The request body
      * @param UpdateAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class UpdateAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple alerts in one request instead of multiple requests. This API is supported in the following national cloud deployments.
+     * Update multiple alerts in one request instead of multiple requests. This API is available in the following national cloud deployments.
      * @param UpdateAlertsPostRequestBody $body The request body
      * @param UpdateAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

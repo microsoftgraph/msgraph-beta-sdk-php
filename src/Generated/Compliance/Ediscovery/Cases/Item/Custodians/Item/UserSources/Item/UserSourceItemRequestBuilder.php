@@ -32,7 +32,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a userSource object. This API is supported in the following national cloud deployments.
+     * Delete a userSource object. This API is available in the following national cloud deployments.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-usersource-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userSource object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a userSource object. This API is available in the following national cloud deployments.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/ediscovery-usersource-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a userSource object. This API is supported in the following national cloud deployments.
+     * Delete a userSource object. This API is available in the following national cloud deployments.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userSource object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a userSource object. This API is available in the following national cloud deployments.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -32,7 +32,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is supported in the following national cloud deployments.
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is supported in the following national cloud deployments.
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is supported in the following national cloud deployments.
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

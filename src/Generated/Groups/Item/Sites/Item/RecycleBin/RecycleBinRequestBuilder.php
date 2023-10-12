@@ -74,7 +74,7 @@ class RecycleBinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get recycleBin from groups
+     * The collection of recycleBinItems under this site.
      * @param RecycleBinRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -128,7 +128,7 @@ class RecycleBinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get recycleBin from groups
+     * The collection of recycleBinItems under this site.
      * @param RecycleBinRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

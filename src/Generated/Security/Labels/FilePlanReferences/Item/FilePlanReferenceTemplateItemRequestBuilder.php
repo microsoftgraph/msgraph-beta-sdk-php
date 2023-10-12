@@ -32,7 +32,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0 Find more info here
@@ -89,7 +89,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Delete a filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a filePlanReferenceTemplate object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a filePlanReferenceTemplate object. This API is available in the following national cloud deployments.
      * @param FilePlanReferenceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the itemAddress resources from the addresses navigation property. This API is supported in the following national cloud deployments.
+ * Get the itemAddress resources from the addresses navigation property. This API is available in the following national cloud deployments.
 */
 class AddressesRequestBuilderGetQueryParameters 
 {

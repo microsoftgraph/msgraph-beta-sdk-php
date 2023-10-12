@@ -32,7 +32,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Get alternativeRecording for the navigation property onlineMeetings from app
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Update alternativeRecording for the navigation property onlineMeetings in app
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -69,7 +69,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Get alternativeRecording for the navigation property onlineMeetings from app
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -86,7 +86,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+     * Update alternativeRecording for the navigation property onlineMeetings in app
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

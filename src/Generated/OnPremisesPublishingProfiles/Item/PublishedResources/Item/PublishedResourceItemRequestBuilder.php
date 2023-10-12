@@ -58,7 +58,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of publishedResource object. This API is available in the following national cloud deployments.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/publishedresource-get?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of published resource  publishedResource object. This API is supported in the following national cloud deployments.
+     * Update the properties of published resource  publishedResource object. This API is available in the following national cloud deployments.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of publishedResource object. This API is available in the following national cloud deployments.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of published resource  publishedResource object. This API is supported in the following national cloud deployments.
+     * Update the properties of published resource  publishedResource object. This API is available in the following national cloud deployments.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,7 +31,7 @@ class ResetToDefaultSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset the cross-tenant access policy template with user synchronization settings for a multi-tenant organization to the default values. In its reset state, the template has no impact on user synchronization settings, other than that unconfigured user synchronization settings are created if needed, for every multi-tenant organization tenant.
+     * Reset the cross-tenant access policy template with user synchronization settings for a multitenant organization to the default values. In its reset state, the template has no impact on user synchronization settings, other than that unconfigured user synchronization settings are created if needed, for every multitenant organization tenant. This API is available in the following national cloud deployments.
      * @param ResetToDefaultSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-resettodefaultsettings?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class ResetToDefaultSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset the cross-tenant access policy template with user synchronization settings for a multi-tenant organization to the default values. In its reset state, the template has no impact on user synchronization settings, other than that unconfigured user synchronization settings are created if needed, for every multi-tenant organization tenant.
+     * Reset the cross-tenant access policy template with user synchronization settings for a multitenant organization to the default values. In its reset state, the template has no impact on user synchronization settings, other than that unconfigured user synchronization settings are created if needed, for every multitenant organization tenant. This API is available in the following national cloud deployments.
      * @param ResetToDefaultSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

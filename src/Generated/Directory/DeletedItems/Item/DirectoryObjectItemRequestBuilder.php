@@ -5,12 +5,17 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphApplication\GraphApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphDevice\GraphDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphGroup\GraphGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\GraphUser\GraphUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -23,6 +28,34 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the checkMemberGroups method.
+    */
+    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberObjects method.
+    */
+    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberGroups method.
+    */
+    public function getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberObjects method.
+    */
+    public function getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Casts the previous resource to administrativeUnit.
     */
@@ -63,6 +96,13 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     */
     public function graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

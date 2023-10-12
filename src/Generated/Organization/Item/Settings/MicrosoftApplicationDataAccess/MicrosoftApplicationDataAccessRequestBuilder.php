@@ -50,7 +50,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is supported in the following national cloud deployments.
+     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is available in the following national cloud deployments.
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/organizationsettings-list-microsoftapplicationdataaccess?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is supported in the following national cloud deployments.
+     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is available in the following national cloud deployments.
      * @param MicrosoftApplicationDataAccessSettings $body The request body
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is supported in the following national cloud deployments.
+     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is available in the following national cloud deployments.
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is supported in the following national cloud deployments.
+     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization. This API is available in the following national cloud deployments.
      * @param MicrosoftApplicationDataAccessSettings $body The request body
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

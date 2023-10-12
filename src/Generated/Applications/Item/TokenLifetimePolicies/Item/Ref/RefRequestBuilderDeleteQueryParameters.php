@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove a tokenLifetimePolicy from an application or servicePrincipal. This API is supported in the following national cloud deployments.
+ * Remove a tokenLifetimePolicy from an application or servicePrincipal. This API is available in the following national cloud deployments.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

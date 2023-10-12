@@ -32,7 +32,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a directory setting. This API is supported in the following national cloud deployments.
+     * Delete a directory setting. This API is available in the following national cloud deployments.
      * @param DirectorySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a specific directory setting object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties of a specific directory setting object. This API is available in the following national cloud deployments.
      * @param DirectorySettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a specific directory setting object. This API is supported in the following national cloud deployments.
+     * Update the properties of a specific directory setting object. This API is available in the following national cloud deployments.
      * @param DirectorySetting $body The request body
      * @param DirectorySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a directory setting. This API is supported in the following national cloud deployments.
+     * Delete a directory setting. This API is available in the following national cloud deployments.
      * @param DirectorySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a specific directory setting object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties of a specific directory setting object. This API is available in the following national cloud deployments.
      * @param DirectorySettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a specific directory setting object. This API is supported in the following national cloud deployments.
+     * Update the properties of a specific directory setting object. This API is available in the following national cloud deployments.
      * @param DirectorySetting $body The request body
      * @param DirectorySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

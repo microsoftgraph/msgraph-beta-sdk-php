@@ -52,7 +52,7 @@ class FavoritePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource. This API is supported in the following national cloud deployments.
+     * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource. This API is available in the following national cloud deployments.
      * @param FavoritePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/planneruser-list-favoriteplans?view=graph-rest-1.0 Find more info here
@@ -71,7 +71,7 @@ class FavoritePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource. This API is supported in the following national cloud deployments.
+     * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource. This API is available in the following national cloud deployments.
      * @param FavoritePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

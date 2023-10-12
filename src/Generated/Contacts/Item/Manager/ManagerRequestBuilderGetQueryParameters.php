@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item\Manager;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the contact's manager This API is supported in the following national cloud deployments.
+ * Get the contact's manager This API is available in the following national cloud deployments.
 */
 class ManagerRequestBuilderGetQueryParameters 
 {

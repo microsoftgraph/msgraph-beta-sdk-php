@@ -36,7 +36,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -66,14 +66,6 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
             'notificationChannelType' => fn(ParseNode $n) => $o->setNotificationChannelType($n->getEnumValue(NotificationChannelType::class)),
             'notificationReceivers' => fn(ParseNode $n) => $o->setNotificationReceivers($n->getCollectionOfObjectValues([NotificationReceiver::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'receivers' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setReceivers($val);
-            },
         ];
     }
 
@@ -116,20 +108,6 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the receivers property value. The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
-     * @return array<string>|null
-    */
-    public function getReceivers(): ?array {
-        $val = $this->getBackingStore()->get('receivers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivers'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -137,21 +115,20 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeEnumValue('notificationChannelType', $this->getNotificationChannelType());
         $writer->writeCollectionOfObjectValues('notificationReceivers', $this->getNotificationReceivers());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeCollectionOfPrimitiveValues('receivers', $this->getReceivers());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -179,14 +156,6 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the receivers property value. The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
-     * @param array<string>|null $value Value to set for the receivers property.
-    */
-    public function setReceivers(?array $value): void {
-        $this->getBackingStore()->set('receivers', $value);
     }
 
 }

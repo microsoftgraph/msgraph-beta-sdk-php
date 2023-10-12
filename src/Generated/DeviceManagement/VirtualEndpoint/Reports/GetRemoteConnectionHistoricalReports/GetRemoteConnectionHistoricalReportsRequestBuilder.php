@@ -32,7 +32,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get the remote connection history records of a Cloud PC during a given period. This API is supported in the following national cloud deployments.
+     * Get the remote connection history records of a Cloud PC during a given period. This API is available in the following national cloud deployments.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get the remote connection history records of a Cloud PC during a given period. This API is supported in the following national cloud deployments.
+     * Get the remote connection history records of a Cloud PC during a given period. This API is available in the following national cloud deployments.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

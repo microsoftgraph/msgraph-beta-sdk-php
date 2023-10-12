@@ -31,7 +31,7 @@ class ReuploadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reupload a cloudPcDeviceImage object that failed to upload. This API is supported in the following national cloud deployments.
+     * Reupload a cloudPcDeviceImage object that failed to upload. This API is available in the following national cloud deployments.
      * @param ReuploadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class ReuploadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reupload a cloudPcDeviceImage object that failed to upload. This API is supported in the following national cloud deployments.
+     * Reupload a cloudPcDeviceImage object that failed to upload. This API is available in the following national cloud deployments.
      * @param ReuploadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

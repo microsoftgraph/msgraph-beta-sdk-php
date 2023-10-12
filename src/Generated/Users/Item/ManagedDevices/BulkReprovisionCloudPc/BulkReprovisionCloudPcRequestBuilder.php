@@ -32,7 +32,7 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is supported in the following national cloud deployments.
+     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is available in the following national cloud deployments.
      * @param BulkReprovisionCloudPcPostRequestBody $body The request body
      * @param BulkReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is supported in the following national cloud deployments.
+     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is available in the following national cloud deployments.
      * @param BulkReprovisionCloudPcPostRequestBody $body The request body
      * @param BulkReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

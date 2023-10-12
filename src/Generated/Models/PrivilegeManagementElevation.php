@@ -119,8 +119,13 @@ class PrivilegeManagementElevation extends Entity implements Parsable
             'hash' => fn(ParseNode $n) => $o->setHash($n->getStringValue()),
             'internalName' => fn(ParseNode $n) => $o->setInternalName($n->getStringValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'parentProcessName' => fn(ParseNode $n) => $o->setParentProcessName($n->getStringValue()),
+            'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
+            'processType' => fn(ParseNode $n) => $o->setProcessType($n->getEnumValue(PrivilegeManagementProcessType::class)),
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'result' => fn(ParseNode $n) => $o->setResult($n->getIntegerValue()),
+            'ruleId' => fn(ParseNode $n) => $o->setRuleId($n->getStringValue()),
             'upn' => fn(ParseNode $n) => $o->setUpn($n->getStringValue()),
             'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(PrivilegeManagementEndUserType::class)),
         ]);
@@ -199,6 +204,54 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
+     * Gets the parentProcessName property value. The name of parent process associated with the elevated process. This is always populated for both parent and child process types
+     * @return string|null
+    */
+    public function getParentProcessName(): ?string {
+        $val = $this->getBackingStore()->get('parentProcessName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentProcessName'");
+    }
+
+    /**
+     * Gets the policyId property value. Unique Identifier of the policy configured to run the application with elevated access
+     * @return string|null
+    */
+    public function getPolicyId(): ?string {
+        $val = $this->getBackingStore()->get('policyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyId'");
+    }
+
+    /**
+     * Gets the policyName property value. The name of the policy configured to run the application in elevated access
+     * @return string|null
+    */
+    public function getPolicyName(): ?string {
+        $val = $this->getBackingStore()->get('policyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyName'");
+    }
+
+    /**
+     * Gets the processType property value. Indicates the type of elevated process
+     * @return PrivilegeManagementProcessType|null
+    */
+    public function getProcessType(): ?PrivilegeManagementProcessType {
+        $val = $this->getBackingStore()->get('processType');
+        if (is_null($val) || $val instanceof PrivilegeManagementProcessType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processType'");
+    }
+
+    /**
      * Gets the productName property value. The product name of the application. This value is set by the creator of the application. Example: `Visual Studio`
      * @return string|null
     */
@@ -220,6 +273,18 @@ class PrivilegeManagementElevation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
+    }
+
+    /**
+     * Gets the ruleId property value. Unique identifier of the rule configured to run the application with elevated access
+     * @return string|null
+    */
+    public function getRuleId(): ?string {
+        $val = $this->getBackingStore()->get('ruleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleId'");
     }
 
     /**
@@ -264,8 +329,13 @@ class PrivilegeManagementElevation extends Entity implements Parsable
         $writer->writeStringValue('hash', $this->getHash());
         $writer->writeStringValue('internalName', $this->getInternalName());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('parentProcessName', $this->getParentProcessName());
+        $writer->writeStringValue('policyId', $this->getPolicyId());
+        $writer->writeStringValue('policyName', $this->getPolicyName());
+        $writer->writeEnumValue('processType', $this->getProcessType());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeIntegerValue('result', $this->getResult());
+        $writer->writeStringValue('ruleId', $this->getRuleId());
         $writer->writeStringValue('upn', $this->getUpn());
         $writer->writeEnumValue('userType', $this->getUserType());
     }
@@ -367,6 +437,38 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
+     * Sets the parentProcessName property value. The name of parent process associated with the elevated process. This is always populated for both parent and child process types
+     * @param string|null $value Value to set for the parentProcessName property.
+    */
+    public function setParentProcessName(?string $value): void {
+        $this->getBackingStore()->set('parentProcessName', $value);
+    }
+
+    /**
+     * Sets the policyId property value. Unique Identifier of the policy configured to run the application with elevated access
+     * @param string|null $value Value to set for the policyId property.
+    */
+    public function setPolicyId(?string $value): void {
+        $this->getBackingStore()->set('policyId', $value);
+    }
+
+    /**
+     * Sets the policyName property value. The name of the policy configured to run the application in elevated access
+     * @param string|null $value Value to set for the policyName property.
+    */
+    public function setPolicyName(?string $value): void {
+        $this->getBackingStore()->set('policyName', $value);
+    }
+
+    /**
+     * Sets the processType property value. Indicates the type of elevated process
+     * @param PrivilegeManagementProcessType|null $value Value to set for the processType property.
+    */
+    public function setProcessType(?PrivilegeManagementProcessType $value): void {
+        $this->getBackingStore()->set('processType', $value);
+    }
+
+    /**
      * Sets the productName property value. The product name of the application. This value is set by the creator of the application. Example: `Visual Studio`
      * @param string|null $value Value to set for the productName property.
     */
@@ -380,6 +482,14 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     */
     public function setResult(?int $value): void {
         $this->getBackingStore()->set('result', $value);
+    }
+
+    /**
+     * Sets the ruleId property value. Unique identifier of the rule configured to run the application with elevated access
+     * @param string|null $value Value to set for the ruleId property.
+    */
+    public function setRuleId(?string $value): void {
+        $this->getBackingStore()->set('ruleId', $value);
     }
 
     /**

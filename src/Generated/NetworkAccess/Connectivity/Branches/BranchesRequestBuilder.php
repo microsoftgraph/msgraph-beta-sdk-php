@@ -53,7 +53,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is supported in the following national cloud deployments.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is available in the following national cloud deployments.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/networkaccess-connectivity-list-branches?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new branch. This API is supported in the following national cloud deployments.
+     * Create a new branch. This API is available in the following national cloud deployments.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is supported in the following national cloud deployments.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is available in the following national cloud deployments.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new branch. This API is supported in the following national cloud deployments.
+     * Create a new branch. This API is available in the following national cloud deployments.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

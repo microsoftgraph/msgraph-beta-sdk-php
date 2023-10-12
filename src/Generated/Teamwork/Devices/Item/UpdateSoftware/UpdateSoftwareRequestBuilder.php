@@ -31,7 +31,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is supported in the following national cloud deployments.
+     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is available in the following national cloud deployments.
      * @param UpdateSoftwarePostRequestBody $body The request body
      * @param UpdateSoftwareRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is supported in the following national cloud deployments.
+     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is available in the following national cloud deployments.
      * @param UpdateSoftwarePostRequestBody $body The request body
      * @param UpdateSoftwareRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

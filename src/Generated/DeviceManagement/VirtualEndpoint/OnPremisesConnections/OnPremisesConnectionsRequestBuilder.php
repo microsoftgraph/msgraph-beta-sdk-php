@@ -53,7 +53,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is supported in the following national cloud deployments.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is available in the following national cloud deployments.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-onpremisesconnections?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is supported in the following national cloud deployments.
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is available in the following national cloud deployments.
      * @param CloudPcOnPremisesConnection $body The request body
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is supported in the following national cloud deployments.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is available in the following national cloud deployments.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is supported in the following national cloud deployments.
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is available in the following national cloud deployments.
      * @param CloudPcOnPremisesConnection $body The request body
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

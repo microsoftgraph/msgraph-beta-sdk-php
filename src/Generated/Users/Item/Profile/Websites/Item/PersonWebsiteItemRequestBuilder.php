@@ -32,7 +32,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personWebsite object from a user's profile. This API is supported in the following national cloud deployments.
+     * Deletes a personWebsite object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personwebsite-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personWebsite object from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a personWebsite object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/personwebsite-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of personWebsite object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of personWebsite object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsite $body The request body
      * @param PersonWebsiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personWebsite object from a user's profile. This API is supported in the following national cloud deployments.
+     * Deletes a personWebsite object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personWebsite object from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a personWebsite object from a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of personWebsite object in a user's profile. This API is supported in the following national cloud deployments.
+     * Update the properties of personWebsite object in a user's profile. This API is available in the following national cloud deployments.
      * @param PersonWebsite $body The request body
      * @param PersonWebsiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

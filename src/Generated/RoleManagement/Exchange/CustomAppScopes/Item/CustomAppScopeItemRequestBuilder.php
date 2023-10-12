@@ -32,7 +32,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/customappscope-delete?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/customappscope-get?view=graph-rest-1.0 Find more info here
@@ -70,7 +70,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -90,7 +90,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -107,7 +107,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve information about a specific branch. This API is supported in the following national cloud deployments.
+ * Retrieve information about a specific branch. This API is available in the following national cloud deployments.
 */
 class BranchSiteItemRequestBuilderGetQueryParameters 
 {

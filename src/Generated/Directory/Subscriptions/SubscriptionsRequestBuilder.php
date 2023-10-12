@@ -53,7 +53,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. This API is supported in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired. This API is available in the following national cloud deployments.
      * @param SubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/directory-list-subscriptions?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. This API is supported in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired. This API is available in the following national cloud deployments.
      * @param SubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

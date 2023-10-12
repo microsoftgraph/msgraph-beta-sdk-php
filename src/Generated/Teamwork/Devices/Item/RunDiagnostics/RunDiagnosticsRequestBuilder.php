@@ -31,7 +31,7 @@ class RunDiagnosticsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device. This API is supported in the following national cloud deployments.
+     * Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device. This API is available in the following national cloud deployments.
      * @param RunDiagnosticsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/teamworkdevice-rundiagnostics?view=graph-rest-1.0 Find more info here
@@ -50,7 +50,7 @@ class RunDiagnosticsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device. This API is supported in the following national cloud deployments.
+     * Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device. This API is available in the following national cloud deployments.
      * @param RunDiagnosticsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

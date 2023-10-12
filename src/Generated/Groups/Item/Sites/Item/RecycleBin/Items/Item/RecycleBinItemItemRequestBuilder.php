@@ -66,7 +66,7 @@ class RecycleBinItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from groups
+     * List of the recycleBinItems deleted by a user.
      * @param RecycleBinItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class RecycleBinItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from groups
+     * List of the recycleBinItems deleted by a user.
      * @param RecycleBinItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

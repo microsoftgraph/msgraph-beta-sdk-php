@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is supported in the following national cloud deployments.
+ * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is available in the following national cloud deployments.
 */
 class AuthenticationEventListenersRequestBuilderGetQueryParameters 
 {

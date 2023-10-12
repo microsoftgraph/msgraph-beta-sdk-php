@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CreateSnapshot\Creat
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetFrontlineCloudPcAccessState\GetFrontlineCloudPcAccessStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetShiftWorkCloudPcAccessState\GetShiftWorkCloudPcAccessStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions\GetSupportedCloudPcRemoteActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOff\PowerOffRequestBuilder;
@@ -68,6 +69,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function getCloudPcLaunchInfo(): GetCloudPcLaunchInfoRequestBuilder {
         return new GetCloudPcLaunchInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getFrontlineCloudPcAccessState method.
+    */
+    public function getFrontlineCloudPcAccessState(): GetFrontlineCloudPcAccessStateRequestBuilder {
+        return new GetFrontlineCloudPcAccessStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -194,7 +202,7 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPC object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPC object. This API is available in the following national cloud deployments.
      * @param CloudPCItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/cloudpc-get?view=graph-rest-1.0 Find more info here
@@ -249,7 +257,7 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPC object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPC object. This API is available in the following national cloud deployments.
      * @param CloudPCItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

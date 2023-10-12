@@ -32,7 +32,7 @@ class JoinRequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of a tenant joining a multi-tenant organization. This API is supported in the following national cloud deployments.
+     * Get the status of a tenant joining a multi-tenant organization. This API is available in the following national cloud deployments.
      * @param JoinRequestRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationjoinrequestrecord-get?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class JoinRequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Join a multi-tenant organization, after the owner of the multi-tenant organization has added your tenant to the multi-tenant organization as pending. Before a tenant added to a multi-tenant organization can participate in the multi-tenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. Furthermore, to allow for asynchronous processing, you must wait up to 4 hours before joining a multi-tenant organization is completed. This API is supported in the following national cloud deployments.
+     * Join a multi-tenant organization, after the owner of the multi-tenant organization has added your tenant to the multi-tenant organization as pending. Before a tenant added to a multi-tenant organization can participate in the multi-tenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. Furthermore, to allow for asynchronous processing, you must wait up to 4 hours before joining a multi-tenant organization is completed. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationJoinRequestRecord $body The request body
      * @param JoinRequestRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -71,7 +71,7 @@ class JoinRequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of a tenant joining a multi-tenant organization. This API is supported in the following national cloud deployments.
+     * Get the status of a tenant joining a multi-tenant organization. This API is available in the following national cloud deployments.
      * @param JoinRequestRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +92,7 @@ class JoinRequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Join a multi-tenant organization, after the owner of the multi-tenant organization has added your tenant to the multi-tenant organization as pending. Before a tenant added to a multi-tenant organization can participate in the multi-tenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. Furthermore, to allow for asynchronous processing, you must wait up to 4 hours before joining a multi-tenant organization is completed. This API is supported in the following national cloud deployments.
+     * Join a multi-tenant organization, after the owner of the multi-tenant organization has added your tenant to the multi-tenant organization as pending. Before a tenant added to a multi-tenant organization can participate in the multi-tenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. Furthermore, to allow for asynchronous processing, you must wait up to 4 hours before joining a multi-tenant organization is completed. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationJoinRequestRecord $body The request body
      * @param JoinRequestRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

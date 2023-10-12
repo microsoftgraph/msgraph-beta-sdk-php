@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the collection of school data synchronization profiles in the tenant. This API is supported in the following national cloud deployments.
+ * Retrieve the collection of school data synchronization profiles in the tenant. This API is available in the following national cloud deployments.
 */
 class SynchronizationProfilesRequestBuilderGetQueryParameters 
 {

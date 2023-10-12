@@ -50,7 +50,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminTodo object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a adminTodo object. This API is available in the following national cloud deployments.
      * @param TodoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/admintodo-get?view=graph-rest-1.0 Find more info here
@@ -69,7 +69,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminTodo object. This API is supported in the following national cloud deployments.
+     * Update the properties of a adminTodo object. This API is available in the following national cloud deployments.
      * @param AdminTodo $body The request body
      * @param TodoRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -106,7 +106,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminTodo object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a adminTodo object. This API is available in the following national cloud deployments.
      * @param TodoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class TodoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminTodo object. This API is supported in the following national cloud deployments.
+     * Update the properties of a adminTodo object. This API is available in the following national cloud deployments.
      * @param AdminTodo $body The request body
      * @param TodoRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

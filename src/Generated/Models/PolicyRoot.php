@@ -48,7 +48,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
+     * Gets the activityBasedTimeoutPolicies property value. The policy that controls the idle time-out for web sessions for applications.
      * @return array<ActivityBasedTimeoutPolicy>|null
     */
     public function getActivityBasedTimeoutPolicies(): ?array {
@@ -62,7 +62,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -101,7 +101,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
+     * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of guests.
      * @return AuthenticationFlowsPolicy|null
     */
     public function getAuthenticationFlowsPolicy(): ?AuthenticationFlowsPolicy {
@@ -113,7 +113,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+     * Gets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
      * @return AuthenticationMethodsPolicy|null
     */
     public function getAuthenticationMethodsPolicy(): ?AuthenticationMethodsPolicy {
@@ -165,7 +165,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -249,7 +249,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
+     * Gets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether guests can leave an Azure AD tenant via self-service controls.
      * @return ExternalIdentitiesPolicy|null
     */
     public function getExternalIdentitiesPolicy(): ?ExternalIdentitiesPolicy {
@@ -352,7 +352,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mobileAppManagementPolicies property value. The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
+     * Gets the mobileAppManagementPolicies property value. The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
      * @return array<MobilityManagementPolicy>|null
     */
     public function getMobileAppManagementPolicies(): ?array {
@@ -521,7 +521,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
+     * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time-out for web sessions for applications.
      * @param array<ActivityBasedTimeoutPolicy>|null $value Value to set for the activityBasedTimeoutPolicies property.
     */
     public function setActivityBasedTimeoutPolicies(?array $value): void {
@@ -529,8 +529,8 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -553,7 +553,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
+     * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of guests.
      * @param AuthenticationFlowsPolicy|null $value Value to set for the authenticationFlowsPolicy property.
     */
     public function setAuthenticationFlowsPolicy(?AuthenticationFlowsPolicy $value): void {
@@ -561,7 +561,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+     * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
      * @param AuthenticationMethodsPolicy|null $value Value to set for the authenticationMethodsPolicy property.
     */
     public function setAuthenticationMethodsPolicy(?AuthenticationMethodsPolicy $value): void {
@@ -593,8 +593,8 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -649,7 +649,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
+     * Sets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether guests can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicy|null $value Value to set for the externalIdentitiesPolicy property.
     */
     public function setExternalIdentitiesPolicy(?ExternalIdentitiesPolicy $value): void {
@@ -689,7 +689,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mobileAppManagementPolicies property value. The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
+     * Sets the mobileAppManagementPolicies property value. The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
      * @param array<MobilityManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
     */
     public function setMobileAppManagementPolicies(?array $value): void {

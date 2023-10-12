@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of hostCookie resources. This API is supported in the following national cloud deployments.
+ * Get a list of hostCookie resources. This API is available in the following national cloud deployments.
 */
 class CookiesRequestBuilderGetQueryParameters 
 {

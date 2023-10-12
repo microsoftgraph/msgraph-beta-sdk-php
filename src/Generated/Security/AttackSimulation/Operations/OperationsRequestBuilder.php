@@ -53,7 +53,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is supported in the following national cloud deployments.
+     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is available in the following national cloud deployments.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is supported in the following national cloud deployments.
+     * Get an attack simulation operation to track a long-running operation request for a tenant. This API is available in the following national cloud deployments.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

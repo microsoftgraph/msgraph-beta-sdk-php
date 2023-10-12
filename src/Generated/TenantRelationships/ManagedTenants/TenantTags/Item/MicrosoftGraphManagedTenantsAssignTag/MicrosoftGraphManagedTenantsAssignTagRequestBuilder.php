@@ -32,7 +32,7 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Assign the tenant tag to the specified managed tenants. This API is supported in the following national cloud deployments.
+     * Assign the tenant tag to the specified managed tenants. This API is available in the following national cloud deployments.
      * @param AssignTagPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Assign the tenant tag to the specified managed tenants. This API is supported in the following national cloud deployments.
+     * Assign the tenant tag to the specified managed tenants. This API is available in the following national cloud deployments.
      * @param AssignTagPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

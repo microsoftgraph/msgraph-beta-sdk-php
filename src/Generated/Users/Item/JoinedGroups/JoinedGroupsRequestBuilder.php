@@ -9,9 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,27 +31,6 @@ class JoinedGroupsRequestBuilder extends BaseRequestBuilder
     */
     public function evaluateDynamicMembership(): EvaluateDynamicMembershipRequestBuilder {
         return new EvaluateDynamicMembershipRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getByIds method.
-    */
-    public function getByIds(): GetByIdsRequestBuilder {
-        return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getUserOwnedObjects method.
-    */
-    public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
-        return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the validateProperties method.
-    */
-    public function validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

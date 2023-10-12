@@ -66,7 +66,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenant object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a tenant object. This API is available in the following national cloud deployments.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenant-get?view=graph-rest-1.0 Find more info here
@@ -121,7 +121,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenant object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a tenant object. This API is available in the following national cloud deployments.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

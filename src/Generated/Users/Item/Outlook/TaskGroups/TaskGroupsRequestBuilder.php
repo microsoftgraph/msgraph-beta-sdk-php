@@ -53,7 +53,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is supported in the following national cloud deployments.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is available in the following national cloud deployments.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task group in the user's mailbox. This API is supported in the following national cloud deployments.
+     * Create an Outlook task group in the user's mailbox. This API is available in the following national cloud deployments.
      * @param OutlookTaskGroup $body The request body
      * @param TaskGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is supported in the following national cloud deployments.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is available in the following national cloud deployments.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task group in the user's mailbox. This API is supported in the following national cloud deployments.
+     * Create an Outlook task group in the user's mailbox. This API is available in the following national cloud deployments.
      * @param OutlookTaskGroup $body The request body
      * @param TaskGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

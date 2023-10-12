@@ -53,7 +53,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the qna objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the qna objects and their properties. This API is available in the following national cloud deployments.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/search-searchentity-list-qnas?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new qna object. This API is supported in the following national cloud deployments.
+     * Create a new qna object. This API is available in the following national cloud deployments.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the qna objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the qna objects and their properties. This API is available in the following national cloud deployments.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new qna object. This API is supported in the following national cloud deployments.
+     * Create a new qna object. This API is available in the following national cloud deployments.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

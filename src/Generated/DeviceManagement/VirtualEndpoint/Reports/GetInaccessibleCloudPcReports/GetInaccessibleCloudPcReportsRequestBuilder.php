@@ -32,7 +32,7 @@ class GetInaccessibleCloudPcReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure. This API is supported in the following national cloud deployments.
+     * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure. This API is available in the following national cloud deployments.
      * @param GetInaccessibleCloudPcReportsPostRequestBody $body The request body
      * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class GetInaccessibleCloudPcReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure. This API is supported in the following national cloud deployments.
+     * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure. This API is available in the following national cloud deployments.
      * @param GetInaccessibleCloudPcReportsPostRequestBody $body The request body
      * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

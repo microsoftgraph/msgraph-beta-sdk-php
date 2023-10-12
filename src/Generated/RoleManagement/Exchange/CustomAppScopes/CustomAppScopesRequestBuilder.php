@@ -53,7 +53,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/unifiedrbacapplication-list-customappscopes?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is supported in the following national cloud deployments.
+     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

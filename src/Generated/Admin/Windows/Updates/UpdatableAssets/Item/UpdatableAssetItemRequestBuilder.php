@@ -64,7 +64,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatableAsset object. This API is supported in the following national cloud deployments.
+     * Delete an updatableAsset object. This API is available in the following national cloud deployments.
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-delete?view=graph-rest-1.0 Find more info here
@@ -83,7 +83,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatableAsset object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of an updatableAsset object. This API is available in the following national cloud deployments.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-1.0 Find more info here
@@ -121,7 +121,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatableAsset object. This API is supported in the following national cloud deployments.
+     * Delete an updatableAsset object. This API is available in the following national cloud deployments.
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -138,7 +138,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatableAsset object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of an updatableAsset object. This API is available in the following national cloud deployments.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -56,7 +56,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Delete an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-delete-queries?view=graph-rest-1.0 Find more info here
@@ -75,7 +75,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-get?view=graph-rest-1.0 Find more info here
@@ -94,7 +94,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Update the properties of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQuery $body The request body
      * @param EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Delete an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +152,7 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an ediscoveryReviewSetQuery object. This API is supported in the following national cloud deployments.
+     * Update the properties of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
      * @param EdiscoveryReviewSetQuery $body The request body
      * @param EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -50,7 +50,7 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is supported in the following national cloud deployments.
+     * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is available in the following national cloud deployments.
      * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-1.0 Find more info here
@@ -105,7 +105,7 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is supported in the following national cloud deployments.
+     * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is available in the following national cloud deployments.
      * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

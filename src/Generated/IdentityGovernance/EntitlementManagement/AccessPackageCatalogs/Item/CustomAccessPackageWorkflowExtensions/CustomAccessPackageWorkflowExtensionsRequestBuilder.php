@@ -53,7 +53,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read. This API is supported in the following national cloud deployments.
+     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read. This API is available in the following national cloud deployments.
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-customaccesspackageworkflowextensions?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.   This API is supported in the following national cloud deployments.
+     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.   This API is available in the following national cloud deployments.
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read. This API is supported in the following national cloud deployments.
+     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read. This API is available in the following national cloud deployments.
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.   This API is supported in the following national cloud deployments.
+     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.   This API is available in the following national cloud deployments.
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

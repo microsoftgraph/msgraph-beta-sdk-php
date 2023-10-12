@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the user processing result of a user processing result of a run. This API is supported in the following national cloud deployments.
+ * Get the user processing result of a user processing result of a run. This API is available in the following national cloud deployments.
 */
 class UserProcessingResultItemRequestBuilderGetQueryParameters 
 {

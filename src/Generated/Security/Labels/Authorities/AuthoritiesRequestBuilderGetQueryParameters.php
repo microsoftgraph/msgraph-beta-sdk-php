@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Authorities;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the authorityTemplate objects and their properties. This API is supported in the following national cloud deployments.
+ * Get a list of the authorityTemplate objects and their properties. This API is available in the following national cloud deployments.
 */
 class AuthoritiesRequestBuilderGetQueryParameters 
 {

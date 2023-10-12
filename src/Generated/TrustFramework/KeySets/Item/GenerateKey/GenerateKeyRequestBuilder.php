@@ -32,7 +32,7 @@ class GenerateKeyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret. This API is supported in the following national cloud deployments.
+     * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret. This API is available in the following national cloud deployments.
      * @param GenerateKeyPostRequestBody $body The request body
      * @param GenerateKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class GenerateKeyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret. This API is supported in the following national cloud deployments.
+     * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret. This API is available in the following national cloud deployments.
      * @param GenerateKeyPostRequestBody $body The request body
      * @param GenerateKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

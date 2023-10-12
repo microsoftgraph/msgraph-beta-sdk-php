@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a partner-specific configuration. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a partner-specific configuration. This API is available in the following national cloud deployments.
 */
 class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters 
 {

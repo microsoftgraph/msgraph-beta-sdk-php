@@ -31,7 +31,7 @@ class AssignRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a cloudPcUserSetting to user groups. This API is supported in the following national cloud deployments.
+     * Assign a cloudPcUserSetting to user groups. This API is available in the following national cloud deployments.
      * @param AssignPostRequestBody $body The request body
      * @param AssignRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class AssignRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a cloudPcUserSetting to user groups. This API is supported in the following national cloud deployments.
+     * Assign a cloudPcUserSetting to user groups. This API is available in the following national cloud deployments.
      * @param AssignPostRequestBody $body The request body
      * @param AssignRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

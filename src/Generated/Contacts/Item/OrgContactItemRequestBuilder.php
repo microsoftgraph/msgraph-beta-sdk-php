@@ -146,7 +146,7 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an organizational contact object. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of an organizational contact object. This API is available in the following national cloud deployments.
      * @param OrgContactItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0 Find more info here
@@ -201,7 +201,7 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an organizational contact object. This API is supported in the following national cloud deployments.
+     * Get the properties and relationships of an organizational contact object. This API is available in the following national cloud deployments.
      * @param OrgContactItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -387,7 +387,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the manufacturer property value. Manufacturer of the device. Read-only.
+     * Gets the manufacturer property value. Manufacturer of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -425,7 +425,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the model property value. Model of the device. Read-only.
+     * Gets the model property value. Model of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -889,7 +889,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. Manufacturer of the device. Read-only.
+     * Sets the manufacturer property value. Manufacturer of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -913,7 +913,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the model property value. Model of the device. Read-only.
+     * Sets the model property value. Model of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {

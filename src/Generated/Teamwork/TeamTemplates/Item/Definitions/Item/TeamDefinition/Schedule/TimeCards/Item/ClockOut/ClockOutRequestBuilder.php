@@ -32,7 +32,7 @@ class ClockOutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clock out to end an open timeCard. This API is supported in the following national cloud deployments.
+     * Clock out to end an open timeCard. This API is available in the following national cloud deployments.
      * @param ClockOutPostRequestBody $body The request body
      * @param ClockOutRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class ClockOutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clock out to end an open timeCard. This API is supported in the following national cloud deployments.
+     * Clock out to end an open timeCard. This API is available in the following national cloud deployments.
      * @param ClockOutPostRequestBody $body The request body
      * @param ClockOutRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\Item\ChildFol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get all the contacts in the signed-in user's mailbox (.../me/contacts), or from the specified contact folder. This API is supported in the following national cloud deployments.
+ * Get all the contacts in the signed-in user's mailbox (.../me/contacts), or from the specified contact folder. This API is available in the following national cloud deployments.
 */
 class ContactsRequestBuilderGetQueryParameters 
 {

@@ -40,7 +40,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deployment object. This API is supported in the following national cloud deployments.
+     * Delete a deployment object. This API is available in the following national cloud deployments.
      * @param DeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-1.0 Find more info here
@@ -59,7 +59,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deployment object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a deployment object. This API is available in the following national cloud deployments.
      * @param DeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-1.0 Find more info here
@@ -78,7 +78,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a deployment object. This API is supported in the following national cloud deployments.
+     * Update the properties of a deployment object. This API is available in the following national cloud deployments.
      * @param Deployment $body The request body
      * @param DeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -98,7 +98,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deployment object. This API is supported in the following national cloud deployments.
+     * Delete a deployment object. This API is available in the following national cloud deployments.
      * @param DeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +115,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deployment object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a deployment object. This API is available in the following national cloud deployments.
      * @param DeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +136,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a deployment object. This API is supported in the following national cloud deployments.
+     * Update the properties of a deployment object. This API is available in the following national cloud deployments.
      * @param Deployment $body The request body
      * @param DeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

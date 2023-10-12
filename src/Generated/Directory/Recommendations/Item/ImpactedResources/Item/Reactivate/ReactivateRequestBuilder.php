@@ -32,7 +32,7 @@ class ReactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser.  This API is supported in the following national cloud deployments.
+     * Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser.  This API is available in the following national cloud deployments.
      * @param ReactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/impactedresource-reactivate?view=graph-rest-1.0 Find more info here
@@ -51,7 +51,7 @@ class ReactivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser.  This API is supported in the following national cloud deployments.
+     * Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser.  This API is available in the following national cloud deployments.
      * @param ReactivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

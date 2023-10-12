@@ -58,7 +58,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-get?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -114,7 +114,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custod
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a userSource object. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a userSource object. This API is available in the following national cloud deployments.
 */
 class UserSourceItemRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Opera
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of long running operations for the list.
+ * The collection of long-running operations on the list.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

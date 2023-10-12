@@ -53,7 +53,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personInterest objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of personInterest objects from a user's profile. This API is available in the following national cloud deployments.
      * @param InterestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/profile-list-interests?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personInterest. This API is supported in the following national cloud deployments.
+     * Create a new personInterest. This API is available in the following national cloud deployments.
      * @param PersonInterest $body The request body
      * @param InterestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personInterest objects from a user's profile. This API is supported in the following national cloud deployments.
+     * Retrieve a list of personInterest objects from a user's profile. This API is available in the following national cloud deployments.
      * @param InterestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personInterest. This API is supported in the following national cloud deployments.
+     * Create a new personInterest. This API is available in the following national cloud deployments.
      * @param PersonInterest $body The request body
      * @param InterestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
