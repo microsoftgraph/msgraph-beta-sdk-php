@@ -301,7 +301,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the hostnames property value. List of hostNames for the device.
+     * Gets the hostnames property value. List of host names for the device.
      * @return array<string>|null
     */
     public function getHostnames(): ?array {
@@ -339,7 +339,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. true if the device is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a device that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
+     * Gets the isManagementRestricted property value. Indicates whether the device is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. The default value is false. Read-only.  To manage a device that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -363,7 +363,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the kind property value. Form factor of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Gets the kind property value. Form factor of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getKind(): ?string {
@@ -387,7 +387,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the manufacturer property value. Manufacturer of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Gets the manufacturer property value. Manufacturer of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -425,7 +425,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the model property value. Model of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Gets the model property value. Model of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -437,7 +437,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the name property value. Friendly name of a device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Gets the name property value. Friendly name of the device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getName(): ?string {
@@ -461,7 +461,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Gets the onPremisesSecurityIdentifier property value. The on-premises security identifier (SID) for the user who was synchronized from on-premises to the cloud. Read-only. Returned only on $select. Supports $filter (eq).
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -523,7 +523,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the platform property value. Platform of device. Only returned if user signs in with a Microsoft account as part of Project Rome. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Gets the platform property value. Platform of device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @return string|null
     */
     public function getPlatform(): ?string {
@@ -627,7 +627,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory.
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -833,7 +833,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the hostnames property value. List of hostNames for the device.
+     * Sets the hostnames property value. List of host names for the device.
      * @param array<string>|null $value Value to set for the hostnames property.
     */
     public function setHostnames(?array $value): void {
@@ -857,7 +857,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. true if the device is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a device that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
+     * Sets the isManagementRestricted property value. Indicates whether the device is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. The default value is false. Read-only.  To manage a device that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
@@ -873,7 +873,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the kind property value. Form factor of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Sets the kind property value. Form factor of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the kind property.
     */
     public function setKind(?string $value): void {
@@ -889,7 +889,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. Manufacturer of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Sets the manufacturer property value. Manufacturer of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -913,7 +913,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the model property value. Model of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Sets the model property value. Model of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -921,7 +921,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the name property value. Friendly name of a device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Sets the name property value. Friendly name of the device. Only returned if user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -937,7 +937,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Sets the onPremisesSecurityIdentifier property value. The on-premises security identifier (SID) for the user who was synchronized from on-premises to the cloud. Read-only. Returned only on $select. Supports $filter (eq).
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
@@ -977,7 +977,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the platform property value. Platform of device. Only returned if user signs in with a Microsoft account as part of Project Rome. Only returned if user signs in with a Microsoft account as part of Project Rome.
+     * Sets the platform property value. Platform of device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
      * @param string|null $value Value to set for the platform property.
     */
     public function setPlatform(?string $value): void {
@@ -1041,7 +1041,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory.
      * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {

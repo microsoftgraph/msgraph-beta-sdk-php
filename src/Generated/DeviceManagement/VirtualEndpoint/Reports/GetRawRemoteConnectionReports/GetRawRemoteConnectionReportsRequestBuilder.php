@@ -32,10 +32,11 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getRawRemoteConnectionReports
+     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrawremoteconnectionreports?view=graph-rest-1.0 Find more info here
     */
     public function post(GetRawRemoteConnectionReportsPostRequestBody $body, ?GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getRawRemoteConnectionReports
+     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

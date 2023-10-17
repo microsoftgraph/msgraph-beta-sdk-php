@@ -193,12 +193,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceOperatingSystem' => fn(ParseNode $n) => $o->setDeviceOperatingSystem($n->getStringValue()),
             'deviceOperatingSystemVersion' => fn(ParseNode $n) => $o->setDeviceOperatingSystemVersion($n->getStringValue()),
+            'filteringProfileId' => fn(ParseNode $n) => $o->setFilteringProfileId($n->getStringValue()),
+            'filteringProfileName' => fn(ParseNode $n) => $o->setFilteringProfileName($n->getStringValue()),
             'headers' => fn(ParseNode $n) => $o->setHeaders($n->getObjectValue([Headers::class, 'createFromDiscriminatorValue'])),
+            'initiatingProcessName' => fn(ParseNode $n) => $o->setInitiatingProcessName($n->getStringValue()),
             'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkingProtocol::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
             'policyRuleId' => fn(ParseNode $n) => $o->setPolicyRuleId($n->getStringValue()),
+            'policyRuleName' => fn(ParseNode $n) => $o->setPolicyRuleName($n->getStringValue()),
             'receivedBytes' => fn(ParseNode $n) => $o->setReceivedBytes($n->getIntegerValue()),
+            'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
             'sentBytes' => fn(ParseNode $n) => $o->setSentBytes($n->getIntegerValue()),
             'sessionId' => fn(ParseNode $n) => $o->setSessionId($n->getStringValue()),
             'sourceIp' => fn(ParseNode $n) => $o->setSourceIp($n->getStringValue()),
@@ -213,6 +219,30 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the filteringProfileId property value. The filteringProfileId property
+     * @return string|null
+    */
+    public function getFilteringProfileId(): ?string {
+        $val = $this->getBackingStore()->get('filteringProfileId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filteringProfileId'");
+    }
+
+    /**
+     * Gets the filteringProfileName property value. The filteringProfileName property
+     * @return string|null
+    */
+    public function getFilteringProfileName(): ?string {
+        $val = $this->getBackingStore()->get('filteringProfileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filteringProfileName'");
+    }
+
+    /**
      * Gets the headers property value. Represents the headers included in a network request or response. Supports $filter (eq) and $orderby.
      * @return Headers|null
     */
@@ -222,6 +252,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'headers'");
+    }
+
+    /**
+     * Gets the initiatingProcessName property value. The initiatingProcessName property
+     * @return string|null
+    */
+    public function getInitiatingProcessName(): ?string {
+        $val = $this->getBackingStore()->get('initiatingProcessName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatingProcessName'");
     }
 
     /**
@@ -261,6 +303,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the policyName property value. The policyName property
+     * @return string|null
+    */
+    public function getPolicyName(): ?string {
+        $val = $this->getBackingStore()->get('policyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyName'");
+    }
+
+    /**
      * Gets the policyRuleId property value. Represents a unique identifier assigned to a policy rule. Supports $filter (eq) and $orderby.
      * @return string|null
     */
@@ -273,6 +327,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the policyRuleName property value. The policyRuleName property
+     * @return string|null
+    */
+    public function getPolicyRuleName(): ?string {
+        $val = $this->getBackingStore()->get('policyRuleName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyRuleName'");
+    }
+
+    /**
      * Gets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @return int|null
     */
@@ -282,6 +348,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedBytes'");
+    }
+
+    /**
+     * Gets the resourceTenantId property value. The resourceTenantId property
+     * @return string|null
+    */
+    public function getResourceTenantId(): ?string {
+        $val = $this->getBackingStore()->get('resourceTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceTenantId'");
     }
 
     /**
@@ -419,12 +497,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceOperatingSystem', $this->getDeviceOperatingSystem());
         $writer->writeStringValue('deviceOperatingSystemVersion', $this->getDeviceOperatingSystemVersion());
+        $writer->writeStringValue('filteringProfileId', $this->getFilteringProfileId());
+        $writer->writeStringValue('filteringProfileName', $this->getFilteringProfileName());
         $writer->writeObjectValue('headers', $this->getHeaders());
+        $writer->writeStringValue('initiatingProcessName', $this->getInitiatingProcessName());
         $writer->writeEnumValue('networkProtocol', $this->getNetworkProtocol());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('policyId', $this->getPolicyId());
+        $writer->writeStringValue('policyName', $this->getPolicyName());
         $writer->writeStringValue('policyRuleId', $this->getPolicyRuleId());
+        $writer->writeStringValue('policyRuleName', $this->getPolicyRuleName());
         $writer->writeIntegerValue('receivedBytes', $this->getReceivedBytes());
+        $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
         $writer->writeIntegerValue('sentBytes', $this->getSentBytes());
         $writer->writeStringValue('sessionId', $this->getSessionId());
         $writer->writeStringValue('sourceIp', $this->getSourceIp());
@@ -535,11 +619,35 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the filteringProfileId property value. The filteringProfileId property
+     * @param string|null $value Value to set for the filteringProfileId property.
+    */
+    public function setFilteringProfileId(?string $value): void {
+        $this->getBackingStore()->set('filteringProfileId', $value);
+    }
+
+    /**
+     * Sets the filteringProfileName property value. The filteringProfileName property
+     * @param string|null $value Value to set for the filteringProfileName property.
+    */
+    public function setFilteringProfileName(?string $value): void {
+        $this->getBackingStore()->set('filteringProfileName', $value);
+    }
+
+    /**
      * Sets the headers property value. Represents the headers included in a network request or response. Supports $filter (eq) and $orderby.
      * @param Headers|null $value Value to set for the headers property.
     */
     public function setHeaders(?Headers $value): void {
         $this->getBackingStore()->set('headers', $value);
+    }
+
+    /**
+     * Sets the initiatingProcessName property value. The initiatingProcessName property
+     * @param string|null $value Value to set for the initiatingProcessName property.
+    */
+    public function setInitiatingProcessName(?string $value): void {
+        $this->getBackingStore()->set('initiatingProcessName', $value);
     }
 
     /**
@@ -567,6 +675,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the policyName property value. The policyName property
+     * @param string|null $value Value to set for the policyName property.
+    */
+    public function setPolicyName(?string $value): void {
+        $this->getBackingStore()->set('policyName', $value);
+    }
+
+    /**
      * Sets the policyRuleId property value. Represents a unique identifier assigned to a policy rule. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyRuleId property.
     */
@@ -575,11 +691,27 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the policyRuleName property value. The policyRuleName property
+     * @param string|null $value Value to set for the policyRuleName property.
+    */
+    public function setPolicyRuleName(?string $value): void {
+        $this->getBackingStore()->set('policyRuleName', $value);
+    }
+
+    /**
      * Sets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the receivedBytes property.
     */
     public function setReceivedBytes(?int $value): void {
         $this->getBackingStore()->set('receivedBytes', $value);
+    }
+
+    /**
+     * Sets the resourceTenantId property value. The resourceTenantId property
+     * @param string|null $value Value to set for the resourceTenantId property.
+    */
+    public function setResourceTenantId(?string $value): void {
+        $this->getBackingStore()->set('resourceTenantId', $value);
     }
 
     /**

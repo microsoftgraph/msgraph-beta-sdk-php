@@ -85,7 +85,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of organization objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of organization objects. There's only one organization object in the collection. This API is available in the following national cloud deployments.
      * @param OrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0 Find more info here
@@ -123,7 +123,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of organization objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of organization objects. There's only one organization object in the collection. This API is available in the following national cloud deployments.
      * @param OrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

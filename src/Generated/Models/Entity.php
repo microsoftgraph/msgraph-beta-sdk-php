@@ -599,6 +599,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.customExtensionStageSetting': return new CustomExtensionStageSetting();
                 case '#microsoft.graph.customSecurityAttributeAudit': return new CustomSecurityAttributeAudit();
                 case '#microsoft.graph.customSecurityAttributeDefinition': return new CustomSecurityAttributeDefinition();
+                case '#microsoft.graph.dailyInactiveUsersByApplicationMetric': return new DailyInactiveUsersByApplicationMetric();
+                case '#microsoft.graph.dailyInactiveUsersMetric': return new DailyInactiveUsersMetric();
                 case '#microsoft.graph.dataClassificationService': return new DataClassificationService();
                 case '#microsoft.graph.dataCollectionInfo': return new DataCollectionInfo();
                 case '#microsoft.graph.dataLossPreventionPolicy': return new DataLossPreventionPolicy();
@@ -961,6 +963,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.importedDeviceIdentityResult': return new ImportedDeviceIdentityResult();
                 case '#microsoft.graph.importedWindowsAutopilotDeviceIdentity': return new ImportedWindowsAutopilotDeviceIdentity();
                 case '#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload': return new ImportedWindowsAutopilotDeviceIdentityUpload();
+                case '#microsoft.graph.inactiveUsersByApplicationMetricBase': return new InactiveUsersByApplicationMetricBase();
+                case '#microsoft.graph.inactiveUsersMetricBase': return new InactiveUsersMetricBase();
                 case '#microsoft.graph.industryData.azureDataLakeConnector': return new AzureDataLakeConnector();
                 case '#microsoft.graph.industryData.fileDataConnector': return new FileDataConnector();
                 case '#microsoft.graph.industryData.fileValidateOperation': return new FileValidateOperation();
@@ -1212,6 +1216,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.mobileLobApp': return new MobileLobApp();
                 case '#microsoft.graph.mobileThreatDefenseConnector': return new MobileThreatDefenseConnector();
                 case '#microsoft.graph.mobilityManagementPolicy': return new MobilityManagementPolicy();
+                case '#microsoft.graph.monthlyInactiveUsersByApplicationMetric': return new MonthlyInactiveUsersByApplicationMetric();
+                case '#microsoft.graph.monthlyInactiveUsersMetric': return new MonthlyInactiveUsersMetric();
                 case '#microsoft.graph.multiTenantOrganization': return new MultiTenantOrganization();
                 case '#microsoft.graph.multiTenantOrganizationIdentitySyncPolicyTemplate': return new MultiTenantOrganizationIdentitySyncPolicyTemplate();
                 case '#microsoft.graph.multiTenantOrganizationJoinRequestRecord': return new MultiTenantOrganizationJoinRequestRecord();
