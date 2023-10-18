@@ -135,7 +135,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the frontLineServicePlans property value. The frontLineServicePlans property
+     * Gets the frontLineServicePlans property value. Front-line service plans for a Cloud PC.
      * @return array<CloudPcFrontLineServicePlan>|null
     */
     public function getFrontLineServicePlans(): ?array {
@@ -229,7 +229,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedUseServicePlans property value. Cloud PC shared-use service plans.
+     * Gets the sharedUseServicePlans property value. The sharedUseServicePlans property
      * @return array<CloudPcSharedUseServicePlan>|null
     */
     public function getSharedUseServicePlans(): ?array {
@@ -358,7 +358,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the frontLineServicePlans property value. The frontLineServicePlans property
+     * Sets the frontLineServicePlans property value. Front-line service plans for a Cloud PC.
      * @param array<CloudPcFrontLineServicePlan>|null $value Value to set for the frontLineServicePlans property.
     */
     public function setFrontLineServicePlans(?array $value): void {
@@ -414,7 +414,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharedUseServicePlans property value. Cloud PC shared-use service plans.
+     * Sets the sharedUseServicePlans property value. The sharedUseServicePlans property
      * @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
     */
     public function setSharedUseServicePlans(?array $value): void {

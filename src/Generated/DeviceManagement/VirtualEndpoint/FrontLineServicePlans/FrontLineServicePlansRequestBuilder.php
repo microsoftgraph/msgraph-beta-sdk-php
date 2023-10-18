@@ -53,9 +53,10 @@ class FrontLineServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get frontLineServicePlans from deviceManagement
+     * Get a list of the cloudPcFrontLineServicePlan objects and their properties.
      * @param FrontLineServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-frontlineserviceplans?view=graph-rest-1.0 Find more info here
     */
     public function get(?FrontLineServicePlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class FrontLineServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get frontLineServicePlans from deviceManagement
+     * Get a list of the cloudPcFrontLineServicePlan objects and their properties.
      * @param FrontLineServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

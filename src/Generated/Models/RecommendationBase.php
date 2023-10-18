@@ -287,7 +287,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the releaseType property value. The current release type of the recommendation. The possible values are: preview or generallyAvailable.
+     * Gets the releaseType property value. The current release type of the recommendation. The possible values are: preview, generallyAvailable, unknownFutureValue.
      * @return string|null
     */
     public function getReleaseType(): ?string {
@@ -496,7 +496,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the releaseType property value. The current release type of the recommendation. The possible values are: preview or generallyAvailable.
+     * Sets the releaseType property value. The current release type of the recommendation. The possible values are: preview, generallyAvailable, unknownFutureValue.
      * @param string|null $value Value to set for the releaseType property.
     */
     public function setReleaseType(?string $value): void {

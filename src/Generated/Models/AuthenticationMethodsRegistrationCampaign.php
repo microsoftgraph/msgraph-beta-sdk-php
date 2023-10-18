@@ -112,7 +112,7 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the snoozeDurationInDays property value. Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt.
+     * Gets the snoozeDurationInDays property value. Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is 0 – The user is prompted during every MFA attempt.
      * @return int|null
     */
     public function getSnoozeDurationInDays(): ?int {
@@ -189,7 +189,7 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the snoozeDurationInDays property value. Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt.
+     * Sets the snoozeDurationInDays property value. Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is 0 – The user is prompted during every MFA attempt.
      * @param int|null $value Value to set for the snoozeDurationInDays property.
     */
     public function setSnoozeDurationInDays(?int $value): void {
