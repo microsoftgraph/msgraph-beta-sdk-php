@@ -210,7 +210,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
+     * Gets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Microsoft Entra ID. Default value is false.
      * @return bool|null
     */
     public function getIsPersistentCookieEnabled(): ?bool {
@@ -296,7 +296,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+     * Gets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Microsoft Entra application proxy.
      * @return SegmentConfiguration|null
     */
     public function getSegmentsConfiguration(): ?SegmentConfiguration {
@@ -495,7 +495,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
+     * Sets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Microsoft Entra ID. Default value is false.
      * @param bool|null $value Value to set for the isPersistentCookieEnabled property.
     */
     public function setIsPersistentCookieEnabled(?bool $value): void {
@@ -551,7 +551,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+     * Sets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Microsoft Entra application proxy.
      * @param SegmentConfiguration|null $value Value to set for the segmentsConfiguration property.
     */
     public function setSegmentsConfiguration(?SegmentConfiguration $value): void {

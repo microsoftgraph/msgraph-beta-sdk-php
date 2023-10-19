@@ -41,7 +41,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     }
 
     /**
-     * Gets the default property value. Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
+     * Gets the default property value. Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
      * @return CrossTenantAccessPolicyConfigurationDefault|null
     */
     public function getEscapedDefault(): ?CrossTenantAccessPolicyConfigurationDefault {
@@ -74,7 +74,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     }
 
     /**
-     * Gets the partners property value. Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Gets the partners property value. Defines partner-specific configurations for external Microsoft Entra organizations.
      * @return array<CrossTenantAccessPolicyConfigurationPartner>|null
     */
     public function getPartners(): ?array {
@@ -120,7 +120,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     }
 
     /**
-     * Sets the default property value. Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
+     * Sets the default property value. Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
      * @param CrossTenantAccessPolicyConfigurationDefault|null $value Value to set for the default property.
     */
     public function setEscapedDefault(?CrossTenantAccessPolicyConfigurationDefault $value): void {
@@ -128,7 +128,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     }
 
     /**
-     * Sets the partners property value. Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Sets the partners property value. Defines partner-specific configurations for external Microsoft Entra organizations.
      * @param array<CrossTenantAccessPolicyConfigurationPartner>|null $value Value to set for the partners property.
     */
     public function setPartners(?array $value): void {

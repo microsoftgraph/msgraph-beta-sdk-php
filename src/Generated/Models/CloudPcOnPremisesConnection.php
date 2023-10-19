@@ -220,7 +220,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Specifies how the provisioned Cloud PC is joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Gets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
@@ -393,7 +393,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Specifies how the provisioned Cloud PC is joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Sets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcOnPremisesConnectionType $value): void {

@@ -13,6 +13,7 @@ class GcpIdentity extends AuthorizationSystemIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.gcpIdentity');
     }
 
     /**
@@ -25,6 +26,8 @@ class GcpIdentity extends AuthorizationSystemIdentity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.gcpCloudFunction': return new GcpCloudFunction();
+                case '#microsoft.graph.gcpGroup': return new GcpGroup();
                 case '#microsoft.graph.gcpServiceAccount': return new GcpServiceAccount();
                 case '#microsoft.graph.gcpUser': return new GcpUser();
             }

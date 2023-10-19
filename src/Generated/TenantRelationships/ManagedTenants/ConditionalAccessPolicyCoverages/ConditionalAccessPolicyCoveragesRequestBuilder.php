@@ -53,7 +53,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Azure Active Directory conditional access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-conditionalaccesspolicycoverages?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Azure Active Directory conditional access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +100,6 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -108,6 +107,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -122,11 +122,11 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

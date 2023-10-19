@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\AccessReview
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\PermissionsAnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\PrivilegedAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\RoleManagementAlertsRequestBuilder;
@@ -51,6 +52,13 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
     */
     public function lifecycleWorkflows(): LifecycleWorkflowsRequestBuilder {
         return new LifecycleWorkflowsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissionsAnalytics property of the microsoft.graph.identityGovernance entity.
+    */
+    public function permissionsAnalytics(): PermissionsAnalyticsRequestBuilder {
+        return new PermissionsAnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -142,7 +150,6 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -150,6 +157,7 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -164,11 +172,11 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -100,7 +100,7 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the matchedPeopleByRole property value. The aggregate count of active people matched to an Azure Active Directory user, by role.
+     * Gets the matchedPeopleByRole property value. The aggregate count of active people matched to a Microsoft Entra user, by role.
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getMatchedPeopleByRole(): ?array {
@@ -162,7 +162,7 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the unmatchedPeopleByRole property value. The aggregate count of active people not matched to an Azure Active Directory user, by role.
+     * Gets the unmatchedPeopleByRole property value. The aggregate count of active people not matched to a Microsoft Entra user, by role.
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getUnmatchedPeopleByRole(): ?array {
@@ -229,7 +229,7 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the matchedPeopleByRole property value. The aggregate count of active people matched to an Azure Active Directory user, by role.
+     * Sets the matchedPeopleByRole property value. The aggregate count of active people matched to a Microsoft Entra user, by role.
      * @param array<IndustryDataRunRoleCountMetric>|null $value Value to set for the matchedPeopleByRole property.
     */
     public function setMatchedPeopleByRole(?array $value): void {
@@ -269,7 +269,7 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the unmatchedPeopleByRole property value. The aggregate count of active people not matched to an Azure Active Directory user, by role.
+     * Sets the unmatchedPeopleByRole property value. The aggregate count of active people not matched to a Microsoft Entra user, by role.
      * @param array<IndustryDataRunRoleCountMetric>|null $value Value to set for the unmatchedPeopleByRole property.
     */
     public function setUnmatchedPeopleByRole(?array $value): void {

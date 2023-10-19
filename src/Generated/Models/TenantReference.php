@@ -80,7 +80,7 @@ class TenantReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantId property value. The identifier of the Azure AD tenant. Read-only. Key.
+     * Gets the tenantId property value. The identifier of the Microsoft Entra tenant. Read-only. Key.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -126,7 +126,7 @@ class TenantReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantId property value. The identifier of the Azure AD tenant. Read-only. Key.
+     * Sets the tenantId property value. The identifier of the Microsoft Entra tenant. Read-only. Key.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

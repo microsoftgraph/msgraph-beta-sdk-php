@@ -13,6 +13,7 @@ class AzureAuthorizationSystemResource extends AuthorizationSystemResource imple
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureAuthorizationSystemResource');
     }
 
     /**

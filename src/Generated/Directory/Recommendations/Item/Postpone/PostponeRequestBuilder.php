@@ -32,7 +32,7 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Postpone action on a recommendation object to a specified future date and time by marking its status as postponed. On the date and time provided, Azure AD will automatically update the status of the recommendation object to active again. This API is available in the following national cloud deployments.
+     * Postpone action on a recommendation object to a specified future date and time by marking its status as postponed. On the date and time provided, Microsoft Entra ID will automatically update the status of the recommendation object to active again. This API is available in the following national cloud deployments.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -52,7 +52,7 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Postpone action on a recommendation object to a specified future date and time by marking its status as postponed. On the date and time provided, Azure AD will automatically update the status of the recommendation object to active again. This API is available in the following national cloud deployments.
+     * Postpone action on a recommendation object to a specified future date and time by marking its status as postponed. On the date and time provided, Microsoft Entra ID will automatically update the status of the recommendation object to active again. This API is available in the following national cloud deployments.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,11 +62,11 @@ class PostponeRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

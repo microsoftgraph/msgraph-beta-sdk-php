@@ -297,7 +297,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
+     * Gets the tenantId property value. The Microsoft Entra tenant in which the alert was created.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -480,7 +480,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
+     * Sets the tenantId property value. The Microsoft Entra tenant in which the alert was created.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
