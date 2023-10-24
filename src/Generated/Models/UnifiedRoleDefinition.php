@@ -90,7 +90,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the inheritsPermissionsFrom property value. Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+     * Gets the inheritsPermissionsFrom property value. Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles support this attribute.
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getInheritsPermissionsFrom(): ?array {
@@ -128,7 +128,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPrivileged property value. Flag indicating if the role is privileged. Azure AD defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
+     * Gets the isPrivileged property value. Flag indicating if the role is privileged. Microsoft Entra ID defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsPrivileged(): ?bool {
@@ -235,7 +235,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the inheritsPermissionsFrom property value. Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+     * Sets the inheritsPermissionsFrom property value. Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles support this attribute.
      * @param array<UnifiedRoleDefinition>|null $value Value to set for the inheritsPermissionsFrom property.
     */
     public function setInheritsPermissionsFrom(?array $value): void {
@@ -259,7 +259,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPrivileged property value. Flag indicating if the role is privileged. Azure AD defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
+     * Sets the isPrivileged property value. Flag indicating if the role is privileged. Microsoft Entra ID defines a role as privileged if it contains at least one sensitive resource action in the rolePermissions and allowedResourceActions objects. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).
      * @param bool|null $value Value to set for the isPrivileged property.
     */
     public function setIsPrivileged(?bool $value): void {

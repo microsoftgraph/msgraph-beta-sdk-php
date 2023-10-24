@@ -32,9 +32,10 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property targetDeviceGroups for servicePrincipals
+     * Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that's in the removed targetDeviceGroup doesn't get SSO prompts.
      * @param TargetDeviceGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-delete-targetdevicegroups?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TargetDeviceGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param TargetDeviceGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/targetdevicegroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TargetDeviceGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property targetDeviceGroups in servicePrincipals
+     * Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param TargetDeviceGroup $body The request body
      * @param TargetDeviceGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/targetdevicegroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TargetDeviceGroup $body, ?TargetDeviceGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property targetDeviceGroups for servicePrincipals
+     * Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that's in the removed targetDeviceGroup doesn't get SSO prompts.
      * @param TargetDeviceGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,11 +103,12 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         return $requestInfo;
     }
 
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param TargetDeviceGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +117,6 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -121,11 +124,12 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
     /**
-     * Update the navigation property targetDeviceGroups in servicePrincipals
+     * Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param TargetDeviceGroup $body The request body
      * @param TargetDeviceGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,11 +139,11 @@ class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

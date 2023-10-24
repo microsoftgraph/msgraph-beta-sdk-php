@@ -25,7 +25,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
     }
 
     /**
-     * Gets the claimsMapping property value. After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. It's a required property.
+     * Gets the claimsMapping property value. After the OIDC provider sends an ID token back to Microsoft Entra ID, Microsoft Entra ID needs to be able to map the claims from the received token to the claims that Microsoft Entra ID recognizes and uses. This complex type captures that mapping. It's a required property.
      * @return ClaimsMapping|null
     */
     public function getClaimsMapping(): ?ClaimsMapping {
@@ -127,7 +127,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
     }
 
     /**
-     * Sets the claimsMapping property value. After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. It's a required property.
+     * Sets the claimsMapping property value. After the OIDC provider sends an ID token back to Microsoft Entra ID, Microsoft Entra ID needs to be able to map the claims from the received token to the claims that Microsoft Entra ID recognizes and uses. This complex type captures that mapping. It's a required property.
      * @param ClaimsMapping|null $value Value to set for the claimsMapping property.
     */
     public function setClaimsMapping(?ClaimsMapping $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get ports from security
+ * The hostPorts associated with a host.
 */
 class HostPortItemRequestBuilderGetQueryParameters 
 {

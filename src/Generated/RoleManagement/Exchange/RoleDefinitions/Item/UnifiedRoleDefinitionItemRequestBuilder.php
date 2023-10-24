@@ -66,7 +66,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online This API is available in the following national cloud deployments.
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-1.0 Find more info here
@@ -117,11 +117,12 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online This API is available in the following national cloud deployments.
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +131,6 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -138,6 +138,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -152,11 +153,11 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

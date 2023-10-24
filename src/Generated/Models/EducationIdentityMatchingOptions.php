@@ -119,7 +119,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the targetPropertyName property value. The name of the target property, which should be a valid property in Azure AD. This property is case-sensitive.
+     * Gets the targetPropertyName property value. The name of the target property, which should be a valid property in Microsoft Entra ID. This property is case-sensitive.
      * @return string|null
     */
     public function getTargetPropertyName(): ?string {
@@ -192,7 +192,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the targetPropertyName property value. The name of the target property, which should be a valid property in Azure AD. This property is case-sensitive.
+     * Sets the targetPropertyName property value. The name of the target property, which should be a valid property in Microsoft Entra ID. This property is case-sensitive.
      * @param string|null $value Value to set for the targetPropertyName property.
     */
     public function setTargetPropertyName(?string $value): void {

@@ -54,7 +54,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
+     * Gets the authenticationMethods property value. Container for navigation properties for Microsoft Entra authentication methods resources.
      * @return AuthenticationMethodsRoot|null
     */
     public function getAuthenticationMethods(): ?AuthenticationMethodsRoot {
@@ -326,7 +326,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
+     * Sets the authenticationMethods property value. Container for navigation properties for Microsoft Entra authentication methods resources.
      * @param AuthenticationMethodsRoot|null $value Value to set for the authenticationMethods property.
     */
     public function setAuthenticationMethods(?AuthenticationMethodsRoot $value): void {

@@ -48,7 +48,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Azure AD portal.
+     * Gets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Microsoft Entra admin center.
      * @return string|null
     */
     public function getBenefits(): ?string {
@@ -191,7 +191,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Azure AD portal.
+     * Gets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Microsoft Entra admin center.
      * @return string|null
     */
     public function getInsights(): ?string {
@@ -360,7 +360,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Azure AD portal.
+     * Sets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Microsoft Entra admin center.
      * @param string|null $value Value to set for the benefits property.
     */
     public function setBenefits(?string $value): void {
@@ -432,7 +432,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Azure AD portal.
+     * Sets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Microsoft Entra admin center.
      * @param string|null $value Value to set for the insights property.
     */
     public function setInsights(?string $value): void {

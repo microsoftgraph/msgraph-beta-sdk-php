@@ -77,7 +77,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * Gets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @return array<AuthenticationEventsFlow>|null
     */
     public function getAuthenticationEventsFlows(): ?array {
@@ -285,7 +285,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * Sets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @param array<AuthenticationEventsFlow>|null $value Value to set for the authenticationEventsFlows property.
     */
     public function setAuthenticationEventsFlows(?array $value): void {

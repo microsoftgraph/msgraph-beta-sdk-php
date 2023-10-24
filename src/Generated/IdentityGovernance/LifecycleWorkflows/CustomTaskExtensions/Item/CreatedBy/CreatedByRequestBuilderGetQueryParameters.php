@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\C
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
+ * The unique identifier of the Microsoft Entra user that created the custom task extension.Supports $filter(eq, ne) and $expand.
 */
 class CreatedByRequestBuilderGetQueryParameters 
 {

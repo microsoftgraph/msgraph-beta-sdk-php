@@ -84,7 +84,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPortComponent. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isRecent property value. The isRecent property
+     * Gets the isRecent property value. Indicates whether this hostPortComponent is recent, which is determined by whether the hostPortComponent was observed either at the same time or after the latest hostPortBanner in the scan history, or within two days of the latest scan of the hostPort when there are no hostPortBanners in the scan history.
      * @return bool|null
     */
     public function getIsRecent(): ?bool {
@@ -108,7 +108,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPortComponent. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -169,7 +169,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPortComponent. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -177,7 +177,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isRecent property value. The isRecent property
+     * Sets the isRecent property value. Indicates whether this hostPortComponent is recent, which is determined by whether the hostPortComponent was observed either at the same time or after the latest hostPortBanner in the scan history, or within two days of the latest scan of the hostPort when there are no hostPortBanners in the scan history.
      * @param bool|null $value Value to set for the isRecent property.
     */
     public function setIsRecent(?bool $value): void {
@@ -185,7 +185,7 @@ class HostPortComponent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPortComponent. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {

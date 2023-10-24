@@ -31,7 +31,7 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk. This API is available in the following national cloud deployments.
+     * Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk. This API is available in the following national cloud deployments.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -51,7 +51,7 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk. This API is available in the following national cloud deployments.
+     * Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk. This API is available in the following national cloud deployments.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -65,6 +65,7 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

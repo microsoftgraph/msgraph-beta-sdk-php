@@ -53,7 +53,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in an Azure Active Directory tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is available in the following national cloud deployments.
+     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is available in the following national cloud deployments.
      * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://learn.microsoft.com/graph/api/reportroot-list-serviceprincipalsigninactivities?view=graph-rest-1.0 Find more info here
@@ -91,7 +91,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in an Azure Active Directory tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is available in the following national cloud deployments.
+     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is available in the following national cloud deployments.
      * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +100,6 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -108,6 +107,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -122,11 +122,11 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

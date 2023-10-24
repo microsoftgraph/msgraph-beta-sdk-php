@@ -220,6 +220,7 @@ class Alert extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setMitreTechniques($val);
             },
+            'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'providerAlertId' => fn(ParseNode $n) => $o->setProviderAlertId($n->getStringValue()),
             'recommendedActions' => fn(ParseNode $n) => $o->setRecommendedActions($n->getStringValue()),
             'resolvedDateTime' => fn(ParseNode $n) => $o->setResolvedDateTime($n->getDateTimeValue()),
@@ -316,6 +317,18 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the productName property value. The productName property
+     * @return string|null
+    */
+    public function getProductName(): ?string {
+        $val = $this->getBackingStore()->get('productName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productName'");
+    }
+
+    /**
      * Gets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      * @return string|null
     */
@@ -402,7 +415,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The Azure Active Directory tenant the alert was created in.
+     * Gets the tenantId property value. The Microsoft Entra tenant the alert was created in.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -474,6 +487,7 @@ class Alert extends Entity implements Parsable
         $writer->writeDateTimeValue('lastActivityDateTime', $this->getLastActivityDateTime());
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
         $writer->writeCollectionOfPrimitiveValues('mitreTechniques', $this->getMitreTechniques());
+        $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeStringValue('providerAlertId', $this->getProviderAlertId());
         $writer->writeStringValue('recommendedActions', $this->getRecommendedActions());
         $writer->writeDateTimeValue('resolvedDateTime', $this->getResolvedDateTime());
@@ -640,6 +654,14 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Sets the productName property value. The productName property
+     * @param string|null $value Value to set for the productName property.
+    */
+    public function setProductName(?string $value): void {
+        $this->getBackingStore()->set('productName', $value);
+    }
+
+    /**
      * Sets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      * @param string|null $value Value to set for the providerAlertId property.
     */
@@ -696,7 +718,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The Azure Active Directory tenant the alert was created in.
+     * Sets the tenantId property value. The Microsoft Entra tenant the alert was created in.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

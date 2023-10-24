@@ -52,9 +52,10 @@ class PortsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ports from security
+     * Get the list of hostPort resources associated with a host.
      * @param PortsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://learn.microsoft.com/graph/api/security-host-list-ports?view=graph-rest-1.0 Find more info here
     */
     public function get(?PortsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -70,7 +71,7 @@ class PortsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ports from security
+     * Get the list of hostPort resources associated with a host.
      * @param PortsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +80,6 @@ class PortsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -87,6 +87,7 @@ class PortsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

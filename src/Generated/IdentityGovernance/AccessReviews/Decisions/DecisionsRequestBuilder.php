@@ -71,7 +71,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an Azure AD access review decision on an instance of a review.
+     * Represents a Microsoft Entra access review decision on an instance of a review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -108,7 +108,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an Azure AD access review decision on an instance of a review.
+     * Represents a Microsoft Entra access review decision on an instance of a review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -117,7 +117,6 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -125,6 +124,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -139,11 +139,11 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

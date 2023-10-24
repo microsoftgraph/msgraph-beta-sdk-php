@@ -37,7 +37,7 @@ class AadUserConversationMemberResult extends ActionResultPart implements Parsab
     }
 
     /**
-     * Gets the userId property value. The user object ID of the Azure AD user that was being added as part of the bulk operation.
+     * Gets the userId property value. The user object ID of the Microsoft Entra user that was being added as part of the bulk operation.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -58,7 +58,7 @@ class AadUserConversationMemberResult extends ActionResultPart implements Parsab
     }
 
     /**
-     * Sets the userId property value. The user object ID of the Azure AD user that was being added as part of the bulk operation.
+     * Sets the userId property value. The user object ID of the Microsoft Entra user that was being added as part of the bulk operation.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

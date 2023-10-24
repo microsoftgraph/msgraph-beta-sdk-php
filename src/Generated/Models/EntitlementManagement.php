@@ -218,7 +218,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
+     * Gets the settings property value. Represents the settings that control the behavior of Microsoft Entra entitlement management.
      * @return EntitlementManagementSettings|null
     */
     public function getSettings(): ?EntitlementManagementSettings {
@@ -362,7 +362,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
+     * Sets the settings property value. Represents the settings that control the behavior of Microsoft Entra entitlement management.
      * @param EntitlementManagementSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?EntitlementManagementSettings $value): void {

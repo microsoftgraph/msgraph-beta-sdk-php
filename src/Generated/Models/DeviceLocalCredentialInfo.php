@@ -67,7 +67,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastBackupDateTime property value. When the local administrator account credential was backed up to Azure Active Directory.
+     * Gets the lastBackupDateTime property value. When the local administrator account credential was backed up to Microsoft Entra ID.
      * @return DateTime|null
     */
     public function getLastBackupDateTime(): ?DateTime {
@@ -79,7 +79,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the refreshDateTime property value. When the local administrator account credential will be refreshed and backed up to Azure Active Directory.
+     * Gets the refreshDateTime property value. When the local administrator account credential will be refreshed and backed up to Microsoft Entra ID.
      * @return DateTime|null
     */
     public function getRefreshDateTime(): ?DateTime {
@@ -119,7 +119,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastBackupDateTime property value. When the local administrator account credential was backed up to Azure Active Directory.
+     * Sets the lastBackupDateTime property value. When the local administrator account credential was backed up to Microsoft Entra ID.
      * @param DateTime|null $value Value to set for the lastBackupDateTime property.
     */
     public function setLastBackupDateTime(?DateTime $value): void {
@@ -127,7 +127,7 @@ class DeviceLocalCredentialInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the refreshDateTime property value. When the local administrator account credential will be refreshed and backed up to Azure Active Directory.
+     * Sets the refreshDateTime property value. When the local administrator account credential will be refreshed and backed up to Microsoft Entra ID.
      * @param DateTime|null $value Value to set for the refreshDateTime property.
     */
     public function setRefreshDateTime(?DateTime $value): void {
