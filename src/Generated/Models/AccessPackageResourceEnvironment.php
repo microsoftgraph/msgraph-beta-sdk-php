@@ -122,7 +122,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
+     * Gets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Microsoft Entra groups and Microsoft Entra Applications.
      * @return bool|null
     */
     public function getIsDefaultEnvironment(): ?bool {
@@ -249,7 +249,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
+     * Sets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Microsoft Entra groups and Microsoft Entra Applications.
      * @param bool|null $value Value to set for the isDefaultEnvironment property.
     */
     public function setIsDefaultEnvironment(?bool $value): void {

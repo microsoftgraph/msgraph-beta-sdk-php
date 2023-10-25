@@ -71,7 +71,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new invitation. Invitation adds an external user to the organization. When creating a new invitation, you have several options available: This API is available in the following national cloud deployments.
+     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation: This API is available in the following national cloud deployments.
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -100,7 +100,6 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -108,11 +107,12 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
     /**
-     * Use this API to create a new invitation. Invitation adds an external user to the organization. When creating a new invitation, you have several options available: This API is available in the following national cloud deployments.
+     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation: This API is available in the following national cloud deployments.
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -122,11 +122,11 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -150,6 +150,7 @@ use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\ServicePrincipalSignInActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Sla\SlaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\UserInsights\UserInsightsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -362,6 +363,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function userCredentialUsageDetails(): UserCredentialUsageDetailsRequestBuilder {
         return new UserCredentialUsageDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userInsights property of the microsoft.graph.reportRoot entity.
+    */
+    public function userInsights(): UserInsightsRequestBuilder {
+        return new UserInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1457,7 +1465,6 @@ class ReportsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -1465,6 +1472,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -1479,11 +1487,11 @@ class ReportsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

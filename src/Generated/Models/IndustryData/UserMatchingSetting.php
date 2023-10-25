@@ -71,7 +71,7 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the matchTarget property value. The RefUserMatchTarget for matching a user from the source with an Azure Active Directory user object.
+     * Gets the matchTarget property value. The RefUserMatchTarget for matching a user from the source with a Microsoft Entra user object.
      * @return UserMatchTargetReferenceValue|null
     */
     public function getMatchTarget(): ?UserMatchTargetReferenceValue {
@@ -160,7 +160,7 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the matchTarget property value. The RefUserMatchTarget for matching a user from the source with an Azure Active Directory user object.
+     * Sets the matchTarget property value. The RefUserMatchTarget for matching a user from the source with a Microsoft Entra user object.
      * @param UserMatchTargetReferenceValue|null $value Value to set for the matchTarget property.
     */
     public function setMatchTarget(?UserMatchTargetReferenceValue $value): void {

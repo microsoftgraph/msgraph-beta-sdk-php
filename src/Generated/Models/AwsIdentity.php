@@ -13,6 +13,7 @@ class AwsIdentity extends AuthorizationSystemIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.awsIdentity');
     }
 
     /**
@@ -25,6 +26,10 @@ class AwsIdentity extends AuthorizationSystemIdentity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.awsAccessKey': return new AwsAccessKey();
+                case '#microsoft.graph.awsEc2Instance': return new AwsEc2Instance();
+                case '#microsoft.graph.awsGroup': return new AwsGroup();
+                case '#microsoft.graph.awsLambda': return new AwsLambda();
                 case '#microsoft.graph.awsRole': return new AwsRole();
                 case '#microsoft.graph.awsUser': return new AwsUser();
             }

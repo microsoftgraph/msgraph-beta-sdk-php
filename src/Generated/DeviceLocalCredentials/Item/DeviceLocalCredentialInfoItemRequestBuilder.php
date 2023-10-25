@@ -23,7 +23,7 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceLocalCredentials/{deviceLocalCredentialInfo%2Did}{?%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceLocalCredentials/{deviceLocalCredentialInfo%2Did}{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -50,10 +50,9 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object.  This API is available in the following national cloud deployments.
+     * Get entity from deviceLocalCredentials by key
      * @param DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://learn.microsoft.com/graph/api/devicelocalcredentialinfo-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,11 +100,12 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object.  This API is available in the following national cloud deployments.
+     * Get entity from deviceLocalCredentials by key
      * @param DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,6 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -122,6 +121,7 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -136,11 +136,11 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

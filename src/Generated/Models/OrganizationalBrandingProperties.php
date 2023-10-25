@@ -109,7 +109,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Azure Active Directory for customers tenants only.
+     * Gets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Microsoft Entra ID for customers tenants only.
      * @return ContentCustomization|null
     */
     public function getContentCustomization(): ?ContentCustomization {
@@ -253,7 +253,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the favicon property value. A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
+     * Gets the favicon property value. A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
      * @return StreamInterface|null
     */
     public function getFavicon(): ?StreamInterface {
@@ -544,7 +544,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Azure Active Directory for customers tenants only.
+     * Sets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Microsoft Entra ID for customers tenants only.
      * @param ContentCustomization|null $value Value to set for the contentCustomization property.
     */
     public function setContentCustomization(?ContentCustomization $value): void {
@@ -640,7 +640,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the favicon property value. A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
+     * Sets the favicon property value. A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
      * @param StreamInterface|null $value Value to set for the favicon property.
     */
     public function setFavicon(?StreamInterface $value): void {

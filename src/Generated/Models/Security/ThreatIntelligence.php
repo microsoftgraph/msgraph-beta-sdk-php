@@ -124,7 +124,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Gets the hostPorts property value. The hostPorts property
+     * Gets the hostPorts property value. Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
      * @return array<HostPort>|null
     */
     public function getHostPorts(): ?array {
@@ -357,7 +357,7 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
-     * Sets the hostPorts property value. The hostPorts property
+     * Sets the hostPorts property value. Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
      * @param array<HostPort>|null $value Value to set for the hostPorts property.
     */
     public function setHostPorts(?array $value): void {

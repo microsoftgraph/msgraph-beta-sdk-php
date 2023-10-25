@@ -50,7 +50,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
     }
 
     /**
-     * Gets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
+     * Gets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.
      * @return string|null
     */
     public function getHomeTenantName(): ?string {
@@ -80,7 +80,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
     }
 
     /**
-     * Sets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
+     * Sets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.
      * @param string|null $value Value to set for the homeTenantName property.
     */
     public function setHomeTenantName(?string $value): void {

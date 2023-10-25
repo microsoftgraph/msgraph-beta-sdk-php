@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Directory\AttributeSets\AttributeSetsRequestB
 use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateAuthoritiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\CustomSecurityAttributeDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\DeletedItemsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials\DeviceLocalCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\FeatureRolloutPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FederationConfigurations\FederationConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\ImpactedResourcesRequestBuilder;
@@ -64,6 +65,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.
+    */
+    public function deviceLocalCredentials(): DeviceLocalCredentialsRequestBuilder {
+        return new DeviceLocalCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -190,7 +198,6 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -198,6 +205,7 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -212,11 +220,11 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

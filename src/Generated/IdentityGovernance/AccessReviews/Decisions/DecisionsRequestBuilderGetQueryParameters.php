@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents an Azure AD access review decision on an instance of a review.
+ * Represents a Microsoft Entra access review decision on an instance of a review.
 */
 class DecisionsRequestBuilderGetQueryParameters 
 {
