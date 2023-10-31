@@ -101,7 +101,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
+     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -158,7 +158,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
+     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {

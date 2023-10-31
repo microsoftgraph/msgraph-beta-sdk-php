@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleDefinition
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+ * Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles support this attribute.
 */
 class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters 
 {

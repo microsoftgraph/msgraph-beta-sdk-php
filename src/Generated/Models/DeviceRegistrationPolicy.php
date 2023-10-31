@@ -25,7 +25,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Azure AD Join within your organization. Required. For more information, see What is a device identity?.
+     * Gets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra join within your organization. Required. For more information, see What is a device identity?.
      * @return AzureAdJoinPolicy|null
     */
     public function getAzureADJoin(): ?AzureAdJoinPolicy {
@@ -37,7 +37,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureADRegistration property value. Specifies the authorization policy for controlling registration of new devices using Azure AD registered within your organization. Required. For more information, see What is a device identity?.
+     * Gets the azureADRegistration property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra registered within your organization. Required. For more information, see What is a device identity?.
      * @return AzureADRegistrationPolicy|null
     */
     public function getAzureADRegistration(): ?AzureADRegistrationPolicy {
@@ -141,7 +141,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Azure AD Join within your organization. Required. For more information, see What is a device identity?.
+     * Sets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra join within your organization. Required. For more information, see What is a device identity?.
      * @param AzureAdJoinPolicy|null $value Value to set for the azureADJoin property.
     */
     public function setAzureADJoin(?AzureAdJoinPolicy $value): void {
@@ -149,7 +149,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureADRegistration property value. Specifies the authorization policy for controlling registration of new devices using Azure AD registered within your organization. Required. For more information, see What is a device identity?.
+     * Sets the azureADRegistration property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra registered within your organization. Required. For more information, see What is a device identity?.
      * @param AzureADRegistrationPolicy|null $value Value to set for the azureADRegistration property.
     */
     public function setAzureADRegistration(?AzureADRegistrationPolicy $value): void {

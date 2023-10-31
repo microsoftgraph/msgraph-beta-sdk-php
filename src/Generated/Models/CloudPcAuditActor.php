@@ -61,7 +61,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the applicationId property value. Azure AD application ID.
+     * Gets the applicationId property value. Microsoft Entra application ID.
      * @return string|null
     */
     public function getApplicationId(): ?string {
@@ -182,7 +182,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. Azure AD user ID.
+     * Gets the userId property value. Microsoft Entra user ID.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -270,7 +270,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the applicationId property value. Azure AD application ID.
+     * Sets the applicationId property value. Microsoft Entra application ID.
      * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
@@ -334,7 +334,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. Azure AD user ID.
+     * Sets the userId property value. Microsoft Entra user ID.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

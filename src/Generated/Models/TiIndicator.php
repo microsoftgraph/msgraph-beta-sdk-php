@@ -65,7 +65,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureTenantId property value. Stamped by the system when the indicator is ingested. The Azure Active Directory tenant id of submitting client. Required.
+     * Gets the azureTenantId property value. Stamped by the system when the indicator is ingested. The Microsoft Entra tenant id of submitting client. Required.
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
@@ -917,7 +917,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureTenantId property value. Stamped by the system when the indicator is ingested. The Azure Active Directory tenant id of submitting client. Required.
+     * Sets the azureTenantId property value. Stamped by the system when the indicator is ingested. The Microsoft Entra tenant id of submitting client. Required.
      * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {

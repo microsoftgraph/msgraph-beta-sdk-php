@@ -39,7 +39,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Microsoft Entra audit log categories and activities. Supports $filter (eq, startswith).
      * @return string|null
     */
     public function getActivityDisplayName(): ?string {
@@ -65,7 +65,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. For a list of categories for activities logged, refer to Azure AD audit log categories and activities.
+     * Gets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. For a list of categories for activities logged, refer to Microsoft Entra audit log categories and activities.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -225,7 +225,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities. Supports $filter (eq, startswith).
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (for example 'Create User', 'Add member to group'). For a list of activities logged, refer to Microsoft Entra audit log categories and activities. Supports $filter (eq, startswith).
      * @param string|null $value Value to set for the activityDisplayName property.
     */
     public function setActivityDisplayName(?string $value): void {
@@ -241,7 +241,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. For a list of categories for activities logged, refer to Azure AD audit log categories and activities.
+     * Sets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. For a list of categories for activities logged, refer to Microsoft Entra audit log categories and activities.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {

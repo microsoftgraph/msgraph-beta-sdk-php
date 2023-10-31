@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ShiftWorkCloudPcAccessState;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -34,19 +33,18 @@ class GetShiftWorkCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke function getShiftWorkCloudPcAccessState
      * @param GetShiftWorkCloudPcAccessStateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ShiftWorkCloudPcAccessState|null>
+     * @throws Exception
     */
     public function get(?GetShiftWorkCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, ShiftWorkCloudPcAccessState::class, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        /** @var Promise<ShiftWorkCloudPcAccessState|null> $result */
+        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, ShiftWorkCloudPcAccessState::class, $errorMappings);
+        return $result;
     }
 
     /**
@@ -59,11 +57,11 @@ class GetShiftWorkCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

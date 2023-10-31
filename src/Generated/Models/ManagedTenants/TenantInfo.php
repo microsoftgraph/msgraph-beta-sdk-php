@@ -80,7 +80,7 @@ class TenantInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional.
+     * Gets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant. Optional.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -126,7 +126,7 @@ class TenantInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional.
+     * Sets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant. Optional.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

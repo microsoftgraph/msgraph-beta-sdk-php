@@ -95,7 +95,7 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Azure Active Directory SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
+     * Gets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Microsoft Entra SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
      * @return float|null
     */
     public function getScore(): ?float {
@@ -163,7 +163,7 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Azure Active Directory SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
+     * Sets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Microsoft Entra SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
      * @param float|null $value Value to set for the score property.
     */
     public function setScore(?float $value): void {

@@ -131,6 +131,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'internalUrl' => fn(ParseNode $n) => $o->setInternalUrl($n->getStringValue()),
             'isAccessibleViaZTNAClient' => fn(ParseNode $n) => $o->setIsAccessibleViaZTNAClient($n->getBooleanValue()),
             'isBackendCertificateValidationEnabled' => fn(ParseNode $n) => $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()),
+            'isDnsResolutionEnabled' => fn(ParseNode $n) => $o->setIsDnsResolutionEnabled($n->getBooleanValue()),
             'isHttpOnlyCookieEnabled' => fn(ParseNode $n) => $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()),
             'isOnPremPublishingEnabled' => fn(ParseNode $n) => $o->setIsOnPremPublishingEnabled($n->getBooleanValue()),
             'isPersistentCookieEnabled' => fn(ParseNode $n) => $o->setIsPersistentCookieEnabled($n->getBooleanValue()),
@@ -186,6 +187,18 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the isDnsResolutionEnabled property value. The isDnsResolutionEnabled property
+     * @return bool|null
+    */
+    public function getIsDnsResolutionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isDnsResolutionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDnsResolutionEnabled'");
+    }
+
+    /**
      * Gets the isHttpOnlyCookieEnabled property value. Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false.
      * @return bool|null
     */
@@ -210,7 +223,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
+     * Gets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Microsoft Entra ID. Default value is false.
      * @return bool|null
     */
     public function getIsPersistentCookieEnabled(): ?bool {
@@ -296,7 +309,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+     * Gets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Microsoft Entra application proxy.
      * @return SegmentConfiguration|null
     */
     public function getSegmentsConfiguration(): ?SegmentConfiguration {
@@ -380,6 +393,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('internalUrl', $this->getInternalUrl());
         $writer->writeBooleanValue('isAccessibleViaZTNAClient', $this->getIsAccessibleViaZTNAClient());
         $writer->writeBooleanValue('isBackendCertificateValidationEnabled', $this->getIsBackendCertificateValidationEnabled());
+        $writer->writeBooleanValue('isDnsResolutionEnabled', $this->getIsDnsResolutionEnabled());
         $writer->writeBooleanValue('isHttpOnlyCookieEnabled', $this->getIsHttpOnlyCookieEnabled());
         $writer->writeBooleanValue('isOnPremPublishingEnabled', $this->getIsOnPremPublishingEnabled());
         $writer->writeBooleanValue('isPersistentCookieEnabled', $this->getIsPersistentCookieEnabled());
@@ -479,6 +493,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the isDnsResolutionEnabled property value. The isDnsResolutionEnabled property
+     * @param bool|null $value Value to set for the isDnsResolutionEnabled property.
+    */
+    public function setIsDnsResolutionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isDnsResolutionEnabled', $value);
+    }
+
+    /**
      * Sets the isHttpOnlyCookieEnabled property value. Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false.
      * @param bool|null $value Value to set for the isHttpOnlyCookieEnabled property.
     */
@@ -495,7 +517,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
+     * Sets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Microsoft Entra ID. Default value is false.
      * @param bool|null $value Value to set for the isPersistentCookieEnabled property.
     */
     public function setIsPersistentCookieEnabled(?bool $value): void {
@@ -551,7 +573,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+     * Sets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Microsoft Entra application proxy.
      * @param SegmentConfiguration|null $value Value to set for the segmentsConfiguration property.
     */
     public function setSegmentsConfiguration(?SegmentConfiguration $value): void {

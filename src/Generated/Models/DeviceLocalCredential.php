@@ -50,7 +50,7 @@ class DeviceLocalCredential extends Entity implements Parsable
     }
 
     /**
-     * Gets the backupDateTime property value. When the local adminstrator account credential for the device object was backed up to Azure Active Directory.
+     * Gets the backupDateTime property value. When the local adminstrator account credential for the device object was backed up to Microsoft Entra ID.
      * @return DateTime|null
     */
     public function getBackupDateTime(): ?DateTime {
@@ -76,7 +76,7 @@ class DeviceLocalCredential extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordBase64 property value. The password for the local administrator account that is backed up to Azure Active Directory and returned as a base 64 encoded value.
+     * Gets the passwordBase64 property value. The password for the local administrator account that is backed up to Microsoft Entra ID and returned as a base 64 encoded value.
      * @return string|null
     */
     public function getPasswordBase64(): ?string {
@@ -116,7 +116,7 @@ class DeviceLocalCredential extends Entity implements Parsable
     }
 
     /**
-     * Sets the backupDateTime property value. When the local adminstrator account credential for the device object was backed up to Azure Active Directory.
+     * Sets the backupDateTime property value. When the local adminstrator account credential for the device object was backed up to Microsoft Entra ID.
      * @param DateTime|null $value Value to set for the backupDateTime property.
     */
     public function setBackupDateTime(?DateTime $value): void {
@@ -124,7 +124,7 @@ class DeviceLocalCredential extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordBase64 property value. The password for the local administrator account that is backed up to Azure Active Directory and returned as a base 64 encoded value.
+     * Sets the passwordBase64 property value. The password for the local administrator account that is backed up to Microsoft Entra ID and returned as a base 64 encoded value.
      * @param string|null $value Value to set for the passwordBase64 property.
     */
     public function setPasswordBase64(?string $value): void {

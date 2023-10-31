@@ -113,7 +113,7 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the multiTenantOrganization property value. Defines an organization with more than one instance of Azure Active Directory (Azure AD).
+     * Gets the multiTenantOrganization property value. Defines an organization with more than one instance of Microsoft Entra ID.
      * @return MultiTenantOrganization|null
     */
     public function getMultiTenantOrganization(): ?MultiTenantOrganization {
@@ -190,7 +190,7 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the multiTenantOrganization property value. Defines an organization with more than one instance of Azure Active Directory (Azure AD).
+     * Sets the multiTenantOrganization property value. Defines an organization with more than one instance of Microsoft Entra ID.
      * @param MultiTenantOrganization|null $value Value to set for the multiTenantOrganization property.
     */
     public function setMultiTenantOrganization(?MultiTenantOrganization $value): void {

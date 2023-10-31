@@ -81,7 +81,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization doesn't have Azure AD Premium P2' can't be configured, because the criteria are restricted.
+     * Gets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization doesn't have Microsoft Entra ID P2' can't be configured, because the criteria are restricted.
      * @return bool|null
     */
     public function getIsConfigurable(): ?bool {
@@ -129,7 +129,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD Roles.
+     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -207,7 +207,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization doesn't have Azure AD Premium P2' can't be configured, because the criteria are restricted.
+     * Sets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization doesn't have Microsoft Entra ID P2' can't be configured, because the criteria are restricted.
      * @param bool|null $value Value to set for the isConfigurable property.
     */
     public function setIsConfigurable(?bool $value): void {
@@ -239,7 +239,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD Roles.
+     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {

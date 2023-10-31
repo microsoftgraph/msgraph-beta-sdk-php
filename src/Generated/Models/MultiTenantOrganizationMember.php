@@ -117,7 +117,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
+     * Gets the tenantId property value. Tenant ID of the Microsoft Entra tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -205,7 +205,7 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. Tenant ID of the Azure Active Directory tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
+     * Sets the tenantId property value. Tenant ID of the Microsoft Entra tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

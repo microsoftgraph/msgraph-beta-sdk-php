@@ -57,6 +57,18 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
     }
 
     /**
+     * Gets the enforceRegistrationAfterAllowedSnoozes property value. Specifies whether a user is required to perform registration after snoozing 3 times. If true, the user is required to register after 3 snoozes. If false, the user can snooze indefinitely. The default value is true.
+     * @return bool|null
+    */
+    public function getEnforceRegistrationAfterAllowedSnoozes(): ?bool {
+        $val = $this->getBackingStore()->get('enforceRegistrationAfterAllowedSnoozes');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforceRegistrationAfterAllowedSnoozes'");
+    }
+
+    /**
      * Gets the excludeTargets property value. Users and groups of users that are excluded from being prompted to set up the authentication method.
      * @return array<ExcludeTarget>|null
     */
@@ -77,6 +89,7 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'enforceRegistrationAfterAllowedSnoozes' => fn(ParseNode $n) => $o->setEnforceRegistrationAfterAllowedSnoozes($n->getBooleanValue()),
             'excludeTargets' => fn(ParseNode $n) => $o->setExcludeTargets($n->getCollectionOfObjectValues([ExcludeTarget::class, 'createFromDiscriminatorValue'])),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([AuthenticationMethodsRegistrationCampaignIncludeTarget::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -140,6 +153,7 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('enforceRegistrationAfterAllowedSnoozes', $this->getEnforceRegistrationAfterAllowedSnoozes());
         $writer->writeCollectionOfObjectValues('excludeTargets', $this->getExcludeTargets());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -162,6 +176,14 @@ class AuthenticationMethodsRegistrationCampaign implements AdditionalDataHolder,
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the enforceRegistrationAfterAllowedSnoozes property value. Specifies whether a user is required to perform registration after snoozing 3 times. If true, the user is required to register after 3 snoozes. If false, the user can snooze indefinitely. The default value is true.
+     * @param bool|null $value Value to set for the enforceRegistrationAfterAllowedSnoozes property.
+    */
+    public function setEnforceRegistrationAfterAllowedSnoozes(?bool $value): void {
+        $this->getBackingStore()->set('enforceRegistrationAfterAllowedSnoozes', $value);
     }
 
     /**

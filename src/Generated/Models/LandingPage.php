@@ -63,7 +63,7 @@ class LandingPage extends Entity implements Parsable
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. The detail information for a landing page associated with a simulation during its creation.
      * @return array<LandingPageDetail>|null
     */
     public function getDetails(): ?array {
@@ -234,7 +234,7 @@ class LandingPage extends Entity implements Parsable
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. The detail information for a landing page associated with a simulation during its creation.
      * @param array<LandingPageDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {

@@ -89,6 +89,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
             'destination' => fn(ParseNode $n) => $o->setDestination($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
         ];
     }
 
@@ -105,6 +106,18 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the trafficType property value. The trafficType property
+     * @return TrafficType|null
+    */
+    public function getTrafficType(): ?TrafficType {
+        $val = $this->getBackingStore()->get('trafficType');
+        if (is_null($val) || $val instanceof TrafficType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeIntegerValue('count', $this->getCount());
         $writer->writeStringValue('destination', $this->getDestination());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('trafficType', $this->getTrafficType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -153,6 +167,14 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the trafficType property value. The trafficType property
+     * @param TrafficType|null $value Value to set for the trafficType property.
+    */
+    public function setTrafficType(?TrafficType $value): void {
+        $this->getBackingStore()->set('trafficType', $value);
     }
 
 }
