@@ -57,7 +57,7 @@ class AuthorizationInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
+     * Gets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Microsoft Entra user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
      * @return array<string>|null
     */
     public function getCertificateUserIds(): ?array {
@@ -128,7 +128,7 @@ class AuthorizationInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
+     * Sets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Microsoft Entra user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
      * @param array<string>|null $value Value to set for the certificateUserIds property.
     */
     public function setCertificateUserIds(?array $value): void {

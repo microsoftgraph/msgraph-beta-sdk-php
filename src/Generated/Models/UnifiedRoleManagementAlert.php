@@ -27,7 +27,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertConfiguration property value. The configuration of the alert in PIM for Azure AD roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.
+     * Gets the alertConfiguration property value. The configuration of the alert in PIM for Microsoft Entra roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.
      * @return UnifiedRoleManagementAlertConfiguration|null
     */
     public function getAlertConfiguration(): ?UnifiedRoleManagementAlertConfiguration {
@@ -63,7 +63,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Gets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Microsoft Entra roles in the tenant. Supports $expand.
      * @return array<UnifiedRoleManagementAlertIncident>|null
     */
     public function getAlertIncidents(): ?array {
@@ -157,7 +157,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
+     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -187,7 +187,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertConfiguration property value. The configuration of the alert in PIM for Azure AD roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.
+     * Sets the alertConfiguration property value. The configuration of the alert in PIM for Microsoft Entra roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.
      * @param UnifiedRoleManagementAlertConfiguration|null $value Value to set for the alertConfiguration property.
     */
     public function setAlertConfiguration(?UnifiedRoleManagementAlertConfiguration $value): void {
@@ -211,7 +211,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Azure AD roles in the tenant. Supports $expand.
+     * Sets the alertIncidents property value. Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Microsoft Entra roles in the tenant. Supports $expand.
      * @param array<UnifiedRoleManagementAlertIncident>|null $value Value to set for the alertIncidents property.
     */
     public function setAlertIncidents(?array $value): void {
@@ -259,7 +259,7 @@ class UnifiedRoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
+     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Microsoft Entra roles.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {

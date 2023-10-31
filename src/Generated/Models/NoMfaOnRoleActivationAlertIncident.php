@@ -38,7 +38,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Gets the roleDisplayName property value. The name of the Azure AD directory role.
+     * Gets the roleDisplayName property value. The name of the Microsoft Entra ID directory role.
      * @return string|null
     */
     public function getRoleDisplayName(): ?string {
@@ -72,7 +72,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Sets the roleDisplayName property value. The name of the Azure AD directory role.
+     * Sets the roleDisplayName property value. The name of the Microsoft Entra ID directory role.
      * @param string|null $value Value to set for the roleDisplayName property.
     */
     public function setRoleDisplayName(?string $value): void {

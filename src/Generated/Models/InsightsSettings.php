@@ -25,7 +25,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the disabledForGroup property value. The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
+     * Gets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
      * @return string|null
     */
     public function getDisabledForGroup(): ?string {
@@ -71,7 +71,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the disabledForGroup property value. The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
+     * Sets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
      * @param string|null $value Value to set for the disabledForGroup property.
     */
     public function setDisabledForGroup(?string $value): void {

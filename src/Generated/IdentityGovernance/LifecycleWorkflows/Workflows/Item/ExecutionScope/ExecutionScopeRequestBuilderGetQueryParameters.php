@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The unique identifier of the Azure AD identity that last modified the workflow object.
+ * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
 */
 class ExecutionScopeRequestBuilderGetQueryParameters 
 {

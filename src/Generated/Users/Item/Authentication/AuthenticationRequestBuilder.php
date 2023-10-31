@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Operations\Operatio
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordMethods\PasswordMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\PhoneMethodsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCredentialMethods\PlatformCredentialMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathMethods\SoftwareOathMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAccessPassMethods\TemporaryAccessPassMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\WindowsHelloForBusinessMethodsRequestBuilder;
@@ -82,6 +83,13 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
     */
     public function phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the platformCredentialMethods property of the microsoft.graph.authentication entity.
+    */
+    public function platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder {
+        return new PlatformCredentialMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -188,6 +196,7 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         return $requestInfo;
     }
 
@@ -201,7 +210,6 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -209,6 +217,7 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -223,11 +232,11 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

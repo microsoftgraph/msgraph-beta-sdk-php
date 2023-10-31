@@ -54,7 +54,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
+     * Gets the authenticationMethods property value. Container for navigation properties for Microsoft Entra authentication methods resources.
      * @return AuthenticationMethodsRoot|null
     */
     public function getAuthenticationMethods(): ?AuthenticationMethodsRoot {
@@ -173,6 +173,7 @@ class ReportRoot extends Entity implements Parsable
             'servicePrincipalSignInActivities' => fn(ParseNode $n) => $o->setServicePrincipalSignInActivities($n->getCollectionOfObjectValues([ServicePrincipalSignInActivity::class, 'createFromDiscriminatorValue'])),
             'sla' => fn(ParseNode $n) => $o->setSla($n->getObjectValue([ServiceLevelAgreementRoot::class, 'createFromDiscriminatorValue'])),
             'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
+            'userInsights' => fn(ParseNode $n) => $o->setUserInsights($n->getObjectValue([UserInsightsRoot::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -233,7 +234,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
+     * Gets the security property value. Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
      * @return SecurityReportsRoot|null
     */
     public function getSecurity(): ?SecurityReportsRoot {
@@ -285,6 +286,18 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the userInsights property value. The userInsights property
+     * @return UserInsightsRoot|null
+    */
+    public function getUserInsights(): ?UserInsightsRoot {
+        $val = $this->getBackingStore()->get('userInsights');
+        if (is_null($val) || $val instanceof UserInsightsRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userInsights'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -307,6 +320,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('servicePrincipalSignInActivities', $this->getServicePrincipalSignInActivities());
         $writer->writeObjectValue('sla', $this->getSla());
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->getUserCredentialUsageDetails());
+        $writer->writeObjectValue('userInsights', $this->getUserInsights());
     }
 
     /**
@@ -326,7 +340,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
+     * Sets the authenticationMethods property value. Container for navigation properties for Microsoft Entra authentication methods resources.
      * @param AuthenticationMethodsRoot|null $value Value to set for the authenticationMethods property.
     */
     public function setAuthenticationMethods(?AuthenticationMethodsRoot $value): void {
@@ -414,7 +428,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
+     * Sets the security property value. Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
      * @param SecurityReportsRoot|null $value Value to set for the security property.
     */
     public function setSecurity(?SecurityReportsRoot $value): void {
@@ -443,6 +457,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setUserCredentialUsageDetails(?array $value): void {
         $this->getBackingStore()->set('userCredentialUsageDetails', $value);
+    }
+
+    /**
+     * Sets the userInsights property value. The userInsights property
+     * @param UserInsightsRoot|null $value Value to set for the userInsights property.
+    */
+    public function setUserInsights(?UserInsightsRoot $value): void {
+        $this->getBackingStore()->set('userInsights', $value);
     }
 
 }

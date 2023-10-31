@@ -25,7 +25,7 @@ class ServiceLevelAgreementRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureADAuthentication property value. Collects the Azure AD SLA attainment for each month for an Azure AD tenant.
+     * Gets the azureADAuthentication property value. Collects the Microsoft Entra SLA attainment for each month for a Microsoft Entra tenant.
      * @return AzureADAuthentication|null
     */
     public function getAzureADAuthentication(): ?AzureADAuthentication {
@@ -57,7 +57,7 @@ class ServiceLevelAgreementRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureADAuthentication property value. Collects the Azure AD SLA attainment for each month for an Azure AD tenant.
+     * Sets the azureADAuthentication property value. Collects the Microsoft Entra SLA attainment for each month for a Microsoft Entra tenant.
      * @param AzureADAuthentication|null $value Value to set for the azureADAuthentication property.
     */
     public function setAzureADAuthentication(?AzureADAuthentication $value): void {

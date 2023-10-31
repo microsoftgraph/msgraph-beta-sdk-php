@@ -38,7 +38,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
+     * Gets the assignments property value. A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
      * @return array<CloudPcProvisioningPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -100,7 +100,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainJoinConfiguration property value. Specifies how Cloud PCs will join Azure Active Directory.
+     * Gets the domainJoinConfiguration property value. Specifies how Cloud PCs will join Microsoft Entra ID.
      * @return CloudPcDomainJoinConfiguration|null
     */
     public function getDomainJoinConfiguration(): ?CloudPcDomainJoinConfiguration {
@@ -126,7 +126,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
+     * Gets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Microsoft Entra ID with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
@@ -322,7 +322,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
+     * Sets the assignments property value. A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
      * @param array<CloudPcProvisioningPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -362,7 +362,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the domainJoinConfiguration property value. Specifies how Cloud PCs will join Azure Active Directory.
+     * Sets the domainJoinConfiguration property value. Specifies how Cloud PCs will join Microsoft Entra ID.
      * @param CloudPcDomainJoinConfiguration|null $value Value to set for the domainJoinConfiguration property.
     */
     public function setDomainJoinConfiguration(?CloudPcDomainJoinConfiguration $value): void {
@@ -378,7 +378,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
+     * Sets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Microsoft Entra ID with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
      * @param bool|null $value Value to set for the enableSingleSignOn property.
     */
     public function setEnableSingleSignOn(?bool $value): void {

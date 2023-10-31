@@ -10,4 +10,5 @@ class PlannerContainerType extends Enum {
     public const ROSTER = 'roster';
     public const PROJECT = 'project';
     public const DRIVE_ITEM = 'driveItem';
+    public const USER = 'user';
 }

@@ -73,7 +73,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the autoExtendDuration property value. The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. Default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it is not automatically extended.
+     * Gets the autoExtendDuration property value. The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. The default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it isn't automatically extended.
      * @return DateInterval|null
     */
     public function getAutoExtendDuration(): ?DateInterval {
@@ -265,7 +265,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the autoExtendDuration property value. The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. Default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it is not automatically extended.
+     * Sets the autoExtendDuration property value. The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. The default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it isn't automatically extended.
      * @param DateInterval|null $value Value to set for the autoExtendDuration property.
     */
     public function setAutoExtendDuration(?DateInterval $value): void {

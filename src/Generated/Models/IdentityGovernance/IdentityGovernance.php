@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\AppConsentApprovalRoute;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\PermissionsAnalyticsAggregation;
 use Microsoft\Graph\Beta\Generated\Models\PermissionsManagement;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\RoleManagementAlert;
@@ -110,6 +111,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([EntitlementManagement::class, 'createFromDiscriminatorValue'])),
             'lifecycleWorkflows' => fn(ParseNode $n) => $o->setLifecycleWorkflows($n->getObjectValue([LifecycleWorkflowsContainer::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'permissionsAnalytics' => fn(ParseNode $n) => $o->setPermissionsAnalytics($n->getObjectValue([PermissionsAnalyticsAggregation::class, 'createFromDiscriminatorValue'])),
             'permissionsManagement' => fn(ParseNode $n) => $o->setPermissionsManagement($n->getObjectValue([PermissionsManagement::class, 'createFromDiscriminatorValue'])),
             'privilegedAccess' => fn(ParseNode $n) => $o->setPrivilegedAccess($n->getObjectValue([PrivilegedAccessRoot::class, 'createFromDiscriminatorValue'])),
             'roleManagementAlerts' => fn(ParseNode $n) => $o->setRoleManagementAlerts($n->getObjectValue([RoleManagementAlert::class, 'createFromDiscriminatorValue'])),
@@ -139,6 +141,18 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the permissionsAnalytics property value. The permissionsAnalytics property
+     * @return PermissionsAnalyticsAggregation|null
+    */
+    public function getPermissionsAnalytics(): ?PermissionsAnalyticsAggregation {
+        $val = $this->getBackingStore()->get('permissionsAnalytics');
+        if (is_null($val) || $val instanceof PermissionsAnalyticsAggregation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionsAnalytics'");
     }
 
     /**
@@ -199,6 +213,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
         $writer->writeObjectValue('lifecycleWorkflows', $this->getLifecycleWorkflows());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('permissionsAnalytics', $this->getPermissionsAnalytics());
         $writer->writeObjectValue('permissionsManagement', $this->getPermissionsManagement());
         $writer->writeObjectValue('privilegedAccess', $this->getPrivilegedAccess());
         $writer->writeObjectValue('roleManagementAlerts', $this->getRoleManagementAlerts());
@@ -260,6 +275,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the permissionsAnalytics property value. The permissionsAnalytics property
+     * @param PermissionsAnalyticsAggregation|null $value Value to set for the permissionsAnalytics property.
+    */
+    public function setPermissionsAnalytics(?PermissionsAnalyticsAggregation $value): void {
+        $this->getBackingStore()->set('permissionsAnalytics', $value);
     }
 
     /**

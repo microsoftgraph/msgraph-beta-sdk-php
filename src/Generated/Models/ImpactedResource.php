@@ -53,7 +53,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the apiUrl property value. The URL link to the corresponding Azure AD resource.
+     * Gets the apiUrl property value. The URL link to the corresponding Microsoft Entra resource.
      * @return string|null
     */
     public function getApiUrl(): ?string {
@@ -65,7 +65,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Friendly name of the Azure AD resource.
+     * Gets the displayName property value. Friendly name of the Microsoft Entra resource.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -137,7 +137,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the portalUrl property value. The URL link to the corresponding Azure AD portal page of the resource.
+     * Gets the portalUrl property value. The URL link to the corresponding Microsoft Entra admin center page of the resource.
      * @return string|null
     */
     public function getPortalUrl(): ?string {
@@ -185,7 +185,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceType property value. Indicates the type of Azure AD resource. Examples include user, application.
+     * Gets the resourceType property value. Indicates the type of Microsoft Entra resource. Examples include user, application.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -259,7 +259,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the apiUrl property value. The URL link to the corresponding Azure AD resource.
+     * Sets the apiUrl property value. The URL link to the corresponding Microsoft Entra resource.
      * @param string|null $value Value to set for the apiUrl property.
     */
     public function setApiUrl(?string $value): void {
@@ -267,7 +267,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Friendly name of the Azure AD resource.
+     * Sets the displayName property value. Friendly name of the Microsoft Entra resource.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -299,7 +299,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the portalUrl property value. The URL link to the corresponding Azure AD portal page of the resource.
+     * Sets the portalUrl property value. The URL link to the corresponding Microsoft Entra admin center page of the resource.
      * @param string|null $value Value to set for the portalUrl property.
     */
     public function setPortalUrl(?string $value): void {
@@ -331,7 +331,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceType property value. Indicates the type of Azure AD resource. Examples include user, application.
+     * Sets the resourceType property value. Indicates the type of Microsoft Entra resource. Examples include user, application.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

@@ -169,7 +169,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     * Gets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant. Required. Read-only.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -293,7 +293,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     * Sets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant. Required. Read-only.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

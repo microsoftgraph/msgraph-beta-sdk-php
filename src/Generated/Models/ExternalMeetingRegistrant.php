@@ -38,7 +38,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
     }
 
     /**
-     * Gets the tenantId property value. The tenant ID of this registrant if in Azure Active Directory.
+     * Gets the tenantId property value. The tenant ID of this registrant if in Microsoft Entra ID.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -50,7 +50,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
     }
 
     /**
-     * Gets the userId property value. The user ID of this registrant if in Azure Active Directory.
+     * Gets the userId property value. The user ID of this registrant if in Microsoft Entra ID.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -72,7 +72,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
     }
 
     /**
-     * Sets the tenantId property value. The tenant ID of this registrant if in Azure Active Directory.
+     * Sets the tenantId property value. The tenant ID of this registrant if in Microsoft Entra ID.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -80,7 +80,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
     }
 
     /**
-     * Sets the userId property value. The user ID of this registrant if in Azure Active Directory.
+     * Sets the userId property value. The user ID of this registrant if in Microsoft Entra ID.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

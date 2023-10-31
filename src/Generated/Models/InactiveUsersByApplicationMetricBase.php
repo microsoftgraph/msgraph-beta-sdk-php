@@ -34,6 +34,18 @@ class InactiveUsersByApplicationMetricBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the appId property value. The appId property
+     * @return string|null
+    */
+    public function getAppId(): ?string {
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
+    }
+
+    /**
      * Gets the factDate property value. The factDate property
      * @return Date|null
     */
@@ -52,6 +64,7 @@ class InactiveUsersByApplicationMetricBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
             'inactive30DayCount' => fn(ParseNode $n) => $o->setInactive30DayCount($n->getIntegerValue()),
             'inactive60DayCount' => fn(ParseNode $n) => $o->setInactive60DayCount($n->getIntegerValue()),
@@ -101,10 +114,19 @@ class InactiveUsersByApplicationMetricBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeDateValue('factDate', $this->getFactDate());
         $writer->writeIntegerValue('inactive30DayCount', $this->getInactive30DayCount());
         $writer->writeIntegerValue('inactive60DayCount', $this->getInactive60DayCount());
         $writer->writeIntegerValue('inactive90DayCount', $this->getInactive90DayCount());
+    }
+
+    /**
+     * Sets the appId property value. The appId property
+     * @param string|null $value Value to set for the appId property.
+    */
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**

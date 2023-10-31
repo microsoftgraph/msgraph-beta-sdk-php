@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LandingPages\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get details from security
+ * The detail information for a landing page associated with a simulation during its creation.
 */
 class DetailsRequestBuilderGetQueryParameters 
 {

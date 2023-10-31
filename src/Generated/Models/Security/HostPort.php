@@ -28,7 +28,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the banners property value. The banners property
+     * Gets the banners property value. The hostPortBanners retrieved from scanning the port.
      * @return array<HostPortBanner>|null
     */
     public function getBanners(): ?array {
@@ -63,7 +63,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -87,7 +87,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastScanDateTime property value. The lastScanDateTime property
+     * Gets the lastScanDateTime property value. The last date and time when Microsoft Defender Threat Intelligence scanned the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastScanDateTime(): ?DateTime {
@@ -99,7 +99,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -111,7 +111,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the mostRecentSslCertificate property value. The mostRecentSslCertificate property
+     * Gets the mostRecentSslCertificate property value. The most recent sslCertificate used to communicate on the port.
      * @return SslCertificate|null
     */
     public function getMostRecentSslCertificate(): ?SslCertificate {
@@ -123,7 +123,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. The numerical identifier of the port which is standardized across the internet.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -135,7 +135,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the protocol property value. The protocol property
+     * Gets the protocol property value. The general protocol used to scan the port. The possible values are: tcp, udp, unknownFutureValue.
      * @return HostPortProtocol|null
     */
     public function getProtocol(): ?HostPortProtocol {
@@ -147,7 +147,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the services property value. The services property
+     * Gets the services property value. The hostPortComponents retrieved from scanning the port.
      * @return array<HostPortComponent>|null
     */
     public function getServices(): ?array {
@@ -161,7 +161,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the port. The possible values are: open, filtered, closed, unknownFutureValue.
      * @return HostPortStatus|null
     */
     public function getStatus(): ?HostPortStatus {
@@ -173,7 +173,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Gets the timesObserved property value. The timesObserved property
+     * Gets the timesObserved property value. The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPort in all its scans.
      * @return int|null
     */
     public function getTimesObserved(): ?int {
@@ -204,7 +204,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the banners property value. The banners property
+     * Sets the banners property value. The hostPortBanners retrieved from scanning the port.
      * @param array<HostPortBanner>|null $value Value to set for the banners property.
     */
     public function setBanners(?array $value): void {
@@ -212,7 +212,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -228,7 +228,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastScanDateTime property value. The lastScanDateTime property
+     * Sets the lastScanDateTime property value. The last date and time when Microsoft Defender Threat Intelligence scanned the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastScanDateTime property.
     */
     public function setLastScanDateTime(?DateTime $value): void {
@@ -236,7 +236,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPort. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
@@ -244,7 +244,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the mostRecentSslCertificate property value. The mostRecentSslCertificate property
+     * Sets the mostRecentSslCertificate property value. The most recent sslCertificate used to communicate on the port.
      * @param SslCertificate|null $value Value to set for the mostRecentSslCertificate property.
     */
     public function setMostRecentSslCertificate(?SslCertificate $value): void {
@@ -252,7 +252,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. The numerical identifier of the port which is standardized across the internet.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
@@ -260,7 +260,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the protocol property value. The protocol property
+     * Sets the protocol property value. The general protocol used to scan the port. The possible values are: tcp, udp, unknownFutureValue.
      * @param HostPortProtocol|null $value Value to set for the protocol property.
     */
     public function setProtocol(?HostPortProtocol $value): void {
@@ -268,7 +268,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the services property value. The services property
+     * Sets the services property value. The hostPortComponents retrieved from scanning the port.
      * @param array<HostPortComponent>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {
@@ -276,7 +276,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of the port. The possible values are: open, filtered, closed, unknownFutureValue.
      * @param HostPortStatus|null $value Value to set for the status property.
     */
     public function setStatus(?HostPortStatus $value): void {
@@ -284,7 +284,7 @@ class HostPort extends Entity implements Parsable
     }
 
     /**
-     * Sets the timesObserved property value. The timesObserved property
+     * Sets the timesObserved property value. The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPort in all its scans.
      * @param int|null $value Value to set for the timesObserved property.
     */
     public function setTimesObserved(?int $value): void {

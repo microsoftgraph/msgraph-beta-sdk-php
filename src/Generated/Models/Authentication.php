@@ -68,6 +68,7 @@ class Authentication extends Entity implements Parsable
             'passwordlessMicrosoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'phoneMethods' => fn(ParseNode $n) => $o->setPhoneMethods($n->getCollectionOfObjectValues([PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'platformCredentialMethods' => fn(ParseNode $n) => $o->setPlatformCredentialMethods($n->getCollectionOfObjectValues([PlatformCredentialAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -160,6 +161,20 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
+     * Gets the platformCredentialMethods property value. The platformCredentialMethods property
+     * @return array<PlatformCredentialAuthenticationMethod>|null
+    */
+    public function getPlatformCredentialMethods(): ?array {
+        $val = $this->getBackingStore()->get('platformCredentialMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlatformCredentialAuthenticationMethod::class);
+            /** @var array<PlatformCredentialAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformCredentialMethods'");
+    }
+
+    /**
      * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
      * @return SignInPreferences|null
     */
@@ -227,6 +242,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('passwordlessMicrosoftAuthenticatorMethods', $this->getPasswordlessMicrosoftAuthenticatorMethods());
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
         $writer->writeCollectionOfObjectValues('phoneMethods', $this->getPhoneMethods());
+        $writer->writeCollectionOfObjectValues('platformCredentialMethods', $this->getPlatformCredentialMethods());
         $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
         $writer->writeCollectionOfObjectValues('temporaryAccessPassMethods', $this->getTemporaryAccessPassMethods());
@@ -295,6 +311,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setPhoneMethods(?array $value): void {
         $this->getBackingStore()->set('phoneMethods', $value);
+    }
+
+    /**
+     * Sets the platformCredentialMethods property value. The platformCredentialMethods property
+     * @param array<PlatformCredentialAuthenticationMethod>|null $value Value to set for the platformCredentialMethods property.
+    */
+    public function setPlatformCredentialMethods(?array $value): void {
+        $this->getBackingStore()->set('platformCredentialMethods', $value);
     }
 
     /**

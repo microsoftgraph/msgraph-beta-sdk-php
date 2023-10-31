@@ -27,7 +27,7 @@ class Training extends Entity implements Parsable
     }
 
     /**
-     * Gets the availabilityStatus property value. Training availability status.Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.
+     * Gets the availabilityStatus property value. Training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.
      * @return TrainingAvailabilityStatus|null
     */
     public function getAvailabilityStatus(): ?TrainingAvailabilityStatus {
@@ -261,7 +261,7 @@ class Training extends Entity implements Parsable
     }
 
     /**
-     * Sets the availabilityStatus property value. Training availability status.Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.
+     * Sets the availabilityStatus property value. Training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.
      * @param TrainingAvailabilityStatus|null $value Value to set for the availabilityStatus property.
     */
     public function setAvailabilityStatus(?TrainingAvailabilityStatus $value): void {

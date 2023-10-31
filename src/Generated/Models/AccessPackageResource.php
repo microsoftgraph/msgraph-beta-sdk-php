@@ -164,7 +164,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the originId property value. The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
+     * Gets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, this is the identifier of the group.
      * @return string|null
     */
     public function getOriginId(): ?string {
@@ -188,7 +188,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceType property value. The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
+     * Gets the resourceType property value. The type of the resource, such as Application if it is a Microsoft Entra connected application, or SharePoint Online Site for a SharePoint Online site.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -305,7 +305,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the originId property value. The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
+     * Sets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, this is the identifier of the group.
      * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
@@ -321,7 +321,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceType property value. The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
+     * Sets the resourceType property value. The type of the resource, such as Application if it is a Microsoft Entra connected application, or SharePoint Online Site for a SharePoint Online site.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {
