@@ -63,7 +63,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews are not required.
+     * Gets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews aren't required.
      * @return AssignmentReviewSettings|null
     */
     public function getAccessReviewSettings(): ?AssignmentReviewSettings {
@@ -163,7 +163,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the durationInDays property value. The number of days in which assignments from this policy last until they are expired.
+     * Gets the durationInDays property value. The number of days in which assignments from this policy last until they're expired.
      * @return int|null
     */
     public function getDurationInDays(): ?int {
@@ -278,7 +278,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+     * Gets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Microsoft Entra Verified I D service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
      * @return VerifiableCredentialSettings|null
     */
     public function getVerifiableCredentialSettings(): ?VerifiableCredentialSettings {
@@ -341,7 +341,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews are not required.
+     * Sets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews aren't required.
      * @param AssignmentReviewSettings|null $value Value to set for the accessReviewSettings property.
     */
     public function setAccessReviewSettings(?AssignmentReviewSettings $value): void {
@@ -405,7 +405,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the durationInDays property value. The number of days in which assignments from this policy last until they are expired.
+     * Sets the durationInDays property value. The number of days in which assignments from this policy last until they're expired.
      * @param int|null $value Value to set for the durationInDays property.
     */
     public function setDurationInDays(?int $value): void {
@@ -461,7 +461,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+     * Sets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Microsoft Entra Verified I D service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
      * @param VerifiableCredentialSettings|null $value Value to set for the verifiableCredentialSettings property.
     */
     public function setVerifiableCredentialSettings(?VerifiableCredentialSettings $value): void {

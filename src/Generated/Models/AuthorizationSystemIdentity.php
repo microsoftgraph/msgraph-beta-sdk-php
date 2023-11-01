@@ -25,13 +25,21 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.awsAccessKey': return new AwsAccessKey();
+                case '#microsoft.graph.awsEc2Instance': return new AwsEc2Instance();
+                case '#microsoft.graph.awsGroup': return new AwsGroup();
                 case '#microsoft.graph.awsIdentity': return new AwsIdentity();
+                case '#microsoft.graph.awsLambda': return new AwsLambda();
                 case '#microsoft.graph.awsRole': return new AwsRole();
                 case '#microsoft.graph.awsUser': return new AwsUser();
+                case '#microsoft.graph.azureGroup': return new AzureGroup();
                 case '#microsoft.graph.azureIdentity': return new AzureIdentity();
                 case '#microsoft.graph.azureManagedIdentity': return new AzureManagedIdentity();
+                case '#microsoft.graph.azureServerlessFunction': return new AzureServerlessFunction();
                 case '#microsoft.graph.azureServicePrincipal': return new AzureServicePrincipal();
                 case '#microsoft.graph.azureUser': return new AzureUser();
+                case '#microsoft.graph.gcpCloudFunction': return new GcpCloudFunction();
+                case '#microsoft.graph.gcpGroup': return new GcpGroup();
                 case '#microsoft.graph.gcpIdentity': return new GcpIdentity();
                 case '#microsoft.graph.gcpServiceAccount': return new GcpServiceAccount();
                 case '#microsoft.graph.gcpUser': return new GcpUser();

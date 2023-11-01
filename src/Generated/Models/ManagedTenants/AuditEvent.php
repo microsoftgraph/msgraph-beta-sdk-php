@@ -182,7 +182,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
+     * Gets the tenantIds property value. The collection of Microsoft Entra tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @return string|null
     */
     public function getTenantIds(): ?string {
@@ -315,7 +315,7 @@ class AuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
+     * Sets the tenantIds property value. The collection of Microsoft Entra tenant identifiers for the managed tenants that were affected by a change, and is formatted as a list of comma-separated values. Required. Read-only.
      * @param string|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?string $value): void {

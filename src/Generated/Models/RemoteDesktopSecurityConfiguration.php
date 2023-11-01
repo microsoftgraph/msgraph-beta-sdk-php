@@ -38,7 +38,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRemoteDesktopProtocolEnabled property value. The isRemoteDesktopProtocolEnabled property
+     * Gets the isRemoteDesktopProtocolEnabled property value. Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.
      * @return bool|null
     */
     public function getIsRemoteDesktopProtocolEnabled(): ?bool {
@@ -50,7 +50,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDeviceGroups property value. The targetDeviceGroups property
+     * Gets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
      * @return array<TargetDeviceGroup>|null
     */
     public function getTargetDeviceGroups(): ?array {
@@ -74,7 +74,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRemoteDesktopProtocolEnabled property value. The isRemoteDesktopProtocolEnabled property
+     * Sets the isRemoteDesktopProtocolEnabled property value. Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.
      * @param bool|null $value Value to set for the isRemoteDesktopProtocolEnabled property.
     */
     public function setIsRemoteDesktopProtocolEnabled(?bool $value): void {
@@ -82,7 +82,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetDeviceGroups property value. The targetDeviceGroups property
+     * Sets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
      * @param array<TargetDeviceGroup>|null $value Value to set for the targetDeviceGroups property.
     */
     public function setTargetDeviceGroups(?array $value): void {

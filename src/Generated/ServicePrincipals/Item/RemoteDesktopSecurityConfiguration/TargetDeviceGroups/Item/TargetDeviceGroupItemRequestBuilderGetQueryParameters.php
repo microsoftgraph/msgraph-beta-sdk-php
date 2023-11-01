@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSec
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get targetDeviceGroups from servicePrincipals
+ * Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
 */
 class TargetDeviceGroupItemRequestBuilderGetQueryParameters 
 {

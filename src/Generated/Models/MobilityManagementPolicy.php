@@ -104,7 +104,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the includedGroups property value. Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Gets the includedGroups property value. Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
      * @return array<Group>|null
     */
     public function getIncludedGroups(): ?array {
@@ -198,7 +198,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the includedGroups property value. Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Sets the includedGroups property value. Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
      * @param array<Group>|null $value Value to set for the includedGroups property.
     */
     public function setIncludedGroups(?array $value): void {

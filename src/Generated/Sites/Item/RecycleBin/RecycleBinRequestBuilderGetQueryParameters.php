@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of recycleBinItems under this site.
+ * A container for a collection of recycleBinItem resources in this site.
 */
 class RecycleBinRequestBuilderGetQueryParameters 
 {

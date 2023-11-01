@@ -172,7 +172,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
+     * Gets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -184,7 +184,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -294,7 +294,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
+     * Sets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -302,7 +302,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

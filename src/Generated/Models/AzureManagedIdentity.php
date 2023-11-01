@@ -13,6 +13,7 @@ class AzureManagedIdentity extends AzureIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureManagedIdentity');
     }
 
     /**
