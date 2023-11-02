@@ -11,4 +11,5 @@ class SignInAccessType extends Enum {
     public const MICROSOFT_SUPPORT = 'microsoftSupport';
     public const SERVICE_PROVIDER = 'serviceProvider';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const PASSTHROUGH = 'passthrough';
 }

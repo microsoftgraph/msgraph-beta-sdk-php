@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Users\ValidatePassword;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PasswordValidationInformation;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -35,20 +34,17 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
      * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password. This API is available in the following national cloud deployments.
      * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PasswordValidationInformation|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/user-validatepassword?view=graph-rest-1.0 Find more info here
     */
     public function post(ValidatePasswordPostRequestBody $body, ?ValidatePasswordRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PasswordValidationInformation::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PasswordValidationInformation::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -62,11 +58,11 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

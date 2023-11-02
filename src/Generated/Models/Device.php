@@ -164,7 +164,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the domainName property value. The on-premises domain name of Hybrid Azure AD joined devices. This property is set by Intune.
+     * Gets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. This property is set by Intune.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -200,7 +200,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Azure AD. Supports $filter (eq, not, startsWith, and eq on null values).
+     * Gets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -627,7 +627,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory.
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more details, see Introduction to device management in Microsoft Entra ID.
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -793,7 +793,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the domainName property value. The on-premises domain name of Hybrid Azure AD joined devices. This property is set by Intune.
+     * Sets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. This property is set by Intune.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
@@ -817,7 +817,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Azure AD. Supports $filter (eq, not, startsWith, and eq on null values).
+     * Sets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
      * @param OnPremisesExtensionAttributes|null $value Value to set for the extensionAttributes property.
     */
     public function setExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
@@ -1041,7 +1041,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory.
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more details, see Introduction to device management in Microsoft Entra ID.
      * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {

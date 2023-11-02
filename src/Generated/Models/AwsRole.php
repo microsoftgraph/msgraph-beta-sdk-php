@@ -13,6 +13,7 @@ class AwsRole extends AwsIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.awsRole');
     }
 
     /**

@@ -95,7 +95,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the policyName property value. The name of the Private Link policy in Azure AD.
+     * Gets the policyName property value. The name of the Private Link policy in Microsoft Entra ID.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -107,7 +107,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the policyTenantId property value. The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
+     * Gets the policyTenantId property value. The tenant identifier of the Microsoft Entra tenant the Private Link policy belongs to.
      * @return string|null
     */
     public function getPolicyTenantId(): ?string {
@@ -176,7 +176,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the policyName property value. The name of the Private Link policy in Azure AD.
+     * Sets the policyName property value. The name of the Private Link policy in Microsoft Entra ID.
      * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
@@ -184,7 +184,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the policyTenantId property value. The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
+     * Sets the policyTenantId property value. The tenant identifier of the Microsoft Entra tenant the Private Link policy belongs to.
      * @param string|null $value Value to set for the policyTenantId property.
     */
     public function setPolicyTenantId(?string $value): void {

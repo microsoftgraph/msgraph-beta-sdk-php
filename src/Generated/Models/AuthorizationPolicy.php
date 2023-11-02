@@ -39,7 +39,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowedToUseSSPR property value. Indicates whether the Admin Self-Serve Password Reset feature is enabled on the tenant.
+     * Gets the allowedToUseSSPR property value. Indicates whether users can use the Self-Service Password Reset feature on the tenant.
      * @return bool|null
     */
     public function getAllowedToUseSSPR(): ?bool {
@@ -87,7 +87,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Azure AD Connect or Microsoft Graph.
+     * Gets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
      * @return bool|null
     */
     public function getBlockMsolPowerShell(): ?bool {
@@ -227,7 +227,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowedToUseSSPR property value. Indicates whether the Admin Self-Serve Password Reset feature is enabled on the tenant.
+     * Sets the allowedToUseSSPR property value. Indicates whether users can use the Self-Service Password Reset feature on the tenant.
      * @param bool|null $value Value to set for the allowedToUseSSPR property.
     */
     public function setAllowedToUseSSPR(?bool $value): void {
@@ -259,7 +259,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Azure AD Connect or Microsoft Graph.
+     * Sets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
      * @param bool|null $value Value to set for the blockMsolPowerShell property.
     */
     public function setBlockMsolPowerShell(?bool $value): void {

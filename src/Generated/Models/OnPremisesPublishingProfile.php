@@ -124,7 +124,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. Represents if Azure AD Application Proxy is enabled for the tenant.
+     * Gets the isEnabled property value. Represents if Microsoft Entra application proxy is enabled for the tenant.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -214,7 +214,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. Represents if Azure AD Application Proxy is enabled for the tenant.
+     * Sets the isEnabled property value. Represents if Microsoft Entra application proxy is enabled for the tenant.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {

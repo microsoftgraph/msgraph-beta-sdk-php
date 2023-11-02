@@ -27,7 +27,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the aadDeviceId property value. The Azure Active Directory (Azure AD) device ID of the Cloud PC.
+     * Gets the aadDeviceId property value. The Microsoft Entra device ID of the Cloud PC.
      * @return string|null
     */
     public function getAadDeviceId(): ?string {
@@ -411,7 +411,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the aadDeviceId property value. The Azure Active Directory (Azure AD) device ID of the Cloud PC.
+     * Sets the aadDeviceId property value. The Microsoft Entra device ID of the Cloud PC.
      * @param string|null $value Value to set for the aadDeviceId property.
     */
     public function setAadDeviceId(?string $value): void {

@@ -57,12 +57,25 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the deviceCount property value. The deviceCount property
+     * @return int|null
+    */
+    public function getDeviceCount(): ?int {
+        $val = $this->getBackingStore()->get('deviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCount'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'fqdn' => fn(ParseNode $n) => $o->setFqdn($n->getStringValue()),
             'ip' => fn(ParseNode $n) => $o->setIp($n->getStringValue()),
             'lastAccessDateTime' => fn(ParseNode $n) => $o->setLastAccessDateTime($n->getDateTimeValue()),
@@ -70,6 +83,8 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
+            'transactionCount' => fn(ParseNode $n) => $o->setTransactionCount($n->getIntegerValue()),
+            'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getIntegerValue()),
         ];
     }
 
@@ -158,10 +173,35 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the transactionCount property value. The transactionCount property
+     * @return int|null
+    */
+    public function getTransactionCount(): ?int {
+        $val = $this->getBackingStore()->get('transactionCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transactionCount'");
+    }
+
+    /**
+     * Gets the userCount property value. The userCount property
+     * @return int|null
+    */
+    public function getUserCount(): ?int {
+        $val = $this->getBackingStore()->get('userCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userCount'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeStringValue('fqdn', $this->getFqdn());
         $writer->writeStringValue('ip', $this->getIp());
         $writer->writeDateTimeValue('lastAccessDateTime', $this->getLastAccessDateTime());
@@ -169,6 +209,8 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('port', $this->getPort());
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
+        $writer->writeIntegerValue('transactionCount', $this->getTransactionCount());
+        $writer->writeIntegerValue('userCount', $this->getUserCount());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -186,6 +228,14 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the deviceCount property value. The deviceCount property
+     * @param int|null $value Value to set for the deviceCount property.
+    */
+    public function setDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('deviceCount', $value);
     }
 
     /**
@@ -242,6 +292,22 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setTrafficType(?TrafficType $value): void {
         $this->getBackingStore()->set('trafficType', $value);
+    }
+
+    /**
+     * Sets the transactionCount property value. The transactionCount property
+     * @param int|null $value Value to set for the transactionCount property.
+    */
+    public function setTransactionCount(?int $value): void {
+        $this->getBackingStore()->set('transactionCount', $value);
+    }
+
+    /**
+     * Sets the userCount property value. The userCount property
+     * @param int|null $value Value to set for the userCount property.
+    */
+    public function setUserCount(?int $value): void {
+        $this->getBackingStore()->set('userCount', $value);
     }
 
 }

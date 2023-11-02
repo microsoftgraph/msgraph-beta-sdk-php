@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPorts\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mostRecentSslCertificate from security
+ * The most recent sslCertificate used to communicate on the port.
 */
 class MostRecentSslCertificateRequestBuilderGetQueryParameters 
 {

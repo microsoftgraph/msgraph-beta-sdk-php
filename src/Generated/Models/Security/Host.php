@@ -183,7 +183,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the ports property value. The hostPorts associated with a host.
      * @return array<HostPort>|null
     */
     public function getPorts(): ?array {
@@ -358,7 +358,7 @@ class Host extends Artifact implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the ports property value. The hostPorts associated with a host.
      * @param array<HostPort>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {

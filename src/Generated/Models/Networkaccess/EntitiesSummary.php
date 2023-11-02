@@ -107,7 +107,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCount property value. Count of unique Azure Active Directory users that were seen.
+     * Gets the userCount property value. Count of unique Microsoft Entra users that were seen.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -184,7 +184,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCount property value. Count of unique Azure Active Directory users that were seen.
+     * Sets the userCount property value. Count of unique Microsoft Entra users that were seen.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

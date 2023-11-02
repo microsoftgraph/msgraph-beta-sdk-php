@@ -26,7 +26,7 @@ class RoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertConfigurations property value. The various configurations of an alert for Azure AD roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
+     * Gets the alertConfigurations property value. The various configurations of an alert for Microsoft Entra roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
      * @return array<UnifiedRoleManagementAlertConfiguration>|null
     */
     public function getAlertConfigurations(): ?array {
@@ -108,7 +108,7 @@ class RoleManagementAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertConfigurations property value. The various configurations of an alert for Azure AD roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
+     * Sets the alertConfigurations property value. The various configurations of an alert for Microsoft Entra roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
      * @param array<UnifiedRoleManagementAlertConfiguration>|null $value Value to set for the alertConfigurations property.
     */
     public function setAlertConfigurations(?array $value): void {
