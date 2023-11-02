@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\ReviewSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSet;
@@ -53,45 +52,39 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a reviewSet object. This API is available in the following national cloud deployments.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ReviewSetCollectionResponse|null>
+     * @throws Exception
     */
     public function get(?ReviewSetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReviewSetCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ReviewSetCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is supported in the following national cloud deployments.
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is available in the following national cloud deployments.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ReviewSet|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-post-reviewsets?view=graph-rest-1.0 Find more info here
     */
     public function post(ReviewSet $body, ?ReviewSetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReviewSet::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ReviewSet::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object. This API is supported in the following national cloud deployments.
+     * Retrieve the properties and relationships of a reviewSet object. This API is available in the following national cloud deployments.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +93,6 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -108,11 +100,12 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
     /**
-     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is supported in the following national cloud deployments.
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is available in the following national cloud deployments.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -122,11 +115,11 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

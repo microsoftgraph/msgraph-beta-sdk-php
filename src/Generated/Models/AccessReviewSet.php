@@ -26,7 +26,7 @@ class AccessReviewSet extends Entity implements Parsable
     }
 
     /**
-     * Gets the decisions property value. Represents an Azure AD access review decision on an instance of a review.
+     * Gets the decisions property value. Represents a Microsoft Entra access review decision on an instance of a review.
      * @return array<AccessReviewInstanceDecisionItem>|null
     */
     public function getDecisions(): ?array {
@@ -106,7 +106,7 @@ class AccessReviewSet extends Entity implements Parsable
     }
 
     /**
-     * Sets the decisions property value. Represents an Azure AD access review decision on an instance of a review.
+     * Sets the decisions property value. Represents a Microsoft Entra access review decision on an instance of a review.
      * @param array<AccessReviewInstanceDecisionItem>|null $value Value to set for the decisions property.
     */
     public function setDecisions(?array $value): void {

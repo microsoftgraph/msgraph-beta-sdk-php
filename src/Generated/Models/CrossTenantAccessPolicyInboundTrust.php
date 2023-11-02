@@ -35,7 +35,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -70,7 +70,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the isCompliantDeviceAccepted property value. Specifies whether compliant devices from external Azure AD organizations are trusted.
+     * Gets the isCompliantDeviceAccepted property value. Specifies whether compliant devices from external Microsoft Entra organizations are trusted.
      * @return bool|null
     */
     public function getIsCompliantDeviceAccepted(): ?bool {
@@ -82,7 +82,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the isHybridAzureADJoinedDeviceAccepted property value. Specifies whether hybrid Azure AD joined devices from external Azure AD organizations are trusted.
+     * Gets the isHybridAzureADJoinedDeviceAccepted property value. Specifies whether Microsoft Entra hybrid joined devices from external Microsoft Entra organizations are trusted.
      * @return bool|null
     */
     public function getIsHybridAzureADJoinedDeviceAccepted(): ?bool {
@@ -94,7 +94,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the isMfaAccepted property value. Specifies whether MFA from external Azure AD organizations is trusted.
+     * Gets the isMfaAccepted property value. Specifies whether MFA from external Microsoft Entra organizations is trusted.
      * @return bool|null
     */
     public function getIsMfaAccepted(): ?bool {
@@ -130,23 +130,23 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the isCompliantDeviceAccepted property value. Specifies whether compliant devices from external Azure AD organizations are trusted.
+     * Sets the isCompliantDeviceAccepted property value. Specifies whether compliant devices from external Microsoft Entra organizations are trusted.
      * @param bool|null $value Value to set for the isCompliantDeviceAccepted property.
     */
     public function setIsCompliantDeviceAccepted(?bool $value): void {
@@ -154,7 +154,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the isHybridAzureADJoinedDeviceAccepted property value. Specifies whether hybrid Azure AD joined devices from external Azure AD organizations are trusted.
+     * Sets the isHybridAzureADJoinedDeviceAccepted property value. Specifies whether Microsoft Entra hybrid joined devices from external Microsoft Entra organizations are trusted.
      * @param bool|null $value Value to set for the isHybridAzureADJoinedDeviceAccepted property.
     */
     public function setIsHybridAzureADJoinedDeviceAccepted(?bool $value): void {
@@ -162,7 +162,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the isMfaAccepted property value. Specifies whether MFA from external Azure AD organizations is trusted.
+     * Sets the isMfaAccepted property value. Specifies whether MFA from external Microsoft Entra organizations is trusted.
      * @param bool|null $value Value to set for the isMfaAccepted property.
     */
     public function setIsMfaAccepted(?bool $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review. This API is supported in the following national cloud deployments.
+ * In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review. This API is available in the following national cloud deployments.
 */
 class DecisionsRequestBuilderGetQueryParameters 
 {

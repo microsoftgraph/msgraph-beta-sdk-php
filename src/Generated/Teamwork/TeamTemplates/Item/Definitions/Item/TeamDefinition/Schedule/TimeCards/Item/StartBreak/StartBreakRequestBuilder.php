@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TimeCard;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -32,27 +31,24 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a break in a specific timeCard. This API is supported in the following national cloud deployments.
+     * Start a break in a specific timeCard. This API is available in the following national cloud deployments.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<TimeCard|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/timecard-startbreak?view=graph-rest-1.0 Find more info here
     */
     public function post(StartBreakPostRequestBody $body, ?StartBreakRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [TimeCard::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [TimeCard::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Start a break in a specific timeCard. This API is supported in the following national cloud deployments.
+     * Start a break in a specific timeCard. This API is available in the following national cloud deployments.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,11 +58,11 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

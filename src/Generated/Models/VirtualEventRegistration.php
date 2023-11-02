@@ -146,7 +146,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The registrant's ID in Azure Active Directory (Azure AD). Only appears when the registrant is registered in Azure AD.
+     * Gets the userId property value. The registrant's ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -239,7 +239,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The registrant's ID in Azure Active Directory (Azure AD). Only appears when the registrant is registered in Azure AD.
+     * Sets the userId property value. The registrant's ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

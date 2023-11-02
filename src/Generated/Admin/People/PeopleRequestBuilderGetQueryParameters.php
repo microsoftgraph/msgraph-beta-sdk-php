@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a peopleAdminSettings object. This API is supported in the following national cloud deployments.
+ * Retrieve the properties and relationships of a peopleAdminSettings object. This API is available in the following national cloud deployments.
 */
 class PeopleRequestBuilderGetQueryParameters 
 {

@@ -36,7 +36,7 @@ class SubjectRightsRequestHistory implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class SubjectRightsRequestHistory implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -109,7 +109,7 @@ class SubjectRightsRequestHistory implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
+     * Gets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: approval.
      * @return SubjectRightsRequestStage|null
     */
     public function getStage(): ?SubjectRightsRequestStage {
@@ -159,16 +159,16 @@ class SubjectRightsRequestHistory implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -199,7 +199,7 @@ class SubjectRightsRequestHistory implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
+     * Sets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: approval.
      * @param SubjectRightsRequestStage|null $value Value to set for the stage property.
     */
     public function setStage(?SubjectRightsRequestStage $value): void {

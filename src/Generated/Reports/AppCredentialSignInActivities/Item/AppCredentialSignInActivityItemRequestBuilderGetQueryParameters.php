@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is supported in the following national cloud deployments.
+ * Get an appCredentialSignInActivity object that contains recent activity of an application credential. This API is available in the following national cloud deployments.
 */
 class AppCredentialSignInActivityItemRequestBuilderGetQueryParameters 
 {

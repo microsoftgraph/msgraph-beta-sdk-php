@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get items from groups
+ * List of the recycleBinItems deleted by a user.
 */
 class RecycleBinItemItemRequestBuilderGetQueryParameters 
 {

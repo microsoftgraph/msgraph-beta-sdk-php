@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagemen
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ScheduledPermissionsRequest;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -35,19 +34,16 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
      * Create new navigation property to scheduledPermissionsRequests for identityGovernance
      * @param ScheduledPermissionsRequest $body The request body
      * @param ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ScheduledPermissionsRequest|null>
+     * @throws Exception
     */
     public function post(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ScheduledPermissionsRequest::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ScheduledPermissionsRequest::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -61,11 +57,11 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

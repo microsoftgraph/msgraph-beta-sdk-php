@@ -44,7 +44,7 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -57,7 +57,7 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -89,7 +89,7 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the timeoutDuration property value. The maximum duration in ISO 8601 format that Azure AD will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
+     * Gets the timeoutDuration property value. The maximum duration in ISO 8601 format that Microsoft Entra ID will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
      * @return DateInterval|null
     */
     public function getTimeoutDuration(): ?DateInterval {
@@ -111,16 +111,16 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the timeoutDuration property value. The maximum duration in ISO 8601 format that Azure AD will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
+     * Sets the timeoutDuration property value. The maximum duration in ISO 8601 format that Microsoft Entra ID will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
      * @param DateInterval|null $value Value to set for the timeoutDuration property.
     */
     public function setTimeoutDuration(?DateInterval $value): void {

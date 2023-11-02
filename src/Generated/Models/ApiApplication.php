@@ -48,7 +48,7 @@ class ApiApplication implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -61,7 +61,7 @@ class ApiApplication implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -92,7 +92,7 @@ class ApiApplication implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
+     * Gets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Microsoft Entra ID knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
      * @return array<string>|null
     */
     public function getKnownClientApplications(): ?array {
@@ -180,23 +180,23 @@ class ApiApplication implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
+     * Sets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Microsoft Entra ID knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
      * @param array<string>|null $value Value to set for the knownClientApplications property.
     */
     public function setKnownClientApplications(?array $value): void {

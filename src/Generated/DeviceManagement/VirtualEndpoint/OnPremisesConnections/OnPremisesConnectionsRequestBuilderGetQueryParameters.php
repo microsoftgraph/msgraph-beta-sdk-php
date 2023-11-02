@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPrem
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is supported in the following national cloud deployments.
+ * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is available in the following national cloud deployments.
 */
 class OnPremisesConnectionsRequestBuilderGetQueryParameters 
 {

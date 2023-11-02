@@ -4,11 +4,12 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinar;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinarCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\GetByUserIdAndRoleWithUserIdWithRole\GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\GetByUserRoleWithRole\GetByUserRoleWithRoleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\VirtualEventWebinarItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -53,44 +54,57 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventWebinar object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a virtualEventWebinar object. This API is available in the following national cloud deployments.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<VirtualEventWebinarCollectionResponse|null>
+     * @throws Exception
     */
     public function get(?WebinarsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinarCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinarCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getByUserIdAndRole method.
+     * @param string $role Usage: role='{role}'
+     * @param string $userId Usage: userId='{userId}'
+     * @return GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder
+    */
+    public function getByUserIdAndRoleWithUserIdWithRole(string $role, string $userId): GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder {
+        return new GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder($this->pathParameters, $this->requestAdapter, $role, $userId);
+    }
+
+    /**
+     * Provides operations to call the getByUserRole method.
+     * @param string $role Usage: role='{role}'
+     * @return GetByUserRoleWithRoleRequestBuilder
+    */
+    public function getByUserRoleWithRole(string $role): GetByUserRoleWithRoleRequestBuilder {
+        return new GetByUserRoleWithRoleRequestBuilder($this->pathParameters, $this->requestAdapter, $role);
     }
 
     /**
      * Create new navigation property to webinars for solutions
      * @param VirtualEventWebinar $body The request body
      * @param WebinarsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<VirtualEventWebinar|null>
+     * @throws Exception
     */
     public function post(VirtualEventWebinar $body, ?WebinarsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinar::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinar::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Read the properties and relationships of a virtualEventWebinar object. This API is supported in the following national cloud deployments.
+     * Read the properties and relationships of a virtualEventWebinar object. This API is available in the following national cloud deployments.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +113,6 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -107,6 +120,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -121,11 +135,11 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -35,7 +35,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget implements Addition
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget implements Addition
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -70,7 +70,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget implements Addition
     }
 
     /**
-     * Gets the id property value. The object identifier of an Azure AD user or group.
+     * Gets the id property value. The object identifier of a Microsoft Entra user or group.
      * @return string|null
     */
     public function getId(): ?string {
@@ -130,23 +130,23 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget implements Addition
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the id property value. The object identifier of an Azure AD user or group.
+     * Sets the id property value. The object identifier of a Microsoft Entra user or group.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

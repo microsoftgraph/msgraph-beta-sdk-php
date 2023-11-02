@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the hosted content in an app's icon. This API is supported in the following national cloud deployments.
+ * Retrieve the hosted content in an app's icon. This API is available in the following national cloud deployments.
 */
 class HostedContentRequestBuilderGetQueryParameters 
 {

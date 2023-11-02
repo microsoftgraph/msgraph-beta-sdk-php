@@ -78,7 +78,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the migrationValidationDetails property value. Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
+     * Gets the migrationValidationDetails property value. Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Microsoft Entra ID.
      * @return array<KeyValuePair>|null
     */
     public function getMigrationValidationDetails(): ?array {
@@ -225,7 +225,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the migrationValidationDetails property value. Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
+     * Sets the migrationValidationDetails property value. Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Microsoft Entra ID.
      * @param array<KeyValuePair>|null $value Value to set for the migrationValidationDetails property.
     */
     public function setMigrationValidationDetails(?array $value): void {

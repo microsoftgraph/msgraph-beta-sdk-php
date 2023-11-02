@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of directoryobject objects. This API is supported in the following national cloud deployments.
+ * Retrieve a list of directoryobject objects. This API is available in the following national cloud deployments.
 */
 class CreatedObjectsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\FrontL
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get frontLineServicePlans from deviceManagement
+ * Get a list of the cloudPcFrontLineServicePlan objects and their properties. This API is available in the following national cloud deployments.
 */
 class FrontLineServicePlansRequestBuilderGetQueryParameters 
 {

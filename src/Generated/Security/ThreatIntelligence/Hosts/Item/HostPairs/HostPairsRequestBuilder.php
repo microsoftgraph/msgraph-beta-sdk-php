@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostPairCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\HostPairs\Count\CountRequestBuilder;
@@ -52,26 +51,23 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of hostPair resources associated with a specified host, where that host is *either* the *parent* or the *child*. This API is supported in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a specified host, where that host is *either* the *parent* or the *child*. This API is available in the following national cloud deployments.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<HostPairCollectionResponse|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-host-list-hostpairs?view=graph-rest-1.0 Find more info here
     */
     public function get(?HostPairsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [HostPairCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [HostPairCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Get the list of hostPair resources associated with a specified host, where that host is *either* the *parent* or the *child*. This API is supported in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a specified host, where that host is *either* the *parent* or the *child*. This API is available in the following national cloud deployments.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -80,7 +76,6 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -88,6 +83,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

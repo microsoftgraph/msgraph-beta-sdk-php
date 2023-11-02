@@ -36,7 +36,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -103,6 +103,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'endMonthYear' => fn(ParseNode $n) => $o->setEndMonthYear($n->getDateValue()),
             'jobTitle' => fn(ParseNode $n) => $o->setJobTitle($n->getStringValue()),
+            'layer' => fn(ParseNode $n) => $o->setLayer($n->getIntegerValue()),
+            'level' => fn(ParseNode $n) => $o->setLevel($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
             'startMonthYear' => fn(ParseNode $n) => $o->setStartMonthYear($n->getDateValue()),
@@ -120,6 +122,30 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'jobTitle'");
+    }
+
+    /**
+     * Gets the layer property value. The layer property
+     * @return int|null
+    */
+    public function getLayer(): ?int {
+        $val = $this->getBackingStore()->get('layer');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'layer'");
+    }
+
+    /**
+     * Gets the level property value. The level property
+     * @return string|null
+    */
+    public function getLevel(): ?string {
+        $val = $this->getBackingStore()->get('level');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'level'");
     }
 
     /**
@@ -179,6 +205,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeDateValue('endMonthYear', $this->getEndMonthYear());
         $writer->writeStringValue('jobTitle', $this->getJobTitle());
+        $writer->writeIntegerValue('layer', $this->getLayer());
+        $writer->writeStringValue('level', $this->getLevel());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeDateValue('startMonthYear', $this->getStartMonthYear());
@@ -187,16 +215,16 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -232,6 +260,22 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setJobTitle(?string $value): void {
         $this->getBackingStore()->set('jobTitle', $value);
+    }
+
+    /**
+     * Sets the layer property value. The layer property
+     * @param int|null $value Value to set for the layer property.
+    */
+    public function setLayer(?int $value): void {
+        $this->getBackingStore()->set('layer', $value);
+    }
+
+    /**
+     * Sets the level property value. The level property
+     * @param string|null $value Value to set for the level property.
+    */
+    public function setLevel(?string $value): void {
+        $this->getBackingStore()->set('level', $value);
     }
 
     /**

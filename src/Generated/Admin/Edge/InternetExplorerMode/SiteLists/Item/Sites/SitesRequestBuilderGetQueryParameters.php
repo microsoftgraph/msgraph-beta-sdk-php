@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the browserSite objects and their properties. This API is supported in the following national cloud deployments.
+ * Get a list of the browserSite objects and their properties. This API is available in the following national cloud deployments.
 */
 class SitesRequestBuilderGetQueryParameters 
 {

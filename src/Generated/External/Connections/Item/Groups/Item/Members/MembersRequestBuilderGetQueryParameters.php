@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\Connections\Item\Groups\Item\M
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+ * A member added to an externalGroup. You can add Microsoft Entra users, Microsoft Entra groups, or other externalGroups as members.
 */
 class MembersRequestBuilderGetQueryParameters 
 {

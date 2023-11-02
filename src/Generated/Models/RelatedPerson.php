@@ -35,7 +35,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -77,6 +77,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'relationship' => fn(ParseNode $n) => $o->setRelationship($n->getEnumValue(PersonRelationship::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
@@ -106,6 +107,18 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the userId property value. The userId property
+     * @return string|null
+    */
+    public function getUserId(): ?string {
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
+    }
+
+    /**
      * Gets the userPrincipalName property value. Email address or reference to person within organization.
      * @return string|null
     */
@@ -125,21 +138,22 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('relationship', $this->getRelationship());
+        $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -167,6 +181,14 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setRelationship(?PersonRelationship $value): void {
         $this->getBackingStore()->set('relationship', $value);
+    }
+
+    /**
+     * Sets the userId property value. The userId property
+     * @param string|null $value Value to set for the userId property.
+    */
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**

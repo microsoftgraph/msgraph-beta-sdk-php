@@ -37,7 +37,7 @@ class ODataError extends ApiException implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -50,7 +50,7 @@ class ODataError extends ApiException implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -81,6 +81,18 @@ class ODataError extends ApiException implements AdditionalDataHolder, BackedMod
     }
 
     /**
+     * The primary error message.
+     * @return string
+    */
+    public function getPrimaryErrorMessage(): string {
+        $primaryError = $this->getError();
+        if ($primaryError !== null) {
+            return $primaryError->getMessage() ?? '';
+        }
+        return '';
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -90,16 +102,16 @@ class ODataError extends ApiException implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;

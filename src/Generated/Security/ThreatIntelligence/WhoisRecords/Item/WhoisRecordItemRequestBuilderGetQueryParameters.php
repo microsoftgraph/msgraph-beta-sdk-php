@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecord
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a whoisRecord object. This API is supported in the following national cloud deployments.
+ * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord. This API is available in the following national cloud deployments.
 */
 class WhoisRecordItemRequestBuilderGetQueryParameters 
 {

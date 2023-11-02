@@ -36,7 +36,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -355,7 +355,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info is null/empty for bot call types.
+     * Gets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID. This and other user info is null/empty for bot call types.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -367,7 +367,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -411,16 +411,16 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -603,7 +603,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info is null/empty for bot call types.
+     * Sets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID. This and other user info is null/empty for bot call types.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -611,7 +611,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID, is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

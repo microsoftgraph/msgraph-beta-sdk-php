@@ -35,7 +35,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -60,7 +60,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -90,6 +90,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'newTenantCount' => fn(ParseNode $n) => $o->setNewTenantCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rarelyUsedTenantCount' => fn(ParseNode $n) => $o->setRarelyUsedTenantCount($n->getIntegerValue()),
             'tenantCount' => fn(ParseNode $n) => $o->setTenantCount($n->getIntegerValue()),
             'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getIntegerValue()),
         ];
@@ -117,6 +118,18 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the rarelyUsedTenantCount property value. The rarelyUsedTenantCount property
+     * @return int|null
+    */
+    public function getRarelyUsedTenantCount(): ?int {
+        $val = $this->getBackingStore()->get('rarelyUsedTenantCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rarelyUsedTenantCount'");
     }
 
     /**
@@ -152,14 +165,15 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeIntegerValue('newTenantCount', $this->getNewTenantCount());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('rarelyUsedTenantCount', $this->getRarelyUsedTenantCount());
         $writer->writeIntegerValue('tenantCount', $this->getTenantCount());
         $writer->writeIntegerValue('userCount', $this->getUserCount());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -174,8 +188,8 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -203,6 +217,14 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the rarelyUsedTenantCount property value. The rarelyUsedTenantCount property
+     * @param int|null $value Value to set for the rarelyUsedTenantCount property.
+    */
+    public function setRarelyUsedTenantCount(?int $value): void {
+        $this->getBackingStore()->set('rarelyUsedTenantCount', $value);
     }
 
     /**

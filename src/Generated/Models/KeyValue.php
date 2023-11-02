@@ -35,7 +35,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -69,7 +69,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. Key.
+     * Gets the key property value. Contains the name of the field that a value is associated with.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -93,7 +93,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Value.
+     * Gets the value property value. Contains the corresponding value for the specified key.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -116,23 +116,23 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the key property value. Key.
+     * Sets the key property value. Contains the name of the field that a value is associated with.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -148,7 +148,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. Value.
+     * Sets the value property value. Contains the corresponding value for the specified key.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

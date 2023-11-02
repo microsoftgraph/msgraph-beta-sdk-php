@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a run object. This API is supported in the following national cloud deployments.
+ * Read the properties and relationships of a run object. This API is available in the following national cloud deployments.
 */
 class RunItemRequestBuilderGetQueryParameters 
 {

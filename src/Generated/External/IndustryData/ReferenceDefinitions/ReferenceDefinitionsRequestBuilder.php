@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefiniti
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Item\ReferenceDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\ReferenceDefinition;
@@ -53,45 +52,39 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the referenceDefinition objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the referenceDefinition objects and their properties. This API is available in the following national cloud deployments.
      * @param ReferenceDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ReferenceDefinitionCollectionResponse|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-referencedefinition-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReferenceDefinitionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReferenceDefinitionCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ReferenceDefinitionCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to referenceDefinitions for external
      * @param ReferenceDefinition $body The request body
      * @param ReferenceDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<ReferenceDefinition|null>
+     * @throws Exception
     */
     public function post(ReferenceDefinition $body, ?ReferenceDefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReferenceDefinition::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ReferenceDefinition::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Get a list of the referenceDefinition objects and their properties. This API is supported in the following national cloud deployments.
+     * Get a list of the referenceDefinition objects and their properties. This API is available in the following national cloud deployments.
      * @param ReferenceDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +93,6 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -108,6 +100,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -122,11 +115,11 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

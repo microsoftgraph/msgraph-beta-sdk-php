@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the details of all role management policy assignments made in PIM for Azure AD roles and PIM for groups. This API is supported in the following national cloud deployments.
+ * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups. This API is available in the following national cloud deployments.
 */
 class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters 
 {

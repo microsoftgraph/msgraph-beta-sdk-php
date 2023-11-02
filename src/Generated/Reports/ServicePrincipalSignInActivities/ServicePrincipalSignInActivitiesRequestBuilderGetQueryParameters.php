@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivitie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in an Azure Active Directory tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is supported in the following national cloud deployments.
+ * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context. This API is available in the following national cloud deployments.
 */
 class ServicePrincipalSignInActivitiesRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the updatableAsset resources that are excluded from a deploymentAudience. This API is supported in the following national cloud deployments.
+ * List the updatableAsset resources that are excluded from a deploymentAudience. This API is available in the following national cloud deployments.
 */
 class ExclusionsRequestBuilderGetQueryParameters 
 {

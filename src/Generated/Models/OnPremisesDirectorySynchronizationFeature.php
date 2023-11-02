@@ -35,7 +35,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -80,7 +80,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Azure AD.
+     * Gets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Microsoft Entra ID.
      * @return bool|null
     */
     public function getBypassDirSyncOverridesEnabled(): ?bool {
@@ -140,7 +140,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Azure AD.
+     * Gets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Microsoft Entra ID.
      * @return bool|null
     */
     public function getDirectoryExtensionsEnabled(): ?bool {
@@ -230,7 +230,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Azure AD to on-premises AD is enabled.
+     * Gets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Microsoft Entra ID to on-premises AD is enabled.
      * @return bool|null
     */
     public function getPasswordWritebackEnabled(): ?bool {
@@ -354,16 +354,16 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -386,7 +386,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Azure AD.
+     * Sets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Microsoft Entra ID.
      * @param bool|null $value Value to set for the bypassDirSyncOverridesEnabled property.
     */
     public function setBypassDirSyncOverridesEnabled(?bool $value): void {
@@ -426,7 +426,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Azure AD.
+     * Sets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Microsoft Entra ID.
      * @param bool|null $value Value to set for the directoryExtensionsEnabled property.
     */
     public function setDirectoryExtensionsEnabled(?bool $value): void {
@@ -466,7 +466,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Azure AD to on-premises AD is enabled.
+     * Sets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Microsoft Entra ID to on-premises AD is enabled.
      * @param bool|null $value Value to set for the passwordWritebackEnabled property.
     */
     public function setPasswordWritebackEnabled(?bool $value): void {

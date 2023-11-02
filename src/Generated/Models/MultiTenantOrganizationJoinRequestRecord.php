@@ -25,7 +25,7 @@ class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsabl
     }
 
     /**
-     * Gets the addedByTenantId property value. Tenant ID of the Azure Active Directory tenant that added a tenant to the multi-tenant organization. To reset a failed join request, set addedByTenantId to 00000000-0000-0000-0000-000000000000. Required.
+     * Gets the addedByTenantId property value. Tenant ID of the Microsoft Entra tenant that added a tenant to the multi-tenant organization. To reset a failed join request, set addedByTenantId to 00000000-0000-0000-0000-000000000000. Required.
      * @return string|null
     */
     public function getAddedByTenantId(): ?string {
@@ -99,7 +99,7 @@ class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsabl
     }
 
     /**
-     * Sets the addedByTenantId property value. Tenant ID of the Azure Active Directory tenant that added a tenant to the multi-tenant organization. To reset a failed join request, set addedByTenantId to 00000000-0000-0000-0000-000000000000. Required.
+     * Sets the addedByTenantId property value. Tenant ID of the Microsoft Entra tenant that added a tenant to the multi-tenant organization. To reset a failed join request, set addedByTenantId to 00000000-0000-0000-0000-000000000000. Required.
      * @param string|null $value Value to set for the addedByTenantId property.
     */
     public function setAddedByTenantId(?string $value): void {

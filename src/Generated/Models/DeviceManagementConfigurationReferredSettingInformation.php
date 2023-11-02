@@ -38,7 +38,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -51,7 +51,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -83,7 +83,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Gets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting.
+     * Gets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting
      * @return string|null
     */
     public function getSettingDefinitionId(): ?string {
@@ -105,16 +105,16 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -129,7 +129,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Sets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting.
+     * Sets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting
      * @param string|null $value Value to set for the settingDefinitionId property.
     */
     public function setSettingDefinitionId(?string $value): void {

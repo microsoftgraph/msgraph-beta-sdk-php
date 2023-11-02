@@ -38,7 +38,7 @@ class RecycleBin extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the items property value. The items property
+     * Gets the items property value. List of the recycleBinItems deleted by a user.
      * @return array<RecycleBinItem>|null
     */
     public function getItems(): ?array {
@@ -61,7 +61,7 @@ class RecycleBin extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the items property value. The items property
+     * Sets the items property value. List of the recycleBinItems deleted by a user.
      * @param array<RecycleBinItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {

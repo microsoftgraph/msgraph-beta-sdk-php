@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure. This API is supported in the following national cloud deployments.
+ * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure. This API is available in the following national cloud deployments.
 */
 class UserCredentialUsageDetailsRequestBuilderGetQueryParameters 
 {

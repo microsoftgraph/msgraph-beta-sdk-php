@@ -53,7 +53,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Gets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
+     * Gets the upns property value. The upns property
      * @return array<string>|null
     */
     public function getUpns(): ?array {
@@ -67,7 +67,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Gets the userPrincipalNames property value. The userPrincipalNames property
+     * Gets the userPrincipalNames property value. Collection of mailboxes that should be included in the search. Includes the user principal name (UPN) of each mailbox, for example, Monica.Thompson@contoso.com.
      * @return array<string>|null
     */
     public function getUserPrincipalNames(): ?array {
@@ -91,7 +91,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Sets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
+     * Sets the upns property value. The upns property
      * @param array<string>|null $value Value to set for the upns property.
     */
     public function setUpns(?array $value): void {
@@ -99,7 +99,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Sets the userPrincipalNames property value. The userPrincipalNames property
+     * Sets the userPrincipalNames property value. Collection of mailboxes that should be included in the search. Includes the user principal name (UPN) of each mailbox, for example, Monica.Thompson@contoso.com.
      * @param array<string>|null $value Value to set for the userPrincipalNames property.
     */
     public function setUserPrincipalNames(?array $value): void {

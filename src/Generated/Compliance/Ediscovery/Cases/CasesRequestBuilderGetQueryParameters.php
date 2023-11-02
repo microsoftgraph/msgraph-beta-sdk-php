@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of case objects. This API is supported in the following national cloud deployments.
+ * Retrieve a list of case objects. This API is available in the following national cloud deployments.
 */
 class CasesRequestBuilderGetQueryParameters 
 {

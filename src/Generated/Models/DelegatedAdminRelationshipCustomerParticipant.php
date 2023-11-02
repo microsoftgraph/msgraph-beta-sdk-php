@@ -35,7 +35,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -56,7 +56,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Gets the displayName property value. The display name of the customer tenant as set by Azure AD. Read-only
+     * Gets the displayName property value. The display name of the customer tenant as set by Microsoft Entra ID. Read-only
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -93,7 +93,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Gets the tenantId property value. The Azure AD-assigned tenant ID of the customer tenant.
+     * Gets the tenantId property value. The Microsoft Entra ID-assigned tenant ID of the customer tenant.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -116,23 +116,23 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the displayName property value. The display name of the customer tenant as set by Azure AD. Read-only
+     * Sets the displayName property value. The display name of the customer tenant as set by Microsoft Entra ID. Read-only
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -148,7 +148,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     }
 
     /**
-     * Sets the tenantId property value. The Azure AD-assigned tenant ID of the customer tenant.
+     * Sets the tenantId property value. The Microsoft Entra ID-assigned tenant ID of the customer tenant.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

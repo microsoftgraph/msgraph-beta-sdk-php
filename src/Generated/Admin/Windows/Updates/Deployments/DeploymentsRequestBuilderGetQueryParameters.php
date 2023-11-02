@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of deployment objects and their properties. This API is supported in the following national cloud deployments.
+ * Get a list of deployment objects and their properties. This API is available in the following national cloud deployments.
 */
 class DeploymentsRequestBuilderGetQueryParameters 
 {

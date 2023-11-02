@@ -36,7 +36,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -77,7 +77,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * Gets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @return array<AuthenticationEventsFlow>|null
     */
     public function getAuthenticationEventsFlows(): ?array {
@@ -119,7 +119,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -261,8 +261,8 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -285,7 +285,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * Sets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @param array<AuthenticationEventsFlow>|null $value Value to set for the authenticationEventsFlows property.
     */
     public function setAuthenticationEventsFlows(?array $value): void {
@@ -309,8 +309,8 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;

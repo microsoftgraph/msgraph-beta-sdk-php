@@ -35,7 +35,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -95,7 +95,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the policyName property value. The name of the Private Link policy in Azure AD.
+     * Gets the policyName property value. The name of the Private Link policy in Microsoft Entra ID.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -107,7 +107,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the policyTenantId property value. The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
+     * Gets the policyTenantId property value. The tenant identifier of the Microsoft Entra tenant the Private Link policy belongs to.
      * @return string|null
     */
     public function getPolicyTenantId(): ?string {
@@ -144,16 +144,16 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the policyName property value. The name of the Private Link policy in Azure AD.
+     * Sets the policyName property value. The name of the Private Link policy in Microsoft Entra ID.
      * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
@@ -184,7 +184,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the policyTenantId property value. The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
+     * Sets the policyTenantId property value. The tenant identifier of the Microsoft Entra tenant the Private Link policy belongs to.
      * @param string|null $value Value to set for the policyTenantId property.
     */
     public function setPolicyTenantId(?string $value): void {

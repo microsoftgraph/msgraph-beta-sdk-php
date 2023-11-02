@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is supported in the following national cloud deployments.
+ * Retrieve the properties and relationships of an itemPhone object in a user's profile. This API is available in the following national cloud deployments.
 */
 class ItemPhoneItemRequestBuilderGetQueryParameters 
 {

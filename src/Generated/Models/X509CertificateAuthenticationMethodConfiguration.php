@@ -39,7 +39,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
-     * Gets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
+     * Gets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Microsoft Entra user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
      * @return array<X509CertificateUserBinding>|null
     */
     public function getCertificateUserBindings(): ?array {
@@ -81,7 +81,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
-     * Gets the issuerHintsConfiguration property value. The issuerHintsConfiguration property
+     * Gets the issuerHintsConfiguration property value. Determines whether issuer(CA) hints are sent back to the client side to filter the certificates shown in certificate picker.
      * @return X509CertificateIssuerHintsConfiguration|null
     */
     public function getIssuerHintsConfiguration(): ?X509CertificateIssuerHintsConfiguration {
@@ -113,7 +113,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
-     * Sets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
+     * Sets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Microsoft Entra user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
      * @param array<X509CertificateUserBinding>|null $value Value to set for the certificateUserBindings property.
     */
     public function setCertificateUserBindings(?array $value): void {
@@ -129,7 +129,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
-     * Sets the issuerHintsConfiguration property value. The issuerHintsConfiguration property
+     * Sets the issuerHintsConfiguration property value. Determines whether issuer(CA) hints are sent back to the client side to filter the certificates shown in certificate picker.
      * @param X509CertificateIssuerHintsConfiguration|null $value Value to set for the issuerHintsConfiguration property.
     */
     public function setIssuerHintsConfiguration(?X509CertificateIssuerHintsConfiguration $value): void {

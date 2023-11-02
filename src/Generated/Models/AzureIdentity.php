@@ -13,6 +13,7 @@ class AzureIdentity extends AuthorizationSystemIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureIdentity');
     }
 
     /**
@@ -25,7 +26,9 @@ class AzureIdentity extends AuthorizationSystemIdentity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.azureGroup': return new AzureGroup();
                 case '#microsoft.graph.azureManagedIdentity': return new AzureManagedIdentity();
+                case '#microsoft.graph.azureServerlessFunction': return new AzureServerlessFunction();
                 case '#microsoft.graph.azureServicePrincipal': return new AzureServicePrincipal();
                 case '#microsoft.graph.azureUser': return new AzureUser();
             }

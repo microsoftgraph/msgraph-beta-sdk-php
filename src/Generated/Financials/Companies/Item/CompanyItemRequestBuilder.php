@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Accounts\AccountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsPayable\AgedAccountsPayableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable\AgedAccountsReceivableRequestBuilder;
@@ -314,19 +313,16 @@ class CompanyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Get companies from financials
      * @param CompanyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<Company|null>
+     * @throws Exception
     */
     public function get(?CompanyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Company::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [Company::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -339,7 +335,6 @@ class CompanyItemRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -347,6 +342,7 @@ class CompanyItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

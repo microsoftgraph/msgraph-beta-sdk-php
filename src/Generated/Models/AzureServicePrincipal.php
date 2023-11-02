@@ -13,6 +13,7 @@ class AzureServicePrincipal extends AzureIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureServicePrincipal');
     }
 
     /**

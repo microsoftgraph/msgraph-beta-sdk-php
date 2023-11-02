@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordMetho
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of password authentication method objects. This will return exactly one object, as a user can have exactly one password. This API is supported in the following national cloud deployments.
+ * Retrieve a list of password authentication method objects. This API returns exactly one object, as a user can have exactly one password. This API is available in the following national cloud deployments.
 */
 class PasswordMethodsRequestBuilderGetQueryParameters 
 {

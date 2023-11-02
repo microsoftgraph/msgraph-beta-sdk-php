@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get items from groups
+ * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site. This API is available in the following national cloud deployments.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

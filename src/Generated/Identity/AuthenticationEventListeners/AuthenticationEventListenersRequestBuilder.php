@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventListener;
@@ -53,46 +52,40 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is supported in the following national cloud deployments.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is available in the following national cloud deployments.
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<AuthenticationEventListenerCollectionResponse|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventlisteners?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthenticationEventListenersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AuthenticationEventListenerCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [AuthenticationEventListenerCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is supported in the following national cloud deployments.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<AuthenticationEventListener|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventlisteners?view=graph-rest-1.0 Find more info here
     */
     public function post(AuthenticationEventListener $body, ?AuthenticationEventListenersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AuthenticationEventListener::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [AuthenticationEventListener::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is supported in the following national cloud deployments.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is available in the following national cloud deployments.
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,7 +94,6 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -109,11 +101,12 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
     /**
-     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is supported in the following national cloud deployments.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is available in the following national cloud deployments.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -123,11 +116,11 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

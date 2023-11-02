@@ -35,7 +35,7 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
+     * Gets the appId property value. Refers to the unique identifier representing Application Id in the Microsoft Entra ID.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -60,7 +60,7 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -107,7 +107,7 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Gets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Microsoft Entra ID for the corresponding App.
      * @return string|null
     */
     public function getServicePrincipalId(): ?string {
@@ -144,15 +144,15 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
+     * Sets the appId property value. Refers to the unique identifier representing Application Id in the Microsoft Entra ID.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
@@ -160,8 +160,8 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -184,7 +184,7 @@ class AppIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Sets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Microsoft Entra ID for the corresponding App.
      * @param string|null $value Value to set for the servicePrincipalId property.
     */
     public function setServicePrincipalId(?string $value): void {

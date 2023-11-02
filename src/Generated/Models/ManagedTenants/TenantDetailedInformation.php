@@ -142,7 +142,7 @@ class TenantDetailedInformation extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant.
+     * Gets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -248,7 +248,7 @@ class TenantDetailedInformation extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant.
+     * Sets the tenantId property value. The Microsoft Entra tenant identifier for the managed tenant.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

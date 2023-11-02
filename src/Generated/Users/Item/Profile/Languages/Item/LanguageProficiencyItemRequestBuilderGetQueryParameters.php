@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is supported in the following national cloud deployments.
+ * Retrieve the properties and relationships of a languageProficiency object within a user's profile. This API is available in the following national cloud deployments.
 */
 class LanguageProficiencyItemRequestBuilderGetQueryParameters 
 {

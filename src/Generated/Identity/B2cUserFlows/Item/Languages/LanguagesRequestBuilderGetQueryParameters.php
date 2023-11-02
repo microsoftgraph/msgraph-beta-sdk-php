@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. This API is supported in the following national cloud deployments.
+ * Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. This API is available in the following national cloud deployments.
 */
 class LanguagesRequestBuilderGetQueryParameters 
 {

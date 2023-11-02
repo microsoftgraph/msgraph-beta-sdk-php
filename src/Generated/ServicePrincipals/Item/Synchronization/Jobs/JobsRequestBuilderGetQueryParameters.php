@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List existing jobs for a given application instance (service principal). This API is supported in the following national cloud deployments.
+ * List existing jobs for a given application instance (service principal). This API is available in the following national cloud deployments.
 */
 class JobsRequestBuilderGetQueryParameters 
 {

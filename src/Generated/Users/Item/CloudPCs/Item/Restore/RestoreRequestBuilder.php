@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -31,27 +30,24 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is supported in the following national cloud deployments.
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is available in the following national cloud deployments.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<void|null>
+     * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0 Find more info here
     */
     public function post(RestorePostRequestBody $body, ?RestoreRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
 
     /**
-     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is supported in the following national cloud deployments.
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state. This API is available in the following national cloud deployments.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -65,6 +61,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

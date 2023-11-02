@@ -36,7 +36,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -49,7 +49,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -57,7 +57,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the banner property value. The banner property
+     * Gets the banner property value. The text response received from a web component when scanning a hostPort.
      * @return string|null
     */
     public function getBanner(): ?string {
@@ -85,7 +85,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPortBanner. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -97,7 +97,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Gets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPortBanner. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
@@ -121,7 +121,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the scanProtocol property value. The scanProtocol property
+     * Gets the scanProtocol property value. The specific protocol used to scan the hostPort.
      * @return string|null
     */
     public function getScanProtocol(): ?string {
@@ -133,7 +133,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the timesObserved property value. The timesObserved property
+     * Gets the timesObserved property value. The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPortBanner in all its scans.
      * @return int|null
     */
     public function getTimesObserved(): ?int {
@@ -159,23 +159,23 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the banner property value. The banner property
+     * Sets the banner property value. The text response received from a web component when scanning a hostPort.
      * @param string|null $value Value to set for the banner property.
     */
     public function setBanner(?string $value): void {
@@ -183,7 +183,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The first date and time when Microsoft Defender Threat Intelligence observed the hostPortBanner. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
@@ -191,7 +191,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastSeenDateTime property value. The lastSeenDateTime property
+     * Sets the lastSeenDateTime property value. The last date and time when Microsoft Defender Threat Intelligence observed the hostPortBanner. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
@@ -207,7 +207,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the scanProtocol property value. The scanProtocol property
+     * Sets the scanProtocol property value. The specific protocol used to scan the hostPort.
      * @param string|null $value Value to set for the scanProtocol property.
     */
     public function setScanProtocol(?string $value): void {
@@ -215,7 +215,7 @@ class HostPortBanner implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the timesObserved property value. The timesObserved property
+     * Sets the timesObserved property value. The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPortBanner in all its scans.
      * @param int|null $value Value to set for the timesObserved property.
     */
     public function setTimesObserved(?int $value): void {

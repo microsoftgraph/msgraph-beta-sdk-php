@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\Certif
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get trustedCertificateAuthorities from directory
+ * Collection of trusted certificate authorities.
 */
 class CertificateAuthorityAsEntityItemRequestBuilderGetQueryParameters 
 {

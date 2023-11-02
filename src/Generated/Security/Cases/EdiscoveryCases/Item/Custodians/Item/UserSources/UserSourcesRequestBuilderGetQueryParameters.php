@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Cus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
+ * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
 */
 class UserSourcesRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the service principals to which the user has an app role assignment either directly or through group membership. This API is supported in the following national cloud deployments.
+ * Get the service principals to which the user has an app role assignment either directly or through group membership. This API is available in the following national cloud deployments.
 */
 class AppRoleAssignedResourcesRequestBuilderGetQueryParameters 
 {

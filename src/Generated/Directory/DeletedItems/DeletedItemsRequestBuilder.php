@@ -4,8 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems;
 
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphApplication\GraphApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphDevice\GraphDeviceRequestBuilder;
@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphGroup\GraphGroupR
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphUser\GraphUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,6 +31,13 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getByIds method.
+    */
+    public function getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -75,6 +83,13 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the validateProperties method.
+    */
+    public function validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
      * @param string $directoryObjectId The unique identifier of directoryObject
      * @return DirectoryObjectItemRequestBuilder
@@ -102,19 +117,16 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     /**
      * Get deletedItems from directory
      * @param DeletedItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<DirectoryObjectCollectionResponse|null>
+     * @throws Exception
     */
     public function get(?DeletedItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -127,7 +139,6 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
@@ -135,6 +146,7 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

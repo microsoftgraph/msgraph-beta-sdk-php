@@ -35,7 +35,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
@@ -48,7 +48,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the backingStore property value. Stores model information.
+     * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
@@ -69,7 +69,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the maximumRetries property value. The max number of retries that Azure AD makes to the external API. Values of 0 or 1 are supported. If null, the default for the service applies.
+     * Gets the maximumRetries property value. The max number of retries that Microsoft Entra ID makes to the external API. Values of 0 or 1 are supported. If null, the default for the service applies.
      * @return int|null
     */
     public function getMaximumRetries(): ?int {
@@ -93,7 +93,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD waits for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. If null, the default for the service applies.
+     * Gets the timeoutInMilliseconds property value. The max duration in milliseconds that Microsoft Entra ID waits for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. If null, the default for the service applies.
      * @return int|null
     */
     public function getTimeoutInMilliseconds(): ?int {
@@ -116,23 +116,23 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the additionalData property.
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the backingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the backingStore property.
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the maximumRetries property value. The max number of retries that Azure AD makes to the external API. Values of 0 or 1 are supported. If null, the default for the service applies.
+     * Sets the maximumRetries property value. The max number of retries that Microsoft Entra ID makes to the external API. Values of 0 or 1 are supported. If null, the default for the service applies.
      * @param int|null $value Value to set for the maximumRetries property.
     */
     public function setMaximumRetries(?int $value): void {
@@ -148,7 +148,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD waits for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. If null, the default for the service applies.
+     * Sets the timeoutInMilliseconds property value. The max duration in milliseconds that Microsoft Entra ID waits for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. If null, the default for the service applies.
      * @param int|null $value Value to set for the timeoutInMilliseconds property.
     */
     public function setTimeoutInMilliseconds(?int $value): void {

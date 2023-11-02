@@ -271,7 +271,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the recycleBin property value. The recycleBin property
+     * Gets the recycleBin property value. A container for a collection of recycleBinItem resources in this site.
      * @return RecycleBin|null
     */
     public function getRecycleBin(): ?RecycleBin {
@@ -516,7 +516,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the recycleBin property value. The recycleBin property
+     * Sets the recycleBin property value. A container for a collection of recycleBinItem resources in this site.
      * @param RecycleBin|null $value Value to set for the recycleBin property.
     */
     public function setRecycleBin(?RecycleBin $value): void {

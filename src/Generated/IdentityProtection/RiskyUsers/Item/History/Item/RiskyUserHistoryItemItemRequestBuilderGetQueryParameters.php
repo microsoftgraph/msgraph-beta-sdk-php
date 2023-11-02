@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Item\Hist
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a riskyUserHistoryItem object of a riskyUser. This API is supported in the following national cloud deployments.
+ * Get a riskyUserHistoryItem object of a riskyUser. This API is available in the following national cloud deployments.
 */
 class RiskyUserHistoryItemItemRequestBuilderGetQueryParameters 
 {
