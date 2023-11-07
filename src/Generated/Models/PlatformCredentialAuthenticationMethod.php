@@ -27,7 +27,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time that this Platform Credential Key was registered.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the device property value. The device property
+     * Gets the device property value. The registered device on which this Platform Credential resides. Supports $expand. When you get a user's Platform Credential registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/platformCredentialAuthenticationMethod/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.
      * @return Device|null
     */
     public function getDevice(): ?Device {
@@ -51,7 +51,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the device on which Platform Credential is registered.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -78,7 +78,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the keyStrength property value. The keyStrength property
+     * Gets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
      * @return AuthenticationMethodKeyStrength|null
     */
     public function getKeyStrength(): ?AuthenticationMethodKeyStrength {
@@ -90,7 +90,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the platform property value. The platform property
+     * Gets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
      * @return AuthenticationMethodPlatform|null
     */
     public function getPlatform(): ?AuthenticationMethodPlatform {
@@ -115,7 +115,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time that this Platform Credential Key was registered.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -123,7 +123,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the device property value. The device property
+     * Sets the device property value. The registered device on which this Platform Credential resides. Supports $expand. When you get a user's Platform Credential registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/platformCredentialAuthenticationMethod/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.
      * @param Device|null $value Value to set for the device property.
     */
     public function setDevice(?Device $value): void {
@@ -131,7 +131,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the device on which Platform Credential is registered.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -139,7 +139,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the keyStrength property value. The keyStrength property
+     * Sets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
      * @param AuthenticationMethodKeyStrength|null $value Value to set for the keyStrength property.
     */
     public function setKeyStrength(?AuthenticationMethodKeyStrength $value): void {
@@ -147,7 +147,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the platform property value. The platform property
+     * Sets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
      * @param AuthenticationMethodPlatform|null $value Value to set for the platform property.
     */
     public function setPlatform(?AuthenticationMethodPlatform $value): void {

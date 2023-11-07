@@ -377,6 +377,18 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceIdentityAttestationDetail property value. Indicates the attestation status of the managed device. And in which way. Default: Unknown.
+     * @return DeviceIdentityAttestationDetail|null
+    */
+    public function getDeviceIdentityAttestationDetail(): ?DeviceIdentityAttestationDetail {
+        $val = $this->getBackingStore()->get('deviceIdentityAttestationDetail');
+        if (is_null($val) || $val instanceof DeviceIdentityAttestationDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceIdentityAttestationDetail'");
+    }
+
+    /**
      * Gets the deviceName property value. Name of the device. This property is read-only.
      * @return string|null
     */
@@ -566,6 +578,7 @@ class ManagedDevice extends Entity implements Parsable
             'deviceFirmwareConfigurationInterfaceManaged' => fn(ParseNode $n) => $o->setDeviceFirmwareConfigurationInterfaceManaged($n->getBooleanValue()),
             'deviceHealthAttestationState' => fn(ParseNode $n) => $o->setDeviceHealthAttestationState($n->getObjectValue([DeviceHealthAttestationState::class, 'createFromDiscriminatorValue'])),
             'deviceHealthScriptStates' => fn(ParseNode $n) => $o->setDeviceHealthScriptStates($n->getCollectionOfObjectValues([DeviceHealthScriptPolicyState::class, 'createFromDiscriminatorValue'])),
+            'deviceIdentityAttestationDetail' => fn(ParseNode $n) => $o->setDeviceIdentityAttestationDetail($n->getObjectValue([DeviceIdentityAttestationDetail::class, 'createFromDiscriminatorValue'])),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'deviceRegistrationState' => fn(ParseNode $n) => $o->setDeviceRegistrationState($n->getEnumValue(DeviceRegistrationState::class)),
             'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(DeviceType::class)),
@@ -1310,6 +1323,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeEnumValue('deviceEnrollmentType', $this->getDeviceEnrollmentType());
         $writer->writeBooleanValue('deviceFirmwareConfigurationInterfaceManaged', $this->getDeviceFirmwareConfigurationInterfaceManaged());
         $writer->writeCollectionOfObjectValues('deviceHealthScriptStates', $this->getDeviceHealthScriptStates());
+        $writer->writeObjectValue('deviceIdentityAttestationDetail', $this->getDeviceIdentityAttestationDetail());
         $writer->writeEnumValue('deviceRegistrationState', $this->getDeviceRegistrationState());
         $writer->writeEnumValue('deviceType', $this->getDeviceType());
         $writer->writeEnumValue('exchangeAccessState', $this->getExchangeAccessState());
@@ -1548,6 +1562,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setDeviceHealthScriptStates(?array $value): void {
         $this->getBackingStore()->set('deviceHealthScriptStates', $value);
+    }
+
+    /**
+     * Sets the deviceIdentityAttestationDetail property value. Indicates the attestation status of the managed device. And in which way. Default: Unknown.
+     * @param DeviceIdentityAttestationDetail|null $value Value to set for the deviceIdentityAttestationDetail property.
+    */
+    public function setDeviceIdentityAttestationDetail(?DeviceIdentityAttestationDetail $value): void {
+        $this->getBackingStore()->set('deviceIdentityAttestationDetail', $value);
     }
 
     /**

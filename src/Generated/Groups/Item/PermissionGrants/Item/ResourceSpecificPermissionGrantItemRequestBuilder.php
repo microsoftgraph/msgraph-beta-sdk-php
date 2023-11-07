@@ -46,7 +46,7 @@ class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * The permissions granted for a group to a specific application. Supports $expand.
      * @param ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceSpecificPermissionGrant|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * The permissions granted for a group to a specific application. Supports $expand.
      * @param ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

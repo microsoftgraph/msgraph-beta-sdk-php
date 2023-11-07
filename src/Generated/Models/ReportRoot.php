@@ -170,6 +170,7 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([SecurityReportsRoot::class, 'createFromDiscriminatorValue'])),
+            'serviceActivity' => fn(ParseNode $n) => $o->setServiceActivity($n->getObjectValue([ServiceActivity::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalSignInActivities' => fn(ParseNode $n) => $o->setServicePrincipalSignInActivities($n->getCollectionOfObjectValues([ServicePrincipalSignInActivity::class, 'createFromDiscriminatorValue'])),
             'sla' => fn(ParseNode $n) => $o->setSla($n->getObjectValue([ServiceLevelAgreementRoot::class, 'createFromDiscriminatorValue'])),
             'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
@@ -246,6 +247,18 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the serviceActivity property value. A placeholder to the Microsoft Entra service activity.
+     * @return ServiceActivity|null
+    */
+    public function getServiceActivity(): ?ServiceActivity {
+        $val = $this->getBackingStore()->get('serviceActivity');
+        if (is_null($val) || $val instanceof ServiceActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceActivity'");
+    }
+
+    /**
      * Gets the servicePrincipalSignInActivities property value. Represents a collection of sign-in activities of service principals.
      * @return array<ServicePrincipalSignInActivity>|null
     */
@@ -317,6 +330,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->getMonthlyPrintUsageSummariesByUser());
         $writer->writeObjectValue('security', $this->getSecurity());
+        $writer->writeObjectValue('serviceActivity', $this->getServiceActivity());
         $writer->writeCollectionOfObjectValues('servicePrincipalSignInActivities', $this->getServicePrincipalSignInActivities());
         $writer->writeObjectValue('sla', $this->getSla());
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->getUserCredentialUsageDetails());
@@ -433,6 +447,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setSecurity(?SecurityReportsRoot $value): void {
         $this->getBackingStore()->set('security', $value);
+    }
+
+    /**
+     * Sets the serviceActivity property value. A placeholder to the Microsoft Entra service activity.
+     * @param ServiceActivity|null $value Value to set for the serviceActivity property.
+    */
+    public function setServiceActivity(?ServiceActivity $value): void {
+        $this->getBackingStore()->set('serviceActivity', $value);
     }
 
     /**

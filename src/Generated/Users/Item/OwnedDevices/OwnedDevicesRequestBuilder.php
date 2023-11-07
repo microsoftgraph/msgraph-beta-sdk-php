@@ -67,7 +67,7 @@ class OwnedDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+     * Devices owned by the user. Read-only. Nullable. Supports $expand.
      * @param OwnedDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class OwnedDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+     * Devices owned by the user. Read-only. Nullable. Supports $expand.
      * @param OwnedDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

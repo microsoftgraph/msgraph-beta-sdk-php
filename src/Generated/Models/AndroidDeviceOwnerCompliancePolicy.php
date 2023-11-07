@@ -89,6 +89,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
             'passwordPreviousPasswordCountToBlock' => fn(ParseNode $n) => $o->setPasswordPreviousPasswordCountToBlock($n->getIntegerValue()),
             'passwordRequired' => fn(ParseNode $n) => $o->setPasswordRequired($n->getBooleanValue()),
             'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
+            'requireNoPendingSystemUpdates' => fn(ParseNode $n) => $o->setRequireNoPendingSystemUpdates($n->getBooleanValue()),
             'securityRequireIntuneAppIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireIntuneAppIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationBasicIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationBasicIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationCertifiedDevice' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationCertifiedDevice($n->getBooleanValue()),
@@ -277,6 +278,18 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
+     * Gets the requireNoPendingSystemUpdates property value. Require device to have no pending Android system updates.
+     * @return bool|null
+    */
+    public function getRequireNoPendingSystemUpdates(): ?bool {
+        $val = $this->getBackingStore()->get('requireNoPendingSystemUpdates');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireNoPendingSystemUpdates'");
+    }
+
+    /**
      * Gets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
      * @return bool|null
     */
@@ -348,6 +361,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
         $writer->writeIntegerValue('passwordPreviousPasswordCountToBlock', $this->getPasswordPreviousPasswordCountToBlock());
         $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
         $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
+        $writer->writeBooleanValue('requireNoPendingSystemUpdates', $this->getRequireNoPendingSystemUpdates());
         $writer->writeBooleanValue('securityRequireIntuneAppIntegrity', $this->getSecurityRequireIntuneAppIntegrity());
         $writer->writeBooleanValue('securityRequireSafetyNetAttestationBasicIntegrity', $this->getSecurityRequireSafetyNetAttestationBasicIntegrity());
         $writer->writeBooleanValue('securityRequireSafetyNetAttestationCertifiedDevice', $this->getSecurityRequireSafetyNetAttestationCertifiedDevice());
@@ -496,6 +510,14 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
+    }
+
+    /**
+     * Sets the requireNoPendingSystemUpdates property value. Require device to have no pending Android system updates.
+     * @param bool|null $value Value to set for the requireNoPendingSystemUpdates property.
+    */
+    public function setRequireNoPendingSystemUpdates(?bool $value): void {
+        $this->getBackingStore()->set('requireNoPendingSystemUpdates', $value);
     }
 
     /**

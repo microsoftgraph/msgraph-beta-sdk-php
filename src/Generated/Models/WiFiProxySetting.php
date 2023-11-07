@@ -8,4 +8,5 @@ class WiFiProxySetting extends Enum {
     public const NONE = 'none';
     public const MANUAL = 'manual';
     public const AUTOMATIC = 'automatic';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

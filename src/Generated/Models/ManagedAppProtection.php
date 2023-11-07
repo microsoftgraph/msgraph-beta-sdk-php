@@ -275,6 +275,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'pinRequiredInsteadOfBiometricTimeout' => fn(ParseNode $n) => $o->setPinRequiredInsteadOfBiometricTimeout($n->getDateIntervalValue()),
             'previousPinBlockCount' => fn(ParseNode $n) => $o->setPreviousPinBlockCount($n->getIntegerValue()),
             'printBlocked' => fn(ParseNode $n) => $o->setPrintBlocked($n->getBooleanValue()),
+            'protectedMessagingRedirectAppType' => fn(ParseNode $n) => $o->setProtectedMessagingRedirectAppType($n->getEnumValue(MessagingRedirectAppType::class)),
             'saveAsBlocked' => fn(ParseNode $n) => $o->setSaveAsBlocked($n->getBooleanValue()),
             'simplePinBlocked' => fn(ParseNode $n) => $o->setSimplePinBlocked($n->getBooleanValue()),
         ]);
@@ -629,6 +630,18 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Gets the protectedMessagingRedirectAppType property value. Defines how app messaging redirection is protected by an App Protection Policy. Default is anyApp.
+     * @return MessagingRedirectAppType|null
+    */
+    public function getProtectedMessagingRedirectAppType(): ?MessagingRedirectAppType {
+        $val = $this->getBackingStore()->get('protectedMessagingRedirectAppType');
+        if (is_null($val) || $val instanceof MessagingRedirectAppType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectedMessagingRedirectAppType'");
+    }
+
+    /**
      * Gets the saveAsBlocked property value. Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
      * @return bool|null
     */
@@ -702,6 +715,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeDateIntervalValue('pinRequiredInsteadOfBiometricTimeout', $this->getPinRequiredInsteadOfBiometricTimeout());
         $writer->writeIntegerValue('previousPinBlockCount', $this->getPreviousPinBlockCount());
         $writer->writeBooleanValue('printBlocked', $this->getPrintBlocked());
+        $writer->writeEnumValue('protectedMessagingRedirectAppType', $this->getProtectedMessagingRedirectAppType());
         $writer->writeBooleanValue('saveAsBlocked', $this->getSaveAsBlocked());
         $writer->writeBooleanValue('simplePinBlocked', $this->getSimplePinBlocked());
     }
@@ -1056,6 +1070,14 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setPrintBlocked(?bool $value): void {
         $this->getBackingStore()->set('printBlocked', $value);
+    }
+
+    /**
+     * Sets the protectedMessagingRedirectAppType property value. Defines how app messaging redirection is protected by an App Protection Policy. Default is anyApp.
+     * @param MessagingRedirectAppType|null $value Value to set for the protectedMessagingRedirectAppType property.
+    */
+    public function setProtectedMessagingRedirectAppType(?MessagingRedirectAppType $value): void {
+        $this->getBackingStore()->set('protectedMessagingRedirectAppType', $value);
     }
 
     /**

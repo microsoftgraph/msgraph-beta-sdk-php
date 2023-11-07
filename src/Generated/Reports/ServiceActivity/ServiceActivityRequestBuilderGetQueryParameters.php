@@ -1,0 +1,34 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity;
+
+use Microsoft\Kiota\Abstractions\QueryParameter;
+
+/**
+ * A placeholder to the Microsoft Entra service activity.
+*/
+class ServiceActivityRequestBuilderGetQueryParameters 
+{
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
+     * @QueryParameter("%24select")
+     * @var array<string>|null $select Select properties to be returned
+    */
+    public ?array $select = null;
+    
+    /**
+     * Instantiates a new serviceActivityRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
+}

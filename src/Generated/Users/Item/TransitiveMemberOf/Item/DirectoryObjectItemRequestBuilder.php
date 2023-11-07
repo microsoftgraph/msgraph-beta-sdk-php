@@ -55,7 +55,7 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObject|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

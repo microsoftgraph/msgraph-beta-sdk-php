@@ -48,7 +48,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the asn property value. The asn property
+     * Gets the asn property value. Specifies ASN of one end of IPSec tunnel (local or peer).
      * @return int|null
     */
     public function getAsn(): ?int {
@@ -68,7 +68,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the bgpAddress property value. The bgpAddress property
+     * Gets the bgpAddress property value. Specifies BGP IPv4 address of one end of IPSec tunnel (local or peer).
      * @return string|null
     */
     public function getBgpAddress(): ?string {
@@ -80,7 +80,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the endpoint property value. The endpoint property
+     * Gets the endpoint property value. Specifies public IPv4 address of one end of IPSec tunnel (local or peer).
      * @return string|null
     */
     public function getEndpoint(): ?string {
@@ -138,7 +138,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the asn property value. The asn property
+     * Sets the asn property value. Specifies ASN of one end of IPSec tunnel (local or peer).
      * @param int|null $value Value to set for the asn property.
     */
     public function setAsn(?int $value): void {
@@ -154,7 +154,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the bgpAddress property value. The bgpAddress property
+     * Sets the bgpAddress property value. Specifies BGP IPv4 address of one end of IPSec tunnel (local or peer).
      * @param string|null $value Value to set for the bgpAddress property.
     */
     public function setBgpAddress(?string $value): void {
@@ -162,7 +162,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the endpoint property value. The endpoint property
+     * Sets the endpoint property value. Specifies public IPv4 address of one end of IPSec tunnel (local or peer).
      * @param string|null $value Value to set for the endpoint property.
     */
     public function setEndpoint(?string $value): void {

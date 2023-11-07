@@ -137,7 +137,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the people property value. The people property
+     * Gets the people property value. Represents a setting to control people-related admin settings in the tenant.
      * @return PeopleAdminSettings|null
     */
     public function getPeople(): ?PeopleAdminSettings {
@@ -284,7 +284,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the people property value. The people property
+     * Sets the people property value. Represents a setting to control people-related admin settings in the tenant.
      * @param PeopleAdminSettings|null $value Value to set for the people property.
     */
     public function setPeople(?PeopleAdminSettings $value): void {

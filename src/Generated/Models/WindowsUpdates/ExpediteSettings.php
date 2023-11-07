@@ -63,6 +63,7 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'isExpedited' => fn(ParseNode $n) => $o->setIsExpedited($n->getBooleanValue()),
+            'isReadinessTest' => fn(ParseNode $n) => $o->setIsReadinessTest($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -77,6 +78,18 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isExpedited'");
+    }
+
+    /**
+     * Gets the isReadinessTest property value. The isReadinessTest property
+     * @return bool|null
+    */
+    public function getIsReadinessTest(): ?bool {
+        $val = $this->getBackingStore()->get('isReadinessTest');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReadinessTest'");
     }
 
     /**
@@ -97,6 +110,7 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isExpedited', $this->getIsExpedited());
+        $writer->writeBooleanValue('isReadinessTest', $this->getIsReadinessTest());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -123,6 +137,14 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setIsExpedited(?bool $value): void {
         $this->getBackingStore()->set('isExpedited', $value);
+    }
+
+    /**
+     * Sets the isReadinessTest property value. The isReadinessTest property
+     * @param bool|null $value Value to set for the isReadinessTest property.
+    */
+    public function setIsReadinessTest(?bool $value): void {
+        $this->getBackingStore()->set('isReadinessTest', $value);
     }
 
     /**

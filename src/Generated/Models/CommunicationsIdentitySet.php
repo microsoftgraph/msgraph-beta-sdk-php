@@ -74,7 +74,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the endpointType property value. Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+     * Gets the endpointType property value. Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -116,7 +116,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the onPremises property value. The Skype for Business On-Premises user associated with this action.
+     * Gets the onPremises property value. The Skype for Business on-premises user associated with this action.
      * @return Identity|null
     */
     public function getOnPremises(): ?Identity {
@@ -128,7 +128,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the phone property value. Inherited from identitySet. The phone user associated with this action.
+     * Gets the phone property value. The phone user associated with this action.
      * @return Identity|null
     */
     public function getPhone(): ?Identity {
@@ -188,7 +188,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the endpointType property value. Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+     * Sets the endpointType property value. Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      * @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value): void {
@@ -204,7 +204,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the onPremises property value. The Skype for Business On-Premises user associated with this action.
+     * Sets the onPremises property value. The Skype for Business on-premises user associated with this action.
      * @param Identity|null $value Value to set for the onPremises property.
     */
     public function setOnPremises(?Identity $value): void {
@@ -212,7 +212,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the phone property value. Inherited from identitySet. The phone user associated with this action.
+     * Sets the phone property value. The phone user associated with this action.
      * @param Identity|null $value Value to set for the phone property.
     */
     public function setPhone(?Identity $value): void {

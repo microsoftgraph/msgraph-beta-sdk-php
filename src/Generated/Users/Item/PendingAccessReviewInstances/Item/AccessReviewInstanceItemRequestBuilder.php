@@ -134,7 +134,7 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to get list of access reviews pending approval by reviewer.
+     * Navigation property to get a list of access reviews pending approval by the reviewer.
      * @param AccessReviewInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstance|null>
      * @throws Exception
@@ -183,7 +183,7 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to get list of access reviews pending approval by reviewer.
+     * Navigation property to get a list of access reviews pending approval by the reviewer.
      * @param AccessReviewInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

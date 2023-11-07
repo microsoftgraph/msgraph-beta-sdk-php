@@ -106,7 +106,7 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
+     * Gets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue, issuerSubjectAndPolicyOID. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: issuerSubjectAndPolicyOID. Required.
      * @return X509CertificateRuleType|null
     */
     public function getX509CertificateRuleType(): ?X509CertificateRuleType {
@@ -170,7 +170,7 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
+     * Sets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue, issuerSubjectAndPolicyOID. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: issuerSubjectAndPolicyOID. Required.
      * @param X509CertificateRuleType|null $value Value to set for the x509CertificateRuleType property.
     */
     public function setX509CertificateRuleType(?X509CertificateRuleType $value): void {

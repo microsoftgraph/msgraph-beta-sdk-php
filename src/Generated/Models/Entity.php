@@ -1458,6 +1458,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.privilegeEscalationGcpServiceAccountFinding': return new PrivilegeEscalationGcpServiceAccountFinding();
                 case '#microsoft.graph.privilegeEscalationUserFinding': return new PrivilegeEscalationUserFinding();
                 case '#microsoft.graph.privilegeManagementElevation': return new PrivilegeManagementElevation();
+                case '#microsoft.graph.privilegeManagementElevationRequest': return new PrivilegeManagementElevationRequest();
                 case '#microsoft.graph.profile': return new Profile();
                 case '#microsoft.graph.profileCardProperty': return new ProfileCardProperty();
                 case '#microsoft.graph.profilePhoto': return new ProfilePhoto();
@@ -1641,6 +1642,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sensitivityPolicySettings': return new SensitivityPolicySettings();
                 case '#microsoft.graph.sequentialActivationRenewalsAlertConfiguration': return new SequentialActivationRenewalsAlertConfiguration();
                 case '#microsoft.graph.sequentialActivationRenewalsAlertIncident': return new SequentialActivationRenewalsAlertIncident();
+                case '#microsoft.graph.serviceActivity': return new ServiceActivity();
                 case '#microsoft.graph.serviceAnnouncement': return new ServiceAnnouncement();
                 case '#microsoft.graph.serviceAnnouncementAttachment': return new ServiceAnnouncementAttachment();
                 case '#microsoft.graph.serviceAnnouncementBase': return new ServiceAnnouncementBase();
