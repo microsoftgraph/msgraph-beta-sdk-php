@@ -7,18 +7,8 @@
 You can install the Beta PHP SDK with Composer by editing your `composer.json` file:
 ```
 {
-    "minimum-stability": "RC",
     "require": {
-        "microsoft/microsoft-graph-beta": "^2.0.0-RC28",
-    }
-}
-```
-OR
-```
-{
-    "require": {
-        "microsoft/microsoft-graph-beta": "^2.0.0-RC28",
-        "microsoft/microsoft-graph-core": "@RC"
+        "microsoft/microsoft-graph-beta": "^2.0.0",
     }
 }
 ```
@@ -140,7 +130,7 @@ try {
 ## Documentation and resources
 
 
-* [Examples](https://aka.ms/graph/sdk/php/preview/examples)
+* [Examples](https://github.com/microsoftgraph/msgraph-sdk-php/blob/dev/docs/Examples.md)
 
 * [Microsoft Graph website](https://aka.ms/graph)
 
