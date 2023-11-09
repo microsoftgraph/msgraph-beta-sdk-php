@@ -1,7 +1,9 @@
 # Get started with the Microsoft Graph Beta SDK for PHP
 
-[![Build Status](https://travis-ci.org/microsoftgraph/msgraph-beta-sdk-php.svg?branch=master)](https://travis-ci.org/microsoftgraph/msgraph-beta-sdk-php)
+![Build Status](https://github.com/microsoftgraph/msgraph-beta-sdk-php/actions/workflows/pr-validation.yml/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/microsoft/microsoft-graph-beta/version)](https://packagist.org/packages/microsoft/microsoft-graph-beta)
+[![Total Downloads](http://poser.pugx.org/microsoft/microsoft-graph-beta/downloads)](https://packagist.org/packages/microsoft/microsoft-graph-beta)
+[![PHP Version Require](http://poser.pugx.org/microsoft/microsoft-graph-beta/require/php)](https://packagist.org/packages/microsoft/microsoft-graph-beta)
 
 ## Install the SDK
 You can install the Beta PHP SDK with Composer by editing your `composer.json` file:
