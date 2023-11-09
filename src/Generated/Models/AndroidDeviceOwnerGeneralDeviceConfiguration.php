@@ -250,6 +250,18 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
+     * @return AndroidDeviceOwnerLocationMode|null
+    */
+    public function getDeviceLocationMode(): ?AndroidDeviceOwnerLocationMode {
+        $val = $this->getBackingStore()->get('deviceLocationMode');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerLocationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLocationMode'");
+    }
+
+    /**
      * Gets the deviceOwnerLockScreenMessage property value. Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
      * @return AndroidDeviceOwnerUserFacingMessage|null
     */
@@ -324,6 +336,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'dataRoamingBlocked' => fn(ParseNode $n) => $o->setDataRoamingBlocked($n->getBooleanValue()),
             'dateTimeConfigurationBlocked' => fn(ParseNode $n) => $o->setDateTimeConfigurationBlocked($n->getBooleanValue()),
             'detailedHelpText' => fn(ParseNode $n) => $o->setDetailedHelpText($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
+            'deviceLocationMode' => fn(ParseNode $n) => $o->setDeviceLocationMode($n->getEnumValue(AndroidDeviceOwnerLocationMode::class)),
             'deviceOwnerLockScreenMessage' => fn(ParseNode $n) => $o->setDeviceOwnerLockScreenMessage($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
             'enrollmentProfile' => fn(ParseNode $n) => $o->setEnrollmentProfile($n->getEnumValue(AndroidDeviceOwnerEnrollmentProfileType::class)),
             'factoryResetBlocked' => fn(ParseNode $n) => $o->setFactoryResetBlocked($n->getBooleanValue()),
@@ -427,6 +440,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'securityCommonCriteriaModeEnabled' => fn(ParseNode $n) => $o->setSecurityCommonCriteriaModeEnabled($n->getBooleanValue()),
             'securityDeveloperSettingsEnabled' => fn(ParseNode $n) => $o->setSecurityDeveloperSettingsEnabled($n->getBooleanValue()),
             'securityRequireVerifyApps' => fn(ParseNode $n) => $o->setSecurityRequireVerifyApps($n->getBooleanValue()),
+            'shareDeviceLocationDisabled' => fn(ParseNode $n) => $o->setShareDeviceLocationDisabled($n->getBooleanValue()),
             'shortHelpText' => fn(ParseNode $n) => $o->setShortHelpText($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
             'statusBarBlocked' => fn(ParseNode $n) => $o->setStatusBarBlocked($n->getBooleanValue()),
             'stayOnModes' => fn(ParseNode $n) => $o->setStayOnModes($n->getCollectionOfEnumValues(AndroidDeviceOwnerBatteryPluggedMode::class)),
@@ -1493,6 +1507,18 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the shareDeviceLocationDisabled property value. Indicates whether or not location sharing is disabled for fully managed devices (COBO), and corporate owned devices with a work profile (COPE)
+     * @return bool|null
+    */
+    public function getShareDeviceLocationDisabled(): ?bool {
+        $val = $this->getBackingStore()->get('shareDeviceLocationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shareDeviceLocationDisabled'");
+    }
+
+    /**
      * Gets the shortHelpText property value. Represents the customized short help text provided to users when they attempt to modify managed settings on their device.
      * @return AndroidDeviceOwnerUserFacingMessage|null
     */
@@ -1880,6 +1906,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('dataRoamingBlocked', $this->getDataRoamingBlocked());
         $writer->writeBooleanValue('dateTimeConfigurationBlocked', $this->getDateTimeConfigurationBlocked());
         $writer->writeObjectValue('detailedHelpText', $this->getDetailedHelpText());
+        $writer->writeEnumValue('deviceLocationMode', $this->getDeviceLocationMode());
         $writer->writeObjectValue('deviceOwnerLockScreenMessage', $this->getDeviceOwnerLockScreenMessage());
         $writer->writeEnumValue('enrollmentProfile', $this->getEnrollmentProfile());
         $writer->writeBooleanValue('factoryResetBlocked', $this->getFactoryResetBlocked());
@@ -1969,6 +1996,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('securityCommonCriteriaModeEnabled', $this->getSecurityCommonCriteriaModeEnabled());
         $writer->writeBooleanValue('securityDeveloperSettingsEnabled', $this->getSecurityDeveloperSettingsEnabled());
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->getSecurityRequireVerifyApps());
+        $writer->writeBooleanValue('shareDeviceLocationDisabled', $this->getShareDeviceLocationDisabled());
         $writer->writeObjectValue('shortHelpText', $this->getShortHelpText());
         $writer->writeBooleanValue('statusBarBlocked', $this->getStatusBarBlocked());
         $writer->writeCollectionOfEnumValues('stayOnModes', $this->getStayOnModes());
@@ -2143,6 +2171,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setDetailedHelpText(?AndroidDeviceOwnerUserFacingMessage $value): void {
         $this->getBackingStore()->set('detailedHelpText', $value);
+    }
+
+    /**
+     * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
+     * @param AndroidDeviceOwnerLocationMode|null $value Value to set for the deviceLocationMode property.
+    */
+    public function setDeviceLocationMode(?AndroidDeviceOwnerLocationMode $value): void {
+        $this->getBackingStore()->set('deviceLocationMode', $value);
     }
 
     /**
@@ -2855,6 +2891,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setSecurityRequireVerifyApps(?bool $value): void {
         $this->getBackingStore()->set('securityRequireVerifyApps', $value);
+    }
+
+    /**
+     * Sets the shareDeviceLocationDisabled property value. Indicates whether or not location sharing is disabled for fully managed devices (COBO), and corporate owned devices with a work profile (COPE)
+     * @param bool|null $value Value to set for the shareDeviceLocationDisabled property.
+    */
+    public function setShareDeviceLocationDisabled(?bool $value): void {
+        $this->getBackingStore()->set('shareDeviceLocationDisabled', $value);
     }
 
     /**

@@ -40,4 +40,5 @@ class RemoteAction extends Enum {
     public const LAUNCH_REMOTE_HELP = 'launchRemoteHelp';
     public const REVOKE_APPLE_VPP_LICENSES = 'revokeAppleVppLicenses';
     public const REMOVE_DEVICE_FIRMWARE_CONFIGURATION_INTERFACE_MANAGEMENT = 'removeDeviceFirmwareConfigurationInterfaceManagement';
+    public const PAUSE_CONFIGURATION_REFRESH = 'pauseConfigurationRefresh';
 }

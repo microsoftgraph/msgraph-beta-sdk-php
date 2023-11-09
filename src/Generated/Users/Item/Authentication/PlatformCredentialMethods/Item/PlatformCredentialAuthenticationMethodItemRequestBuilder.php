@@ -39,10 +39,11 @@ class PlatformCredentialAuthenticationMethodItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Delete navigation property platformCredentialMethods for users
+     * Delete a platformCredentialAuthenticationMethod object.
      * @param PlatformCredentialAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlatformCredentialAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,10 +55,11 @@ class PlatformCredentialAuthenticationMethodItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Read the properties and relationships of a platformCredentialAuthenticationMethod object.
      * @param PlatformCredentialAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlatformCredentialAuthenticationMethod|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlatformCredentialAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -69,7 +71,7 @@ class PlatformCredentialAuthenticationMethodItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Delete navigation property platformCredentialMethods for users
+     * Delete a platformCredentialAuthenticationMethod object.
      * @param PlatformCredentialAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -87,7 +89,7 @@ class PlatformCredentialAuthenticationMethodItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Read the properties and relationships of a platformCredentialAuthenticationMethod object.
      * @param PlatformCredentialAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

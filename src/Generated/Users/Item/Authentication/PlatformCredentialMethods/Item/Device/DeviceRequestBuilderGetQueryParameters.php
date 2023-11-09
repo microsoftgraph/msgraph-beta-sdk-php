@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCrede
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get device from users
+ * The registered device on which this Platform Credential resides. Supports $expand. When you get a user's Platform Credential registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/platformCredentialAuthenticationMethod/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.
 */
 class DeviceRequestBuilderGetQueryParameters 
 {

@@ -51,10 +51,11 @@ class PlatformCredentialMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Get a list of the platformCredentialAuthenticationMethod objects and their properties.
      * @param PlatformCredentialMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlatformCredentialAuthenticationMethodCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlatformCredentialMethodsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +67,7 @@ class PlatformCredentialMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Get a list of the platformCredentialAuthenticationMethod objects and their properties.
      * @param PlatformCredentialMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

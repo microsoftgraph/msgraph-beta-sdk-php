@@ -46,7 +46,7 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get links from networkAccess
+     * List of connectivity configurations for deviceLink objects.
      * @param ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectivityConfigurationLink|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get links from networkAccess
+     * List of connectivity configurations for deviceLink objects.
      * @param ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

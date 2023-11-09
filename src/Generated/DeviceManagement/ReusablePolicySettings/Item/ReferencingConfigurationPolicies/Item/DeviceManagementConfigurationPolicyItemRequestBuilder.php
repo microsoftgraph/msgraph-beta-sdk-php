@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\CreateCopy\CreateCopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\RetrieveLatestUpgradeDefaultBaselinePolicy\RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -47,6 +48,13 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     */
     public function reorder(): ReorderRequestBuilder {
         return new ReorderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveLatestUpgradeDefaultBaselinePolicy method.
+    */
+    public function retrieveLatestUpgradeDefaultBaselinePolicy(): RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder {
+        return new RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

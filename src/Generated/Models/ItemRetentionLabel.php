@@ -65,7 +65,7 @@ class ItemRetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the labelAppliedDateTime property value. The date and time when the label was applied on the item. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the labelAppliedDateTime property value. The date and time when the label was applied on the item. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getLabelAppliedDateTime(): ?DateTime {
@@ -130,7 +130,7 @@ class ItemRetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the labelAppliedDateTime property value. The date and time when the label was applied on the item. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the labelAppliedDateTime property value. The date and time when the label was applied on the item. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the labelAppliedDateTime property.
     */
     public function setLabelAppliedDateTime(?DateTime $value): void {

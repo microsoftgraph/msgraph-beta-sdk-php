@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Photos;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get photos from users
+ * The collection of the user's profile photos in different sizes. Read-only.
 */
 class PhotosRequestBuilderGetQueryParameters 
 {

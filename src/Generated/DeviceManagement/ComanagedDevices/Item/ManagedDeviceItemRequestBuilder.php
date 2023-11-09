@@ -31,6 +31,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\LogCol
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\LogoutSharedAppleDeviceActiveUser\LogoutSharedAppleDeviceActiveUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\ManagedDeviceMobileAppConfigurationStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\OverrideComplianceState\OverrideComplianceStateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\PauseConfigurationRefresh\PauseConfigurationRefreshRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\PlayLostModeSound\PlayLostModeSoundRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RebootNow\RebootNowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
@@ -259,6 +260,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function overrideComplianceState(): OverrideComplianceStateRequestBuilder {
         return new OverrideComplianceStateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the pauseConfigurationRefresh method.
+    */
+    public function pauseConfigurationRefresh(): PauseConfigurationRefreshRequestBuilder {
+        return new PauseConfigurationRefreshRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\DirectReports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+ * The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
 */
 class DirectReportsRequestBuilderGetQueryParameters 
 {
