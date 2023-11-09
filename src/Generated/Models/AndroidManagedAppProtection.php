@@ -404,6 +404,8 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
             'exemptedAppPackages' => fn(ParseNode $n) => $o->setExemptedAppPackages($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'fingerprintAndBiometricEnabled' => fn(ParseNode $n) => $o->setFingerprintAndBiometricEnabled($n->getBooleanValue()),
             'keyboardsRestricted' => fn(ParseNode $n) => $o->setKeyboardsRestricted($n->getBooleanValue()),
+            'messagingRedirectAppDisplayName' => fn(ParseNode $n) => $o->setMessagingRedirectAppDisplayName($n->getStringValue()),
+            'messagingRedirectAppPackageId' => fn(ParseNode $n) => $o->setMessagingRedirectAppPackageId($n->getStringValue()),
             'minimumRequiredCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumRequiredCompanyPortalVersion($n->getStringValue()),
             'minimumRequiredPatchVersion' => fn(ParseNode $n) => $o->setMinimumRequiredPatchVersion($n->getStringValue()),
             'minimumWarningCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumWarningCompanyPortalVersion($n->getStringValue()),
@@ -443,6 +445,30 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyboardsRestricted'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppDisplayName property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app name which is allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppDisplayName'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppPackageId property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app package id which is allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppPackageId(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppPackageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppPackageId'");
     }
 
     /**
@@ -648,6 +674,8 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
         $writer->writeCollectionOfObjectValues('exemptedAppPackages', $this->getExemptedAppPackages());
         $writer->writeBooleanValue('fingerprintAndBiometricEnabled', $this->getFingerprintAndBiometricEnabled());
         $writer->writeBooleanValue('keyboardsRestricted', $this->getKeyboardsRestricted());
+        $writer->writeStringValue('messagingRedirectAppDisplayName', $this->getMessagingRedirectAppDisplayName());
+        $writer->writeStringValue('messagingRedirectAppPackageId', $this->getMessagingRedirectAppPackageId());
         $writer->writeStringValue('minimumRequiredCompanyPortalVersion', $this->getMinimumRequiredCompanyPortalVersion());
         $writer->writeStringValue('minimumRequiredPatchVersion', $this->getMinimumRequiredPatchVersion());
         $writer->writeStringValue('minimumWarningCompanyPortalVersion', $this->getMinimumWarningCompanyPortalVersion());
@@ -894,6 +922,22 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     */
     public function setKeyboardsRestricted(?bool $value): void {
         $this->getBackingStore()->set('keyboardsRestricted', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppDisplayName property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app name which is allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppDisplayName property.
+    */
+    public function setMessagingRedirectAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppDisplayName', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppPackageId property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app package id which is allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppPackageId property.
+    */
+    public function setMessagingRedirectAppPackageId(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppPackageId', $value);
     }
 
     /**

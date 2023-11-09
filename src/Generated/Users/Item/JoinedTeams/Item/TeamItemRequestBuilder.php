@@ -31,7 +31,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+     * The Microsoft Teams teams the user is a member of. Read-only. Nullable.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+     * The Microsoft Teams teams the user is a member of. Read-only. Nullable.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * By providing the configurations in this profile you can instruct the AOSP device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user. This profile provides limited and simpler security types than Enterprise Wi-Fi profile.
@@ -71,6 +72,18 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
             'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
             'preSharedKeyIsSet' => fn(ParseNode $n) => $o->setPreSharedKeyIsSet($n->getBooleanValue()),
+            'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
+            'proxyExclusionList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setProxyExclusionList($val);
+            },
+            'proxyManualAddress' => fn(ParseNode $n) => $o->setProxyManualAddress($n->getStringValue()),
+            'proxyManualPort' => fn(ParseNode $n) => $o->setProxyManualPort($n->getIntegerValue()),
+            'proxySetting' => fn(ParseNode $n) => $o->setProxySetting($n->getEnumValue(WiFiProxySetting::class)),
             'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
             'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(AospDeviceOwnerWiFiSecurityType::class)),
         ]);
@@ -113,6 +126,68 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
+     * Gets the proxyAutomaticConfigurationUrl property value. Specify the proxy server configuration script URL.
+     * @return string|null
+    */
+    public function getProxyAutomaticConfigurationUrl(): ?string {
+        $val = $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAutomaticConfigurationUrl'");
+    }
+
+    /**
+     * Gets the proxyExclusionList property value. List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as *.example.com.
+     * @return array<string>|null
+    */
+    public function getProxyExclusionList(): ?array {
+        $val = $this->getBackingStore()->get('proxyExclusionList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyExclusionList'");
+    }
+
+    /**
+     * Gets the proxyManualAddress property value. Specify the proxy server IP address. Both IPv4 and IPv6 addresses are supported. For example: 192.168.1.1.
+     * @return string|null
+    */
+    public function getProxyManualAddress(): ?string {
+        $val = $this->getBackingStore()->get('proxyManualAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyManualAddress'");
+    }
+
+    /**
+     * Gets the proxyManualPort property value. Specify the proxy server port.
+     * @return int|null
+    */
+    public function getProxyManualPort(): ?int {
+        $val = $this->getBackingStore()->get('proxyManualPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyManualPort'");
+    }
+
+    /**
+     * Gets the proxySetting property value. Wi-Fi Proxy Settings.
+     * @return WiFiProxySetting|null
+    */
+    public function getProxySetting(): ?WiFiProxySetting {
+        $val = $this->getBackingStore()->get('proxySetting');
+        if (is_null($val) || $val instanceof WiFiProxySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxySetting'");
+    }
+
+    /**
      * Gets the ssid property value. This is the name of the Wi-Fi network that is broadcast to all devices.
      * @return string|null
     */
@@ -147,6 +222,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
         $writer->writeStringValue('networkName', $this->getNetworkName());
         $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
         $writer->writeBooleanValue('preSharedKeyIsSet', $this->getPreSharedKeyIsSet());
+        $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->getProxyAutomaticConfigurationUrl());
+        $writer->writeCollectionOfPrimitiveValues('proxyExclusionList', $this->getProxyExclusionList());
+        $writer->writeStringValue('proxyManualAddress', $this->getProxyManualAddress());
+        $writer->writeIntegerValue('proxyManualPort', $this->getProxyManualPort());
+        $writer->writeEnumValue('proxySetting', $this->getProxySetting());
         $writer->writeStringValue('ssid', $this->getSsid());
         $writer->writeEnumValue('wiFiSecurityType', $this->getWiFiSecurityType());
     }
@@ -189,6 +269,46 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     */
     public function setPreSharedKeyIsSet(?bool $value): void {
         $this->getBackingStore()->set('preSharedKeyIsSet', $value);
+    }
+
+    /**
+     * Sets the proxyAutomaticConfigurationUrl property value. Specify the proxy server configuration script URL.
+     * @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
+    */
+    public function setProxyAutomaticConfigurationUrl(?string $value): void {
+        $this->getBackingStore()->set('proxyAutomaticConfigurationUrl', $value);
+    }
+
+    /**
+     * Sets the proxyExclusionList property value. List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as *.example.com.
+     * @param array<string>|null $value Value to set for the proxyExclusionList property.
+    */
+    public function setProxyExclusionList(?array $value): void {
+        $this->getBackingStore()->set('proxyExclusionList', $value);
+    }
+
+    /**
+     * Sets the proxyManualAddress property value. Specify the proxy server IP address. Both IPv4 and IPv6 addresses are supported. For example: 192.168.1.1.
+     * @param string|null $value Value to set for the proxyManualAddress property.
+    */
+    public function setProxyManualAddress(?string $value): void {
+        $this->getBackingStore()->set('proxyManualAddress', $value);
+    }
+
+    /**
+     * Sets the proxyManualPort property value. Specify the proxy server port.
+     * @param int|null $value Value to set for the proxyManualPort property.
+    */
+    public function setProxyManualPort(?int $value): void {
+        $this->getBackingStore()->set('proxyManualPort', $value);
+    }
+
+    /**
+     * Sets the proxySetting property value. Wi-Fi Proxy Settings.
+     * @param WiFiProxySetting|null $value Value to set for the proxySetting property.
+    */
+    public function setProxySetting(?WiFiProxySetting $value): void {
+        $this->getBackingStore()->set('proxySetting', $value);
     }
 
     /**

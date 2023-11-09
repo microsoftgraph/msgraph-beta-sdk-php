@@ -282,7 +282,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @return PendingOperations|null
     */
     public function getPendingOperations(): ?PendingOperations {
@@ -380,7 +380,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * Gets the shared property value. Indicates that the item was shared with others and provides information about the shared state of the item. Read-only.
      * @return Shared|null
     */
     public function getShared(): ?Shared {
@@ -454,7 +454,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the thumbnails property value. Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+     * Gets the thumbnails property value. Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.
      * @return array<ThumbnailSet>|null
     */
     public function getThumbnails(): ?array {
@@ -698,7 +698,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @param PendingOperations|null $value Value to set for the pendingOperations property.
     */
     public function setPendingOperations(?PendingOperations $value): void {
@@ -762,7 +762,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * Sets the shared property value. Indicates that the item was shared with others and provides information about the shared state of the item. Read-only.
      * @param Shared|null $value Value to set for the shared property.
     */
     public function setShared(?Shared $value): void {
@@ -810,7 +810,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the thumbnails property value. Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+     * Sets the thumbnails property value. Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.
      * @param array<ThumbnailSet>|null $value Value to set for the thumbnails property.
     */
     public function setThumbnails(?array $value): void {

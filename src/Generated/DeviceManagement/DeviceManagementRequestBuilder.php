@@ -55,6 +55,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementPartners\Dev
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\DeviceManagementScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\DeviceShellScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\DomainJoinConnectorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\ElevationRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\EmbeddedSIMActivationCodePoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment\EnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableLegacyPcManagement\EnableLegacyPcManagementRequestBuilder;
@@ -550,6 +551,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function domainJoinConnectors(): DomainJoinConnectorsRequestBuilder {
         return new DomainJoinConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the elevationRequests property of the microsoft.graph.deviceManagement entity.
+    */
+    public function elevationRequests(): ElevationRequestsRequestBuilder {
+        return new ElevationRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

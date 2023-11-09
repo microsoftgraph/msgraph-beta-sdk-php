@@ -97,6 +97,7 @@ use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistancePartner;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistanceSettings;
@@ -967,6 +968,20 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the elevationRequests property value. List of elevation requests
+     * @return array<PrivilegeManagementElevationRequest>|null
+    */
+    public function getElevationRequests(): ?array {
+        $val = $this->getBackingStore()->get('elevationRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivilegeManagementElevationRequest::class);
+            /** @var array<PrivilegeManagementElevationRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'elevationRequests'");
+    }
+
+    /**
      * Gets the embeddedSIMActivationCodePools property value. The embedded SIM activation code pools created by this account.
      * @return array<EmbeddedSIMActivationCodePool>|null
     */
@@ -1084,6 +1099,7 @@ class DeviceManagement extends Entity implements Parsable
             'deviceProtectionOverview' => fn(ParseNode $n) => $o->setDeviceProtectionOverview($n->getObjectValue([DeviceProtectionOverview::class, 'createFromDiscriminatorValue'])),
             'deviceShellScripts' => fn(ParseNode $n) => $o->setDeviceShellScripts($n->getCollectionOfObjectValues([DeviceShellScript::class, 'createFromDiscriminatorValue'])),
             'domainJoinConnectors' => fn(ParseNode $n) => $o->setDomainJoinConnectors($n->getCollectionOfObjectValues([DeviceManagementDomainJoinConnector::class, 'createFromDiscriminatorValue'])),
+            'elevationRequests' => fn(ParseNode $n) => $o->setElevationRequests($n->getCollectionOfObjectValues([PrivilegeManagementElevationRequest::class, 'createFromDiscriminatorValue'])),
             'embeddedSIMActivationCodePools' => fn(ParseNode $n) => $o->setEmbeddedSIMActivationCodePools($n->getCollectionOfObjectValues([EmbeddedSIMActivationCodePool::class, 'createFromDiscriminatorValue'])),
             'exchangeConnectors' => fn(ParseNode $n) => $o->setExchangeConnectors($n->getCollectionOfObjectValues([DeviceManagementExchangeConnector::class, 'createFromDiscriminatorValue'])),
             'exchangeOnPremisesPolicies' => fn(ParseNode $n) => $o->setExchangeOnPremisesPolicies($n->getCollectionOfObjectValues([DeviceManagementExchangeOnPremisesPolicy::class, 'createFromDiscriminatorValue'])),
@@ -2882,6 +2898,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('deviceProtectionOverview', $this->getDeviceProtectionOverview());
         $writer->writeCollectionOfObjectValues('deviceShellScripts', $this->getDeviceShellScripts());
         $writer->writeCollectionOfObjectValues('domainJoinConnectors', $this->getDomainJoinConnectors());
+        $writer->writeCollectionOfObjectValues('elevationRequests', $this->getElevationRequests());
         $writer->writeCollectionOfObjectValues('embeddedSIMActivationCodePools', $this->getEmbeddedSIMActivationCodePools());
         $writer->writeCollectionOfObjectValues('exchangeConnectors', $this->getExchangeConnectors());
         $writer->writeCollectionOfObjectValues('exchangeOnPremisesPolicies', $this->getExchangeOnPremisesPolicies());
@@ -3458,6 +3475,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setDomainJoinConnectors(?array $value): void {
         $this->getBackingStore()->set('domainJoinConnectors', $value);
+    }
+
+    /**
+     * Sets the elevationRequests property value. List of elevation requests
+     * @param array<PrivilegeManagementElevationRequest>|null $value Value to set for the elevationRequests property.
+    */
+    public function setElevationRequests(?array $value): void {
+        $this->getBackingStore()->set('elevationRequests', $value);
     }
 
     /**

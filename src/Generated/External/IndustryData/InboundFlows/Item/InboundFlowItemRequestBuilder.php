@@ -47,11 +47,11 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Delete an inboundFlow object. This API is available in the following national cloud deployments.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?InboundFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -79,12 +79,12 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an inboundFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of an inboundFileFlow object. This API is available in the following national cloud deployments.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(InboundFlow $body, ?InboundFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -96,7 +96,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Delete an inboundFlow object. This API is available in the following national cloud deployments.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an inboundFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of an inboundFileFlow object. This API is available in the following national cloud deployments.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -75,7 +75,7 @@ class MemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * The groups, directory roles, and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
      * @param MemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
@@ -91,7 +91,7 @@ class MemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * The groups, directory roles, and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
      * @param MemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

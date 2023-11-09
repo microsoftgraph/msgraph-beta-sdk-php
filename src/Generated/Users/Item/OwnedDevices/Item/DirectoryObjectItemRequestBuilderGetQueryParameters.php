@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+ * Devices owned by the user. Read-only. Nullable. Supports $expand.
 */
 class DirectoryObjectItemRequestBuilderGetQueryParameters 
 {

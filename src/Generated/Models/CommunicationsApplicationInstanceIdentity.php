@@ -38,7 +38,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Gets the hidden property value. True if the participant wouldn't like to be shown in other participants' rosters.
+     * Gets the hidden property value. True if the participant shouldn't be shown in other participants' rosters.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -50,7 +50,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Gets the tenantId property value. The application's tenant ID.
+     * Gets the tenantId property value. The tenant ID of the application.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -72,7 +72,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Sets the hidden property value. True if the participant wouldn't like to be shown in other participants' rosters.
+     * Sets the hidden property value. True if the participant shouldn't be shown in other participants' rosters.
      * @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value): void {
@@ -80,7 +80,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Sets the tenantId property value. The application's tenant ID.
+     * Sets the tenantId property value. The tenant ID of the application.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

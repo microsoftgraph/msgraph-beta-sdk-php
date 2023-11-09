@@ -214,6 +214,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
                 /** @var array<string>|null $val */
                 $this->setManagedUniversalLinks($val);
             },
+            'messagingRedirectAppUrlScheme' => fn(ParseNode $n) => $o->setMessagingRedirectAppUrlScheme($n->getStringValue()),
             'minimumRequiredSdkVersion' => fn(ParseNode $n) => $o->setMinimumRequiredSdkVersion($n->getStringValue()),
             'minimumWarningSdkVersion' => fn(ParseNode $n) => $o->setMinimumWarningSdkVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
@@ -246,6 +247,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedUniversalLinks'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppUrlScheme property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app url redirect schemes which are allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppUrlScheme(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppUrlScheme');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppUrlScheme'");
     }
 
     /**
@@ -328,6 +341,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
         $writer->writeBooleanValue('faceIdBlocked', $this->getFaceIdBlocked());
         $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->getFilterOpenInToOnlyManagedApps());
         $writer->writeCollectionOfPrimitiveValues('managedUniversalLinks', $this->getManagedUniversalLinks());
+        $writer->writeStringValue('messagingRedirectAppUrlScheme', $this->getMessagingRedirectAppUrlScheme());
         $writer->writeStringValue('minimumRequiredSdkVersion', $this->getMinimumRequiredSdkVersion());
         $writer->writeStringValue('minimumWarningSdkVersion', $this->getMinimumWarningSdkVersion());
         $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
@@ -445,6 +459,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function setManagedUniversalLinks(?array $value): void {
         $this->getBackingStore()->set('managedUniversalLinks', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppUrlScheme property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app url redirect schemes which are allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppUrlScheme property.
+    */
+    public function setMessagingRedirectAppUrlScheme(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppUrlScheme', $value);
     }
 
     /**
