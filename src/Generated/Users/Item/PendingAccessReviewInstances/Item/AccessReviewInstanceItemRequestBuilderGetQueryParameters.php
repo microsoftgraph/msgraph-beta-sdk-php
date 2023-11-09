@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Navigation property to get list of access reviews pending approval by reviewer.
+ * Navigation property to get a list of access reviews pending approval by the reviewer.
 */
 class AccessReviewInstanceItemRequestBuilderGetQueryParameters 
 {

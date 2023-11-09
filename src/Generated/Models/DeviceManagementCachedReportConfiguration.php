@@ -167,9 +167,12 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeStringValue('filter', $this->getFilter());
+        $writer->writeDateTimeValue('lastRefreshDateTime', $this->getLastRefreshDateTime());
         $writer->writeStringValue('metadata', $this->getMetadata());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
+        $writer->writeStringValue('reportName', $this->getReportName());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeEnumValue('status', $this->getStatus());
     }

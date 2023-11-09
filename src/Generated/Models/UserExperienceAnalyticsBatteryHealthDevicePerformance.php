@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The user experience analytics battery health device performance entity contains device level battery information.
@@ -37,6 +38,20 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryAgeInDays'");
+    }
+
+    /**
+     * Gets the deviceBatteriesDetails property value. Properties (maxCapacity and cycleCount) related to all batteries of the device.
+     * @return array<UserExperienceAnalyticsDeviceBatteryDetail>|null
+    */
+    public function getDeviceBatteriesDetails(): ?array {
+        $val = $this->getBackingStore()->get('deviceBatteriesDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsDeviceBatteryDetail::class);
+            /** @var array<UserExperienceAnalyticsDeviceBatteryDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceBatteriesDetails'");
     }
 
     /**
@@ -107,6 +122,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'batteryAgeInDays' => fn(ParseNode $n) => $o->setBatteryAgeInDays($n->getIntegerValue()),
+            'deviceBatteriesDetails' => fn(ParseNode $n) => $o->setDeviceBatteriesDetails($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceBatteryDetail::class, 'createFromDiscriminatorValue'])),
             'deviceBatteryCount' => fn(ParseNode $n) => $o->setDeviceBatteryCount($n->getIntegerValue()),
             'deviceBatteryHealthScore' => fn(ParseNode $n) => $o->setDeviceBatteryHealthScore($n->getIntegerValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
@@ -187,6 +203,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('batteryAgeInDays', $this->getBatteryAgeInDays());
+        $writer->writeCollectionOfObjectValues('deviceBatteriesDetails', $this->getDeviceBatteriesDetails());
         $writer->writeIntegerValue('deviceBatteryCount', $this->getDeviceBatteryCount());
         $writer->writeIntegerValue('deviceBatteryHealthScore', $this->getDeviceBatteryHealthScore());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
@@ -205,6 +222,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function setBatteryAgeInDays(?int $value): void {
         $this->getBackingStore()->set('batteryAgeInDays', $value);
+    }
+
+    /**
+     * Sets the deviceBatteriesDetails property value. Properties (maxCapacity and cycleCount) related to all batteries of the device.
+     * @param array<UserExperienceAnalyticsDeviceBatteryDetail>|null $value Value to set for the deviceBatteriesDetails property.
+    */
+    public function setDeviceBatteriesDetails(?array $value): void {
+        $this->getBackingStore()->set('deviceBatteriesDetails', $value);
     }
 
     /**

@@ -27,7 +27,7 @@ class ConnectivityConfigurationLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Specifies the name of the link.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -52,7 +52,7 @@ class ConnectivityConfigurationLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the localConfigurations property value. The localConfigurations property
+     * Gets the localConfigurations property value. Specifies Microsoft's end of the tunnel configuration for a device link.
      * @return array<LocalConnectivityConfiguration>|null
     */
     public function getLocalConfigurations(): ?array {
@@ -89,7 +89,7 @@ class ConnectivityConfigurationLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Specifies the name of the link.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -97,7 +97,7 @@ class ConnectivityConfigurationLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the localConfigurations property value. The localConfigurations property
+     * Sets the localConfigurations property value. Specifies Microsoft's end of the tunnel configuration for a device link.
      * @param array<LocalConnectivityConfiguration>|null $value Value to set for the localConfigurations property.
     */
     public function setLocalConfigurations(?array $value): void {

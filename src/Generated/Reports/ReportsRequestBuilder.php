@@ -146,6 +146,7 @@ use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\MonthlyPrintU
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\ServiceActivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\ServicePrincipalSignInActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Sla\SlaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
@@ -341,6 +342,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the serviceActivity property of the microsoft.graph.reportRoot entity.
+    */
+    public function serviceActivity(): ServiceActivityRequestBuilder {
+        return new ServiceActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

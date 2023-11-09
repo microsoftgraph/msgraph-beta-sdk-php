@@ -184,13 +184,16 @@ class DeviceManagementExportJob extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeEnumValue('format', $this->getFormat());
         $writer->writeEnumValue('localizationType', $this->getLocalizationType());
         $writer->writeStringValue('reportName', $this->getReportName());
+        $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeStringValue('snapshotId', $this->getSnapshotId());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('url', $this->getUrl());
     }
 
     /**

@@ -44,11 +44,11 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a riskDetection object. This API is available in the following national cloud deployments.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskDetectionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskDetectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +76,7 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a riskDetection object. This API is available in the following national cloud deployments.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

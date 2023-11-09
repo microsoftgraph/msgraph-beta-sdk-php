@@ -29,7 +29,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the aboutMe property value. A freeform text entry field for the user to describe themselves. Returned only on $select.
+     * Gets the aboutMe property value. A freeform text entry field for users to describe themselves. Returned only on $select.
      * @return string|null
     */
     public function getAboutMe(): ?string {
@@ -67,7 +67,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the ageGroup property value. Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. For more information, see legal age group property definitions. Supports $filter (eq, ne, not, and in).
+     * Gets the ageGroup property value. Sets the age group of the user. Allowed values: null, Minor, NotAdult, and Adult. For more information, see legal age group property definitions. Supports $filter (eq, ne, not, and in).
      * @return string|null
     */
     public function getAgeGroup(): ?string {
@@ -161,7 +161,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
+     * Gets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate between directly assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
      * @return array<AssignedLicense>|null
     */
     public function getAssignedLicenses(): ?array {
@@ -201,7 +201,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
+     * Gets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can store identifiers for smartcard-based certificates that users use to access on-premises Active Directory deployments or federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
      * @return AuthorizationInfo|null
     */
     public function getAuthorizationInfo(): ?AuthorizationInfo {
@@ -213,7 +213,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
+     * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
      * @return DateTime|null
     */
     public function getBirthday(): ?DateTime {
@@ -345,7 +345,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the companyName property value. The name of the company that the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the companyName property value. The name of the company the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
     public function getCompanyName(): ?string {
@@ -409,7 +409,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Microsoft Entra ID. Property is null for some users created before June 2018 and on-premises users that were synced to Microsoft Entra ID before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
+     * Gets the createdDateTime property value. The date and time the user was created in ISO 8601 format and UTC. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Microsoft Entra ID. Property is null for some users created before June 2018 and on-premises users synced to Microsoft Entra ID before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -447,7 +447,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
+     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive.
      * @return CustomSecurityAttributeValue|null
     */
     public function getCustomSecurityAttributes(): ?CustomSecurityAttributeValue {
@@ -459,7 +459,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the department property value. The name for the department in which the user works. Maximum length is 64 characters.Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
+     * Gets the department property value. The name of the department where the user works. Maximum length is 64 characters.Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
      * @return string|null
     */
     public function getDepartment(): ?string {
@@ -539,7 +539,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the directReports property value. The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Gets the directReports property value. The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getDirectReports(): ?array {
@@ -553,7 +553,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
+     * Gets the displayName property value. The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created, and it cannot be cleared during updates. Maximum length is 256 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -603,7 +603,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the employeeHireDate property value. The date and time when the user was hired or will start work in case of a future hire. Supports $filter (eq, ne, not , ge, le, in).
+     * Gets the employeeHireDate property value. The date and time when the user was hired or will start work if there is a future hire. Supports $filter (eq, ne, not , ge, le, in).
      * @return DateTime|null
     */
     public function getEmployeeHireDate(): ?DateTime {
@@ -675,7 +675,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the events property value. The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+     * Gets the events property value. The user's events. The default is to show events under the Default Calendar. Read-only. Nullable.
      * @return array<Event>|null
     */
     public function getEvents(): ?array {
@@ -997,7 +997,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
+     * Gets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
      * @return DateTime|null
     */
     public function getHireDate(): ?DateTime {
@@ -1009,7 +1009,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft, and tied to a user account. May contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
      * @return array<ObjectIdentity>|null
     */
     public function getIdentities(): ?array {
@@ -1023,7 +1023,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the imAddresses property value. The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the imAddresses property value. The instant message voice-over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
      * @return array<string>|null
     */
     public function getImAddresses(): ?array {
@@ -1087,7 +1087,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the interests property value. A list for the user to describe their interests. Returned only on $select.
+     * Gets the interests property value. A list for users to describe their interests. Returned only on $select.
      * @return array<string>|null
     */
     public function getInterests(): ?array {
@@ -1113,7 +1113,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
+     * Gets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, which requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -1163,7 +1163,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the joinedTeams property value. The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+     * Gets the joinedTeams property value. The Microsoft Teams teams the user is a member of. Read-only. Nullable.
      * @return array<Team>|null
     */
     public function getJoinedTeams(): ?array {
@@ -1177,7 +1177,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the lastPasswordChangeDateTime property value. The time when this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
+     * Gets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
      * @return DateTime|null
     */
     public function getLastPasswordChangeDateTime(): ?DateTime {
@@ -1189,7 +1189,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult and Adult. For more information, see legal age group property definitions. Returned only on $select.
+     * Gets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Returned only on $select.
      * @return string|null
     */
     public function getLegalAgeGroupClassification(): ?string {
@@ -1201,7 +1201,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the licenseAssignmentStates property value. State of license assignments for this user. Also indicates licenses that are directly assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
+     * Gets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Returned only on $select.
      * @return array<LicenseAssignmentState>|null
     */
     public function getLicenseAssignmentStates(): ?array {
@@ -1229,7 +1229,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mail property value. The SMTP address for the user, for example, admin@contoso.com. Changes to this property also updates the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
+     * Gets the mail property value. The SMTP address for the user, for example, admin@contoso.com. Changes to this property also update the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
      * @return string|null
     */
     public function getMail(): ?string {
@@ -1319,7 +1319,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the memberOf property value. The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * Gets the memberOf property value. The groups, directory roles, and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getMemberOf(): ?array {
@@ -1375,7 +1375,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
+     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
      * @return string|null
     */
     public function getMobilePhone(): ?string {
@@ -1387,7 +1387,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mySite property value. The URL for the user's personal site. Returned only on $select.
+     * Gets the mySite property value. The URL for the user's site. Returned only on $select.
      * @return string|null
     */
     public function getMySite(): ?string {
@@ -1451,7 +1451,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
+     * Gets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees list, and the description.
      * @return array<OnlineMeeting>|null
     */
     public function getOnlineMeetings(): ?array {
@@ -1465,7 +1465,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Gets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
      * @return string|null
     */
     public function getOnPremisesDistinguishedName(): ?string {
@@ -1477,7 +1477,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Gets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
      * @return string|null
     */
     public function getOnPremisesDomainName(): ?string {
@@ -1489,7 +1489,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
+     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getOnPremisesExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -1501,7 +1501,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesImmutableId property value. This property is used to associate an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
+     * Gets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
      * @return string|null
     */
     public function getOnPremisesImmutableId(): ?string {
@@ -1513,7 +1513,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesLastSyncDateTime property value. Indicates the last time at which the object was synced with the on-premises directory; for example: '2013-02-16T03:04:54Z'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, in).
+     * Gets the onPremisesLastSyncDateTime property value. Indicates the last time at which the object was synced with the on-premises directory; for example: '2013-02-16T03:04:54Z'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, in).
      * @return DateTime|null
     */
     public function getOnPremisesLastSyncDateTime(): ?DateTime {
@@ -1539,7 +1539,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @return string|null
     */
     public function getOnPremisesSamAccountName(): ?string {
@@ -1551,7 +1551,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
+     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -1575,7 +1575,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Microsoft Entra ID. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+     * Gets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise, the user isn't being synced and can be managed in Microsoft Entra ID. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
@@ -1587,7 +1587,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @return string|null
     */
     public function getOnPremisesUserPrincipalName(): ?string {
@@ -1625,7 +1625,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the ownedDevices property value. Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+     * Gets the ownedDevices property value. Devices owned by the user. Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getOwnedDevices(): ?array {
@@ -1639,7 +1639,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the ownedObjects property value. Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+     * Gets the ownedObjects property value. Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @return array<DirectoryObject>|null
     */
     public function getOwnedObjects(): ?array {
@@ -1677,7 +1677,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the pastProjects property value. A list for the user to enumerate their past projects. Returned only on $select.
+     * Gets the pastProjects property value. A list for users to enumerate their past projects. Returned only on $select.
      * @return array<string>|null
     */
     public function getPastProjects(): ?array {
@@ -1691,7 +1691,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the pendingAccessReviewInstances property value. Navigation property to get list of access reviews pending approval by reviewer.
+     * Gets the pendingAccessReviewInstances property value. Navigation property to get a list of access reviews pending approval by the reviewer.
      * @return array<AccessReviewInstance>|null
     */
     public function getPendingAccessReviewInstances(): ?array {
@@ -1705,7 +1705,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the people property value. Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
+     * Gets the people property value. Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.
      * @return array<Person>|null
     */
     public function getPeople(): ?array {
@@ -1745,7 +1745,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the photos property value. The photos property
+     * Gets the photos property value. The collection of the user's profile photos in different sizes. Read-only.
      * @return array<ProfilePhoto>|null
     */
     public function getPhotos(): ?array {
@@ -1795,7 +1795,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the preferredLanguage property value. The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: 'en-US', or 'es-ES'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the preferredLanguage property value. The preferred language for the user. The preferred language format is based on RFC 4646. The name combines an ISO 639 two-letter lowercase culture code associated with the language and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: 'en-US', or 'es-ES'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
     public function getPreferredLanguage(): ?string {
@@ -1857,7 +1857,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the proxyAddresses property value. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * Gets the proxyAddresses property value. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address, while the ones prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
      * @return array<string>|null
     */
     public function getProxyAddresses(): ?array {
@@ -1871,7 +1871,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the refreshTokensValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use invalidateAllRefreshTokens to reset.
+     * Gets the refreshTokensValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If it happens, the application must acquire a new refresh token by requesting the authorized endpoint. Read-only. Use invalidateAllRefreshTokens to reset.
      * @return DateTime|null
     */
     public function getRefreshTokensValidFromDateTime(): ?DateTime {
@@ -2013,7 +2013,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the signInSessionsValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.
+     * Gets the signInSessionsValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application must acquire a new refresh token by requesting the authorized endpoint. Read-only. Use revokeSignInSessions to reset.
      * @return DateTime|null
     */
     public function getSignInSessionsValidFromDateTime(): ?DateTime {
@@ -2039,7 +2039,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the sponsors property value. The users and groups that are responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
+     * Gets the sponsors property value. The users and groups responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getSponsors(): ?array {
@@ -2113,7 +2113,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * Gets the transitiveMemberOf property value. The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
@@ -2141,7 +2141,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the usageLocation property value. A two letter country code (ISO standard 3166). Required for users that are assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the usageLocation property value. A two-letter country code (ISO standard 3166). Required for users that are assigned licenses due to legal requirements to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
     public function getUsageLocation(): ?string {
@@ -2167,7 +2167,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
+     * Gets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -2377,7 +2377,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the aboutMe property value. A freeform text entry field for the user to describe themselves. Returned only on $select.
+     * Sets the aboutMe property value. A freeform text entry field for users to describe themselves. Returned only on $select.
      * @param string|null $value Value to set for the aboutMe property.
     */
     public function setAboutMe(?string $value): void {
@@ -2401,7 +2401,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the ageGroup property value. Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. For more information, see legal age group property definitions. Supports $filter (eq, ne, not, and in).
+     * Sets the ageGroup property value. Sets the age group of the user. Allowed values: null, Minor, NotAdult, and Adult. For more information, see legal age group property definitions. Supports $filter (eq, ne, not, and in).
      * @param string|null $value Value to set for the ageGroup property.
     */
     public function setAgeGroup(?string $value): void {
@@ -2457,7 +2457,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
+     * Sets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate between directly assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
      * @param array<AssignedLicense>|null $value Value to set for the assignedLicenses property.
     */
     public function setAssignedLicenses(?array $value): void {
@@ -2481,7 +2481,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
+     * Sets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can store identifiers for smartcard-based certificates that users use to access on-premises Active Directory deployments or federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
      * @param AuthorizationInfo|null $value Value to set for the authorizationInfo property.
     */
     public function setAuthorizationInfo(?AuthorizationInfo $value): void {
@@ -2489,7 +2489,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
+     * Sets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
      * @param DateTime|null $value Value to set for the birthday property.
     */
     public function setBirthday(?DateTime $value): void {
@@ -2569,7 +2569,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the companyName property value. The name of the company that the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the companyName property value. The name of the company the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param string|null $value Value to set for the companyName property.
     */
     public function setCompanyName(?string $value): void {
@@ -2609,7 +2609,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Microsoft Entra ID. Property is null for some users created before June 2018 and on-premises users that were synced to Microsoft Entra ID before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
+     * Sets the createdDateTime property value. The date and time the user was created in ISO 8601 format and UTC. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Microsoft Entra ID. Property is null for some users created before June 2018 and on-premises users synced to Microsoft Entra ID before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -2633,7 +2633,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
+     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive.
      * @param CustomSecurityAttributeValue|null $value Value to set for the customSecurityAttributes property.
     */
     public function setCustomSecurityAttributes(?CustomSecurityAttributeValue $value): void {
@@ -2641,7 +2641,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the department property value. The name for the department in which the user works. Maximum length is 64 characters.Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
+     * Sets the department property value. The name of the department where the user works. Maximum length is 64 characters.Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
      * @param string|null $value Value to set for the department property.
     */
     public function setDepartment(?string $value): void {
@@ -2689,7 +2689,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the directReports property value. The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Sets the directReports property value. The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the directReports property.
     */
     public function setDirectReports(?array $value): void {
@@ -2697,7 +2697,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
+     * Sets the displayName property value. The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created, and it cannot be cleared during updates. Maximum length is 256 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -2729,7 +2729,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the employeeHireDate property value. The date and time when the user was hired or will start work in case of a future hire. Supports $filter (eq, ne, not , ge, le, in).
+     * Sets the employeeHireDate property value. The date and time when the user was hired or will start work if there is a future hire. Supports $filter (eq, ne, not , ge, le, in).
      * @param DateTime|null $value Value to set for the employeeHireDate property.
     */
     public function setEmployeeHireDate(?DateTime $value): void {
@@ -2777,7 +2777,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the events property value. The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+     * Sets the events property value. The user's events. The default is to show events under the Default Calendar. Read-only. Nullable.
      * @param array<Event>|null $value Value to set for the events property.
     */
     public function setEvents(?array $value): void {
@@ -2833,7 +2833,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
+     * Sets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
      * @param DateTime|null $value Value to set for the hireDate property.
     */
     public function setHireDate(?DateTime $value): void {
@@ -2841,7 +2841,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft, and tied to a user account. May contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
      * @param array<ObjectIdentity>|null $value Value to set for the identities property.
     */
     public function setIdentities(?array $value): void {
@@ -2849,7 +2849,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the imAddresses property value. The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the imAddresses property value. The instant message voice-over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
      * @param array<string>|null $value Value to set for the imAddresses property.
     */
     public function setImAddresses(?array $value): void {
@@ -2889,7 +2889,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the interests property value. A list for the user to describe their interests. Returned only on $select.
+     * Sets the interests property value. A list for users to describe their interests. Returned only on $select.
      * @param array<string>|null $value Value to set for the interests property.
     */
     public function setInterests(?array $value): void {
@@ -2905,7 +2905,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
+     * Sets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, which requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
@@ -2937,7 +2937,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the joinedTeams property value. The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+     * Sets the joinedTeams property value. The Microsoft Teams teams the user is a member of. Read-only. Nullable.
      * @param array<Team>|null $value Value to set for the joinedTeams property.
     */
     public function setJoinedTeams(?array $value): void {
@@ -2945,7 +2945,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the lastPasswordChangeDateTime property value. The time when this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
+     * Sets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
      * @param DateTime|null $value Value to set for the lastPasswordChangeDateTime property.
     */
     public function setLastPasswordChangeDateTime(?DateTime $value): void {
@@ -2953,7 +2953,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult and Adult. For more information, see legal age group property definitions. Returned only on $select.
+     * Sets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Returned only on $select.
      * @param string|null $value Value to set for the legalAgeGroupClassification property.
     */
     public function setLegalAgeGroupClassification(?string $value): void {
@@ -2961,7 +2961,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the licenseAssignmentStates property value. State of license assignments for this user. Also indicates licenses that are directly assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
+     * Sets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Returned only on $select.
      * @param array<LicenseAssignmentState>|null $value Value to set for the licenseAssignmentStates property.
     */
     public function setLicenseAssignmentStates(?array $value): void {
@@ -2977,7 +2977,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mail property value. The SMTP address for the user, for example, admin@contoso.com. Changes to this property also updates the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
+     * Sets the mail property value. The SMTP address for the user, for example, admin@contoso.com. Changes to this property also update the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
      * @param string|null $value Value to set for the mail property.
     */
     public function setMail(?string $value): void {
@@ -3033,7 +3033,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the memberOf property value. The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * Sets the memberOf property value. The groups, directory roles, and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
@@ -3065,7 +3065,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
+     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
      * @param string|null $value Value to set for the mobilePhone property.
     */
     public function setMobilePhone(?string $value): void {
@@ -3073,7 +3073,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mySite property value. The URL for the user's personal site. Returned only on $select.
+     * Sets the mySite property value. The URL for the user's site. Returned only on $select.
      * @param string|null $value Value to set for the mySite property.
     */
     public function setMySite(?string $value): void {
@@ -3113,7 +3113,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
+     * Sets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees list, and the description.
      * @param array<OnlineMeeting>|null $value Value to set for the onlineMeetings property.
     */
     public function setOnlineMeetings(?array $value): void {
@@ -3121,7 +3121,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Sets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
      * @param string|null $value Value to set for the onPremisesDistinguishedName property.
     */
     public function setOnPremisesDistinguishedName(?string $value): void {
@@ -3129,7 +3129,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Sets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
      * @param string|null $value Value to set for the onPremisesDomainName property.
     */
     public function setOnPremisesDomainName(?string $value): void {
@@ -3137,7 +3137,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
+     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @param OnPremisesExtensionAttributes|null $value Value to set for the onPremisesExtensionAttributes property.
     */
     public function setOnPremisesExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
@@ -3145,7 +3145,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesImmutableId property value. This property is used to associate an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
+     * Sets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
      * @param string|null $value Value to set for the onPremisesImmutableId property.
     */
     public function setOnPremisesImmutableId(?string $value): void {
@@ -3153,7 +3153,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesLastSyncDateTime property value. Indicates the last time at which the object was synced with the on-premises directory; for example: '2013-02-16T03:04:54Z'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, in).
+     * Sets the onPremisesLastSyncDateTime property value. Indicates the last time at which the object was synced with the on-premises directory; for example: '2013-02-16T03:04:54Z'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, in).
      * @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
@@ -3169,7 +3169,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @param string|null $value Value to set for the onPremisesSamAccountName property.
     */
     public function setOnPremisesSamAccountName(?string $value): void {
@@ -3177,7 +3177,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
+     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
@@ -3193,7 +3193,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Microsoft Entra ID. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+     * Sets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise, the user isn't being synced and can be managed in Microsoft Entra ID. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      * @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value): void {
@@ -3201,7 +3201,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @param string|null $value Value to set for the onPremisesUserPrincipalName property.
     */
     public function setOnPremisesUserPrincipalName(?string $value): void {
@@ -3225,7 +3225,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the ownedDevices property value. Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+     * Sets the ownedDevices property value. Devices owned by the user. Read-only. Nullable. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the ownedDevices property.
     */
     public function setOwnedDevices(?array $value): void {
@@ -3233,7 +3233,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the ownedObjects property value. Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+     * Sets the ownedObjects property value. Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param array<DirectoryObject>|null $value Value to set for the ownedObjects property.
     */
     public function setOwnedObjects(?array $value): void {
@@ -3257,7 +3257,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the pastProjects property value. A list for the user to enumerate their past projects. Returned only on $select.
+     * Sets the pastProjects property value. A list for users to enumerate their past projects. Returned only on $select.
      * @param array<string>|null $value Value to set for the pastProjects property.
     */
     public function setPastProjects(?array $value): void {
@@ -3265,7 +3265,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the pendingAccessReviewInstances property value. Navigation property to get list of access reviews pending approval by reviewer.
+     * Sets the pendingAccessReviewInstances property value. Navigation property to get a list of access reviews pending approval by the reviewer.
      * @param array<AccessReviewInstance>|null $value Value to set for the pendingAccessReviewInstances property.
     */
     public function setPendingAccessReviewInstances(?array $value): void {
@@ -3273,7 +3273,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the people property value. Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
+     * Sets the people property value. Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.
      * @param array<Person>|null $value Value to set for the people property.
     */
     public function setPeople(?array $value): void {
@@ -3297,7 +3297,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the photos property value. The photos property
+     * Sets the photos property value. The collection of the user's profile photos in different sizes. Read-only.
      * @param array<ProfilePhoto>|null $value Value to set for the photos property.
     */
     public function setPhotos(?array $value): void {
@@ -3329,7 +3329,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the preferredLanguage property value. The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: 'en-US', or 'es-ES'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the preferredLanguage property value. The preferred language for the user. The preferred language format is based on RFC 4646. The name combines an ISO 639 two-letter lowercase culture code associated with the language and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: 'en-US', or 'es-ES'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param string|null $value Value to set for the preferredLanguage property.
     */
     public function setPreferredLanguage(?string $value): void {
@@ -3369,7 +3369,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the proxyAddresses property value. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * Sets the proxyAddresses property value. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address, while the ones prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
      * @param array<string>|null $value Value to set for the proxyAddresses property.
     */
     public function setProxyAddresses(?array $value): void {
@@ -3377,7 +3377,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the refreshTokensValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use invalidateAllRefreshTokens to reset.
+     * Sets the refreshTokensValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If it happens, the application must acquire a new refresh token by requesting the authorized endpoint. Read-only. Use invalidateAllRefreshTokens to reset.
      * @param DateTime|null $value Value to set for the refreshTokensValidFromDateTime property.
     */
     public function setRefreshTokensValidFromDateTime(?DateTime $value): void {
@@ -3465,7 +3465,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the signInSessionsValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.
+     * Sets the signInSessionsValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application must acquire a new refresh token by requesting the authorized endpoint. Read-only. Use revokeSignInSessions to reset.
      * @param DateTime|null $value Value to set for the signInSessionsValidFromDateTime property.
     */
     public function setSignInSessionsValidFromDateTime(?DateTime $value): void {
@@ -3481,7 +3481,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the sponsors property value. The users and groups that are responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
+     * Sets the sponsors property value. The users and groups responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the sponsors property.
     */
     public function setSponsors(?array $value): void {
@@ -3529,7 +3529,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * Sets the transitiveMemberOf property value. The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value): void {
@@ -3545,7 +3545,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the usageLocation property value. A two letter country code (ISO standard 3166). Required for users that are assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the usageLocation property value. A two-letter country code (ISO standard 3166). Required for users that are assigned licenses due to legal requirements to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param string|null $value Value to set for the usageLocation property.
     */
     public function setUsageLocation(?string $value): void {
@@ -3561,7 +3561,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
+     * Sets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

@@ -27,6 +27,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\CreatedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEvents\DeviceManagementTroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
@@ -53,6 +54,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\GetManagedDevicesWithAppFailures\G
 use Microsoft\Graph\Beta\Generated\Users\Item\GetManagedDevicesWithFailedOrPendingApps\GetManagedDevicesWithFailedOrPendingAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\InferenceClassificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Insights\InsightsRequestBuilder;
@@ -269,6 +271,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the deletePasswordSingleSignOnCredentials method.
+    */
+    public function deletePasswordSingleSignOnCredentials(): DeletePasswordSingleSignOnCredentialsRequestBuilder {
+        return new DeletePasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
     */
     public function deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
@@ -434,6 +443,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getPasswordSingleSignOnCredentials method.
+    */
+    public function getPasswordSingleSignOnCredentials(): GetPasswordSingleSignOnCredentialsRequestBuilder {
+        return new GetPasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

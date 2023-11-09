@@ -25,7 +25,26 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return Win32LobAppAssignmentSettings
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Win32LobAppAssignmentSettings {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.win32CatalogAppAssignmentSettings': return new Win32CatalogAppAssignmentSettings();
+            }
+        }
         return new Win32LobAppAssignmentSettings();
+    }
+
+    /**
+     * Gets the autoUpdateSettings property value. The auto-update settings to apply for this app assignment.
+     * @return Win32LobAppAutoUpdateSettings|null
+    */
+    public function getAutoUpdateSettings(): ?Win32LobAppAutoUpdateSettings {
+        $val = $this->getBackingStore()->get('autoUpdateSettings');
+        if (is_null($val) || $val instanceof Win32LobAppAutoUpdateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoUpdateSettings'");
     }
 
     /**
@@ -47,6 +66,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'autoUpdateSettings' => fn(ParseNode $n) => $o->setAutoUpdateSettings($n->getObjectValue([Win32LobAppAutoUpdateSettings::class, 'createFromDiscriminatorValue'])),
             'deliveryOptimizationPriority' => fn(ParseNode $n) => $o->setDeliveryOptimizationPriority($n->getEnumValue(Win32LobAppDeliveryOptimizationPriority::class)),
             'installTimeSettings' => fn(ParseNode $n) => $o->setInstallTimeSettings($n->getObjectValue([MobileAppInstallTimeSettings::class, 'createFromDiscriminatorValue'])),
             'notifications' => fn(ParseNode $n) => $o->setNotifications($n->getEnumValue(Win32LobAppNotification::class)),
@@ -96,10 +116,19 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('autoUpdateSettings', $this->getAutoUpdateSettings());
         $writer->writeEnumValue('deliveryOptimizationPriority', $this->getDeliveryOptimizationPriority());
         $writer->writeObjectValue('installTimeSettings', $this->getInstallTimeSettings());
         $writer->writeEnumValue('notifications', $this->getNotifications());
         $writer->writeObjectValue('restartSettings', $this->getRestartSettings());
+    }
+
+    /**
+     * Sets the autoUpdateSettings property value. The auto-update settings to apply for this app assignment.
+     * @param Win32LobAppAutoUpdateSettings|null $value Value to set for the autoUpdateSettings property.
+    */
+    public function setAutoUpdateSettings(?Win32LobAppAutoUpdateSettings $value): void {
+        $this->getBackingStore()->set('autoUpdateSettings', $value);
     }
 
     /**

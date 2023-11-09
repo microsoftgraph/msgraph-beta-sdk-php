@@ -68,7 +68,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProfileCardProperty|null>
@@ -106,7 +106,7 @@ class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or delete custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API. This API is available in the following national cloud deployments.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

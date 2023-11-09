@@ -82,7 +82,7 @@ class ProfileCardAnnotation implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the localizations property value. Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
+     * Gets the localizations property value. Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a nb-NO client gets 'Kostnadssenter' as the attribute label, rather than 'Cost Center.'
      * @return array<DisplayNameLocalization>|null
     */
     public function getLocalizations(): ?array {
@@ -143,7 +143,7 @@ class ProfileCardAnnotation implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the localizations property value. Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
+     * Sets the localizations property value. Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a nb-NO client gets 'Kostnadssenter' as the attribute label, rather than 'Cost Center.'
      * @param array<DisplayNameLocalization>|null $value Value to set for the localizations property.
     */
     public function setLocalizations(?array $value): void {

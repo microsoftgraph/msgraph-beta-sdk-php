@@ -68,7 +68,7 @@ class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be created, and these may only be created for custom authentication strength policies. This API is available in the following national cloud deployments.
+     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations might be created, and only for custom authentication strength policies. This API is available in the following national cloud deployments.
      * @param AuthenticationCombinationConfiguration $body The request body
      * @param CombinationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationCombinationConfiguration|null>
@@ -106,7 +106,7 @@ class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be created, and these may only be created for custom authentication strength policies. This API is available in the following national cloud deployments.
+     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations might be created, and only for custom authentication strength policies. This API is available in the following national cloud deployments.
      * @param AuthenticationCombinationConfiguration $body The request body
      * @param CombinationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

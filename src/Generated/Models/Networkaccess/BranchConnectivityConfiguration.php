@@ -57,7 +57,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the branchId property value. The branchId property
+     * Gets the branchId property value. Unique identifier or a specific reference assigned to a branchSite. Key.
      * @return string|null
     */
     public function getBranchId(): ?string {
@@ -69,7 +69,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the branchName property value. The branchName property
+     * Gets the branchName property value. Display name assigned to a branchSite.
      * @return string|null
     */
     public function getBranchName(): ?string {
@@ -95,7 +95,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the links property value. The links property
+     * Gets the links property value. List of connectivity configurations for deviceLink objects.
      * @return array<ConnectivityConfigurationLink>|null
     */
     public function getLinks(): ?array {
@@ -149,7 +149,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the branchId property value. The branchId property
+     * Sets the branchId property value. Unique identifier or a specific reference assigned to a branchSite. Key.
      * @param string|null $value Value to set for the branchId property.
     */
     public function setBranchId(?string $value): void {
@@ -157,7 +157,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the branchName property value. The branchName property
+     * Sets the branchName property value. Display name assigned to a branchSite.
      * @param string|null $value Value to set for the branchName property.
     */
     public function setBranchName(?string $value): void {
@@ -165,7 +165,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the links property value. The links property
+     * Sets the links property value. List of connectivity configurations for deviceLink objects.
      * @param array<ConnectivityConfigurationLink>|null $value Value to set for the links property.
     */
     public function setLinks(?array $value): void {

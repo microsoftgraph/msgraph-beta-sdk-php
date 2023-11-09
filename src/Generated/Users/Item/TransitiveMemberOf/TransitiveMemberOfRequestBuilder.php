@@ -75,7 +75,7 @@ class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
@@ -91,7 +91,7 @@ class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+     * The groups, including nested groups and directory roles that a user is a member of. Nullable.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

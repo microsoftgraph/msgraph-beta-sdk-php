@@ -54,10 +54,11 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivityConfiguration from networkAccess
+     * Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization's router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
      * @param ConnectivityConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchConnectivityConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-branchconnectivityconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectivityConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -103,7 +104,7 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivityConfiguration from networkAccess
+     * Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization's router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
      * @param ConnectivityConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

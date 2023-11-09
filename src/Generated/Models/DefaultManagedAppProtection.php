@@ -497,6 +497,9 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
             'faceIdBlocked' => fn(ParseNode $n) => $o->setFaceIdBlocked($n->getBooleanValue()),
             'filterOpenInToOnlyManagedApps' => fn(ParseNode $n) => $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()),
             'fingerprintAndBiometricEnabled' => fn(ParseNode $n) => $o->setFingerprintAndBiometricEnabled($n->getBooleanValue()),
+            'messagingRedirectAppDisplayName' => fn(ParseNode $n) => $o->setMessagingRedirectAppDisplayName($n->getStringValue()),
+            'messagingRedirectAppPackageId' => fn(ParseNode $n) => $o->setMessagingRedirectAppPackageId($n->getStringValue()),
+            'messagingRedirectAppUrlScheme' => fn(ParseNode $n) => $o->setMessagingRedirectAppUrlScheme($n->getStringValue()),
             'minimumRequiredCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumRequiredCompanyPortalVersion($n->getStringValue()),
             'minimumRequiredPatchVersion' => fn(ParseNode $n) => $o->setMinimumRequiredPatchVersion($n->getStringValue()),
             'minimumRequiredSdkVersion' => fn(ParseNode $n) => $o->setMinimumRequiredSdkVersion($n->getStringValue()),
@@ -541,6 +544,42 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fingerprintAndBiometricEnabled'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppDisplayName property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app name which are allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppDisplayName'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppPackageId property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app package ids which are allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppPackageId(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppPackageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppPackageId'");
+    }
+
+    /**
+     * Gets the messagingRedirectAppUrlScheme property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app url redirect schemes which are allowed to be used.
+     * @return string|null
+    */
+    public function getMessagingRedirectAppUrlScheme(): ?string {
+        $val = $this->getBackingStore()->get('messagingRedirectAppUrlScheme');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingRedirectAppUrlScheme'");
     }
 
     /**
@@ -813,6 +852,9 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
         $writer->writeBooleanValue('faceIdBlocked', $this->getFaceIdBlocked());
         $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->getFilterOpenInToOnlyManagedApps());
         $writer->writeBooleanValue('fingerprintAndBiometricEnabled', $this->getFingerprintAndBiometricEnabled());
+        $writer->writeStringValue('messagingRedirectAppDisplayName', $this->getMessagingRedirectAppDisplayName());
+        $writer->writeStringValue('messagingRedirectAppPackageId', $this->getMessagingRedirectAppPackageId());
+        $writer->writeStringValue('messagingRedirectAppUrlScheme', $this->getMessagingRedirectAppUrlScheme());
         $writer->writeStringValue('minimumRequiredCompanyPortalVersion', $this->getMinimumRequiredCompanyPortalVersion());
         $writer->writeStringValue('minimumRequiredPatchVersion', $this->getMinimumRequiredPatchVersion());
         $writer->writeStringValue('minimumRequiredSdkVersion', $this->getMinimumRequiredSdkVersion());
@@ -1120,6 +1162,30 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function setFingerprintAndBiometricEnabled(?bool $value): void {
         $this->getBackingStore()->set('fingerprintAndBiometricEnabled', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppDisplayName property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app name which are allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppDisplayName property.
+    */
+    public function setMessagingRedirectAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppDisplayName', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppPackageId property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app package ids which are allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppPackageId property.
+    */
+    public function setMessagingRedirectAppPackageId(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppPackageId', $value);
+    }
+
+    /**
+     * Sets the messagingRedirectAppUrlScheme property value. When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app url redirect schemes which are allowed to be used.
+     * @param string|null $value Value to set for the messagingRedirectAppUrlScheme property.
+    */
+    public function setMessagingRedirectAppUrlScheme(?string $value): void {
+        $this->getBackingStore()->set('messagingRedirectAppUrlScheme', $value);
     }
 
     /**
