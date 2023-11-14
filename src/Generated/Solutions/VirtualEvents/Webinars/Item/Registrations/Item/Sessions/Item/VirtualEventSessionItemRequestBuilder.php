@@ -6,10 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventSession;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\Sessions\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\Sessions\Item\AttendeeReport\AttendeeReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\Sessions\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\Sessions\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -20,34 +16,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function alternativeRecording(): AlternativeRecordingRequestBuilder {
-        return new AlternativeRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function attendeeReport(): AttendeeReportRequestBuilder {
-        return new AttendeeReportRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function broadcastRecording(): BroadcastRecordingRequestBuilder {
-        return new BroadcastRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function recording(): RecordingRequestBuilder {
-        return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Instantiates a new VirtualEventSessionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -94,7 +62,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

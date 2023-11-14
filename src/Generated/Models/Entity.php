@@ -3,6 +3,9 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecord;
+use Microsoft\Graph\Beta\Generated\Models\CallRecords\Organizer;
+use Microsoft\Graph\Beta\Generated\Models\CallRecords\Participant;
+use Microsoft\Graph\Beta\Generated\Models\CallRecords\ParticipantBase;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\Segment;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\Session;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
@@ -526,6 +529,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.callEvent': return new CallEvent();
                 case '#microsoft.graph.callRecording': return new CallRecording();
                 case '#microsoft.graph.callRecords.callRecord': return new CallRecord();
+                case '#microsoft.graph.callRecords.organizer': return new Organizer();
+                case '#microsoft.graph.callRecords.participant': return new Participant();
+                case '#microsoft.graph.callRecords.participantBase': return new ParticipantBase();
                 case '#microsoft.graph.callRecords.segment': return new Segment();
                 case '#microsoft.graph.callRecords.session': return new Session();
                 case '#microsoft.graph.callTranscript': return new CallTranscript();
@@ -625,6 +631,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.dataLossPreventionPolicy': return new DataLossPreventionPolicy();
                 case '#microsoft.graph.dataPolicyOperation': return new DataPolicyOperation();
                 case '#microsoft.graph.dataSharingConsent': return new DataSharingConsent();
+                case '#microsoft.graph.dayNote': return new DayNote();
                 case '#microsoft.graph.defaultDeviceCompliancePolicy': return new DefaultDeviceCompliancePolicy();
                 case '#microsoft.graph.defaultManagedAppProtection': return new DefaultManagedAppProtection();
                 case '#microsoft.graph.defaultUserRoleOverride': return new DefaultUserRoleOverride();
@@ -1321,6 +1328,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onenoteSection': return new OnenoteSection();
                 case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
                 case '#microsoft.graph.onlineMeeting': return new OnlineMeeting();
+                case '#microsoft.graph.onlineMeetingBase': return new OnlineMeetingBase();
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();
                 case '#microsoft.graph.onPremisesAgentGroup': return new OnPremisesAgentGroup();
                 case '#microsoft.graph.onPremisesConditionalAccessSettings': return new OnPremisesConditionalAccessSettings();
@@ -1637,6 +1645,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.securityToolAwsRoleAdministratorFinding': return new SecurityToolAwsRoleAdministratorFinding();
                 case '#microsoft.graph.securityToolAwsServerlessFunctionAdministratorFinding': return new SecurityToolAwsServerlessFunctionAdministratorFinding();
                 case '#microsoft.graph.securityToolAwsUserAdministratorFinding': return new SecurityToolAwsUserAdministratorFinding();
+                case '#microsoft.graph.sendDtmfTonesOperation': return new SendDtmfTonesOperation();
                 case '#microsoft.graph.sensitiveType': return new SensitiveType();
                 case '#microsoft.graph.sensitivityLabel': return new SensitivityLabel();
                 case '#microsoft.graph.sensitivityPolicySettings': return new SensitivityPolicySettings();
@@ -1889,6 +1898,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.virtualEventRegistrationQuestion': return new VirtualEventRegistrationQuestion();
                 case '#microsoft.graph.virtualEventSession': return new VirtualEventSession();
                 case '#microsoft.graph.virtualEventsRoot': return new VirtualEventsRoot();
+                case '#microsoft.graph.virtualEventTownhall': return new VirtualEventTownhall();
                 case '#microsoft.graph.virtualEventWebinar': return new VirtualEventWebinar();
                 case '#microsoft.graph.virtualEventWebinarRegistrationConfiguration': return new VirtualEventWebinarRegistrationConfiguration();
                 case '#microsoft.graph.virtualMachineWithAwsStorageBucketAccessFinding': return new VirtualMachineWithAwsStorageBucketAccessFinding();

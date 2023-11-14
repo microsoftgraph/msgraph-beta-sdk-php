@@ -87,7 +87,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
+     * Gets the blockMsolPowerShell property value. To disable the use of the Microsoft Graph PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the Microsoft Graph PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
      * @return bool|null
     */
     public function getBlockMsolPowerShell(): ?bool {
@@ -259,7 +259,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
+     * Sets the blockMsolPowerShell property value. To disable the use of the Microsoft Graph PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the Microsoft Graph PowerShell module. This doesn't affect Microsoft Entra Connect or Microsoft Graph.
      * @param bool|null $value Value to set for the blockMsolPowerShell property.
     */
     public function setBlockMsolPowerShell(?bool $value): void {

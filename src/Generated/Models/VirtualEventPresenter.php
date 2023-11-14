@@ -5,6 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
+use Psr\Http\Message\StreamInterface;
 
 class VirtualEventPresenter extends Entity implements Parsable 
 {
@@ -46,6 +48,8 @@ class VirtualEventPresenter extends Entity implements Parsable
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
             'presenterDetails' => fn(ParseNode $n) => $o->setPresenterDetails($n->getObjectValue([VirtualEventPresenterDetails::class, 'createFromDiscriminatorValue'])),
+            'profilePhoto' => fn(ParseNode $n) => $o->setProfilePhoto($n->getBinaryContent()),
+            'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -74,6 +78,32 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
+     * Gets the profilePhoto property value. The profilePhoto property
+     * @return StreamInterface|null
+    */
+    public function getProfilePhoto(): ?StreamInterface {
+        $val = $this->getBackingStore()->get('profilePhoto');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profilePhoto'");
+    }
+
+    /**
+     * Gets the sessions property value. The sessions property
+     * @return array<VirtualEventSession>|null
+    */
+    public function getSessions(): ?array {
+        $val = $this->getBackingStore()->get('sessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventSession::class);
+            /** @var array<VirtualEventSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessions'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -82,6 +112,8 @@ class VirtualEventPresenter extends Entity implements Parsable
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('identity', $this->getIdentity());
         $writer->writeObjectValue('presenterDetails', $this->getPresenterDetails());
+        $writer->writeBinaryContent('profilePhoto', $this->getProfilePhoto());
+        $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
     }
 
     /**
@@ -106,6 +138,22 @@ class VirtualEventPresenter extends Entity implements Parsable
     */
     public function setPresenterDetails(?VirtualEventPresenterDetails $value): void {
         $this->getBackingStore()->set('presenterDetails', $value);
+    }
+
+    /**
+     * Sets the profilePhoto property value. The profilePhoto property
+     * @param StreamInterface|null $value Value to set for the profilePhoto property.
+    */
+    public function setProfilePhoto(?StreamInterface $value): void {
+        $this->getBackingStore()->set('profilePhoto', $value);
+    }
+
+    /**
+     * Sets the sessions property value. The sessions property
+     * @param array<VirtualEventSession>|null $value Value to set for the sessions property.
+    */
+    public function setSessions(?array $value): void {
+        $this->getBackingStore()->set('sessions', $value);
     }
 
 }

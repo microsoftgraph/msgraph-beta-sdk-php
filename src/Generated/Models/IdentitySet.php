@@ -59,7 +59,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the application property value. Optional. The application associated with this action.
+     * Gets the application property value. The Identity of the Application. This property is read-only.
      * @return Identity|null
     */
     public function getApplication(): ?Identity {
@@ -79,7 +79,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the device property value. Optional. The device associated with this action.
+     * Gets the device property value. The Identity of the Device. This property is read-only.
      * @return Identity|null
     */
     public function getDevice(): ?Identity {
@@ -117,7 +117,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the user property value. Optional. The user associated with this action.
+     * Gets the user property value. The Identity of the User. This property is read-only.
      * @return Identity|null
     */
     public function getUser(): ?Identity {
@@ -149,7 +149,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the application property value. Optional. The application associated with this action.
+     * Sets the application property value. The Identity of the Application. This property is read-only.
      * @param Identity|null $value Value to set for the application property.
     */
     public function setApplication(?Identity $value): void {
@@ -165,7 +165,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the device property value. Optional. The device associated with this action.
+     * Sets the device property value. The Identity of the Device. This property is read-only.
      * @param Identity|null $value Value to set for the device property.
     */
     public function setDevice(?Identity $value): void {
@@ -181,7 +181,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the user property value. Optional. The user associated with this action.
+     * Sets the user property value. The Identity of the User. This property is read-only.
      * @param Identity|null $value Value to set for the user property.
     */
     public function setUser(?Identity $value): void {

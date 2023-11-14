@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\DayNotes\DayNotesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\OpenShifts\OpenShiftsRequestBuilder;
@@ -27,6 +28,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ScheduleRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the dayNotes property of the microsoft.graph.schedule entity.
+    */
+    public function dayNotes(): DayNotesRequestBuilder {
+        return new DayNotesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
     */
@@ -179,7 +187,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -200,7 +208,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -219,7 +227,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

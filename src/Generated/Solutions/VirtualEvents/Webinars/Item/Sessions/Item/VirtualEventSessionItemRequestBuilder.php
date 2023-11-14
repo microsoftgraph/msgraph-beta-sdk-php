@@ -6,16 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventSession;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\AttendanceReports\AttendanceReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\AttendeeReport\AttendeeReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Recording\RecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Recordings\RecordingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Presenters\PresentersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Registrations\RegistrationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\Transcripts\TranscriptsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -27,59 +20,17 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function alternativeRecording(): AlternativeRecordingRequestBuilder {
-        return new AlternativeRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
     */
     public function attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the media for the solutionsRoot entity.
+     * Provides operations to manage the presenters property of the microsoft.graph.virtualEventSession entity.
     */
-    public function attendeeReport(): AttendeeReportRequestBuilder {
-        return new AttendeeReportRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function broadcastRecording(): BroadcastRecordingRequestBuilder {
-        return new BroadcastRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function meetingAttendanceReport(): MeetingAttendanceReportRequestBuilder {
-        return new MeetingAttendanceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function recording(): RecordingRequestBuilder {
-        return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function recordings(): RecordingsRequestBuilder {
-        return new RecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the registration property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function registration(): RegistrationRequestBuilder {
-        return new RegistrationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function presenters(): PresentersRequestBuilder {
+        return new PresentersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -87,13 +38,6 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     */
     public function registrations(): RegistrationsRequestBuilder {
         return new RegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
-    */
-    public function transcripts(): TranscriptsRequestBuilder {
-        return new TranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -170,7 +114,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -191,7 +135,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -210,7 +154,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
