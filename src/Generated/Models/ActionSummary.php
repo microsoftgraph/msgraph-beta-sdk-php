@@ -48,7 +48,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the assigned property value. The assigned property
+     * Gets the assigned property value. This is the number of authorization system actions that have been assigned to the identity.
      * @return int|null
     */
     public function getAssigned(): ?int {
@@ -60,7 +60,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the available property value. The available property
+     * Gets the available property value. This is the number of authorization system actions that the identity has exercised in the last 90 days.
      * @return int|null
     */
     public function getAvailable(): ?int {
@@ -80,7 +80,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the exercised property value. The exercised property
+     * Gets the exercised property value. This is the maximum number of actions that are available in the authorization system.
      * @return int|null
     */
     public function getExercised(): ?int {
@@ -138,7 +138,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the assigned property value. The assigned property
+     * Sets the assigned property value. This is the number of authorization system actions that have been assigned to the identity.
      * @param int|null $value Value to set for the assigned property.
     */
     public function setAssigned(?int $value): void {
@@ -146,7 +146,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the available property value. The available property
+     * Sets the available property value. This is the number of authorization system actions that the identity has exercised in the last 90 days.
      * @param int|null $value Value to set for the available property.
     */
     public function setAvailable(?int $value): void {
@@ -162,7 +162,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the exercised property value. The exercised property
+     * Sets the exercised property value. This is the maximum number of actions that are available in the authorization system.
      * @param int|null $value Value to set for the exercised property.
     */
     public function setExercised(?int $value): void {

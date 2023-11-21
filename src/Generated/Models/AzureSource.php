@@ -37,7 +37,7 @@ class AzureSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. Azure subscription ID.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -58,7 +58,7 @@ class AzureSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. Azure subscription ID.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {

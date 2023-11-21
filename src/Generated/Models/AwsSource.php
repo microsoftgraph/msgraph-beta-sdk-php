@@ -26,7 +26,7 @@ class AwsSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Gets the accountId property value. The accountId property
+     * Gets the accountId property value. AWS account ID.
      * @return string|null
     */
     public function getAccountId(): ?string {
@@ -58,7 +58,7 @@ class AwsSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Sets the accountId property value. The accountId property
+     * Sets the accountId property value. AWS account ID.
      * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {

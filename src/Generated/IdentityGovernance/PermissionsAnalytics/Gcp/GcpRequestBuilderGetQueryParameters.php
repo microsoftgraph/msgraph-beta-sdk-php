@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get gcp from identityGovernance
+ * GCP permissions analytics findings.
 */
 class GcpRequestBuilderGetQueryParameters 
 {

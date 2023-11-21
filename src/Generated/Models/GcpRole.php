@@ -26,7 +26,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the GCP role. Supports $filter and (eq,contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -38,7 +38,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. The ID of the GCP role as defined by GCP. Alternate key.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -76,7 +76,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopes property value. The scopes property
+     * Gets the scopes property value. Resources that an identity assigned this GCP role can perform actions on. Supports $filter and (eq).
      * @return array<GcpScope>|null
     */
     public function getScopes(): ?array {
@@ -102,7 +102,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the GCP role. Supports $filter and (eq,contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -110,7 +110,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. The ID of the GCP role as defined by GCP. Alternate key.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -126,7 +126,7 @@ class GcpRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopes property value. The scopes property
+     * Sets the scopes property value. Resources that an identity assigned this GCP role can perform actions on. Supports $filter and (eq).
      * @param array<GcpScope>|null $value Value to set for the scopes property.
     */
     public function setScopes(?array $value): void {

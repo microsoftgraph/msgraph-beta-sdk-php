@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\AuthorizationSystems\Item\Data
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dataCollectionInfo from external
+ * Defines how and whether Permissions Management collects data from the onboarded authorization system. Supports $filter (eq) as follows:  $filter=dataCollectionInfo/entitlements/permissionsModificationCapability and $filter=dataCollectionInfo/entitlements/status.
 */
 class DataCollectionInfoRequestBuilderGetQueryParameters 
 {

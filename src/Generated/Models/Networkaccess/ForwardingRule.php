@@ -27,6 +27,7 @@ class ForwardingRule extends PolicyRule implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.networkaccess.internetAccessForwardingRule': return new InternetAccessForwardingRule();
                 case '#microsoft.graph.networkaccess.m365ForwardingRule': return new M365ForwardingRule();
                 case '#microsoft.graph.networkaccess.privateAccessForwardingRule': return new PrivateAccessForwardingRule();
             }

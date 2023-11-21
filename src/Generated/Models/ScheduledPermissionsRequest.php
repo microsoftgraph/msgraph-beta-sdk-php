@@ -26,7 +26,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Defines when the identity created the request.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -55,7 +55,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the justification property value. The justification property
+     * Gets the justification property value. The identity's justification for the request.
      * @return string|null
     */
     public function getJustification(): ?string {
@@ -67,7 +67,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Additional context for the permissions request.
      * @return string|null
     */
     public function getNotes(): ?string {
@@ -91,7 +91,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduleInfo property value. The scheduleInfo property
+     * Gets the scheduleInfo property value. When to assign the requested permissions.
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
@@ -115,7 +115,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the ticketInfo property value. The ticketInfo property
+     * Gets the ticketInfo property value. Ticketing-related metadata that you can use to correlate to the request.
      * @return TicketInfo|null
     */
     public function getTicketInfo(): ?TicketInfo {
@@ -142,7 +142,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Defines when the identity created the request.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -150,7 +150,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the justification property value. The justification property
+     * Sets the justification property value. The identity's justification for the request.
      * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
@@ -158,7 +158,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the notes property value. The notes property
+     * Sets the notes property value. Additional context for the permissions request.
      * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {
@@ -174,7 +174,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduleInfo property value. The scheduleInfo property
+     * Sets the scheduleInfo property value. When to assign the requested permissions.
      * @param RequestSchedule|null $value Value to set for the scheduleInfo property.
     */
     public function setScheduleInfo(?RequestSchedule $value): void {
@@ -190,7 +190,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the ticketInfo property value. The ticketInfo property
+     * Sets the ticketInfo property value. Ticketing-related metadata that you can use to correlate to the request.
      * @param TicketInfo|null $value Value to set for the ticketInfo property.
     */
     public function setTicketInfo(?TicketInfo $value): void {

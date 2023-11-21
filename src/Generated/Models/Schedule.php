@@ -26,6 +26,20 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
+     * Gets the dayNotes property value. The dayNotes property
+     * @return array<DayNote>|null
+    */
+    public function getDayNotes(): ?array {
+        $val = $this->getBackingStore()->get('dayNotes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DayNote::class);
+            /** @var array<DayNote>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dayNotes'");
+    }
+
+    /**
      * Gets the enabled property value. Indicates whether the schedule is enabled for the team. Required.
      * @return bool|null
     */
@@ -44,6 +58,7 @@ class Schedule extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'dayNotes' => fn(ParseNode $n) => $o->setDayNotes($n->getCollectionOfObjectValues([DayNote::class, 'createFromDiscriminatorValue'])),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
             'offerShiftRequests' => fn(ParseNode $n) => $o->setOfferShiftRequests($n->getCollectionOfObjectValues([OfferShiftRequest::class, 'createFromDiscriminatorValue'])),
             'offerShiftRequestsEnabled' => fn(ParseNode $n) => $o->setOfferShiftRequestsEnabled($n->getBooleanValue()),
@@ -343,6 +358,7 @@ class Schedule extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('dayNotes', $this->getDayNotes());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeCollectionOfObjectValues('offerShiftRequests', $this->getOfferShiftRequests());
         $writer->writeBooleanValue('offerShiftRequestsEnabled', $this->getOfferShiftRequestsEnabled());
@@ -362,6 +378,14 @@ class Schedule extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('timesOff', $this->getTimesOff());
         $writer->writeStringValue('timeZone', $this->getTimeZone());
         $writer->writeCollectionOfPrimitiveValues('workforceIntegrationIds', $this->getWorkforceIntegrationIds());
+    }
+
+    /**
+     * Sets the dayNotes property value. The dayNotes property
+     * @param array<DayNote>|null $value Value to set for the dayNotes property.
+    */
+    public function setDayNotes(?array $value): void {
+        $this->getBackingStore()->set('dayNotes', $value);
     }
 
     /**

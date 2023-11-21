@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\ConnectivityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\FilteringPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\FilteringProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\ForwardingPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\ForwardingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\LogsRequestBuilder;
@@ -29,6 +31,20 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     */
     public function connectivity(): ConnectivityRequestBuilder {
         return new ConnectivityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the filteringPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function filteringPolicies(): FilteringPoliciesRequestBuilder {
+        return new FilteringPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function filteringProfiles(): FilteringProfilesRequestBuilder {
+        return new FilteringProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -142,7 +158,7 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -161,7 +177,7 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -40,7 +40,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivityConfiguration property value. The connectivityConfiguration property
+     * Gets the connectivityConfiguration property value. Specifies the connectivity details of all device links associated with a branch.
      * @return BranchConnectivityConfiguration|null
     */
     public function getConnectivityConfiguration(): ?BranchConnectivityConfiguration {
@@ -198,7 +198,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectivityConfiguration property value. The connectivityConfiguration property
+     * Sets the connectivityConfiguration property value. Specifies the connectivity details of all device links associated with a branch.
      * @param BranchConnectivityConfiguration|null $value Value to set for the connectivityConfiguration property.
     */
     public function setConnectivityConfiguration(?BranchConnectivityConfiguration $value): void {

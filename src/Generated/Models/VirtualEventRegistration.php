@@ -120,7 +120,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the sessions property value. Sessions of the webinar.
+     * Gets the sessions property value. The sessions property
      * @return array<VirtualEventSession>|null
     */
     public function getSessions(): ?array {
@@ -134,7 +134,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Registration status of the registrant. Read-only. Possible values are: registered, canceled, waitlisted, pendingApproval, rejectedByOrganizer, unknownFutureValue.
+     * Gets the status property value. Registration status of the registrant. Read-only.
      * @return VirtualEventAttendeeRegistrationStatus|null
     */
     public function getStatus(): ?VirtualEventAttendeeRegistrationStatus {
@@ -223,7 +223,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the sessions property value. Sessions of the webinar.
+     * Sets the sessions property value. The sessions property
      * @param array<VirtualEventSession>|null $value Value to set for the sessions property.
     */
     public function setSessions(?array $value): void {
@@ -231,7 +231,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Registration status of the registrant. Read-only. Possible values are: registered, canceled, waitlisted, pendingApproval, rejectedByOrganizer, unknownFutureValue.
+     * Sets the status property value. Registration status of the registrant. Read-only.
      * @param VirtualEventAttendeeRegistrationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?VirtualEventAttendeeRegistrationStatus $value): void {

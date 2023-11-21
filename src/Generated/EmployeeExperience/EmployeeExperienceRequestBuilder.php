@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class EmployeeExperienceRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the goals property of the microsoft.graph.employeeExperience entity.
+    */
+    public function goals(): GoalsRequestBuilder {
+        return new GoalsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
     */
@@ -94,7 +102,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -113,7 +121,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

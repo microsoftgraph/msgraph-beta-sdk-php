@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\App\Calls\Item\Record\RecordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\RecordResponse\RecordResponseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Redirect\RedirectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Reject\RejectRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\Calls\Item\SendDtmfTones\SendDtmfTonesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\SubscribeToTone\SubscribeToToneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Transfer\TransferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Unmute\UnmuteRequestBuilder;
@@ -141,6 +142,13 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the sendDtmfTones method.
+    */
+    public function sendDtmfTones(): SendDtmfTonesRequestBuilder {
+        return new SendDtmfTonesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the subscribeToTone method.
     */
     public function subscribeToTone(): SubscribeToToneRequestBuilder {
@@ -242,7 +250,7 @@ class CallItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -263,7 +271,7 @@ class CallItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -282,7 +290,7 @@ class CallItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

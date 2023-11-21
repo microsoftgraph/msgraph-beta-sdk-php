@@ -57,7 +57,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceCount property value. The deviceCount property
+     * Gets the deviceCount property value. The number of unique devices that were seen.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -89,7 +89,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the fqdn property value. The fqdn property
+     * Gets the fqdn property value. The fully qualified domain name (FQDN) of the destination.
      * @return string|null
     */
     public function getFqdn(): ?string {
@@ -101,7 +101,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ip property value. The ip property
+     * Gets the ip property value. The internet protocol (IP) used to access the destination.
      * @return string|null
     */
     public function getIp(): ?string {
@@ -113,7 +113,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Gets the lastAccessDateTime property value. The most recent access DateTime.
      * @return DateTime|null
     */
     public function getLastAccessDateTime(): ?DateTime {
@@ -149,7 +149,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. The numeric identifier that is associated with a specific endpoint in a network.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -173,7 +173,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the transactionCount property value. The transactionCount property
+     * Gets the transactionCount property value. The number of transactions.
      * @return int|null
     */
     public function getTransactionCount(): ?int {
@@ -185,7 +185,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -231,7 +231,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceCount property value. The deviceCount property
+     * Sets the deviceCount property value. The number of unique devices that were seen.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -239,7 +239,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the fqdn property value. The fqdn property
+     * Sets the fqdn property value. The fully qualified domain name (FQDN) of the destination.
      * @param string|null $value Value to set for the fqdn property.
     */
     public function setFqdn(?string $value): void {
@@ -247,7 +247,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ip property value. The ip property
+     * Sets the ip property value. The internet protocol (IP) used to access the destination.
      * @param string|null $value Value to set for the ip property.
     */
     public function setIp(?string $value): void {
@@ -255,7 +255,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Sets the lastAccessDateTime property value. The most recent access DateTime.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
     public function setLastAccessDateTime(?DateTime $value): void {
@@ -279,7 +279,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. The numeric identifier that is associated with a specific endpoint in a network.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
@@ -295,7 +295,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the transactionCount property value. The transactionCount property
+     * Sets the transactionCount property value. The number of transactions.
      * @param int|null $value Value to set for the transactionCount property.
     */
     public function setTransactionCount(?int $value): void {
@@ -303,7 +303,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

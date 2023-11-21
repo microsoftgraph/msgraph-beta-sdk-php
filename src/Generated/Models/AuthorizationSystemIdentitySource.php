@@ -79,7 +79,7 @@ class AuthorizationSystemIdentitySource implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the identityProviderType property value. The identityProviderType property
+     * Gets the identityProviderType property value. Type of identity provider. Read-only.
      * @return string|null
     */
     public function getIdentityProviderType(): ?string {
@@ -129,7 +129,7 @@ class AuthorizationSystemIdentitySource implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the identityProviderType property value. The identityProviderType property
+     * Sets the identityProviderType property value. Type of identity provider. Read-only.
      * @param string|null $value Value to set for the identityProviderType property.
     */
     public function setIdentityProviderType(?string $value): void {

@@ -46,10 +46,11 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get permissionsRequestChanges from identityGovernance
+     * Read the properties and relationships of a permissionsRequestChange object.
      * @param PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsRequestChange|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/permissionsrequestchange-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,12 +91,12 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get permissionsRequestChanges from identityGovernance
+     * Read the properties and relationships of a permissionsRequestChange object.
      * @param PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +112,7 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -130,7 +131,7 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

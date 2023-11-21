@@ -37,7 +37,7 @@ class AwsAccessKey extends AwsIdentity implements Parsable
     }
 
     /**
-     * Gets the owner property value. The owner property
+     * Gets the owner property value. Represents the owner of the access key.
      * @return AwsUser|null
     */
     public function getOwner(): ?AwsUser {
@@ -58,7 +58,7 @@ class AwsAccessKey extends AwsIdentity implements Parsable
     }
 
     /**
-     * Sets the owner property value. The owner property
+     * Sets the owner property value. Represents the owner of the access key.
      * @param AwsUser|null $value Value to set for the owner property.
     */
     public function setOwner(?AwsUser $value): void {

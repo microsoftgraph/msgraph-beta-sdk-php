@@ -118,11 +118,11 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Return the metadata for a list][]. This API is available in the following [national cloud deployments.
+     * Get the list of richLongRunningOperations associated with a list. This API is available in the following national cloud deployments.
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EscapedList|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/list-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0 Find more info here
     */
     public function get(?ListItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -163,12 +163,12 @@ class ListItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Return the metadata for a list][]. This API is available in the following [national cloud deployments.
+     * Get the list of richLongRunningOperations associated with a list. This API is available in the following national cloud deployments.
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -184,7 +184,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -203,7 +203,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -48,7 +48,22 @@ class Connectivity extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'branches' => fn(ParseNode $n) => $o->setBranches($n->getCollectionOfObjectValues([BranchSite::class, 'createFromDiscriminatorValue'])),
+            'webCategories' => fn(ParseNode $n) => $o->setWebCategories($n->getCollectionOfObjectValues([WebCategory::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the webCategories property value. The webCategories property
+     * @return array<WebCategory>|null
+    */
+    public function getWebCategories(): ?array {
+        $val = $this->getBackingStore()->get('webCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WebCategory::class);
+            /** @var array<WebCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webCategories'");
     }
 
     /**
@@ -58,6 +73,7 @@ class Connectivity extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('branches', $this->getBranches());
+        $writer->writeCollectionOfObjectValues('webCategories', $this->getWebCategories());
     }
 
     /**
@@ -66,6 +82,14 @@ class Connectivity extends Entity implements Parsable
     */
     public function setBranches(?array $value): void {
         $this->getBackingStore()->set('branches', $value);
+    }
+
+    /**
+     * Sets the webCategories property value. The webCategories property
+     * @param array<WebCategory>|null $value Value to set for the webCategories property.
+    */
+    public function setWebCategories(?array $value): void {
+        $this->getBackingStore()->set('webCategories', $value);
     }
 
 }

@@ -26,7 +26,7 @@ class AuthorizationSystemTypeService extends Entity implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions for the service in an authorization system that is onboarded to Permissions Management.
      * @return array<AuthorizationSystemTypeAction>|null
     */
     public function getActions(): ?array {
@@ -60,7 +60,7 @@ class AuthorizationSystemTypeService extends Entity implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions for the service in an authorization system that is onboarded to Permissions Management.
      * @param array<AuthorizationSystemTypeAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {

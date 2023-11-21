@@ -7,6 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcDeviceImage extends Entity implements Parsable 
 {
@@ -63,6 +64,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
             'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)),
+            'scopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScopeIds($val);
+            },
             'sourceImageResourceId' => fn(ParseNode $n) => $o->setSourceImageResourceId($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)),
@@ -116,6 +125,20 @@ class CloudPcDeviceImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osStatus'");
+    }
+
+    /**
+     * Gets the scopeIds property value. The scopeIds property
+     * @return array<string>|null
+    */
+    public function getScopeIds(): ?array {
+        $val = $this->getBackingStore()->get('scopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeIds'");
     }
 
     /**
@@ -178,6 +201,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeEnumValue('osStatus', $this->getOsStatus());
+        $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeStringValue('sourceImageResourceId', $this->getSourceImageResourceId());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeEnumValue('statusDetails', $this->getStatusDetails());
@@ -230,6 +254,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setOsStatus(?CloudPcDeviceImageOsStatus $value): void {
         $this->getBackingStore()->set('osStatus', $value);
+    }
+
+    /**
+     * Sets the scopeIds property value. The scopeIds property
+     * @param array<string>|null $value Value to set for the scopeIds property.
+    */
+    public function setScopeIds(?array $value): void {
+        $this->getBackingStore()->set('scopeIds', $value);
     }
 
     /**

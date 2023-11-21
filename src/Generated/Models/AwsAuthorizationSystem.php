@@ -27,7 +27,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions for service in authorization system.
      * @return array<AwsAuthorizationSystemTypeAction>|null
     */
     public function getActions(): ?array {
@@ -41,7 +41,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the associatedIdentities property value. The associatedIdentities property
+     * Gets the associatedIdentities property value. Identities in the authorization system.
      * @return AwsAssociatedIdentities|null
     */
     public function getAssociatedIdentities(): ?AwsAssociatedIdentities {
@@ -68,7 +68,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the policies property value. The policies property
+     * Gets the policies property value. Policies associated with the AWS authorization system type.
      * @return array<AwsPolicy>|null
     */
     public function getPolicies(): ?array {
@@ -82,7 +82,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Resources associated with the authorization system type.
      * @return array<AwsAuthorizationSystemResource>|null
     */
     public function getResources(): ?array {
@@ -96,7 +96,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the services property value. The services property
+     * Gets the services property value. Services associated with the authorization system type.
      * @return array<AuthorizationSystemTypeService>|null
     */
     public function getServices(): ?array {
@@ -123,7 +123,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions for service in authorization system.
      * @param array<AwsAuthorizationSystemTypeAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -131,7 +131,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the associatedIdentities property value. The associatedIdentities property
+     * Sets the associatedIdentities property value. Identities in the authorization system.
      * @param AwsAssociatedIdentities|null $value Value to set for the associatedIdentities property.
     */
     public function setAssociatedIdentities(?AwsAssociatedIdentities $value): void {
@@ -139,7 +139,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the policies property value. The policies property
+     * Sets the policies property value. Policies associated with the AWS authorization system type.
      * @param array<AwsPolicy>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {
@@ -147,7 +147,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Resources associated with the authorization system type.
      * @param array<AwsAuthorizationSystemResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -155,7 +155,7 @@ class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the services property value. The services property
+     * Sets the services property value. Services associated with the authorization system type.
      * @param array<AuthorizationSystemTypeService>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {

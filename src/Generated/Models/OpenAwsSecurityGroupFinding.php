@@ -26,7 +26,7 @@ class OpenAwsSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the assignedComputeInstancesDetails property value. The assignedComputeInstancesDetails property
+     * Gets the assignedComputeInstancesDetails property value. A set of AWS EC2 compute instances related to this open security group.
      * @return array<AssignedComputeInstanceDetails>|null
     */
     public function getAssignedComputeInstancesDetails(): ?array {
@@ -78,7 +78,7 @@ class OpenAwsSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the totalStorageBucketCount property value. The totalStorageBucketCount property
+     * Gets the totalStorageBucketCount property value. The number of storage buckets accessed by the assigned compute instances.
      * @return int|null
     */
     public function getTotalStorageBucketCount(): ?int {
@@ -102,7 +102,7 @@ class OpenAwsSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the assignedComputeInstancesDetails property value. The assignedComputeInstancesDetails property
+     * Sets the assignedComputeInstancesDetails property value. A set of AWS EC2 compute instances related to this open security group.
      * @param array<AssignedComputeInstanceDetails>|null $value Value to set for the assignedComputeInstancesDetails property.
     */
     public function setAssignedComputeInstancesDetails(?array $value): void {
@@ -126,7 +126,7 @@ class OpenAwsSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the totalStorageBucketCount property value. The totalStorageBucketCount property
+     * Sets the totalStorageBucketCount property value. The number of storage buckets accessed by the assigned compute instances.
      * @param int|null $value Value to set for the totalStorageBucketCount property.
     */
     public function setTotalStorageBucketCount(?int $value): void {

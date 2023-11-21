@@ -7,8 +7,10 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEvent;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\VirtualEventItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Publish\PublishRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -20,10 +22,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class EventsRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the cancel method.
+    */
+    public function cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the publish method.
+    */
+    public function publish(): PublishRequestBuilder {
+        return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -99,7 +115,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -118,7 +134,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

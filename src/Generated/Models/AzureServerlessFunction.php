@@ -37,7 +37,7 @@ class AzureServerlessFunction extends AzureIdentity implements Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. Represents the resources in an authorization system.
      * @return AzureAuthorizationSystemResource|null
     */
     public function getResource(): ?AzureAuthorizationSystemResource {
@@ -58,7 +58,7 @@ class AzureServerlessFunction extends AzureIdentity implements Parsable
     }
 
     /**
-     * Sets the resource property value. The resource property
+     * Sets the resource property value. Represents the resources in an authorization system.
      * @param AzureAuthorizationSystemResource|null $value Value to set for the resource property.
     */
     public function setResource(?AzureAuthorizationSystemResource $value): void {

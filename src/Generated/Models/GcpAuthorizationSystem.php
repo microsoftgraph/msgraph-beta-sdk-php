@@ -27,7 +27,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions for service in authorization system.
      * @return array<GcpAuthorizationSystemTypeAction>|null
     */
     public function getActions(): ?array {
@@ -41,7 +41,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the associatedIdentities property value. The associatedIdentities property
+     * Gets the associatedIdentities property value. Identities in the authorization system.
      * @return GcpAssociatedIdentities|null
     */
     public function getAssociatedIdentities(): ?GcpAssociatedIdentities {
@@ -68,7 +68,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Resources associated with the authorization system type.
      * @return array<GcpAuthorizationSystemResource>|null
     */
     public function getResources(): ?array {
@@ -82,7 +82,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the roles property value. The roles property
+     * Gets the roles property value. Roles associated with the authorization system type.
      * @return array<GcpRole>|null
     */
     public function getRoles(): ?array {
@@ -96,7 +96,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the services property value. The services property
+     * Gets the services property value. Services associated with the authorization system type.
      * @return array<AuthorizationSystemTypeService>|null
     */
     public function getServices(): ?array {
@@ -123,7 +123,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions for service in authorization system.
      * @param array<GcpAuthorizationSystemTypeAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -131,7 +131,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the associatedIdentities property value. The associatedIdentities property
+     * Sets the associatedIdentities property value. Identities in the authorization system.
      * @param GcpAssociatedIdentities|null $value Value to set for the associatedIdentities property.
     */
     public function setAssociatedIdentities(?GcpAssociatedIdentities $value): void {
@@ -139,7 +139,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Resources associated with the authorization system type.
      * @param array<GcpAuthorizationSystemResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -147,7 +147,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the roles property value. The roles property
+     * Sets the roles property value. Roles associated with the authorization system type.
      * @param array<GcpRole>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value): void {
@@ -155,7 +155,7 @@ class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the services property value. The services property
+     * Sets the services property value. Services associated with the authorization system type.
      * @param array<AuthorizationSystemTypeService>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {

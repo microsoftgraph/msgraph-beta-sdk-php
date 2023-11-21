@@ -25,7 +25,7 @@ class VirtualMachineWithAwsStorageBucketAccessFinding extends Finding implements
     }
 
     /**
-     * Gets the accessibleCount property value. The total number of storage buckets that the EC2 instance can access using the role
+     * Gets the accessibleCount property value. The total number of storage buckets that the EC2 instance can access using the role.
      * @return int|null
     */
     public function getAccessibleCount(): ?int {
@@ -37,7 +37,7 @@ class VirtualMachineWithAwsStorageBucketAccessFinding extends Finding implements
     }
 
     /**
-     * Gets the bucketCount property value. The total number of storage buckets in the authorization system that host the EC2 instance
+     * Gets the bucketCount property value. The total number of storage buckets in the authorization system that hosts the EC2 instance.
      * @return int|null
     */
     public function getBucketCount(): ?int {
@@ -113,7 +113,7 @@ class VirtualMachineWithAwsStorageBucketAccessFinding extends Finding implements
     }
 
     /**
-     * Sets the accessibleCount property value. The total number of storage buckets that the EC2 instance can access using the role
+     * Sets the accessibleCount property value. The total number of storage buckets that the EC2 instance can access using the role.
      * @param int|null $value Value to set for the accessibleCount property.
     */
     public function setAccessibleCount(?int $value): void {
@@ -121,7 +121,7 @@ class VirtualMachineWithAwsStorageBucketAccessFinding extends Finding implements
     }
 
     /**
-     * Sets the bucketCount property value. The total number of storage buckets in the authorization system that host the EC2 instance
+     * Sets the bucketCount property value. The total number of storage buckets in the authorization system that hosts the EC2 instance.
      * @param int|null $value Value to set for the bucketCount property.
     */
     public function setBucketCount(?int $value): void {

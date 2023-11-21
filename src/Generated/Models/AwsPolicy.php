@@ -37,7 +37,7 @@ class AwsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name for the AWS policy. Read-only. Supports $filter and (eq,contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -49,7 +49,7 @@ class AwsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. The base64 encoded identifier for the AWS policy as defined by AWS. Read-only. Alternate key. Supports $filter and eq.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -93,7 +93,7 @@ class AwsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name for the AWS policy. Read-only. Supports $filter and (eq,contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -101,7 +101,7 @@ class AwsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. The base64 encoded identifier for the AWS policy as defined by AWS. Read-only. Alternate key. Supports $filter and eq.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {

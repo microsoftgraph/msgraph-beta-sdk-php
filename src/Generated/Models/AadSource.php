@@ -26,7 +26,7 @@ class AadSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Gets the domain property value. The domain property
+     * Gets the domain property value. Domain name
      * @return string|null
     */
     public function getDomain(): ?string {
@@ -58,7 +58,7 @@ class AadSource extends AuthorizationSystemIdentitySource implements Parsable
     }
 
     /**
-     * Sets the domain property value. The domain property
+     * Sets the domain property value. Domain name
      * @param string|null $value Value to set for the domain property.
     */
     public function setDomain(?string $value): void {

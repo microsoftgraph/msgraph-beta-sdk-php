@@ -35,7 +35,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionType property value. The actionType property
+     * Gets the actionType property value. The type of action allowed in the authorization system's service. The possible values are: delete, read, unknownFutureValue. Supports $filter and (eq).
      * @return AuthorizationSystemActionType|null
     */
     public function getActionType(): ?AuthorizationSystemActionType {
@@ -47,7 +47,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. The display name of an action. Read-only. Supports $filter and (eq).
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -80,7 +80,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceTypes property value. The resourceTypes property
+     * Gets the resourceTypes property value. The resource types in the authorization system's service where the action can be performed. Supports $filter and (eq).
      * @return array<string>|null
     */
     public function getResourceTypes(): ?array {
@@ -118,7 +118,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionType property value. The actionType property
+     * Sets the actionType property value. The type of action allowed in the authorization system's service. The possible values are: delete, read, unknownFutureValue. Supports $filter and (eq).
      * @param AuthorizationSystemActionType|null $value Value to set for the actionType property.
     */
     public function setActionType(?AuthorizationSystemActionType $value): void {
@@ -126,7 +126,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. The display name of an action. Read-only. Supports $filter and (eq).
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -134,7 +134,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceTypes property value. The resourceTypes property
+     * Sets the resourceTypes property value. The resource types in the authorization system's service where the action can be performed. Supports $filter and (eq).
      * @param array<string>|null $value Value to set for the resourceTypes property.
     */
     public function setResourceTypes(?array $value): void {

@@ -37,4 +37,9 @@ class RecommendationType extends Enum {
     public const MANAGED_IDENTITY = 'managedIdentity';
     public const OVERPRIVILEGED_APPS = 'overprivilegedApps';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const LONG_LIVED_CREDENTIALS = 'longLivedCredentials';
+    public const AAD_CONNECT_DEPRECATED = 'aadConnectDeprecated';
+    public const ADAL_TO_MSAL_MIGRATION = 'adalToMsalMigration';
+    public const OWNERLESS_APPS = 'ownerlessApps';
+    public const INACTIVE_GUESTS = 'inactiveGuests';
 }

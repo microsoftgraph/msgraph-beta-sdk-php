@@ -36,6 +36,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the action property value. The action property
+     * @return FilteringPolicyAction|null
+    */
+    public function getAction(): ?FilteringPolicyAction {
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof FilteringPolicyAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
+    }
+
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
@@ -129,6 +141,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the destinationWebCategory property value. The destinationWebCategory property
+     * @return WebCategory|null
+    */
+    public function getDestinationWebCategory(): ?WebCategory {
+        $val = $this->getBackingStore()->get('destinationWebCategory');
+        if (is_null($val) || $val instanceof WebCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationWebCategory'");
+    }
+
+    /**
      * Gets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return DeviceCategory|null
     */
@@ -183,12 +207,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(FilteringPolicyAction::class)),
             'agentVersion' => fn(ParseNode $n) => $o->setAgentVersion($n->getStringValue()),
             'connectionId' => fn(ParseNode $n) => $o->setConnectionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'destinationFQDN' => fn(ParseNode $n) => $o->setDestinationFQDN($n->getStringValue()),
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
+            'destinationWebCategory' => fn(ParseNode $n) => $o->setDestinationWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceOperatingSystem' => fn(ParseNode $n) => $o->setDeviceOperatingSystem($n->getStringValue()),
@@ -487,12 +513,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('action', $this->getAction());
         $writer->writeStringValue('agentVersion', $this->getAgentVersion());
         $writer->writeStringValue('connectionId', $this->getConnectionId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('destinationFQDN', $this->getDestinationFQDN());
         $writer->writeStringValue('destinationIp', $this->getDestinationIp());
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
+        $writer->writeObjectValue('destinationWebCategory', $this->getDestinationWebCategory());
         $writer->writeEnumValue('deviceCategory', $this->getDeviceCategory());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceOperatingSystem', $this->getDeviceOperatingSystem());
@@ -520,6 +548,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the action property value. The action property
+     * @param FilteringPolicyAction|null $value Value to set for the action property.
+    */
+    public function setAction(?FilteringPolicyAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
@@ -584,6 +620,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setDestinationPort(?int $value): void {
         $this->getBackingStore()->set('destinationPort', $value);
+    }
+
+    /**
+     * Sets the destinationWebCategory property value. The destinationWebCategory property
+     * @param WebCategory|null $value Value to set for the destinationWebCategory property.
+    */
+    public function setDestinationWebCategory(?WebCategory $value): void {
+        $this->getBackingStore()->set('destinationWebCategory', $value);
     }
 
     /**

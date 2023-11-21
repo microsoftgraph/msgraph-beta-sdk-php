@@ -27,7 +27,7 @@ class AwsUser extends AwsIdentity implements Parsable
     }
 
     /**
-     * Gets the assumableRoles property value. The assumableRoles property
+     * Gets the assumableRoles property value. Roles assumed by the user.
      * @return array<AwsRole>|null
     */
     public function getAssumableRoles(): ?array {
@@ -61,7 +61,7 @@ class AwsUser extends AwsIdentity implements Parsable
     }
 
     /**
-     * Sets the assumableRoles property value. The assumableRoles property
+     * Sets the assumableRoles property value. Roles assumed by the user.
      * @param array<AwsRole>|null $value Value to set for the assumableRoles property.
     */
     public function setAssumableRoles(?array $value): void {

@@ -26,7 +26,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeOccurrenceStatus property value. The activeOccurrenceStatus property
+     * Gets the activeOccurrenceStatus property value. The status of the active occurence of the schedule if one exists. The possible values are: grantingFailed, granted, granting, revoked, revoking, revokingFailed, unknownFutureValue.
      * @return PermissionsRequestOccurrenceStatus|null
     */
     public function getActiveOccurrenceStatus(): ?PermissionsRequestOccurrenceStatus {
@@ -53,7 +53,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the modificationDateTime property value. The modificationDateTime property
+     * Gets the modificationDateTime property value. Time when the change occurred.
      * @return DateTime|null
     */
     public function getModificationDateTime(): ?DateTime {
@@ -65,7 +65,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the permissionsRequestId property value. The permissionsRequestId property
+     * Gets the permissionsRequestId property value. The ID of the scheduledPermissionsRequest object.
      * @return string|null
     */
     public function getPermissionsRequestId(): ?string {
@@ -89,7 +89,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the ticketId property value. The ticketId property
+     * Gets the ticketId property value. Represents the ticketing system identifier.
      * @return string|null
     */
     public function getTicketId(): ?string {
@@ -114,7 +114,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeOccurrenceStatus property value. The activeOccurrenceStatus property
+     * Sets the activeOccurrenceStatus property value. The status of the active occurence of the schedule if one exists. The possible values are: grantingFailed, granted, granting, revoked, revoking, revokingFailed, unknownFutureValue.
      * @param PermissionsRequestOccurrenceStatus|null $value Value to set for the activeOccurrenceStatus property.
     */
     public function setActiveOccurrenceStatus(?PermissionsRequestOccurrenceStatus $value): void {
@@ -122,7 +122,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the modificationDateTime property value. The modificationDateTime property
+     * Sets the modificationDateTime property value. Time when the change occurred.
      * @param DateTime|null $value Value to set for the modificationDateTime property.
     */
     public function setModificationDateTime(?DateTime $value): void {
@@ -130,7 +130,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the permissionsRequestId property value. The permissionsRequestId property
+     * Sets the permissionsRequestId property value. The ID of the scheduledPermissionsRequest object.
      * @param string|null $value Value to set for the permissionsRequestId property.
     */
     public function setPermissionsRequestId(?string $value): void {
@@ -146,7 +146,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the ticketId property value. The ticketId property
+     * Sets the ticketId property value. Represents the ticketing system identifier.
      * @param string|null $value Value to set for the ticketId property.
     */
     public function setTicketId(?string $value): void {

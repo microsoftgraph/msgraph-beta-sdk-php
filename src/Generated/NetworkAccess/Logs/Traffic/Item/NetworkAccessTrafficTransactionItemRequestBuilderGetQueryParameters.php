@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents a collection of log entries in the network access traffic log.
+ * A network access traffic log entry that contains comprehensive information about network traffic events.
 */
 class NetworkAccessTrafficTransactionItemRequestBuilderGetQueryParameters 
 {

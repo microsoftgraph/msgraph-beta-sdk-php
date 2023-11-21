@@ -33,12 +33,27 @@ class Logs extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'remoteNetworks' => fn(ParseNode $n) => $o->setRemoteNetworks($n->getCollectionOfObjectValues([RemoteNetworkHealthEvent::class, 'createFromDiscriminatorValue'])),
             'traffic' => fn(ParseNode $n) => $o->setTraffic($n->getCollectionOfObjectValues([NetworkAccessTraffic::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the traffic property value. Represents a collection of log entries in the network access traffic log.
+     * Gets the remoteNetworks property value. A collection of remote network health events.
+     * @return array<RemoteNetworkHealthEvent>|null
+    */
+    public function getRemoteNetworks(): ?array {
+        $val = $this->getBackingStore()->get('remoteNetworks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RemoteNetworkHealthEvent::class);
+            /** @var array<RemoteNetworkHealthEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteNetworks'");
+    }
+
+    /**
+     * Gets the traffic property value. A network access traffic log entry that contains comprehensive information about network traffic events.
      * @return array<NetworkAccessTraffic>|null
     */
     public function getTraffic(): ?array {
@@ -57,11 +72,20 @@ class Logs extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('remoteNetworks', $this->getRemoteNetworks());
         $writer->writeCollectionOfObjectValues('traffic', $this->getTraffic());
     }
 
     /**
-     * Sets the traffic property value. Represents a collection of log entries in the network access traffic log.
+     * Sets the remoteNetworks property value. A collection of remote network health events.
+     * @param array<RemoteNetworkHealthEvent>|null $value Value to set for the remoteNetworks property.
+    */
+    public function setRemoteNetworks(?array $value): void {
+        $this->getBackingStore()->set('remoteNetworks', $value);
+    }
+
+    /**
+     * Sets the traffic property value. A network access traffic log entry that contains comprehensive information about network traffic events.
      * @param array<NetworkAccessTraffic>|null $value Value to set for the traffic property.
     */
     public function setTraffic(?array $value): void {

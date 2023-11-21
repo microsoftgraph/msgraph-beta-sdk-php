@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get provisioning from auditLogs
+ * Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
 */
 class ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters 
 {
