@@ -56,7 +56,7 @@ class PermissionsDefinitionAuthorizationSystemIdentity implements AdditionalData
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. Unique ID of the identity within the external system. Prefixed with rsn: if this is a SAML or ED user in AWS. Alternate key.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -146,7 +146,7 @@ class PermissionsDefinitionAuthorizationSystemIdentity implements AdditionalData
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. Unique ID of the identity within the external system. Prefixed with rsn: if this is a SAML or ED user in AWS. Alternate key.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {

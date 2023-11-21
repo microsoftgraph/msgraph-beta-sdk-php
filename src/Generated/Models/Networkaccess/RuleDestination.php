@@ -40,6 +40,7 @@ class RuleDestination implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.networkaccess.ipRange': return new IpRange();
                 case '#microsoft.graph.networkaccess.ipSubnet': return new IpSubnet();
                 case '#microsoft.graph.networkaccess.url': return new Url();
+                case '#microsoft.graph.networkaccess.webCategory': return new WebCategory();
             }
         }
         return new RuleDestination();

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\CustomSecurityAttributeAudits
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get customSecurityAttributeAudits from auditLogs
+ * Represents a custom security attribute audit log.
 */
 class CustomSecurityAttributeAuditItemRequestBuilderGetQueryParameters 
 {

@@ -280,7 +280,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequiredAndroidSafetyNetEvaluationType property value. An enum representing the Android SafetyNet attestation evaluation types.
+     * Gets the securityRequiredAndroidSafetyNetEvaluationType property value. An enum representing the Android Play Integrity API evaluation types.
      * @return AndroidSafetyNetEvaluationType|null
     */
     public function getSecurityRequiredAndroidSafetyNetEvaluationType(): ?AndroidSafetyNetEvaluationType {
@@ -541,7 +541,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequiredAndroidSafetyNetEvaluationType property value. An enum representing the Android SafetyNet attestation evaluation types.
+     * Sets the securityRequiredAndroidSafetyNetEvaluationType property value. An enum representing the Android Play Integrity API evaluation types.
      * @param AndroidSafetyNetEvaluationType|null $value Value to set for the securityRequiredAndroidSafetyNetEvaluationType property.
     */
     public function setSecurityRequiredAndroidSafetyNetEvaluationType(?AndroidSafetyNetEvaluationType $value): void {

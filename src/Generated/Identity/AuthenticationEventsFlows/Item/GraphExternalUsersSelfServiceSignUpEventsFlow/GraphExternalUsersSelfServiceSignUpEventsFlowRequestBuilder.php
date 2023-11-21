@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\Conditions\ConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAttributeCollection\OnAttributeCollectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\OnAuthenticationMethodLoadStartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalUsersSelfServiceSignUpEventsFlow;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * The conditions property
+    */
+    public function conditions(): ConditionsRequestBuilder {
+        return new ConditionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * The onAttributeCollection property
     */
@@ -78,7 +86,7 @@ class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder extends BaseRe
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

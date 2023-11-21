@@ -107,7 +107,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The user's directory object ID (Microsoft Entra ID or CID).
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -119,7 +119,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. Email address or reference to person within organization.
+     * Gets the userPrincipalName property value. Email address or reference to person within the organization.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -184,7 +184,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The user's directory object ID (Microsoft Entra ID or CID).
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -192,7 +192,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. Email address or reference to person within organization.
+     * Sets the userPrincipalName property value. Email address or reference to person within the organization.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

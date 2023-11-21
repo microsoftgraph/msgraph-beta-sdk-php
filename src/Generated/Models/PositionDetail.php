@@ -125,7 +125,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the layer property value. The layer property
+     * Gets the layer property value. The place where the employee is within the organizational hierarchy.
      * @return int|null
     */
     public function getLayer(): ?int {
@@ -137,7 +137,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the level property value. The level property
+     * Gets the level property value. The employee’s experience or management level.
      * @return string|null
     */
     public function getLevel(): ?string {
@@ -185,7 +185,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the summary property value. Short summary of the position.
+     * Gets the summary property value. summary of the position.
      * @return string|null
     */
     public function getSummary(): ?string {
@@ -263,7 +263,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the layer property value. The layer property
+     * Sets the layer property value. The place where the employee is within the organizational hierarchy.
      * @param int|null $value Value to set for the layer property.
     */
     public function setLayer(?int $value): void {
@@ -271,7 +271,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the level property value. The level property
+     * Sets the level property value. The employee’s experience or management level.
      * @param string|null $value Value to set for the level property.
     */
     public function setLevel(?string $value): void {
@@ -303,7 +303,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the summary property value. Short summary of the position.
+     * Sets the summary property value. summary of the position.
      * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {

@@ -38,7 +38,7 @@ class PermissionsManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the permissionsRequestChanges property value. The permissionsRequestChanges property
+     * Gets the permissionsRequestChanges property value. Represents a change event of the scheduledPermissionsRequest entity.
      * @return array<PermissionsRequestChange>|null
     */
     public function getPermissionsRequestChanges(): ?array {
@@ -52,7 +52,7 @@ class PermissionsManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledPermissionsRequests property value. The scheduledPermissionsRequests property
+     * Gets the scheduledPermissionsRequests property value. Represents a permissions request that Permissions Management uses to manage permissions for an identity on resources in the authorization system. This request can be granted, rejected or canceled by identities in Permissions Management.
      * @return array<ScheduledPermissionsRequest>|null
     */
     public function getScheduledPermissionsRequests(): ?array {
@@ -76,7 +76,7 @@ class PermissionsManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the permissionsRequestChanges property value. The permissionsRequestChanges property
+     * Sets the permissionsRequestChanges property value. Represents a change event of the scheduledPermissionsRequest entity.
      * @param array<PermissionsRequestChange>|null $value Value to set for the permissionsRequestChanges property.
     */
     public function setPermissionsRequestChanges(?array $value): void {
@@ -84,7 +84,7 @@ class PermissionsManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledPermissionsRequests property value. The scheduledPermissionsRequests property
+     * Sets the scheduledPermissionsRequests property value. Represents a permissions request that Permissions Management uses to manage permissions for an identity on resources in the authorization system. This request can be granted, rejected or canceled by identities in Permissions Management.
      * @param array<ScheduledPermissionsRequest>|null $value Value to set for the scheduledPermissionsRequests property.
     */
     public function setScheduledPermissionsRequests(?array $value): void {

@@ -36,7 +36,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. The AWS actions.
      * @return array<string>|null
     */
     public function getActions(): ?array {
@@ -71,7 +71,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the condition property value. The condition property
+     * Gets the condition property value. The AWS conditions associated with the statement.
      * @return AwsCondition|null
     */
     public function getCondition(): ?AwsCondition {
@@ -141,7 +141,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the notActions property value. The notActions property
+     * Gets the notActions property value. AWS Not Actions
      * @return array<string>|null
     */
     public function getNotActions(): ?array {
@@ -155,7 +155,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the notResources property value. The notResources property
+     * Gets the notResources property value. AWS Not Resources
      * @return array<string>|null
     */
     public function getNotResources(): ?array {
@@ -181,7 +181,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. The AWS resources associated with the statement.
      * @return array<string>|null
     */
     public function getResources(): ?array {
@@ -195,7 +195,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the statementId property value. The statementId property
+     * Gets the statementId property value. The ID of the AWS statement.
      * @return string|null
     */
     public function getStatementId(): ?string {
@@ -223,7 +223,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. The AWS actions.
      * @param array<string>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -247,7 +247,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the condition property value. The condition property
+     * Sets the condition property value. The AWS conditions associated with the statement.
      * @param AwsCondition|null $value Value to set for the condition property.
     */
     public function setCondition(?AwsCondition $value): void {
@@ -263,7 +263,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the notActions property value. The notActions property
+     * Sets the notActions property value. AWS Not Actions
      * @param array<string>|null $value Value to set for the notActions property.
     */
     public function setNotActions(?array $value): void {
@@ -271,7 +271,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the notResources property value. The notResources property
+     * Sets the notResources property value. AWS Not Resources
      * @param array<string>|null $value Value to set for the notResources property.
     */
     public function setNotResources(?array $value): void {
@@ -287,7 +287,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. The AWS resources associated with the statement.
      * @param array<string>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -295,7 +295,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the statementId property value. The statementId property
+     * Sets the statementId property value. The ID of the AWS statement.
      * @param string|null $value Value to set for the statementId property.
     */
     public function setStatementId(?string $value): void {

@@ -51,7 +51,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Registration records of this virtual event session.
+     * Get registrations from solutions
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistrationCollectionResponse|null>
      * @throws Exception
@@ -66,7 +66,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Registration records of this virtual event session.
+     * Get registrations from solutions
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -82,7 +82,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

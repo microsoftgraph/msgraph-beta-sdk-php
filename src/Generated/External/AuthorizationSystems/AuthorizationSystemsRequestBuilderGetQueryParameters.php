@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\AuthorizationSystems;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authorizationSystems from external
+ * List the authorizationSystem objects onboarded to Permissions Management and their properties.
 */
 class AuthorizationSystemsRequestBuilderGetQueryParameters 
 {

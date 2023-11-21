@@ -68,12 +68,12 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow: This API is available in the following national cloud deployments.
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an inboundFileFlow: This API is available in the following national cloud deployments.
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-post?view=graph-rest-1.0 Find more info here
     */
     public function post(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -101,12 +101,12 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow: This API is available in the following national cloud deployments.
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an inboundFileFlow: This API is available in the following national cloud deployments.
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

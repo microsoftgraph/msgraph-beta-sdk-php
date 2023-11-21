@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventsRoot;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\EventsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\TownhallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\WebinarsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -23,6 +24,13 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
     */
     public function events(): EventsRequestBuilder {
         return new EventsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
+    */
+    public function townhalls(): TownhallsRequestBuilder {
+        return new TownhallsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -106,7 +114,7 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -127,7 +135,7 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -146,7 +154,7 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

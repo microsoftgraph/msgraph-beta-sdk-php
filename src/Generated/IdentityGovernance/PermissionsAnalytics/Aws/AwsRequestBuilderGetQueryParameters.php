@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get aws from identityGovernance
+ * AWS permissions analytics findings.
 */
 class AwsRequestBuilderGetQueryParameters 
 {

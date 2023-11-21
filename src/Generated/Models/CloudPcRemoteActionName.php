@@ -15,4 +15,8 @@ class CloudPcRemoteActionName extends Enum {
     public const TROUBLESHOOT = 'troubleshoot';
     public const PLACE_UNDER_REVIEW = 'placeUnderReview';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const CREATE_SNAPSHOT = 'createSnapshot';
+    public const POWER_ON = 'powerOn';
+    public const POWER_OFF = 'powerOff';
+    public const MOVE_REGION = 'moveRegion';
 }

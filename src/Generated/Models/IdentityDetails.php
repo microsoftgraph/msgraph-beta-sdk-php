@@ -57,7 +57,7 @@ class IdentityDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. A date specifiying when the Identity was created, could be null
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -82,7 +82,7 @@ class IdentityDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastActiveDateTime property value. The lastActiveDateTime property
+     * Gets the lastActiveDateTime property value. A date specifiying when the Identity was active last time, could be null
      * @return DateTime|null
     */
     public function getLastActiveDateTime(): ?DateTime {
@@ -133,7 +133,7 @@ class IdentityDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. A date specifiying when the Identity was created, could be null
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -141,7 +141,7 @@ class IdentityDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastActiveDateTime property value. The lastActiveDateTime property
+     * Sets the lastActiveDateTime property value. A date specifiying when the Identity was active last time, could be null
      * @param DateTime|null $value Value to set for the lastActiveDateTime property.
     */
     public function setLastActiveDateTime(?DateTime $value): void {

@@ -40,7 +40,7 @@ class EntitlementsDataCollection extends EntitlementsDataCollectionInfo implemen
     }
 
     /**
-     * Gets the lastCollectionDateTime property value. The lastCollectionDateTime property
+     * Gets the lastCollectionDateTime property value. Last transformation time of entitlements.
      * @return DateTime|null
     */
     public function getLastCollectionDateTime(): ?DateTime {
@@ -87,7 +87,7 @@ class EntitlementsDataCollection extends EntitlementsDataCollectionInfo implemen
     }
 
     /**
-     * Sets the lastCollectionDateTime property value. The lastCollectionDateTime property
+     * Sets the lastCollectionDateTime property value. Last transformation time of entitlements.
      * @param DateTime|null $value Value to set for the lastCollectionDateTime property.
     */
     public function setLastCollectionDateTime(?DateTime $value): void {

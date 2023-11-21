@@ -60,18 +60,18 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
-            'registrationConfiguration' => fn(ParseNode $n) => $o->setRegistrationConfiguration($n->getObjectValue([VirtualEventRegistrationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'registrationConfiguration' => fn(ParseNode $n) => $o->setRegistrationConfiguration($n->getObjectValue([VirtualEventWebinarRegistrationConfiguration::class, 'createFromDiscriminatorValue'])),
             'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the registrationConfiguration property value. Registration configuration of the webinar.
-     * @return VirtualEventRegistrationConfiguration|null
+     * Gets the registrationConfiguration property value. The registrationConfiguration property
+     * @return VirtualEventWebinarRegistrationConfiguration|null
     */
-    public function getRegistrationConfiguration(): ?VirtualEventRegistrationConfiguration {
+    public function getRegistrationConfiguration(): ?VirtualEventWebinarRegistrationConfiguration {
         $val = $this->getBackingStore()->get('registrationConfiguration');
-        if (is_null($val) || $val instanceof VirtualEventRegistrationConfiguration) {
+        if (is_null($val) || $val instanceof VirtualEventWebinarRegistrationConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationConfiguration'");
@@ -120,10 +120,10 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the registrationConfiguration property value. Registration configuration of the webinar.
-     * @param VirtualEventRegistrationConfiguration|null $value Value to set for the registrationConfiguration property.
+     * Sets the registrationConfiguration property value. The registrationConfiguration property
+     * @param VirtualEventWebinarRegistrationConfiguration|null $value Value to set for the registrationConfiguration property.
     */
-    public function setRegistrationConfiguration(?VirtualEventRegistrationConfiguration $value): void {
+    public function setRegistrationConfiguration(?VirtualEventWebinarRegistrationConfiguration $value): void {
         $this->getBackingStore()->set('registrationConfiguration', $value);
     }
 

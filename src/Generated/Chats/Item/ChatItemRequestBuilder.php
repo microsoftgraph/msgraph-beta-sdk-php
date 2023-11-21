@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Chats\Item\RemoveAllAccessForUser\RemoveAllAccessForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
@@ -97,6 +98,13 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     */
     public function pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeAllAccessForUser method.
+    */
+    public function removeAllAccessForUser(): RemoveAllAccessForUserRequestBuilder {
+        return new RemoveAllAccessForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -197,7 +205,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -218,7 +226,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -237,7 +245,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

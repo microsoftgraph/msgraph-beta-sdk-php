@@ -27,7 +27,7 @@ class GcpActionPermissionsDefinitionAction extends GcpPermissionsDefinitionActio
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions.
      * @return array<string>|null
     */
     public function getActions(): ?array {
@@ -68,7 +68,7 @@ class GcpActionPermissionsDefinitionAction extends GcpPermissionsDefinitionActio
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions.
      * @param array<string>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {

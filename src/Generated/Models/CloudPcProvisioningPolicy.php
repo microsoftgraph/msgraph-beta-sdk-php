@@ -162,6 +162,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
+            'scopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScopeIds($val);
+            },
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -275,6 +283,20 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the scopeIds property value. The scopeIds property
+     * @return array<string>|null
+    */
+    public function getScopeIds(): ?array {
+        $val = $this->getBackingStore()->get('scopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeIds'");
+    }
+
+    /**
      * Gets the windowsSettings property value. Specific Windows settings to configure while creating Cloud PCs for this provisioning policy.
      * @return CloudPcWindowsSettings|null
     */
@@ -310,6 +332,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
+        $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
 
@@ -455,6 +478,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
+    }
+
+    /**
+     * Sets the scopeIds property value. The scopeIds property
+     * @param array<string>|null $value Value to set for the scopeIds property.
+    */
+    public function setScopeIds(?array $value): void {
+        $this->getBackingStore()->set('scopeIds', $value);
     }
 
     /**

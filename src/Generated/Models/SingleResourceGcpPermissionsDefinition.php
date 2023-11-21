@@ -50,7 +50,7 @@ class SingleResourceGcpPermissionsDefinition extends PermissionsDefinition imple
     }
 
     /**
-     * Gets the resourceId property value. The resourceId property
+     * Gets the resourceId property value. Identifier for the resource.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -80,7 +80,7 @@ class SingleResourceGcpPermissionsDefinition extends PermissionsDefinition imple
     }
 
     /**
-     * Sets the resourceId property value. The resourceId property
+     * Sets the resourceId property value. Identifier for the resource.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {

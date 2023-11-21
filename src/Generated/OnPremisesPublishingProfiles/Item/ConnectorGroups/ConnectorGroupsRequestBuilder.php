@@ -68,12 +68,12 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a connectorGroup object.
+     * Create a new connectorGroup.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0 Find more info here
     */
     public function post(ConnectorGroup $body, ?ConnectorGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -101,12 +101,12 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a connectorGroup object.
+     * Create a new connectorGroup.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

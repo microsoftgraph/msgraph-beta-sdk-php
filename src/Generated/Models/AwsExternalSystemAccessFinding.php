@@ -76,7 +76,7 @@ class AwsExternalSystemAccessFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the trustedIdentityCount property value. The trustedIdentityCount property
+     * Gets the trustedIdentityCount property value. The number of identities in the external system that are trusted, if not all. Supports $orderby.
      * @return int|null
     */
     public function getTrustedIdentityCount(): ?int {
@@ -88,7 +88,7 @@ class AwsExternalSystemAccessFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the trustsAllIdentities property value. The trustsAllIdentities property
+     * Gets the trustsAllIdentities property value. Flag that determines if all identities in the external system are trusted, or only a subset.
      * @return bool|null
     */
     public function getTrustsAllIdentities(): ?bool {
@@ -137,7 +137,7 @@ class AwsExternalSystemAccessFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the trustedIdentityCount property value. The trustedIdentityCount property
+     * Sets the trustedIdentityCount property value. The number of identities in the external system that are trusted, if not all. Supports $orderby.
      * @param int|null $value Value to set for the trustedIdentityCount property.
     */
     public function setTrustedIdentityCount(?int $value): void {
@@ -145,7 +145,7 @@ class AwsExternalSystemAccessFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the trustsAllIdentities property value. The trustsAllIdentities property
+     * Sets the trustsAllIdentities property value. Flag that determines if all identities in the external system are trusted, or only a subset.
      * @param bool|null $value Value to set for the trustsAllIdentities property.
     */
     public function setTrustsAllIdentities(?bool $value): void {
