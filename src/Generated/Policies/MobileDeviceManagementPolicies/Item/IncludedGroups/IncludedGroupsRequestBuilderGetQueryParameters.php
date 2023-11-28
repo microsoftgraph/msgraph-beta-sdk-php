@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of groups that are included in a mobile app management policy. This API is available in the following national cloud deployments.
+ * Get the list of groups that are included in a mobile app management policy.
 */
 class IncludedGroupsRequestBuilderGetQueryParameters 
 {

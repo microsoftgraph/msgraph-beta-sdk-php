@@ -47,7 +47,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tenantTag object. This API is available in the following national cloud deployments.
+     * Delete a tenantTag object.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantTag object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantTag object.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tenantTag object. This API is available in the following national cloud deployments.
+     * Update the properties of a tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
@@ -96,7 +96,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tenantTag object. This API is available in the following national cloud deployments.
+     * Delete a tenantTag object.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,12 +109,12 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a tenantTag object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantTag object.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,12 +130,12 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a tenantTag object. This API is available in the following national cloud deployments.
+     * Update the properties of a tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -149,7 +149,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

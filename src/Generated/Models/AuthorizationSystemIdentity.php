@@ -49,7 +49,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorizationSystem property value. The authorizationSystem property
+     * Gets the authorizationSystem property value. Navigation to the authorizationSystem object
      * @return AuthorizationSystem|null
     */
     public function getAuthorizationSystem(): ?AuthorizationSystem {
@@ -61,7 +61,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the identity. Read-only. Supports $filter and (eq,contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -73,7 +73,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. Unique ID of the identity within the external system. Read-only.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -99,7 +99,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. The source property
+     * Gets the source property value. Represents details of the source of the identity.
      * @return AuthorizationSystemIdentitySource|null
     */
     public function getSource(): ?AuthorizationSystemIdentitySource {
@@ -123,7 +123,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorizationSystem property value. The authorizationSystem property
+     * Sets the authorizationSystem property value. Navigation to the authorizationSystem object
      * @param AuthorizationSystem|null $value Value to set for the authorizationSystem property.
     */
     public function setAuthorizationSystem(?AuthorizationSystem $value): void {
@@ -131,7 +131,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the identity. Read-only. Supports $filter and (eq,contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -139,7 +139,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. Unique ID of the identity within the external system. Read-only.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -147,7 +147,7 @@ class AuthorizationSystemIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. The source property
+     * Sets the source property value. Represents details of the source of the identity.
      * @param AuthorizationSystemIdentitySource|null $value Value to set for the source property.
     */
     public function setSource(?AuthorizationSystemIdentitySource $value): void {

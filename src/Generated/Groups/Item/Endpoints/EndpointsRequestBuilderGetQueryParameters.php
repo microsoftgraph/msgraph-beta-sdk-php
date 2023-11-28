@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of endpoint objects. This API is available in the following national cloud deployments.
+ * Retrieve a list of endpoint objects.
 */
 class EndpointsRequestBuilderGetQueryParameters 
 {

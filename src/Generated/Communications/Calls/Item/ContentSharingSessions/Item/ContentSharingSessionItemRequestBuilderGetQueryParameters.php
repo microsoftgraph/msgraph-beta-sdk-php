@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a contentSharingSession object. This API is available in the following national cloud deployments.
+ * Retrieve the properties of a contentSharingSession object.
 */
 class ContentSharingSessionItemRequestBuilderGetQueryParameters 
 {

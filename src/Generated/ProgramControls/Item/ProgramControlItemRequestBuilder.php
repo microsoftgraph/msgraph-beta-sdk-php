@@ -39,7 +39,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.
      * @param ProgramControlItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.
      * @param ProgramControlItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +99,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -120,7 +120,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -139,7 +139,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

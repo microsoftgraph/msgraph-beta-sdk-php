@@ -26,7 +26,7 @@ class AwsExternalSystemAccessRoleFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the accessibleSystemIds property value. The accessibleSystemIds property
+     * Gets the accessibleSystemIds property value. The IDs of the accounts that this role is able to access.
      * @return array<string>|null
     */
     public function getAccessibleSystemIds(): ?array {
@@ -95,7 +95,7 @@ class AwsExternalSystemAccessRoleFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the accessibleSystemIds property value. The accessibleSystemIds property
+     * Sets the accessibleSystemIds property value. The IDs of the accounts that this role is able to access.
      * @param array<string>|null $value Value to set for the accessibleSystemIds property.
     */
     public function setAccessibleSystemIds(?array $value): void {

@@ -39,7 +39,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object. This API is available in the following national cloud deployments.
+     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object. This API is available in the following national cloud deployments.
+     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordlessMicrosoftAuthenticatorAuthenticationMethod|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object. This API is available in the following national cloud deployments.
+     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -84,12 +84,12 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object. This API is available in the following national cloud deployments.
+     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -105,7 +105,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

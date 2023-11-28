@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\SignUps\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get signUps from reports
+ * Total sign-ups on apps registered in the tenant for a specified period.
 */
 class UserSignUpMetricItemRequestBuilderGetQueryParameters 
 {

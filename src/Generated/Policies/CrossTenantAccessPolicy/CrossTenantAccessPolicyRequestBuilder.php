@@ -70,7 +70,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessPolicy|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cross-tenant access policy. This API is available in the following national cloud deployments.
+     * Update the properties of a cross-tenant access policy.
      * @param CrossTenantAccessPolicy $body The request body
      * @param CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessPolicy|null>
@@ -116,12 +116,12 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -137,12 +137,12 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a cross-tenant access policy. This API is available in the following national cloud deployments.
+     * Update the properties of a cross-tenant access policy.
      * @param CrossTenantAccessPolicy $body The request body
      * @param CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -156,7 +156,7 @@ class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -28,12 +28,11 @@ class DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration extends
 
     /**
      * Instantiates a new DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters {
-        return new DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters($expand, $select);
+    public static function createQueryParameters(?array $select = null): DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters {
+        return new DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters($select);
     }
 
 }

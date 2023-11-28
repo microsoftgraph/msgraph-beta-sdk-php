@@ -52,7 +52,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the collection of school data synchronization profiles in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationProfileCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the collection of school data synchronization profiles in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +100,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -119,7 +119,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

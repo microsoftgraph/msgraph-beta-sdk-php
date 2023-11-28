@@ -34,7 +34,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorizationSystemId property value. The authorizationSystemId property
+     * Gets the authorizationSystemId property value. ID of the authorization system retrieved from the customer cloud environment. Supports $filter(eq, contains) and $orderBy.
      * @return string|null
     */
     public function getAuthorizationSystemId(): ?string {
@@ -46,7 +46,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorizationSystemName property value. The authorizationSystemName property
+     * Gets the authorizationSystemName property value. Name of the authorization system detected after onboarding. Supports $filter(eq,contains) and $orderBy.
      * @return string|null
     */
     public function getAuthorizationSystemName(): ?string {
@@ -58,7 +58,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorizationSystemType property value. The authorizationSystemType property
+     * Gets the authorizationSystemType property value. The type of authorization system. Can be gcp, azure, or aws. Supports $filter(eq).
      * @return string|null
     */
     public function getAuthorizationSystemType(): ?string {
@@ -70,7 +70,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Gets the dataCollectionInfo property value. The dataCollectionInfo property
+     * Gets the dataCollectionInfo property value. Defines how and whether Permissions Management collects data from the onboarded authorization system. Supports $filter (eq) as follows:  $filter=dataCollectionInfo/entitlements/permissionsModificationCapability and $filter=dataCollectionInfo/entitlements/status.
      * @return DataCollectionInfo|null
     */
     public function getDataCollectionInfo(): ?DataCollectionInfo {
@@ -108,7 +108,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorizationSystemId property value. The authorizationSystemId property
+     * Sets the authorizationSystemId property value. ID of the authorization system retrieved from the customer cloud environment. Supports $filter(eq, contains) and $orderBy.
      * @param string|null $value Value to set for the authorizationSystemId property.
     */
     public function setAuthorizationSystemId(?string $value): void {
@@ -116,7 +116,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorizationSystemName property value. The authorizationSystemName property
+     * Sets the authorizationSystemName property value. Name of the authorization system detected after onboarding. Supports $filter(eq,contains) and $orderBy.
      * @param string|null $value Value to set for the authorizationSystemName property.
     */
     public function setAuthorizationSystemName(?string $value): void {
@@ -124,7 +124,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorizationSystemType property value. The authorizationSystemType property
+     * Sets the authorizationSystemType property value. The type of authorization system. Can be gcp, azure, or aws. Supports $filter(eq).
      * @param string|null $value Value to set for the authorizationSystemType property.
     */
     public function setAuthorizationSystemType(?string $value): void {
@@ -132,7 +132,7 @@ class AuthorizationSystem extends Entity implements Parsable
     }
 
     /**
-     * Sets the dataCollectionInfo property value. The dataCollectionInfo property
+     * Sets the dataCollectionInfo property value. Defines how and whether Permissions Management collects data from the onboarded authorization system. Supports $filter (eq) as follows:  $filter=dataCollectionInfo/entitlements/permissionsModificationCapability and $filter=dataCollectionInfo/entitlements/status.
      * @param DataCollectionInfo|null $value Value to set for the dataCollectionInfo property.
     */
     public function setDataCollectionInfo(?DataCollectionInfo $value): void {

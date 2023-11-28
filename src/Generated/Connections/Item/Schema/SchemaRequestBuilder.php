@@ -31,7 +31,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Schema|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create the schema for a Microsoft Search connection. This API is available in the following national cloud deployments.
+     * Create the schema for a Microsoft Search connection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Schema|null>
@@ -64,7 +64,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -80,12 +80,12 @@ class SchemaRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create the schema for a Microsoft Search connection. This API is available in the following national cloud deployments.
+     * Create the schema for a Microsoft Search connection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -99,7 +99,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

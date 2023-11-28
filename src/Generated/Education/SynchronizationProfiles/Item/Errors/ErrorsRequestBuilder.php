@@ -52,7 +52,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationErrorCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +100,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -119,7 +119,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

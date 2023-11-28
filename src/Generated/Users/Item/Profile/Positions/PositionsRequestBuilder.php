@@ -52,7 +52,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of workPosition objects from a user's profile.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPositionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new workPosition in a user's profile.
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
@@ -85,7 +85,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of workPosition objects from a user's profile.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class PositionsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new workPosition in a user's profile.
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

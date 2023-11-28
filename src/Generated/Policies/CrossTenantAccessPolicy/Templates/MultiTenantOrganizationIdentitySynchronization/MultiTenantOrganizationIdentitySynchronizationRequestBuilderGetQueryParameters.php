@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Templa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization. This API is available in the following national cloud deployments.
+ * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
 */
 class MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaComplet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mfaCompletions from reports
+ * Insights for MFA usage on apps registered in the tenant for a specified period.
 */
 class MfaCompletionMetricItemRequestBuilderGetQueryParameters 
 {

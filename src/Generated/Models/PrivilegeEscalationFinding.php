@@ -62,7 +62,7 @@ class PrivilegeEscalationFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the identityDetails property value. The identityDetails property
+     * Gets the identityDetails property value. An identity's information details. Inherited from finding.
      * @return IdentityDetails|null
     */
     public function getIdentityDetails(): ?IdentityDetails {
@@ -86,7 +86,7 @@ class PrivilegeEscalationFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the privilegeEscalationDetails property value. The privilegeEscalationDetails property
+     * Gets the privilegeEscalationDetails property value. The list of escalations that the identity is capable of performing.
      * @return array<PrivilegeEscalation>|null
     */
     public function getPrivilegeEscalationDetails(): ?array {
@@ -120,7 +120,7 @@ class PrivilegeEscalationFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the identityDetails property value. The identityDetails property
+     * Sets the identityDetails property value. An identity's information details. Inherited from finding.
      * @param IdentityDetails|null $value Value to set for the identityDetails property.
     */
     public function setIdentityDetails(?IdentityDetails $value): void {
@@ -136,7 +136,7 @@ class PrivilegeEscalationFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the privilegeEscalationDetails property value. The privilegeEscalationDetails property
+     * Sets the privilegeEscalationDetails property value. The list of escalations that the identity is capable of performing.
      * @param array<PrivilegeEscalation>|null $value Value to set for the privilegeEscalationDetails property.
     */
     public function setPrivilegeEscalationDetails(?array $value): void {

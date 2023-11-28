@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance. This API is available in the following national cloud deployments.
+ * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
 */
 class DeviceItemRequestBuilderGetQueryParameters 
 {

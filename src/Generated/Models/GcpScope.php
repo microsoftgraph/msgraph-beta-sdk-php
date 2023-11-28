@@ -81,7 +81,7 @@ class GcpScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. Type of GCP resource.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -140,7 +140,7 @@ class GcpScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. Type of GCP resource.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

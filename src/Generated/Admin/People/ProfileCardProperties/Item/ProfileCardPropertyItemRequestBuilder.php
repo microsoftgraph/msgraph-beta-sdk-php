@@ -31,7 +31,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is available in the following national cloud deployments.
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property.
      * @param ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProfileCardProperty|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProfileCardProperty|null>
@@ -80,7 +80,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property. This API is available in the following national cloud deployments.
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property.
      * @param ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property. This API is available in the following national cloud deployments.
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -31,7 +31,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is available in the following national cloud deployments.
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period. This API is available in the following national cloud deployments.
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -64,7 +64,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

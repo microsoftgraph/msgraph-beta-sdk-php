@@ -84,7 +84,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of information protection labels available to the user or to the organization. This API is available in the following national cloud deployments.
+     * Get a collection of information protection labels available to the user or to the organization.
      * @param LabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InformationProtectionLabelCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of information protection labels available to the user or to the organization. This API is available in the following national cloud deployments.
+     * Get a collection of information protection labels available to the user or to the organization.
      * @param LabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -151,7 +151,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

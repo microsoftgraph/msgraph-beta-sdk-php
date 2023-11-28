@@ -112,6 +112,14 @@ class CloudPC extends Entity implements Parsable
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
+            'scopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScopeIds($val);
+            },
             'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
             'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
             'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)),
@@ -293,6 +301,20 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the scopeIds property value. The scopeIds property
+     * @return array<string>|null
+    */
+    public function getScopeIds(): ?array {
+        $val = $this->getBackingStore()->get('scopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeIds'");
+    }
+
+    /**
      * Gets the servicePlanId property value. The service plan ID of the Cloud PC.
      * @return string|null
     */
@@ -401,6 +423,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
+        $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeStringValue('servicePlanId', $this->getServicePlanId());
         $writer->writeStringValue('servicePlanName', $this->getServicePlanName());
         $writer->writeEnumValue('servicePlanType', $this->getServicePlanType());
@@ -560,6 +583,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
+    }
+
+    /**
+     * Sets the scopeIds property value. The scopeIds property
+     * @param array<string>|null $value Value to set for the scopeIds property.
+    */
+    public function setScopeIds(?array $value): void {
+        $this->getBackingStore()->set('scopeIds', $value);
     }
 
     /**

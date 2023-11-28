@@ -52,7 +52,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the program objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the program objects.
      * @param ProgramsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProgramCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, create a new program object. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, create a new program object.
      * @param Program $body The request body
      * @param ProgramsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Program|null>
@@ -85,7 +85,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the program objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the program objects.
      * @param ProgramsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, create a new program object. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, create a new program object.
      * @param Program $body The request body
      * @param ProgramsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class ProgramsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

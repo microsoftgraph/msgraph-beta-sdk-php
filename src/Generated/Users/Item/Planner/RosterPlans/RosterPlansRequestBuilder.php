@@ -51,7 +51,7 @@ class RosterPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member. This API is available in the following national cloud deployments.
+     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
      * @param RosterPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class RosterPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member. This API is available in the following national cloud deployments.
+     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
      * @param RosterPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -83,7 +83,7 @@ class RosterPlansRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

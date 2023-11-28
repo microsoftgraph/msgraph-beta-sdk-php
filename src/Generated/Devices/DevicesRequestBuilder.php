@@ -84,7 +84,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of devices registered in the directory.  This API is available in the following national cloud deployments.
+     * Retrieve a list of devices registered in the directory. 
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new device. This API is available in the following national cloud deployments.
+     * Create a new device.
      * @param Device $body The request body
      * @param DevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
@@ -117,7 +117,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of devices registered in the directory.  This API is available in the following national cloud deployments.
+     * Retrieve a list of devices registered in the directory. 
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,12 +133,12 @@ class DevicesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new device. This API is available in the following national cloud deployments.
+     * Create a new device.
      * @param Device $body The request body
      * @param DevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -152,7 +152,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

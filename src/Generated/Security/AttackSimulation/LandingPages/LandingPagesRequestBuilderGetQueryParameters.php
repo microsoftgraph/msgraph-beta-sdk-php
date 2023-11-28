@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LandingPages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the landingPage objects and their properties. This API is available in the following national cloud deployments.
+ * Get a list of the landingPage objects and their properties.
 */
 class LandingPagesRequestBuilderGetQueryParameters 
 {

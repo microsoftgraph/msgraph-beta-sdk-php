@@ -62,7 +62,7 @@ class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies. This API is available in the following national cloud deployments.
+     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
      * @param AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationStrengthPolicyCollectionResponse|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custom authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Create a new custom authenticationStrengthPolicy object.
      * @param AuthenticationStrengthPolicy $body The request body
      * @param AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationStrengthPolicy|null>
@@ -95,7 +95,7 @@ class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies. This API is available in the following national cloud deployments.
+     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
      * @param AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,12 +111,12 @@ class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new custom authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Create a new custom authenticationStrengthPolicy object.
      * @param AuthenticationStrengthPolicy $body The request body
      * @param AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -130,7 +130,7 @@ class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

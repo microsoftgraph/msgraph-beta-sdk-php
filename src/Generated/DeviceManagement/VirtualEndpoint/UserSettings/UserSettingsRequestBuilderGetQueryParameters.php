@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of cloudPcUserSetting objects. This API is available in the following national cloud deployments.
+ * Retrieve a list of cloudPcUserSetting objects.
 */
 class UserSettingsRequestBuilderGetQueryParameters 
 {

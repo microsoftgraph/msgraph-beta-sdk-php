@@ -26,11 +26,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Gets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra join within your organization. Required. For more information, see What is a device identity?.
-     * @return AzureAdJoinPolicy|null
+     * @return AzureADJoinPolicy|null
     */
-    public function getAzureADJoin(): ?AzureAdJoinPolicy {
+    public function getAzureADJoin(): ?AzureADJoinPolicy {
         $val = $this->getBackingStore()->get('azureADJoin');
-        if (is_null($val) || $val instanceof AzureAdJoinPolicy) {
+        if (is_null($val) || $val instanceof AzureADJoinPolicy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'azureADJoin'");
@@ -79,7 +79,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureADJoin' => fn(ParseNode $n) => $o->setAzureADJoin($n->getObjectValue([AzureAdJoinPolicy::class, 'createFromDiscriminatorValue'])),
+            'azureADJoin' => fn(ParseNode $n) => $o->setAzureADJoin($n->getObjectValue([AzureADJoinPolicy::class, 'createFromDiscriminatorValue'])),
             'azureADRegistration' => fn(ParseNode $n) => $o->setAzureADRegistration($n->getObjectValue([AzureADRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -142,9 +142,9 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Sets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Microsoft Entra join within your organization. Required. For more information, see What is a device identity?.
-     * @param AzureAdJoinPolicy|null $value Value to set for the azureADJoin property.
+     * @param AzureADJoinPolicy|null $value Value to set for the azureADJoin property.
     */
-    public function setAzureADJoin(?AzureAdJoinPolicy $value): void {
+    public function setAzureADJoin(?AzureADJoinPolicy $value): void {
         $this->getBackingStore()->set('azureADJoin', $value);
     }
 

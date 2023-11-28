@@ -31,7 +31,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Delete a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfigurationLocalization|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfigurationLocalization|null>
@@ -80,7 +80,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Delete a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a plannerPlanConfigurationLocalization object. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

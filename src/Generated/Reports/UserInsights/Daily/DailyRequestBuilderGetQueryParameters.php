@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get daily from reports
+ * Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
 */
 class DailyRequestBuilderGetQueryParameters 
 {

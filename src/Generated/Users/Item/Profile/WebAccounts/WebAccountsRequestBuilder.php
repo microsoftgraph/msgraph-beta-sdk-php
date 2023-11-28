@@ -52,7 +52,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of webAccounts objects from the user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of webAccounts objects from the user's profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccountCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new webAccount object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new webAccount object in a user's profile.
      * @param WebAccount $body The request body
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
@@ -85,7 +85,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of webAccounts objects from the user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of webAccounts objects from the user's profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new webAccount object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new webAccount object in a user's profile.
      * @param WebAccount $body The request body
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

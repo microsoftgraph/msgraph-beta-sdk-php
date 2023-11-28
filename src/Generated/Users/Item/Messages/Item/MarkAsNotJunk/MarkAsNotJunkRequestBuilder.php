@@ -31,7 +31,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true. This API is available in the following national cloud deployments.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Message|null>
@@ -48,7 +48,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true. This API is available in the following national cloud deployments.
+     * Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
      * @param MarkAsNotJunkPostRequestBody $body The request body
      * @param MarkAsNotJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class MarkAsNotJunkRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

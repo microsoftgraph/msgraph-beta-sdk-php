@@ -84,7 +84,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is available in the following national cloud deployments.
+     * List the updatableAsset resources that are excluded from a deploymentAudience.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience. This API is available in the following national cloud deployments.
+     * List the updatableAsset resources that are excluded from a deploymentAudience.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -151,7 +151,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

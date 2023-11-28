@@ -31,7 +31,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object. This API is available in the following national cloud deployments.
+     * Delete a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CitationTemplate|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object. This API is available in the following national cloud deployments.
+     * Delete a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,12 +92,12 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a citationTemplate object.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -132,7 +132,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

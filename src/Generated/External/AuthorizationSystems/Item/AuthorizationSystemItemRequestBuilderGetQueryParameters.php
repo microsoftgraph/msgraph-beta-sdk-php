@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\AuthorizationSystems\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authorizationSystems from external
+ * Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
 */
 class AuthorizationSystemItemRequestBuilderGetQueryParameters 
 {

@@ -31,7 +31,7 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a personName object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a personName object from a user's profile.
      * @param PersonNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personName object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a personName object in a user's profile.
      * @param PersonNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonName|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personName object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a personName object in a user's profile.
      * @param PersonName $body The request body
      * @param PersonNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonName|null>
@@ -80,7 +80,7 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a personName object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a personName object from a user's profile.
      * @param PersonNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of a personName object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a personName object in a user's profile.
      * @param PersonNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a personName object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a personName object in a user's profile.
      * @param PersonName $body The request body
      * @param PersonNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class PersonNameItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

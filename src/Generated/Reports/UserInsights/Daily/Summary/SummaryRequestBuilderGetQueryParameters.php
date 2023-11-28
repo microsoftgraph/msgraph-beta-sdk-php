@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get summary from reports
+ * Summary of all usage insights on apps registered in the tenant for a specified period.
 */
 class SummaryRequestBuilderGetQueryParameters 
 {

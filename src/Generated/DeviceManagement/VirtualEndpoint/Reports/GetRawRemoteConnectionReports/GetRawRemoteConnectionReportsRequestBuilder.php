@@ -31,7 +31,7 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data. This API is available in the following national cloud deployments.
+     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data. This API is available in the following national cloud deployments.
+     * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -64,7 +64,7 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

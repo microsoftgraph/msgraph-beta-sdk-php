@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingCurrencies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of bookingCurrency objects available to a Microsoft Bookings business. This API is available in the following national cloud deployments.
+ * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
 */
 class BookingCurrenciesRequestBuilderGetQueryParameters 
 {

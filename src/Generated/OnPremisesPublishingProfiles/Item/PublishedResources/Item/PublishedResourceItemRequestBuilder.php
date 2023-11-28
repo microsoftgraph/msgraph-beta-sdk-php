@@ -54,7 +54,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of publishedResource object.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResource|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of published resource  publishedResource object. This API is available in the following national cloud deployments.
+     * Update the properties of published resource  publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResource|null>
@@ -100,12 +100,12 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of publishedResource object.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,12 +121,12 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of published resource  publishedResource object. This API is available in the following national cloud deployments.
+     * Update the properties of published resource  publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -140,7 +140,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

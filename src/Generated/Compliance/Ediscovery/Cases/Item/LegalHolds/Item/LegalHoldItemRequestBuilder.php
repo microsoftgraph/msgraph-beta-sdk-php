@@ -55,7 +55,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object. This API is available in the following national cloud deployments.
+     * Delete a legalHold object.
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a legalHold object.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHold|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a legalHold object. This API is available in the following national cloud deployments.
+     * Update the properties of a legalHold object.
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHold|null>
@@ -104,7 +104,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object. This API is available in the following national cloud deployments.
+     * Delete a legalHold object.
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -117,12 +117,12 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a legalHold object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a legalHold object.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -138,12 +138,12 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a legalHold object. This API is available in the following national cloud deployments.
+     * Update the properties of a legalHold object.
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -157,7 +157,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

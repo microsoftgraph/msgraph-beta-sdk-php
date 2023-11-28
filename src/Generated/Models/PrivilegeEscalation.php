@@ -26,7 +26,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. The list of actions that the identity could perform.
      * @return array<AuthorizationSystemTypeAction>|null
     */
     public function getActions(): ?array {
@@ -40,7 +40,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A detailed description of the privilege escalation.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -52,7 +52,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the policy that defines the escalation
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -78,7 +78,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. The list of resources that the identity could perform actions on.
      * @return array<AuthorizationSystemResource>|null
     */
     public function getResources(): ?array {
@@ -104,7 +104,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. The list of actions that the identity could perform.
      * @param array<AuthorizationSystemTypeAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -112,7 +112,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A detailed description of the privilege escalation.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -120,7 +120,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the policy that defines the escalation
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -128,7 +128,7 @@ class PrivilegeEscalation extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. The list of resources that the identity could perform actions on.
      * @param array<AuthorizationSystemResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {

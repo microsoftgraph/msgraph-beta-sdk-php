@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Search\Bookmarks;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of bookmark objects and their properties. This API is available in the following national cloud deployments.
+ * Get a list of bookmark objects and their properties.
 */
 class BookmarksRequestBuilderGetQueryParameters 
 {

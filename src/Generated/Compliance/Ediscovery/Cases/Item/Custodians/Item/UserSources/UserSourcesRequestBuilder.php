@@ -52,7 +52,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the userSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects and their properties.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custodian userSource object. This API is available in the following national cloud deployments.
+     * Create a new custodian userSource object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
@@ -85,7 +85,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the userSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects and their properties.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new custodian userSource object. This API is available in the following national cloud deployments.
+     * Create a new custodian userSource object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

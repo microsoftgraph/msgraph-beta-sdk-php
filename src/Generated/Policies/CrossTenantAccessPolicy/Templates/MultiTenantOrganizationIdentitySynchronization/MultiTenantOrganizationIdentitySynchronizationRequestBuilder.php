@@ -54,7 +54,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     }
 
     /**
-     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
      * @param MultiTenantOrganizationIdentitySyncPolicyTemplate $body The request body
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate|null>
@@ -100,12 +100,12 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,12 +121,12 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
      * @param MultiTenantOrganizationIdentitySyncPolicyTemplate $body The request body
      * @param MultiTenantOrganizationIdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -140,7 +140,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

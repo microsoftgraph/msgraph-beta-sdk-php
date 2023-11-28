@@ -47,7 +47,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFlow object. This API is available in the following national cloud deployments.
+     * Delete an inboundFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,11 +63,11 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,7 +79,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of an inboundFileFlow object.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
@@ -96,7 +96,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFlow object. This API is available in the following national cloud deployments.
+     * Delete an inboundFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,12 +109,12 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,12 +130,12 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of an inboundFileFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of an inboundFileFlow object.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -149,7 +149,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

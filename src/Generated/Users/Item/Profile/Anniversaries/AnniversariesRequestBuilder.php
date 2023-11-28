@@ -52,7 +52,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnniversary objects for the given user from their profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAnniversary objects for the given user from their profile.
      * @param AnniversariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnualEventCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new personAnniversary object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new personAnniversary object in a user's profile.
      * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnualEvent|null>
@@ -85,7 +85,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnniversary objects for the given user from their profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAnniversary objects for the given user from their profile.
      * @param AnniversariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Use this API to create a new personAnniversary object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new personAnniversary object in a user's profile.
      * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

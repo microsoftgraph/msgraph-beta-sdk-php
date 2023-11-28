@@ -41,7 +41,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the container property value. Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it's set, this property can’t be updated. Required.
+     * Gets the container property value. Identifies the container of the plan. Either specify all properties, or specify only the url, the containerId, and type. After it's set, this property can’t be updated. It changes when a plan is moved from one container to another, using plan move to container. Required.
      * @return PlannerPlanContainer|null
     */
     public function getContainer(): ?PlannerPlanContainer {
@@ -53,7 +53,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the contexts property value. Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
+     * Gets the contexts property value. Read-only. Other user experiences in which this plan is used, represented as plannerPlanContext entries.
      * @return PlannerPlanContextCollection|null
     */
     public function getContexts(): ?PlannerPlanContextCollection {
@@ -101,7 +101,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Gets the details property value. Extra details about the plan. Read-only. Nullable.
      * @return PlannerPlanDetails|null
     */
     public function getDetails(): ?PlannerPlanDetails {
@@ -213,7 +213,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the container property value. Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it's set, this property can’t be updated. Required.
+     * Sets the container property value. Identifies the container of the plan. Either specify all properties, or specify only the url, the containerId, and type. After it's set, this property can’t be updated. It changes when a plan is moved from one container to another, using plan move to container. Required.
      * @param PlannerPlanContainer|null $value Value to set for the container property.
     */
     public function setContainer(?PlannerPlanContainer $value): void {
@@ -221,7 +221,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the contexts property value. Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
+     * Sets the contexts property value. Read-only. Other user experiences in which this plan is used, represented as plannerPlanContext entries.
      * @param PlannerPlanContextCollection|null $value Value to set for the contexts property.
     */
     public function setContexts(?PlannerPlanContextCollection $value): void {
@@ -253,7 +253,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Sets the details property value. Extra details about the plan. Read-only. Nullable.
      * @param PlannerPlanDetails|null $value Value to set for the details property.
     */
     public function setDetails(?PlannerPlanDetails $value): void {

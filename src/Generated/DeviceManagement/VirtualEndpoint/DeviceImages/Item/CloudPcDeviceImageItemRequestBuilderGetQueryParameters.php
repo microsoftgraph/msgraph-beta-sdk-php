@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Device
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a specific cloudPcDeviceImage object.
 */
 class CloudPcDeviceImageItemRequestBuilderGetQueryParameters 
 {

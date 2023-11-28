@@ -13,7 +13,6 @@ class VirtualEventWebinarRegistrationConfiguration extends VirtualEventRegistrat
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.virtualEventWebinarRegistrationConfiguration');
     }
 
     /**

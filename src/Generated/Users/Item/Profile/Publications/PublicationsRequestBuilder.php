@@ -52,7 +52,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of itemPublication objects from a user's profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublicationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
@@ -85,7 +85,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of itemPublication objects from a user's profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

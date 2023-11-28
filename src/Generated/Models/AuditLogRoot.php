@@ -57,7 +57,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * Gets the customSecurityAttributeAudits property value. Represents a custom security attribute audit log.
      * @return array<CustomSecurityAttributeAudit>|null
     */
     public function getCustomSecurityAttributeAudits(): ?array {
@@ -127,7 +127,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the provisioning property value. The provisioning property
+     * Gets the provisioning property value. Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
      * @return array<ProvisioningObjectSummary>|null
     */
     public function getProvisioning(): ?array {
@@ -185,7 +185,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * Sets the customSecurityAttributeAudits property value. Represents a custom security attribute audit log.
      * @param array<CustomSecurityAttributeAudit>|null $value Value to set for the customSecurityAttributeAudits property.
     */
     public function setCustomSecurityAttributeAudits(?array $value): void {
@@ -217,7 +217,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the provisioning property value. The provisioning property
+     * Sets the provisioning property value. Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
      * @param array<ProvisioningObjectSummary>|null $value Value to set for the provisioning property.
     */
     public function setProvisioning(?array $value): void {

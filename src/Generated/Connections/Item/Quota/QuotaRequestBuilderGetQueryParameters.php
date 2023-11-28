@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Quota;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a connectionQuota object. This API is available in the following national cloud deployments.
+ * Retrieve the properties and relationships of a connectionQuota object.
 */
 class QuotaRequestBuilderGetQueryParameters 
 {

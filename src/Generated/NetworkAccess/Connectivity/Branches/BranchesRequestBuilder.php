@@ -52,7 +52,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is available in the following national cloud deployments.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSiteCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new branch. This API is available in the following national cloud deployments.
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSite|null>
@@ -85,7 +85,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is available in the following national cloud deployments.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class BranchesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new branch. This API is available in the following national cloud deployments.
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

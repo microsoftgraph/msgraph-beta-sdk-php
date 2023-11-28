@@ -30,7 +30,7 @@ class ReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reprovision a Cloud PC with an Intune managed device ID. This API is available in the following national cloud deployments.
+     * Reprovision a Cloud PC with an Intune managed device ID.
      * @param ReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reprovision a Cloud PC with an Intune managed device ID. This API is available in the following national cloud deployments.
+     * Reprovision a Cloud PC with an Intune managed device ID.
      * @param ReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -59,7 +59,7 @@ class ReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

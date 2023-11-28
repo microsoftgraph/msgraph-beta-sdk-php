@@ -52,10 +52,11 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get permissionsCreepIndexDistributions from identityGovernance
+     * Get a list of the permissionsCreepIndexDistribution objects and their properties.
      * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistributionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/permissionsanalytics-list-permissionscreepindexdistributions?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -83,7 +84,7 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get permissionsCreepIndexDistributions from identityGovernance
+     * Get a list of the permissionsCreepIndexDistribution objects and their properties.
      * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +100,7 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -118,7 +119,7 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

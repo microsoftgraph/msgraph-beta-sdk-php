@@ -31,7 +31,7 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is available in the following national cloud deployments.
+     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.
      * @param BulkReprovisionCloudPcPostRequestBody $body The request body
      * @param BulkReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkRemoteActionResult|null>
@@ -48,7 +48,7 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs. This API is available in the following national cloud deployments.
+     * Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.
      * @param BulkReprovisionCloudPcPostRequestBody $body The request body
      * @param BulkReprovisionCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class BulkReprovisionCloudPcRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

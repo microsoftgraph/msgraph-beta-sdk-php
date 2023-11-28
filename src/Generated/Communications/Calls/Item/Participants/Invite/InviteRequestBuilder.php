@@ -31,7 +31,7 @@ class InviteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation. This API is available in the following national cloud deployments.
+     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
      * @param InvitePostRequestBody $body The request body
      * @param InviteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InviteParticipantsOperation|null>
@@ -48,7 +48,7 @@ class InviteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation. This API is available in the following national cloud deployments.
+     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
      * @param InvitePostRequestBody $body The request body
      * @param InviteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class InviteRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

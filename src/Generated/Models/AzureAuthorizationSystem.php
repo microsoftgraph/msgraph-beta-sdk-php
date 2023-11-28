@@ -27,7 +27,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions for service in authorization system.
      * @return array<AzureAuthorizationSystemTypeAction>|null
     */
     public function getActions(): ?array {
@@ -41,7 +41,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the associatedIdentities property value. The associatedIdentities property
+     * Gets the associatedIdentities property value. Identities in the authorization system.
      * @return AzureAssociatedIdentities|null
     */
     public function getAssociatedIdentities(): ?AzureAssociatedIdentities {
@@ -68,7 +68,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Resources associated with the authorization system type.
      * @return array<AzureAuthorizationSystemResource>|null
     */
     public function getResources(): ?array {
@@ -82,7 +82,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the roleDefinitions property value. The roleDefinitions property
+     * Gets the roleDefinitions property value. Roles associated with the authorization system type.
      * @return array<AzureRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
@@ -96,7 +96,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Gets the services property value. The services property
+     * Gets the services property value. Services associated with the authorization system type.
      * @return array<AuthorizationSystemTypeService>|null
     */
     public function getServices(): ?array {
@@ -123,7 +123,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions for service in authorization system.
      * @param array<AzureAuthorizationSystemTypeAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -131,7 +131,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the associatedIdentities property value. The associatedIdentities property
+     * Sets the associatedIdentities property value. Identities in the authorization system.
      * @param AzureAssociatedIdentities|null $value Value to set for the associatedIdentities property.
     */
     public function setAssociatedIdentities(?AzureAssociatedIdentities $value): void {
@@ -139,7 +139,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Resources associated with the authorization system type.
      * @param array<AzureAuthorizationSystemResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -147,7 +147,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the roleDefinitions property value. The roleDefinitions property
+     * Sets the roleDefinitions property value. Roles associated with the authorization system type.
      * @param array<AzureRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
@@ -155,7 +155,7 @@ class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable
     }
 
     /**
-     * Sets the services property value. The services property
+     * Sets the services property value. Services associated with the authorization system type.
      * @param array<AuthorizationSystemTypeService>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {

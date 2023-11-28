@@ -38,7 +38,7 @@ class PermissionsAnalytics extends Entity implements Parsable
     }
 
     /**
-     * Gets the findings property value. The findings property
+     * Gets the findings property value. The output of the permissions usage data analysis performed by Permissions Management to assess risk with identities and resources.
      * @return array<Finding>|null
     */
     public function getFindings(): ?array {
@@ -52,7 +52,7 @@ class PermissionsAnalytics extends Entity implements Parsable
     }
 
     /**
-     * Gets the permissionsCreepIndexDistributions property value. The permissionsCreepIndexDistributions property
+     * Gets the permissionsCreepIndexDistributions property value. Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
      * @return array<PermissionsCreepIndexDistribution>|null
     */
     public function getPermissionsCreepIndexDistributions(): ?array {
@@ -76,7 +76,7 @@ class PermissionsAnalytics extends Entity implements Parsable
     }
 
     /**
-     * Sets the findings property value. The findings property
+     * Sets the findings property value. The output of the permissions usage data analysis performed by Permissions Management to assess risk with identities and resources.
      * @param array<Finding>|null $value Value to set for the findings property.
     */
     public function setFindings(?array $value): void {
@@ -84,7 +84,7 @@ class PermissionsAnalytics extends Entity implements Parsable
     }
 
     /**
-     * Sets the permissionsCreepIndexDistributions property value. The permissionsCreepIndexDistributions property
+     * Sets the permissionsCreepIndexDistributions property value. Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
      * @param array<PermissionsCreepIndexDistribution>|null $value Value to set for the permissionsCreepIndexDistributions property.
     */
     public function setPermissionsCreepIndexDistributions(?array $value): void {

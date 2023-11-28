@@ -46,7 +46,7 @@ class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get provisioning from auditLogs
+     * Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
      * @param ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisioningObjectSummary|null>
      * @throws Exception
@@ -90,12 +90,12 @@ class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get provisioning from auditLogs
+     * Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
      * @param ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +111,7 @@ class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -130,7 +130,7 @@ class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

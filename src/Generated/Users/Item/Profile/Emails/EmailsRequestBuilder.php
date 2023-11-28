@@ -52,7 +52,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmailCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemEmail object in a user's profile.
      * @param ItemEmail $body The request body
      * @param EmailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmail|null>
@@ -85,7 +85,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class EmailsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemEmail object in a user's profile.
      * @param ItemEmail $body The request body
      * @param EmailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

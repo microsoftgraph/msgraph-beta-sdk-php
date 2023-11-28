@@ -31,7 +31,7 @@ class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the last estimateStatisticsOperation object associated with a source collection.  This API is available in the following national cloud deployments.
+     * Get the last estimateStatisticsOperation object associated with a source collection. 
      * @param LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EstimateStatisticsOperation|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the last estimateStatisticsOperation object associated with a source collection.  This API is available in the following national cloud deployments.
+     * Get the last estimateStatisticsOperation object associated with a source collection. 
      * @param LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -63,7 +63,7 @@ class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

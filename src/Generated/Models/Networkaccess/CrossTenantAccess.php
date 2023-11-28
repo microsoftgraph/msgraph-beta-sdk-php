@@ -57,7 +57,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceCount property value. The deviceCount property
+     * Gets the deviceCount property value. The number of devices that accessed the external tenant.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -87,7 +87,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Gets the lastAccessDateTime property value. The timestamp of the most recent access to the external tenant.
      * @return DateTime|null
     */
     public function getLastAccessDateTime(): ?DateTime {
@@ -111,7 +111,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceTenantId property value. The resourceTenantId property
+     * Gets the resourceTenantId property value. The tenant ID of the external tenant.
      * @return string|null
     */
     public function getResourceTenantId(): ?string {
@@ -123,7 +123,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceTenantName property value. The resourceTenantName property
+     * Gets the resourceTenantName property value. The name of the external tenant.
      * @return string|null
     */
     public function getResourceTenantName(): ?string {
@@ -135,7 +135,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceTenantPrimaryDomain property value. The resourceTenantPrimaryDomain property
+     * Gets the resourceTenantPrimaryDomain property value. The domain of the external tenant.
      * @return string|null
     */
     public function getResourceTenantPrimaryDomain(): ?string {
@@ -159,7 +159,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. The number of users that accessed the external tenant.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -203,7 +203,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceCount property value. The deviceCount property
+     * Sets the deviceCount property value. The number of devices that accessed the external tenant.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -211,7 +211,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Sets the lastAccessDateTime property value. The timestamp of the most recent access to the external tenant.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
     public function setLastAccessDateTime(?DateTime $value): void {
@@ -227,7 +227,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceTenantId property value. The resourceTenantId property
+     * Sets the resourceTenantId property value. The tenant ID of the external tenant.
      * @param string|null $value Value to set for the resourceTenantId property.
     */
     public function setResourceTenantId(?string $value): void {
@@ -235,7 +235,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceTenantName property value. The resourceTenantName property
+     * Sets the resourceTenantName property value. The name of the external tenant.
      * @param string|null $value Value to set for the resourceTenantName property.
     */
     public function setResourceTenantName(?string $value): void {
@@ -243,7 +243,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceTenantPrimaryDomain property value. The resourceTenantPrimaryDomain property
+     * Sets the resourceTenantPrimaryDomain property value. The domain of the external tenant.
      * @param string|null $value Value to set for the resourceTenantPrimaryDomain property.
     */
     public function setResourceTenantPrimaryDomain(?string $value): void {
@@ -259,7 +259,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. The number of users that accessed the external tenant.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

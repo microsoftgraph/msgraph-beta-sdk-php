@@ -87,7 +87,7 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is. This API is available in the following national cloud deployments.
+     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
      * @param SynchronizationJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -103,7 +103,7 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the existing synchronization job and its properties. This API is available in the following national cloud deployments.
+     * Retrieve the existing synchronization job and its properties.
      * @param SynchronizationJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SynchronizationJob|null>
      * @throws Exception
@@ -135,7 +135,7 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is. This API is available in the following national cloud deployments.
+     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
      * @param SynchronizationJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -148,12 +148,12 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the existing synchronization job and its properties. This API is available in the following national cloud deployments.
+     * Retrieve the existing synchronization job and its properties.
      * @param SynchronizationJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -169,7 +169,7 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -188,7 +188,7 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

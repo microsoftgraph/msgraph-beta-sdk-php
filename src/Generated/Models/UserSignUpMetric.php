@@ -26,7 +26,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. The total number of users who signed up in the specified period. Supports $filter (eq).
      * @return int|null
     */
     public function getCount(): ?int {
@@ -38,7 +38,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the user insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -63,7 +63,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the os property value. The os property
+     * Gets the os property value. The device plaform that the customers used. Supports $filter (eq).
      * @return string|null
     */
     public function getOs(): ?string {
@@ -86,7 +86,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. The total number of users who signed up in the specified period. Supports $filter (eq).
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
@@ -94,7 +94,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the user insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
@@ -102,7 +102,7 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the os property value. The os property
+     * Sets the os property value. The device plaform that the customers used. Supports $filter (eq).
      * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {

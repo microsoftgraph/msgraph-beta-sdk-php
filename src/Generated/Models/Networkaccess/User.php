@@ -57,7 +57,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. User display Name.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -86,7 +86,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Gets the lastAccessDateTime property value. The date and time of the most recent access.
      * @return DateTime|null
     */
     public function getLastAccessDateTime(): ?DateTime {
@@ -122,7 +122,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The ID for the user.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -134,7 +134,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. A unique identifier that is associated with a user in a system or directory. Typically, this value is an email address that is used for user authentication and identification.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -189,7 +189,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. User display Name.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -197,7 +197,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Sets the lastAccessDateTime property value. The date and time of the most recent access.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
     public function setLastAccessDateTime(?DateTime $value): void {
@@ -221,7 +221,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The ID for the user.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -229,7 +229,7 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. A unique identifier that is associated with a user in a system or directory. Typically, this value is an email address that is used for user authentication and identification.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

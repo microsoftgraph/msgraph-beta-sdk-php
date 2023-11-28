@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Group;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the Microsoft 365 group that corresponds to this educationClass. This API is available in the following national cloud deployments.
+ * Retrieve the Microsoft 365 group that corresponds to this educationClass.
 */
 class GroupRequestBuilderGetQueryParameters 
 {

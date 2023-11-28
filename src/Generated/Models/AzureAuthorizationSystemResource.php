@@ -37,7 +37,7 @@ class AzureAuthorizationSystemResource extends AuthorizationSystemResource imple
     }
 
     /**
-     * Gets the service property value. The service property
+     * Gets the service property value. The service associated with the resource in an Azure authorization system. This object is auto-expanded.
      * @return AuthorizationSystemTypeService|null
     */
     public function getService(): ?AuthorizationSystemTypeService {
@@ -58,7 +58,7 @@ class AzureAuthorizationSystemResource extends AuthorizationSystemResource imple
     }
 
     /**
-     * Sets the service property value. The service property
+     * Sets the service property value. The service associated with the resource in an Azure authorization system. This object is auto-expanded.
      * @param AuthorizationSystemTypeService|null $value Value to set for the service property.
     */
     public function setService(?AuthorizationSystemTypeService $value): void {

@@ -52,7 +52,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of userflows. This API is available in the following national cloud deployments.
+     * Retrieve a list of userflows.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userFlow object. This API is available in the following national cloud deployments.
+     * Create a new userFlow object.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlow|null>
@@ -85,7 +85,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of userflows. This API is available in the following national cloud deployments.
+     * Retrieve a list of userflows.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new userFlow object. This API is available in the following national cloud deployments.
+     * Create a new userFlow object.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

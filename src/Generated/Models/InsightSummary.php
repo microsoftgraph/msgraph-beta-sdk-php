@@ -26,7 +26,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeUsers property value. The activeUsers property
+     * Gets the activeUsers property value. Daily active users.
      * @return int|null
     */
     public function getActiveUsers(): ?int {
@@ -38,7 +38,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. The ID of the Microsoft Entra application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -50,7 +50,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationCompletions property value. The authenticationCompletions property
+     * Gets the authenticationCompletions property value. Daily authentication completions.
      * @return int|null
     */
     public function getAuthenticationCompletions(): ?int {
@@ -62,7 +62,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationRequests property value. The authenticationRequests property
+     * Gets the authenticationRequests property value. Daily authentication requests.
      * @return int|null
     */
     public function getAuthenticationRequests(): ?int {
@@ -74,7 +74,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -106,7 +106,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the os property value. The os property
+     * Gets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @return string|null
     */
     public function getOs(): ?string {
@@ -118,7 +118,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityTextCompletions property value. The securityTextCompletions property
+     * Gets the securityTextCompletions property value. Daily MFA SMS completions.
      * @return int|null
     */
     public function getSecurityTextCompletions(): ?int {
@@ -130,7 +130,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityTextRequests property value. The securityTextRequests property
+     * Gets the securityTextRequests property value. Daily MFA SMS requests.
      * @return int|null
     */
     public function getSecurityTextRequests(): ?int {
@@ -142,7 +142,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityVoiceCompletions property value. The securityVoiceCompletions property
+     * Gets the securityVoiceCompletions property value. Daily MFA Voice completions.
      * @return int|null
     */
     public function getSecurityVoiceCompletions(): ?int {
@@ -154,7 +154,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityVoiceRequests property value. The securityVoiceRequests property
+     * Gets the securityVoiceRequests property value. Daily MFA Voice requests.
      * @return int|null
     */
     public function getSecurityVoiceRequests(): ?int {
@@ -184,7 +184,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeUsers property value. The activeUsers property
+     * Sets the activeUsers property value. Daily active users.
      * @param int|null $value Value to set for the activeUsers property.
     */
     public function setActiveUsers(?int $value): void {
@@ -192,7 +192,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. The ID of the Microsoft Entra application.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
@@ -200,7 +200,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationCompletions property value. The authenticationCompletions property
+     * Sets the authenticationCompletions property value. Daily authentication completions.
      * @param int|null $value Value to set for the authenticationCompletions property.
     */
     public function setAuthenticationCompletions(?int $value): void {
@@ -208,7 +208,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationRequests property value. The authenticationRequests property
+     * Sets the authenticationRequests property value. Daily authentication requests.
      * @param int|null $value Value to set for the authenticationRequests property.
     */
     public function setAuthenticationRequests(?int $value): void {
@@ -216,7 +216,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
@@ -224,7 +224,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the os property value. The os property
+     * Sets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {
@@ -232,7 +232,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityTextCompletions property value. The securityTextCompletions property
+     * Sets the securityTextCompletions property value. Daily MFA SMS completions.
      * @param int|null $value Value to set for the securityTextCompletions property.
     */
     public function setSecurityTextCompletions(?int $value): void {
@@ -240,7 +240,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityTextRequests property value. The securityTextRequests property
+     * Sets the securityTextRequests property value. Daily MFA SMS requests.
      * @param int|null $value Value to set for the securityTextRequests property.
     */
     public function setSecurityTextRequests(?int $value): void {
@@ -248,7 +248,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityVoiceCompletions property value. The securityVoiceCompletions property
+     * Sets the securityVoiceCompletions property value. Daily MFA Voice completions.
      * @param int|null $value Value to set for the securityVoiceCompletions property.
     */
     public function setSecurityVoiceCompletions(?int $value): void {
@@ -256,7 +256,7 @@ class InsightSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityVoiceRequests property value. The securityVoiceRequests property
+     * Sets the securityVoiceRequests property value. Daily MFA Voice requests.
      * @param int|null $value Value to set for the securityVoiceRequests property.
     */
     public function setSecurityVoiceRequests(?int $value): void {

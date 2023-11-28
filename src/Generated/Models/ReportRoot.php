@@ -66,7 +66,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
+     * Gets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @return array<CredentialUserRegistrationDetails>|null
     */
     public function getCredentialUserRegistrationDetails(): ?array {
@@ -235,7 +235,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the security property value. Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
+     * Gets the security property value. Provides the ability to launch a simulated phishing attack that organizations can learn from.
      * @return SecurityReportsRoot|null
     */
     public function getSecurity(): ?SecurityReportsRoot {
@@ -247,7 +247,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the serviceActivity property value. A placeholder to the Microsoft Entra service activity.
+     * Gets the serviceActivity property value. Reports that relate to tenant-level authentication activities in Microsoft Entra.
      * @return ServiceActivity|null
     */
     public function getServiceActivity(): ?ServiceActivity {
@@ -273,7 +273,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the sla property value. A placeholder to allow for the desired URL path for SLA.
+     * Gets the sla property value. Reports that relate to tenant-level Microsoft Entra SLA attainment.
      * @return ServiceLevelAgreementRoot|null
     */
     public function getSla(): ?ServiceLevelAgreementRoot {
@@ -299,7 +299,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the userInsights property value. The userInsights property
+     * Gets the userInsights property value. Represents a collection of user activities on applications in a tenant that is configured for Microsoft Entra External ID for customers.
      * @return UserInsightsRoot|null
     */
     public function getUserInsights(): ?UserInsightsRoot {
@@ -362,7 +362,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
+     * Sets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @param array<CredentialUserRegistrationDetails>|null $value Value to set for the credentialUserRegistrationDetails property.
     */
     public function setCredentialUserRegistrationDetails(?array $value): void {
@@ -442,7 +442,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the security property value. Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
+     * Sets the security property value. Provides the ability to launch a simulated phishing attack that organizations can learn from.
      * @param SecurityReportsRoot|null $value Value to set for the security property.
     */
     public function setSecurity(?SecurityReportsRoot $value): void {
@@ -450,7 +450,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the serviceActivity property value. A placeholder to the Microsoft Entra service activity.
+     * Sets the serviceActivity property value. Reports that relate to tenant-level authentication activities in Microsoft Entra.
      * @param ServiceActivity|null $value Value to set for the serviceActivity property.
     */
     public function setServiceActivity(?ServiceActivity $value): void {
@@ -466,7 +466,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the sla property value. A placeholder to allow for the desired URL path for SLA.
+     * Sets the sla property value. Reports that relate to tenant-level Microsoft Entra SLA attainment.
      * @param ServiceLevelAgreementRoot|null $value Value to set for the sla property.
     */
     public function setSla(?ServiceLevelAgreementRoot $value): void {
@@ -482,7 +482,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the userInsights property value. The userInsights property
+     * Sets the userInsights property value. Represents a collection of user activities on applications in a tenant that is configured for Microsoft Entra External ID for customers.
      * @param UserInsightsRoot|null $value Value to set for the userInsights property.
     */
     public function setUserInsights(?UserInsightsRoot $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUser
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get activeUsers from reports
+ * Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
 */
 class ActiveUsersRequestBuilderGetQueryParameters 
 {

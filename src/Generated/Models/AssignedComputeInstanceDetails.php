@@ -26,7 +26,7 @@ class AssignedComputeInstanceDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessedStorageBuckets property value. The accessedStorageBuckets property
+     * Gets the accessedStorageBuckets property value. Represents a set of S3 buckets accessed by this EC2 instance.
      * @return array<AuthorizationSystemResource>|null
     */
     public function getAccessedStorageBuckets(): ?array {
@@ -40,7 +40,7 @@ class AssignedComputeInstanceDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedComputeInstance property value. The assignedComputeInstance property
+     * Gets the assignedComputeInstance property value. assigned EC2 instance.
      * @return AuthorizationSystemResource|null
     */
     public function getAssignedComputeInstance(): ?AuthorizationSystemResource {
@@ -74,7 +74,7 @@ class AssignedComputeInstanceDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessedStorageBuckets property value. The accessedStorageBuckets property
+     * Sets the accessedStorageBuckets property value. Represents a set of S3 buckets accessed by this EC2 instance.
      * @param array<AuthorizationSystemResource>|null $value Value to set for the accessedStorageBuckets property.
     */
     public function setAccessedStorageBuckets(?array $value): void {
@@ -82,7 +82,7 @@ class AssignedComputeInstanceDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignedComputeInstance property value. The assignedComputeInstance property
+     * Sets the assignedComputeInstance property value. assigned EC2 instance.
      * @param AuthorizationSystemResource|null $value Value to set for the assignedComputeInstance property.
     */
     public function setAssignedComputeInstance(?AuthorizationSystemResource $value): void {

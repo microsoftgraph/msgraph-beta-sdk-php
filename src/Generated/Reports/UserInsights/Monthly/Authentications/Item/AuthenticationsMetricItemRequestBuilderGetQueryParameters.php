@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Authentica
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authentications from reports
+ * Insights for authentications on apps registered in the tenant for a specified period.
 */
 class AuthenticationsMetricItemRequestBuilderGetQueryParameters 
 {

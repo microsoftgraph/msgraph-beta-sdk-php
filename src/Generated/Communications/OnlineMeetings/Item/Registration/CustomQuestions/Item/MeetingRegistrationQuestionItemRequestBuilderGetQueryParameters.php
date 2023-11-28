@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Regi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+ * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
 */
 class MeetingRegistrationQuestionItemRequestBuilderGetQueryParameters 
 {

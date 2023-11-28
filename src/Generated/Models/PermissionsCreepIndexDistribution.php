@@ -38,7 +38,7 @@ class PermissionsCreepIndexDistribution extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Defines when the PCI distribution was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -122,7 +122,7 @@ class PermissionsCreepIndexDistribution extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Defines when the PCI distribution was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {

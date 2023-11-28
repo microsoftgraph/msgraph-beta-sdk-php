@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get findings from identityGovernance
+ * The output of the permissions usage data analysis performed by Permissions Management to assess risk with identities and resources.
 */
 class FindingsRequestBuilderGetQueryParameters 
 {

@@ -37,7 +37,7 @@ class GcpCloudFunction extends GcpIdentity implements Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. Represents the resources in an authorization system..
      * @return GcpAuthorizationSystemResource|null
     */
     public function getResource(): ?GcpAuthorizationSystemResource {
@@ -58,7 +58,7 @@ class GcpCloudFunction extends GcpIdentity implements Parsable
     }
 
     /**
-     * Sets the resource property value. The resource property
+     * Sets the resource property value. Represents the resources in an authorization system..
      * @param GcpAuthorizationSystemResource|null $value Value to set for the resource property.
     */
     public function setResource(?GcpAuthorizationSystemResource $value): void {

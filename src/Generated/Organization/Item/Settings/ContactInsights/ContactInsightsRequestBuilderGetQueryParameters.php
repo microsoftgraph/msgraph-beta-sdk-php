@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsig
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization. This API is available in the following national cloud deployments.
+ * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
 */
 class ContactInsightsRequestBuilderGetQueryParameters 
 {

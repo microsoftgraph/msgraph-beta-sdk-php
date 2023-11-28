@@ -31,7 +31,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Delete a sourceSystemDefinition object.
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a sourceSystemDefinition object.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Update the properties of a sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
@@ -80,7 +80,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Delete a sourceSystemDefinition object.
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a sourceSystemDefinition object.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Update the properties of a sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

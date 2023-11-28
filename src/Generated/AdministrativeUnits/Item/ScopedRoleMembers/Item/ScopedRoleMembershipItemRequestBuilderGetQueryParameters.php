@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMemb
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a Microsoft Entra role assignment with administrative unit scope. This API is available in the following national cloud deployments.
+ * Get a Microsoft Entra role assignment with administrative unit scope.
 */
 class ScopedRoleMembershipItemRequestBuilderGetQueryParameters 
 {

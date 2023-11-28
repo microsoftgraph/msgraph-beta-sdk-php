@@ -31,7 +31,7 @@ class MfaCompletionMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mfaCompletions from reports
+     * Insights for MFA usage on apps registered in the tenant for a specified period.
      * @param MfaCompletionMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MfaCompletionMetric|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class MfaCompletionMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mfaCompletions from reports
+     * Insights for MFA usage on apps registered in the tenant for a specified period.
      * @param MfaCompletionMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -62,7 +62,7 @@ class MfaCompletionMetricItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

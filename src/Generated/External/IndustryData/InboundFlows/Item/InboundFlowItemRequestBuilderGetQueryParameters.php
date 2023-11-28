@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an inboundFileFlow object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of an inboundFlow object.
 */
 class InboundFlowItemRequestBuilderGetQueryParameters 
 {

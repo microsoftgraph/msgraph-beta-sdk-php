@@ -56,7 +56,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the deviceCount property value. The deviceCount property
+     * Gets the deviceCount property value. The number of unique devices that were seen.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -78,6 +78,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'transactionCount' => fn(ParseNode $n) => $o->setTransactionCount($n->getIntegerValue()),
             'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getIntegerValue()),
+            'webCategory' => fn(ParseNode $n) => $o->setWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -94,7 +95,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the transactionCount property value. The transactionCount property
+     * Gets the transactionCount property value. The number of transactions that were seen.
      * @return int|null
     */
     public function getTransactionCount(): ?int {
@@ -106,7 +107,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -118,6 +119,18 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the webCategory property value. The webCategory property
+     * @return WebCategory|null
+    */
+    public function getWebCategory(): ?WebCategory {
+        $val = $this->getBackingStore()->get('webCategory');
+        if (is_null($val) || $val instanceof WebCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webCategory'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -126,6 +139,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('transactionCount', $this->getTransactionCount());
         $writer->writeIntegerValue('userCount', $this->getUserCount());
+        $writer->writeObjectValue('webCategory', $this->getWebCategory());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -146,7 +160,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the deviceCount property value. The deviceCount property
+     * Sets the deviceCount property value. The number of unique devices that were seen.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -162,7 +176,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the transactionCount property value. The transactionCount property
+     * Sets the transactionCount property value. The number of transactions that were seen.
      * @param int|null $value Value to set for the transactionCount property.
     */
     public function setTransactionCount(?int $value): void {
@@ -170,11 +184,19 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {
         $this->getBackingStore()->set('userCount', $value);
+    }
+
+    /**
+     * Sets the webCategory property value. The webCategory property
+     * @param WebCategory|null $value Value to set for the webCategory property.
+    */
+    public function setWebCategory(?WebCategory $value): void {
+        $this->getBackingStore()->set('webCategory', $value);
     }
 
 }

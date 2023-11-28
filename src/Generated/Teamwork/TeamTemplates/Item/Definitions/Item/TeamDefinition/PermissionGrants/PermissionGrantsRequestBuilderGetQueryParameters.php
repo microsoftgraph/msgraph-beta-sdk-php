@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List all resource-specific permission grants on the team. This list specifies the Microsoft Entra apps that have access to the team, along with the corresponding kind of resource-specific access that each app has. This API is available in the following national cloud deployments.
+ * List all resource-specific permission grants on the team. This list specifies the Microsoft Entra apps that have access to the team, along with the corresponding kind of resource-specific access that each app has.
 */
 class PermissionGrantsRequestBuilderGetQueryParameters 
 {

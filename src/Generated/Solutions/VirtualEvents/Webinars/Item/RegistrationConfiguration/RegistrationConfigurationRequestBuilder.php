@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\R
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventRegistrationConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinarRegistrationConfiguration;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,9 +31,9 @@ class RegistrationConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Registration configuration of the webinar.
+     * Get registrationConfiguration from solutions
      * @param RegistrationConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<VirtualEventRegistrationConfiguration|null>
+     * @return Promise<VirtualEventWebinarRegistrationConfiguration|null>
      * @throws Exception
     */
     public function get(?RegistrationConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -42,11 +42,11 @@ class RegistrationConfigurationRequestBuilder extends BaseRequestBuilder
                 '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventRegistrationConfiguration::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinarRegistrationConfiguration::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Registration configuration of the webinar.
+     * Get registrationConfiguration from solutions
      * @param RegistrationConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -62,7 +62,7 @@ class RegistrationConfigurationRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

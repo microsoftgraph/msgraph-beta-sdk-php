@@ -56,7 +56,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceCount property value. Count of unique devices that were seen.
+     * Gets the deviceCount property value. The number of unique devices that were seen.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -107,7 +107,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCount property value. Count of unique Microsoft Entra users that were seen.
+     * Gets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -119,7 +119,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the workloadCount property value. Count of unique target workloads or hosts that were seen.
+     * Gets the workloadCount property value. The number of unique target workloads/hosts that were seen.
      * @return int|null
     */
     public function getWorkloadCount(): ?int {
@@ -160,7 +160,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceCount property value. Count of unique devices that were seen.
+     * Sets the deviceCount property value. The number of unique devices that were seen.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -184,7 +184,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCount property value. Count of unique Microsoft Entra users that were seen.
+     * Sets the userCount property value. The number of unique Microsoft Entra ID users that were seen.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {
@@ -192,7 +192,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the workloadCount property value. Count of unique target workloads or hosts that were seen.
+     * Sets the workloadCount property value. The number of unique target workloads/hosts that were seen.
      * @param int|null $value Value to set for the workloadCount property.
     */
     public function setWorkloadCount(?int $value): void {

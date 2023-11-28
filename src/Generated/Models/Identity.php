@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\CallRecords\UserIdentity;
 use Microsoft\Graph\Beta\Generated\Models\Security\SubmissionUserIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -38,6 +39,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.auditUserIdentity': return new AuditUserIdentity();
                 case '#microsoft.graph.azureCommunicationServicesUserIdentity': return new AzureCommunicationServicesUserIdentity();
+                case '#microsoft.graph.callRecords.userIdentity': return new UserIdentity();
                 case '#microsoft.graph.communicationsApplicationIdentity': return new CommunicationsApplicationIdentity();
                 case '#microsoft.graph.communicationsApplicationInstanceIdentity': return new CommunicationsApplicationInstanceIdentity();
                 case '#microsoft.graph.communicationsEncryptedIdentity': return new CommunicationsEncryptedIdentity();

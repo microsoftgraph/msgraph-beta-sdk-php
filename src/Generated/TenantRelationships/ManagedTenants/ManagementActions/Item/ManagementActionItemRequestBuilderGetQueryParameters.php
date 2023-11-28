@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a managementAction object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a managementAction object.
 */
 class ManagementActionItemRequestBuilderGetQueryParameters 
 {

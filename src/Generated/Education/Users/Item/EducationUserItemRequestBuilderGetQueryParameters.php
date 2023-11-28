@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a user. This API is available in the following national cloud deployments.
+ * Retrieve the properties and relationships of a user.
 */
 class EducationUserItemRequestBuilderGetQueryParameters 
 {

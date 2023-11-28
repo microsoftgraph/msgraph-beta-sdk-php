@@ -37,7 +37,7 @@ class AwsLambda extends AwsIdentity implements Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. Represents the resources in an authorization system..
      * @return AwsAuthorizationSystemResource|null
     */
     public function getResource(): ?AwsAuthorizationSystemResource {
@@ -58,7 +58,7 @@ class AwsLambda extends AwsIdentity implements Parsable
     }
 
     /**
-     * Sets the resource property value. The resource property
+     * Sets the resource property value. Represents the resources in an authorization system..
      * @param AwsAuthorizationSystemResource|null $value Value to set for the resource property.
     */
     public function setResource(?AwsAuthorizationSystemResource $value): void {

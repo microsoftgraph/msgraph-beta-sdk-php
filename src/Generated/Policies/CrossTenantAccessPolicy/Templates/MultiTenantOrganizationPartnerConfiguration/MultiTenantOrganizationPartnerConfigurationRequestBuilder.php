@@ -54,7 +54,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
@@ -100,12 +100,12 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,12 +121,12 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -140,7 +140,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

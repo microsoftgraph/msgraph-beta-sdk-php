@@ -27,7 +27,7 @@ class AzureActionPermissionsDefinitionAction extends AzurePermissionsDefinitionA
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of actions relating to the Azure permission.
      * @return array<string>|null
     */
     public function getActions(): ?array {
@@ -68,7 +68,7 @@ class AzureActionPermissionsDefinitionAction extends AzurePermissionsDefinitionA
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of actions relating to the Azure permission.
      * @param array<string>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {

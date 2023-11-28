@@ -31,7 +31,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices. This API is available in the following national cloud deployments.
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body The request body
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkRemoteActionResult|null>
@@ -48,7 +48,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices. This API is available in the following national cloud deployments.
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body The request body
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

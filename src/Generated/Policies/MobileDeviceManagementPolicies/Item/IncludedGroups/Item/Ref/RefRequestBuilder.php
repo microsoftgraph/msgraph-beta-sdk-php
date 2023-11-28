@@ -30,7 +30,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group from the list of groups included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Delete a group from the list of groups included in a mobile app management policy.
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group from the list of groups included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Delete a group from the list of groups included in a mobile app management policy.
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -62,7 +62,7 @@ class RefRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

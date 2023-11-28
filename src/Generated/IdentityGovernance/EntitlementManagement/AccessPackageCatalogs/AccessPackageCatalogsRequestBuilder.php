@@ -60,7 +60,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageCatalog objects.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalogCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessPackageCatalog object. This API is available in the following national cloud deployments.
+     * Create a new accessPackageCatalog object.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalog|null>
@@ -93,7 +93,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageCatalog objects.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,12 +109,12 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new accessPackageCatalog object. This API is available in the following national cloud deployments.
+     * Create a new accessPackageCatalog object.
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -128,7 +128,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
