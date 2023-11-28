@@ -63,7 +63,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule. This API is available in the following national cloud deployments.
+     * Delete a timeCard instance in a schedule.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a timeCard object by ID.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
      * @throws Exception
@@ -112,7 +112,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule. This API is available in the following national cloud deployments.
+     * Delete a timeCard instance in a schedule.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a timeCard object by ID.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

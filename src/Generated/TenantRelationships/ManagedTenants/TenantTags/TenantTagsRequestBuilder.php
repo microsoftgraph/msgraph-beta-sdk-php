@@ -52,7 +52,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantTag objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the tenantTag objects and their properties.
      * @param TenantTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTagCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tenantTag object. This API is available in the following national cloud deployments.
+     * Create a new tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
@@ -85,7 +85,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantTag objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the tenantTag objects and their properties.
      * @param TenantTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tenantTag object. This API is available in the following national cloud deployments.
+     * Create a new tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

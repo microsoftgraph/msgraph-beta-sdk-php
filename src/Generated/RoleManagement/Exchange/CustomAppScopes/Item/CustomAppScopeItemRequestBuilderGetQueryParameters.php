@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\CustomAppScopes
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+ * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
 */
 class CustomAppScopeItemRequestBuilderGetQueryParameters 
 {

@@ -47,7 +47,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a connectedOrganization object. This API is available in the following national cloud deployments.
+     * Delete a connectedOrganization object.
      * @param ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a connectedOrganization object.
      * @param ConnectedOrganizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectedOrganization|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a connectedOrganization object to change one or more of its properties. This API is available in the following national cloud deployments.
+     * Update a connectedOrganization object to change one or more of its properties.
      * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectedOrganization|null>
@@ -96,7 +96,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a connectedOrganization object. This API is available in the following national cloud deployments.
+     * Delete a connectedOrganization object.
      * @param ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a connectedOrganization object.
      * @param ConnectedOrganizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a connectedOrganization object to change one or more of its properties. This API is available in the following national cloud deployments.
+     * Update a connectedOrganization object to change one or more of its properties.
      * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

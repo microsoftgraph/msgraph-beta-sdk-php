@@ -51,7 +51,7 @@ class AgreementAcceptancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the signed-in user's agreementAcceptance objects. This API is available in the following national cloud deployments.
+     * Retrieve the signed-in user's agreementAcceptance objects.
      * @param AgreementAcceptancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AgreementAcceptanceCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class AgreementAcceptancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the signed-in user's agreementAcceptance objects. This API is available in the following national cloud deployments.
+     * Retrieve the signed-in user's agreementAcceptance objects.
      * @param AgreementAcceptancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

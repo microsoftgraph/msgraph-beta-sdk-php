@@ -46,7 +46,7 @@ class ReputationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a hostReputation object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostReputation object.
      * @param ReputationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostReputation|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ReputationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a hostReputation object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostReputation object.
      * @param ReputationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

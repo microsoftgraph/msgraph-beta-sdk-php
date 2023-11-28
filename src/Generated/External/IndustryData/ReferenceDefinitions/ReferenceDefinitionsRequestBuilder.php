@@ -52,7 +52,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the referenceDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the referenceDefinition objects and their properties.
      * @param ReferenceDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReferenceDefinitionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the referenceDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the referenceDefinition objects and their properties.
      * @param ReferenceDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

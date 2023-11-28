@@ -52,7 +52,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the categoryTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the categoryTemplate objects and their properties.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CategoryTemplateCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new categoryTemplate object. This API is available in the following national cloud deployments.
+     * Create a new categoryTemplate object.
      * @param CategoryTemplate $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CategoryTemplate|null>
@@ -85,7 +85,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the categoryTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the categoryTemplate objects and their properties.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new categoryTemplate object. This API is available in the following national cloud deployments.
+     * Create a new categoryTemplate object.
      * @param CategoryTemplate $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

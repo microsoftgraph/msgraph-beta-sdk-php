@@ -39,7 +39,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted. This API is available in the following national cloud deployments.
+     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
      * @param BusinessScenarioItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenario object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a businessScenario object.
      * @param BusinessScenarioItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenario object. This API is available in the following national cloud deployments.
+     * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenarioItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
@@ -88,7 +88,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted. This API is available in the following national cloud deployments.
+     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
      * @param BusinessScenarioItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenario object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a businessScenario object.
      * @param BusinessScenarioItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenario object. This API is available in the following national cloud deployments.
+     * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenarioItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

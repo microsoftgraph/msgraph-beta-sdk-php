@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Chats\Item\Operations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the specified Teams async operation that ran or is running on a specific resource. This API is available in the following national cloud deployments.
+ * Get the specified Teams async operation that ran or is running on a specific resource.
 */
 class TeamsAsyncOperationItemRequestBuilderGetQueryParameters 
 {

@@ -31,7 +31,7 @@ class CreatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create single sign-on credentials using a password for a user or group. This API is available in the following national cloud deployments.
+     * Create single sign-on credentials using a password for a user or group.
      * @param CreatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param CreatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordSingleSignOnCredentialSet|null>
@@ -48,7 +48,7 @@ class CreatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create single sign-on credentials using a password for a user or group. This API is available in the following national cloud deployments.
+     * Create single sign-on credentials using a password for a user or group.
      * @param CreatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param CreatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

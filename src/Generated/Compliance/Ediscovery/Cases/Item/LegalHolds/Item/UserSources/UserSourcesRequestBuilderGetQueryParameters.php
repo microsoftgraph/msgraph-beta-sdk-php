@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of userSource objects associated with a legal hold. This API is available in the following national cloud deployments.
+ * Get the list of userSource objects associated with a legal hold.
 */
 class UserSourcesRequestBuilderGetQueryParameters 
 {

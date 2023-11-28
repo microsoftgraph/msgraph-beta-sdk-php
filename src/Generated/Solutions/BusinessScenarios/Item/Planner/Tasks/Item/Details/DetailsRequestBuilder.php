@@ -46,7 +46,7 @@ class DetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a plannerTaskDetails object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param DetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTaskDetails|null>
      * @throws Exception
@@ -97,7 +97,7 @@ class DetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a plannerTaskDetails object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param DetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

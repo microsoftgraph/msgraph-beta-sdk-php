@@ -52,7 +52,7 @@ class ArticlesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of article objects, including their properties and relationships. This API is available in the following national cloud deployments.
+     * Get a list of article objects, including their properties and relationships.
      * @param ArticlesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ArticleCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ArticlesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of article objects, including their properties and relationships. This API is available in the following national cloud deployments.
+     * Get a list of article objects, including their properties and relationships.
      * @param ArticlesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

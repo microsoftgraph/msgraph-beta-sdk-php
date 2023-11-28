@@ -52,7 +52,7 @@ class TimeOffRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of timeoffrequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeoffrequest objects in the team.
      * @param TimeOffRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffRequestCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class TimeOffRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of timeoffrequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeoffrequest objects in the team.
      * @param TimeOffRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

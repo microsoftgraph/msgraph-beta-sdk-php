@@ -31,7 +31,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Deletes a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAward|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a personAward object from a user's profile.
      * @param PersonAward $body The request body
      * @param PersonAwardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAward|null>
@@ -80,7 +80,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Deletes a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personAward object from a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a personAward object from a user's profile.
      * @param PersonAward $body The request body
      * @param PersonAwardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -39,7 +39,7 @@ class FilesFolderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the metadata for the location where the files of a channel are stored. This API is available in the following national cloud deployments.
+     * Get the metadata for the location where the files of a channel are stored.
      * @param FilesFolderRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveItem|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class FilesFolderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the metadata for the location where the files of a channel are stored. This API is available in the following national cloud deployments.
+     * Get the metadata for the location where the files of a channel are stored.
      * @param FilesFolderRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

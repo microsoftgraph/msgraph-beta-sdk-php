@@ -46,7 +46,7 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a cloudPcFrontLineServicePlan object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a cloudPcFrontLineServicePlan object.
      * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcFrontLineServicePlan|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a cloudPcFrontLineServicePlan object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a cloudPcFrontLineServicePlan object.
      * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

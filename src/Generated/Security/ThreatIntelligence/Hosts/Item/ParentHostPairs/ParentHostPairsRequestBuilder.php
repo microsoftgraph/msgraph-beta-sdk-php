@@ -51,7 +51,7 @@ class ParentHostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of hostPair resources associated with a specified host, where that host is the *child* and has an incoming pairing with a *parent*. This API is available in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a specified host, where that host is the *child* and has an incoming pairing with a *parent*.
      * @param ParentHostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostPairCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class ParentHostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of hostPair resources associated with a specified host, where that host is the *child* and has an incoming pairing with a *parent*. This API is available in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a specified host, where that host is the *child* and has an incoming pairing with a *parent*.
      * @param ParentHostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

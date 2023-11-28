@@ -62,7 +62,7 @@ class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedRoleEligibilitySchedule objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedRoleEligibilitySchedule objects and their properties.
      * @param RoleEligibilitySchedulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleEligibilityScheduleCollectionResponse|null>
      * @throws Exception
@@ -94,7 +94,7 @@ class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedRoleEligibilitySchedule objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedRoleEligibilitySchedule objects and their properties.
      * @param RoleEligibilitySchedulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

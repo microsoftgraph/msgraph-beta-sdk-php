@@ -60,7 +60,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tag objects from an eDiscovery case. This API is available in the following national cloud deployments.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TagCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content. This API is available in the following national cloud deployments.
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tag|null>
@@ -93,7 +93,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tag objects from an eDiscovery case. This API is available in the following national cloud deployments.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content. This API is available in the following national cloud deployments.
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

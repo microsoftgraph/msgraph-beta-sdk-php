@@ -46,7 +46,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a teamsAppSettings object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a teamsAppSettings object.
      * @param TeamsAppSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a teamsAppSettings object. This API is available in the following national cloud deployments.
+     * Update the properties of a teamsAppSettings object.
      * @param TeamsAppSettings $body The request body
      * @param TeamsAppSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppSettings|null>
@@ -97,7 +97,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a teamsAppSettings object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a teamsAppSettings object.
      * @param TeamsAppSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a teamsAppSettings object. This API is available in the following national cloud deployments.
+     * Update the properties of a teamsAppSettings object.
      * @param TeamsAppSettings $body The request body
      * @param TeamsAppSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

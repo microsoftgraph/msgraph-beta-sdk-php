@@ -46,7 +46,7 @@ class PronounsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API. This API is available in the following national cloud deployments.
+     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
      * @param PronounsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PronounsSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class PronounsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a pronounsSettings in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API. This API is available in the following national cloud deployments.
+     * Update the properties of a pronounsSettings in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
      * @param PronounsSettings $body The request body
      * @param PronounsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PronounsSettings|null>
@@ -97,7 +97,7 @@ class PronounsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API. This API is available in the following national cloud deployments.
+     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
      * @param PronounsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class PronounsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a pronounsSettings in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API. This API is available in the following national cloud deployments.
+     * Update the properties of a pronounsSettings in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
      * @param PronounsSettings $body The request body
      * @param PronounsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

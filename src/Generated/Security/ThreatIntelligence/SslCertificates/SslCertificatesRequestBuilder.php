@@ -52,7 +52,7 @@ class SslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sslCertificate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of sslCertificate objects and their properties.
      * @param SslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SslCertificateCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sslCertificate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of sslCertificate objects and their properties.
      * @param SslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

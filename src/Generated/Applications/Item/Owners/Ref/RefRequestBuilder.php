@@ -48,7 +48,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to add an owner to an application by posting to the owners collection. This API is available in the following national cloud deployments.
+     * Use this API to add an owner to an application by posting to the owners collection.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -86,7 +86,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to add an owner to an application by posting to the owners collection. This API is available in the following national cloud deployments.
+     * Use this API to add an owner to an application by posting to the owners collection.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

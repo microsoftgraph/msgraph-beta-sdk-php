@@ -52,7 +52,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkPolicies in the tenant/directory. This API is available in the following national cloud deployments.
+     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkPolicyCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkPolicies in the tenant/directory. This API is available in the following national cloud deployments.
+     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of eDiscovery reviewSetQuery objects.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetQueryCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Create a new reviewSetQuery object.
      * @param ReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetQuery|null>
@@ -85,7 +85,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of eDiscovery reviewSetQuery objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of eDiscovery reviewSetQuery objects.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Create a new reviewSetQuery object.
      * @param ReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

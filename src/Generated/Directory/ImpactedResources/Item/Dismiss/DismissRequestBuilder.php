@@ -31,7 +31,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Dismiss an impactedResources object and update its status to dismissed. This API is available in the following national cloud deployments.
+     * Dismiss an impactedResources object and update its status to dismissed.
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImpactedResource|null>
@@ -48,7 +48,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Dismiss an impactedResources object and update its status to dismissed. This API is available in the following national cloud deployments.
+     * Dismiss an impactedResources object and update its status to dismissed.
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

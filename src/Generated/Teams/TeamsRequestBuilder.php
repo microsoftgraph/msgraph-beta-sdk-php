@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\TeamCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teams\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\GetAllMessages\GetAllMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\GetOpenShifts\GetOpenShiftsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\TeamItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -44,13 +43,6 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the getOpenShifts method.
-    */
-    public function getOpenShifts(): GetOpenShiftsRequestBuilder {
-        return new GetOpenShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the collection of team entities.
      * @param string $teamId The unique identifier of team
      * @return TeamItemRequestBuilder
@@ -76,7 +68,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all teams in an organization. This API is available in the following national cloud deployments.
+     * List all teams in an organization.
      * @param TeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamCollectionResponse|null>
      * @throws Exception
@@ -92,7 +84,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new team. This API is available in the following national cloud deployments.
+     * Create a new team.
      * @param Team $body The request body
      * @param TeamsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
@@ -109,7 +101,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all teams in an organization. This API is available in the following national cloud deployments.
+     * List all teams in an organization.
      * @param TeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +122,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new team. This API is available in the following national cloud deployments.
+     * Create a new team.
      * @param Team $body The request body
      * @param TeamsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

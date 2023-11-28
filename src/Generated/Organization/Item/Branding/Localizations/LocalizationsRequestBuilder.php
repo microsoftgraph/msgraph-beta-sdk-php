@@ -52,7 +52,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve all localization branding objects, including the default branding. This API is available in the following national cloud deployments.
+     * Retrieve all localization branding objects, including the default branding.
      * @param LocalizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingLocalizationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding. This API is available in the following national cloud deployments.
+     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
      * @param OrganizationalBrandingLocalization $body The request body
      * @param LocalizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingLocalization|null>
@@ -85,7 +85,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve all localization branding objects, including the default branding. This API is available in the following national cloud deployments.
+     * Retrieve all localization branding objects, including the default branding.
      * @param LocalizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding. This API is available in the following national cloud deployments.
+     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
      * @param OrganizationalBrandingLocalization $body The request body
      * @param LocalizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

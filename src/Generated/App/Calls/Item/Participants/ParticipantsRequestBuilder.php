@@ -68,7 +68,7 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of participant objects in the call. This API is available in the following national cloud deployments.
+     * Retrieve a list of participant objects in the call.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ParticipantCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of participant objects in the call. This API is available in the following national cloud deployments.
+     * Retrieve a list of participant objects in the call.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class HistoryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the risk history of a riskyUser resource. This API is available in the following national cloud deployments.
+     * Get the risk history of a riskyUser resource.
      * @param HistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyUserHistoryItemCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class HistoryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the risk history of a riskyUser resource. This API is available in the following national cloud deployments.
+     * Get the risk history of a riskyUser resource.
      * @param HistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

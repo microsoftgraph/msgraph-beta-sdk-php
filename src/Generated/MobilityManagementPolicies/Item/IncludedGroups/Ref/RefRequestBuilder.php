@@ -32,7 +32,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Get the list of groups that are included in a mobile app management policy.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
@@ -48,7 +48,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add groups to be included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Add groups to be included in a mobile app management policy.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -65,7 +65,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Get the list of groups that are included in a mobile app management policy.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -86,7 +86,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add groups to be included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Add groups to be included in a mobile app management policy.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

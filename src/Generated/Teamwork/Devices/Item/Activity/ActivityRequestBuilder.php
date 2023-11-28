@@ -46,7 +46,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the activity status of a Microsoft Teams-enabled device.  This API is available in the following national cloud deployments.
+     * Get the activity status of a Microsoft Teams-enabled device. 
      * @param ActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceActivity|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the activity status of a Microsoft Teams-enabled device.  This API is available in the following national cloud deployments.
+     * Get the activity status of a Microsoft Teams-enabled device. 
      * @param ActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

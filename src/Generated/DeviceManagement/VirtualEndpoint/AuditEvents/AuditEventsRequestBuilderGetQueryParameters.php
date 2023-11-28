@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\AuditE
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List all the cloudPcAuditEvent objects for the tenant. This API is available in the following national cloud deployments.
+ * List all the cloudPcAuditEvent objects for the tenant.
 */
 class AuditEventsRequestBuilderGetQueryParameters 
 {

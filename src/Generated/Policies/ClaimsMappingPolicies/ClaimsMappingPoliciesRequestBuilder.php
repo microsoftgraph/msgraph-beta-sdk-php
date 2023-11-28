@@ -52,7 +52,7 @@ class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of claimsMappingPolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of claimsMappingPolicy objects.
      * @param ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ClaimsMappingPolicyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new claimsMappingPolicy object. This API is available in the following national cloud deployments.
+     * Create a new claimsMappingPolicy object.
      * @param ClaimsMappingPolicy $body The request body
      * @param ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ClaimsMappingPolicy|null>
@@ -85,7 +85,7 @@ class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of claimsMappingPolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of claimsMappingPolicy objects.
      * @param ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new claimsMappingPolicy object. This API is available in the following national cloud deployments.
+     * Create a new claimsMappingPolicy object.
      * @param ClaimsMappingPolicy $body The request body
      * @param ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

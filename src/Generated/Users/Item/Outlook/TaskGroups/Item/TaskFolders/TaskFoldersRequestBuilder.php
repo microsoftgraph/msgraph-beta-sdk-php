@@ -52,7 +52,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup. This API is available in the following national cloud deployments.
+     * Get Outlook task folders in a specific outlookTaskGroup.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolderCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup. This API is available in the following national cloud deployments.
+     * Create an Outlook task folder under a specified outlookTaskGroup.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
@@ -85,7 +85,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup. This API is available in the following national cloud deployments.
+     * Get Outlook task folders in a specific outlookTaskGroup.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup. This API is available in the following national cloud deployments.
+     * Create an Outlook task folder under a specified outlookTaskGroup.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

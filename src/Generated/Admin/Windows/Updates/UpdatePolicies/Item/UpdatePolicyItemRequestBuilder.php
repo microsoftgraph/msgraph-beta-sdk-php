@@ -47,7 +47,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatePolicy object. This API is available in the following national cloud deployments.
+     * Delete an updatePolicy object.
      * @param UpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatePolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an updatePolicy object.
      * @param UpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatePolicy|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an updatePolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of an updatePolicy object.
      * @param UpdatePolicy $body The request body
      * @param UpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatePolicy|null>
@@ -96,7 +96,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatePolicy object. This API is available in the following national cloud deployments.
+     * Delete an updatePolicy object.
      * @param UpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatePolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an updatePolicy object.
      * @param UpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an updatePolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of an updatePolicy object.
      * @param UpdatePolicy $body The request body
      * @param UpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

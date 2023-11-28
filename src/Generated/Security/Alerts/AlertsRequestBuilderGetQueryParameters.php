@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Alerts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of alert objects. This API is available in the following national cloud deployments.
+ * Retrieve a list of alert objects.
 */
 class AlertsRequestBuilderGetQueryParameters 
 {

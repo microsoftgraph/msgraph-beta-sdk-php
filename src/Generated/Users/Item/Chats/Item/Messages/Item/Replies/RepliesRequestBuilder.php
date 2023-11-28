@@ -60,7 +60,7 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message. This API is available in the following national cloud deployments.
+     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
      * @param RepliesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessageCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a new reply to a chatMessage in a specified channel. This API is available in the following national cloud deployments.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param ChatMessage $body The request body
      * @param RepliesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessage|null>
@@ -93,7 +93,7 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message. This API is available in the following national cloud deployments.
+     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
      * @param RepliesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a new reply to a chatMessage in a specified channel. This API is available in the following national cloud deployments.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param ChatMessage $body The request body
      * @param RepliesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

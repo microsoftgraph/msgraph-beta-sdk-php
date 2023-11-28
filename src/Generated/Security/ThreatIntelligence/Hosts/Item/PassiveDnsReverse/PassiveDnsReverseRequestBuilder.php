@@ -51,7 +51,7 @@ class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address. This API is available in the following national cloud deployments.
+     * Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.
      * @param PassiveDnsReverseRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PassiveDnsRecordCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address. This API is available in the following national cloud deployments.
+     * Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.
      * @param PassiveDnsReverseRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

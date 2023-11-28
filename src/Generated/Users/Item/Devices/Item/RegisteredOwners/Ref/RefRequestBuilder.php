@@ -48,7 +48,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a user as a registered owner of the device. This API is available in the following national cloud deployments.
+     * Add a user as a registered owner of the device.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -86,7 +86,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a user as a registered owner of the device. This API is available in the following national cloud deployments.
+     * Add a user as a registered owner of the device.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

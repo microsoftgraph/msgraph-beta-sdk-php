@@ -52,7 +52,7 @@ class PayloadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source. This API is available in the following national cloud deployments.
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param PayloadsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PayloadCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class PayloadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source. This API is available in the following national cloud deployments.
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param PayloadsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

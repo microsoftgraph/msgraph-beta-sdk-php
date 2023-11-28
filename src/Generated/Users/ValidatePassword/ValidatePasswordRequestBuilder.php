@@ -31,7 +31,7 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password. This API is available in the following national cloud deployments.
+     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
      * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordValidationInformation|null>
@@ -48,7 +48,7 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password. This API is available in the following national cloud deployments.
+     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
      * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

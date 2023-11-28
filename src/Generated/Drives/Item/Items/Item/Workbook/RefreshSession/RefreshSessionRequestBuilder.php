@@ -30,7 +30,7 @@ class RefreshSessionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to refresh an existing workbook session. This API is available in the following national cloud deployments.
+     * Use this API to refresh an existing workbook session.
      * @param RefreshSessionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RefreshSessionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to refresh an existing workbook session. This API is available in the following national cloud deployments.
+     * Use this API to refresh an existing workbook session.
      * @param RefreshSessionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

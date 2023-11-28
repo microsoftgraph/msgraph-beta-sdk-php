@@ -31,7 +31,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
@@ -80,7 +80,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

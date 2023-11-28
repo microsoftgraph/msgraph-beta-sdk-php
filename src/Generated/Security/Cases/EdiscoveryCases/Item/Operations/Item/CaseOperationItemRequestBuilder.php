@@ -46,7 +46,7 @@ class CaseOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a caseOperation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a caseOperation object.
      * @param CaseOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CaseOperation|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CaseOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a caseOperation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a caseOperation object.
      * @param CaseOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

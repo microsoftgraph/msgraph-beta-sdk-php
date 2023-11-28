@@ -31,7 +31,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object. This API is available in the following national cloud deployments.
+     * Deletes an itemPublication object.
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an itemPublication object in a user's profile.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
@@ -80,7 +80,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object. This API is available in the following national cloud deployments.
+     * Deletes an itemPublication object.
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an itemPublication object in a user's profile.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

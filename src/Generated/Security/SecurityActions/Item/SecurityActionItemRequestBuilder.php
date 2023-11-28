@@ -54,7 +54,7 @@ class SecurityActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a securityAction object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a securityAction object.
      * @param SecurityActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityAction|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class SecurityActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a securityAction object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a securityAction object.
      * @param SecurityActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

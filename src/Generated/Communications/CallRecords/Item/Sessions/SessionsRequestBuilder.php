@@ -52,7 +52,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of sessions associated with a callRecord object. This API is available in the following national cloud deployments.
+     * Retrieve the list of sessions associated with a callRecord object.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SessionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of sessions associated with a callRecord object. This API is available in the following national cloud deployments.
+     * Retrieve the list of sessions associated with a callRecord object.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

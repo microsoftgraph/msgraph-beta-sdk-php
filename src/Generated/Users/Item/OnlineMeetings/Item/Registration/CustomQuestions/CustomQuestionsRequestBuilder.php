@@ -52,7 +52,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param CustomQuestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
@@ -85,7 +85,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param CustomQuestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

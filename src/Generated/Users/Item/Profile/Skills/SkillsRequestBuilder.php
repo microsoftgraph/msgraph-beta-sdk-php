@@ -52,7 +52,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of skillProficiency objects in a user's profile.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiencyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiency|null>
@@ -85,7 +85,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of skillProficiency objects in a user's profile.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

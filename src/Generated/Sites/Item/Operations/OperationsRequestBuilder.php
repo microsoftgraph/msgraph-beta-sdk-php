@@ -52,7 +52,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of richLongRunningOperations associated with a site. This API is available in the following national cloud deployments.
+     * Get the list of richLongRunningOperations associated with a site.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RichLongRunningOperationCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of richLongRunningOperations associated with a site. This API is available in the following national cloud deployments.
+     * Get the list of richLongRunningOperations associated with a site.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

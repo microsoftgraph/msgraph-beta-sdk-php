@@ -39,7 +39,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
@@ -88,7 +88,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a mobilityManagementPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

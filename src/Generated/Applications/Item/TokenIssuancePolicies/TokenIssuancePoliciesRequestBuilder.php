@@ -59,7 +59,7 @@ class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tokenIssuancePolicy objects that are assigned to an application. This API is available in the following national cloud deployments.
+     * List the tokenIssuancePolicy objects that are assigned to an application.
      * @param TokenIssuancePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TokenIssuancePolicyCollectionResponse|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tokenIssuancePolicy objects that are assigned to an application. This API is available in the following national cloud deployments.
+     * List the tokenIssuancePolicy objects that are assigned to an application.
      * @param TokenIssuancePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

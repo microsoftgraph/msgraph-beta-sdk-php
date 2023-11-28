@@ -52,7 +52,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverageCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

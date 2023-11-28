@@ -51,10 +51,11 @@ class ActiveUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activeUsers from reports
+     * Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param ActiveUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActiveUsersMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-activeusers?view=graph-rest-1.0 Find more info here
     */
     public function get(?ActiveUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +67,7 @@ class ActiveUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activeUsers from reports
+     * Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param ActiveUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

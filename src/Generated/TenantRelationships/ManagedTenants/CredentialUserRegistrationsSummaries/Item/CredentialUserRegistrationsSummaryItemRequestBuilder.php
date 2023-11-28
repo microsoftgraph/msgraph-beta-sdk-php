@@ -46,7 +46,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of a credentialUserRegistrationsSummary object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummary|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of a credentialUserRegistrationsSummary object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

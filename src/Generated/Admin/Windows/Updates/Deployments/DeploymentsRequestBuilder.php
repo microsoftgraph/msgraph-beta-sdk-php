@@ -52,7 +52,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of deployment objects and their properties.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object. This API is available in the following national cloud deployments.
+     * Create a new deployment object.
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Deployment|null>
@@ -85,7 +85,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of deployment objects and their properties.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object. This API is available in the following national cloud deployments.
+     * Create a new deployment object.
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

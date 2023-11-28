@@ -52,7 +52,7 @@ class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
      * @param ServiceManagementDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DelegatedAdminServiceManagementDetailCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
      * @param ServiceManagementDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

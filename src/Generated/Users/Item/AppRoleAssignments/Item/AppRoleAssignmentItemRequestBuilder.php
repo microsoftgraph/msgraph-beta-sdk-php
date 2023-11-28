@@ -31,7 +31,7 @@ class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an appRoleAssignment that has been granted to a user. This API is available in the following national cloud deployments.
+     * Delete an appRoleAssignment that has been granted to a user.
      * @param AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an appRoleAssignment that has been granted to a user. This API is available in the following national cloud deployments.
+     * Delete an appRoleAssignment that has been granted to a user.
      * @param AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

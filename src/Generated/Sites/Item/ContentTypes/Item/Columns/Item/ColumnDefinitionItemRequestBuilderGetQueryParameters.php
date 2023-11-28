@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\Item\Columns\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the metadata for a site][], [list][] or [contentType][] [column][columnDefinition]. This API is available in the following [national cloud deployments.
+ * Retrieve the metadata for a [site][], [list][] or [contentType][] [column][columnDefinition].
 */
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {

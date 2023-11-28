@@ -31,7 +31,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Delete a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Update the properties of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
@@ -80,7 +80,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Delete a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Update the properties of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

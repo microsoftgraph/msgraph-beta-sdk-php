@@ -46,7 +46,7 @@ class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter. This API is available in the following national cloud deployments.
+     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByPrinter|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter. This API is available in the following national cloud deployments.
+     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

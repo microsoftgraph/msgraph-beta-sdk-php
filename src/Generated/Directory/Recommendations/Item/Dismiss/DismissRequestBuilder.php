@@ -31,7 +31,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its status to dismissed . This API is available in the following national cloud deployments.
+     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its status to dismissed .
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
@@ -48,7 +48,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its status to dismissed . This API is available in the following national cloud deployments.
+     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its status to dismissed .
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

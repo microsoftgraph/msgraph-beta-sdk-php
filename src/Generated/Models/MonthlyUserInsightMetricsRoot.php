@@ -26,7 +26,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeUsers property value. The activeUsers property
+     * Gets the activeUsers property value. Insights for active users on apps registered in the tenant for a specified period.
      * @return array<ActiveUsersMetric>|null
     */
     public function getActiveUsers(): ?array {
@@ -40,7 +40,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeUsersBreakdown property value. The activeUsersBreakdown property
+     * Gets the activeUsersBreakdown property value. Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
      * @return array<ActiveUsersBreakdownMetric>|null
     */
     public function getActiveUsersBreakdown(): ?array {
@@ -54,7 +54,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authentications property value. The authentications property
+     * Gets the authentications property value. Insights for authentications on apps registered in the tenant for a specified period.
      * @return array<AuthenticationsMetric>|null
     */
     public function getAuthentications(): ?array {
@@ -115,7 +115,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the mfaCompletions property value. The mfaCompletions property
+     * Gets the mfaCompletions property value. Insights for MFA usage on apps registered in the tenant for a specified period.
      * @return array<MfaCompletionMetric>|null
     */
     public function getMfaCompletions(): ?array {
@@ -129,7 +129,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the requests property value. The requests property
+     * Gets the requests property value. Insights for all user requests on apps registered in the tenant for a specified period.
      * @return array<UserRequestsMetric>|null
     */
     public function getRequests(): ?array {
@@ -143,7 +143,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the signUps property value. The signUps property
+     * Gets the signUps property value. Total sign-ups on apps registered in the tenant for a specified period.
      * @return array<UserSignUpMetric>|null
     */
     public function getSignUps(): ?array {
@@ -157,7 +157,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the summary property value. The summary property
+     * Gets the summary property value. Summary of all usage insights on apps registered in the tenant for a specified period.
      * @return array<InsightSummary>|null
     */
     public function getSummary(): ?array {
@@ -188,7 +188,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeUsers property value. The activeUsers property
+     * Sets the activeUsers property value. Insights for active users on apps registered in the tenant for a specified period.
      * @param array<ActiveUsersMetric>|null $value Value to set for the activeUsers property.
     */
     public function setActiveUsers(?array $value): void {
@@ -196,7 +196,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeUsersBreakdown property value. The activeUsersBreakdown property
+     * Sets the activeUsersBreakdown property value. Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
      * @param array<ActiveUsersBreakdownMetric>|null $value Value to set for the activeUsersBreakdown property.
     */
     public function setActiveUsersBreakdown(?array $value): void {
@@ -204,7 +204,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authentications property value. The authentications property
+     * Sets the authentications property value. Insights for authentications on apps registered in the tenant for a specified period.
      * @param array<AuthenticationsMetric>|null $value Value to set for the authentications property.
     */
     public function setAuthentications(?array $value): void {
@@ -228,7 +228,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the mfaCompletions property value. The mfaCompletions property
+     * Sets the mfaCompletions property value. Insights for MFA usage on apps registered in the tenant for a specified period.
      * @param array<MfaCompletionMetric>|null $value Value to set for the mfaCompletions property.
     */
     public function setMfaCompletions(?array $value): void {
@@ -236,7 +236,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the requests property value. The requests property
+     * Sets the requests property value. Insights for all user requests on apps registered in the tenant for a specified period.
      * @param array<UserRequestsMetric>|null $value Value to set for the requests property.
     */
     public function setRequests(?array $value): void {
@@ -244,7 +244,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the signUps property value. The signUps property
+     * Sets the signUps property value. Total sign-ups on apps registered in the tenant for a specified period.
      * @param array<UserSignUpMetric>|null $value Value to set for the signUps property.
     */
     public function setSignUps(?array $value): void {
@@ -252,7 +252,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the summary property value. The summary property
+     * Sets the summary property value. Summary of all usage insights on apps registered in the tenant for a specified period.
      * @param array<InsightSummary>|null $value Value to set for the summary property.
     */
     public function setSummary(?array $value): void {

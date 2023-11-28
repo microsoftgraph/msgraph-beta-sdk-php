@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Years\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a yearTimePeriodDefinition object.
 */
 class YearTimePeriodDefinitionItemRequestBuilderGetQueryParameters 
 {

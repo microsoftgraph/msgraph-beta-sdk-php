@@ -46,7 +46,7 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
+     * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @param CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetails|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
+     * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @param CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is available in the following national cloud deployments.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventListenerCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is available in the following national cloud deployments.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventListener|null>
@@ -85,7 +85,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported: This API is available in the following national cloud deployments.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener. This API is available in the following national cloud deployments.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class NamedLocationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of namedLocation objects. This API is available in the following national cloud deployments.
+     * Get a list of namedLocation objects.
      * @param NamedLocationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NamedLocationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class NamedLocationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects. This API is available in the following national cloud deployments.
+     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
      * @param NamedLocation $body The request body
      * @param NamedLocationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NamedLocation|null>
@@ -85,7 +85,7 @@ class NamedLocationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of namedLocation objects. This API is available in the following national cloud deployments.
+     * Get a list of namedLocation objects.
      * @param NamedLocationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class NamedLocationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects. This API is available in the following national cloud deployments.
+     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
      * @param NamedLocation $body The request body
      * @param NamedLocationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

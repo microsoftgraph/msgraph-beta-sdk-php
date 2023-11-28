@@ -46,7 +46,7 @@ class CloudPcOverviewTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcOverview object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcOverview object.
      * @param CloudPcOverviewTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOverview|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CloudPcOverviewTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcOverview object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcOverview object.
      * @param CloudPcOverviewTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

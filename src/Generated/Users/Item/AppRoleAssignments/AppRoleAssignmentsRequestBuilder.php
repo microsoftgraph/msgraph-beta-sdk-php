@@ -68,7 +68,7 @@ class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers: This API is available in the following national cloud deployments.
+     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
      * @param AppRoleAssignment $body The request body
      * @param AppRoleAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppRoleAssignment|null>
@@ -106,7 +106,7 @@ class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers: This API is available in the following national cloud deployments.
+     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
      * @param AppRoleAssignment $body The request body
      * @param AppRoleAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

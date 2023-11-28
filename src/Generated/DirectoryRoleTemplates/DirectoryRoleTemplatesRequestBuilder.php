@@ -84,7 +84,7 @@ class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of directoryroletemplate objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of directoryroletemplate objects.
      * @param DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryRoleTemplateCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of directoryroletemplate objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of directoryroletemplate objects.
      * @param DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

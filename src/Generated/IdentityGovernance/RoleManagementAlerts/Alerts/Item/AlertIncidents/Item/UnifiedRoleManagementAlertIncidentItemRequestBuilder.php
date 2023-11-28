@@ -54,7 +54,7 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object: This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertIncident|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object: This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

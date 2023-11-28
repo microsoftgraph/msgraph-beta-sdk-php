@@ -32,7 +32,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class. This API is available in the following national cloud deployments.
+     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
@@ -48,7 +48,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add an educationUser member to an educationClass. This API is available in the following national cloud deployments.
+     * Add an educationUser member to an educationClass.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -65,7 +65,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class. This API is available in the following national cloud deployments.
+     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -86,7 +86,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add an educationUser member to an educationClass. This API is available in the following national cloud deployments.
+     * Add an educationUser member to an educationClass.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

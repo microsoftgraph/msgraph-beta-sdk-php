@@ -118,7 +118,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a custodian object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Custodian|null>
      * @throws Exception
@@ -134,7 +134,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a custodian object. This API is available in the following national cloud deployments.
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Custodian|null>
@@ -169,7 +169,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a custodian object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -190,7 +190,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a custodian object. This API is available in the following national cloud deployments.
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

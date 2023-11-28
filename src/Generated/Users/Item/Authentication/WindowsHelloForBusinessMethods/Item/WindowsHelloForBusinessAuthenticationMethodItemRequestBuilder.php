@@ -39,7 +39,7 @@ class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder extends Base
     }
 
     /**
-     * Deletes a windowsHelloForBusinessAuthenticationMethod object. This API is available in the following national cloud deployments.
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder extends Base
     }
 
     /**
-     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsHelloForBusinessAuthenticationMethod|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder extends Base
     }
 
     /**
-     * Deletes a windowsHelloForBusinessAuthenticationMethod object. This API is available in the following national cloud deployments.
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -89,7 +89,7 @@ class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder extends Base
     }
 
     /**
-     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

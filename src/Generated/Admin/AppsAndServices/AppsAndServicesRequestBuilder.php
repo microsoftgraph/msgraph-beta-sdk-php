@@ -46,7 +46,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminAppsAndServices object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminAppsAndServices object.
      * @param AppsAndServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminAppsAndServices|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminAppsAndServices object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminAppsAndServices object.
      * @param AdminAppsAndServices $body The request body
      * @param AppsAndServicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminAppsAndServices|null>
@@ -97,7 +97,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminAppsAndServices object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminAppsAndServices object.
      * @param AppsAndServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class AppsAndServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminAppsAndServices object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminAppsAndServices object.
      * @param AdminAppsAndServices $body The request body
      * @param AppsAndServicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

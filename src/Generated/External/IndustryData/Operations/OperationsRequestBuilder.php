@@ -52,7 +52,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of long-running file validation operations and their statuses. This API is available in the following national cloud deployments.
+     * Get a list of long-running file validation operations and their statuses.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LongRunningOperationCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of long-running file validation operations and their statuses. This API is available in the following national cloud deployments.
+     * Get a list of long-running file validation operations and their statuses.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

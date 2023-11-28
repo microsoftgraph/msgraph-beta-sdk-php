@@ -60,7 +60,7 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantGroup objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the tenantGroup objects and their properties.
      * @param TenantGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGroupCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantGroup objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the tenantGroup objects and their properties.
      * @param TenantGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of cloudPcUserSetting objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of cloudPcUserSetting objects.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcUserSettingCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcUserSetting object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcUserSetting object.
      * @param CloudPcUserSetting $body The request body
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcUserSetting|null>
@@ -85,7 +85,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of cloudPcUserSetting objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of cloudPcUserSetting objects.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UserSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcUserSetting object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcUserSetting object.
      * @param CloudPcUserSetting $body The request body
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

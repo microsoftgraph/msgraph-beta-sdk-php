@@ -52,7 +52,7 @@ class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectedOrganization objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of connectedOrganization objects.
      * @param ConnectedOrganizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectedOrganizationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectedOrganization object. This API is available in the following national cloud deployments.
+     * Create a new connectedOrganization object.
      * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectedOrganization|null>
@@ -85,7 +85,7 @@ class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectedOrganization objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of connectedOrganization objects.
      * @param ConnectedOrganizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectedOrganization object. This API is available in the following national cloud deployments.
+     * Create a new connectedOrganization object.
      * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

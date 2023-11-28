@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Search\Bookmarks\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a bookmark object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a bookmark object.
 */
 class BookmarkItemRequestBuilderGetQueryParameters 
 {

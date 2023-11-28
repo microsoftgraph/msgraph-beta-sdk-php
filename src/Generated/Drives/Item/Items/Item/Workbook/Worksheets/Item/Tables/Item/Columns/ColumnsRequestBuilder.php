@@ -61,7 +61,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tablecolumn objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of tablecolumn objects.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookTableColumnCollectionResponse|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new TableColumn. This API is available in the following national cloud deployments.
+     * Use this API to create a new TableColumn.
      * @param WorkbookTableColumn $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookTableColumn|null>
@@ -103,7 +103,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tablecolumn objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of tablecolumn objects.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new TableColumn. This API is available in the following national cloud deployments.
+     * Use this API to create a new TableColumn.
      * @param WorkbookTableColumn $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

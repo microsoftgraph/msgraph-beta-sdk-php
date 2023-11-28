@@ -31,7 +31,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a resourceConnection object. This API is available in the following national cloud deployments.
+     * Delete a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceConnection|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a resourceConnection object. This API is available in the following national cloud deployments.
+     * Delete a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

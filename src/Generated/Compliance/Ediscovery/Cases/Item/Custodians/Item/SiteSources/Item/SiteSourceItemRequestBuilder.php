@@ -39,7 +39,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a siteSource object. This API is available in the following national cloud deployments.
+     * Delete a siteSource object.
      * @param SiteSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a siteSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a siteSource object.
      * @param SiteSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSource|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a siteSource object. This API is available in the following national cloud deployments.
+     * Delete a siteSource object.
      * @param SiteSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -105,7 +105,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a siteSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a siteSource object.
      * @param SiteSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

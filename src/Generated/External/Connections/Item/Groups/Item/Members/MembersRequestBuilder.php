@@ -67,7 +67,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalGroupMember object. This API is available in the following national cloud deployments.
+     * Create a new externalGroupMember object.
      * @param Identity $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Identity|null>
@@ -105,7 +105,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalGroupMember object. This API is available in the following national cloud deployments.
+     * Create a new externalGroupMember object.
      * @param Identity $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

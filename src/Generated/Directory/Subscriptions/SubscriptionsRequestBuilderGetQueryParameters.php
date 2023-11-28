@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Subscriptions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of commercial subscriptions that an organization has acquired. This API is available in the following national cloud deployments.
+ * Get the list of commercial subscriptions that an organization has acquired.
 */
 class SubscriptionsRequestBuilderGetQueryParameters 
 {

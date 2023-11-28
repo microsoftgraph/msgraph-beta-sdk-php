@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Configuration;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration. This API is available in the following national cloud deployments.
+ * Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
 */
 class ConfigurationRequestBuilderGetQueryParameters 
 {

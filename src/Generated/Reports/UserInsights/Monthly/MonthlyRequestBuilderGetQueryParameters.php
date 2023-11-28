@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get monthly from reports
+ * Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
 */
 class MonthlyRequestBuilderGetQueryParameters 
 {

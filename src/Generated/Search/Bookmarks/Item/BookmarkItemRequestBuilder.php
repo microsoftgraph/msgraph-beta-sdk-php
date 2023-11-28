@@ -31,7 +31,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a bookmark object. This API is available in the following national cloud deployments.
+     * Delete a bookmark object.
      * @param BookmarkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a bookmark object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a bookmark object.
      * @param BookmarkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Bookmark|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookmark object. This API is available in the following national cloud deployments.
+     * Update the properties of a bookmark object.
      * @param Bookmark $body The request body
      * @param BookmarkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Bookmark|null>
@@ -80,7 +80,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a bookmark object. This API is available in the following national cloud deployments.
+     * Delete a bookmark object.
      * @param BookmarkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a bookmark object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a bookmark object.
      * @param BookmarkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class BookmarkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookmark object. This API is available in the following national cloud deployments.
+     * Update the properties of a bookmark object.
      * @param Bookmark $body The request body
      * @param BookmarkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -206,7 +206,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of the specified team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of the specified team.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
@@ -222,7 +222,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the specified team. This API is available in the following national cloud deployments.
+     * Update the properties of the specified team.
      * @param Team $body The request body
      * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
@@ -257,7 +257,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of the specified team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of the specified team.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -278,7 +278,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the specified team. This API is available in the following national cloud deployments.
+     * Update the properties of the specified team.
      * @param Team $body The request body
      * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

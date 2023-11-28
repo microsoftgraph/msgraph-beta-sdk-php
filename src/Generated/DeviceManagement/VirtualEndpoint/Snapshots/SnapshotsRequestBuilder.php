@@ -61,7 +61,7 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of cloudPcSnapshot objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of cloudPcSnapshot objects and their properties.
      * @param SnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSnapshotCollectionResponse|null>
      * @throws Exception
@@ -102,7 +102,7 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of cloudPcSnapshot objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of cloudPcSnapshot objects and their properties.
      * @param SnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

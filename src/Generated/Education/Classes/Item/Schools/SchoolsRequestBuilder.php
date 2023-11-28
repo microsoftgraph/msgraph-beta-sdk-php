@@ -51,7 +51,7 @@ class SchoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of schools in which the class is taught. This API is available in the following national cloud deployments.
+     * Retrieve a list of schools in which the class is taught.
      * @param SchoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSchoolCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class SchoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of schools in which the class is taught. This API is available in the following national cloud deployments.
+     * Retrieve a list of schools in which the class is taught.
      * @param SchoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,7 +30,7 @@ class ReprovisionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reprovision a specific Cloud PC. This API is available in the following national cloud deployments.
+     * Reprovision a specific Cloud PC.
      * @param ReprovisionPostRequestBody $body The request body
      * @param ReprovisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class ReprovisionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reprovision a specific Cloud PC. This API is available in the following national cloud deployments.
+     * Reprovision a specific Cloud PC.
      * @param ReprovisionPostRequestBody $body The request body
      * @param ReprovisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

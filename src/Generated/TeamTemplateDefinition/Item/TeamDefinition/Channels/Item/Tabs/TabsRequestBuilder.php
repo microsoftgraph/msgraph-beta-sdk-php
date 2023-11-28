@@ -52,7 +52,7 @@ class TabsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of tabs in the specified channel within a team.  This API is available in the following national cloud deployments.
+     * Retrieve the list of tabs in the specified channel within a team. 
      * @param TabsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsTabCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class TabsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of tabs in the specified channel within a team.  This API is available in the following national cloud deployments.
+     * Retrieve the list of tabs in the specified channel within a team. 
      * @param TabsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -39,7 +39,7 @@ class UserActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing user activity for your app. This API is available in the following national cloud deployments.
+     * Delete an existing user activity for your app.
      * @param UserActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class UserActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing user activity for your app. This API is available in the following national cloud deployments.
+     * Delete an existing user activity for your app.
      * @param UserActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

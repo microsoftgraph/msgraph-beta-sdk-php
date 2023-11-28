@@ -52,7 +52,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow. This API is available in the following national cloud deployments.
+     * Retrieve a list of languages supported for customization in a B2X user flow.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserFlowLanguageConfigurationCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow. This API is available in the following national cloud deployments.
+     * Retrieve a list of languages supported for customization in a B2X user flow.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

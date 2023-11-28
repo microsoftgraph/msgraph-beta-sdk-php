@@ -31,7 +31,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a browserSharedCookie from a browserSiteList. This API is available in the following national cloud deployments.
+     * Delete a browserSharedCookie from a browserSiteList.
      * @param BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode. This API is available in the following national cloud deployments.
+     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
      * @param BrowserSharedCookieItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSharedCookie|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a browserSharedCookie object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSharedCookie object.
      * @param BrowserSharedCookie $body The request body
      * @param BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSharedCookie|null>
@@ -80,7 +80,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a browserSharedCookie from a browserSiteList. This API is available in the following national cloud deployments.
+     * Delete a browserSharedCookie from a browserSiteList.
      * @param BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode. This API is available in the following national cloud deployments.
+     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
      * @param BrowserSharedCookieItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a browserSharedCookie object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSharedCookie object.
      * @param BrowserSharedCookie $body The request body
      * @param BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

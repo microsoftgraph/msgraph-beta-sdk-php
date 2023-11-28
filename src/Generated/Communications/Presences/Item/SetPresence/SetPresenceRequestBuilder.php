@@ -30,7 +30,7 @@ class SetPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the availability and activity status in a presence session of an application for a user. This API is available in the following national cloud deployments.
+     * Set the availability and activity status in a presence session of an application for a user.
      * @param SetPresencePostRequestBody $body The request body
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class SetPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the availability and activity status in a presence session of an application for a user. This API is available in the following national cloud deployments.
+     * Set the availability and activity status in a presence session of an application for a user.
      * @param SetPresencePostRequestBody $body The request body
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

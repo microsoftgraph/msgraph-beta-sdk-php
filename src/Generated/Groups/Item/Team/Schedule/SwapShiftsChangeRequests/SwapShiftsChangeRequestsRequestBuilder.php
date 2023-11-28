@@ -52,7 +52,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of swapShiftsChangeRequest objects in a team.
      * @param SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SwapShiftsChangeRequestCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of a swapShiftsChangeRequest object. This API is available in the following national cloud deployments.
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param SwapShiftsChangeRequest $body The request body
      * @param SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SwapShiftsChangeRequest|null>
@@ -85,7 +85,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of swapShiftsChangeRequest objects in a team.
      * @param SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of a swapShiftsChangeRequest object. This API is available in the following national cloud deployments.
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param SwapShiftsChangeRequest $body The request body
      * @param SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

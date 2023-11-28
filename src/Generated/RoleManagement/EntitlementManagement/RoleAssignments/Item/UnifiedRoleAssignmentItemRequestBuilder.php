@@ -63,7 +63,7 @@ class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a unifiedRoleAssignment object. This API is available in the following national cloud deployments.
+     * Delete a unifiedRoleAssignment object.
      * @param UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleAssignment|null>
      * @throws Exception
@@ -111,7 +111,7 @@ class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a unifiedRoleAssignment object. This API is available in the following national cloud deployments.
+     * Delete a unifiedRoleAssignment object.
      * @param UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +129,7 @@ class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

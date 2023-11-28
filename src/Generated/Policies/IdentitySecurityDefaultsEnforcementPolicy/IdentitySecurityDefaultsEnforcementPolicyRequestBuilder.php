@@ -46,7 +46,7 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends BaseReques
     }
 
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentitySecurityDefaultsEnforcementPolicy|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends BaseReques
     }
 
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param IdentitySecurityDefaultsEnforcementPolicy $body The request body
      * @param IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentitySecurityDefaultsEnforcementPolicy|null>
@@ -97,7 +97,7 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends BaseReques
     }
 
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends BaseReques
     }
 
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param IdentitySecurityDefaultsEnforcementPolicy $body The request body
      * @param IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

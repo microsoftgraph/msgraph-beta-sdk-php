@@ -52,7 +52,7 @@ class EndpointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of endpoint objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of endpoint objects.
      * @param EndpointsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EndpointCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class EndpointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of endpoint objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of endpoint objects.
      * @param EndpointsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,7 +30,7 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is available in the following national cloud deployments.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param DeleteTiIndicatorsPostRequestBody $body The request body
      * @param DeleteTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeleteTiIndicatorsPostResponse|null>
@@ -47,7 +47,7 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is available in the following national cloud deployments.
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param DeleteTiIndicatorsPostRequestBody $body The request body
      * @param DeleteTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

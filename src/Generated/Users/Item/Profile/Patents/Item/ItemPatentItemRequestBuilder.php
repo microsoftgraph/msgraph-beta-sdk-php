@@ -31,7 +31,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPatent object. This API is available in the following national cloud deployments.
+     * Deletes an itemPatent object.
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPatent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an itemPatent object.
      * @param ItemPatentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPatent object. This API is available in the following national cloud deployments.
+     * Update the properties of an itemPatent object.
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
@@ -80,7 +80,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPatent object. This API is available in the following national cloud deployments.
+     * Deletes an itemPatent object.
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPatent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an itemPatent object.
      * @param ItemPatentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPatent object. This API is available in the following national cloud deployments.
+     * Update the properties of an itemPatent object.
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

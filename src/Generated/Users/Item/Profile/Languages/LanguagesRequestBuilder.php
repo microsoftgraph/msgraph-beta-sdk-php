@@ -52,7 +52,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of languageProficiency objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of languageProficiency objects from a user's profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LanguageProficiencyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new languageProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LanguageProficiency|null>
@@ -85,7 +85,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of languageProficiency objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of languageProficiency objects from a user's profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new languageProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Citations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a citationTemplate object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a citationTemplate object.
 */
 class CitationTemplateItemRequestBuilderGetQueryParameters 
 {

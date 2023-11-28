@@ -31,7 +31,7 @@ class CopyToSectionGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Copies a section to a specific section group. For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result. This API is available in the following national cloud deployments.
+     * Copies a section to a specific section group. For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param CopyToSectionGroupPostRequestBody $body The request body
      * @param CopyToSectionGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenoteOperation|null>
@@ -48,7 +48,7 @@ class CopyToSectionGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Copies a section to a specific section group. For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result. This API is available in the following national cloud deployments.
+     * Copies a section to a specific section group. For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param CopyToSectionGroupPostRequestBody $body The request body
      * @param CopyToSectionGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

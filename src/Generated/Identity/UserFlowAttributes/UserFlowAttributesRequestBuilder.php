@@ -52,7 +52,7 @@ class UserFlowAttributesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of identityUserFlowAttribute objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of identityUserFlowAttribute objects.
      * @param UserFlowAttributesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserFlowAttributesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custom identityUserFlowAttribute object. This API is available in the following national cloud deployments.
+     * Create a new custom identityUserFlowAttribute object.
      * @param IdentityUserFlowAttribute $body The request body
      * @param UserFlowAttributesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttribute|null>
@@ -85,7 +85,7 @@ class UserFlowAttributesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of identityUserFlowAttribute objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of identityUserFlowAttribute objects.
      * @param UserFlowAttributesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UserFlowAttributesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custom identityUserFlowAttribute object. This API is available in the following national cloud deployments.
+     * Create a new custom identityUserFlowAttribute object.
      * @param IdentityUserFlowAttribute $body The request body
      * @param UserFlowAttributesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

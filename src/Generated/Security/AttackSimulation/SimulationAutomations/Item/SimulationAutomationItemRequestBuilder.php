@@ -54,7 +54,7 @@ class SimulationAutomationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation automation for a tenant. This API is available in the following national cloud deployments.
+     * Get an attack simulation automation for a tenant.
      * @param SimulationAutomationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SimulationAutomation|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class SimulationAutomationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation automation for a tenant. This API is available in the following national cloud deployments.
+     * Get an attack simulation automation for a tenant.
      * @param SimulationAutomationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

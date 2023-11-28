@@ -47,7 +47,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Delete an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Update the properties of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
@@ -96,7 +96,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Delete an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +135,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Update the properties of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

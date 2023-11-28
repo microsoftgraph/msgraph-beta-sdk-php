@@ -84,7 +84,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of organization objects. There's only one organization object in the collection. This API is available in the following national cloud deployments.
+     * Retrieve a list of organization objects. There's only one organization object in the collection.
      * @param OrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of organization objects. There's only one organization object in the collection. This API is available in the following national cloud deployments.
+     * Retrieve a list of organization objects. There's only one organization object in the collection.
      * @param OrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

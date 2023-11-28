@@ -54,7 +54,7 @@ class TitleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartaxistitle object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxistitle object.
      * @param TitleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartAxisTitle|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class TitleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of workbookChartAxisTitle object. This API is available in the following national cloud deployments.
+     * Update the properties of workbookChartAxisTitle object.
      * @param WorkbookChartAxisTitle $body The request body
      * @param TitleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartAxisTitle|null>
@@ -105,7 +105,7 @@ class TitleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartaxistitle object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxistitle object.
      * @param TitleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +126,7 @@ class TitleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of workbookChartAxisTitle object. This API is available in the following national cloud deployments.
+     * Update the properties of workbookChartAxisTitle object.
      * @param WorkbookChartAxisTitle $body The request body
      * @param TitleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

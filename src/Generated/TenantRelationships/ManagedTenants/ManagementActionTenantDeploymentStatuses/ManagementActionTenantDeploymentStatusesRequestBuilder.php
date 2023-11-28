@@ -60,7 +60,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get a list of the managementActionTenantDeploymentStatus objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
      * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatusCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get a list of the managementActionTenantDeploymentStatus objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
      * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

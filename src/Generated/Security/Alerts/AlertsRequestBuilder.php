@@ -60,7 +60,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of alert objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of alert objects.
      * @param AlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of alert objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of alert objects.
      * @param AlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

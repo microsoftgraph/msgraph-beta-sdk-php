@@ -70,7 +70,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
+     * Provides the ability to launch a simulated phishing attack that organizations can learn from.
      * @param SecurityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityReportsRoot|null>
      * @throws Exception
@@ -119,7 +119,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides the ability to launch a realistically simulated phishing attack that organizations can learn from.
+     * Provides the ability to launch a simulated phishing attack that organizations can learn from.
      * @param SecurityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

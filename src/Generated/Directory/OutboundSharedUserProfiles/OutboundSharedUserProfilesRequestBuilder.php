@@ -52,7 +52,7 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all outboundSharedUserProfiles. This API is available in the following national cloud deployments.
+     * Retrieve the properties of all outboundSharedUserProfiles.
      * @param OutboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundSharedUserProfileCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all outboundSharedUserProfiles. This API is available in the following national cloud deployments.
+     * Retrieve the properties of all outboundSharedUserProfiles.
      * @param OutboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

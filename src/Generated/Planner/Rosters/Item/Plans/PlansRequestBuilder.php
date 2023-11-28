@@ -51,7 +51,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the plannerPlans contained by the plannerRoster. This API is available in the following national cloud deployments.
+     * Get the plannerPlans contained by the plannerRoster.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the plannerPlans contained by the plannerRoster. This API is available in the following national cloud deployments.
+     * Get the plannerPlans contained by the plannerRoster.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

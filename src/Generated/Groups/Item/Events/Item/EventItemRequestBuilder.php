@@ -127,7 +127,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an event object. This API is available in the following national cloud deployments.
+     * Delete an event object.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -143,7 +143,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an event object. This API is available in the following national cloud deployments.
+     * Get an event object.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
@@ -159,7 +159,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an event object. This API is available in the following national cloud deployments.
+     * Update an event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
@@ -176,7 +176,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an event object. This API is available in the following national cloud deployments.
+     * Delete an event object.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -194,7 +194,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an event object. This API is available in the following national cloud deployments.
+     * Get an event object.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -215,7 +215,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an event object. This API is available in the following national cloud deployments.
+     * Update an event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

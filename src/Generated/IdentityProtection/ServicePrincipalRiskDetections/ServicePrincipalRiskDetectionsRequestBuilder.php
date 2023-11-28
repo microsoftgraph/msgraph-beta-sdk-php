@@ -52,7 +52,7 @@ class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
      * @param ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalRiskDetectionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
      * @param ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

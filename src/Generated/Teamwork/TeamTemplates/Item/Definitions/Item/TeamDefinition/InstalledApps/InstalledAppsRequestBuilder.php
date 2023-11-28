@@ -52,7 +52,7 @@ class InstalledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of apps installed in the specified team. This API is available in the following national cloud deployments.
+     * Retrieve the list of apps installed in the specified team.
      * @param InstalledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppInstallationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class InstalledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Install an app to the specified team. This API is available in the following national cloud deployments.
+     * Install an app to the specified team.
      * @param TeamsAppInstallation $body The request body
      * @param InstalledAppsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppInstallation|null>
@@ -85,7 +85,7 @@ class InstalledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of apps installed in the specified team. This API is available in the following national cloud deployments.
+     * Retrieve the list of apps installed in the specified team.
      * @param InstalledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class InstalledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Install an app to the specified team. This API is available in the following national cloud deployments.
+     * Install an app to the specified team.
      * @param TeamsAppInstallation $body The request body
      * @param InstalledAppsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

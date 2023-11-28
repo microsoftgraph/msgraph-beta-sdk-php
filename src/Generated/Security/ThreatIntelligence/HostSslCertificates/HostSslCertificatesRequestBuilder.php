@@ -52,7 +52,7 @@ class HostSslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a hostSslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostSslCertificate object.
      * @param HostSslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostSslCertificateCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class HostSslCertificatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a hostSslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostSslCertificate object.
      * @param HostSslCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

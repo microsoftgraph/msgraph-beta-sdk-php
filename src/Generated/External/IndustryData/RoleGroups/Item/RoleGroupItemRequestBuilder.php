@@ -46,7 +46,7 @@ class RoleGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a roleGroup object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a roleGroup object.
      * @param RoleGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoleGroup|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class RoleGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a roleGroup object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a roleGroup object.
      * @param RoleGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

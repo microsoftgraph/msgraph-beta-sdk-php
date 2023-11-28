@@ -30,7 +30,7 @@ class CheckinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Check in a checked out driveItem resource, which makes the version of the document available to others. This API is available in the following national cloud deployments.
+     * Check in a checked out driveItem resource, which makes the version of the document available to others.
      * @param CheckinPostRequestBody $body The request body
      * @param CheckinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class CheckinRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Check in a checked out driveItem resource, which makes the version of the document available to others. This API is available in the following national cloud deployments.
+     * Check in a checked out driveItem resource, which makes the version of the document available to others.
      * @param CheckinPostRequestBody $body The request body
      * @param CheckinRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

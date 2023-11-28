@@ -31,7 +31,7 @@ class ConvertToRangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Converts the table into a normal range of cells. All data is preserved. This API is available in the following national cloud deployments.
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param ConvertToRangeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookRange|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ConvertToRangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Converts the table into a normal range of cells. All data is preserved. This API is available in the following national cloud deployments.
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param ConvertToRangeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD). This API is available in the following national cloud deployments.
+     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read a directory extension definition represented by an extensionProperty object. This API is available in the following national cloud deployments.
+     * Read a directory extension definition represented by an extensionProperty object.
      * @param ExtensionPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExtensionProperty|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD). This API is available in the following national cloud deployments.
+     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read a directory extension definition represented by an extensionProperty object. This API is available in the following national cloud deployments.
+     * Read a directory extension definition represented by an extensionProperty object.
      * @param ExtensionPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

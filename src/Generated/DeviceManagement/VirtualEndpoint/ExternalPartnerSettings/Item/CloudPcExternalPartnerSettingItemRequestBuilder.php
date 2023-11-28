@@ -46,7 +46,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
@@ -97,7 +97,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

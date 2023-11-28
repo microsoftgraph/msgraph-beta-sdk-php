@@ -51,7 +51,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the deleted workflow objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the deleted workflow objects and their properties.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkflowCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the deleted workflow objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the deleted workflow objects and their properties.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

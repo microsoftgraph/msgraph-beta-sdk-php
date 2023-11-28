@@ -61,7 +61,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of notebook objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of notebook objects.
      * @param NotebooksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NotebookCollectionResponse|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new OneNote notebook. This API is available in the following national cloud deployments.
+     * Create a new OneNote notebook.
      * @param Notebook $body The request body
      * @param NotebooksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Notebook|null>
@@ -103,7 +103,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of notebook objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of notebook objects.
      * @param NotebooksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new OneNote notebook. This API is available in the following national cloud deployments.
+     * Create a new OneNote notebook.
      * @param Notebook $body The request body
      * @param NotebooksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

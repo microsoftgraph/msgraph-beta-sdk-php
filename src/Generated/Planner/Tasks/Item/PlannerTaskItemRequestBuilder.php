@@ -63,7 +63,7 @@ class PlannerTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerTask object. This API is available in the following national cloud deployments.
+     * Delete a plannerTask object.
      * @param PlannerTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class PlannerTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of plannerTask object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of plannerTask object.
      * @param PlannerTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTask|null>
      * @throws Exception
@@ -112,7 +112,7 @@ class PlannerTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerTask object. This API is available in the following national cloud deployments.
+     * Delete a plannerTask object.
      * @param PlannerTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class PlannerTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of plannerTask object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of plannerTask object.
      * @param PlannerTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

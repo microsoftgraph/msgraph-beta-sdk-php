@@ -31,7 +31,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity. This API is available in the following national cloud deployments.
+     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
      * @param LearningCourseActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a learningCourseActivity object.  This API is available in the following national cloud deployments.
+     * Update the properties of a learningCourseActivity object. 
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LearningCourseActivity|null>
@@ -79,7 +79,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity. This API is available in the following national cloud deployments.
+     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
      * @param LearningCourseActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a learningCourseActivity object.  This API is available in the following national cloud deployments.
+     * Update the properties of a learningCourseActivity object. 
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

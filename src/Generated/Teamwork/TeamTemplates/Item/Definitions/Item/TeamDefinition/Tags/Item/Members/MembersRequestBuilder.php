@@ -52,7 +52,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the members of a standard tag in a team and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the members of a standard tag in a team and their properties.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkTagMemberCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new teamworkTagMember object in a team. This API is available in the following national cloud deployments.
+     * Create a new teamworkTagMember object in a team.
      * @param TeamworkTagMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkTagMember|null>
@@ -85,7 +85,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the members of a standard tag in a team and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the members of a standard tag in a team and their properties.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new teamworkTagMember object in a team. This API is available in the following national cloud deployments.
+     * Create a new teamworkTagMember object in a team.
      * @param TeamworkTagMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

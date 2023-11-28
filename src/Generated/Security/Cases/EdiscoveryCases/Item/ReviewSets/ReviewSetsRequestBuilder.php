@@ -52,7 +52,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case. This API is available in the following national cloud deployments.
+     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryReviewSetCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryReviewSet object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryReviewSet object.
      * @param EdiscoveryReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryReviewSet|null>
@@ -85,7 +85,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case. This API is available in the following national cloud deployments.
+     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryReviewSet object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryReviewSet object.
      * @param EdiscoveryReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

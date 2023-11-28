@@ -52,7 +52,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the emailThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmissionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new emailThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body The request body
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmission|null>
@@ -85,7 +85,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the emailThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new emailThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body The request body
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

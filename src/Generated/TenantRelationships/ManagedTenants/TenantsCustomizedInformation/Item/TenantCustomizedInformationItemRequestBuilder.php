@@ -46,7 +46,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantCustomizedInformation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformation|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tenantCustomizedInformation object. This API is available in the following national cloud deployments.
+     * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
      * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformation|null>
@@ -97,7 +97,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantCustomizedInformation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tenantCustomizedInformation object. This API is available in the following national cloud deployments.
+     * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
      * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,7 +31,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a conversationMember from a chat. This API is available in the following national cloud deployments.
+     * Remove a conversationMember from a chat.
      * @param ConversationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat. This API is available in the following national cloud deployments.
+     * Retrieve a conversationMember from a chat.
      * @param ConversationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConversationMember|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a conversationMember from a chat. This API is available in the following national cloud deployments.
+     * Remove a conversationMember from a chat.
      * @param ConversationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class ConversationMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a conversationMember from a chat. This API is available in the following national cloud deployments.
+     * Retrieve a conversationMember from a chat.
      * @param ConversationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

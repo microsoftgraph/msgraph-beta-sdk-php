@@ -55,7 +55,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Delete an attack simulation campaign for a tenant.
      * @param SimulationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Get an attack simulation campaign for a tenant.
      * @param SimulationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Simulation|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Update an attack simulation campaign for a tenant.
      * @param Simulation $body The request body
      * @param SimulationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Simulation|null>
@@ -104,7 +104,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Delete an attack simulation campaign for a tenant.
      * @param SimulationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Get an attack simulation campaign for a tenant.
      * @param SimulationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +143,7 @@ class SimulationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an attack simulation campaign for a tenant. This API is available in the following national cloud deployments.
+     * Update an attack simulation campaign for a tenant.
      * @param Simulation $body The request body
      * @param SimulationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

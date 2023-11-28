@@ -52,7 +52,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenant references of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * List the tenant references of an outboundSharedUserProfile.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantReferenceCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenant references of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * List the tenant references of an outboundSharedUserProfile.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

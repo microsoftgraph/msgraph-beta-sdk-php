@@ -54,7 +54,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding profile. This API is available in the following national cloud deployments.
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfile|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing forwarding profile. This API is available in the following national cloud deployments.
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfile|null>
@@ -105,7 +105,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding profile. This API is available in the following national cloud deployments.
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +126,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing forwarding profile. This API is available in the following national cloud deployments.
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

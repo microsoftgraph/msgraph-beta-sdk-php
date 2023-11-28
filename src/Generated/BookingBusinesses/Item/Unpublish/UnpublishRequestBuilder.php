@@ -30,7 +30,7 @@ class UnpublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Make the scheduling page of this business not available to external customers. Set the isPublished property to false, and publicUrl property to null. This API is available in the following national cloud deployments.
+     * Make the scheduling page of this business not available to external customers. Set the isPublished property to false, and publicUrl property to null.
      * @param UnpublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class UnpublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Make the scheduling page of this business not available to external customers. Set the isPublished property to false, and publicUrl property to null. This API is available in the following national cloud deployments.
+     * Make the scheduling page of this business not available to external customers. Set the isPublished property to false, and publicUrl property to null.
      * @param UnpublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

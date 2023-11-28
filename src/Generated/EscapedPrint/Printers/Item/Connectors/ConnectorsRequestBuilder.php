@@ -51,7 +51,7 @@ class ConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectors associated with the printer. This API is available in the following national cloud deployments.
+     * Retrieve a list of connectors associated with the printer.
      * @param ConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintConnectorCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class ConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectors associated with the printer. This API is available in the following national cloud deployments.
+     * Retrieve a list of connectors associated with the printer.
      * @param ConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

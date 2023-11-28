@@ -52,7 +52,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is available in the following national cloud deployments.
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSet|null>
@@ -84,7 +84,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -105,7 +105,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property. This API is available in the following national cloud deployments.
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

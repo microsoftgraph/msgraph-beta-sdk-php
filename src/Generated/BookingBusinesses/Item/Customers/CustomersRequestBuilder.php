@@ -52,7 +52,7 @@ class CustomersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingCustomer objects. This API is available in the following national cloud deployments.
+     * Get a list of bookingCustomer objects.
      * @param CustomersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingCustomerCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CustomersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookingCustomer object. This API is available in the following national cloud deployments.
+     * Create a new bookingCustomer object.
      * @param BookingCustomer $body The request body
      * @param CustomersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingCustomer|null>
@@ -85,7 +85,7 @@ class CustomersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingCustomer objects. This API is available in the following national cloud deployments.
+     * Get a list of bookingCustomer objects.
      * @param CustomersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CustomersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookingCustomer object. This API is available in the following national cloud deployments.
+     * Create a new bookingCustomer object.
      * @param BookingCustomer $body The request body
      * @param CustomersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -39,7 +39,7 @@ class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a printer's task trigger to prevent related print events from triggering tasks on the specified printer. This API is available in the following national cloud deployments.
+     * Delete a printer's task trigger to prevent related print events from triggering tasks on the specified printer.
      * @param PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is available in the following national cloud deployments.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param PrintTaskTriggerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintTaskTrigger|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a printer's task trigger to prevent related print events from triggering tasks on the specified printer. This API is available in the following national cloud deployments.
+     * Delete a printer's task trigger to prevent related print events from triggering tasks on the specified printer.
      * @param PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -105,7 +105,7 @@ class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is available in the following national cloud deployments.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param PrintTaskTriggerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

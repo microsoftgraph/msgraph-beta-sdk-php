@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Wind
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a windowsProtectionState object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a windowsProtectionState object.
 */
 class WindowsProtectionStateItemRequestBuilderGetQueryParameters 
 {

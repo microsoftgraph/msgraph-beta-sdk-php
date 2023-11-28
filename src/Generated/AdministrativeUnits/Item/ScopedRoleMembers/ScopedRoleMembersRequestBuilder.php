@@ -52,7 +52,7 @@ class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List Microsoft Entra role assignments with administrative unit scope. This API is available in the following national cloud deployments.
+     * List Microsoft Entra role assignments with administrative unit scope.
      * @param ScopedRoleMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScopedRoleMembershipCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope. This API is available in the following national cloud deployments.
+     * Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope.
      * @param ScopedRoleMembership $body The request body
      * @param ScopedRoleMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScopedRoleMembership|null>
@@ -85,7 +85,7 @@ class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List Microsoft Entra role assignments with administrative unit scope. This API is available in the following national cloud deployments.
+     * List Microsoft Entra role assignments with administrative unit scope.
      * @param ScopedRoleMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope. This API is available in the following national cloud deployments.
+     * Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope.
      * @param ScopedRoleMembership $body The request body
      * @param ScopedRoleMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

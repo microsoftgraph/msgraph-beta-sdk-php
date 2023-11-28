@@ -54,7 +54,7 @@ class HostComponentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostComponent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostComponent object.
      * @param HostComponentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostComponent|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class HostComponentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostComponent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostComponent object.
      * @param HostComponentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

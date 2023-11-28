@@ -52,7 +52,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAward objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAward objects from a user's profile.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAwardCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAward object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personAward object in a user's profile.
      * @param PersonAward $body The request body
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAward|null>
@@ -85,7 +85,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAward objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAward objects from a user's profile.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAward object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personAward object in a user's profile.
      * @param PersonAward $body The request body
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

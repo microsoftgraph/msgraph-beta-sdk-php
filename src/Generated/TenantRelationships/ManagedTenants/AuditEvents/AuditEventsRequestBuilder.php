@@ -52,7 +52,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the auditEvent objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the auditEvent objects and their properties.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditEventCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the auditEvent objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the auditEvent objects and their properties.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

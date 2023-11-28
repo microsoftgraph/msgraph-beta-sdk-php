@@ -52,7 +52,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch. This API is available in the following national cloud deployments.
+     * Retrieve a list of device links associated with a specific branch.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLinkCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links. This API is available in the following national cloud deployments.
+     * Create a branch site with associated device links.
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
@@ -85,7 +85,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch. This API is available in the following national cloud deployments.
+     * Retrieve a list of device links associated with a specific branch.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links. This API is available in the following national cloud deployments.
+     * Create a branch site with associated device links.
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

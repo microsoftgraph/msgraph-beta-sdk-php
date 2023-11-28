@@ -54,7 +54,7 @@ class SslCertificateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an sslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of an sslCertificate object.
      * @param SslCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SslCertificate|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class SslCertificateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an sslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of an sslCertificate object.
      * @param SslCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

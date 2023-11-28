@@ -84,7 +84,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sensitivityLabel objects associated with a user or organization. This API is available in the following national cloud deployments.
+     * Get a list of sensitivityLabel objects associated with a user or organization.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensitivityLabelCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sensitivityLabel objects associated with a user or organization. This API is available in the following national cloud deployments.
+     * Get a list of sensitivityLabel objects associated with a user or organization.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

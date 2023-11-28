@@ -52,7 +52,7 @@ class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of contentSharingSession objects in a call. This API is available in the following national cloud deployments.
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param ContentSharingSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentSharingSessionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of contentSharingSession objects in a call. This API is available in the following national cloud deployments.
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param ContentSharingSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

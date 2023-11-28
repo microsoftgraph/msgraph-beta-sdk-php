@@ -47,7 +47,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get properties of the multitenant organization. This API is available in the following national cloud deployments.
+     * Get properties of the multitenant organization.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganization|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. This API is available in the following national cloud deployments.
+     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization.
      * @param MultiTenantOrganization $body The request body
      * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganization|null>
@@ -80,7 +80,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get properties of the multitenant organization. This API is available in the following national cloud deployments.
+     * Get properties of the multitenant organization.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,7 +101,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization. This API is available in the following national cloud deployments.
+     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization.
      * @param MultiTenantOrganization $body The request body
      * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

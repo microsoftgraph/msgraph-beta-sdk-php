@@ -31,7 +31,7 @@ class GetFrontlineReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the Windows 365 Frontline reports, such as real-time or historical data reports. This API is available in the following national cloud deployments.
+     * Get the Windows 365 Frontline reports, such as real-time or historical data reports.
      * @param GetFrontlineReportPostRequestBody $body The request body
      * @param GetFrontlineReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetFrontlineReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the Windows 365 Frontline reports, such as real-time or historical data reports. This API is available in the following national cloud deployments.
+     * Get the Windows 365 Frontline reports, such as real-time or historical data reports.
      * @param GetFrontlineReportPostRequestBody $body The request body
      * @param GetFrontlineReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

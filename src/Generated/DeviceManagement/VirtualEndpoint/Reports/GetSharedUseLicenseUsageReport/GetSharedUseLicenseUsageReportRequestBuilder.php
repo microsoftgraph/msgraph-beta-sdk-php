@@ -31,7 +31,7 @@ class GetSharedUseLicenseUsageReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend. This API is available in the following national cloud deployments.
+     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetSharedUseLicenseUsageReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend. This API is available in the following national cloud deployments.
+     * Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

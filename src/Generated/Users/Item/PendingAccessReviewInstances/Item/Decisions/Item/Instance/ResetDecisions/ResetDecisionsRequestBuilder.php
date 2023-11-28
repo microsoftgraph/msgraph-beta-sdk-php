@@ -30,7 +30,7 @@ class ResetDecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed. This API is available in the following national cloud deployments.
+     * Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.
      * @param ResetDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ResetDecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed. This API is available in the following national cloud deployments.
+     * Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.
      * @param ResetDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

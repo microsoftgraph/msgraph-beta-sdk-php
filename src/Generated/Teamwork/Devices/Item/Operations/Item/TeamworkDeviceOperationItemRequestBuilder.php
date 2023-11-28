@@ -46,7 +46,7 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device. This API is available in the following national cloud deployments.
+     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
      * @param TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceOperation|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device. This API is available in the following national cloud deployments.
+     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
      * @param TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

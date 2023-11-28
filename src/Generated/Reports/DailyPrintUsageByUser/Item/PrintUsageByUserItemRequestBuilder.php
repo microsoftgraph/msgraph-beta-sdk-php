@@ -46,7 +46,7 @@ class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints. This API is available in the following national cloud deployments.
+     * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
      * @param PrintUsageByUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUser|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints. This API is available in the following national cloud deployments.
+     * Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
      * @param PrintUsageByUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

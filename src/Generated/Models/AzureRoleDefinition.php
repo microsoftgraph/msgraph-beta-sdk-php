@@ -26,7 +26,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignableScopes property value. Scopes at which the Azure role can be assigned. Supports $filter and (eq).
+     * Gets the assignableScopes property value. Scopes at which the Azure role can be assigned. For more information about common patterns, see Understand Azure role definitions: AssignableScopes. Supports $filter (eq).
      * @return array<string>|null
     */
     public function getAssignableScopes(): ?array {
@@ -52,7 +52,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of the Azure role. Supports $filter and (eq,contains).
+     * Gets the displayName property value. Name of the Azure role. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -64,7 +64,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. Identifier of an Azure role defined by Microsoft Azure. Alternate key. Supports $filter and eq.
+     * Gets the externalId property value. Identifier of an Azure role defined by Microsoft Azure. Alternate key. Supports $filter (eq).
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -109,7 +109,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignableScopes property value. Scopes at which the Azure role can be assigned. Supports $filter and (eq).
+     * Sets the assignableScopes property value. Scopes at which the Azure role can be assigned. For more information about common patterns, see Understand Azure role definitions: AssignableScopes. Supports $filter (eq).
      * @param array<string>|null $value Value to set for the assignableScopes property.
     */
     public function setAssignableScopes(?array $value): void {
@@ -125,7 +125,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of the Azure role. Supports $filter and (eq,contains).
+     * Sets the displayName property value. Name of the Azure role. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -133,7 +133,7 @@ class AzureRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. Identifier of an Azure role defined by Microsoft Azure. Alternate key. Supports $filter and eq.
+     * Sets the externalId property value. Identifier of an Azure role defined by Microsoft Azure. Alternate key. Supports $filter (eq).
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {

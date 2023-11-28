@@ -52,7 +52,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of siteSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of siteSource objects and their properties.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custodian siteSource object. This API is available in the following national cloud deployments.
+     * Create a new custodian siteSource object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSource|null>
@@ -85,7 +85,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of siteSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of siteSource objects and their properties.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custodian siteSource object. This API is available in the following national cloud deployments.
+     * Create a new custodian siteSource object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

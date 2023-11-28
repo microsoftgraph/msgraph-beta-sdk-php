@@ -52,7 +52,7 @@ class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
      * @param OfferShiftRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OfferShiftRequestCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an offerShiftRequest. This API is available in the following national cloud deployments.
+     * Create an instance of an offerShiftRequest.
      * @param OfferShiftRequest $body The request body
      * @param OfferShiftRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OfferShiftRequest|null>
@@ -85,7 +85,7 @@ class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
      * @param OfferShiftRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an offerShiftRequest. This API is available in the following national cloud deployments.
+     * Create an instance of an offerShiftRequest.
      * @param OfferShiftRequest $body The request body
      * @param OfferShiftRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

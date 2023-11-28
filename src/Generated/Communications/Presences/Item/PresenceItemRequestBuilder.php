@@ -86,7 +86,7 @@ class PresenceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a user's presence information. This API is available in the following national cloud deployments.
+     * Get a user's presence information.
      * @param PresenceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Presence|null>
      * @throws Exception
@@ -136,7 +136,7 @@ class PresenceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a user's presence information. This API is available in the following national cloud deployments.
+     * Get a user's presence information.
      * @param PresenceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

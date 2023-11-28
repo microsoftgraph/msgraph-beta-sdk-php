@@ -46,7 +46,7 @@ class ProfileStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync. This API is available in the following national cloud deployments.
+     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
      * @param ProfileStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationProfileStatus|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ProfileStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync. This API is available in the following national cloud deployments.
+     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
      * @param ProfileStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

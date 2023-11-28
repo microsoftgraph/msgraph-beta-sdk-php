@@ -46,7 +46,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the tenant-level settings for Microsoft 365 reports. This API is available in the following national cloud deployments.
+     * Get the tenant-level settings for Microsoft 365 reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminReportSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update tenant-level settings for Microsoft 365 reports. This API is available in the following national cloud deployments.
+     * Update tenant-level settings for Microsoft 365 reports.
      * @param AdminReportSettings $body The request body
      * @param ReportSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminReportSettings|null>
@@ -97,7 +97,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the tenant-level settings for Microsoft 365 reports. This API is available in the following national cloud deployments.
+     * Get the tenant-level settings for Microsoft 365 reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update tenant-level settings for Microsoft 365 reports. This API is available in the following national cloud deployments.
+     * Update tenant-level settings for Microsoft 365 reports.
      * @param AdminReportSettings $body The request body
      * @param ReportSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

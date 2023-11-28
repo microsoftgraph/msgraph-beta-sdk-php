@@ -30,7 +30,7 @@ class ReapplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reapplies the current sorting parameters to the table. This API is available in the following national cloud deployments.
+     * Reapplies the current sorting parameters to the table.
      * @param ReapplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ReapplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reapplies the current sorting parameters to the table. This API is available in the following national cloud deployments.
+     * Reapplies the current sorting parameters to the table.
      * @param ReapplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -59,7 +59,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of users at a school. This API is available in the following national cloud deployments.
+     * Retrieve a list of users at a school.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUserCollectionResponse|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of users at a school. This API is available in the following national cloud deployments.
+     * Retrieve a list of users at a school.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

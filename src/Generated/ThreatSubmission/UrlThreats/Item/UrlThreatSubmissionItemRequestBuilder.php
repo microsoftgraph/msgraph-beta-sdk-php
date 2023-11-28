@@ -46,7 +46,7 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an urlThreatSubmission object.
      * @param UrlThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmission|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an urlThreatSubmission object.
      * @param UrlThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

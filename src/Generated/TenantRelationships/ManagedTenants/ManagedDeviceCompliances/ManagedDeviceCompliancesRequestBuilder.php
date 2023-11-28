@@ -52,7 +52,7 @@ class ManagedDeviceCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the managedDeviceCompliance objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managedDeviceCompliance objects and their properties.
      * @param ManagedDeviceCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceComplianceCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ManagedDeviceCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the managedDeviceCompliance objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managedDeviceCompliance objects and their properties.
      * @param ManagedDeviceCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

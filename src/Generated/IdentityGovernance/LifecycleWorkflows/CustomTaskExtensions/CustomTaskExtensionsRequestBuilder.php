@@ -52,7 +52,7 @@ class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customTaskExtension objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the customTaskExtension objects and their properties.
      * @param CustomTaskExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomTaskExtensionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customTaskExtension object. This API is available in the following national cloud deployments.
+     * Create a new customTaskExtension object.
      * @param CustomTaskExtension $body The request body
      * @param CustomTaskExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomTaskExtension|null>
@@ -85,7 +85,7 @@ class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customTaskExtension objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the customTaskExtension objects and their properties.
      * @param CustomTaskExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customTaskExtension object. This API is available in the following national cloud deployments.
+     * Create a new customTaskExtension object.
      * @param CustomTaskExtension $body The request body
      * @param CustomTaskExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

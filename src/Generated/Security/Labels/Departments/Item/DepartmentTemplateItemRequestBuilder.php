@@ -31,7 +31,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a departmentTemplate object. This API is available in the following national cloud deployments.
+     * Delete a departmentTemplate object.
      * @param DepartmentTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a departmentTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a departmentTemplate object.
      * @param DepartmentTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DepartmentTemplate|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a departmentTemplate object. This API is available in the following national cloud deployments.
+     * Delete a departmentTemplate object.
      * @param DepartmentTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a departmentTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a departmentTemplate object.
      * @param DepartmentTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

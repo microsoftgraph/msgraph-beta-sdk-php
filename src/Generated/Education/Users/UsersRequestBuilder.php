@@ -60,7 +60,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of user objects. These user objects will include education-specific properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of user objects. These user objects will include education-specific properties.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUserCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new user. This API is available in the following national cloud deployments.
+     * Create a new user.
      * @param EducationUser $body The request body
      * @param UsersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUser|null>
@@ -93,7 +93,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of user objects. These user objects will include education-specific properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of user objects. These user objects will include education-specific properties.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new user. This API is available in the following national cloud deployments.
+     * Create a new user.
      * @param EducationUser $body The request body
      * @param UsersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

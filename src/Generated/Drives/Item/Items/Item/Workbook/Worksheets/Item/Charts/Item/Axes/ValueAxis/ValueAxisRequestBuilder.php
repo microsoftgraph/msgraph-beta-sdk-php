@@ -78,7 +78,7 @@ class ValueAxisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartaxis object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param ValueAxisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartAxis|null>
      * @throws Exception
@@ -94,7 +94,7 @@ class ValueAxisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of workbookChartAxis object. This API is available in the following national cloud deployments.
+     * Update the properties of workbookChartAxis object.
      * @param WorkbookChartAxis $body The request body
      * @param ValueAxisRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartAxis|null>
@@ -129,7 +129,7 @@ class ValueAxisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartaxis object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param ValueAxisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -150,7 +150,7 @@ class ValueAxisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of workbookChartAxis object. This API is available in the following national cloud deployments.
+     * Update the properties of workbookChartAxis object.
      * @param WorkbookChartAxis $body The request body
      * @param ValueAxisRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

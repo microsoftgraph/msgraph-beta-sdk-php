@@ -51,7 +51,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of section groups from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified section group.
      * @param SectionGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SectionGroupCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of section groups from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified section group.
      * @param SectionGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

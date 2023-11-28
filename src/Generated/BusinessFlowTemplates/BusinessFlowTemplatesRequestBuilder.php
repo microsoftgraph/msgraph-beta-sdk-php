@@ -52,7 +52,7 @@ class BusinessFlowTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the businessFlowTemplate objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the businessFlowTemplate objects.
      * @param BusinessFlowTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessFlowTemplateCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class BusinessFlowTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the businessFlowTemplate objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the businessFlowTemplate objects.
      * @param BusinessFlowTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

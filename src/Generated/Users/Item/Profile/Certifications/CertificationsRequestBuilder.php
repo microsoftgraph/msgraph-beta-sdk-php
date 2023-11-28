@@ -52,7 +52,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personCertification objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personCertification objects from a user's profile.
      * @param CertificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonCertificationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personCertification object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personCertification object in a user's profile.
      * @param PersonCertification $body The request body
      * @param CertificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonCertification|null>
@@ -85,7 +85,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personCertification objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personCertification objects from a user's profile.
      * @param CertificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personCertification object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personCertification object in a user's profile.
      * @param PersonCertification $body The request body
      * @param CertificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -62,7 +62,7 @@ class AppConsentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve appConsentRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve appConsentRequest objects and their properties.
      * @param AppConsentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppConsentRequestCollectionResponse|null>
      * @throws Exception
@@ -94,7 +94,7 @@ class AppConsentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve appConsentRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve appConsentRequest objects and their properties.
      * @param AppConsentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

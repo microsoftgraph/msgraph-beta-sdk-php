@@ -46,7 +46,7 @@ class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a print service endpoint. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a print service endpoint.
      * @param PrintServiceEndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintServiceEndpoint|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a print service endpoint. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a print service endpoint.
      * @param PrintServiceEndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

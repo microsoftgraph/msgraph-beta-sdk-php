@@ -31,7 +31,7 @@ class MicrosoftGraphIdentityGovernanceRestoreRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it. This API is available in the following national cloud deployments.
+     * Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.
      * @param MicrosoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Workflow|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class MicrosoftGraphIdentityGovernanceRestoreRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it. This API is available in the following national cloud deployments.
+     * Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.
      * @param MicrosoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

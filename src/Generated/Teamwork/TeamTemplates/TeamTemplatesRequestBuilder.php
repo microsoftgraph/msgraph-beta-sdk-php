@@ -52,7 +52,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate.  This API is available in the following national cloud deployments.
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamTemplateCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate.  This API is available in the following national cloud deployments.
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

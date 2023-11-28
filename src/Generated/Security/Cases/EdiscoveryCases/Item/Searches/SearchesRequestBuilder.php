@@ -52,7 +52,7 @@ class SearchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of ediscoverySearch resources from an eDiscoveryCase object. This API is available in the following national cloud deployments.
+     * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
      * @param SearchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoverySearchCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SearchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoverySearch object. This API is available in the following national cloud deployments.
+     * Create a new ediscoverySearch object.
      * @param EdiscoverySearch $body The request body
      * @param SearchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoverySearch|null>
@@ -85,7 +85,7 @@ class SearchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of ediscoverySearch resources from an eDiscoveryCase object. This API is available in the following national cloud deployments.
+     * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
      * @param SearchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SearchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoverySearch object. This API is available in the following national cloud deployments.
+     * Create a new ediscoverySearch object.
      * @param EdiscoverySearch $body The request body
      * @param SearchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceEnvironmentCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site. This API is available in the following national cloud deployments.
+     * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecycleBinItemCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site. This API is available in the following national cloud deployments.
+     * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

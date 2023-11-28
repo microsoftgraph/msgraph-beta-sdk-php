@@ -60,7 +60,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of event objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of event objects.
      * @param EventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EventCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new event. This API is available in the following national cloud deployments.
+     * Use this API to create a new event.
      * @param Event $body The request body
      * @param EventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
@@ -93,7 +93,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of event objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of event objects.
      * @param EventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new event. This API is available in the following national cloud deployments.
+     * Use this API to create a new event.
      * @param Event $body The request body
      * @param EventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

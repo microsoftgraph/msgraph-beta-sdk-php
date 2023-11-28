@@ -30,7 +30,7 @@ class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retry the orgContact service provisioning. This API is available in the following national cloud deployments.
+     * Retry the orgContact service provisioning.
      * @param RetryServiceProvisioningRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retry the orgContact service provisioning. This API is available in the following national cloud deployments.
+     * Retry the orgContact service provisioning.
      * @param RetryServiceProvisioningRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

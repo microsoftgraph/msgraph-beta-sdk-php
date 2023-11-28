@@ -52,7 +52,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of additional dataSource objects associated with a source collection. This API is available in the following national cloud deployments.
+     * Get a list of additional dataSource objects associated with a source collection.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataSourceCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of additional dataSource objects associated with a source collection. This API is available in the following national cloud deployments.
+     * Get a list of additional dataSource objects associated with a source collection.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

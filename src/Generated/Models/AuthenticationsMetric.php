@@ -26,7 +26,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the appid property value. The appid property
+     * Gets the appid property value. The ID of the Microsoft Entra application. Supports $filter (eq).
      * @return string|null
     */
     public function getAppid(): ?string {
@@ -38,7 +38,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the attemptsCount property value. The attemptsCount property
+     * Gets the attemptsCount property value. The number of authentication requests made in the specified period. Supports $filter (eq).
      * @return int|null
     */
     public function getAttemptsCount(): ?int {
@@ -50,7 +50,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the country property value. The country property
+     * Gets the country property value. The location where the customers authenticated from. Supports $filter (eq).
      * @return string|null
     */
     public function getCountry(): ?string {
@@ -62,7 +62,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the user insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -90,7 +90,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the os property value. The os property
+     * Gets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @return string|null
     */
     public function getOs(): ?string {
@@ -102,7 +102,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the successCount property value. The successCount property
+     * Gets the successCount property value. Number of successful authentication requests. Supports $filter (eq).
      * @return int|null
     */
     public function getSuccessCount(): ?int {
@@ -128,7 +128,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the appid property value. The appid property
+     * Sets the appid property value. The ID of the Microsoft Entra application. Supports $filter (eq).
      * @param string|null $value Value to set for the appid property.
     */
     public function setAppid(?string $value): void {
@@ -136,7 +136,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the attemptsCount property value. The attemptsCount property
+     * Sets the attemptsCount property value. The number of authentication requests made in the specified period. Supports $filter (eq).
      * @param int|null $value Value to set for the attemptsCount property.
     */
     public function setAttemptsCount(?int $value): void {
@@ -144,7 +144,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the country property value. The country property
+     * Sets the country property value. The location where the customers authenticated from. Supports $filter (eq).
      * @param string|null $value Value to set for the country property.
     */
     public function setCountry(?string $value): void {
@@ -152,7 +152,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the user insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
@@ -160,7 +160,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the os property value. The os property
+     * Sets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {
@@ -168,7 +168,7 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the successCount property value. The successCount property
+     * Sets the successCount property value. Number of successful authentication requests. Supports $filter (eq).
      * @param int|null $value Value to set for the successCount property.
     */
     public function setSuccessCount(?int $value): void {

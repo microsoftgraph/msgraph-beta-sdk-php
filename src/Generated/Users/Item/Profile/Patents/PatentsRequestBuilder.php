@@ -52,7 +52,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatentCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPatent object within a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
@@ -85,7 +85,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPatent object within a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

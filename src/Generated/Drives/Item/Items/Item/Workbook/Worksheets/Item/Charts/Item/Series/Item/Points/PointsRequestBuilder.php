@@ -53,11 +53,11 @@ class PointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of chartpoint objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of chartpoints objects.
      * @param PointsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartPointCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0 Find more info here
     */
     public function get(?PointsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,7 +78,7 @@ class PointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new ChartPoint. This API is available in the following national cloud deployments.
+     * Use this API to create a new ChartPoint.
      * @param WorkbookChartPoint $body The request body
      * @param PointsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartPoint|null>
@@ -95,7 +95,7 @@ class PointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of chartpoint objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of chartpoints objects.
      * @param PointsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +116,7 @@ class PointsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new ChartPoint. This API is available in the following national cloud deployments.
+     * Use this API to create a new ChartPoint.
      * @param WorkbookChartPoint $body The request body
      * @param PointsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

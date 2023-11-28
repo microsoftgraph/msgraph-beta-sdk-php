@@ -30,7 +30,7 @@ class SendReminderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a reminder to the reviewers of a currently active accessReviewInstance. This API is available in the following national cloud deployments.
+     * Send a reminder to the reviewers of a currently active accessReviewInstance.
      * @param SendReminderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class SendReminderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a reminder to the reviewers of a currently active accessReviewInstance. This API is available in the following national cloud deployments.
+     * Send a reminder to the reviewers of a currently active accessReviewInstance.
      * @param SendReminderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

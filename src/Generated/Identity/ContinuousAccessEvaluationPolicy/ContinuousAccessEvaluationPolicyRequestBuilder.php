@@ -46,7 +46,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a continuousAccessEvaluationPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a continuousAccessEvaluationPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicy $body The request body
      * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
@@ -97,7 +97,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a continuousAccessEvaluationPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a continuousAccessEvaluationPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicy $body The request body
      * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

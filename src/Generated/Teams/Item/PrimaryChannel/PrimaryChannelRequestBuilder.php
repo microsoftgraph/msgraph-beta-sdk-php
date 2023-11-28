@@ -118,7 +118,7 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the default channel, General, of a team. This API is available in the following national cloud deployments.
+     * Get the default channel, General, of a team.
      * @param PrimaryChannelRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Channel|null>
      * @throws Exception
@@ -168,7 +168,7 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the default channel, General, of a team. This API is available in the following national cloud deployments.
+     * Get the default channel, General, of a team.
      * @param PrimaryChannelRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

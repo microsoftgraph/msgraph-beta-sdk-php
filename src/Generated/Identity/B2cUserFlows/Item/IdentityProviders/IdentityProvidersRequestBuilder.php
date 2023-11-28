@@ -59,7 +59,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identity providers in a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProviderCollectionResponse|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identity providers in a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\SecurityActions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of securityAction objects. This API is available in the following national cloud deployments.
+ * Retrieve a list of securityAction objects.
 */
 class SecurityActionsRequestBuilderGetQueryParameters 
 {

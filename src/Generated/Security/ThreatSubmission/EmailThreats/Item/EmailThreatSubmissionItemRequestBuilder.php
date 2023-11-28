@@ -46,7 +46,7 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an emailThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an emailThreatSubmission object.
      * @param EmailThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmission|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an emailThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an emailThreatSubmission object.
      * @param EmailThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

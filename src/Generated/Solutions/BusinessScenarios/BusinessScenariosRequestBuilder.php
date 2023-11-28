@@ -52,7 +52,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all businessScenario objects in an organization. This API is available in the following national cloud deployments.
+     * Get a list of all businessScenario objects in an organization.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenario object. This API is available in the following national cloud deployments.
+     * Create a new businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
@@ -85,7 +85,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all businessScenario objects in an organization. This API is available in the following national cloud deployments.
+     * Get a list of all businessScenario objects in an organization.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new businessScenario object. This API is available in the following national cloud deployments.
+     * Create a new businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

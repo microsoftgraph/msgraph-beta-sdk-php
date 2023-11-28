@@ -46,7 +46,7 @@ class BotRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp. This API is available in the following national cloud deployments.
+     * Get the bot associated with a specific definition of the  TeamsApp.
      * @param BotRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkBot|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class BotRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp. This API is available in the following national cloud deployments.
+     * Get the bot associated with a specific definition of the  TeamsApp.
      * @param BotRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

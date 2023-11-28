@@ -52,7 +52,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. This API is available in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired.
      * @param SubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CompanySubscriptionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. This API is available in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired.
      * @param SubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

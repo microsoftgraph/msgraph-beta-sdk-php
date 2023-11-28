@@ -30,7 +30,7 @@ class MarkReadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a list of serviceUpdateMessages as read for the signed in user. This API is available in the following national cloud deployments.
+     * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param MarkReadPostRequestBody $body The request body
      * @param MarkReadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MarkReadPostResponse|null>
@@ -47,7 +47,7 @@ class MarkReadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a list of serviceUpdateMessages as read for the signed in user. This API is available in the following national cloud deployments.
+     * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param MarkReadPostRequestBody $body The request body
      * @param MarkReadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -46,7 +46,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approvalStep object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an approvalStep object.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStep|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object. This API is available in the following national cloud deployments.
+     * Apply approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStep|null>
@@ -97,7 +97,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approvalStep object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an approvalStep object.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object. This API is available in the following national cloud deployments.
+     * Apply approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

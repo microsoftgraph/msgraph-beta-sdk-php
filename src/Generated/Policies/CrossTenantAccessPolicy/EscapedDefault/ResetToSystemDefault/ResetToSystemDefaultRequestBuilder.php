@@ -30,7 +30,7 @@ class ResetToSystemDefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default. This API is available in the following national cloud deployments.
+     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param ResetToSystemDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ResetToSystemDefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default. This API is available in the following national cloud deployments.
+     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param ResetToSystemDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

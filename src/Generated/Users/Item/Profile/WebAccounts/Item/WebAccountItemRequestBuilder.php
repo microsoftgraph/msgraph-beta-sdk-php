@@ -31,7 +31,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a webAccount object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a webAccount object from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a webAccount object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a webAccount object in a user's profile.
      * @param WebAccount $body The request body
      * @param WebAccountItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
@@ -80,7 +80,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a webAccount object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a webAccount object from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a webAccount object from a user's profile.
      * @param WebAccountItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a webAccount object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a webAccount object in a user's profile.
      * @param WebAccount $body The request body
      * @param WebAccountItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

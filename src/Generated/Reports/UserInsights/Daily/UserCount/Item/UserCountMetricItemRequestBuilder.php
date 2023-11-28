@@ -31,7 +31,7 @@ class UserCountMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userCount from reports
+     * Insights for total users on apps registered in the tenant for a specified period.
      * @param UserCountMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCountMetric|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class UserCountMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userCount from reports
+     * Insights for total users on apps registered in the tenant for a specified period.
      * @param UserCountMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

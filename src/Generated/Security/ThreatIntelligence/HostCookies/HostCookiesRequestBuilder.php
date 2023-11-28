@@ -52,7 +52,7 @@ class HostCookiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostCookie object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostCookie object.
      * @param HostCookiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostCookieCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class HostCookiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostCookie object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostCookie object.
      * @param HostCookiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

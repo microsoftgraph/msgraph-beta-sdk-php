@@ -52,7 +52,7 @@ class AgreementsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of agreement objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of agreement objects.
      * @param AgreementsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AgreementCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AgreementsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new agreement object. This API is available in the following national cloud deployments.
+     * Create a new agreement object.
      * @param Agreement $body The request body
      * @param AgreementsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Agreement|null>
@@ -85,7 +85,7 @@ class AgreementsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of agreement objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of agreement objects.
      * @param AgreementsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AgreementsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new agreement object. This API is available in the following national cloud deployments.
+     * Create a new agreement object.
      * @param Agreement $body The request body
      * @param AgreementsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -127,7 +127,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a registered device. This API is available in the following national cloud deployments.
+     * Delete a registered device.
      * @param DeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -143,7 +143,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
      * @param DeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
      * @throws Exception
@@ -159,7 +159,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps. This API is available in the following national cloud deployments.
+     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
      * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
@@ -176,7 +176,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a registered device. This API is available in the following national cloud deployments.
+     * Delete a registered device.
      * @param DeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -194,7 +194,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
      * @param DeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -215,7 +215,7 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps. This API is available in the following national cloud deployments.
+     * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
      * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

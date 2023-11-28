@@ -46,7 +46,7 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Read the properties and relationships of a conditionalAccessPolicyCoverage object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
      * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverage|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Read the properties and relationships of a conditionalAccessPolicyCoverage object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
      * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

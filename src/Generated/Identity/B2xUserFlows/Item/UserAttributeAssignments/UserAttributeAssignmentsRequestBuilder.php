@@ -68,7 +68,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow. This API is available in the following national cloud deployments.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
      * @param UserAttributeAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignmentCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow. This API is available in the following national cloud deployments.
+     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignment|null>
@@ -101,7 +101,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow. This API is available in the following national cloud deployments.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
      * @param UserAttributeAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow. This API is available in the following national cloud deployments.
+     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,7 +31,7 @@ class MuteAllRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mute all participants in the call. This API is available in the following national cloud deployments.
+     * Mute all participants in the call.
      * @param MuteAllPostRequestBody $body The request body
      * @param MuteAllRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MuteParticipantsOperation|null>
@@ -48,7 +48,7 @@ class MuteAllRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mute all participants in the call. This API is available in the following national cloud deployments.
+     * Mute all participants in the call.
      * @param MuteAllPostRequestBody $body The request body
      * @param MuteAllRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

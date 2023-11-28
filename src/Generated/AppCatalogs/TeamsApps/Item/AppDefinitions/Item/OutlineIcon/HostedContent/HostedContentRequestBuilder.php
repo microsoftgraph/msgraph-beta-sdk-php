@@ -54,7 +54,7 @@ class HostedContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the hosted content in an app's icon. This API is available in the following national cloud deployments.
+     * Retrieve the hosted content in an app's icon.
      * @param HostedContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkHostedContent|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class HostedContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the hosted content in an app's icon. This API is available in the following national cloud deployments.
+     * Retrieve the hosted content in an app's icon.
      * @param HostedContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

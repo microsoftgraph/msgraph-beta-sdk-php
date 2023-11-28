@@ -31,7 +31,7 @@ class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a Microsoft Entra role assignment with administrative unit scope. This API is available in the following national cloud deployments.
+     * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a Microsoft Entra role assignment with administrative unit scope. This API is available in the following national cloud deployments.
+     * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScopedRoleMembership|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a Microsoft Entra role assignment with administrative unit scope. This API is available in the following national cloud deployments.
+     * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a Microsoft Entra role assignment with administrative unit scope. This API is available in the following national cloud deployments.
+     * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

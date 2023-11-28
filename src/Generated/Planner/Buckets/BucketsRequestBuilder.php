@@ -60,7 +60,7 @@ class BucketsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerbucket objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerbucket objects.
      * @param BucketsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerBucketCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class BucketsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new plannerBucket object. This API is available in the following national cloud deployments.
+     * Create a new plannerBucket object.
      * @param PlannerBucket $body The request body
      * @param BucketsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerBucket|null>
@@ -93,7 +93,7 @@ class BucketsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerbucket objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerbucket objects.
      * @param BucketsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class BucketsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new plannerBucket object. This API is available in the following national cloud deployments.
+     * Create a new plannerBucket object.
      * @param PlannerBucket $body The request body
      * @param BucketsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -60,7 +60,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of timeCard entries in a schedule. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeCard entries in a schedule.
      * @param TimeCardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCardCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a timeCard instance in a schedule. This API is available in the following national cloud deployments.
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
@@ -93,7 +93,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of timeCard entries in a schedule. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeCard entries in a schedule.
      * @param TimeCardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a timeCard instance in a schedule. This API is available in the following national cloud deployments.
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -60,7 +60,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs. This API is available in the following national cloud deployments.
+     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupLifecyclePolicyCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs. This API is available in the following national cloud deployments.
+     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

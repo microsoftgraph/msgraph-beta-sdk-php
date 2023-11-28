@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUser
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get activeUsersBreakdown from reports
+ * Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
 */
 class ActiveUsersBreakdownRequestBuilderGetQueryParameters 
 {

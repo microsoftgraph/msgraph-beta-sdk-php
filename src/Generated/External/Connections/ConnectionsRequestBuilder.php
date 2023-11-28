@@ -52,7 +52,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of externalConnections. This API is available in the following national cloud deployments.
+     * Retrieve a list of externalConnections.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalConnectionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalConnection. This API is available in the following national cloud deployments.
+     * Create a new externalConnection.
      * @param ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalConnection|null>
@@ -85,7 +85,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of externalConnections. This API is available in the following national cloud deployments.
+     * Retrieve a list of externalConnections.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new externalConnection. This API is available in the following national cloud deployments.
+     * Create a new externalConnection.
      * @param ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

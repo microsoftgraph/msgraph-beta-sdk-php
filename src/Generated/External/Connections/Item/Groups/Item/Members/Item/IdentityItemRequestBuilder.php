@@ -31,7 +31,7 @@ class IdentityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an externalGroupMember object. This API is available in the following national cloud deployments.
+     * Delete an externalGroupMember object.
      * @param IdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class IdentityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an externalGroupMember object. This API is available in the following national cloud deployments.
+     * Delete an externalGroupMember object.
      * @param IdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

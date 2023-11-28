@@ -52,7 +52,7 @@ class TimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOff instances in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of timeOff instances in a schedule.
      * @param TimesOffRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOff instance in a schedule. This API is available in the following national cloud deployments.
+     * Create a new timeOff instance in a schedule.
      * @param TimeOff $body The request body
      * @param TimesOffRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOff|null>
@@ -85,7 +85,7 @@ class TimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOff instances in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of timeOff instances in a schedule.
      * @param TimesOffRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOff instance in a schedule. This API is available in the following national cloud deployments.
+     * Create a new timeOff instance in a schedule.
      * @param TimeOff $body The request body
      * @param TimesOffRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

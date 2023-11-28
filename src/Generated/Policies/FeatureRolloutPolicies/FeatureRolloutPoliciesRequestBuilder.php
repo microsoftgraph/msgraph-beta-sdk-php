@@ -52,7 +52,7 @@ class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of featureRolloutPolicy objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of featureRolloutPolicy objects.
      * @param FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FeatureRolloutPolicyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new featureRolloutPolicy object. This API is available in the following national cloud deployments.
+     * Create a new featureRolloutPolicy object.
      * @param FeatureRolloutPolicy $body The request body
      * @param FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FeatureRolloutPolicy|null>
@@ -85,7 +85,7 @@ class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of featureRolloutPolicy objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of featureRolloutPolicy objects.
      * @param FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new featureRolloutPolicy object. This API is available in the following national cloud deployments.
+     * Create a new featureRolloutPolicy object.
      * @param FeatureRolloutPolicy $body The request body
      * @param FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

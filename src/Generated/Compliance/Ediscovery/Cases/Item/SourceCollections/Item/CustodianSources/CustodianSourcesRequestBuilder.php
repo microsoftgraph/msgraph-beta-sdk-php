@@ -51,7 +51,7 @@ class CustodianSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of dataSource objects associated with a source collection. This API is available in the following national cloud deployments.
+     * Get the list of dataSource objects associated with a source collection.
      * @param CustodianSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataSourceCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class CustodianSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of dataSource objects associated with a source collection. This API is available in the following national cloud deployments.
+     * Get the list of dataSource objects associated with a source collection.
      * @param CustodianSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

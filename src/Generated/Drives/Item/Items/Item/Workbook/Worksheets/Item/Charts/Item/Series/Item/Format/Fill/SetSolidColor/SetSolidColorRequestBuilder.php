@@ -30,7 +30,7 @@ class SetSolidColorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sets the fill formatting of a chart element to a uniform color. This API is available in the following national cloud deployments.
+     * Sets the fill formatting of a chart element to a uniform color.
      * @param SetSolidColorPostRequestBody $body The request body
      * @param SetSolidColorRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class SetSolidColorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sets the fill formatting of a chart element to a uniform color. This API is available in the following national cloud deployments.
+     * Sets the fill formatting of a chart element to a uniform color.
      * @param SetSolidColorPostRequestBody $body The request body
      * @param SetSolidColorRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

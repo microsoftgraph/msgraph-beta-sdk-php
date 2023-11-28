@@ -52,7 +52,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryHoldPolicy objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the ediscoveryHoldPolicy objects and their properties.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryHoldPolicyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryHoldPolicy object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryHoldPolicy object.
      * @param EdiscoveryHoldPolicy $body The request body
      * @param LegalHoldsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryHoldPolicy|null>
@@ -85,7 +85,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryHoldPolicy objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the ediscoveryHoldPolicy objects and their properties.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryHoldPolicy object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryHoldPolicy object.
      * @param EdiscoveryHoldPolicy $body The request body
      * @param LegalHoldsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

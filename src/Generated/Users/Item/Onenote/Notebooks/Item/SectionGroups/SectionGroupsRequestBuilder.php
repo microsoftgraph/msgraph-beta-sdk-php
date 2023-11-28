@@ -52,7 +52,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of section groups from the specified notebook. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified notebook.
      * @param SectionGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SectionGroupCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new section group in the specified notebook. This API is available in the following national cloud deployments.
+     * Create a new section group in the specified notebook.
      * @param SectionGroup $body The request body
      * @param SectionGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SectionGroup|null>
@@ -85,7 +85,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of section groups from the specified notebook. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified notebook.
      * @param SectionGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SectionGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new section group in the specified notebook. This API is available in the following national cloud deployments.
+     * Create a new section group in the specified notebook.
      * @param SectionGroup $body The request body
      * @param SectionGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,7 +31,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified bookingCustomer object. This API is available in the following national cloud deployments.
+     * Delete the specified bookingCustomer object.
      * @param BookingCustomerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingCustomer object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a bookingCustomer object.
      * @param BookingCustomerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingCustomer|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingCustomer object. This API is available in the following national cloud deployments.
+     * Update the properties of a bookingCustomer object.
      * @param BookingCustomer $body The request body
      * @param BookingCustomerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingCustomer|null>
@@ -80,7 +80,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified bookingCustomer object. This API is available in the following national cloud deployments.
+     * Delete the specified bookingCustomer object.
      * @param BookingCustomerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingCustomer object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a bookingCustomer object.
      * @param BookingCustomerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class BookingCustomerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingCustomer object. This API is available in the following national cloud deployments.
+     * Update the properties of a bookingCustomer object.
      * @param BookingCustomer $body The request body
      * @param BookingCustomerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

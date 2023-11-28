@@ -30,7 +30,7 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Perform a sort operation. This API is available in the following national cloud deployments.
+     * Perform a sort operation.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Perform a sort operation. This API is available in the following national cloud deployments.
+     * Perform a sort operation.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

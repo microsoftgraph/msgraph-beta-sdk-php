@@ -91,7 +91,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryNoncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param EdiscoveryNoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryNoncustodialDataSource|null>
@@ -129,7 +129,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryNoncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param EdiscoveryNoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

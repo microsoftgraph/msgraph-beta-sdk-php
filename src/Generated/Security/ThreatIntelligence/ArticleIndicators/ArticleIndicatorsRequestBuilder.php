@@ -52,7 +52,7 @@ class ArticleIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an articleIndicator object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an articleIndicator object.
      * @param ArticleIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ArticleIndicatorCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class ArticleIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an articleIndicator object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an articleIndicator object.
      * @param ArticleIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

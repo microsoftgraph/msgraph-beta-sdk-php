@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApprova
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios: This API is available in the following national cloud deployments.
+ * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
 */
 class StepsRequestBuilderGetQueryParameters 
 {

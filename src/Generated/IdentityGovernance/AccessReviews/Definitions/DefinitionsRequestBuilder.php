@@ -62,7 +62,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects. This API is available in the following national cloud deployments.
+     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewScheduleDefinitionCollectionResponse|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessReviewScheduleDefinition object. This API is available in the following national cloud deployments.
+     * Create a new accessReviewScheduleDefinition object.
      * @param AccessReviewScheduleDefinition $body The request body
      * @param DefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewScheduleDefinition|null>
@@ -95,7 +95,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects. This API is available in the following national cloud deployments.
+     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +116,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessReviewScheduleDefinition object. This API is available in the following national cloud deployments.
+     * Create a new accessReviewScheduleDefinition object.
      * @param AccessReviewScheduleDefinition $body The request body
      * @param DefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

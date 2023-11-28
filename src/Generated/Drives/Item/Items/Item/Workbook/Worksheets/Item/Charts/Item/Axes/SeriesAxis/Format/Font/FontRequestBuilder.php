@@ -46,7 +46,7 @@ class FontRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartfont object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartfont object.
      * @param FontRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartFont|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class FontRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of chartfont object. This API is available in the following national cloud deployments.
+     * Update the properties of chartfont object.
      * @param WorkbookChartFont $body The request body
      * @param FontRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartFont|null>
@@ -97,7 +97,7 @@ class FontRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of chartfont object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartfont object.
      * @param FontRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class FontRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of chartfont object. This API is available in the following national cloud deployments.
+     * Update the properties of chartfont object.
      * @param WorkbookChartFont $body The request body
      * @param FontRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

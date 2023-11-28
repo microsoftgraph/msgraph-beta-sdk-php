@@ -30,7 +30,7 @@ class RestoreCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a Cloud PC device to a previous state with an Intune managed device ID. This API is available in the following national cloud deployments.
+     * Restore a Cloud PC device to a previous state with an Intune managed device ID.
      * @param RestoreCloudPcPostRequestBody $body The request body
      * @param RestoreCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class RestoreCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a Cloud PC device to a previous state with an Intune managed device ID. This API is available in the following national cloud deployments.
+     * Restore a Cloud PC device to a previous state with an Intune managed device ID.
      * @param RestoreCloudPcPostRequestBody $body The request body
      * @param RestoreCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

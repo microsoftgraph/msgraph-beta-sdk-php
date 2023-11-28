@@ -46,7 +46,7 @@ class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder extends BaseRe
     }
 
     /**
-     * Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.
      * @param DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCompliancePolicySettingStateSummary|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder extends BaseRe
     }
 
     /**
-     * Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.
      * @param DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

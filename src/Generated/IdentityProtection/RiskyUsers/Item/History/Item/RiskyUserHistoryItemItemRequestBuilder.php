@@ -46,7 +46,7 @@ class RiskyUserHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a riskyUserHistoryItem object of a riskyUser. This API is available in the following national cloud deployments.
+     * Get a riskyUserHistoryItem object of a riskyUser.
      * @param RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyUserHistoryItem|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class RiskyUserHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a riskyUserHistoryItem object of a riskyUser. This API is available in the following national cloud deployments.
+     * Get a riskyUserHistoryItem object of a riskyUser.
      * @param RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

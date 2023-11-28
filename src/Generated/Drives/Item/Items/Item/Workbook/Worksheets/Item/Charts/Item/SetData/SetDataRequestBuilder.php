@@ -30,7 +30,7 @@ class SetDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resets the source data for the chart. This API is available in the following national cloud deployments.
+     * Resets the source data for the chart.
      * @param SetDataPostRequestBody $body The request body
      * @param SetDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class SetDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resets the source data for the chart. This API is available in the following national cloud deployments.
+     * Resets the source data for the chart.
      * @param SetDataPostRequestBody $body The request body
      * @param SetDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

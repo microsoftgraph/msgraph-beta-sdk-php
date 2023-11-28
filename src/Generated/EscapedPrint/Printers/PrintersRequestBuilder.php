@@ -60,7 +60,7 @@ class PrintersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of printers that are registered in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param PrintersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrinterCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class PrintersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the list of printers that are registered in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param PrintersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

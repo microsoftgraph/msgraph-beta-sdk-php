@@ -54,7 +54,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentSettings|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings. This API is available in the following national cloud deployments.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentSettings|null>
@@ -105,7 +105,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +126,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings. This API is available in the following national cloud deployments.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

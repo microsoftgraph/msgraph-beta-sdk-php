@@ -52,7 +52,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List openshift objects in a team. This API is available in the following national cloud deployments.
+     * List openshift objects in a team.
      * @param OpenShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShiftCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an openshift object. This API is available in the following national cloud deployments.
+     * Create an instance of an openshift object.
      * @param OpenShift $body The request body
      * @param OpenShiftsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShift|null>
@@ -85,7 +85,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List openshift objects in a team. This API is available in the following national cloud deployments.
+     * List openshift objects in a team.
      * @param OpenShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an openshift object. This API is available in the following national cloud deployments.
+     * Create an instance of an openshift object.
      * @param OpenShift $body The request body
      * @param OpenShiftsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

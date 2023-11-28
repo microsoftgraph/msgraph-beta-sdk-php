@@ -52,7 +52,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the retentionLabel objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the retentionLabel objects and their properties.
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetentionLabelCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified. This API is available in the following national cloud deployments.
+     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetentionLabel|null>
@@ -85,7 +85,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the retentionLabel objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the retentionLabel objects and their properties.
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified. This API is available in the following national cloud deployments.
+     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

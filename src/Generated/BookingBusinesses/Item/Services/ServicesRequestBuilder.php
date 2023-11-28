@@ -52,7 +52,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get a list of bookingService objects in the specified bookingBusiness.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingServiceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookingService for the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Create a new bookingService for the specified bookingBusiness.
      * @param BookingService $body The request body
      * @param ServicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingService|null>
@@ -85,7 +85,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get a list of bookingService objects in the specified bookingBusiness.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new bookingService for the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Create a new bookingService for the specified bookingBusiness.
      * @param BookingService $body The request body
      * @param ServicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

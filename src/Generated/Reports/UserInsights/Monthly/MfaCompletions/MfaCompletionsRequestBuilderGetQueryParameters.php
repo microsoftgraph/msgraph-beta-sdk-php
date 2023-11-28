@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaComplet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mfaCompletions from reports
+ * Get a list of monthly MFA completions on apps registered in your tenant configured for Microsoft Entra External ID for customers.
 */
 class MfaCompletionsRequestBuilderGetQueryParameters 
 {

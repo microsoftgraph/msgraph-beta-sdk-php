@@ -52,7 +52,7 @@ class PresencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a user's presence information. This API is available in the following national cloud deployments.
+     * Get a user's presence information.
      * @param PresencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PresenceCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class PresencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a user's presence information. This API is available in the following national cloud deployments.
+     * Get a user's presence information.
      * @param PresencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class VerifyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validates the ownership of the domain. This API is available in the following national cloud deployments.
+     * Validates the ownership of the domain.
      * @param VerifyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Domain|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class VerifyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validates the ownership of the domain. This API is available in the following national cloud deployments.
+     * Validates the ownership of the domain.
      * @param VerifyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

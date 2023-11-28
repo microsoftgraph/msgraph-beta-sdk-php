@@ -39,7 +39,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcDeviceImage object. This API is available in the following national cloud deployments.
+     * Delete a cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcDeviceImage|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcDeviceImage object. This API is available in the following national cloud deployments.
+     * Delete a cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -105,7 +105,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPcDeviceImage object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
