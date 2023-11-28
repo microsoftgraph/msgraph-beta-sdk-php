@@ -52,7 +52,7 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the delegatedAdminRelationshipRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DelegatedAdminRelationshipRequestCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new delegatedAdminRelationshipRequest object. This API is available in the following national cloud deployments.
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequest $body The request body
      * @param RequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DelegatedAdminRelationshipRequest|null>
@@ -85,7 +85,7 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the delegatedAdminRelationshipRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new delegatedAdminRelationshipRequest object. This API is available in the following national cloud deployments.
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequest $body The request body
      * @param RequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

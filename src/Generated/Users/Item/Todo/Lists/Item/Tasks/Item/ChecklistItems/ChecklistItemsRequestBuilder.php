@@ -52,7 +52,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask. This API is available in the following national cloud deployments.
+     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
      * @param ChecklistItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChecklistItemCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new checklistItem object as a subtask in a bigger todoTask. This API is available in the following national cloud deployments.
+     * Create a new checklistItem object as a subtask in a bigger todoTask.
      * @param ChecklistItem $body The request body
      * @param ChecklistItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChecklistItem|null>
@@ -85,7 +85,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask. This API is available in the following national cloud deployments.
+     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
      * @param ChecklistItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new checklistItem object as a subtask in a bigger todoTask. This API is available in the following national cloud deployments.
+     * Create a new checklistItem object as a subtask in a bigger todoTask.
      * @param ChecklistItem $body The request body
      * @param ChecklistItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of secureScoreControlProfile objects for a tenant. This API is available in the following national cloud deployments.
+     * Retrieves a list of secureScoreControlProfile objects for a tenant.
      * @param SecureScoreControlProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecureScoreControlProfileCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves a list of secureScoreControlProfile objects for a tenant. This API is available in the following national cloud deployments.
+     * Retrieves a list of secureScoreControlProfile objects for a tenant.
      * @param SecureScoreControlProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

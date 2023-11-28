@@ -46,7 +46,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants. This API is available in the following national cloud deployments.
+     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
      * @param CrossTenantAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
      * @param CrossTenantAccessSettings $body The request body
      * @param CrossTenantAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessSettings|null>
@@ -97,7 +97,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants. This API is available in the following national cloud deployments.
+     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
      * @param CrossTenantAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants. This API is available in the following national cloud deployments.
+     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
      * @param CrossTenantAccessSettings $body The request body
      * @param CrossTenantAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

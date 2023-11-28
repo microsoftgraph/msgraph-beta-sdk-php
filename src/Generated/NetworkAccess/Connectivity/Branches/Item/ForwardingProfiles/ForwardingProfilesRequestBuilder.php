@@ -52,7 +52,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of traffic forwarding profiles associated with a branch. This API is available in the following national cloud deployments.
+     * Retrieve a list of traffic forwarding profiles associated with a branch.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfileCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of traffic forwarding profiles associated with a branch. This API is available in the following national cloud deployments.
+     * Retrieve a list of traffic forwarding profiles associated with a branch.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a samlOrWsFedExternalDomainFederation object. This API is available in the following national cloud deployments.
+     * Delete a samlOrWsFedExternalDomainFederation object.
      * @param IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a samlOrWsFedExternalDomainFederation object. This API is available in the following national cloud deployments.
+     * Delete a samlOrWsFedExternalDomainFederation object.
      * @param IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

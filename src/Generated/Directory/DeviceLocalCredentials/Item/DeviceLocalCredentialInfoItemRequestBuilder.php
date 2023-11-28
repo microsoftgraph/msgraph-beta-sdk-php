@@ -46,7 +46,7 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object.  This API is available in the following national cloud deployments.
+     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. 
      * @param DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLocalCredentialInfo|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class DeviceLocalCredentialInfoItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object.  This API is available in the following national cloud deployments.
+     * Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. 
      * @param DeviceLocalCredentialInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

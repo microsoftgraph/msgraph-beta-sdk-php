@@ -67,7 +67,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation: This API is available in the following national cloud deployments.
+     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Invitation|null>
@@ -105,7 +105,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation: This API is available in the following national cloud deployments.
+     * Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

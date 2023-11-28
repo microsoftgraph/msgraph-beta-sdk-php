@@ -52,7 +52,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationErrorCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

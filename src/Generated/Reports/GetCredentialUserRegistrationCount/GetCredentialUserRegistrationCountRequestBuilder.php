@@ -30,7 +30,7 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities. This API is available in the following national cloud deployments.
+     * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCredentialUserRegistrationCountGetResponse|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities. This API is available in the following national cloud deployments.
+     * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

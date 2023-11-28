@@ -52,7 +52,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of userSource objects associated with a legal hold. This API is available in the following national cloud deployments.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a userSource to a legalHold object. This API is available in the following national cloud deployments.
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
@@ -85,7 +85,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of userSource objects associated with a legal hold. This API is available in the following national cloud deployments.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds a userSource to a legalHold object. This API is available in the following national cloud deployments.
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -55,7 +55,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is available in the following national cloud deployments.
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicy|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicy|null>
@@ -104,7 +104,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use. This API is available in the following national cloud deployments.
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +143,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

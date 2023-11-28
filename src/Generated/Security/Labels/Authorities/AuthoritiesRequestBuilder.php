@@ -52,7 +52,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authorityTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the authorityTemplate objects and their properties.
      * @param AuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorityTemplateCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authorityTemplate object. This API is available in the following national cloud deployments.
+     * Create a new authorityTemplate object.
      * @param AuthorityTemplate $body The request body
      * @param AuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorityTemplate|null>
@@ -85,7 +85,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authorityTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the authorityTemplate objects and their properties.
      * @param AuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authorityTemplate object. This API is available in the following national cloud deployments.
+     * Create a new authorityTemplate object.
      * @param AuthorityTemplate $body The request body
      * @param AuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

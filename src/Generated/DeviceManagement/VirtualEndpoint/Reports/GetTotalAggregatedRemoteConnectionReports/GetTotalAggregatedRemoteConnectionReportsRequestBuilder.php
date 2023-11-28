@@ -31,7 +31,7 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the total aggregated remote connection usage of a Cloud PC during a given time span. This API is available in the following national cloud deployments.
+     * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the total aggregated remote connection usage of a Cloud PC during a given time span. This API is available in the following national cloud deployments.
+     * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body The request body
      * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

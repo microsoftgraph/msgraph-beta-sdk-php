@@ -52,7 +52,7 @@ class ScopedMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of scopedRoleMembership objects for a directory role. This API is available in the following national cloud deployments.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param ScopedMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScopedRoleMembershipCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ScopedMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of scopedRoleMembership objects for a directory role. This API is available in the following national cloud deployments.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param ScopedMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

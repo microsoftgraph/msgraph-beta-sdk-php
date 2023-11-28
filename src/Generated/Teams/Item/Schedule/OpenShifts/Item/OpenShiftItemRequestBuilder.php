@@ -31,7 +31,7 @@ class OpenShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an openShift object. This API is available in the following national cloud deployments.
+     * Delete an openShift object.
      * @param OpenShiftItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class OpenShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an openshift object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an openshift object.
      * @param OpenShiftItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShift|null>
      * @throws Exception
@@ -80,7 +80,7 @@ class OpenShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an openShift object. This API is available in the following national cloud deployments.
+     * Delete an openShift object.
      * @param OpenShiftItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class OpenShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an openshift object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an openshift object.
      * @param OpenShiftItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

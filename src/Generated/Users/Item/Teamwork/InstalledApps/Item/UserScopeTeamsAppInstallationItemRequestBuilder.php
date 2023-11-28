@@ -55,7 +55,7 @@ class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Uninstall an app from the personal scope of the specified user. This API is available in the following national cloud deployments.
+     * Uninstall an app from the personal scope of the specified user.
      * @param UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the app installed in the personal scope of the specified user. This API is available in the following national cloud deployments.
+     * Retrieve the app installed in the personal scope of the specified user.
      * @param UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserScopeTeamsAppInstallation|null>
      * @throws Exception
@@ -103,7 +103,7 @@ class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Uninstall an app from the personal scope of the specified user. This API is available in the following national cloud deployments.
+     * Uninstall an app from the personal scope of the specified user.
      * @param UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the app installed in the personal scope of the specified user. This API is available in the following national cloud deployments.
+     * Retrieve the app installed in the personal scope of the specified user.
      * @param UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

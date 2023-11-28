@@ -54,7 +54,7 @@ class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userConsentRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a userConsentRequest object.
      * @param UserConsentRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserConsentRequest|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userConsentRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a userConsentRequest object.
      * @param UserConsentRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

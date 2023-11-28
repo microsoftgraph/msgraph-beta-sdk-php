@@ -52,7 +52,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the sourceSystemDefinition objects and their properties.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinitionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Create a new sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
@@ -85,7 +85,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the sourceSystemDefinition objects and their properties.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new sourceSystemDefinition object. This API is available in the following national cloud deployments.
+     * Create a new sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class. This API is available in the following national cloud deployments.
+ * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
 */
 class MembersRequestBuilderGetQueryParameters 
 {

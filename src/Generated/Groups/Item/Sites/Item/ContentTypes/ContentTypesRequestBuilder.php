@@ -76,7 +76,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of contentType][contentType] resources in a [site][]. This API is available in the following [national cloud deployments.
+     * Get the collection of [contentType][contentType] resources in a [site][].
      * @param ContentTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentTypeCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new contentType][] for a [site][]. This API is available in the following [national cloud deployments.
+     * Create a new [contentType][] for a [site][].
      * @param ContentType $body The request body
      * @param ContentTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentType|null>
@@ -109,7 +109,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of contentType][contentType] resources in a [site][]. This API is available in the following [national cloud deployments.
+     * Get the collection of [contentType][contentType] resources in a [site][].
      * @param ContentTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new contentType][] for a [site][]. This API is available in the following [national cloud deployments.
+     * Create a new [contentType][] for a [site][].
      * @param ContentType $body The request body
      * @param ContentTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

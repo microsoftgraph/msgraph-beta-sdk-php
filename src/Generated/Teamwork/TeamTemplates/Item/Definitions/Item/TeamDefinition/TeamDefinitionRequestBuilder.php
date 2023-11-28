@@ -206,7 +206,7 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of the team associated with a teamTemplateDefinition object. This API is available in the following national cloud deployments.
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
@@ -256,7 +256,7 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of the team associated with a teamTemplateDefinition object. This API is available in the following national cloud deployments.
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

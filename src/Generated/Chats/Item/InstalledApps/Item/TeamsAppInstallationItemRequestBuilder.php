@@ -55,7 +55,7 @@ class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Uninstall an app installed within a chat. This API is available in the following national cloud deployments.
+     * Uninstall an app installed within a chat.
      * @param TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an app installed in a chat. This API is available in the following national cloud deployments.
+     * Get an app installed in a chat.
      * @param TeamsAppInstallationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppInstallation|null>
      * @throws Exception
@@ -103,7 +103,7 @@ class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Uninstall an app installed within a chat. This API is available in the following national cloud deployments.
+     * Uninstall an app installed within a chat.
      * @param TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an app installed in a chat. This API is available in the following national cloud deployments.
+     * Get an app installed in a chat.
      * @param TeamsAppInstallationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

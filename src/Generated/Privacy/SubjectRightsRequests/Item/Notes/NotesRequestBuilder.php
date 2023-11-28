@@ -52,7 +52,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of authored notes associated with a subject rights request.  This API is available in the following national cloud deployments.
+     * Get the list of authored notes associated with a subject rights request. 
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthoredNoteCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authoredNote object. This API is available in the following national cloud deployments.
+     * Create a new authoredNote object.
      * @param AuthoredNote $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthoredNote|null>
@@ -85,7 +85,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of authored notes associated with a subject rights request.  This API is available in the following national cloud deployments.
+     * Get the list of authored notes associated with a subject rights request. 
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authoredNote object. This API is available in the following national cloud deployments.
+     * Create a new authoredNote object.
      * @param AuthoredNote $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class LandingPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the landingPage objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the landingPage objects and their properties.
      * @param LandingPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LandingPageCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class LandingPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the landingPage objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the landingPage objects and their properties.
      * @param LandingPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

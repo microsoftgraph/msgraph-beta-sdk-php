@@ -60,7 +60,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the groupLifecyclePolicies. This API is available in the following national cloud deployments.
+     * List all the groupLifecyclePolicies.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupLifecyclePolicyCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Creates a new groupLifecyclePolicy. This API is available in the following national cloud deployments.
+     * Creates a new groupLifecyclePolicy.
      * @param GroupLifecyclePolicy $body The request body
      * @param GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupLifecyclePolicy|null>
@@ -93,7 +93,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the groupLifecyclePolicies. This API is available in the following national cloud deployments.
+     * List all the groupLifecyclePolicies.
      * @param GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Creates a new groupLifecyclePolicy. This API is available in the following national cloud deployments.
+     * Creates a new groupLifecyclePolicy.
      * @param GroupLifecyclePolicy $body The request body
      * @param GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

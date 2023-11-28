@@ -52,7 +52,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationalActivity objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of educationalActivity objects from a user's profile.
      * @param EducationalActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivityCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationalActivity in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new educationalActivity in a user's profile.
      * @param EducationalActivity $body The request body
      * @param EducationalActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivity|null>
@@ -85,7 +85,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationalActivity objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of educationalActivity objects from a user's profile.
      * @param EducationalActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class EducationalActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationalActivity in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new educationalActivity in a user's profile.
      * @param EducationalActivity $body The request body
      * @param EducationalActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

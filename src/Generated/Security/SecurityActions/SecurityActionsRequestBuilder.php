@@ -52,7 +52,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of securityAction objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of securityAction objects.
      * @param SecurityActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityActionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new securityAction object. This API is available in the following national cloud deployments.
+     * Create a new securityAction object.
      * @param SecurityAction $body The request body
      * @param SecurityActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityAction|null>
@@ -85,7 +85,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of securityAction objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of securityAction objects.
      * @param SecurityActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new securityAction object. This API is available in the following national cloud deployments.
+     * Create a new securityAction object.
      * @param SecurityAction $body The request body
      * @param SecurityActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

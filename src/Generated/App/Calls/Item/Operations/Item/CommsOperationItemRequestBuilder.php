@@ -46,7 +46,7 @@ class CommsOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of an operation that adds the large gallery view to a call. This API is available in the following national cloud deployments.
+     * Get the status of an operation that adds the large gallery view to a call.
      * @param CommsOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CommsOperation|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CommsOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the status of an operation that adds the large gallery view to a call. This API is available in the following national cloud deployments.
+     * Get the status of an operation that adds the large gallery view to a call.
      * @param CommsOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

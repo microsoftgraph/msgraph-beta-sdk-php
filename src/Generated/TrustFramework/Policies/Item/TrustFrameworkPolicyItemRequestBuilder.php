@@ -39,7 +39,7 @@ class TrustFrameworkPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing trustFrameworkPolicy. This API is available in the following national cloud deployments.
+     * Delete an existing trustFrameworkPolicy.
      * @param TrustFrameworkPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class TrustFrameworkPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing trustFrameworkPolicy. This API is available in the following national cloud deployments.
+     * Delete an existing trustFrameworkPolicy.
      * @param TrustFrameworkPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

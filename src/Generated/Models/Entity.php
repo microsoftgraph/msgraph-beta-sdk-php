@@ -936,8 +936,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.gcpRole': return new GcpRole();
                 case '#microsoft.graph.gcpServiceAccount': return new GcpServiceAccount();
                 case '#microsoft.graph.gcpUser': return new GcpUser();
-                case '#microsoft.graph.goals': return new Goals();
-                case '#microsoft.graph.goalsExportJob': return new GoalsExportJob();
                 case '#microsoft.graph.governanceInsight': return new GovernanceInsight();
                 case '#microsoft.graph.governancePolicyTemplate': return new GovernancePolicyTemplate();
                 case '#microsoft.graph.governanceResource': return new GovernanceResource();

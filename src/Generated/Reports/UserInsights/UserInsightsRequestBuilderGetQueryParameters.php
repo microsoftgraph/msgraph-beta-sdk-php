@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get userInsights from reports
+ * Represents a collection of user activities on applications in a tenant that is configured for Microsoft Entra External ID for customers.
 */
 class UserInsightsRequestBuilderGetQueryParameters 
 {

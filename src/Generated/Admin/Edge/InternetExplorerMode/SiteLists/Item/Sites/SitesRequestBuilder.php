@@ -52,7 +52,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the browserSite objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the browserSite objects and their properties.
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSiteCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new browserSite object in a browserSiteList. This API is available in the following national cloud deployments.
+     * Create a new browserSite object in a browserSiteList.
      * @param BrowserSite $body The request body
      * @param SitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSite|null>
@@ -85,7 +85,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the browserSite objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the browserSite objects and their properties.
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new browserSite object in a browserSiteList. This API is available in the following national cloud deployments.
+     * Create a new browserSite object in a browserSiteList.
      * @param BrowserSite $body The request body
      * @param SitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

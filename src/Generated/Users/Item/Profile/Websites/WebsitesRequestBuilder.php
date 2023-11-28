@@ -52,7 +52,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personWebsite objects from a user's profile.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsiteCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personWebsite object in a user's profile.
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsite|null>
@@ -85,7 +85,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personWebsite objects from a user's profile.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personWebsite object in a user's profile.
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

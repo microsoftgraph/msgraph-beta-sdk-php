@@ -54,7 +54,7 @@ class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a riskyServicePrincipal object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a riskyServicePrincipal object.
      * @param RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyServicePrincipal|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a riskyServicePrincipal object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a riskyServicePrincipal object.
      * @param RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

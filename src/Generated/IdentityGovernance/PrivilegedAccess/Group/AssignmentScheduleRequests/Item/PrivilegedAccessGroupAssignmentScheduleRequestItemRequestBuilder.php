@@ -86,7 +86,7 @@ class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder extends B
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
      * @param PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedAccessGroupAssignmentScheduleRequest|null>
      * @throws Exception
@@ -136,7 +136,7 @@ class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder extends B
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
      * @param PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

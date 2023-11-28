@@ -62,7 +62,7 @@ class ChartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of chart objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of chart objects.
      * @param ChartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChartCollectionResponse|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ChartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new Chart. This API is available in the following national cloud deployments.
+     * Use this API to create a new Chart.
      * @param WorkbookChart $body The request body
      * @param ChartsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookChart|null>
@@ -113,7 +113,7 @@ class ChartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of chart objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of chart objects.
      * @param ChartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -134,7 +134,7 @@ class ChartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new Chart. This API is available in the following national cloud deployments.
+     * Use this API to create a new Chart.
      * @param WorkbookChart $body The request body
      * @param ChartsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

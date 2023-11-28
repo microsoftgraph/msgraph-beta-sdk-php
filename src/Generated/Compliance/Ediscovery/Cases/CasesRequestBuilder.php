@@ -52,7 +52,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of case objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of case objects.
      * @param CasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CaseCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new case object. This API is available in the following national cloud deployments.
+     * Create a new case object.
      * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EscapedCase|null>
@@ -85,7 +85,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of case objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of case objects.
      * @param CasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new case object. This API is available in the following national cloud deployments.
+     * Create a new case object.
      * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

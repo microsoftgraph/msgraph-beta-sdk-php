@@ -52,7 +52,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a list of the credentialUserRegistrationsSummary objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the credentialUserRegistrationsSummary objects and their properties.
      * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummaryCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a list of the credentialUserRegistrationsSummary objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the credentialUserRegistrationsSummary objects and their properties.
      * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

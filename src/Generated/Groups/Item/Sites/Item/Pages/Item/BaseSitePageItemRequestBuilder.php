@@ -62,7 +62,7 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the metadata for a baseSitePage][] in the site pages [list][] in a [site][]. This API is available in the following [national cloud deployments.
+     * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
      * @param BaseSitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BaseSitePage|null>
      * @throws Exception
@@ -112,7 +112,7 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the metadata for a baseSitePage][] in the site pages [list][] in a [site][]. This API is available in the following [national cloud deployments.
+     * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
      * @param BaseSitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

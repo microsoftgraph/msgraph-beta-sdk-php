@@ -30,7 +30,7 @@ class SendActivityNotificationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications. This API is available in the following national cloud deployments.
+     * Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.
      * @param SendActivityNotificationPostRequestBody $body The request body
      * @param SendActivityNotificationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class SendActivityNotificationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications. This API is available in the following national cloud deployments.
+     * Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.
      * @param SendActivityNotificationPostRequestBody $body The request body
      * @param SendActivityNotificationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

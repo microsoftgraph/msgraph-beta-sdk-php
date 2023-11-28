@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\SignUps;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get signUps from reports
+ * Get a list of daily user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
 */
 class SignUpsRequestBuilderGetQueryParameters 
 {

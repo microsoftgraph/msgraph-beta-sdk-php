@@ -52,7 +52,7 @@ class BookingCurrenciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingCurrency objects available to a Microsoft Bookings business. This API is available in the following national cloud deployments.
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param BookingCurrenciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingCurrencyCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class BookingCurrenciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingCurrency objects available to a Microsoft Bookings business. This API is available in the following national cloud deployments.
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param BookingCurrenciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

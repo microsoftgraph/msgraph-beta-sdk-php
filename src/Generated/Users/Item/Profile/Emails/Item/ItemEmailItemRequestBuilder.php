@@ -31,7 +31,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemEmail object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete an itemEmail object from a user's profile.
      * @param ItemEmailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param ItemEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmail|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an itemEmail object in a user's profile.
      * @param ItemEmail $body The request body
      * @param ItemEmailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmail|null>
@@ -80,7 +80,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemEmail object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete an itemEmail object from a user's profile.
      * @param ItemEmailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param ItemEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemEmail object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an itemEmail object in a user's profile.
      * @param ItemEmail $body The request body
      * @param ItemEmailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,7 +30,7 @@ class RenewGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy. This API is available in the following national cloud deployments.
+     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
      * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RenewGroupPostResponse|null>
@@ -47,7 +47,7 @@ class RenewGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy. This API is available in the following national cloud deployments.
+     * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
      * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

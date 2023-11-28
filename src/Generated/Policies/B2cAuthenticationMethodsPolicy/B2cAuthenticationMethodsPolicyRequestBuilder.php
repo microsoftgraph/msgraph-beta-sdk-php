@@ -46,7 +46,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a b2cAuthenticationMethodsPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cAuthenticationMethodsPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicy $body The request body
      * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
@@ -97,7 +97,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a b2cAuthenticationMethodsPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cAuthenticationMethodsPolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicy $body The request body
      * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

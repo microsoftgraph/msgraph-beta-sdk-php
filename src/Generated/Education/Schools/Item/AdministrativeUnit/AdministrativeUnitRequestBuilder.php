@@ -31,7 +31,7 @@ class AdministrativeUnitRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the directory administrativeUnit that corresponds to this educationSchool. This API is available in the following national cloud deployments.
+     * Retrieve the directory administrativeUnit that corresponds to this educationSchool.
      * @param AdministrativeUnitRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdministrativeUnit|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class AdministrativeUnitRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the directory administrativeUnit that corresponds to this educationSchool. This API is available in the following national cloud deployments.
+     * Retrieve the directory administrativeUnit that corresponds to this educationSchool.
      * @param AdministrativeUnitRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

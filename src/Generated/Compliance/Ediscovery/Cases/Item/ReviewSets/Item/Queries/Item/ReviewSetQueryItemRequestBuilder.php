@@ -39,7 +39,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Delete a reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetQuery|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an eDiscovery reviewSetQuery. This API is available in the following national cloud deployments.
+     * Update the properties of an eDiscovery reviewSetQuery.
      * @param ReviewSetQuery $body The request body
      * @param ReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetQuery|null>
@@ -88,7 +88,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Delete a reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an eDiscovery reviewSetQuery. This API is available in the following national cloud deployments.
+     * Update the properties of an eDiscovery reviewSetQuery.
      * @param ReviewSetQuery $body The request body
      * @param ReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

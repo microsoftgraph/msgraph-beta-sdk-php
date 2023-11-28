@@ -26,7 +26,7 @@ class UserRequestsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the user insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -50,7 +50,7 @@ class UserRequestsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestCount property value. The requestCount property
+     * Gets the requestCount property value. Number of requests to the tenant. Supports $filter (eq).
      * @return int|null
     */
     public function getRequestCount(): ?int {
@@ -72,7 +72,7 @@ class UserRequestsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the user insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
@@ -80,7 +80,7 @@ class UserRequestsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestCount property value. The requestCount property
+     * Sets the requestCount property value. Number of requests to the tenant. Supports $filter (eq).
      * @param int|null $value Value to set for the requestCount property.
     */
     public function setRequestCount(?int $value): void {

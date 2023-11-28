@@ -52,7 +52,7 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials. This API is available in the following national cloud deployments.
+     * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
      * @param AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivityCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials. This API is available in the following national cloud deployments.
+     * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
      * @param AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

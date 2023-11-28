@@ -46,7 +46,7 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific endpoint object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a specific endpoint object.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Endpoint|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a specific endpoint object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a specific endpoint object.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

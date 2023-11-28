@@ -39,7 +39,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
+     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Read the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a certificateBasedApplicationConfiguration object.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfiguration|null>
      * @throws Exception
@@ -88,7 +88,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
+     * Delete the properties and relationships of a certificateBasedApplicationConfiguration object.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     }
 
     /**
-     * Read the properties and relationships of a certificateBasedApplicationConfiguration object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a certificateBasedApplicationConfiguration object.
      * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

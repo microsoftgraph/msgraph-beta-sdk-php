@@ -52,7 +52,7 @@ class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryCase objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param EdiscoveryCasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryCaseCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryCase object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryCase object.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryCase|null>
@@ -85,7 +85,7 @@ class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryCase objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param EdiscoveryCasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryCase object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryCase object.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class MessageRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the messageRule objects defined for the user's inbox. This API is available in the following national cloud deployments.
+     * Get all the messageRule objects defined for the user's inbox.
      * @param MessageRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MessageRuleCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class MessageRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user's Inbox meets the specified conditions. This API is available in the following national cloud deployments.
+     * Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user's Inbox meets the specified conditions.
      * @param MessageRule $body The request body
      * @param MessageRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MessageRule|null>
@@ -85,7 +85,7 @@ class MessageRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the messageRule objects defined for the user's inbox. This API is available in the following national cloud deployments.
+     * Get all the messageRule objects defined for the user's inbox.
      * @param MessageRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class MessageRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user's Inbox meets the specified conditions. This API is available in the following national cloud deployments.
+     * Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user's Inbox meets the specified conditions.
      * @param MessageRule $body The request body
      * @param MessageRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

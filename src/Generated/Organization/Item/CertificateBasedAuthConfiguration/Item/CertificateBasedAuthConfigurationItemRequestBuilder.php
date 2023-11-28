@@ -31,7 +31,7 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Delete a certificateBasedAuthConfiguration object. This API is available in the following national cloud deployments.
+     * Delete a certificateBasedAuthConfiguration object.
      * @param CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get the properties of a certificateBasedAuthConfiguration object. This API is available in the following national cloud deployments.
+     * Get the properties of a certificateBasedAuthConfiguration object.
      * @param CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedAuthConfiguration|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Delete a certificateBasedAuthConfiguration object. This API is available in the following national cloud deployments.
+     * Delete a certificateBasedAuthConfiguration object.
      * @param CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -81,7 +81,7 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get the properties of a certificateBasedAuthConfiguration object. This API is available in the following national cloud deployments.
+     * Get the properties of a certificateBasedAuthConfiguration object.
      * @param CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

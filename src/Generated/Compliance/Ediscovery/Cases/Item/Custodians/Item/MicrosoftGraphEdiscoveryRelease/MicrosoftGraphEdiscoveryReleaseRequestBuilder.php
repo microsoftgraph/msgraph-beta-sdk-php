@@ -30,7 +30,7 @@ class MicrosoftGraphEdiscoveryReleaseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Release a custodian from a case. For details, see Release a custodian from a case. This API is available in the following national cloud deployments.
+     * Release a custodian from a case. For details, see Release a custodian from a case.
      * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class MicrosoftGraphEdiscoveryReleaseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Release a custodian from a case. For details, see Release a custodian from a case. This API is available in the following national cloud deployments.
+     * Release a custodian from a case. For details, see Release a custodian from a case.
      * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

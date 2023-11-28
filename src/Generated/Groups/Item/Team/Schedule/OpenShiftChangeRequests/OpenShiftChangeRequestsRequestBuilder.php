@@ -52,7 +52,7 @@ class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShiftChangeRequestCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create instance of an openShiftChangeRequest object. This API is available in the following national cloud deployments.
+     * Create instance of an openShiftChangeRequest object.
      * @param OpenShiftChangeRequest $body The request body
      * @param OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShiftChangeRequest|null>
@@ -85,7 +85,7 @@ class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create instance of an openShiftChangeRequest object. This API is available in the following national cloud deployments.
+     * Create instance of an openShiftChangeRequest object.
      * @param OpenShiftChangeRequest $body The request body
      * @param OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

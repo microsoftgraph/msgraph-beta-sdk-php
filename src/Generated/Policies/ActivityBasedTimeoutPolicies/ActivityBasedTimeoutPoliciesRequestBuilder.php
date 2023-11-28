@@ -52,7 +52,7 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of activityBasedTimeoutPolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of activityBasedTimeoutPolicy objects.
      * @param ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActivityBasedTimeoutPolicyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new activityBasedTimeoutPolicy object. This API is available in the following national cloud deployments.
+     * Create a new activityBasedTimeoutPolicy object.
      * @param ActivityBasedTimeoutPolicy $body The request body
      * @param ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActivityBasedTimeoutPolicy|null>
@@ -85,7 +85,7 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of activityBasedTimeoutPolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of activityBasedTimeoutPolicy objects.
      * @param ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new activityBasedTimeoutPolicy object. This API is available in the following national cloud deployments.
+     * Create a new activityBasedTimeoutPolicy object.
      * @param ActivityBasedTimeoutPolicy $body The request body
      * @param ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

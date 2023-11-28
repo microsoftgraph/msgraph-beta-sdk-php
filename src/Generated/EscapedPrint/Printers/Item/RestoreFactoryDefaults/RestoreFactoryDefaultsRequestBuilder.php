@@ -30,7 +30,7 @@ class RestoreFactoryDefaultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a printer's default settings to the values specified by the manufacturer. This API is available in the following national cloud deployments.
+     * Restore a printer's default settings to the values specified by the manufacturer.
      * @param RestoreFactoryDefaultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RestoreFactoryDefaultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a printer's default settings to the values specified by the manufacturer. This API is available in the following national cloud deployments.
+     * Restore a printer's default settings to the values specified by the manufacturer.
      * @param RestoreFactoryDefaultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

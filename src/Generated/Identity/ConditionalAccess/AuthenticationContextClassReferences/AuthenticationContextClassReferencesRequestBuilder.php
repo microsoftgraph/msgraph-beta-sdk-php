@@ -52,7 +52,7 @@ class AuthenticationContextClassReferencesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of authenticationContextClassReference objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of authenticationContextClassReference objects.
      * @param AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationContextClassReferenceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AuthenticationContextClassReferencesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Create a new authenticationContextClassReference. This API is available in the following national cloud deployments.
+     * Create a new authenticationContextClassReference.
      * @param AuthenticationContextClassReference $body The request body
      * @param AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationContextClassReference|null>
@@ -85,7 +85,7 @@ class AuthenticationContextClassReferencesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of authenticationContextClassReference objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of authenticationContextClassReference objects.
      * @param AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AuthenticationContextClassReferencesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Create a new authenticationContextClassReference. This API is available in the following national cloud deployments.
+     * Create a new authenticationContextClassReference.
      * @param AuthenticationContextClassReference $body The request body
      * @param AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -26,7 +26,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. The ID of the Microsoft Entra application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -38,7 +38,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the appName property value. The appName property
+     * Gets the appName property value. Name of the application users authenticated to.
      * @return string|null
     */
     public function getAppName(): ?string {
@@ -50,7 +50,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. The total number of users who made at least one authentication request within the specified time period.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -62,7 +62,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -89,7 +89,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the os property value. The os property
+     * Gets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @return string|null
     */
     public function getOs(): ?string {
@@ -114,7 +114,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. The ID of the Microsoft Entra application.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
@@ -122,7 +122,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the appName property value. The appName property
+     * Sets the appName property value. Name of the application users authenticated to.
      * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
@@ -130,7 +130,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. The total number of users who made at least one authentication request within the specified time period.
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
@@ -138,7 +138,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
@@ -146,7 +146,7 @@ class ActiveUsersBreakdownMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the os property value. The os property
+     * Sets the os property value. The platform for the device that the customers used. Supports $filter (eq).
      * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {

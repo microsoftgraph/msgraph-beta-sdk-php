@@ -52,7 +52,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of the customSecurityAttributeDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the customSecurityAttributeDefinition objects and their properties.
      * @param CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomSecurityAttributeDefinitionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Create a new customSecurityAttributeDefinition object. This API is available in the following national cloud deployments.
+     * Create a new customSecurityAttributeDefinition object.
      * @param CustomSecurityAttributeDefinition $body The request body
      * @param CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomSecurityAttributeDefinition|null>
@@ -85,7 +85,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of the customSecurityAttributeDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the customSecurityAttributeDefinition objects and their properties.
      * @param CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Create a new customSecurityAttributeDefinition object. This API is available in the following national cloud deployments.
+     * Create a new customSecurityAttributeDefinition object.
      * @param CustomSecurityAttributeDefinition $body The request body
      * @param CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -143,7 +143,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins. This API is available in the following national cloud deployments.
+     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.
      * @param ChatItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -159,7 +159,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from. This API is available in the following national cloud deployments.
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Chat|null>
      * @throws Exception
@@ -175,7 +175,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a chat object. This API is available in the following national cloud deployments.
+     * Update the properties of a chat object.
      * @param Chat $body The request body
      * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Chat|null>
@@ -192,7 +192,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins. This API is available in the following national cloud deployments.
+     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.
      * @param ChatItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -210,7 +210,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from. This API is available in the following national cloud deployments.
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -231,7 +231,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a chat object. This API is available in the following national cloud deployments.
+     * Update the properties of a chat object.
      * @param Chat $body The request body
      * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

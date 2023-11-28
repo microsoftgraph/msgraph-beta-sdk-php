@@ -52,7 +52,7 @@ class ManagementIntentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the managementIntent objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managementIntent objects and their properties.
      * @param ManagementIntentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementIntentCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ManagementIntentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the managementIntent objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the managementIntent objects and their properties.
      * @param ManagementIntentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

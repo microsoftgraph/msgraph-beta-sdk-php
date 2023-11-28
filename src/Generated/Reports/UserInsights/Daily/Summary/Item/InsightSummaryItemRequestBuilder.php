@@ -31,7 +31,7 @@ class InsightSummaryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get summary from reports
+     * Summary of all usage insights on apps registered in the tenant for a specified period.
      * @param InsightSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightSummary|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class InsightSummaryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get summary from reports
+     * Summary of all usage insights on apps registered in the tenant for a specified period.
      * @param InsightSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

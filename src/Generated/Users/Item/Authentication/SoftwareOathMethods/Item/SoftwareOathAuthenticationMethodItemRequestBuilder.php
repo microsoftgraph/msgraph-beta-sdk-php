@@ -31,7 +31,7 @@ class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Delete a user's Software OATH token authentication method object. This API is available in the following national cloud deployments.
+     * Delete a user's Software OATH token authentication method object.
      * @param SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a user's single Software OATH token authentication method object and its properties. This API is available in the following national cloud deployments.
+     * Retrieve a user's single Software OATH token authentication method object and its properties.
      * @param SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SoftwareOathAuthenticationMethod|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Delete a user's Software OATH token authentication method object. This API is available in the following national cloud deployments.
+     * Delete a user's Software OATH token authentication method object.
      * @param SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -81,7 +81,7 @@ class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a user's single Software OATH token authentication method object and its properties. This API is available in the following national cloud deployments.
+     * Retrieve a user's single Software OATH token authentication method object and its properties.
      * @param SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

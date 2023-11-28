@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\Connections\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an externalConnection. This API is available in the following national cloud deployments.
+ * Retrieve the properties and relationships of an externalConnection.
 */
 class ExternalConnectionItemRequestBuilderGetQueryParameters 
 {

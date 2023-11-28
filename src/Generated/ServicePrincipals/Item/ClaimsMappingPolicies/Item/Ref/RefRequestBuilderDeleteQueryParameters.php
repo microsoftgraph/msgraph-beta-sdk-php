@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove a claimsMappingPolicy from a servicePrincipal. This API is available in the following national cloud deployments.
+ * Remove a claimsMappingPolicy from a servicePrincipal.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

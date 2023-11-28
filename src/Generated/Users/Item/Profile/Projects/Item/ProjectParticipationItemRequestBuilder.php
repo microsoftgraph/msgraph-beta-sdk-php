@@ -31,7 +31,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a projectParticipation object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a projectParticipation object from a user's profile.
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipation|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipation|null>
@@ -80,7 +80,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a projectParticipation object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a projectParticipation object from a user's profile.
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

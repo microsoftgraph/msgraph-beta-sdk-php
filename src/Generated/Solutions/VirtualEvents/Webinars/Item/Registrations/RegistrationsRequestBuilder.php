@@ -52,7 +52,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar. This API is available in the following national cloud deployments.
+     * Get a list of all registration records of a webinar.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistrationCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar. This API is available in the following national cloud deployments.
+     * Get a list of all registration records of a webinar.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

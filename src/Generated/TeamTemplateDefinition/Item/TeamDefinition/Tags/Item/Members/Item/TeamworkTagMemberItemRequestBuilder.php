@@ -31,7 +31,7 @@ class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a member from a standard tag in a team. This API is available in the following national cloud deployments.
+     * Delete a member from a standard tag in a team.
      * @param TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a member of a standard tag in a team.  This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a member of a standard tag in a team. 
      * @param TeamworkTagMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkTagMember|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a member from a standard tag in a team. This API is available in the following national cloud deployments.
+     * Delete a member from a standard tag in a team.
      * @param TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a member of a standard tag in a team.  This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a member of a standard tag in a team. 
      * @param TeamworkTagMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

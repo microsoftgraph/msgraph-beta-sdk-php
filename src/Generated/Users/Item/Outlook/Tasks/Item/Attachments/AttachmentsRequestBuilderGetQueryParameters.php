@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\Attachmen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of attachment objects attached to an Outlook task. This API is available in the following national cloud deployments.
+ * Get a list of attachment objects attached to an Outlook task.
 */
 class AttachmentsRequestBuilderGetQueryParameters 
 {

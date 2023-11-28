@@ -52,7 +52,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostPair object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostPair object.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostPairCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class HostPairsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostPair object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostPair object.
      * @param HostPairsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

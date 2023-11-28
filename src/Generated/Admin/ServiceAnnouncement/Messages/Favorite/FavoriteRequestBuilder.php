@@ -30,7 +30,7 @@ class FavoriteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user. This API is available in the following national cloud deployments.
+     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param FavoritePostRequestBody $body The request body
      * @param FavoriteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FavoritePostResponse|null>
@@ -47,7 +47,7 @@ class FavoriteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user. This API is available in the following national cloud deployments.
+     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param FavoritePostRequestBody $body The request body
      * @param FavoriteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

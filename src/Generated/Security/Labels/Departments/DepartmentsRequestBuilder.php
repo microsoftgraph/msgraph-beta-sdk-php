@@ -52,7 +52,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the departmentTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the departmentTemplate objects and their properties.
      * @param DepartmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DepartmentTemplateCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new departmentTemplate object. This API is available in the following national cloud deployments.
+     * Create a new departmentTemplate object.
      * @param DepartmentTemplate $body The request body
      * @param DepartmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DepartmentTemplate|null>
@@ -85,7 +85,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the departmentTemplate objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the departmentTemplate objects and their properties.
      * @param DepartmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new departmentTemplate object. This API is available in the following national cloud deployments.
+     * Create a new departmentTemplate object.
      * @param DepartmentTemplate $body The request body
      * @param DepartmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

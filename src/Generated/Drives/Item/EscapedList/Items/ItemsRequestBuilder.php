@@ -70,7 +70,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of items][item] in a [list][]. This API is available in the following [national cloud deployments.
+     * Get the collection of [items][item] in a [list][].
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ListItemCollectionResponse|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new listItem][] in a [list][]. This API is available in the following [national cloud deployments.
+     * Create a new [listItem][] in a [list][].
      * @param ListItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ListItem|null>
@@ -103,7 +103,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of items][item] in a [list][]. This API is available in the following [national cloud deployments.
+     * Get the collection of [items][item] in a [list][].
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new listItem][] in a [list][]. This API is available in the following [national cloud deployments.
+     * Create a new [listItem][] in a [list][].
      * @param ListItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

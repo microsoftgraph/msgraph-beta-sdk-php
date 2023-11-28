@@ -60,7 +60,7 @@ class ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcProvisioningPolicy objects. This API is available in the following national cloud deployments.
+     * List properties and relationships of the cloudPcProvisioningPolicy objects.
      * @param ProvisioningPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicyCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param ProvisioningPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicy|null>
@@ -93,7 +93,7 @@ class ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcProvisioningPolicy objects. This API is available in the following national cloud deployments.
+     * List properties and relationships of the cloudPcProvisioningPolicy objects.
      * @param ProvisioningPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcProvisioningPolicy object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param ProvisioningPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

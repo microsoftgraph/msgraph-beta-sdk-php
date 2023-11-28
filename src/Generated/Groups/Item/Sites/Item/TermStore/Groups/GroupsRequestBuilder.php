@@ -52,7 +52,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a term store group object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a term store group object.
      * @param GroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new group object. This API is available in the following national cloud deployments.
+     * Create a new group object.
      * @param Group $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
@@ -85,7 +85,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a term store group object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a term store group object.
      * @param GroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new group object. This API is available in the following national cloud deployments.
+     * Create a new group object.
      * @param Group $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

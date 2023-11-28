@@ -52,7 +52,7 @@ class WindowsProtectionStatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the windowsProtectionState objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the windowsProtectionState objects and their properties.
      * @param WindowsProtectionStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsProtectionStateCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class WindowsProtectionStatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the windowsProtectionState objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the windowsProtectionState objects and their properties.
      * @param WindowsProtectionStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

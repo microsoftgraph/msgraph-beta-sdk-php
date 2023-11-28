@@ -52,7 +52,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of projectParticipation objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of projectParticipation objects from a user's profile.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipation|null>
@@ -85,7 +85,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of projectParticipation objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of projectParticipation objects from a user's profile.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new projectParticipation object in a user's profile. This API is available in the following national cloud deployments.
+     * Use this API to create a new projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

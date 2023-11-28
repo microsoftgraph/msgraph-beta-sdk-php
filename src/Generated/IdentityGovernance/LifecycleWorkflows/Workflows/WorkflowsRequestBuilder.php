@@ -52,7 +52,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of workflow resources that are associated with lifecycle workflows. This API is available in the following national cloud deployments.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkflowCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new workflow object. You can create up to 50 workflows in a tenant. This API is available in the following national cloud deployments.
+     * Create a new workflow object. You can create up to 50 workflows in a tenant.
      * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Workflow|null>
@@ -85,7 +85,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of workflow resources that are associated with lifecycle workflows. This API is available in the following national cloud deployments.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new workflow object. You can create up to 50 workflows in a tenant. This API is available in the following national cloud deployments.
+     * Create a new workflow object. You can create up to 50 workflows in a tenant.
      * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

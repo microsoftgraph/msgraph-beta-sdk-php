@@ -52,7 +52,7 @@ class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer. This API is available in the following national cloud deployments.
+     * Retrieve a list of daily print usage summaries, grouped by printer.
      * @param DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByPrinterCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer. This API is available in the following national cloud deployments.
+     * Retrieve a list of daily print usage summaries, grouped by printer.
      * @param DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

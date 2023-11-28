@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Authorities\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a authorityTemplate object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a authorityTemplate object.
 */
 class AuthorityTemplateItemRequestBuilderGetQueryParameters 
 {

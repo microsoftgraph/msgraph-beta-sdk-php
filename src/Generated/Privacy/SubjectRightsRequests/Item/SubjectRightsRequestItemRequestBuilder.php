@@ -94,7 +94,7 @@ class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a subjectRightsRequest object.
      * @param SubjectRightsRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SubjectRightsRequest|null>
      * @throws Exception
@@ -110,7 +110,7 @@ class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Update the properties of a subjectRightsRequest object.
      * @param SubjectRightsRequest $body The request body
      * @param SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SubjectRightsRequest|null>
@@ -145,7 +145,7 @@ class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a subjectRightsRequest object.
      * @param SubjectRightsRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -166,7 +166,7 @@ class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Update the properties of a subjectRightsRequest object.
      * @param SubjectRightsRequest $body The request body
      * @param SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

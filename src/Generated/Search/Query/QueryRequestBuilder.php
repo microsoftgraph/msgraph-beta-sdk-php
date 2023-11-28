@@ -30,7 +30,7 @@ class QueryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Run a specified search query. Search results are provided in the response. This API is available in the following national cloud deployments.
+     * Run a specified search query. Search results are provided in the response.
      * @param QueryPostRequestBody $body The request body
      * @param QueryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<QueryPostResponse|null>
@@ -47,7 +47,7 @@ class QueryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Run a specified search query. Search results are provided in the response. This API is available in the following national cloud deployments.
+     * Run a specified search query. Search results are provided in the response.
      * @param QueryPostRequestBody $body The request body
      * @param QueryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

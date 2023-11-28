@@ -84,7 +84,7 @@ class ContractsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of contract objects associated to a partner tenant. This API is available in the following national cloud deployments.
+     * Retrieve a list of contract objects associated to a partner tenant.
      * @param ContractsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContractCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class ContractsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of contract objects associated to a partner tenant. This API is available in the following national cloud deployments.
+     * Retrieve a list of contract objects associated to a partner tenant.
      * @param ContractsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

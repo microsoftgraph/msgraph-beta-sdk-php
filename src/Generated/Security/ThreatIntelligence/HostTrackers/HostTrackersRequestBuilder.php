@@ -52,7 +52,7 @@ class HostTrackersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostTracker object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostTracker object.
      * @param HostTrackersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostTrackerCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class HostTrackersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a hostTracker object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a hostTracker object.
      * @param HostTrackersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

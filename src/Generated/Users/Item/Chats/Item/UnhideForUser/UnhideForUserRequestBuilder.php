@@ -30,7 +30,7 @@ class UnhideForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Unhide a chat for a user. This API is available in the following national cloud deployments.
+     * Unhide a chat for a user.
      * @param UnhideForUserPostRequestBody $body The request body
      * @param UnhideForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class UnhideForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Unhide a chat for a user. This API is available in the following national cloud deployments.
+     * Unhide a chat for a user.
      * @param UnhideForUserPostRequestBody $body The request body
      * @param UnhideForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

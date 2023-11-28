@@ -52,7 +52,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the itemAddress resources from the addresses navigation property. This API is available in the following national cloud deployments.
+     * Get the itemAddress resources from the addresses navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemAddressCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemAddress object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemAddress object in a user's profile.
      * @param ItemAddress $body The request body
      * @param AddressesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemAddress|null>
@@ -85,7 +85,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the itemAddress resources from the addresses navigation property. This API is available in the following national cloud deployments.
+     * Get the itemAddress resources from the addresses navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemAddress object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new itemAddress object in a user's profile.
      * @param ItemAddress $body The request body
      * @param AddressesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

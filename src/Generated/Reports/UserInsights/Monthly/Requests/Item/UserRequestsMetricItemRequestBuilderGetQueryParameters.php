@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Requests\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get requests from reports
+ * Insights for all user requests on apps registered in the tenant for a specified period.
 */
 class UserRequestsMetricItemRequestBuilderGetQueryParameters 
 {

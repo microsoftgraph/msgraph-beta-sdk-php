@@ -52,7 +52,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the first level children of a set] or [term] resource using the children navigation property. This API is available in the following [national cloud deployments.
+     * Get the first level children of a [set] or [term] resource using the children navigation property.
      * @param ChildrenRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TermCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new term object. This API is available in the following national cloud deployments.
+     * Create a new term object.
      * @param Term $body The request body
      * @param ChildrenRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Term|null>
@@ -85,7 +85,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the first level children of a set] or [term] resource using the children navigation property. This API is available in the following [national cloud deployments.
+     * Get the first level children of a [set] or [term] resource using the children navigation property.
      * @param ChildrenRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new term object. This API is available in the following national cloud deployments.
+     * Create a new term object.
      * @param Term $body The request body
      * @param ChildrenRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

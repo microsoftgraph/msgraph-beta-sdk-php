@@ -52,7 +52,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of onenoteSection objects from the specified section group.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenoteSectionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new section in the specified section group. This API is available in the following national cloud deployments.
+     * Create a new section in the specified section group.
      * @param OnenoteSection $body The request body
      * @param SectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenoteSection|null>
@@ -85,7 +85,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of onenoteSection objects from the specified section group.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new section in the specified section group. This API is available in the following national cloud deployments.
+     * Create a new section in the specified section group.
      * @param OnenoteSection $body The request body
      * @param SectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedGroupSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedGroupSource objects and their properties.
      * @param UnifiedGroupSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedGroupSourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new unifiedGroupSource object. This API is available in the following national cloud deployments.
+     * Create a new unifiedGroupSource object.
      * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedGroupSource|null>
@@ -85,7 +85,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedGroupSource objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedGroupSource objects and their properties.
      * @param UnifiedGroupSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new unifiedGroupSource object. This API is available in the following national cloud deployments.
+     * Create a new unifiedGroupSource object.
      * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

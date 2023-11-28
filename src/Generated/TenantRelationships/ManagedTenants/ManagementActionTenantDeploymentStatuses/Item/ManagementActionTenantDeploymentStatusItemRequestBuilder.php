@@ -46,7 +46,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Read the properties and relationships of a managementActionTenantDeploymentStatus object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Read the properties and relationships of a managementActionTenantDeploymentStatus object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

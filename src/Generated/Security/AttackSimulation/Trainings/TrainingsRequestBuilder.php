@@ -52,7 +52,7 @@ class TrainingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the training objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the training objects and their properties.
      * @param TrainingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class TrainingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the training objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the training objects and their properties.
      * @param TrainingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

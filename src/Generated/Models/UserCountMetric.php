@@ -26,7 +26,7 @@ class UserCountMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. The total number of users in the tenant over time.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -38,7 +38,7 @@ class UserCountMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the factDate property value. The factDate property
+     * Gets the factDate property value. The date of the insight.
      * @return Date|null
     */
     public function getFactDate(): ?Date {
@@ -72,7 +72,7 @@ class UserCountMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. The total number of users in the tenant over time.
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
@@ -80,7 +80,7 @@ class UserCountMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the factDate property value. The factDate property
+     * Sets the factDate property value. The date of the insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {

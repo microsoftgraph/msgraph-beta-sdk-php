@@ -84,7 +84,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are members of a deploymentAudience. This API is available in the following national cloud deployments.
+     * List the updatableAsset resources that are members of a deploymentAudience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are members of a deploymentAudience. This API is available in the following national cloud deployments.
+     * List the updatableAsset resources that are members of a deploymentAudience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

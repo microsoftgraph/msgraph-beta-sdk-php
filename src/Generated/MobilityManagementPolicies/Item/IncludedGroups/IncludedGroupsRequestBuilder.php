@@ -59,7 +59,7 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy. This API is available in the following national cloud deployments.
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

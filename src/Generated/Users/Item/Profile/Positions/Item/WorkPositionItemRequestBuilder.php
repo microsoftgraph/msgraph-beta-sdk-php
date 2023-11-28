@@ -31,7 +31,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific workPosition object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a specific workPosition object from a user's profile.
      * @param WorkPositionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a workPosition object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a workPosition object in a user's profile.
      * @param WorkPositionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a workPosition object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a workPosition object in a user's profile.
      * @param WorkPosition $body The request body
      * @param WorkPositionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
@@ -80,7 +80,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific workPosition object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a specific workPosition object from a user's profile.
      * @param WorkPositionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a workPosition object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a workPosition object in a user's profile.
      * @param WorkPositionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a workPosition object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a workPosition object in a user's profile.
      * @param WorkPosition $body The request body
      * @param WorkPositionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

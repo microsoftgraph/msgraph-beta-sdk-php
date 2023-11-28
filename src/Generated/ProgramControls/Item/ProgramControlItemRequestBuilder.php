@@ -39,7 +39,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.
      * @param ProgramControlItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -86,7 +86,7 @@ class ProgramControlItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.
      * @param ProgramControlItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

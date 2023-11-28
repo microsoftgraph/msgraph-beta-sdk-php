@@ -30,7 +30,7 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Perform validations applicable for the specific instance of the data connector. This API is available in the following national cloud deployments.
+     * Perform validations applicable for the specific instance of the data connector.
      * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Perform validations applicable for the specific instance of the data connector. This API is available in the following national cloud deployments.
+     * Perform validations applicable for the specific instance of the data connector.
      * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

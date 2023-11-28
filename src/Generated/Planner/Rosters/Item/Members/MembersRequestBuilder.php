@@ -52,7 +52,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster. This API is available in the following national cloud deployments.
+     * Get the list of plannerRosterMembers from a plannerRoster.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRosterMemberCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object. This API is available in the following national cloud deployments.
+     * Add a member to the plannerRoster object.
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRosterMember|null>
@@ -85,7 +85,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster. This API is available in the following national cloud deployments.
+     * Get the list of plannerRosterMembers from a plannerRoster.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object. This API is available in the following national cloud deployments.
+     * Add a member to the plannerRoster object.
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

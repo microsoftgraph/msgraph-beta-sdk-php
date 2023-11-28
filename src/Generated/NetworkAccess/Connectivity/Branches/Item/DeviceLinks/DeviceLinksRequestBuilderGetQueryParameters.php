@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of device links associated with a specific branch. This API is available in the following national cloud deployments.
+ * Retrieve a list of device links associated with a specific branch.
 */
 class DeviceLinksRequestBuilderGetQueryParameters 
 {

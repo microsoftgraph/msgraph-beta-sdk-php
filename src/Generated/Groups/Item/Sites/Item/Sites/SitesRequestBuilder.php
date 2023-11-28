@@ -51,7 +51,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of subsites defined for a site][]. This API is available in the following [national cloud deployments.
+     * Get a collection of subsites defined for a [site][].
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of subsites defined for a site][]. This API is available in the following [national cloud deployments.
+     * Get a collection of subsites defined for a [site][].
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

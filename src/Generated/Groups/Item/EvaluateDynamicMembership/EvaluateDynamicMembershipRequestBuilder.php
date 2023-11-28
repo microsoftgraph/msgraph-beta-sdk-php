@@ -31,7 +31,7 @@ class EvaluateDynamicMembershipRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways: This API is available in the following national cloud deployments.
+     * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways:
      * @param EvaluateDynamicMembershipPostRequestBody $body The request body
      * @param EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateDynamicMembershipResult|null>
@@ -48,7 +48,7 @@ class EvaluateDynamicMembershipRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways: This API is available in the following national cloud deployments.
+     * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways:
      * @param EvaluateDynamicMembershipPostRequestBody $body The request body
      * @param EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

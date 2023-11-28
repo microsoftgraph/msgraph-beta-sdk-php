@@ -54,7 +54,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * Get the details of an outboundSharedUserProfile.
      * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundSharedUserProfile|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an outboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * Get the details of an outboundSharedUserProfile.
      * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,7 +30,7 @@ class UnfollowRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Unfollow a driveItem. This API is available in the following national cloud deployments.
+     * Unfollow a driveItem.
      * @param UnfollowRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class UnfollowRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Unfollow a driveItem. This API is available in the following national cloud deployments.
+     * Unfollow a driveItem.
      * @param UnfollowRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

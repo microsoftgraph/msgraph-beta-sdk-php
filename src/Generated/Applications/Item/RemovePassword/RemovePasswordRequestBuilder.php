@@ -30,7 +30,7 @@ class RemovePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes a password from an application. This API is available in the following national cloud deployments.
+     * Removes a password from an application.
      * @param RemovePasswordPostRequestBody $body The request body
      * @param RemovePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class RemovePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes a password from an application. This API is available in the following national cloud deployments.
+     * Removes a password from an application.
      * @param RemovePasswordPostRequestBody $body The request body
      * @param RemovePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

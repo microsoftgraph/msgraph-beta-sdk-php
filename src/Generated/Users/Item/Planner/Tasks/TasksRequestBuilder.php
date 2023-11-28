@@ -60,7 +60,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannertask objects assigned to a User. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannertask objects assigned to a User.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTaskCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannertask objects assigned to a User. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannertask objects assigned to a User.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

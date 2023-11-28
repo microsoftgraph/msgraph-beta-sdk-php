@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
+ * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
 */
 class RubricRequestBuilderGetQueryParameters 
 {

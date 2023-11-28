@@ -52,7 +52,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of printService objects that represent the services available to your tenant. This API is available in the following national cloud deployments.
+     * Retrieve a list of printService objects that represent the services available to your tenant.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintServiceCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of printService objects that represent the services available to your tenant. This API is available in the following national cloud deployments.
+     * Retrieve a list of printService objects that represent the services available to your tenant.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class UserRequestsMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get requests from reports
+     * Insights for all user requests on apps registered in the tenant for a specified period.
      * @param UserRequestsMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserRequestsMetric|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class UserRequestsMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get requests from reports
+     * Insights for all user requests on apps registered in the tenant for a specified period.
      * @param UserRequestsMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

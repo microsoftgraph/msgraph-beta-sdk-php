@@ -10,12 +10,6 @@ use Microsoft\Kiota\Abstractions\QueryParameter;
 class DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters 
 {
     /**
-     * @QueryParameter("%24expand")
-     * @var array<string>|null $expand Expand related entities
-    */
-    public ?array $expand = null;
-    
-    /**
      * @QueryParameter("%24select")
      * @var array<string>|null $select Select properties to be returned
     */
@@ -23,11 +17,9 @@ class DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters
     
     /**
      * Instantiates a new DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters and sets the default values.
-     * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */
-    public function __construct(?array $expand = null, ?array $select = null) {
-        $this->expand = $expand;
+    public function __construct(?array $select = null) {
         $this->select = $select;
     }
 

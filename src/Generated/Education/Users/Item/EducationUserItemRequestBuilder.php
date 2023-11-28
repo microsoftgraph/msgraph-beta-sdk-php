@@ -79,7 +79,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a user. This API is available in the following national cloud deployments.
+     * Delete a user.
      * @param EducationUserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a user. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a user.
      * @param EducationUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUser|null>
      * @throws Exception
@@ -111,12 +111,12 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationuser object. This API is available in the following national cloud deployments.
+     * Update the relatedContact collection of an educationUser object.
      * @param EducationUser $body The request body
      * @param EducationUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUser|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/relatedcontact-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EducationUser $body, ?EducationUserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -128,7 +128,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a user. This API is available in the following national cloud deployments.
+     * Delete a user.
      * @param EducationUserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -146,7 +146,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a user. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a user.
      * @param EducationUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -167,7 +167,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationuser object. This API is available in the following national cloud deployments.
+     * Update the relatedContact collection of an educationUser object.
      * @param EducationUser $body The request body
      * @param EducationUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

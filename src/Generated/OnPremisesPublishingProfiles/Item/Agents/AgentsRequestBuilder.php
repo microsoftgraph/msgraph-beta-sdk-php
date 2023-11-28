@@ -52,7 +52,7 @@ class AgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgent objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of onPremisesAgent objects.
      * @param AgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgent objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of onPremisesAgent objects.
      * @param AgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

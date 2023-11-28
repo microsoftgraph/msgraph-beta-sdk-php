@@ -52,7 +52,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the acronym objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the acronym objects and their properties.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AcronymCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new acronym object. This API is available in the following national cloud deployments.
+     * Create a new acronym object.
      * @param Acronym $body The request body
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Acronym|null>
@@ -85,7 +85,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the acronym objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the acronym objects and their properties.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AcronymsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new acronym object. This API is available in the following national cloud deployments.
+     * Create a new acronym object.
      * @param Acronym $body The request body
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -54,7 +54,7 @@ class SlaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A placeholder to allow for the desired URL path for SLA.
+     * Reports that relate to tenant-level Microsoft Entra SLA attainment.
      * @param SlaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServiceLevelAgreementRoot|null>
      * @throws Exception
@@ -103,7 +103,7 @@ class SlaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A placeholder to allow for the desired URL path for SLA.
+     * Reports that relate to tenant-level Microsoft Entra SLA attainment.
      * @param SlaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

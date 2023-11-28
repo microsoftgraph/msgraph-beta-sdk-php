@@ -31,7 +31,7 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is available in the following national cloud deployments.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationConfigurationValidation|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension. This API is available in the following national cloud deployments.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

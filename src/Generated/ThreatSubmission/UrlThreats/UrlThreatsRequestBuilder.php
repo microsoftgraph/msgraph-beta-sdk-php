@@ -52,7 +52,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmissionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmission|null>
@@ -85,7 +85,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a schedulingGroup by ID. This API is available in the following national cloud deployments.
+ * Retrieve the properties and relationships of a schedulingGroup by ID.
 */
 class SchedulingGroupItemRequestBuilderGetQueryParameters 
 {

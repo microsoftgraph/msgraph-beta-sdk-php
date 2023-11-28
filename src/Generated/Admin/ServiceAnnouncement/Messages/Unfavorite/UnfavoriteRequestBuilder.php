@@ -30,7 +30,7 @@ class UnfavoriteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user. This API is available in the following national cloud deployments.
+     * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param UnfavoritePostRequestBody $body The request body
      * @param UnfavoriteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnfavoritePostResponse|null>
@@ -47,7 +47,7 @@ class UnfavoriteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user. This API is available in the following national cloud deployments.
+     * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param UnfavoritePostRequestBody $body The request body
      * @param UnfavoriteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

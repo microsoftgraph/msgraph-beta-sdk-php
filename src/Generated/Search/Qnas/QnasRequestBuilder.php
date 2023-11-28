@@ -52,7 +52,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the qna objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<QnaCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new qna object. This API is available in the following national cloud deployments.
+     * Create a new qna object.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Qna|null>
@@ -85,7 +85,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the qna objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new qna object. This API is available in the following national cloud deployments.
+     * Create a new qna object.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

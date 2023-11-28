@@ -46,7 +46,7 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a richLongRunningOperation object. This API is available in the following national cloud deployments.
+     * Read the properties of a richLongRunningOperation object.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RichLongRunningOperation|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a richLongRunningOperation object. This API is available in the following national cloud deployments.
+     * Read the properties of a richLongRunningOperation object.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

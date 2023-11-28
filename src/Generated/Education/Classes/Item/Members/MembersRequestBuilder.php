@@ -59,7 +59,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class. This API is available in the following national cloud deployments.
+     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUserCollectionResponse|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class. This API is available in the following national cloud deployments.
+     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

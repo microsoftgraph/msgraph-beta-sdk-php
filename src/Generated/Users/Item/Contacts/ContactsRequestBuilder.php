@@ -60,7 +60,7 @@ class ContactsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder: This API is available in the following national cloud deployments.
+     * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:
      * @param ContactsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContactCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class ContactsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder. This API is available in the following national cloud deployments.
+     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
      * @param Contact $body The request body
      * @param ContactsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Contact|null>
@@ -93,7 +93,7 @@ class ContactsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder: This API is available in the following national cloud deployments.
+     * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:
      * @param ContactsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class ContactsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder. This API is available in the following national cloud deployments.
+     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
      * @param Contact $body The request body
      * @param ContactsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

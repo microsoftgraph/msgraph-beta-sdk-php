@@ -60,7 +60,7 @@ class ListsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the todoTaskList objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the todoTaskList objects and their properties.
      * @param ListsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TodoTaskListCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class ListsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new lists object. This API is available in the following national cloud deployments.
+     * Create a new lists object.
      * @param TodoTaskList $body The request body
      * @param ListsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TodoTaskList|null>
@@ -93,7 +93,7 @@ class ListsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the todoTaskList objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the todoTaskList objects and their properties.
      * @param ListsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class ListsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new lists object. This API is available in the following national cloud deployments.
+     * Create a new lists object.
      * @param TodoTaskList $body The request body
      * @param ListsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

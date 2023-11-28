@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Aggr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the aggregatedPolicyCompliance objects and their properties. This API is available in the following national cloud deployments.
+ * Get a list of the aggregatedPolicyCompliance objects and their properties.
 */
 class AggregatedPolicyCompliancesRequestBuilderGetQueryParameters 
 {

@@ -71,7 +71,7 @@ class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Delete a b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -87,7 +87,7 @@ class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2xIdentityUserFlow|null>
      * @throws Exception
@@ -119,7 +119,7 @@ class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Delete a b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -137,7 +137,7 @@ class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

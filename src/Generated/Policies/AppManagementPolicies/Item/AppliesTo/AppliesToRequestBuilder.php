@@ -51,7 +51,7 @@ class AppliesToRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List application and service principal objects assigned an appManagementPolicy policy object. This API is available in the following national cloud deployments.
+     * List application and service principal objects assigned an appManagementPolicy policy object.
      * @param AppliesToRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class AppliesToRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List application and service principal objects assigned an appManagementPolicy policy object. This API is available in the following national cloud deployments.
+     * List application and service principal objects assigned an appManagementPolicy policy object.
      * @param AppliesToRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

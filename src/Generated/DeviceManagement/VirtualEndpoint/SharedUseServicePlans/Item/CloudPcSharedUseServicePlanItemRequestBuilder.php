@@ -46,7 +46,7 @@ class CloudPcSharedUseServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcSharedUseServicePlan object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcSharedUseServicePlan object.
      * @param CloudPcSharedUseServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSharedUseServicePlan|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class CloudPcSharedUseServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcSharedUseServicePlan object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a cloudPcSharedUseServicePlan object.
      * @param CloudPcSharedUseServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -62,7 +62,7 @@ class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the schedules for active role assignment operations. This API is available in the following national cloud deployments.
+     * Get the schedules for active role assignment operations.
      * @param RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleAssignmentScheduleCollectionResponse|null>
      * @throws Exception
@@ -94,7 +94,7 @@ class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the schedules for active role assignment operations. This API is available in the following national cloud deployments.
+     * Get the schedules for active role assignment operations.
      * @param RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

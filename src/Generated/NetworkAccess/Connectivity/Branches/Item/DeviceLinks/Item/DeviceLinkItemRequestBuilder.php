@@ -31,7 +31,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them. This API is available in the following national cloud deployments.
+     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch. This API is available in the following national cloud deployments.
+     * Retrieve the device link associated with a specific branch.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch. This API is available in the following national cloud deployments.
+     * Update the device link associated with a specific branch.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
@@ -80,7 +80,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them. This API is available in the following national cloud deployments.
+     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch. This API is available in the following national cloud deployments.
+     * Retrieve the device link associated with a specific branch.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch. This API is available in the following national cloud deployments.
+     * Update the device link associated with a specific branch.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

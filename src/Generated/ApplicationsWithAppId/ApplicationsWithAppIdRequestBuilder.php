@@ -34,7 +34,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is available in the following national cloud deployments.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -50,7 +50,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of an application object.
      * @param ApplicationsWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
      * @throws Exception
@@ -66,7 +66,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an application object. This API is available in the following national cloud deployments.
+     * Update the properties of an application object.
      * @param Application $body The request body
      * @param ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
@@ -83,7 +83,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is available in the following national cloud deployments.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,7 +101,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of an application object.
      * @param ApplicationsWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an application object. This API is available in the following national cloud deployments.
+     * Update the properties of an application object.
      * @param Application $body The request body
      * @param ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

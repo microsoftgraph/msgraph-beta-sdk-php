@@ -94,7 +94,7 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a noncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a noncustodialDataSource object.
      * @param NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSource|null>
      * @throws Exception
@@ -144,7 +144,7 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a noncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a noncustodialDataSource object.
      * @param NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

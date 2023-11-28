@@ -61,7 +61,7 @@ class FieldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties on a listItem][]. This API is available in the following [national cloud deployments.
+     * Update the properties on a [listItem][].
      * @param FieldValueSet $body The request body
      * @param FieldsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FieldValueSet|null>
@@ -117,7 +117,7 @@ class FieldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties on a listItem][]. This API is available in the following [national cloud deployments.
+     * Update the properties on a [listItem][].
      * @param FieldValueSet $body The request body
      * @param FieldsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -60,7 +60,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerplan objects shared with a user object. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerplan objects shared with a user object.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of plannerplan objects shared with a user object. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerplan objects shared with a user object.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

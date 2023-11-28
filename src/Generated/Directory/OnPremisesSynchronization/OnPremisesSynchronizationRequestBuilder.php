@@ -52,7 +52,7 @@ class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param OnPremisesSynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesDirectorySynchronizationCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param OnPremisesSynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

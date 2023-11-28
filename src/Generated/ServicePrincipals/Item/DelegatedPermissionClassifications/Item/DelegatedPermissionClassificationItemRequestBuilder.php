@@ -31,7 +31,7 @@ class DelegatedPermissionClassificationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission. This API is available in the following national cloud deployments.
+     * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
      * @param DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class DelegatedPermissionClassificationItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission. This API is available in the following national cloud deployments.
+     * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
      * @param DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

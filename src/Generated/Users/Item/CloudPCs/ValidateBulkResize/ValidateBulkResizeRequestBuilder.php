@@ -30,7 +30,7 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validate that a set of cloudPC devices meet the requirements to be bulk resized. This API is available in the following national cloud deployments.
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ValidateBulkResizePostResponse|null>
@@ -47,7 +47,7 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validate that a set of cloudPC devices meet the requirements to be bulk resized. This API is available in the following national cloud deployments.
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

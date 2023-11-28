@@ -52,7 +52,7 @@ class ServiceActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A placeholder to the Microsoft Entra service activity.
+     * Reports that relate to tenant-level authentication activities in Microsoft Entra.
      * @param ServiceActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServiceActivity|null>
      * @throws Exception
@@ -151,7 +151,7 @@ class ServiceActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A placeholder to the Microsoft Entra service activity.
+     * Reports that relate to tenant-level authentication activities in Microsoft Entra.
      * @param ServiceActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

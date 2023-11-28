@@ -52,7 +52,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
@@ -85,7 +85,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

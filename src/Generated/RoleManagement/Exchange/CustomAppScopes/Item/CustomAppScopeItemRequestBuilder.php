@@ -31,7 +31,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAppScope|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAppScope|null>
@@ -80,7 +80,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported. This API is available in the following national cloud deployments.
+     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

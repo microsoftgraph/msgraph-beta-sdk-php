@@ -46,7 +46,7 @@ class ShiftPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a shiftPreferences object by ID.
      * @param ShiftPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ShiftPreferences|null>
      * @throws Exception
@@ -97,7 +97,7 @@ class ShiftPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a shiftPreferences object by ID.
      * @param ShiftPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

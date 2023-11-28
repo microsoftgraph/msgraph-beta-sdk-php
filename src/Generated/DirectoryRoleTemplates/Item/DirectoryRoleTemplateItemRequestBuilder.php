@@ -86,7 +86,7 @@ class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a directoryroletemplate object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a directoryroletemplate object.
      * @param DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryRoleTemplate|null>
      * @throws Exception
@@ -136,7 +136,7 @@ class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a directoryroletemplate object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a directoryroletemplate object.
      * @param DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

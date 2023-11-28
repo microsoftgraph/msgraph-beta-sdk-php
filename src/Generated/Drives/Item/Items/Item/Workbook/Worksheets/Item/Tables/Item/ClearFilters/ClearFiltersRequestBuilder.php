@@ -30,7 +30,7 @@ class ClearFiltersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clears all the filters currently applied on the table. This API is available in the following national cloud deployments.
+     * Clears all the filters currently applied on the table.
      * @param ClearFiltersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ClearFiltersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clears all the filters currently applied on the table. This API is available in the following national cloud deployments.
+     * Clears all the filters currently applied on the table.
      * @param ClearFiltersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

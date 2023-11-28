@@ -52,7 +52,7 @@ class CalendarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of calendars belonging to a calendar group. This API is available in the following national cloud deployments.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param CalendarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CalendarCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class CalendarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new calendar in a calendar group for a user. This API is available in the following national cloud deployments.
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param Calendar $body The request body
      * @param CalendarsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Calendar|null>
@@ -85,7 +85,7 @@ class CalendarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of calendars belonging to a calendar group. This API is available in the following national cloud deployments.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param CalendarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class CalendarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new calendar in a calendar group for a user. This API is available in the following national cloud deployments.
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param Calendar $body The request body
      * @param CalendarsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

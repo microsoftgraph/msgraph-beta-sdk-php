@@ -31,7 +31,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object. This API is available in the following national cloud deployments.
+     * Delete a authorityTemplate object.
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a authorityTemplate object.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorityTemplate|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object. This API is available in the following national cloud deployments.
+     * Delete a authorityTemplate object.
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a authorityTemplate object.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

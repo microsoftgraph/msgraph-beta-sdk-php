@@ -52,7 +52,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a legalHold object.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHoldCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a legalHold object.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a userSource object. This API is available in the following national cloud deployments.
+     * Delete a userSource object.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a userSource object.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a userSource object. This API is available in the following national cloud deployments.
+     * Delete a userSource object.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a userSource object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a userSource object.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

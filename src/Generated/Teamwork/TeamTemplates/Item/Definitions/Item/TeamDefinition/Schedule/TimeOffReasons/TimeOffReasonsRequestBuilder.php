@@ -52,7 +52,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOffReasons in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of timeOffReasons in a schedule.
      * @param TimeOffReasonsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffReasonCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOffReason. This API is available in the following national cloud deployments.
+     * Create a new timeOffReason.
      * @param TimeOffReason $body The request body
      * @param TimeOffReasonsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffReason|null>
@@ -85,7 +85,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOffReasons in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of timeOffReasons in a schedule.
      * @param TimeOffReasonsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOffReason. This API is available in the following national cloud deployments.
+     * Create a new timeOffReason.
      * @param TimeOffReason $body The request body
      * @param TimeOffReasonsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

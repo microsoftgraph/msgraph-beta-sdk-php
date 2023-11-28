@@ -62,7 +62,7 @@ class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder extends
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
      * @param PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedAccessGroupEligibilityScheduleInstance|null>
      * @throws Exception
@@ -112,7 +112,7 @@ class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder extends
     }
 
     /**
-     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
      * @param PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

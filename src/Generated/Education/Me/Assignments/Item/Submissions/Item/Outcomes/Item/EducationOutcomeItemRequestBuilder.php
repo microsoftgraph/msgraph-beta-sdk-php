@@ -31,7 +31,7 @@ class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher. This API is available in the following national cloud deployments.
+     * Delete a feedback resource from a submission. This can only be done by a teacher.
      * @param EducationOutcomeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
      * @param EducationOutcome $body The request body
      * @param EducationOutcomeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationOutcome|null>
@@ -79,7 +79,7 @@ class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher. This API is available in the following national cloud deployments.
+     * Delete a feedback resource from a submission. This can only be done by a teacher.
      * @param EducationOutcomeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
      * @param EducationOutcome $body The request body
      * @param EducationOutcomeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

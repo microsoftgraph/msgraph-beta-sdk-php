@@ -46,7 +46,7 @@ class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Read the properties and relationships of a delegatedAdminRelationshipRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DelegatedAdminRelationshipRequest|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Read the properties and relationships of a delegatedAdminRelationshipRequest object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

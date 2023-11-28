@@ -30,7 +30,7 @@ class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Translate identifiers of Outlook-related resources between formats. This API is available in the following national cloud deployments.
+     * Translate identifiers of Outlook-related resources between formats.
      * @param TranslateExchangeIdsPostRequestBody $body The request body
      * @param TranslateExchangeIdsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TranslateExchangeIdsPostResponse|null>
@@ -47,7 +47,7 @@ class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Translate identifiers of Outlook-related resources between formats. This API is available in the following national cloud deployments.
+     * Translate identifiers of Outlook-related resources between formats.
      * @param TranslateExchangeIdsPostRequestBody $body The request body
      * @param TranslateExchangeIdsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

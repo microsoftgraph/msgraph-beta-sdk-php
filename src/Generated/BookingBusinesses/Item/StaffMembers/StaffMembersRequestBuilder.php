@@ -52,7 +52,7 @@ class StaffMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
      * @param StaffMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMemberCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class StaffMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new staff member in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Create a new staff member in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param StaffMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMember|null>
@@ -85,7 +85,7 @@ class StaffMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
      * @param StaffMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class StaffMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new staff member in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Create a new staff member in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param StaffMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -84,7 +84,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tiIndicator objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of tiIndicator objects.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicatorCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tiIndicator object. This API is available in the following national cloud deployments.
+     * Create a new tiIndicator object.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicator|null>
@@ -117,7 +117,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tiIndicator objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of tiIndicator objects.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -138,7 +138,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tiIndicator object. This API is available in the following national cloud deployments.
+     * Create a new tiIndicator object.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

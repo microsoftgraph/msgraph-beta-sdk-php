@@ -31,7 +31,7 @@ class TimeOffItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeOff instance from a schedule. This API is available in the following national cloud deployments.
+     * Delete a timeOff instance from a schedule.
      * @param TimeOffItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class TimeOffItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a timeOff object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a timeOff object by ID.
      * @param TimeOffItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOff|null>
      * @throws Exception
@@ -80,7 +80,7 @@ class TimeOffItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeOff instance from a schedule. This API is available in the following national cloud deployments.
+     * Delete a timeOff instance from a schedule.
      * @param TimeOffItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class TimeOffItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a timeOff object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a timeOff object by ID.
      * @param TimeOffItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

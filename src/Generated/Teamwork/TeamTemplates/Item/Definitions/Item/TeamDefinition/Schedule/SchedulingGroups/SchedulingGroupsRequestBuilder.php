@@ -52,7 +52,7 @@ class SchedulingGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of schedulingGroups in this schedule. This API is available in the following national cloud deployments.
+     * Get the list of schedulingGroups in this schedule.
      * @param SchedulingGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SchedulingGroupCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class SchedulingGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new schedulingGroup. This API is available in the following national cloud deployments.
+     * Create a new schedulingGroup.
      * @param SchedulingGroup $body The request body
      * @param SchedulingGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SchedulingGroup|null>
@@ -85,7 +85,7 @@ class SchedulingGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of schedulingGroups in this schedule. This API is available in the following national cloud deployments.
+     * Get the list of schedulingGroups in this schedule.
      * @param SchedulingGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class SchedulingGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new schedulingGroup. This API is available in the following national cloud deployments.
+     * Create a new schedulingGroup.
      * @param SchedulingGroup $body The request body
      * @param SchedulingGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

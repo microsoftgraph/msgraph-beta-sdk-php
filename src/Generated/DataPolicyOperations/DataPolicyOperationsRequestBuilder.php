@@ -52,7 +52,7 @@ class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of the dataPolicyOperation object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of the dataPolicyOperation object.
      * @param DataPolicyOperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataPolicyOperationCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of the dataPolicyOperation object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of the dataPolicyOperation object.
      * @param DataPolicyOperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

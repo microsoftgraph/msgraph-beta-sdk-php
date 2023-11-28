@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Subscriptions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of webhook subscriptions. The content of the response depends on the context in which the app is calling; for details, see the scenarios in the Permissions section. This API is available in the following national cloud deployments.
+ * Retrieve a list of webhook subscriptions. The content of the response depends on the context in which the app is calling; for details, see the scenarios in the Permissions section.
 */
 class SubscriptionsRequestBuilderGetQueryParameters 
 {

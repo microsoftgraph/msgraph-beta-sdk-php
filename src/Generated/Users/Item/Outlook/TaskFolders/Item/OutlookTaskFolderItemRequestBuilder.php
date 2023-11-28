@@ -39,7 +39,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified Outlook task folder. This API is available in the following national cloud deployments.
+     * Delete the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task folder. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'. This API is available in the following national cloud deployments.
+     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
@@ -88,7 +88,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified Outlook task folder. This API is available in the following national cloud deployments.
+     * Delete the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task folder. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'. This API is available in the following national cloud deployments.
+     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

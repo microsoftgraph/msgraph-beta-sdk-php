@@ -30,7 +30,7 @@ class ResetRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset the sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Reset the sync of a specific school data synchronization profile in the tenant.
      * @param ResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ResetRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reset the sync of a specific school data synchronization profile in the tenant. This API is available in the following national cloud deployments.
+     * Reset the sync of a specific school data synchronization profile in the tenant.
      * @param ResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -39,7 +39,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers. This API is available in the following national cloud deployments.
+     * Delete an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers.
      * @param RubricRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
+     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RubricRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationRubric|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation.
      * @param EducationRubric $body The request body
      * @param RubricRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationRubric|null>
@@ -88,7 +88,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers. This API is available in the following national cloud deployments.
+     * Delete an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers.
      * @param RubricRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
+     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RubricRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class RubricRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation.
      * @param EducationRubric $body The request body
      * @param RubricRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

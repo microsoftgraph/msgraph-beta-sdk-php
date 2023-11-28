@@ -63,23 +63,10 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'goals' => fn(ParseNode $n) => $o->setGoals($n->getObjectValue([Goals::class, 'createFromDiscriminatorValue'])),
             'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
             'learningProviders' => fn(ParseNode $n) => $o->setLearningProviders($n->getCollectionOfObjectValues([LearningProvider::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
-    }
-
-    /**
-     * Gets the goals property value. Represents a collection of goals in a Viva Goals organization.
-     * @return Goals|null
-    */
-    public function getGoals(): ?Goals {
-        $val = $this->getBackingStore()->get('goals');
-        if (is_null($val) || $val instanceof Goals) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'goals'");
     }
 
     /**
@@ -127,7 +114,6 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('goals', $this->getGoals());
         $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
         $writer->writeCollectionOfObjectValues('learningProviders', $this->getLearningProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -148,14 +134,6 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
-    }
-
-    /**
-     * Sets the goals property value. Represents a collection of goals in a Viva Goals organization.
-     * @param Goals|null $value Value to set for the goals property.
-    */
-    public function setGoals(?Goals $value): void {
-        $this->getBackingStore()->set('goals', $value);
     }
 
     /**

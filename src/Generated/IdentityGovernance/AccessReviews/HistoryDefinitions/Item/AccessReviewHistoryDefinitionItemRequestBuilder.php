@@ -54,7 +54,7 @@ class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned. This API is available in the following national cloud deployments.
+     * Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
      * @param AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewHistoryDefinition|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned. This API is available in the following national cloud deployments.
+     * Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
      * @param AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

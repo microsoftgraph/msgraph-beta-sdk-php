@@ -52,7 +52,7 @@ class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workforceIntegration objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of workforceIntegration objects.
      * @param WorkforceIntegrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkforceIntegrationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new workforceIntegration object. This API is available in the following national cloud deployments.
+     * Create a new workforceIntegration object.
      * @param WorkforceIntegration $body The request body
      * @param WorkforceIntegrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkforceIntegration|null>
@@ -85,7 +85,7 @@ class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workforceIntegration objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of workforceIntegration objects.
      * @param WorkforceIntegrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new workforceIntegration object. This API is available in the following national cloud deployments.
+     * Create a new workforceIntegration object.
      * @param WorkforceIntegration $body The request body
      * @param WorkforceIntegrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

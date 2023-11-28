@@ -78,7 +78,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the schema for a given synchronization job or template. This API is available in the following national cloud deployments.
+     * Retrieve the schema for a given synchronization job or template.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SynchronizationSchema|null>
      * @throws Exception
@@ -129,7 +129,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the schema for a given synchronization job or template. This API is available in the following national cloud deployments.
+     * Retrieve the schema for a given synchronization job or template.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

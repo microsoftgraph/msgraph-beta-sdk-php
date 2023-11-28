@@ -52,7 +52,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the collection of school data synchronization profiles in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationProfileCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the collection of school data synchronization profiles in the tenant. This API is available in the following national cloud deployments.
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

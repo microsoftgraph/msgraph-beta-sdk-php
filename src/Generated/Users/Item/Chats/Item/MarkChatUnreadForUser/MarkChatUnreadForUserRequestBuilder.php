@@ -30,7 +30,7 @@ class MarkChatUnreadForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a chat as unread for a user. This API is available in the following national cloud deployments.
+     * Mark a chat as unread for a user.
      * @param MarkChatUnreadForUserPostRequestBody $body The request body
      * @param MarkChatUnreadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MarkChatUnreadForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a chat as unread for a user. This API is available in the following national cloud deployments.
+     * Mark a chat as unread for a user.
      * @param MarkChatUnreadForUserPostRequestBody $body The request body
      * @param MarkChatUnreadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

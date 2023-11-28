@@ -108,7 +108,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes the worksheet from the workbook. This API is available in the following national cloud deployments.
+     * Deletes the worksheet from the workbook.
      * @param WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -124,7 +124,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of worksheet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of worksheet object.
      * @param WorkbookWorksheetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookWorksheet|null>
      * @throws Exception
@@ -140,7 +140,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of worksheet object. This API is available in the following national cloud deployments.
+     * Update the properties of worksheet object.
      * @param WorkbookWorksheet $body The request body
      * @param WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookWorksheet|null>
@@ -166,7 +166,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes the worksheet from the workbook. This API is available in the following national cloud deployments.
+     * Deletes the worksheet from the workbook.
      * @param WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -184,7 +184,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of worksheet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of worksheet object.
      * @param WorkbookWorksheetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -205,7 +205,7 @@ class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of worksheet object. This API is available in the following national cloud deployments.
+     * Update the properties of worksheet object.
      * @param WorkbookWorksheet $body The request body
      * @param WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

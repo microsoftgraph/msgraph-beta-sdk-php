@@ -52,7 +52,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of tokenLifetimePolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of tokenLifetimePolicy objects.
      * @param TokenLifetimePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TokenLifetimePolicyCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tokenLifetimePolicy object. This API is available in the following national cloud deployments.
+     * Create a new tokenLifetimePolicy object.
      * @param TokenLifetimePolicy $body The request body
      * @param TokenLifetimePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TokenLifetimePolicy|null>
@@ -85,7 +85,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of tokenLifetimePolicy objects. This API is available in the following national cloud deployments.
+     * Get a list of tokenLifetimePolicy objects.
      * @param TokenLifetimePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tokenLifetimePolicy object. This API is available in the following national cloud deployments.
+     * Create a new tokenLifetimePolicy object.
      * @param TokenLifetimePolicy $body The request body
      * @param TokenLifetimePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

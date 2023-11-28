@@ -52,7 +52,7 @@ class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of monthly print usage summaries, grouped by user. This API is available in the following national cloud deployments.
+     * Retrieve a list of monthly print usage summaries, grouped by user.
      * @param MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUserCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of monthly print usage summaries, grouped by user. This API is available in the following national cloud deployments.
+     * Retrieve a list of monthly print usage summaries, grouped by user.
      * @param MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationalActivity object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete an educationalActivity object from a user's profile.
      * @param EducationalActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an educationalActivity object from a users profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an educationalActivity object from a users profile.
      * @param EducationalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivity|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationalActivity object within a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an educationalActivity object within a user's profile.
      * @param EducationalActivity $body The request body
      * @param EducationalActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivity|null>
@@ -80,7 +80,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationalActivity object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete an educationalActivity object from a user's profile.
      * @param EducationalActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an educationalActivity object from a users profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an educationalActivity object from a users profile.
      * @param EducationalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationalActivity object within a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of an educationalActivity object within a user's profile.
      * @param EducationalActivity $body The request body
      * @param EducationalActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

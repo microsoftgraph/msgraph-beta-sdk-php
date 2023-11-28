@@ -52,7 +52,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task folders in the user's mailbox. This API is available in the following national cloud deployments.
+     * Get all the Outlook task folders in the user's mailbox.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolderCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a task folder in the default task group (My Tasks) of the user's mailbox. This API is available in the following national cloud deployments.
+     * Create a task folder in the default task group (My Tasks) of the user's mailbox.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
@@ -85,7 +85,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task folders in the user's mailbox. This API is available in the following national cloud deployments.
+     * Get all the Outlook task folders in the user's mailbox.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a task folder in the default task group (My Tasks) of the user's mailbox. This API is available in the following national cloud deployments.
+     * Create a task folder in the default task group (My Tasks) of the user's mailbox.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

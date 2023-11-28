@@ -51,7 +51,7 @@ class TrackersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of hostTracker resources. This API is available in the following national cloud deployments.
+     * Get a list of hostTracker resources.
      * @param TrackersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HostTrackerCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class TrackersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of hostTracker resources. This API is available in the following national cloud deployments.
+     * Get a list of hostTracker resources.
      * @param TrackersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

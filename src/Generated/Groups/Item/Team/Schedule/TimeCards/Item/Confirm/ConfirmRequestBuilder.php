@@ -31,7 +31,7 @@ class ConfirmRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Confirm a specific timeCard. This API is available in the following national cloud deployments.
+     * Confirm a specific timeCard.
      * @param ConfirmRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ConfirmRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Confirm a specific timeCard. This API is available in the following national cloud deployments.
+     * Confirm a specific timeCard.
      * @param ConfirmRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class DataBodyRangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Gets the range object associated with the data body of the column. This API is available in the following national cloud deployments.
+     * Gets the range object associated with the data body of the column.
      * @param DataBodyRangeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookRange|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class DataBodyRangeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Gets the range object associated with the data body of the column. This API is available in the following national cloud deployments.
+     * Gets the range object associated with the data body of the column.
      * @param DataBodyRangeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

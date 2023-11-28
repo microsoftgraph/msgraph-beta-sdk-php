@@ -52,7 +52,7 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the applicationSignInDetailedSummary objects. This API is available in the following national cloud deployments.
+     * Retrieve the applicationSignInDetailedSummary objects.
      * @param ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummaryCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the applicationSignInDetailedSummary objects. This API is available in the following national cloud deployments.
+     * Retrieve the applicationSignInDetailedSummary objects.
      * @param ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

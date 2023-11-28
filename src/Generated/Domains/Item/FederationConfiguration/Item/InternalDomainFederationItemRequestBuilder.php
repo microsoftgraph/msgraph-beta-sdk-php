@@ -31,7 +31,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Deletes an internalDomainFederation object.
      * @param InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param InternalDomainFederationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InternalDomainFederation|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Update the properties of an internalDomainFederation object.
      * @param InternalDomainFederation $body The request body
      * @param InternalDomainFederationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InternalDomainFederation|null>
@@ -80,7 +80,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Deletes an internalDomainFederation object.
      * @param InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param InternalDomainFederationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Update the properties of an internalDomainFederation object.
      * @param InternalDomainFederation $body The request body
      * @param InternalDomainFederationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

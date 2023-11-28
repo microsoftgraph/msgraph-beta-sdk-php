@@ -30,7 +30,7 @@ class ClearUserPreferredPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clear the preferred availability and activity status for a user. This API is available in the following national cloud deployments.
+     * Clear the preferred availability and activity status for a user.
      * @param ClearUserPreferredPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ClearUserPreferredPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Clear the preferred availability and activity status for a user. This API is available in the following national cloud deployments.
+     * Clear the preferred availability and activity status for a user.
      * @param ClearUserPreferredPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

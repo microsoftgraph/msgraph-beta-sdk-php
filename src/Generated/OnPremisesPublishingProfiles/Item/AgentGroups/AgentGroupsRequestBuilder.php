@@ -52,7 +52,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgentGroup objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of onPremisesAgentGroup objects.
      * @param AgentGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroupCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Create a new onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param AgentGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
@@ -85,7 +85,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgentGroup objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of onPremisesAgentGroup objects.
      * @param AgentGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new onPremisesAgentGroup object. This API is available in the following national cloud deployments.
+     * Create a new onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param AgentGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

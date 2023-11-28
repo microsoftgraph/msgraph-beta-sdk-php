@@ -31,7 +31,7 @@ class ShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a shift from the schedule. This API is available in the following national cloud deployments.
+     * Delete a shift from the schedule.
      * @param ShiftItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class ShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shift object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a shift object by ID.
      * @param ShiftItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Shift|null>
      * @throws Exception
@@ -80,7 +80,7 @@ class ShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a shift from the schedule. This API is available in the following national cloud deployments.
+     * Delete a shift from the schedule.
      * @param ShiftItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class ShiftItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a shift object by ID. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a shift object by ID.
      * @param ShiftItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

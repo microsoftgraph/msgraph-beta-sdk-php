@@ -39,7 +39,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Delete a tokenIssuancePolicy object.
      * @param TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a tokenIssuancePolicy object.
      * @param TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TokenIssuancePolicy|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a tokenIssuancePolicy object.
      * @param TokenIssuancePolicy $body The request body
      * @param TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TokenIssuancePolicy|null>
@@ -88,7 +88,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Delete a tokenIssuancePolicy object.
      * @param TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a tokenIssuancePolicy object.
      * @param TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tokenIssuancePolicy object. This API is available in the following national cloud deployments.
+     * Update the properties of a tokenIssuancePolicy object.
      * @param TokenIssuancePolicy $body The request body
      * @param TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

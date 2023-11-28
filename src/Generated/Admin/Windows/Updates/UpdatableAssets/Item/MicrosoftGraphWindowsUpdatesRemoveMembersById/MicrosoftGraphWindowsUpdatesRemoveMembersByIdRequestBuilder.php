@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder extends BaseRe
     }
 
     /**
-     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members. This API is available in the following national cloud deployments.
+     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.
      * @param RemoveMembersByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder extends BaseRe
     }
 
     /**
-     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members. This API is available in the following national cloud deployments.
+     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.
      * @param RemoveMembersByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

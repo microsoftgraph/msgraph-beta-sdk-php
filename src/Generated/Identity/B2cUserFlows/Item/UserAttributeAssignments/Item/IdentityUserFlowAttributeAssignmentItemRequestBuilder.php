@@ -39,7 +39,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Delete an identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Delete an identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read the properties and relationships of an identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignment|null>
      * @throws Exception
@@ -71,7 +71,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Update the properties of a identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Update the properties of a identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignment|null>
@@ -88,7 +88,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Delete an identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Delete an identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read the properties and relationships of an identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +127,7 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Update the properties of a identityUserFlowAttributeAssignment object. This API is available in the following national cloud deployments.
+     * Update the properties of a identityUserFlowAttributeAssignment object.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,7 +52,7 @@ class ProgramControlTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the programControlType objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the programControlType objects.
      * @param ProgramControlTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProgramControlTypeCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class ProgramControlTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, list all the programControlType objects. This API is available in the following national cloud deployments.
+     * In the Microsoft Entra access reviews feature, list all the programControlType objects.
      * @param ProgramControlTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

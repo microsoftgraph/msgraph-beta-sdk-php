@@ -52,7 +52,7 @@ class AlertIncidentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alert incidents. The alert incidents are a collection of any following type that is derived from the unifiedRoleManagementAlertIncident object: This API is available in the following national cloud deployments.
+     * Get a list of the alert incidents. The alert incidents are a collection of any following type that is derived from the unifiedRoleManagementAlertIncident object:
      * @param AlertIncidentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertIncidentCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class AlertIncidentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alert incidents. The alert incidents are a collection of any following type that is derived from the unifiedRoleManagementAlertIncident object: This API is available in the following national cloud deployments.
+     * Get a list of the alert incidents. The alert incidents are a collection of any following type that is derived from the unifiedRoleManagementAlertIncident object:
      * @param AlertIncidentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

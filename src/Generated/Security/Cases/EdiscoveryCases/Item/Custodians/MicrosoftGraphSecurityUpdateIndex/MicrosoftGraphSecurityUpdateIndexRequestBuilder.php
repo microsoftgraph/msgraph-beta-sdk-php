@@ -30,7 +30,7 @@ class MicrosoftGraphSecurityUpdateIndexRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Trigger an indexOperation This API is available in the following national cloud deployments.
+     * Trigger an indexOperation
      * @param UpdateIndexPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MicrosoftGraphSecurityUpdateIndexRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Trigger an indexOperation This API is available in the following national cloud deployments.
+     * Trigger an indexOperation
      * @param UpdateIndexPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

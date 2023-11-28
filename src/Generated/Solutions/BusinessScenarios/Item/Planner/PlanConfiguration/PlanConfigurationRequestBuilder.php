@@ -54,7 +54,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfiguration object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a plannerPlanConfiguration object.
      * @param PlanConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfiguration|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfiguration|null>
@@ -105,7 +105,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfiguration object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a plannerPlanConfiguration object.
      * @param PlanConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +126,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -54,7 +54,7 @@ class DefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false). This API is available in the following national cloud deployments.
+     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
      * @param DefaultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessPolicyConfigurationDefault|null>
      * @throws Exception
@@ -70,7 +70,7 @@ class DefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the default configuration of a cross-tenant access policy. This API is available in the following national cloud deployments.
+     * Update the default configuration of a cross-tenant access policy.
      * @param CrossTenantAccessPolicyConfigurationDefault $body The request body
      * @param DefaultRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessPolicyConfigurationDefault|null>
@@ -105,7 +105,7 @@ class DefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false). This API is available in the following national cloud deployments.
+     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
      * @param DefaultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +126,7 @@ class DefaultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the default configuration of a cross-tenant access policy. This API is available in the following national cloud deployments.
+     * Update the default configuration of a cross-tenant access policy.
      * @param CrossTenantAccessPolicyConfigurationDefault $body The request body
      * @param DefaultRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

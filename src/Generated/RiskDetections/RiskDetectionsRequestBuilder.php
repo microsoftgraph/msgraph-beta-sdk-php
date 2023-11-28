@@ -44,7 +44,7 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a collection of riskDetection objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskDetectionCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a collection of riskDetection objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

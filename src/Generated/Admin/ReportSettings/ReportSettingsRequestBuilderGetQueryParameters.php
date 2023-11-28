@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ReportSettings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the tenant-level settings for Microsoft 365 reports. This API is available in the following national cloud deployments.
+ * Get the tenant-level settings for Microsoft 365 reports.
 */
 class ReportSettingsRequestBuilderGetQueryParameters 
 {

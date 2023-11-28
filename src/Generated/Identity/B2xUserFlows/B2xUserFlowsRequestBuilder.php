@@ -52,7 +52,7 @@ class B2xUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2xIdentityUserFlow objects.
      * @param B2xUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2xIdentityUserFlowCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class B2xUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlow $body The request body
      * @param B2xUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2xIdentityUserFlow|null>
@@ -85,7 +85,7 @@ class B2xUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2xIdentityUserFlow objects.
      * @param B2xUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class B2xUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2xIdentityUserFlow object.
      * @param B2xIdentityUserFlow $body The request body
      * @param B2xUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

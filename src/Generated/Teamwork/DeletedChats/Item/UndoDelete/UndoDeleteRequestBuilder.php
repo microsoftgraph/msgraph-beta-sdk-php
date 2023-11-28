@@ -30,7 +30,7 @@ class UndoDeleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a  deletedChat to an active chat. This API is available in the following national cloud deployments.
+     * Restore a  deletedChat to an active chat.
      * @param UndoDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class UndoDeleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a  deletedChat to an active chat. This API is available in the following national cloud deployments.
+     * Restore a  deletedChat to an active chat.
      * @param UndoDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

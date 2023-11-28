@@ -46,7 +46,7 @@ class TenantStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the onboarding status of a specific tenant. This API is available in the following national cloud deployments.
+     * Retrieve the onboarding status of a specific tenant.
      * @param TenantStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantStatus|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class TenantStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the onboarding status of a specific tenant. This API is available in the following national cloud deployments.
+     * Retrieve the onboarding status of a specific tenant.
      * @param TenantStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

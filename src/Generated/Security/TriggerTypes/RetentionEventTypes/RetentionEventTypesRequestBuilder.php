@@ -52,7 +52,7 @@ class RetentionEventTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the retentionEventType objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the retentionEventType objects and their properties.
      * @param RetentionEventTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetentionEventTypeCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class RetentionEventTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new retentionEventType object. This API is available in the following national cloud deployments.
+     * Create a new retentionEventType object.
      * @param RetentionEventType $body The request body
      * @param RetentionEventTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetentionEventType|null>
@@ -85,7 +85,7 @@ class RetentionEventTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the retentionEventType objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the retentionEventType objects and their properties.
      * @param RetentionEventTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class RetentionEventTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new retentionEventType object. This API is available in the following national cloud deployments.
+     * Create a new retentionEventType object.
      * @param RetentionEventType $body The request body
      * @param RetentionEventTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

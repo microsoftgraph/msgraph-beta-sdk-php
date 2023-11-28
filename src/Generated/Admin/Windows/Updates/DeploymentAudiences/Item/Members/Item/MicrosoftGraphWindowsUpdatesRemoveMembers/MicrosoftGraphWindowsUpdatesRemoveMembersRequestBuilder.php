@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder extends BaseReques
     }
 
     /**
-     * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members. This API is available in the following national cloud deployments.
+     * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.
      * @param RemoveMembersPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder extends BaseReques
     }
 
     /**
-     * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members. This API is available in the following national cloud deployments.
+     * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.
      * @param RemoveMembersPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

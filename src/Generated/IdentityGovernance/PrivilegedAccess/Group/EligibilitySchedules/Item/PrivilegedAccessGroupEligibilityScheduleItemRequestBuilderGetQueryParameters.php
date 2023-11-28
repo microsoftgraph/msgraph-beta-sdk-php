@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
 */
 class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetQueryParameters 
 {

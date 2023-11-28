@@ -51,7 +51,7 @@ class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible. This API is available in the following national cloud deployments.
+     * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible.
      * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible. This API is available in the following national cloud deployments.
+     * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible.
      * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

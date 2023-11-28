@@ -52,7 +52,7 @@ class LearningProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the learningProvider resources registered in Viva Learning for a tenant. This API is available in the following national cloud deployments.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param LearningProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LearningProviderCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class LearningProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes. This API is available in the following national cloud deployments.
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param LearningProvider $body The request body
      * @param LearningProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LearningProvider|null>
@@ -85,7 +85,7 @@ class LearningProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the learningProvider resources registered in Viva Learning for a tenant. This API is available in the following national cloud deployments.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param LearningProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class LearningProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes. This API is available in the following national cloud deployments.
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param LearningProvider $body The request body
      * @param LearningProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

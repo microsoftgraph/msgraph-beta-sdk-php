@@ -84,7 +84,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'resultTemplateId' => fn(ParseNode $n) => $o->setResultTemplateId($n->getStringValue()),
-            'summary' => fn(ParseNode $n) => $o->setsummary($n->getStringValue()),
+            'summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
         ];
     }
 
@@ -200,7 +200,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the summary property value. A summary of the result, if a summary is available.
      * @return string|null
     */
-    public function getsummary(): ?string {
+    public function getSummary(): ?string {
         $val = $this->getBackingStore()->get('summary');
         if (is_null($val) || is_string($val)) {
             return $val;
@@ -220,7 +220,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
-        $writer->writeStringValue('summary', $this->getsummary());
+        $writer->writeStringValue('summary', $this->getSummary());
         $writer->writeStringValue('_id', $this->getid());
         $writer->writeIntegerValue('_score', $this->getscore());
         $writer->writeObjectValue('_source', $this->getsource());
@@ -327,7 +327,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Sets the summary property value. A summary of the result, if a summary is available.
      * @param string|null $value Value to set for the summary property.
     */
-    public function setsummary(?string $value): void {
+    public function setSummary(?string $value): void {
         $this->getBackingStore()->set('summary', $value);
     }
 

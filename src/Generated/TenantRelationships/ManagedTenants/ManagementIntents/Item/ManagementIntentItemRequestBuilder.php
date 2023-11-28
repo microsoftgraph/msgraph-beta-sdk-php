@@ -46,7 +46,7 @@ class ManagementIntentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a managementIntent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementIntent object.
      * @param ManagementIntentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementIntent|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ManagementIntentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a managementIntent object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementIntent object.
      * @param ManagementIntentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

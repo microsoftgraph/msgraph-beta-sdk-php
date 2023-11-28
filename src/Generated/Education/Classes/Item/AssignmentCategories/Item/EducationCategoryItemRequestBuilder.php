@@ -31,7 +31,7 @@ class EducationCategoryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing category. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Delete an existing category. Only teachers can perform this operation.
      * @param EducationCategoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class EducationCategoryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
      * @param EducationCategoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationCategory|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class EducationCategoryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing category. Only teachers can perform this operation. This API is available in the following national cloud deployments.
+     * Delete an existing category. Only teachers can perform this operation.
      * @param EducationCategoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -97,7 +97,7 @@ class EducationCategoryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation. This API is available in the following national cloud deployments.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
      * @param EducationCategoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

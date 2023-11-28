@@ -52,7 +52,7 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios: This API is available in the following national cloud deployments.
+     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStepCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios: This API is available in the following national cloud deployments.
+     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

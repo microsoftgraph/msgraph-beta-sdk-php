@@ -31,7 +31,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Schema|null>
      * @throws Exception
@@ -47,12 +47,12 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Create the schema for a Microsoft Search connection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Schema|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalconnectors-schema-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-patch-schema?view=graph-rest-1.0 Find more info here
     */
     public function patch(Schema $body, ?SchemaRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -64,7 +64,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -85,7 +85,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a schema for an externalConnection. This API is available in the following national cloud deployments.
+     * Create the schema for a Microsoft Search connection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

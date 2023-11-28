@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguage
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a user's regionalAndLanguageSettings. This API is available in the following national cloud deployments.
+ * Retrieve the properties of a user's regionalAndLanguageSettings.
 */
 class RegionalAndLanguageSettingsRequestBuilderGetQueryParameters 
 {

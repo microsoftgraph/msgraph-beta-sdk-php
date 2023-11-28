@@ -46,7 +46,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an alertRule object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an alertRule object.
      * @param AlertRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRule|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an alertRule object. This API is available in the following national cloud deployments.
+     * Update the properties of an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRule|null>
@@ -97,7 +97,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an alertRule object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an alertRule object.
      * @param AlertRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class AlertRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an alertRule object. This API is available in the following national cloud deployments.
+     * Update the properties of an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,7 +30,7 @@ class TroubleshootRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is available in the following national cloud deployments.
+     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host.
      * @param TroubleshootRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class TroubleshootRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host. This API is available in the following national cloud deployments.
+     * Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host.
      * @param TroubleshootRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

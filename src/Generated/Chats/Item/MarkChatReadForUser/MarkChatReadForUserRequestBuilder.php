@@ -30,7 +30,7 @@ class MarkChatReadForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a chat as read for a user. This API is available in the following national cloud deployments.
+     * Mark a chat as read for a user.
      * @param MarkChatReadForUserPostRequestBody $body The request body
      * @param MarkChatReadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MarkChatReadForUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Mark a chat as read for a user. This API is available in the following national cloud deployments.
+     * Mark a chat as read for a user.
      * @param MarkChatReadForUserPostRequestBody $body The request body
      * @param MarkChatReadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

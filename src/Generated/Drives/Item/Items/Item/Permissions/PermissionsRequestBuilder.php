@@ -52,7 +52,7 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the effective sharing permissions on a driveItem. This API is available in the following national cloud deployments.
+     * List the effective sharing permissions on a driveItem.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the effective sharing permissions on a driveItem. This API is available in the following national cloud deployments.
+     * List the effective sharing permissions on a driveItem.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

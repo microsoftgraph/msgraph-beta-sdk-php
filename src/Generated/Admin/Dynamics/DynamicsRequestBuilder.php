@@ -46,7 +46,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminDynamics object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminDynamics object.
      * @param DynamicsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminDynamics|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminDynamics object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminDynamics object.
      * @param AdminDynamics $body The request body
      * @param DynamicsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminDynamics|null>
@@ -97,7 +97,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminDynamics object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminDynamics object.
      * @param DynamicsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class DynamicsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminDynamics object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminDynamics object.
      * @param AdminDynamics $body The request body
      * @param DynamicsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

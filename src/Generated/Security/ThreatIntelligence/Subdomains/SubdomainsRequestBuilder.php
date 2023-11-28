@@ -52,7 +52,7 @@ class SubdomainsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a subdomain object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a subdomain object.
      * @param SubdomainsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SubdomainCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class SubdomainsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a subdomain object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a subdomain object.
      * @param SubdomainsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

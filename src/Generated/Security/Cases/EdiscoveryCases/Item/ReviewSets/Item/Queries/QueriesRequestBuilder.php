@@ -52,7 +52,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of queries associated with an eDiscovery review set. This API is available in the following national cloud deployments.
+     * Get the list of queries associated with an eDiscovery review set.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryReviewSetQueryCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryReviewSetQuery object.
      * @param EdiscoveryReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryReviewSetQuery|null>
@@ -85,7 +85,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of queries associated with an eDiscovery review set. This API is available in the following national cloud deployments.
+     * Get the list of queries associated with an eDiscovery review set.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryReviewSetQuery object.
      * @param EdiscoveryReviewSetQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

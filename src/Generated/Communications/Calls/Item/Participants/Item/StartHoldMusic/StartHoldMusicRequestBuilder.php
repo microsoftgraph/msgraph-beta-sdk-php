@@ -31,7 +31,7 @@ class StartHoldMusicRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Put a participant on hold and play music in the background. This API is available in the following national cloud deployments.
+     * Put a participant on hold and play music in the background.
      * @param StartHoldMusicPostRequestBody $body The request body
      * @param StartHoldMusicRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StartHoldMusicOperation|null>
@@ -48,7 +48,7 @@ class StartHoldMusicRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Put a participant on hold and play music in the background. This API is available in the following national cloud deployments.
+     * Put a participant on hold and play music in the background.
      * @param StartHoldMusicPostRequestBody $body The request body
      * @param StartHoldMusicRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

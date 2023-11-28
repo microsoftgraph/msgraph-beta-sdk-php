@@ -52,7 +52,7 @@ class SharedWithTeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared. This API is available in the following national cloud deployments.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param SharedWithTeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharedWithChannelTeamInfoCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class SharedWithTeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared. This API is available in the following national cloud deployments.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param SharedWithTeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -51,7 +51,7 @@ class AppRoleAssignedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the service principals to which the user has an app role assignment either directly or through group membership. This API is available in the following national cloud deployments.
+     * Get the service principals to which the user has an app role assignment either directly or through group membership.
      * @param AppRoleAssignedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class AppRoleAssignedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the service principals to which the user has an app role assignment either directly or through group membership. This API is available in the following national cloud deployments.
+     * Get the service principals to which the user has an app role assignment either directly or through group membership.
      * @param AppRoleAssignedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

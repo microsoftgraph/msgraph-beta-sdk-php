@@ -60,7 +60,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of identityProviders objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of identityProviders objects.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProviderCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new identityProvider object. This API is available in the following national cloud deployments.
+     * Create a new identityProvider object.
      * @param IdentityProvider $body The request body
      * @param IdentityProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProvider|null>
@@ -93,7 +93,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of identityProviders objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of identityProviders objects.
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new identityProvider object. This API is available in the following national cloud deployments.
+     * Create a new identityProvider object.
      * @param IdentityProvider $body The request body
      * @param IdentityProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

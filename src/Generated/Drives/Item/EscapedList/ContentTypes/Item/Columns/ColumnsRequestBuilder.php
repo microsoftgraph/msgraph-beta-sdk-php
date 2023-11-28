@@ -52,7 +52,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as columnDefinition][columnDefinition] resources, in a [content type][contentType]. This API is available in the following [national cloud deployments.
+     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [content type][contentType].
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinitionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a column to a content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Add a column to a [content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition].
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinition|null>
@@ -85,7 +85,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as columnDefinition][columnDefinition] resources, in a [content type][contentType]. This API is available in the following [national cloud deployments.
+     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [content type][contentType].
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a column to a content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Add a column to a [content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition].
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

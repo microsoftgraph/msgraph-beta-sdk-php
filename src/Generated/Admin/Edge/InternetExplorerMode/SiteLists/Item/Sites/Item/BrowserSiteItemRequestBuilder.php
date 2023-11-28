@@ -31,7 +31,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a browserSite from a browserSiteList. This API is available in the following national cloud deployments.
+     * Delete a browserSite from a browserSiteList.
      * @param BrowserSiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a browserSite that resides on a browserSiteList. This API is available in the following national cloud deployments.
+     * Get a browserSite that resides on a browserSiteList.
      * @param BrowserSiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSite|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a browserSite object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSite object.
      * @param BrowserSite $body The request body
      * @param BrowserSiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BrowserSite|null>
@@ -80,7 +80,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a browserSite from a browserSiteList. This API is available in the following national cloud deployments.
+     * Delete a browserSite from a browserSiteList.
      * @param BrowserSiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a browserSite that resides on a browserSiteList. This API is available in the following national cloud deployments.
+     * Get a browserSite that resides on a browserSiteList.
      * @param BrowserSiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class BrowserSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a browserSite object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSite object.
      * @param BrowserSite $body The request body
      * @param BrowserSiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

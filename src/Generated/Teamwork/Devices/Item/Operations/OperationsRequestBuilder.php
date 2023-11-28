@@ -52,7 +52,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the operations that are running on a Microsoft Teams-enabled device. This API is available in the following national cloud deployments.
+     * Get a list of the operations that are running on a Microsoft Teams-enabled device.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceOperationCollectionResponse|null>
      * @throws Exception
@@ -84,7 +84,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the operations that are running on a Microsoft Teams-enabled device. This API is available in the following national cloud deployments.
+     * Get a list of the operations that are running on a Microsoft Teams-enabled device.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

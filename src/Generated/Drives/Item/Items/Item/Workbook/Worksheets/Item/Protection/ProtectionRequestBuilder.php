@@ -62,7 +62,7 @@ class ProtectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of workbookWorksheetProtection object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of workbookWorksheetProtection object.
      * @param ProtectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookWorksheetProtection|null>
      * @throws Exception
@@ -112,7 +112,7 @@ class ProtectionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of workbookWorksheetProtection object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of workbookWorksheetProtection object.
      * @param ProtectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

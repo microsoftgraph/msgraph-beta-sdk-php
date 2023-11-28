@@ -46,7 +46,7 @@ class FileThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a fileThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a fileThreatSubmission object.
      * @param FileThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileThreatSubmission|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class FileThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a fileThreatSubmission object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a fileThreatSubmission object.
      * @param FileThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

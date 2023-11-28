@@ -46,7 +46,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminForms object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminForms object.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminForms|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminForms object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminForms object.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminForms|null>
@@ -97,7 +97,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a adminForms object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a adminForms object.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a adminForms object. This API is available in the following national cloud deployments.
+     * Update the properties of a adminForms object.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

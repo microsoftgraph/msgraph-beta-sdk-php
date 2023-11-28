@@ -118,7 +118,7 @@ class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryCustodian object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryCustodian object.
      * @param EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryCustodian|null>
      * @throws Exception
@@ -168,7 +168,7 @@ class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an ediscoveryCustodian object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryCustodian object.
      * @param EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

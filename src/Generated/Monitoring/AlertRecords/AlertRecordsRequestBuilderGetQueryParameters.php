@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the alertRecord objects and their properties. This API is available in the following national cloud deployments.
+ * Get a list of the alertRecord objects and their properties.
 */
 class AlertRecordsRequestBuilderGetQueryParameters 
 {

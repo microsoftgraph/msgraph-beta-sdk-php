@@ -52,7 +52,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves properties related to the user's accounts from the profile. This API is available in the following national cloud deployments.
+     * Retrieves properties related to the user's accounts from the profile.
      * @param AccountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserAccountInformationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userAccountInformation object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param AccountRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserAccountInformation|null>
@@ -85,7 +85,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves properties related to the user's accounts from the profile. This API is available in the following national cloud deployments.
+     * Retrieves properties related to the user's accounts from the profile.
      * @param AccountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -106,7 +106,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userAccountInformation object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param AccountRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

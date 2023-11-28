@@ -118,7 +118,7 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get monthly from reports
+     * Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @param MonthlyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MonthlyUserInsightMetricsRoot|null>
      * @throws Exception
@@ -167,7 +167,7 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get monthly from reports
+     * Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @param MonthlyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

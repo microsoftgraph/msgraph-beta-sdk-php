@@ -46,7 +46,7 @@ class TenantGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantGroup object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantGroup object.
      * @param TenantGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGroup|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class TenantGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tenantGroup object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tenantGroup object.
      * @param TenantGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
