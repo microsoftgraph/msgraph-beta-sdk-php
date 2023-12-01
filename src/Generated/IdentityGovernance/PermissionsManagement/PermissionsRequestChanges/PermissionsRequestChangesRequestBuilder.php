@@ -52,10 +52,11 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get permissionsRequestChanges from identityGovernance
+     * List the permissionsRequestChange objects and their properties.
      * @param PermissionsRequestChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsRequestChangeCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/permissionsmanagement-list-permissionsrequestchanges?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionsRequestChangesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -83,7 +84,7 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get permissionsRequestChanges from identityGovernance
+     * List the permissionsRequestChange objects and their properties.
      * @param PermissionsRequestChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +100,7 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -118,7 +119,7 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

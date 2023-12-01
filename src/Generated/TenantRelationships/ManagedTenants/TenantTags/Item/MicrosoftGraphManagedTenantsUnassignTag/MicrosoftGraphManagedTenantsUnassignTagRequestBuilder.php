@@ -31,7 +31,7 @@ class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Un-assigns the tenant tag from the specified managed tenants. This API is available in the following national cloud deployments.
+     * Un-assigns the tenant tag from the specified managed tenants.
      * @param UnassignTagPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
@@ -48,7 +48,7 @@ class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Un-assigns the tenant tag from the specified managed tenants. This API is available in the following national cloud deployments.
+     * Un-assigns the tenant tag from the specified managed tenants.
      * @param UnassignTagPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder extends BaseRequestB
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

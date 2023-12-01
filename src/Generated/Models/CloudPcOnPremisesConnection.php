@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcOnPremisesConnection extends Entity implements Parsable 
 {
@@ -102,6 +103,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
             'resourceGroupId' => fn(ParseNode $n) => $o->setResourceGroupId($n->getStringValue()),
+            'scopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScopeIds($val);
+            },
             'subnetId' => fn(ParseNode $n) => $o->setSubnetId($n->getStringValue()),
             'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
             'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
@@ -181,6 +190,20 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceGroupId'");
+    }
+
+    /**
+     * Gets the scopeIds property value. The scopeIds property
+     * @return array<string>|null
+    */
+    public function getScopeIds(): ?array {
+        $val = $this->getBackingStore()->get('scopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeIds'");
     }
 
     /**
@@ -272,6 +295,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
         $writer->writeStringValue('resourceGroupId', $this->getResourceGroupId());
+        $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeStringValue('subnetId', $this->getSubnetId());
         $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
         $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
@@ -366,6 +390,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function setResourceGroupId(?string $value): void {
         $this->getBackingStore()->set('resourceGroupId', $value);
+    }
+
+    /**
+     * Sets the scopeIds property value. The scopeIds property
+     * @param array<string>|null $value Value to set for the scopeIds property.
+    */
+    public function setScopeIds(?array $value): void {
+        $this->getBackingStore()->set('scopeIds', $value);
     }
 
     /**

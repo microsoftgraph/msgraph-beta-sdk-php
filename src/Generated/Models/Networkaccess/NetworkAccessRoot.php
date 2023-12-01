@@ -46,6 +46,8 @@ class NetworkAccessRoot extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'connectivity' => fn(ParseNode $n) => $o->setConnectivity($n->getObjectValue([Connectivity::class, 'createFromDiscriminatorValue'])),
+            'filteringPolicies' => fn(ParseNode $n) => $o->setFilteringPolicies($n->getCollectionOfObjectValues([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
+            'filteringProfiles' => fn(ParseNode $n) => $o->setFilteringProfiles($n->getCollectionOfObjectValues([FilteringProfile::class, 'createFromDiscriminatorValue'])),
             'forwardingPolicies' => fn(ParseNode $n) => $o->setForwardingPolicies($n->getCollectionOfObjectValues([ForwardingPolicy::class, 'createFromDiscriminatorValue'])),
             'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
             'logs' => fn(ParseNode $n) => $o->setLogs($n->getObjectValue([Logs::class, 'createFromDiscriminatorValue'])),
@@ -53,6 +55,34 @@ class NetworkAccessRoot extends Entity implements Parsable
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
             'tenantStatus' => fn(ParseNode $n) => $o->setTenantStatus($n->getObjectValue([TenantStatus::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the filteringPolicies property value. A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+     * @return array<FilteringPolicy>|null
+    */
+    public function getFilteringPolicies(): ?array {
+        $val = $this->getBackingStore()->get('filteringPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FilteringPolicy::class);
+            /** @var array<FilteringPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filteringPolicies'");
+    }
+
+    /**
+     * Gets the filteringProfiles property value. A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+     * @return array<FilteringProfile>|null
+    */
+    public function getFilteringProfiles(): ?array {
+        $val = $this->getBackingStore()->get('filteringProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FilteringProfile::class);
+            /** @var array<FilteringProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filteringProfiles'");
     }
 
     /**
@@ -138,6 +168,8 @@ class NetworkAccessRoot extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('connectivity', $this->getConnectivity());
+        $writer->writeCollectionOfObjectValues('filteringPolicies', $this->getFilteringPolicies());
+        $writer->writeCollectionOfObjectValues('filteringProfiles', $this->getFilteringProfiles());
         $writer->writeCollectionOfObjectValues('forwardingPolicies', $this->getForwardingPolicies());
         $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
         $writer->writeObjectValue('logs', $this->getLogs());
@@ -152,6 +184,22 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function setConnectivity(?Connectivity $value): void {
         $this->getBackingStore()->set('connectivity', $value);
+    }
+
+    /**
+     * Sets the filteringPolicies property value. A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+     * @param array<FilteringPolicy>|null $value Value to set for the filteringPolicies property.
+    */
+    public function setFilteringPolicies(?array $value): void {
+        $this->getBackingStore()->set('filteringPolicies', $value);
+    }
+
+    /**
+     * Sets the filteringProfiles property value. A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+     * @param array<FilteringProfile>|null $value Value to set for the filteringProfiles property.
+    */
+    public function setFilteringProfiles(?array $value): void {
+        $this->getBackingStore()->set('filteringProfiles', $value);
     }
 
     /**

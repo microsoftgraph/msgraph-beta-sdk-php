@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\A
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout. This API is available in the following national cloud deployments.
+ * Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

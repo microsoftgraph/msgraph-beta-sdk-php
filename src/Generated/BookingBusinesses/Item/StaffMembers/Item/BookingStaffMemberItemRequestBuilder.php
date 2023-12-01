@@ -31,7 +31,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness. This API is available in the following national cloud deployments.
+     * Delete a staff member in the specified bookingbusiness.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMember|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMember|null>
@@ -80,7 +80,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness. This API is available in the following national cloud deployments.
+     * Delete a staff member in the specified bookingbusiness.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness. This API is available in the following national cloud deployments.
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

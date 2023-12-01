@@ -52,7 +52,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudPcExternalPartnerSetting objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSettingCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
@@ -85,7 +85,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudPcExternalPartnerSetting objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new cloudPcExternalPartnerSetting object. This API is available in the following national cloud deployments.
+     * Create a new cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

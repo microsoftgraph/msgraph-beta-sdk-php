@@ -52,7 +52,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deploymentAudience objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of deploymentAudience objects and their properties.
      * @param DeploymentAudiencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAudienceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deploymentAudience object. This API is available in the following national cloud deployments.
+     * Create a new deploymentAudience object.
      * @param DeploymentAudience $body The request body
      * @param DeploymentAudiencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAudience|null>
@@ -85,7 +85,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deploymentAudience objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of deploymentAudience objects and their properties.
      * @param DeploymentAudiencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new deploymentAudience object. This API is available in the following national cloud deployments.
+     * Create a new deploymentAudience object.
      * @param DeploymentAudience $body The request body
      * @param DeploymentAudiencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

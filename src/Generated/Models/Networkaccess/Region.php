@@ -24,5 +24,17 @@ class Region extends Enum {
     public const SOUTH_AFRICA_WEST = 'southAfricaWest';
     public const SOUTH_AFRICA_NORTH = 'southAfricaNorth';
     public const UAE_NORTH = 'uaeNorth';
+    public const AUSTRALIA_EAST = 'australiaEast';
+    public const WEST_CENTRAL_U_S = 'westCentralUS';
+    public const CENTRAL_INDIA = 'centralIndia';
+    public const SOUTH_EAST_ASIA = 'southEastAsia';
+    public const SWEDEN_CENTRAL = 'swedenCentral';
+    public const SOUTH_INDIA = 'southIndia';
+    public const AUSTRALIA_SOUTH_EAST = 'australiaSouthEast';
+    public const KOREA_CENTRAL = 'koreaCentral';
+    public const POLAND_CENTRAL = 'polandCentral';
+    public const BRAZIL_SOUTH = 'brazilSouth';
+    public const JAPAN_EAST = 'japanEast';
+    public const JAPAN_WEST = 'japanWest';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

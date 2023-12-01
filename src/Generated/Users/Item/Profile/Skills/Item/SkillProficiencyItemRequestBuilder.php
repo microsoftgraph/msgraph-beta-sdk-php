@@ -31,7 +31,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a skillProficiency object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a skillProficiency object from a user's profile.
      * @param SkillProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a skillproficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
      * @param SkillProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiency|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiency|null>
@@ -80,7 +80,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a skillProficiency object from a user's profile. This API is available in the following national cloud deployments.
+     * Delete a skillProficiency object from a user's profile.
      * @param SkillProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,12 +93,12 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of a skillproficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
      * @param SkillProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,12 +114,12 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a skillProficiency object in a user's profile. This API is available in the following national cloud deployments.
+     * Update the properties of a skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

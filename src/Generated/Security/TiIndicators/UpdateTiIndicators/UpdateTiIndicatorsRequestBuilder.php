@@ -30,7 +30,7 @@ class UpdateTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is available in the following national cloud deployments.
+     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdateTiIndicatorsPostResponse|null>
@@ -47,7 +47,7 @@ class UpdateTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests. This API is available in the following national cloud deployments.
+     * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -61,7 +61,7 @@ class UpdateTiIndicatorsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

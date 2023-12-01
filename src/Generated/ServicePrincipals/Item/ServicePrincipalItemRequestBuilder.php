@@ -263,7 +263,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object. This API is available in the following national cloud deployments.
+     * Delete a servicePrincipal object.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -279,7 +279,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
      * @throws Exception
@@ -295,7 +295,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of servicePrincipal object. This API is available in the following national cloud deployments.
+     * Update the properties of servicePrincipal object.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
@@ -312,7 +312,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object. This API is available in the following national cloud deployments.
+     * Delete a servicePrincipal object.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -325,12 +325,12 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -346,12 +346,12 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of servicePrincipal object. This API is available in the following national cloud deployments.
+     * Update the properties of servicePrincipal object.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -365,7 +365,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

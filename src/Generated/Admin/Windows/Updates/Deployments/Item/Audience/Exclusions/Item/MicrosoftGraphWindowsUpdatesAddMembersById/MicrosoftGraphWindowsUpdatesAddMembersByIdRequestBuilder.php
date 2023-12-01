@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder extends BaseReque
     }
 
     /**
-     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members. This API is available in the following national cloud deployments.
+     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder extends BaseReque
     }
 
     /**
-     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members. This API is available in the following national cloud deployments.
+     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -61,7 +61,7 @@ class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder extends BaseReque
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

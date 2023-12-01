@@ -52,7 +52,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkKeySets. This API is available in the following national cloud deployments.
+     * Retrieve a list of trustFrameworkKeySets.
      * @param KeySetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySetCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header. This API is available in the following national cloud deployments.
+     * Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
      * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySet|null>
@@ -85,7 +85,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkKeySets. This API is available in the following national cloud deployments.
+     * Retrieve a list of trustFrameworkKeySets.
      * @param KeySetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header. This API is available in the following national cloud deployments.
+     * Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
      * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

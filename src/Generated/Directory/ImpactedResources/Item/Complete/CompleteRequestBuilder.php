@@ -31,7 +31,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Complete an impactedResource object and update its status to completedByUser. This API is available in the following national cloud deployments.
+     * Complete an impactedResource object and update its status to completedByUser.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImpactedResource|null>
      * @throws Exception
@@ -47,7 +47,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Complete an impactedResource object and update its status to completedByUser. This API is available in the following national cloud deployments.
+     * Complete an impactedResource object and update its status to completedByUser.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -60,7 +60,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

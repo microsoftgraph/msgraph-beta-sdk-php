@@ -51,10 +51,11 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from reports
+     * Get a list of monthly user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSignUpMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-signups?view=graph-rest-1.0 Find more info here
     */
     public function get(?SignUpsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +67,7 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from reports
+     * Get a list of monthly user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -82,7 +83,7 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

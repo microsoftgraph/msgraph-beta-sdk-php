@@ -52,7 +52,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the yearTimePeriodDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the yearTimePeriodDefinition objects and their properties.
      * @param YearsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinitionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Create a new yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
@@ -85,7 +85,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the yearTimePeriodDefinition objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the yearTimePeriodDefinition objects and their properties.
      * @param YearsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class YearsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new yearTimePeriodDefinition object. This API is available in the following national cloud deployments.
+     * Create a new yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -34,7 +34,7 @@ class OpenNetworkAzureSecurityGroupFinding extends Finding implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'inboundPorts' => fn(ParseNode $n) => $o->setInboundPorts($n->getObjectValue([InboundPorts::class, 'createFromDiscriminatorValue'])),
             'securityGroup' => fn(ParseNode $n) => $o->setSecurityGroup($n->getObjectValue([AuthorizationSystemResource::class, 'createFromDiscriminatorValue'])),
-            'virtualMachines' => fn(ParseNode $n) => $o->setVirtualMachines($n->getCollectionOfObjectValues([AuthorizationSystemResource::class, 'createFromDiscriminatorValue'])),
+            'virtualMachines' => fn(ParseNode $n) => $o->setVirtualMachines($n->getCollectionOfObjectValues([VirtualMachineDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -63,14 +63,14 @@ class OpenNetworkAzureSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the virtualMachines property value. The virtualMachines property
-     * @return array<AuthorizationSystemResource>|null
+     * Gets the virtualMachines property value. Represents a virtual machine in an authorization system.
+     * @return array<VirtualMachineDetails>|null
     */
     public function getVirtualMachines(): ?array {
         $val = $this->getBackingStore()->get('virtualMachines');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AuthorizationSystemResource::class);
-            /** @var array<AuthorizationSystemResource>|null $val */
+            TypeUtils::validateCollectionValues($val, VirtualMachineDetails::class);
+            /** @var array<VirtualMachineDetails>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualMachines'");
@@ -104,8 +104,8 @@ class OpenNetworkAzureSecurityGroupFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the virtualMachines property value. The virtualMachines property
-     * @param array<AuthorizationSystemResource>|null $value Value to set for the virtualMachines property.
+     * Sets the virtualMachines property value. Represents a virtual machine in an authorization system.
+     * @param array<VirtualMachineDetails>|null $value Value to set for the virtualMachines property.
     */
     public function setVirtualMachines(?array $value): void {
         $this->getBackingStore()->set('virtualMachines', $value);

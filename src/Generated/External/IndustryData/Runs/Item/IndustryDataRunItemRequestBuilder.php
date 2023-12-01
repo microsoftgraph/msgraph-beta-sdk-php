@@ -47,7 +47,7 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataRun object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataRun|null>
      * @throws Exception
@@ -63,7 +63,7 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataRun object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

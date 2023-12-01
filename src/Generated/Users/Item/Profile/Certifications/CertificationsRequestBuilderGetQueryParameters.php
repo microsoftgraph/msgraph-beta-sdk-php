@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of personCertification objects from a user's profile. This API is available in the following national cloud deployments.
+ * Retrieve a list of personCertification objects from a user's profile.
 */
 class CertificationsRequestBuilderGetQueryParameters 
 {

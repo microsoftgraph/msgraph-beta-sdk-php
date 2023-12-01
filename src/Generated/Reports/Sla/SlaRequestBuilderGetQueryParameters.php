@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\Sla;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A placeholder to allow for the desired URL path for SLA.
+ * Reports that relate to tenant-level Microsoft Entra SLA attainment.
 */
 class SlaRequestBuilderGetQueryParameters 
 {

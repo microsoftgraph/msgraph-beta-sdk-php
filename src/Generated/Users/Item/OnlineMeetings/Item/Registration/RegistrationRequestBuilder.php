@@ -47,7 +47,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting. This API is available in the following national cloud deployments.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -63,11 +63,11 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting. This API is available in the following national cloud deployments.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,7 +79,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistration|null>
@@ -96,7 +96,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting. This API is available in the following national cloud deployments.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,12 +109,12 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting. This API is available in the following national cloud deployments.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,12 +130,12 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer. This API is available in the following national cloud deployments.
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -149,7 +149,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

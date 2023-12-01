@@ -69,7 +69,7 @@ class RiskProfile implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the humanCount property value. The humanCount property
+     * Gets the humanCount property value. This is the count of human identities that have been assigned to this riskScoreBracket,
      * @return int|null
     */
     public function getHumanCount(): ?int {
@@ -81,7 +81,7 @@ class RiskProfile implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the nonHumanCount property value. The nonHumanCount property
+     * Gets the nonHumanCount property value. This is the count of nonhuman identities that have been assigned to this riskScoreBracket
      * @return int|null
     */
     public function getNonHumanCount(): ?int {
@@ -132,7 +132,7 @@ class RiskProfile implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the humanCount property value. The humanCount property
+     * Sets the humanCount property value. This is the count of human identities that have been assigned to this riskScoreBracket,
      * @param int|null $value Value to set for the humanCount property.
     */
     public function setHumanCount(?int $value): void {
@@ -140,7 +140,7 @@ class RiskProfile implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the nonHumanCount property value. The nonHumanCount property
+     * Sets the nonHumanCount property value. This is the count of nonhuman identities that have been assigned to this riskScoreBracket
      * @param int|null $value Value to set for the nonHumanCount property.
     */
     public function setNonHumanCount(?int $value): void {

@@ -52,7 +52,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRule objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the alertRule objects and their properties.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRuleCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an alertRule object. This API is available in the following national cloud deployments.
+     * Create an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRule|null>
@@ -85,7 +85,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRule objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the alertRule objects and their properties.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create an alertRule object. This API is available in the following national cloud deployments.
+     * Create an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

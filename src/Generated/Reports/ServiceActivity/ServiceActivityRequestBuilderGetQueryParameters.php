@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A placeholder to the Microsoft Entra service activity.
+ * Reports that relate to tenant-level authentication activities in Microsoft Entra.
 */
 class ServiceActivityRequestBuilderGetQueryParameters 
 {

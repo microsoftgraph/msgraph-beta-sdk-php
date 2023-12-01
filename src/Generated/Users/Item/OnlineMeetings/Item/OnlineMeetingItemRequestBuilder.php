@@ -15,6 +15,8 @@ use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\MeetingAttenda
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Recordings\RecordingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\SendVirtualAppointmentReminderSms\SendVirtualAppointmentReminderSmsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\SendVirtualAppointmentSms\SendVirtualAppointmentSmsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -34,7 +36,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
     */
     public function attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -90,6 +92,20 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the sendVirtualAppointmentReminderSms method.
+    */
+    public function sendVirtualAppointmentReminderSms(): SendVirtualAppointmentReminderSmsRequestBuilder {
+        return new SendVirtualAppointmentReminderSmsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendVirtualAppointmentSms method.
+    */
+    public function sendVirtualAppointmentSms(): SendVirtualAppointmentSmsRequestBuilder {
+        return new SendVirtualAppointmentSmsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
     */
     public function transcripts(): TranscriptsRequestBuilder {
@@ -111,7 +127,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onlineMeeting object. This API is available in the following national cloud deployments.
+     * Delete an onlineMeeting object.
      * @param OnlineMeetingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -142,7 +158,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating. This API is available in the following national cloud deployments.
+     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
      * @param OnlineMeeting $body The request body
      * @param OnlineMeetingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnlineMeeting|null>
@@ -159,7 +175,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onlineMeeting object. This API is available in the following national cloud deployments.
+     * Delete an onlineMeeting object.
      * @param OnlineMeetingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -172,7 +188,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -193,12 +209,12 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating. This API is available in the following national cloud deployments.
+     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
      * @param OnlineMeeting $body The request body
      * @param OnlineMeetingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -212,7 +228,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

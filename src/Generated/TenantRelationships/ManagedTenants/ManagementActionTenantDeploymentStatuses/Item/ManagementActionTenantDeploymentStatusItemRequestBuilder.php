@@ -46,7 +46,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Read the properties and relationships of a managementActionTenantDeploymentStatus object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
@@ -91,12 +91,12 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a managementActionTenantDeploymentStatus object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +112,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -131,7 +131,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

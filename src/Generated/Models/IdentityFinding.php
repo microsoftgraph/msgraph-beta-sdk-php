@@ -88,7 +88,7 @@ class IdentityFinding extends Finding implements Parsable
     }
 
     /**
-     * Gets the identityDetails property value. The identityDetails property
+     * Gets the identityDetails property value. An identity's information details.
      * @return IdentityDetails|null
     */
     public function getIdentityDetails(): ?IdentityDetails {
@@ -140,7 +140,7 @@ class IdentityFinding extends Finding implements Parsable
     }
 
     /**
-     * Sets the identityDetails property value. The identityDetails property
+     * Sets the identityDetails property value. An identity's information details.
      * @param IdentityDetails|null $value Value to set for the identityDetails property.
     */
     public function setIdentityDetails(?IdentityDetails $value): void {

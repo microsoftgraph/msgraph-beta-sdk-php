@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\UserCount\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get userCount from reports
+ * Insights for total users on apps registered in the tenant for a specified period.
 */
 class UserCountMetricItemRequestBuilderGetQueryParameters 
 {

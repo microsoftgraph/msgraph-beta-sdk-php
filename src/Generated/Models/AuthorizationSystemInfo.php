@@ -48,7 +48,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the authorizationSystemType property value. The authorizationSystemType property
+     * Gets the authorizationSystemType property value. The type of authorization system.The possible values are: azure, gcp, aws, unknownFutureValue.
      * @return AuthorizationSystemType|null
     */
     public function getAuthorizationSystemType(): ?AuthorizationSystemType {
@@ -68,7 +68,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name for the authorization system.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -94,7 +94,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique identifier for the authorization system.
      * @return string|null
     */
     public function getId(): ?string {
@@ -138,7 +138,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the authorizationSystemType property value. The authorizationSystemType property
+     * Sets the authorizationSystemType property value. The type of authorization system.The possible values are: azure, gcp, aws, unknownFutureValue.
      * @param AuthorizationSystemType|null $value Value to set for the authorizationSystemType property.
     */
     public function setAuthorizationSystemType(?AuthorizationSystemType $value): void {
@@ -154,7 +154,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name for the authorization system.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -162,7 +162,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique identifier for the authorization system.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

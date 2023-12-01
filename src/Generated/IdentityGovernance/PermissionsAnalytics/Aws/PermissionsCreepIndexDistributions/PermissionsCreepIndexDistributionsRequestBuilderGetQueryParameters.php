@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get permissionsCreepIndexDistributions from identityGovernance
+ * Get a list of the permissionsCreepIndexDistribution objects and their properties.
 */
 class PermissionsCreepIndexDistributionsRequestBuilderGetQueryParameters 
 {

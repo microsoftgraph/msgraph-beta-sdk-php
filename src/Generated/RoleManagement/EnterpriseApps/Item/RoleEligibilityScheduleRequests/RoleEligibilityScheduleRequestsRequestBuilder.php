@@ -62,7 +62,7 @@ class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.
      * @param RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleEligibilityScheduleRequestCollectionResponse|null>
      * @throws Exception
@@ -78,7 +78,7 @@ class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments. This API is available in the following national cloud deployments.
+     * Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param UnifiedRoleEligibilityScheduleRequest $body The request body
      * @param RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleEligibilityScheduleRequest|null>
@@ -95,7 +95,7 @@ class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.
      * @param RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,12 +111,12 @@ class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments. This API is available in the following national cloud deployments.
+     * Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param UnifiedRoleEligibilityScheduleRequest $body The request body
      * @param RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -130,7 +130,7 @@ class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

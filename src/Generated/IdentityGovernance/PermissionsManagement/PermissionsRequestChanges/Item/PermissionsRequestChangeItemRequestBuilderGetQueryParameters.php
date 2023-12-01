@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get permissionsRequestChanges from identityGovernance
+ * Read the properties and relationships of a permissionsRequestChange object.
 */
 class PermissionsRequestChangeItemRequestBuilderGetQueryParameters 
 {

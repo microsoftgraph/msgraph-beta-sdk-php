@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the deviceLocalCredentialInfo objects and their properties excluding the credentials.  This API is available in the following national cloud deployments.
+ * Get a list of the deviceLocalCredentialInfo objects and their properties excluding the credentials. 
 */
 class DeviceLocalCredentialsRequestBuilderGetQueryParameters 
 {

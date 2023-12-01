@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\MessagesReques
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\RemoveAllAccessForUser\RemoveAllAccessForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
@@ -100,6 +101,13 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the removeAllAccessForUser method.
+    */
+    public function removeAllAccessForUser(): RemoveAllAccessForUserRequestBuilder {
+        return new RemoveAllAccessForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the sendActivityNotification method.
     */
     public function sendActivityNotification(): SendActivityNotificationRequestBuilder {
@@ -150,7 +158,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from. This API is available in the following national cloud deployments.
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Chat|null>
      * @throws Exception
@@ -195,12 +203,12 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from. This API is available in the following national cloud deployments.
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -216,7 +224,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -235,7 +243,7 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

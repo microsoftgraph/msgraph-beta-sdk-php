@@ -80,7 +80,7 @@ class PermissionsCreepIndex implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the score property value. The score property
+     * Gets the score property value. This value represents how much risk an identity poses. This risk range is classified in three buckets: 0-33: low, 34-66: medium, 67-100: high..
      * @return int|null
     */
     public function getScore(): ?int {
@@ -126,7 +126,7 @@ class PermissionsCreepIndex implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the score property value. The score property
+     * Sets the score property value. This value represents how much risk an identity poses. This risk range is classified in three buckets: 0-33: low, 34-66: medium, 67-100: high..
      * @param int|null $value Value to set for the score property.
     */
     public function setScore(?int $value): void {

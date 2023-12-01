@@ -27,7 +27,7 @@ class AwsPolicyPermissionsDefinitionAction extends AwsPermissionsDefinitionActio
     }
 
     /**
-     * Gets the assignToRoleId property value. The assignToRoleId property
+     * Gets the assignToRoleId property value. ID for the role.
      * @return string|null
     */
     public function getAssignToRoleId(): ?string {
@@ -75,7 +75,7 @@ class AwsPolicyPermissionsDefinitionAction extends AwsPermissionsDefinitionActio
     }
 
     /**
-     * Sets the assignToRoleId property value. The assignToRoleId property
+     * Sets the assignToRoleId property value. ID for the role.
      * @param string|null $value Value to set for the assignToRoleId property.
     */
     public function setAssignToRoleId(?string $value): void {

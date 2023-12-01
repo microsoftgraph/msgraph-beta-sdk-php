@@ -25,7 +25,7 @@ class UserInsightsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the daily property value. The daily property
+     * Gets the daily property value. Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @return DailyUserInsightMetricsRoot|null
     */
     public function getDaily(): ?DailyUserInsightMetricsRoot {
@@ -49,7 +49,7 @@ class UserInsightsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the monthly property value. The monthly property
+     * Gets the monthly property value. Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @return MonthlyUserInsightMetricsRoot|null
     */
     public function getMonthly(): ?MonthlyUserInsightMetricsRoot {
@@ -71,7 +71,7 @@ class UserInsightsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the daily property value. The daily property
+     * Sets the daily property value. Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @param DailyUserInsightMetricsRoot|null $value Value to set for the daily property.
     */
     public function setDaily(?DailyUserInsightMetricsRoot $value): void {
@@ -79,7 +79,7 @@ class UserInsightsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the monthly property value. The monthly property
+     * Sets the monthly property value. Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
      * @param MonthlyUserInsightMetricsRoot|null $value Value to set for the monthly property.
     */
     public function setMonthly(?MonthlyUserInsightMetricsRoot $value): void {

@@ -83,7 +83,7 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ticketApproverIdentityId property value. The ticketApproverIdentityId property
+     * Gets the ticketApproverIdentityId property value. ID for the request approver.
      * @return string|null
     */
     public function getTicketApproverIdentityId(): ?string {
@@ -107,7 +107,7 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ticketSubmitterIdentityId property value. The ticketSubmitterIdentityId property
+     * Gets the ticketSubmitterIdentityId property value. ID for the request submitter.
      * @return string|null
     */
     public function getTicketSubmitterIdentityId(): ?string {
@@ -168,7 +168,7 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ticketApproverIdentityId property value. The ticketApproverIdentityId property
+     * Sets the ticketApproverIdentityId property value. ID for the request approver.
      * @param string|null $value Value to set for the ticketApproverIdentityId property.
     */
     public function setTicketApproverIdentityId(?string $value): void {
@@ -184,7 +184,7 @@ class TicketInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ticketSubmitterIdentityId property value. The ticketSubmitterIdentityId property
+     * Sets the ticketSubmitterIdentityId property value. ID for the request submitter.
      * @param string|null $value Value to set for the ticketSubmitterIdentityId property.
     */
     public function setTicketSubmitterIdentityId(?string $value): void {

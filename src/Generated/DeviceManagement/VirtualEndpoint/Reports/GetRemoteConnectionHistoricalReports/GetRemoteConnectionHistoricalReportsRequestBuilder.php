@@ -31,7 +31,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days. This API is available in the following national cloud deployments.
+     * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -50,7 +50,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days. This API is available in the following national cloud deployments.
+     * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -64,7 +64,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

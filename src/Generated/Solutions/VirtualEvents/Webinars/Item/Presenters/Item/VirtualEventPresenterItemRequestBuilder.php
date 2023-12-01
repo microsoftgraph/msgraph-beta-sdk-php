@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventPresenter;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Presenters\Item\ProfilePhoto\ProfilePhotoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Presenters\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +18,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the media for the solutionsRoot entity.
+    */
+    public function profilePhoto(): ProfilePhotoRequestBuilder {
+        return new ProfilePhotoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.virtualEventPresenter entity.
+    */
+    public function sessions(): SessionsRequestBuilder {
+        return new SessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new VirtualEventPresenterItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -90,7 +106,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -111,7 +127,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -130,7 +146,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of branches within a tenant connected to the Global Secure Access services. This API is available in the following national cloud deployments.
+ * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
 */
 class BranchesRequestBuilderGetQueryParameters 
 {

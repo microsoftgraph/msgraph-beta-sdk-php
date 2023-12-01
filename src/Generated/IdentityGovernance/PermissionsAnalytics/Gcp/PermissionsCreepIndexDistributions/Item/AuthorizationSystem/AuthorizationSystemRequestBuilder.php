@@ -31,7 +31,7 @@ class AuthorizationSystemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authorizationSystem from identityGovernance
+     * Represents an authorization system onboarded to Permissions Management.
      * @param AuthorizationSystemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorizationSystem|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class AuthorizationSystemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authorizationSystem from identityGovernance
+     * Represents an authorization system onboarded to Permissions Management.
      * @param AuthorizationSystemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -62,7 +62,7 @@ class AuthorizationSystemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

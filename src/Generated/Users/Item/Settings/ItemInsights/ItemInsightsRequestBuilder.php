@@ -46,7 +46,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user-customizable privacy settings for itemInsights and meeting hours insights. This API is available in the following national cloud deployments.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserInsightsSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the privacy settings for itemInsights and meeting hours insights of a user. This API is available in the following national cloud deployments.
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserInsightsSettings|null>
@@ -92,12 +92,12 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get the user-customizable privacy settings for itemInsights and meeting hours insights. This API is available in the following national cloud deployments.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,12 +113,12 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the privacy settings for itemInsights and meeting hours insights of a user. This API is available in the following national cloud deployments.
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -132,7 +132,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

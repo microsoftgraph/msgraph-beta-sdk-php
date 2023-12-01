@@ -56,7 +56,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the blockedCount property value. Count of transactions that were blocked.
+     * Gets the blockedCount property value. The number of transactions that were blocked.
      * @return int|null
     */
     public function getBlockedCount(): ?int {
@@ -94,7 +94,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalCount property value. Count of transactions.
+     * Gets the totalCount property value. The total number of transactions.
      * @return int|null
     */
     public function getTotalCount(): ?int {
@@ -146,7 +146,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the blockedCount property value. Count of transactions that were blocked.
+     * Sets the blockedCount property value. The number of transactions that were blocked.
      * @param int|null $value Value to set for the blockedCount property.
     */
     public function setBlockedCount(?int $value): void {
@@ -162,7 +162,7 @@ class TransactionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalCount property value. Count of transactions.
+     * Sets the totalCount property value. The total number of transactions.
      * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {

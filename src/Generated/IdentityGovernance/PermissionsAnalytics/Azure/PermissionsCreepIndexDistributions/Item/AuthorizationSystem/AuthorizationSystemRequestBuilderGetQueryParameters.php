@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authorizationSystem from identityGovernance
+ * Represents an authorization system onboarded to Permissions Management.
 */
 class AuthorizationSystemRequestBuilderGetQueryParameters 
 {

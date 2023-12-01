@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudienc
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the updatableAsset resources that are members of a deploymentAudience. This API is available in the following national cloud deployments.
+ * List the updatableAsset resources that are members of a deploymentAudience.
 */
 class MembersRequestBuilderGetQueryParameters 
 {

@@ -46,7 +46,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
      * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummary|null>
      * @throws Exception
@@ -91,12 +91,12 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
      * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +112,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -131,7 +131,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

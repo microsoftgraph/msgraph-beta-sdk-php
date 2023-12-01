@@ -52,20 +52,20 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'capacity' => fn(ParseNode $n) => $o->setCapacity($n->getIntegerValue()),
-            'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestion::class, 'createFromDiscriminatorValue'])),
+            'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionBase::class, 'createFromDiscriminatorValue'])),
             'registrationWebUrl' => fn(ParseNode $n) => $o->setRegistrationWebUrl($n->getStringValue()),
         ]);
     }
 
     /**
      * Gets the questions property value. Registration questions.
-     * @return array<VirtualEventRegistrationQuestion>|null
+     * @return array<VirtualEventRegistrationQuestionBase>|null
     */
     public function getQuestions(): ?array {
         $val = $this->getBackingStore()->get('questions');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, VirtualEventRegistrationQuestion::class);
-            /** @var array<VirtualEventRegistrationQuestion>|null $val */
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistrationQuestionBase::class);
+            /** @var array<VirtualEventRegistrationQuestionBase>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'questions'");
@@ -104,7 +104,7 @@ class VirtualEventRegistrationConfiguration extends Entity implements Parsable
 
     /**
      * Sets the questions property value. Registration questions.
-     * @param array<VirtualEventRegistrationQuestion>|null $value Value to set for the questions property.
+     * @param array<VirtualEventRegistrationQuestionBase>|null $value Value to set for the questions property.
     */
     public function setQuestions(?array $value): void {
         $this->getBackingStore()->set('questions', $value);

@@ -28,6 +28,7 @@ class Profile extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.networkaccess.filteringProfile': return new FilteringProfile();
                 case '#microsoft.graph.networkaccess.forwardingProfile': return new ForwardingProfile();
             }
         }

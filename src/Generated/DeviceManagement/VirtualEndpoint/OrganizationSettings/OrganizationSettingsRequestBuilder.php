@@ -46,7 +46,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationSettings|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is available in the following national cloud deployments.
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationSettings|null>
@@ -92,12 +92,12 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,12 +113,12 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of the cloudPcOrganizationSettings object in a tenant. This API is available in the following national cloud deployments.
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -132,7 +132,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

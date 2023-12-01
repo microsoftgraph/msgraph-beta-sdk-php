@@ -45,7 +45,7 @@ class EnumeratedInboundPorts extends InboundPorts implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the ports property value. Collection of ports that allow inbound traffic.
      * @return array<string>|null
     */
     public function getPorts(): ?array {
@@ -68,7 +68,7 @@ class EnumeratedInboundPorts extends InboundPorts implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the ports property value. Collection of ports that allow inbound traffic.
      * @param array<string>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {

@@ -31,7 +31,7 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of single sign-on credentials using a password for a user or group. This API is available in the following national cloud deployments.
+     * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordSingleSignOnCredentialSet|null>
@@ -48,7 +48,7 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of single sign-on credentials using a password for a user or group. This API is available in the following national cloud deployments.
+     * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

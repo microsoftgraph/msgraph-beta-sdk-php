@@ -26,6 +26,7 @@ class VirtualEvent extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.virtualEventTownhall': return new VirtualEventTownhall();
                 case '#microsoft.graph.virtualEventWebinar': return new VirtualEventWebinar();
             }
         }
@@ -46,11 +47,11 @@ class VirtualEvent extends Entity implements Parsable
 
     /**
      * Gets the description property value. Description of the virtual event.
-     * @return string|null
+     * @return ItemBody|null
     */
-    public function getDescription(): ?string {
+    public function getDescription(): ?ItemBody {
         $val = $this->getBackingStore()->get('description');
-        if (is_null($val) || is_string($val)) {
+        if (is_null($val) || $val instanceof ItemBody) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
@@ -69,7 +70,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. End time of the virtual event.
+     * Gets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
      * @return DateTimeTimeZone|null
     */
     public function getEndDateTime(): ?DateTimeTimeZone {
@@ -88,7 +89,7 @@ class VirtualEvent extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([CommunicationsIdentitySet::class, 'createFromDiscriminatorValue'])),
-            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
@@ -127,7 +128,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. Start time of the virtual event.
+     * Gets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
@@ -157,7 +158,7 @@ class VirtualEvent extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
-        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
@@ -176,9 +177,9 @@ class VirtualEvent extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the virtual event.
-     * @param string|null $value Value to set for the description property.
+     * @param ItemBody|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value): void {
+    public function setDescription(?ItemBody $value): void {
         $this->getBackingStore()->set('description', $value);
     }
 
@@ -191,7 +192,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. End time of the virtual event.
+     * Sets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
      * @param DateTimeTimeZone|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTimeTimeZone $value): void {
@@ -215,7 +216,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. Start time of the virtual event.
+     * Sets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
      * @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {

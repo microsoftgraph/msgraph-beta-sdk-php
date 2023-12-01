@@ -30,7 +30,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is available in the following national cloud deployments.
+     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.
      * @param UpdateSoftwarePostRequestBody $body The request body
      * @param UpdateSoftwareRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation. This API is available in the following national cloud deployments.
+     * Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.
      * @param UpdateSoftwarePostRequestBody $body The request body
      * @param UpdateSoftwareRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -61,7 +61,7 @@ class UpdateSoftwareRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

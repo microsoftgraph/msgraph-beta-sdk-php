@@ -52,7 +52,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of publishedResource objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of publishedResource objects.
      * @param PublishedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResourceCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new publishedResource object. This API is available in the following national cloud deployments.
+     * Create a new publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResource|null>
@@ -85,7 +85,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of publishedResource objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of publishedResource objects.
      * @param PublishedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new publishedResource object. This API is available in the following national cloud deployments.
+     * Create a new publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -52,7 +52,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmissionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmission|null>
@@ -85,7 +85,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the urlThreatSubmission objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new urlThreatSubmission object. This API is available in the following national cloud deployments.
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

@@ -52,7 +52,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnnotation objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAnnotation objects from a user's profile.
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnotationCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAnnotation object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personAnnotation object in a user's profile.
      * @param PersonAnnotation $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnotation|null>
@@ -85,7 +85,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnnotation objects from a user's profile. This API is available in the following national cloud deployments.
+     * Retrieve a list of personAnnotation objects from a user's profile.
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class NotesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new personAnnotation object in a user's profile. This API is available in the following national cloud deployments.
+     * Create a new personAnnotation object in a user's profile.
      * @param PersonAnnotation $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

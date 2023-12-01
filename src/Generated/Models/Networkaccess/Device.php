@@ -57,7 +57,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. A unique device ID.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -69,7 +69,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name for the device.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -98,7 +98,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isCompliant property value. The isCompliant property
+     * Gets the isCompliant property value. A value that indicates whether or not the device is compliant.
      * @return bool|null
     */
     public function getIsCompliant(): ?bool {
@@ -110,7 +110,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Gets the lastAccessDateTime property value. The most recent access time for the device.
      * @return DateTime|null
     */
     public function getLastAccessDateTime(): ?DateTime {
@@ -134,7 +134,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. The operatingSystem property
+     * Gets the operatingSystem property value. The operating system on the device.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -189,7 +189,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. A unique device ID.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -197,7 +197,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name for the device.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -205,7 +205,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCompliant property value. The isCompliant property
+     * Sets the isCompliant property value. A value that indicates whether or not the device is compliant.
      * @param bool|null $value Value to set for the isCompliant property.
     */
     public function setIsCompliant(?bool $value): void {
@@ -213,7 +213,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Sets the lastAccessDateTime property value. The most recent access time for the device.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
     public function setLastAccessDateTime(?DateTime $value): void {
@@ -229,7 +229,7 @@ class Device implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the operatingSystem property value. The operatingSystem property
+     * Sets the operatingSystem property value. The operating system on the device.
      * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {

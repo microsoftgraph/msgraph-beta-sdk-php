@@ -60,7 +60,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC. This API is available in the following national cloud deployments.
+     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
      * @param DeviceImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcDeviceImageCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs. This API is available in the following national cloud deployments.
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param CloudPcDeviceImage $body The request body
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcDeviceImage|null>
@@ -93,7 +93,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC. This API is available in the following national cloud deployments.
+     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
      * @param DeviceImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,12 +109,12 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs. This API is available in the following national cloud deployments.
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param CloudPcDeviceImage $body The request body
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -128,7 +128,7 @@ class DeviceImagesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

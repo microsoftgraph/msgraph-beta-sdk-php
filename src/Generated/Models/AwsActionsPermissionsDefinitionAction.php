@@ -27,7 +27,7 @@ class AwsActionsPermissionsDefinitionAction extends AwsPermissionsDefinitionActi
     }
 
     /**
-     * Gets the assignToRoleId property value. The assignToRoleId property
+     * Gets the assignToRoleId property value. Defines AWS statements.
      * @return string|null
     */
     public function getAssignToRoleId(): ?string {
@@ -75,7 +75,7 @@ class AwsActionsPermissionsDefinitionAction extends AwsPermissionsDefinitionActi
     }
 
     /**
-     * Sets the assignToRoleId property value. The assignToRoleId property
+     * Sets the assignToRoleId property value. Defines AWS statements.
      * @param string|null $value Value to set for the assignToRoleId property.
     */
     public function setAssignToRoleId(?string $value): void {

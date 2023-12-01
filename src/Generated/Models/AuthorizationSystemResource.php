@@ -34,7 +34,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorizationSystem property value. The authorizationSystem property
+     * Gets the authorizationSystem property value. The authorization system that the resource exists in.
      * @return AuthorizationSystem|null
     */
     public function getAuthorizationSystem(): ?AuthorizationSystem {
@@ -46,7 +46,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the resource. Read-only. Supports $filter (eq,contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -58,7 +58,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. The ID of the resource as defined by the authorization system provider. Read-only. Supports $filter (eq).
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -84,7 +84,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. The type of the resource. Read-only. Supports $filter (eq).
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -108,7 +108,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorizationSystem property value. The authorizationSystem property
+     * Sets the authorizationSystem property value. The authorization system that the resource exists in.
      * @param AuthorizationSystem|null $value Value to set for the authorizationSystem property.
     */
     public function setAuthorizationSystem(?AuthorizationSystem $value): void {
@@ -116,7 +116,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the resource. Read-only. Supports $filter (eq,contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -124,7 +124,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. The ID of the resource as defined by the authorization system provider. Read-only. Supports $filter (eq).
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -132,7 +132,7 @@ class AuthorizationSystemResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. The type of the resource. Read-only. Supports $filter (eq).
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

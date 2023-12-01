@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespac
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an unifiedRbacResourceAction object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of an unifiedRbacResourceAction object.
 */
 class UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters 
 {

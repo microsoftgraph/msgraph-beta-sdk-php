@@ -48,7 +48,7 @@ class PermissionsDefinitionAuthorizationSystem implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the authorizationSystemId property value. The authorizationSystemId property
+     * Gets the authorizationSystemId property value. ID of the authorization system retrieved from the customer cloud environment.
      * @return string|null
     */
     public function getAuthorizationSystemId(): ?string {
@@ -60,7 +60,7 @@ class PermissionsDefinitionAuthorizationSystem implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the authorizationSystemType property value. The authorizationSystemType property
+     * Gets the authorizationSystemType property value. The type of authorization system.
      * @return string|null
     */
     public function getAuthorizationSystemType(): ?string {
@@ -124,7 +124,7 @@ class PermissionsDefinitionAuthorizationSystem implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the authorizationSystemId property value. The authorizationSystemId property
+     * Sets the authorizationSystemId property value. ID of the authorization system retrieved from the customer cloud environment.
      * @param string|null $value Value to set for the authorizationSystemId property.
     */
     public function setAuthorizationSystemId(?string $value): void {
@@ -132,7 +132,7 @@ class PermissionsDefinitionAuthorizationSystem implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the authorizationSystemType property value. The authorizationSystemType property
+     * Sets the authorizationSystemType property value. The type of authorization system.
      * @param string|null $value Value to set for the authorizationSystemType property.
     */
     public function setAuthorizationSystemType(?string $value): void {

@@ -52,7 +52,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2cIdentityUserFlow objects.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlowCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlow|null>
@@ -85,7 +85,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2cIdentityUserFlow objects.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

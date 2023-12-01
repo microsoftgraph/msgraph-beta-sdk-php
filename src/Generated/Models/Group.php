@@ -993,7 +993,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object.  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * Gets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object.
      * @return array<ServiceProvisioningError>|null
     */
     public function getServiceProvisioningErrors(): ?array {
@@ -1789,7 +1789,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object.  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * Sets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object.
      * @param array<ServiceProvisioningError>|null $value Value to set for the serviceProvisioningErrors property.
     */
     public function setServiceProvisioningErrors(?array $value): void {

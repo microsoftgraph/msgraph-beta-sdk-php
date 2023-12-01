@@ -52,7 +52,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is available in the following national cloud deployments.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOnPremisesConnectionCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is available in the following national cloud deployments.
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
      * @param CloudPcOnPremisesConnection $body The request body
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOnPremisesConnection|null>
@@ -85,7 +85,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List properties and relationships of the cloudPcOnPremisesConnection objects. This API is available in the following national cloud deployments.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs. This API is available in the following national cloud deployments.
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
      * @param CloudPcOnPremisesConnection $body The request body
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class OnPremisesConnectionsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

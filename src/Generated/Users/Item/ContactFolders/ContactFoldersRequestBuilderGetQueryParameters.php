@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get all the contact folders in the signed-in user's mailbox. This API is available in the following national cloud deployments.
+ * Get all the contact folders in the signed-in user's mailbox.
 */
 class ContactFoldersRequestBuilderGetQueryParameters 
 {

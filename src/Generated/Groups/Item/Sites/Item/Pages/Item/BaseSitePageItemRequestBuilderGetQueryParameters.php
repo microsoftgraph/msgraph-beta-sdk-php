@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the metadata for a baseSitePage][] in the site pages [list][] in a [site][]. This API is available in the following [national cloud deployments.
+ * Get the metadata for a [baseSitePage][] in the site pages [list][] in a [site][].
 */
 class BaseSitePageItemRequestBuilderGetQueryParameters 
 {

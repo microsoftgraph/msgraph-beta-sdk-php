@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\MultiTenantOrganiza
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the tenants and their properties in the multi-tenant organization. This API is available in the following national cloud deployments.
+ * List the tenants and their properties in the multi-tenant organization.
 */
 class TenantsRequestBuilderGetQueryParameters 
 {

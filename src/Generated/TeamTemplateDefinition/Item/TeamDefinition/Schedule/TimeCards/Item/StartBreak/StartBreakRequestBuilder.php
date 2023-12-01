@@ -31,7 +31,7 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a break in a specific timeCard. This API is available in the following national cloud deployments.
+     * Start a break in a specific timeCard.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
@@ -48,7 +48,7 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a break in a specific timeCard. This API is available in the following national cloud deployments.
+     * Start a break in a specific timeCard.
      * @param StartBreakPostRequestBody $body The request body
      * @param StartBreakRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -62,7 +62,7 @@ class StartBreakRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

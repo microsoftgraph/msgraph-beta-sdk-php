@@ -63,7 +63,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Delete a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -79,7 +79,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a b2cUserFlow object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2cUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlow|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlow|null>
@@ -112,7 +112,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Delete a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,12 +125,12 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of a b2cUserFlow object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a b2cUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -146,12 +146,12 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a b2cIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Update the properties of a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -165,7 +165,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

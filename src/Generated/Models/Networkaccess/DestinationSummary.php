@@ -56,7 +56,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the count property value. Count of the aggregation.
+     * Gets the count property value. The number of the destinationSummary objects, aggregated by Global Secure Access service.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -68,7 +68,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destination property value. Destination FQDN or IP address.
+     * Gets the destination property value. The IP address or FQDN of the destination.
      * @return string|null
     */
     public function getDestination(): ?string {
@@ -106,7 +106,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the trafficType property value. The trafficType property
+     * Gets the trafficType property value. The traffic classification. The allowed values are internet, private, microsoft365, all, and unknownFutureValue.
      * @return TrafficType|null
     */
     public function getTrafficType(): ?TrafficType {
@@ -146,7 +146,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the count property value. Count of the aggregation.
+     * Sets the count property value. The number of the destinationSummary objects, aggregated by Global Secure Access service.
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
@@ -154,7 +154,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destination property value. Destination FQDN or IP address.
+     * Sets the destination property value. The IP address or FQDN of the destination.
      * @param string|null $value Value to set for the destination property.
     */
     public function setDestination(?string $value): void {
@@ -170,7 +170,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the trafficType property value. The trafficType property
+     * Sets the trafficType property value. The traffic classification. The allowed values are internet, private, microsoft365, all, and unknownFutureValue.
      * @param TrafficType|null $value Value to set for the trafficType property.
     */
     public function setTrafficType(?TrafficType $value): void {

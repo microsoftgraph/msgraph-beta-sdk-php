@@ -95,7 +95,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete (unregister) a printer. This API is available in the following national cloud deployments.
+     * Delete (unregister) a printer.
      * @param PrinterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -111,7 +111,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a printer object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a printer object.
      * @param PrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Printer|null>
      * @throws Exception
@@ -127,7 +127,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a printer object. This API is available in the following national cloud deployments.
+     * Update the properties of a printer object.
      * @param Printer $body The request body
      * @param PrinterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Printer|null>
@@ -144,7 +144,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete (unregister) a printer. This API is available in the following national cloud deployments.
+     * Delete (unregister) a printer.
      * @param PrinterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,12 +157,12 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve the properties and relationships of a printer object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a printer object.
      * @param PrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -178,12 +178,12 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a printer object. This API is available in the following national cloud deployments.
+     * Update the properties of a printer object.
      * @param Printer $body The request body
      * @param PrinterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -197,7 +197,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

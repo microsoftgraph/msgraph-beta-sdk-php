@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a deletedChat object. This API is available in the following national cloud deployments.
+ * Read the properties and relationships of a deletedChat object.
 */
 class DeletedChatsRequestBuilderGetQueryParameters 
 {

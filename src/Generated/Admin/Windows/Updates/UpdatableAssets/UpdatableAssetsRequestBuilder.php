@@ -84,7 +84,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is available in the following national cloud deployments.
+     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is available in the following national cloud deployments.
+     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAsset|null>
@@ -117,7 +117,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types. This API is available in the following national cloud deployments.
+     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,12 +133,12 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset. This API is available in the following national cloud deployments.
+     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -152,7 +152,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

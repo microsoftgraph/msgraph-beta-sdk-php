@@ -30,7 +30,7 @@ class ExportPersonalDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a request to export the personal data for an inboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * Create a request to export the personal data for an inboundSharedUserProfile.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -47,7 +47,7 @@ class ExportPersonalDataRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a request to export the personal data for an inboundSharedUserProfile. This API is available in the following national cloud deployments.
+     * Create a request to export the personal data for an inboundSharedUserProfile.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -61,7 +61,7 @@ class ExportPersonalDataRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

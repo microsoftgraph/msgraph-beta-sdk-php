@@ -26,9 +26,13 @@ class PolicyRule extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.networkaccess.filteringRule': return new FilteringRule();
                 case '#microsoft.graph.networkaccess.forwardingRule': return new ForwardingRule();
+                case '#microsoft.graph.networkaccess.fqdnFilteringRule': return new FqdnFilteringRule();
+                case '#microsoft.graph.networkaccess.internetAccessForwardingRule': return new InternetAccessForwardingRule();
                 case '#microsoft.graph.networkaccess.m365ForwardingRule': return new M365ForwardingRule();
                 case '#microsoft.graph.networkaccess.privateAccessForwardingRule': return new PrivateAccessForwardingRule();
+                case '#microsoft.graph.networkaccess.webCategoryFilteringRule': return new WebCategoryFilteringRule();
             }
         }
         return new PolicyRule();

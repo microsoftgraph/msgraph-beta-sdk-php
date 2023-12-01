@@ -52,7 +52,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is available in the following national cloud deployments.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskGroupCollectionResponse|null>
      * @throws Exception
@@ -68,7 +68,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task group in the user's mailbox. This API is available in the following national cloud deployments.
+     * Create an Outlook task group in the user's mailbox.
      * @param OutlookTaskGroup $body The request body
      * @param TaskGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskGroup|null>
@@ -85,7 +85,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox. This API is available in the following national cloud deployments.
+     * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
      * @param TaskGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,12 +101,12 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Create an Outlook task group in the user's mailbox. This API is available in the following national cloud deployments.
+     * Create an Outlook task group in the user's mailbox.
      * @param OutlookTaskGroup $body The request body
      * @param TaskGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -120,7 +120,7 @@ class TaskGroupsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

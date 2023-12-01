@@ -26,6 +26,7 @@ class ChangeTrackedEntity extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.dayNote': return new DayNote();
                 case '#microsoft.graph.offerShiftRequest': return new OfferShiftRequest();
                 case '#microsoft.graph.openShift': return new OpenShift();
                 case '#microsoft.graph.openShiftChangeRequest': return new OpenShiftChangeRequest();

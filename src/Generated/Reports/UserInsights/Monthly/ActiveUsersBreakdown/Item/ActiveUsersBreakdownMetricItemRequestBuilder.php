@@ -31,7 +31,7 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activeUsersBreakdown from reports
+     * Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
      * @param ActiveUsersBreakdownMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActiveUsersBreakdownMetric|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activeUsersBreakdown from reports
+     * Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
      * @param ActiveUsersBreakdownMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -62,7 +62,7 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

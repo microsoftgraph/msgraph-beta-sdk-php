@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Cond
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform. This API is available in the following national cloud deployments.
+ * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
 */
 class ConditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters 
 {

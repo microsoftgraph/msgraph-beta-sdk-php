@@ -87,7 +87,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete a school data synchronization profile in the tenant based on the identifier. This API is available in the following national cloud deployments.
+     * Delete a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -103,7 +103,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Retrieve a school data synchronization profile in the tenant based on the identifier. This API is available in the following national cloud deployments.
+     * Retrieve a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationProfile|null>
      * @throws Exception
@@ -135,7 +135,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete a school data synchronization profile in the tenant based on the identifier. This API is available in the following national cloud deployments.
+     * Delete a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -148,12 +148,12 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Retrieve a school data synchronization profile in the tenant based on the identifier. This API is available in the following national cloud deployments.
+     * Retrieve a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -169,7 +169,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -188,7 +188,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
+        $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

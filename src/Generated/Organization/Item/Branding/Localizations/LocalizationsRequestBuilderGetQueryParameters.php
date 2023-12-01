@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localization
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve all localization branding objects, including the default branding. This API is available in the following national cloud deployments.
+ * Retrieve all localization branding objects, including the default branding.
 */
 class LocalizationsRequestBuilderGetQueryParameters 
 {
