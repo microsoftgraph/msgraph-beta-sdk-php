@@ -190,7 +190,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
+     * Gets the participants property value. The participants associated with the online meeting, including the organizer and the attendees.
      * @return MeetingParticipants|null
     */
     public function getParticipants(): ?MeetingParticipants {
@@ -228,7 +228,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the registration property value. The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
+     * Gets the registration property value. The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
      * @return MeetingRegistration|null
     */
     public function getRegistration(): ?MeetingRegistration {
@@ -379,7 +379,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
+     * Sets the participants property value. The participants associated with the online meeting, including the organizer and the attendees.
      * @param MeetingParticipants|null $value Value to set for the participants property.
     */
     public function setParticipants(?MeetingParticipants $value): void {
@@ -403,7 +403,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the registration property value. The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
+     * Sets the registration property value. The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
      * @param MeetingRegistration|null $value Value to set for the registration property.
     */
     public function setRegistration(?MeetingRegistration $value): void {
