@@ -261,7 +261,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the timeClockSettings property value. The timeClockSettings property
+     * Gets the timeClockSettings property value. The time clock location settings for this schedule.
      * @return TimeClockSettings|null
     */
     public function getTimeClockSettings(): ?TimeClockSettings {
@@ -339,7 +339,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the workforceIntegrationIds property value. The workforceIntegrationIds property
+     * Gets the workforceIntegrationIds property value. The Ids for the workforce integrations associated with this schedule.
      * @return array<string>|null
     */
     public function getWorkforceIntegrationIds(): ?array {
@@ -501,7 +501,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the timeClockSettings property value. The timeClockSettings property
+     * Sets the timeClockSettings property value. The time clock location settings for this schedule.
      * @param TimeClockSettings|null $value Value to set for the timeClockSettings property.
     */
     public function setTimeClockSettings(?TimeClockSettings $value): void {
@@ -549,7 +549,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the workforceIntegrationIds property value. The workforceIntegrationIds property
+     * Sets the workforceIntegrationIds property value. The Ids for the workforce integrations associated with this schedule.
      * @param array<string>|null $value Value to set for the workforceIntegrationIds property.
     */
     public function setWorkforceIntegrationIds(?array $value): void {
