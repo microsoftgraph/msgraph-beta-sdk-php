@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\GetAllRetainedMessages\GetAllRetainedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Channel;
 use Microsoft\Graph\Beta\Generated\Models\ChannelCollectionResponse;
@@ -40,6 +41,13 @@ class ChannelsRequestBuilder extends BaseRequestBuilder
     */
     public function getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllRetainedMessages method.
+    */
+    public function getAllRetainedMessages(): GetAllRetainedMessagesRequestBuilder {
+        return new GetAllRetainedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

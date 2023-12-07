@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Chats\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Chats\GetAllRetainedMessages\GetAllRetainedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\ChatItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Chat;
 use Microsoft\Graph\Beta\Generated\Models\ChatCollectionResponse;
@@ -40,6 +41,13 @@ class ChatsRequestBuilder extends BaseRequestBuilder
     */
     public function getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllRetainedMessages method.
+    */
+    public function getAllRetainedMessages(): GetAllRetainedMessagesRequestBuilder {
+        return new GetAllRetainedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

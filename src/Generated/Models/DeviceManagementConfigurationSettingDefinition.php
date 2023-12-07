@@ -51,7 +51,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the applicability property value. Details which device setting is applicable on. Supports: $filters.
+     * Gets the applicability property value. Details which device setting is applicable on
      * @return DeviceManagementConfigurationSettingApplicability|null
     */
     public function getApplicability(): ?DeviceManagementConfigurationSettingApplicability {
@@ -75,7 +75,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the categoryId property value. Specify category in which the setting is under. Support $filters.
+     * Gets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
      * @return string|null
     */
     public function getCategoryId(): ?string {
@@ -87,7 +87,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the description property value. Description of the setting.
+     * Gets the description property value. Description of the item
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -99,7 +99,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the displayName property value. Name of the setting. For example: Allow Toast.
+     * Gets the displayName property value. Display name of the item
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -153,7 +153,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the helpText property value. Help text of the setting. Give more details of the setting.
+     * Gets the helpText property value. Help text of the item
      * @return string|null
     */
     public function getHelpText(): ?string {
@@ -165,7 +165,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the infoUrls property value. List of links more info for the setting can be found at.
+     * Gets the infoUrls property value. List of links more info for the setting can be found at
      * @return array<string>|null
     */
     public function getInfoUrls(): ?array {
@@ -243,7 +243,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
+     * Gets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
      * @return string|null
     */
     public function getRootDefinitionId(): ?string {
@@ -337,7 +337,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the applicability property value. Details which device setting is applicable on. Supports: $filters.
+     * Sets the applicability property value. Details which device setting is applicable on
      * @param DeviceManagementConfigurationSettingApplicability|null $value Value to set for the applicability property.
     */
     public function setApplicability(?DeviceManagementConfigurationSettingApplicability $value): void {
@@ -353,7 +353,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the categoryId property value. Specify category in which the setting is under. Support $filters.
+     * Sets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
      * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {
@@ -361,7 +361,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the description property value. Description of the setting.
+     * Sets the description property value. Description of the item
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -369,7 +369,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the displayName property value. Name of the setting. For example: Allow Toast.
+     * Sets the displayName property value. Display name of the item
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -377,7 +377,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the helpText property value. Help text of the setting. Give more details of the setting.
+     * Sets the helpText property value. Help text of the item
      * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
@@ -385,7 +385,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the infoUrls property value. List of links more info for the setting can be found at.
+     * Sets the infoUrls property value. List of links more info for the setting can be found at
      * @param array<string>|null $value Value to set for the infoUrls property.
     */
     public function setInfoUrls(?array $value): void {
@@ -433,7 +433,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
+     * Sets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
      * @param string|null $value Value to set for the rootDefinitionId property.
     */
     public function setRootDefinitionId(?string $value): void {

@@ -26,6 +26,18 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
+     * Gets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities.
+     * @return bool|null
+    */
+    public function getActivitiesIncludedWhenCopyingShiftsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('activitiesIncludedWhenCopyingShiftsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activitiesIncludedWhenCopyingShiftsEnabled'");
+    }
+
+    /**
      * Gets the dayNotes property value. The dayNotes property
      * @return array<DayNote>|null
     */
@@ -58,6 +70,7 @@ class Schedule extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activitiesIncludedWhenCopyingShiftsEnabled' => fn(ParseNode $n) => $o->setActivitiesIncludedWhenCopyingShiftsEnabled($n->getBooleanValue()),
             'dayNotes' => fn(ParseNode $n) => $o->setDayNotes($n->getCollectionOfObjectValues([DayNote::class, 'createFromDiscriminatorValue'])),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
             'offerShiftRequests' => fn(ParseNode $n) => $o->setOfferShiftRequests($n->getCollectionOfObjectValues([OfferShiftRequest::class, 'createFromDiscriminatorValue'])),
@@ -69,6 +82,7 @@ class Schedule extends Entity implements Parsable
             'provisionStatusCode' => fn(ParseNode $n) => $o->setProvisionStatusCode($n->getStringValue()),
             'schedulingGroups' => fn(ParseNode $n) => $o->setSchedulingGroups($n->getCollectionOfObjectValues([SchedulingGroup::class, 'createFromDiscriminatorValue'])),
             'shifts' => fn(ParseNode $n) => $o->setShifts($n->getCollectionOfObjectValues([Shift::class, 'createFromDiscriminatorValue'])),
+            'startDayOfWeek' => fn(ParseNode $n) => $o->setStartDayOfWeek($n->getEnumValue(DayOfWeek::class)),
             'swapShiftsChangeRequests' => fn(ParseNode $n) => $o->setSwapShiftsChangeRequests($n->getCollectionOfObjectValues([SwapShiftsChangeRequest::class, 'createFromDiscriminatorValue'])),
             'swapShiftsRequestsEnabled' => fn(ParseNode $n) => $o->setSwapShiftsRequestsEnabled($n->getBooleanValue()),
             'timeCards' => fn(ParseNode $n) => $o->setTimeCards($n->getCollectionOfObjectValues([TimeCard::class, 'createFromDiscriminatorValue'])),
@@ -206,6 +220,18 @@ class Schedule extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'shifts'");
+    }
+
+    /**
+     * Gets the startDayOfWeek property value. Indicates the start day of the week.
+     * @return DayOfWeek|null
+    */
+    public function getStartDayOfWeek(): ?DayOfWeek {
+        $val = $this->getBackingStore()->get('startDayOfWeek');
+        if (is_null($val) || $val instanceof DayOfWeek) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDayOfWeek'");
     }
 
     /**
@@ -358,6 +384,7 @@ class Schedule extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('activitiesIncludedWhenCopyingShiftsEnabled', $this->getActivitiesIncludedWhenCopyingShiftsEnabled());
         $writer->writeCollectionOfObjectValues('dayNotes', $this->getDayNotes());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
         $writer->writeCollectionOfObjectValues('offerShiftRequests', $this->getOfferShiftRequests());
@@ -367,6 +394,7 @@ class Schedule extends Entity implements Parsable
         $writer->writeBooleanValue('openShiftsEnabled', $this->getOpenShiftsEnabled());
         $writer->writeCollectionOfObjectValues('schedulingGroups', $this->getSchedulingGroups());
         $writer->writeCollectionOfObjectValues('shifts', $this->getShifts());
+        $writer->writeEnumValue('startDayOfWeek', $this->getStartDayOfWeek());
         $writer->writeCollectionOfObjectValues('swapShiftsChangeRequests', $this->getSwapShiftsChangeRequests());
         $writer->writeBooleanValue('swapShiftsRequestsEnabled', $this->getSwapShiftsRequestsEnabled());
         $writer->writeCollectionOfObjectValues('timeCards', $this->getTimeCards());
@@ -378,6 +406,14 @@ class Schedule extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('timesOff', $this->getTimesOff());
         $writer->writeStringValue('timeZone', $this->getTimeZone());
         $writer->writeCollectionOfPrimitiveValues('workforceIntegrationIds', $this->getWorkforceIntegrationIds());
+    }
+
+    /**
+     * Sets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities.
+     * @param bool|null $value Value to set for the activitiesIncludedWhenCopyingShiftsEnabled property.
+    */
+    public function setActivitiesIncludedWhenCopyingShiftsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('activitiesIncludedWhenCopyingShiftsEnabled', $value);
     }
 
     /**
@@ -466,6 +502,14 @@ class Schedule extends Entity implements Parsable
     */
     public function setShifts(?array $value): void {
         $this->getBackingStore()->set('shifts', $value);
+    }
+
+    /**
+     * Sets the startDayOfWeek property value. Indicates the start day of the week.
+     * @param DayOfWeek|null $value Value to set for the startDayOfWeek property.
+    */
+    public function setStartDayOfWeek(?DayOfWeek $value): void {
+        $this->getBackingStore()->set('startDayOfWeek', $value);
     }
 
     /**

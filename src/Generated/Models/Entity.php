@@ -141,6 +141,9 @@ use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
 use Microsoft\Graph\Beta\Generated\Models\Security\Article;
 use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicator;
 use Microsoft\Graph\Beta\Generated\Models\Security\Artifact;
+use Microsoft\Graph\Beta\Generated\Models\Security\AuditCoreRoot;
+use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogQuery;
+use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\AuthorityTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\CasesRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\CategoryTemplate;
@@ -936,6 +939,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.gcpRole': return new GcpRole();
                 case '#microsoft.graph.gcpServiceAccount': return new GcpServiceAccount();
                 case '#microsoft.graph.gcpUser': return new GcpUser();
+                case '#microsoft.graph.goals': return new Goals();
+                case '#microsoft.graph.goalsExportJob': return new GoalsExportJob();
                 case '#microsoft.graph.governanceInsight': return new GovernanceInsight();
                 case '#microsoft.graph.governancePolicyTemplate': return new GovernancePolicyTemplate();
                 case '#microsoft.graph.governanceResource': return new GovernanceResource();
@@ -1432,6 +1437,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.platformCredentialAuthenticationMethod': return new PlatformCredentialAuthenticationMethod();
                 case '#microsoft.graph.playPromptOperation': return new PlayPromptOperation();
                 case '#microsoft.graph.policyBase': return new PolicyBase();
+                case '#microsoft.graph.policyRoot': return new PolicyRoot();
                 case '#microsoft.graph.policySet': return new PolicySet();
                 case '#microsoft.graph.policySetAssignment': return new PolicySetAssignment();
                 case '#microsoft.graph.policySetItem': return new PolicySetItem();
@@ -1562,6 +1568,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.article': return new Article();
                 case '#microsoft.graph.security.articleIndicator': return new ArticleIndicator();
                 case '#microsoft.graph.security.artifact': return new Artifact();
+                case '#microsoft.graph.security.auditCoreRoot': return new AuditCoreRoot();
+                case '#microsoft.graph.security.auditLogQuery': return new AuditLogQuery();
+                case '#microsoft.graph.security.auditLogRecord': return new AuditLogRecord();
                 case '#microsoft.graph.security.authorityTemplate': return new AuthorityTemplate();
                 case '#microsoft.graph.security.case': return new \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation();
@@ -2103,6 +2112,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.workPosition': return new WorkPosition();
                 case '#microsoft.graph.workspace': return new Workspace();
                 case '#microsoft.graph.x509CertificateAuthenticationMethodConfiguration': return new X509CertificateAuthenticationMethodConfiguration();
+                case '#microsoft.graph.x509CertificateCombinationConfiguration': return new X509CertificateCombinationConfiguration();
                 case '#microsoft.graph.zebraFotaArtifact': return new ZebraFotaArtifact();
                 case '#microsoft.graph.zebraFotaConnector': return new ZebraFotaConnector();
                 case '#microsoft.graph.zebraFotaDeployment': return new ZebraFotaDeployment();

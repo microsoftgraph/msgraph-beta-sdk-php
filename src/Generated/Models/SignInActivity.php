@@ -67,6 +67,8 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
             'lastNonInteractiveSignInRequestId' => fn(ParseNode $n) => $o->setLastNonInteractiveSignInRequestId($n->getStringValue()),
             'lastSignInDateTime' => fn(ParseNode $n) => $o->setLastSignInDateTime($n->getDateTimeValue()),
             'lastSignInRequestId' => fn(ParseNode $n) => $o->setLastSignInRequestId($n->getStringValue()),
+            'lastSuccessfulSignInDateTime' => fn(ParseNode $n) => $o->setLastSuccessfulSignInDateTime($n->getDateTimeValue()),
+            'lastSuccessfulSignInRequestId' => fn(ParseNode $n) => $o->setLastSuccessfulSignInRequestId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -120,6 +122,30 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the lastSuccessfulSignInDateTime property value. The datetime of the user's most recent successful sign in activity.
+     * @return DateTime|null
+    */
+    public function getLastSuccessfulSignInDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastSuccessfulSignInDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSuccessfulSignInDateTime'");
+    }
+
+    /**
+     * Gets the lastSuccessfulSignInRequestId property value. The requestID of the last successful signIn.
+     * @return string|null
+    */
+    public function getLastSuccessfulSignInRequestId(): ?string {
+        $val = $this->getBackingStore()->get('lastSuccessfulSignInRequestId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSuccessfulSignInRequestId'");
+    }
+
+    /**
      * Gets the @odata.type property value. The OdataType property
      * @return string|null
     */
@@ -140,6 +166,8 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('lastNonInteractiveSignInRequestId', $this->getLastNonInteractiveSignInRequestId());
         $writer->writeDateTimeValue('lastSignInDateTime', $this->getLastSignInDateTime());
         $writer->writeStringValue('lastSignInRequestId', $this->getLastSignInRequestId());
+        $writer->writeDateTimeValue('lastSuccessfulSignInDateTime', $this->getLastSuccessfulSignInDateTime());
+        $writer->writeStringValue('lastSuccessfulSignInRequestId', $this->getLastSuccessfulSignInRequestId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -190,6 +218,22 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setLastSignInRequestId(?string $value): void {
         $this->getBackingStore()->set('lastSignInRequestId', $value);
+    }
+
+    /**
+     * Sets the lastSuccessfulSignInDateTime property value. The datetime of the user's most recent successful sign in activity.
+     * @param DateTime|null $value Value to set for the lastSuccessfulSignInDateTime property.
+    */
+    public function setLastSuccessfulSignInDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSuccessfulSignInDateTime', $value);
+    }
+
+    /**
+     * Sets the lastSuccessfulSignInRequestId property value. The requestID of the last successful signIn.
+     * @param string|null $value Value to set for the lastSuccessfulSignInRequestId property.
+    */
+    public function setLastSuccessfulSignInRequestId(?string $value): void {
+        $this->getBackingStore()->set('lastSuccessfulSignInRequestId', $value);
     }
 
     /**

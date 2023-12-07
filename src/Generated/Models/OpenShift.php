@@ -47,7 +47,10 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
             'draftOpenShift' => fn(ParseNode $n) => $o->setDraftOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'schedulingGroupId' => fn(ParseNode $n) => $o->setSchedulingGroupId($n->getStringValue()),
+            'schedulingGroupName' => fn(ParseNode $n) => $o->setSchedulingGroupName($n->getStringValue()),
             'sharedOpenShift' => fn(ParseNode $n) => $o->setSharedOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
+            'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
+            'teamName' => fn(ParseNode $n) => $o->setTeamName($n->getStringValue()),
         ]);
     }
 
@@ -76,6 +79,18 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Gets the schedulingGroupName property value. The schedulingGroupName property
+     * @return string|null
+    */
+    public function getSchedulingGroupName(): ?string {
+        $val = $this->getBackingStore()->get('schedulingGroupName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingGroupName'");
+    }
+
+    /**
      * Gets the sharedOpenShift property value. A published open shift.
      * @return OpenShiftItem|null
     */
@@ -85,6 +100,30 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedOpenShift'");
+    }
+
+    /**
+     * Gets the teamId property value. The teamId property
+     * @return string|null
+    */
+    public function getTeamId(): ?string {
+        $val = $this->getBackingStore()->get('teamId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamId'");
+    }
+
+    /**
+     * Gets the teamName property value. The teamName property
+     * @return string|null
+    */
+    public function getTeamName(): ?string {
+        $val = $this->getBackingStore()->get('teamName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamName'");
     }
 
     /**
@@ -124,11 +163,35 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Sets the schedulingGroupName property value. The schedulingGroupName property
+     * @param string|null $value Value to set for the schedulingGroupName property.
+    */
+    public function setSchedulingGroupName(?string $value): void {
+        $this->getBackingStore()->set('schedulingGroupName', $value);
+    }
+
+    /**
      * Sets the sharedOpenShift property value. A published open shift.
      * @param OpenShiftItem|null $value Value to set for the sharedOpenShift property.
     */
     public function setSharedOpenShift(?OpenShiftItem $value): void {
         $this->getBackingStore()->set('sharedOpenShift', $value);
+    }
+
+    /**
+     * Sets the teamId property value. The teamId property
+     * @param string|null $value Value to set for the teamId property.
+    */
+    public function setTeamId(?string $value): void {
+        $this->getBackingStore()->set('teamId', $value);
+    }
+
+    /**
+     * Sets the teamName property value. The teamName property
+     * @param string|null $value Value to set for the teamName property.
+    */
+    public function setTeamName(?string $value): void {
+        $this->getBackingStore()->set('teamName', $value);
     }
 
 }

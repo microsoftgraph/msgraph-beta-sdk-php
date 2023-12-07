@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AuditLog\AuditLogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
@@ -59,6 +60,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the auditLog property of the microsoft.graph.security entity.
+    */
+    public function auditLog(): AuditLogRequestBuilder {
+        return new AuditLogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
